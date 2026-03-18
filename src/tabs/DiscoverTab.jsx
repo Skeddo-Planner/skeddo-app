@@ -35,6 +35,27 @@ function getRegistrationStatus(program) {
   return "open";
 }
 
+/* ─── City → Neighbourhood groupings ─── */
+const CITY_NEIGHBOURHOODS = [
+  {
+    city: "Vancouver",
+    neighbourhoods: [
+      "Downtown", "Dunbar-Southlands", "Fairview", "Grandview-Woodland",
+      "Hastings-Sunrise", "Kensington-Cedar Cottage", "Kerrisdale", "Killarney",
+      "Kitsilano", "Marpole", "Mount Pleasant", "Renfrew-Collingwood",
+      "Riley Park", "Strathcona", "Sunset", "West End", "West Point Grey",
+    ],
+  },
+  { city: "North Vancouver", neighbourhoods: ["North Vancouver"] },
+  { city: "West Vancouver", neighbourhoods: ["West Vancouver"] },
+  { city: "Burnaby", neighbourhoods: ["Burnaby"] },
+  { city: "Richmond", neighbourhoods: ["Richmond"] },
+  { city: "New Westminster", neighbourhoods: ["New Westminster"] },
+  { city: "Greater Vancouver", neighbourhoods: ["Greater Vancouver"] },
+];
+
+const ALL_NEIGHBOURHOODS = CITY_NEIGHBOURHOODS.flatMap((c) => c.neighbourhoods);
+
 const COST_RANGES = [
   { label: "Any price", min: 0, max: Infinity },
   { label: "Free", min: 0, max: 0 },
@@ -270,7 +291,8 @@ export default function DiscoverTab({
   const [search, setSearch] = useState("");
   const [catFilter, setCatFilter] = useState("All");
   const [seasonFilter, setSeasonFilter] = useState("All");
-  const [neighbourhood, setNeighbourhood] = useState("All");
+  const [selectedHoods, setSelectedHoods] = useState(new Set()); // empty = all
+  const [expandedCities, setExpandedCities] = useState(new Set());
   const [ageMin, setAgeMin] = useState("");
   const [ageMax, setAgeMax] = useState("");
   const [costRange, setCostRange] = useState(0);
@@ -283,14 +305,41 @@ export default function DiscoverTab({
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
 
-  // Extract unique neighbourhoods from dataset
-  const neighbourhoods = useMemo(() => {
-    const set = new Set();
-    allDirectoryPrograms.forEach((p) => {
-      if (p.neighbourhood) set.add(p.neighbourhood);
+  // Neighbourhood helpers
+  const toggleHood = (hood) => {
+    setSelectedHoods((prev) => {
+      const next = new Set(prev);
+      if (next.has(hood)) next.delete(hood);
+      else next.add(hood);
+      setVisibleCount(PAGE_SIZE);
+      return next;
     });
-    return Array.from(set).sort();
-  }, []);
+  };
+
+  const toggleCity = (cityObj) => {
+    setSelectedHoods((prev) => {
+      const next = new Set(prev);
+      const allSelected = cityObj.neighbourhoods.every((n) => next.has(n));
+      if (allSelected) {
+        // Deselect all in this city
+        cityObj.neighbourhoods.forEach((n) => next.delete(n));
+      } else {
+        // Select all in this city
+        cityObj.neighbourhoods.forEach((n) => next.add(n));
+      }
+      setVisibleCount(PAGE_SIZE);
+      return next;
+    });
+  };
+
+  const toggleCityExpand = (city) => {
+    setExpandedCities((prev) => {
+      const next = new Set(prev);
+      if (next.has(city)) next.delete(city);
+      else next.add(city);
+      return next;
+    });
+  };
 
   // Set of already-added program names (for marking duplicates)
   const addedNames = useMemo(() => {
@@ -323,8 +372,8 @@ export default function DiscoverTab({
       if (catFilter !== "All" && p.category !== catFilter) return false;
       // Season type
       if (seasonFilter !== "All" && p.campType !== seasonFilter) return false;
-      // Neighbourhood
-      if (neighbourhood !== "All" && p.neighbourhood !== neighbourhood)
+      // Neighbourhood (multi-select: empty set = all)
+      if (selectedHoods.size > 0 && !selectedHoods.has(p.neighbourhood))
         return false;
       // Age range
       if (minAge != null && p.ageMax != null && p.ageMax < minAge) return false;
@@ -339,7 +388,7 @@ export default function DiscoverTab({
       }
       return true;
     });
-  }, [search, catFilter, seasonFilter, neighbourhood, ageMin, ageMax, costRange, showFavoritesOnly, favorites, regStatusFilter]);
+  }, [search, catFilter, seasonFilter, selectedHoods, ageMin, ageMax, costRange, showFavoritesOnly, favorites, regStatusFilter]);
 
   // Sort after filtering
   const sortedFiltered = useMemo(
@@ -676,35 +725,184 @@ export default function DiscoverTab({
             ))}
           </div>
 
-          {/* Neighbourhood dropdown */}
+          {/* Neighbourhood multi-select by city */}
           <div
             style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              color: C.muted,
-              textTransform: "uppercase",
-              letterSpacing: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: 6,
             }}
           >
-            NEIGHBOURHOOD
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              NEIGHBOURHOODS{selectedHoods.size > 0 ? ` (${selectedHoods.size} selected)` : ""}
+            </div>
+            {selectedHoods.size > 0 && (
+              <button
+                onClick={() => {
+                  setSelectedHoods(new Set());
+                  setVisibleCount(PAGE_SIZE);
+                }}
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: C.danger,
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                Clear
+              </button>
+            )}
           </div>
-          <select
-            style={{ ...s.input, marginBottom: 14 }}
-            value={neighbourhood}
-            onChange={(e) => {
-              setNeighbourhood(e.target.value);
-              setVisibleCount(PAGE_SIZE);
+          <div
+            style={{
+              background: C.cream,
+              borderRadius: 10,
+              border: `1px solid ${C.border}`,
+              marginBottom: 14,
+              overflow: "hidden",
             }}
           >
-            <option value="All">All Neighbourhoods</option>
-            {neighbourhoods.map((n) => (
-              <option key={n} value={n}>
-                {n}
-              </option>
-            ))}
-          </select>
+            {CITY_NEIGHBOURHOODS.map((cityObj) => {
+              const isExpanded = expandedCities.has(cityObj.city);
+              const selectedInCity = cityObj.neighbourhoods.filter((n) => selectedHoods.has(n)).length;
+              const allInCitySelected = selectedInCity === cityObj.neighbourhoods.length;
+              const someInCitySelected = selectedInCity > 0 && !allInCitySelected;
+
+              return (
+                <div key={cityObj.city}>
+                  {/* City header row */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "10px 12px",
+                      borderBottom: `1px solid ${C.border}`,
+                      cursor: "pointer",
+                    }}
+                    onClick={() => toggleCityExpand(cityObj.city)}
+                  >
+                    {/* Expand/collapse arrow */}
+                    <span
+                      style={{
+                        fontSize: 10,
+                        color: C.muted,
+                        transition: "transform 0.15s",
+                        transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)",
+                        display: "inline-block",
+                      }}
+                    >
+                      ▶
+                    </span>
+
+                    {/* City name */}
+                    <span
+                      style={{
+                        flex: 1,
+                        fontFamily: "'Barlow', sans-serif",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: C.ink,
+                      }}
+                    >
+                      {cityObj.city}
+                      {someInCitySelected && (
+                        <span style={{ color: C.muted, fontWeight: 400 }}>
+                          {" "}({selectedInCity}/{cityObj.neighbourhoods.length})
+                        </span>
+                      )}
+                    </span>
+
+                    {/* Select All / Deselect All button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleCity(cityObj);
+                      }}
+                      style={{
+                        fontFamily: "'Barlow', sans-serif",
+                        fontSize: 10,
+                        fontWeight: 700,
+                        color: allInCitySelected ? C.danger : C.seaGreen,
+                        background: allInCitySelected ? C.dangerBg : C.seaGreen + "12",
+                        border: "none",
+                        borderRadius: 6,
+                        padding: "3px 8px",
+                        cursor: "pointer",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {allInCitySelected ? "Deselect All" : "Select All"}
+                    </button>
+                  </div>
+
+                  {/* Expanded neighbourhood list */}
+                  {isExpanded && (
+                    <div style={{ padding: "4px 12px 4px 28px" }}>
+                      {cityObj.neighbourhoods.sort().map((hood) => {
+                        const isSelected = selectedHoods.has(hood);
+                        return (
+                          <label
+                            key={hood}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 8,
+                              padding: "6px 0",
+                              cursor: "pointer",
+                              fontFamily: "'Barlow', sans-serif",
+                              fontSize: 13,
+                              color: isSelected ? C.ink : C.muted,
+                              fontWeight: isSelected ? 600 : 400,
+                            }}
+                          >
+                            <span
+                              style={{
+                                width: 18,
+                                height: 18,
+                                borderRadius: 4,
+                                border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                                background: isSelected ? C.seaGreen : "transparent",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontSize: 11,
+                                color: C.white,
+                                flexShrink: 0,
+                                transition: "all 0.12s",
+                              }}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                toggleHood(hood);
+                              }}
+                            >
+                              {isSelected ? "✓" : ""}
+                            </span>
+                            <span onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>
+                              {hood}
+                            </span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
 
           {/* Age range */}
           <div
@@ -803,13 +1001,13 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || catFilter !== "All" || seasonFilter !== "All" || neighbourhood !== "All" || ageMin || ageMax || costRange !== 0 || showFavoritesOnly || sortBy !== "relevance" || regStatusFilter !== "All") && (
+        {(search || catFilter !== "All" || seasonFilter !== "All" || selectedHoods.size > 0 || ageMin || ageMax || costRange !== 0 || showFavoritesOnly || sortBy !== "relevance" || regStatusFilter !== "All") && (
           <button
             onClick={() => {
               setSearch("");
               setCatFilter("All");
               setSeasonFilter("All");
-              setNeighbourhood("All");
+              setSelectedHoods(new Set());
               setAgeMin("");
               setAgeMax("");
               setCostRange(0);
