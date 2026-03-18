@@ -3,6 +3,7 @@ import { C } from "./constants/brand";
 import { uid } from "./constants/sampleData";
 import { s } from "./styles/shared";
 import { useAppData, fmt$ } from "./hooks/useAppData";
+import { useAuth } from "./hooks/useAuth";
 
 import Header from "./components/Header";
 import TabBar from "./components/TabBar";
@@ -16,8 +17,77 @@ import DirectoryDetail from "./modals/DirectoryDetail";
 import ProgramForm from "./modals/ProgramForm";
 import KidForm from "./modals/KidForm";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
+import LandingPage from "./pages/LandingPage";
+import AuthPage from "./pages/AuthPage";
 
 export default function Skeddo() {
+  const { user, loading: authLoading, signOut } = useAuth();
+  const [authPage, setAuthPage] = useState("landing"); // 'landing' | 'signin' | 'signup' | 'app'
+
+  // When user becomes authenticated, switch to app view
+  useEffect(() => {
+    if (user) setAuthPage("app");
+    else setAuthPage("landing");
+  }, [user]);
+
+  /* ── Auth loading spinner ── */
+  if (authLoading) {
+    return (
+      <div style={{
+        ...s.app,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh",
+        paddingBottom: 0,
+      }}>
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+          body { background: ${C.cream}; }
+          @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        `}</style>
+        <div style={{ textAlign: "center", animation: "pulse 1.8s ease-in-out infinite" }}>
+          <img
+            src="/skeddo-logo-dark.png"
+            alt="Skeddo"
+            style={{ height: 64, width: "auto", borderRadius: 14, marginBottom: 16 }}
+          />
+          <div style={{
+            color: C.muted,
+            fontSize: 13,
+            fontFamily: "'Barlow', sans-serif",
+            fontWeight: 600,
+          }}>
+            Loading...
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ── Not authenticated — show landing or auth pages ── */
+  if (!user) {
+    if (authPage === "signin" || authPage === "signup") {
+      return (
+        <AuthPage
+          mode={authPage}
+          onNavigate={setAuthPage}
+          onAuthSuccess={() => setAuthPage("app")}
+        />
+      );
+    }
+    // Default: landing page
+    return <LandingPage onNavigate={setAuthPage} />;
+  }
+
+  /* ── Authenticated — show the app ── */
+  return <SkedDoApp onSignOut={signOut} />;
+}
+
+
+/* ── The existing app, extracted into its own component ── */
+function SkedDoApp({ onSignOut }) {
   const data = useAppData();
   const {
     programs, kids, loaded, tab, setTab, onboarded, completeOnboarding,
@@ -182,7 +252,7 @@ export default function Skeddo() {
         .progress-bar { transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
       `}</style>
 
-      <Header />
+      <Header onSignOut={onSignOut} />
 
       <main style={s.main}>
         {tab === "home" && (
