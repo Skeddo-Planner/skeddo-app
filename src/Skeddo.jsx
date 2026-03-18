@@ -19,6 +19,10 @@ import KidForm from "./modals/KidForm";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
+import ComingSoonPage from "./pages/ComingSoonPage";
+
+/* Check for ?preview=true to bypass the Coming Soon page */
+const isPreview = new URLSearchParams(window.location.search).get("preview") === "true";
 
 export default function Skeddo() {
   const { user, loading: authLoading, signOut } = useAuth();
@@ -29,6 +33,11 @@ export default function Skeddo() {
     if (user) setAuthPage("app");
     else setAuthPage("landing");
   }, [user]);
+
+  /* ── Coming Soon page for public visitors ── */
+  if (!isPreview) {
+    return <ComingSoonPage />;
+  }
 
   /* ── Auth loading spinner ── */
   if (authLoading) {
