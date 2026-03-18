@@ -2,6 +2,7 @@ import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
+import PaymentMethodSection from "../components/PaymentMethodSection";
 
 /* ─── Subscription Plans ─── */
 const PLANS = [
@@ -124,6 +125,10 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
         checked={profile.notifyWeeklySummary !== false}
         onChange={(val) => update("notifyWeeklySummary", val)}
       />
+
+      {/* ─── Payment Method Section ─── */}
+      <SectionLabel>Payment Method</SectionLabel>
+      <PaymentMethodSection />
 
       {/* ─── Subscription Section ─── */}
       <SectionLabel>Subscription</SectionLabel>
