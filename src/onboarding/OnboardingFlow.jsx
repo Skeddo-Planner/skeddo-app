@@ -10,6 +10,13 @@ export default function OnboardingFlow({ onComplete }) {
   const [kidName, setKidName] = useState("");
   const [kidAge, setKidAge] = useState("");
 
+  /* Profile fields collected during onboarding */
+  const [displayName, setDisplayName] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+
+  /* Validation state */
+  const [showErrors, setShowErrors] = useState(false);
+
   const addKid = () => {
     if (!kidName.trim()) return;
     setKids((prev) => [...prev, { id: uid(), name: kidName.trim(), age: kidAge || "" }]);
@@ -21,8 +28,22 @@ export default function OnboardingFlow({ onComplete }) {
     setKids((prev) => prev.filter((k) => k.id !== id));
   };
 
+  const handleAboutYouNext = () => {
+    if (!displayName.trim() || !postalCode.trim()) {
+      setShowErrors(true);
+      return;
+    }
+    setShowErrors(false);
+    setScreen(2);
+  };
+
   const handleComplete = () => {
-    onComplete(kids);
+    const profileData = {
+      displayName: displayName.trim(),
+      postalCode: postalCode.trim().toUpperCase(),
+      plan: "free",
+    };
+    onComplete(kids, profileData);
   };
 
   return (
@@ -41,7 +62,7 @@ export default function OnboardingFlow({ onComplete }) {
       {/* Main content area */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "40px 24px 100px" }}>
 
-        {/* ─── SCREEN 1: Welcome ─── */}
+        {/* ─── SCREEN 0: Welcome ─── */}
         {screen === 0 && (
           <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
             {/* Logo */}
@@ -108,8 +129,109 @@ export default function OnboardingFlow({ onComplete }) {
           </div>
         )}
 
-        {/* ─── SCREEN 2: Add Kids ─── */}
+        {/* ─── SCREEN 1: About You ─── */}
         {screen === 1 && (
+          <div style={{ animation: "fadeUp 0.4s ease" }}>
+            <h1
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontSize: 26,
+                color: C.ink,
+                lineHeight: 1.2,
+                marginBottom: 6,
+                textAlign: "center",
+              }}
+            >
+              Tell us about <em style={{ color: C.olive }}>you</em>
+            </h1>
+
+            <p
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 14,
+                color: C.muted,
+                textAlign: "center",
+                marginBottom: 28,
+                lineHeight: 1.5,
+              }}
+            >
+              A couple of quick details to personalize your experience.
+            </p>
+
+            {/* Display Name */}
+            <div style={{ marginBottom: 16 }}>
+              <div style={labelStyle}>
+                YOUR NAME <span style={{ color: C.danger }}>*</span>
+              </div>
+              <input
+                style={{
+                  ...s.input,
+                  ...(showErrors && !displayName.trim() ? errorBorder : {}),
+                }}
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                placeholder="e.g. Nicole"
+                autoFocus
+              />
+              {showErrors && !displayName.trim() && (
+                <div style={errorText}>Please enter your name</div>
+              )}
+            </div>
+
+            {/* Postal Code */}
+            <div style={{ marginBottom: 24 }}>
+              <div style={labelStyle}>
+                POSTAL CODE <span style={{ color: C.danger }}>*</span>
+              </div>
+              <input
+                style={{
+                  ...s.input,
+                  ...(showErrors && !postalCode.trim() ? errorBorder : {}),
+                }}
+                value={postalCode}
+                onChange={(e) => setPostalCode(e.target.value.toUpperCase())}
+                placeholder="V6B 1A1"
+                maxLength={7}
+              />
+              {showErrors && !postalCode.trim() && (
+                <div style={errorText}>Please enter your postal code</div>
+              )}
+              <div style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 11,
+                color: C.muted,
+                marginTop: 4,
+              }}>
+                This helps us show programs near you
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <div style={{ display: "flex", gap: 8 }}>
+              <button
+                style={{
+                  ...s.secondaryBtn,
+                  textAlign: "center",
+                }}
+                onClick={() => setScreen(0)}
+              >
+                Back
+              </button>
+              <button
+                style={{
+                  ...s.primaryBtn,
+                  textAlign: "center",
+                }}
+                onClick={handleAboutYouNext}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ─── SCREEN 2: Add Kids ─── */}
+        {screen === 2 && (
           <div style={{ animation: "fadeUp 0.4s ease" }}>
             <h1
               style={{
@@ -270,7 +392,7 @@ export default function OnboardingFlow({ onComplete }) {
                   ...s.secondaryBtn,
                   textAlign: "center",
                 }}
-                onClick={() => setScreen(2)}
+                onClick={() => setScreen(3)}
               >
                 Skip
               </button>
@@ -279,7 +401,7 @@ export default function OnboardingFlow({ onComplete }) {
                   ...s.primaryBtn,
                   textAlign: "center",
                 }}
-                onClick={() => setScreen(2)}
+                onClick={() => setScreen(3)}
               >
                 Next
               </button>
@@ -288,7 +410,7 @@ export default function OnboardingFlow({ onComplete }) {
         )}
 
         {/* ─── SCREEN 3: All Set ─── */}
-        {screen === 2 && (
+        {screen === 3 && (
           <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
             {/* Celebration icon */}
             <div style={{ fontSize: 48, marginBottom: 16 }}>&#9788;</div>
@@ -302,7 +424,7 @@ export default function OnboardingFlow({ onComplete }) {
                 marginBottom: 8,
               }}
             >
-              You're all set!
+              You're all set, {displayName.trim().split(" ")[0] || "there"}!
             </h1>
 
             <p
@@ -361,7 +483,7 @@ export default function OnboardingFlow({ onComplete }) {
           zIndex: 10,
         }}
       >
-        {[0, 1, 2].map((i) => (
+        {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
             style={{
@@ -395,4 +517,17 @@ const labelStyle = {
   textTransform: "uppercase",
   letterSpacing: 0.8,
   marginBottom: 4,
+};
+
+/* Error styles */
+const errorBorder = {
+  borderColor: "#C0392B",
+};
+
+const errorText = {
+  fontFamily: "'Barlow', sans-serif",
+  fontSize: 12,
+  color: "#C0392B",
+  fontWeight: 600,
+  marginTop: 4,
 };

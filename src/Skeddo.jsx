@@ -212,8 +212,11 @@ function SkedDoApp({ onSignOut, userEmail }) {
     else { setStatusFilter("All"); setCatFilter("All"); }
   };
 
-  const handleOnboardingComplete = (onboardedKids) => {
+  const handleOnboardingComplete = (onboardedKids, profileData) => {
     onboardedKids.forEach((k) => saveKid(k));
+    if (profileData) {
+      setProfile((prev) => ({ ...prev, ...profileData }));
+    }
     completeOnboarding();
   };
 

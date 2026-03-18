@@ -3,6 +3,31 @@ import { s } from "../styles/shared";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
 
+/* ─── Subscription Plans ─── */
+const PLANS = [
+  {
+    key: "free",
+    name: "Free",
+    price: null,
+    description: "All features included during early access",
+    disabled: false,
+  },
+  {
+    key: "plus",
+    name: "Skeddo+",
+    price: "$4.99/mo",
+    description: "Priority alerts, unlimited saved programs, family sharing",
+    disabled: true,
+  },
+  {
+    key: "pro",
+    name: "Skeddo Pro",
+    price: "$9.99/mo",
+    description: "Everything in Plus, plus multi-city search and provider reviews",
+    disabled: true,
+  },
+];
+
 export default function ProfileModal({ profile, setProfile, email, onSignOut, onClose }) {
   const update = (field, value) => setProfile((prev) => ({ ...prev, [field]: value }));
 
@@ -117,47 +142,85 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
 
       {/* ─── Subscription Section ─── */}
       <SectionLabel>Subscription</SectionLabel>
-      <div style={{
-        background: "#E8F5EE",
-        borderRadius: 12,
-        padding: "14px 16px",
-        border: `1px solid rgba(58,158,106,0.15)`,
-        marginBottom: 16,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div>
-            <div style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 14,
-              fontWeight: 700,
-              color: C.ink,
-            }}>
-              Free Plan
-            </div>
-            <div style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 12,
-              color: C.muted,
-              marginTop: 2,
-            }}>
-              All features included during early access
+
+      {PLANS.map((plan) => {
+        const isSelected = (profile.plan || "free") === plan.key;
+        return (
+          <div
+            key={plan.key}
+            onClick={() => !plan.disabled && update("plan", plan.key)}
+            style={{
+              background: isSelected ? "#E8F5EE" : C.white,
+              borderRadius: 12,
+              padding: "14px 16px",
+              border: isSelected
+                ? `2px solid ${C.seaGreen}`
+                : `1.5px solid ${C.border}`,
+              marginBottom: 8,
+              cursor: plan.disabled ? "default" : "pointer",
+              opacity: plan.disabled ? 0.55 : 1,
+              transition: "all 0.15s",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 14,
+                  fontWeight: 700,
+                  color: C.ink,
+                }}>
+                  {plan.name}
+                  {plan.price && (
+                    <span style={{ fontWeight: 500, color: C.muted, marginLeft: 6 }}>
+                      {plan.price}
+                    </span>
+                  )}
+                </div>
+                <div style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 12,
+                  color: C.muted,
+                  marginTop: 2,
+                }}>
+                  {plan.description}
+                </div>
+              </div>
+              {isSelected && (
+                <div style={{
+                  background: C.seaGreen,
+                  color: C.cream,
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 10,
+                  fontWeight: 700,
+                  padding: "4px 10px",
+                  borderRadius: 6,
+                  letterSpacing: 0.5,
+                  textTransform: "uppercase",
+                  flexShrink: 0,
+                  marginLeft: 10,
+                }}>
+                  Active
+                </div>
+              )}
+              {plan.disabled && !isSelected && (
+                <div style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: C.muted,
+                  textTransform: "uppercase",
+                  letterSpacing: 0.5,
+                  flexShrink: 0,
+                  marginLeft: 10,
+                }}>
+                  Coming Soon
+                </div>
+              )}
             </div>
           </div>
-          <div style={{
-            background: C.seaGreen,
-            color: C.cream,
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 10,
-            fontWeight: 700,
-            padding: "4px 10px",
-            borderRadius: 6,
-            letterSpacing: 0.5,
-            textTransform: "uppercase",
-          }}>
-            Active
-          </div>
-        </div>
-      </div>
+        );
+      })}
 
       {/* ─── Actions ─── */}
       <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
