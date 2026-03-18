@@ -16,7 +16,7 @@ export default function Header({ displayName, onOpenProfile }) {
             style={{ height: 40, width: "auto", borderRadius: 8 }}
           />
           <div>
-            <div style={s.tagline}>The summer planner for busy families</div>
+            <div style={s.tagline}>The planner for busy families</div>
           </div>
         </div>
         {onOpenProfile && (

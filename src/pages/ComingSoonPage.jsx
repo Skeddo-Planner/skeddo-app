@@ -88,7 +88,7 @@ export default function ComingSoonPage() {
             marginBottom: 40,
           }}
         >
-          The summer planner for busy families — launching April 1, 2026
+          The planner for busy families — launching April 1, 2026
         </p>
 
         {/* Countdown */}

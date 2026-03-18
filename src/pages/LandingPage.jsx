@@ -61,7 +61,7 @@ export default function LandingPage({ onNavigate }) {
             marginBottom: 12,
           }}
         >
-          The summer planner for busy families
+          The planner for busy families
         </p>
 
         <p

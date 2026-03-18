@@ -98,7 +98,7 @@ export default function OnboardingFlow({ onComplete }) {
                 marginBottom: 24,
               }}
             >
-              The summer planner for busy families
+              The planner for busy families
             </p>
 
             <p

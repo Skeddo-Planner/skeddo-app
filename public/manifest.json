@@ -1,7 +1,7 @@
 {
   "name": "Skeddo",
   "short_name": "Skeddo",
-  "description": "The summer planner for busy families",
+  "description": "The planner for busy families",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FAF8F3",
