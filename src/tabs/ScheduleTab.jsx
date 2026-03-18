@@ -58,18 +58,42 @@ function isDateInRange(date, startDate, endDate) {
   return true;
 }
 
+/* ─── Kid dot colors — distinct palette for up to 6 kids ─── */
+const KID_COLORS = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
+
+/* ─── Build a map of date → [kidId, …] for the visible month ─── */
+function buildBookingMap(programs, kids, year, month) {
+  const map = {}; // "YYYY-MM-DD" → Set<kidId|"__all__">
+  programs.forEach((p) => {
+    const dayIndices = parseDays(p.days);
+    if (dayIndices.length === 0) return;
+    // Iterate every day of the month
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(year, month, d);
+      const dow = date.getDay();
+      const calIdx = dow === 0 ? 6 : dow - 1; // Mon=0 … Sun=6
+      if (!dayIndices.includes(calIdx)) continue;
+      if (!isDateInRange(date, p.startDate, p.endDate)) continue;
+      const key = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+      if (!map[key]) map[key] = new Set();
+      const kidIds = p.kidIds || [];
+      if (kidIds.length === 0) {
+        map[key].add("__all__");
+      } else {
+        kidIds.forEach((kid) => map[key].add(kid));
+      }
+    }
+  });
+  return map;
+}
+
 /* ─── Mini Calendar ─── */
-function MiniCalendar({ currentMonday, onSelectWeek }) {
-  const monthStart = new Date(
-    currentMonday.getFullYear(),
-    currentMonday.getMonth(),
-    1
-  );
-  const monthEnd = new Date(
-    currentMonday.getFullYear(),
-    currentMonday.getMonth() + 1,
-    0
-  );
+function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
+  const year = currentMonday.getFullYear();
+  const month = currentMonday.getMonth();
+  const monthStart = new Date(year, month, 1);
+  const monthEnd = new Date(year, month + 1, 0);
   const firstDay = monthStart.getDay();
   const startOffset = firstDay === 0 ? 6 : firstDay - 1;
   const daysInMonth = monthEnd.getDate();
@@ -87,6 +111,18 @@ function MiniCalendar({ currentMonday, onSelectWeek }) {
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
+  // Build kid → color index map
+  const kidColorMap = {};
+  (kids || []).forEach((k, i) => {
+    kidColorMap[k.id] = KID_COLORS[i % KID_COLORS.length];
+  });
+
+  // Build booking map for this month
+  const bookingMap = useMemo(
+    () => buildBookingMap(programs || [], kids || [], year, month),
+    [programs, kids, year, month]
+  );
 
   return (
     <div
@@ -115,6 +151,38 @@ function MiniCalendar({ currentMonday, onSelectWeek }) {
           year: "numeric",
         })}
       </div>
+
+      {/* Legend — show kid color dots if kids exist */}
+      {kids && kids.length > 0 && (
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 10,
+          marginBottom: 6,
+          flexWrap: "wrap",
+        }}>
+          {kids.map((k, i) => (
+            <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 3 }}>
+              <div style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                background: KID_COLORS[i % KID_COLORS.length],
+                flexShrink: 0,
+              }} />
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 9,
+                fontWeight: 600,
+                color: C.muted,
+              }}>
+                {k.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div
         style={{
           display: "grid",
@@ -140,17 +208,35 @@ function MiniCalendar({ currentMonday, onSelectWeek }) {
         {weeks.flat().map((dn, i) => {
           const inMonth = dn >= 1 && dn <= daysInMonth;
           const date = inMonth
-            ? new Date(
-                currentMonday.getFullYear(),
-                currentMonday.getMonth(),
-                dn
-              )
+            ? new Date(year, month, dn)
             : null;
           const isCurrentWeek =
             date &&
             date >= currentMonday &&
             date < addDays(currentMonday, 7);
           const isToday = date && date.getTime() === today.getTime();
+
+          // Get booking dots for this date
+          const dateKey = inMonth
+            ? `${year}-${String(month + 1).padStart(2, "0")}-${String(dn).padStart(2, "0")}`
+            : null;
+          const bookedKids = dateKey ? bookingMap[dateKey] : null;
+          const dots = [];
+          if (bookedKids) {
+            if (bookedKids.has("__all__") && (!kids || kids.length === 0)) {
+              dots.push(C.seaGreen);
+            } else {
+              (kids || []).forEach((k, ki) => {
+                if (bookedKids.has(k.id) || bookedKids.has("__all__")) {
+                  dots.push(KID_COLORS[ki % KID_COLORS.length]);
+                }
+              });
+            }
+            // If no kids added but programs exist, show a single dot
+            if (dots.length === 0 && bookedKids.size > 0) {
+              dots.push(C.seaGreen);
+            }
+          }
 
           return (
             <button
@@ -176,12 +262,37 @@ function MiniCalendar({ currentMonday, onSelectWeek }) {
                   : "transparent",
                 border: "none",
                 borderRadius: 6,
-                padding: "4px 2px",
+                padding: "3px 2px 1px",
                 cursor: inMonth ? "pointer" : "default",
                 textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                minHeight: 28,
               }}
             >
-              {inMonth ? dn : ""}
+              <span>{inMonth ? dn : ""}</span>
+              {dots.length > 0 && (
+                <span style={{
+                  display: "flex",
+                  gap: 2,
+                  marginTop: 1,
+                  justifyContent: "center",
+                }}>
+                  {dots.slice(0, 4).map((color, di) => (
+                    <span
+                      key={di}
+                      style={{
+                        width: 4,
+                        height: 4,
+                        borderRadius: 2,
+                        background: isToday ? C.cream : color,
+                        flexShrink: 0,
+                      }}
+                    />
+                  ))}
+                </span>
+              )}
             </button>
           );
         })}
@@ -234,7 +345,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
 
       {/* Mini calendar for quick week jumping */}
-      <MiniCalendar currentMonday={weekStart} onSelectWeek={setWeekStart} />
+      <MiniCalendar currentMonday={weekStart} onSelectWeek={setWeekStart} programs={visiblePrograms} kids={kids} />
 
       {/* Week navigator */}
       <div
