@@ -230,7 +230,7 @@ function SkedDoApp({ onSignOut, userEmail }) {
           sked<em style={{ color: C.olive }}>do</em>
         </div>
         <div style={{ color: C.muted, fontSize: 13, fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>
-          Loading your summer...
+          Loading your planner...
         </div>
       </div>
     </div>

@@ -41,7 +41,7 @@ export default function BudgetTab({
           </>
         ) : (
           <>
-            Summer camps cost{" "}
+            Programs cost{" "}
             <em style={{ fontFamily: "'Instrument Serif', serif", color: C.olive, fontStyle: "italic" }}>
               HOW much?!
             </em>{" "}

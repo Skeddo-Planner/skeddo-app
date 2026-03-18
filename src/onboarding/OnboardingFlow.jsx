@@ -465,7 +465,7 @@ export default function OnboardingFlow({ onComplete }) {
               }}
               onClick={handleComplete}
             >
-              Start planning your summer
+              Let's start planning
             </button>
           </div>
         )}

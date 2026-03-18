@@ -8,7 +8,7 @@ import DeadlineAlert from "../components/DeadlineAlert";
 /* ─── Seasonal Tips ─── */
 const SEASONAL_TIPS = [
   {
-    text: "Registration for summer camps typically opens in February — start planning now!",
+    text: "Registration for camps typically opens in February — start planning now!",
     months: [1, 2, 3],
   },
   {
@@ -20,7 +20,7 @@ const SEASONAL_TIPS = [
     months: [1, 2, 3, 4, 5, 6],
   },
   {
-    text: "Summer's coming! Now is the perfect time to compare programs and lock in your favorites.",
+    text: "Now is the perfect time to compare programs and lock in your favorites.",
     months: [3, 4, 5],
   },
   {
@@ -237,7 +237,7 @@ export default function HomeTab({
             </>
           ) : (
             <>
-              Summer planning starts here. Browse real Vancouver programs, save
+              Planning starts here. Browse real Vancouver programs, save
               your favorites, and keep everything organized in one place.
             </>
           )}

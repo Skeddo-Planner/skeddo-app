@@ -14,7 +14,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
   const isSignUp = mode === "signup";
   const title = isSignUp ? "Create your account" : "Welcome back";
   const subtitle = isSignUp
-    ? "Start planning your summer in seconds."
+    ? "Start planning in seconds."
     : "Sign in to pick up where you left off.";
   const buttonText = isSignUp ? "Create Account" : "Sign In";
 
