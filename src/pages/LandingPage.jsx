@@ -77,41 +77,46 @@ export default function LandingPage({ onNavigate }) {
           all in one place.
         </p>
 
-        {/* CTA Buttons */}
-        <button
-          onClick={() => onNavigate("signup")}
-          style={{
-            ...s.primaryBtn,
-            display: "block",
-            padding: "14px 40px",
-            fontSize: 16,
-            borderRadius: 12,
-            width: "100%",
-            maxWidth: 300,
-            margin: "0 auto 12px",
-            textAlign: "center",
-          }}
-        >
-          Get Started
-        </button>
-
-        <button
-          onClick={() => onNavigate("signin")}
-          style={{
-            background: "none",
-            border: "none",
-            color: C.seaGreen,
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 15,
-            fontWeight: 700,
-            cursor: "pointer",
-            display: "block",
-            margin: "0 auto",
-            padding: "8px 0",
-          }}
-        >
-          I already have an account
-        </button>
+        {/* CTA — single container for both actions */}
+        <div style={{ maxWidth: 300, margin: "0 auto" }}>
+          <button
+            onClick={() => onNavigate("signup")}
+            style={{
+              ...s.primaryBtn,
+              display: "block",
+              padding: "14px 40px",
+              fontSize: 16,
+              borderRadius: 12,
+              width: "100%",
+              textAlign: "center",
+              marginBottom: 16,
+            }}
+          >
+            Get Started
+          </button>
+          <p
+            style={{
+              fontSize: 14,
+              color: C.muted,
+              textAlign: "center",
+            }}
+          >
+            Already have an account?{" "}
+            <span
+              role="button"
+              tabIndex={0}
+              onClick={() => onNavigate("signin")}
+              onKeyDown={(e) => e.key === "Enter" && onNavigate("signin")}
+              style={{
+                color: C.seaGreen,
+                fontWeight: 700,
+                cursor: "pointer",
+              }}
+            >
+              Sign In
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );
