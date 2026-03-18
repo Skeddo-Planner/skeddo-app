@@ -45,18 +45,16 @@ export default function OnboardingFlow({ onComplete }) {
         {screen === 0 && (
           <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
             {/* Logo */}
-            <div
+            <img
+              src="/skeddo-logo-dark.png"
+              alt="Skeddo"
               style={{
-                fontFamily: "'Instrument Serif', serif",
-                fontSize: 48,
-                color: C.ink,
-                letterSpacing: -1,
-                lineHeight: 1,
+                height: 64,
+                width: "auto",
+                borderRadius: 12,
                 marginBottom: 24,
               }}
-            >
-              sked<em style={{ color: C.olive, fontStyle: "italic" }}>do</em>
-            </div>
+            />
 
             <h1
               style={{

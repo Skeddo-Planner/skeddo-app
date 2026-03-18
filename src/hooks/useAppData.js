@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { STORAGE_KEY, uid, SAMPLE_PROGRAMS } from "../constants/sampleData";
+import { STORAGE_KEY, uid } from "../constants/sampleData";
 
 /* ─── CURRENCY FORMATTER ─── */
 export const fmt$ = (n) =>
@@ -36,13 +36,13 @@ export function useAppData() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const d = JSON.parse(saved);
-        setPrograms(d.programs || SAMPLE_PROGRAMS);
+        setPrograms(d.programs || []);
         setKids(d.kids || []);
       } else {
-        setPrograms(SAMPLE_PROGRAMS);
+        setPrograms([]);
       }
     } catch {
-      setPrograms(SAMPLE_PROGRAMS);
+      setPrograms([]);
     }
     setLoaded(true);
   }, []);
