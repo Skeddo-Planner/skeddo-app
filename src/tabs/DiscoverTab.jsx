@@ -5,6 +5,36 @@ import EmptyState from "../components/EmptyState";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import allDirectoryPrograms from "../data/programs.json";
 
+/* ─── Compute registration status from dates + enrollment field ─── */
+const REGISTRATION_STATUSES = [
+  { key: "open", label: "Open for Registration", color: "#3A9E6A", icon: "✓" },
+  { key: "opening-soon", label: "Opening Soon", color: "#2A5F8A", icon: "◷" },
+  { key: "full", label: "Full / Waitlist", color: "#B89A2A", icon: "●" },
+  { key: "in-progress", label: "In Progress", color: "#C87FA0", icon: "▶" },
+  { key: "completed", label: "Completed", color: "#8A9A8E", icon: "✗" },
+];
+
+function getRegistrationStatus(program) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
+  const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
+
+  // If the program has ended, it's completed
+  if (end && end < today) return "completed";
+
+  // If the program has started but not ended, it's in progress
+  if (start && start <= today) return "in-progress";
+
+  // Program hasn't started yet — check enrollment status
+  if (program.enrollmentStatus === "Full") return "full";
+  if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
+
+  // Default: open for registration
+  return "open";
+}
+
 const COST_RANGES = [
   { label: "Any price", min: 0, max: Infinity },
   { label: "Free", min: 0, max: 0 },
@@ -54,7 +84,8 @@ function sortPrograms(programs, sortKey) {
 }
 
 /* ─── Directory Card (no status, different from ProgramCard) ─── */
-function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite }) {
+function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus }) {
+  const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
   return (
     <div
       className="skeddo-card"
@@ -208,6 +239,20 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             {program.campType}
           </span>
         )}
+        {/* Registration status badge */}
+        <span
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 10,
+            fontWeight: 700,
+            background: statusInfo.color + "18",
+            color: statusInfo.color,
+            padding: "2px 8px",
+            borderRadius: 10,
+          }}
+        >
+          {statusInfo.icon} {statusInfo.label}
+        </span>
       </div>
     </div>
   );
@@ -233,6 +278,7 @@ export default function DiscoverTab({
   const [showFilters, setShowFilters] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
+  const [regStatusFilter, setRegStatusFilter] = useState("All");
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
@@ -261,6 +307,8 @@ export default function DiscoverTab({
     const maxAge = ageMax ? Number(ageMax) : null;
 
     return allDirectoryPrograms.filter((p) => {
+      // Registration status filter
+      if (regStatusFilter !== "All" && getRegistrationStatus(p) !== regStatusFilter) return false;
       // Favorites filter
       if (showFavoritesOnly && !favorites.includes(p.id)) return false;
       // Search
@@ -291,7 +339,7 @@ export default function DiscoverTab({
       }
       return true;
     });
-  }, [search, catFilter, seasonFilter, neighbourhood, ageMin, ageMax, costRange, showFavoritesOnly, favorites]);
+  }, [search, catFilter, seasonFilter, neighbourhood, ageMin, ageMax, costRange, showFavoritesOnly, favorites, regStatusFilter]);
 
   // Sort after filtering
   const sortedFiltered = useMemo(
@@ -498,6 +546,49 @@ export default function DiscoverTab({
             border: `1px solid ${C.border}`,
           }}
         >
+          {/* Registration status chips */}
+          <div
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              color: C.muted,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              marginBottom: 6,
+            }}
+          >
+            REGISTRATION STATUS
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              marginBottom: 14,
+              flexWrap: "wrap",
+            }}
+          >
+            {[{ key: "All", label: "All", color: C.seaGreen }, ...REGISTRATION_STATUSES].map((st) => (
+              <button
+                key={st.key}
+                className="chip-btn"
+                onClick={() => {
+                  setRegStatusFilter(st.key === "All" ? "All" : st.key);
+                  setVisibleCount(PAGE_SIZE);
+                }}
+                style={{
+                  ...s.filterChip,
+                  fontSize: 12,
+                  background: regStatusFilter === st.key ? (st.color || C.seaGreen) : "transparent",
+                  color: regStatusFilter === st.key ? C.cream : C.muted,
+                  borderColor: regStatusFilter === st.key ? (st.color || C.seaGreen) : C.border,
+                }}
+              >
+                {st.icon ? `${st.icon} ` : ""}{st.label}
+              </button>
+            ))}
+          </div>
+
           {/* Category chips */}
           <div
             style={{
@@ -712,7 +803,7 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || catFilter !== "All" || seasonFilter !== "All" || neighbourhood !== "All" || ageMin || ageMax || costRange !== 0 || showFavoritesOnly || sortBy !== "relevance") && (
+        {(search || catFilter !== "All" || seasonFilter !== "All" || neighbourhood !== "All" || ageMin || ageMax || costRange !== 0 || showFavoritesOnly || sortBy !== "relevance" || regStatusFilter !== "All") && (
           <button
             onClick={() => {
               setSearch("");
@@ -724,6 +815,7 @@ export default function DiscoverTab({
               setCostRange(0);
               setShowFavoritesOnly(false);
               setSortBy("relevance");
+              setRegStatusFilter("All");
               setVisibleCount(PAGE_SIZE);
             }}
             style={{
@@ -756,6 +848,7 @@ export default function DiscoverTab({
           favorited={isFavorite(p.id)}
           onToggleFavorite={toggleFavorite}
           onTap={onOpenDirectoryDetail}
+          regStatus={getRegistrationStatus(p)}
         />
       ))}
 
