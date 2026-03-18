@@ -16,6 +16,9 @@ const ONBOARDED_KEY = "skeddo-onboarded";
 /* ─── FAVORITES KEY ─── */
 const FAVORITES_KEY = "skeddo-favorites";
 
+/* ─── PROFILE KEY ─── */
+const PROFILE_KEY = "skeddo-profile";
+
 /* ─── HOOK ─── */
 export function useAppData() {
   const [programs, setPrograms] = useState([]);
@@ -38,6 +41,14 @@ export function useAppData() {
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
+    }
+  });
+  const [profile, setProfile] = useState(() => {
+    try {
+      const saved = localStorage.getItem(PROFILE_KEY);
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
     }
   });
 
@@ -79,6 +90,15 @@ export function useAppData() {
       /* storage full — silently fail */
     }
   }, [favorites]);
+
+  /* ── Persist profile ── */
+  useEffect(() => {
+    try {
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+    } catch {
+      /* storage full — silently fail */
+    }
+  }, [profile]);
 
   /* ── Favorites helpers ── */
   const toggleFavorite = useCallback((programId) => {
@@ -222,6 +242,10 @@ export function useAppData() {
     favorites,
     toggleFavorite,
     isFavorite,
+
+    // Profile
+    profile,
+    setProfile,
 
     // CRUD
     saveProgram,

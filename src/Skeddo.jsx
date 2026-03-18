@@ -16,6 +16,7 @@ import ProgramDetail from "./modals/ProgramDetail";
 import DirectoryDetail from "./modals/DirectoryDetail";
 import ProgramForm from "./modals/ProgramForm";
 import KidForm from "./modals/KidForm";
+import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
@@ -91,12 +92,12 @@ export default function Skeddo() {
   }
 
   /* ── Authenticated — show the app ── */
-  return <SkedDoApp onSignOut={signOut} />;
+  return <SkedDoApp onSignOut={signOut} userEmail={user?.email} />;
 }
 
 
 /* ── The existing app, extracted into its own component ── */
-function SkedDoApp({ onSignOut }) {
+function SkedDoApp({ onSignOut, userEmail }) {
   const data = useAppData();
   const {
     programs, kids, loaded, tab, setTab, onboarded, completeOnboarding,
@@ -105,6 +106,7 @@ function SkedDoApp({ onSignOut }) {
     totalCostEnrolled, totalCostAll, filteredPrograms,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
     favorites, toggleFavorite, isFavorite,
+    profile, setProfile,
   } = data;
 
   const [modal, setModal] = useState(null);
@@ -262,7 +264,10 @@ function SkedDoApp({ onSignOut }) {
         .progress-bar { transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
       `}</style>
 
-      <Header onSignOut={onSignOut} />
+      <Header
+        displayName={profile.displayName}
+        onOpenProfile={() => setModal({ type: "profile" })}
+      />
 
       <main style={s.main}>
         {tab === "home" && (
@@ -379,6 +384,16 @@ function SkedDoApp({ onSignOut }) {
           isEdit={modal.isEdit}
           onSave={handleSaveKid}
           onDelete={modal.isEdit ? () => handleDeleteKid(form.id) : null}
+          onClose={() => setModal(null)}
+        />
+      )}
+
+      {modal?.type === "profile" && (
+        <ProfileModal
+          profile={profile}
+          setProfile={setProfile}
+          email={userEmail}
+          onSignOut={onSignOut}
           onClose={() => setModal(null)}
         />
       )}
