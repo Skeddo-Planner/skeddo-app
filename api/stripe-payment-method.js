@@ -6,7 +6,7 @@
  */
 
 import Stripe from "stripe";
-import { verifyUser, getSupabaseAdmin, handleCors } from "./_helpers.js";
+import { verifyUser, getSupabaseClient, handleCors } from "./_helpers.js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const supabase = getSupabaseAdmin();
+  const supabase = getSupabaseClient(user._token);
 
   /* ── Look up Stripe Customer ID ── */
   const { data: profile, error: profileError } = await supabase
