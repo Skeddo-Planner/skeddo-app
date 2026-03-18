@@ -300,7 +300,7 @@ export default function DiscoverTab({
   const [showFilters, setShowFilters] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
-  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set()); // empty = all
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon"])); // default: show registrable programs
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
@@ -1095,7 +1095,7 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || selectedRegStatuses.size > 0) && (
+        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) && (
           <button
             onClick={() => {
               setSearch("");
@@ -1107,7 +1107,7 @@ export default function DiscoverTab({
               setSelectedCosts(new Set());
               setShowFavoritesOnly(false);
               setSortBy("relevance");
-              setSelectedRegStatuses(new Set());
+              setSelectedRegStatuses(new Set(["open", "opening-soon"]));
               setVisibleCount(PAGE_SIZE);
             }}
             style={{
