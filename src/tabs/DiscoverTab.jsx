@@ -289,21 +289,32 @@ export default function DiscoverTab({
   onOpenDirectoryDetail,
 }) {
   const [search, setSearch] = useState("");
-  const [catFilter, setCatFilter] = useState("All");
-  const [seasonFilter, setSeasonFilter] = useState("All");
-  const [selectedHoods, setSelectedHoods] = useState(new Set()); // empty = all
+  const [selectedCats, setSelectedCats] = useState(new Set());       // empty = all
+  const [selectedSeasons, setSelectedSeasons] = useState(new Set()); // empty = all
+  const [selectedHoods, setSelectedHoods] = useState(new Set());     // empty = all
   const [expandedCities, setExpandedCities] = useState(new Set());
   const [ageMin, setAgeMin] = useState("");
   const [ageMax, setAgeMax] = useState("");
-  const [costRange, setCostRange] = useState(0);
+  const [selectedCosts, setSelectedCosts] = useState(new Set());     // empty = all
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [showFilters, setShowFilters] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
-  const [regStatusFilter, setRegStatusFilter] = useState("All");
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set()); // empty = all
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
+
+  // Generic multi-select toggle helper
+  const toggleInSet = (setter, value) => {
+    setter((prev) => {
+      const next = new Set(prev);
+      if (next.has(value)) next.delete(value);
+      else next.add(value);
+      setVisibleCount(PAGE_SIZE);
+      return next;
+    });
+  };
 
   // Neighbourhood helpers
   const toggleHood = (hood) => {
@@ -351,13 +362,17 @@ export default function DiscoverTab({
   // Filtered results
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    const range = COST_RANGES[costRange];
     const minAge = ageMin ? Number(ageMin) : null;
     const maxAge = ageMax ? Number(ageMax) : null;
 
+    // Pre-compute selected cost ranges for matching
+    const costRanges = selectedCosts.size > 0
+      ? [...selectedCosts].map((i) => COST_RANGES[i])
+      : null;
+
     return allDirectoryPrograms.filter((p) => {
-      // Registration status filter
-      if (regStatusFilter !== "All" && getRegistrationStatus(p) !== regStatusFilter) return false;
+      // Registration status filter (multi-select)
+      if (selectedRegStatuses.size > 0 && !selectedRegStatuses.has(getRegistrationStatus(p))) return false;
       // Favorites filter
       if (showFavoritesOnly && !favorites.includes(p.id)) return false;
       // Search
@@ -368,27 +383,29 @@ export default function DiscoverTab({
           .toLowerCase();
         if (!haystack.includes(q)) return false;
       }
-      // Category
-      if (catFilter !== "All" && p.category !== catFilter) return false;
-      // Season type
-      if (seasonFilter !== "All" && p.campType !== seasonFilter) return false;
-      // Neighbourhood (multi-select: empty set = all)
+      // Category (multi-select)
+      if (selectedCats.size > 0 && !selectedCats.has(p.category)) return false;
+      // Season type (multi-select)
+      if (selectedSeasons.size > 0 && !selectedSeasons.has(p.campType)) return false;
+      // Neighbourhood (multi-select)
       if (selectedHoods.size > 0 && !selectedHoods.has(p.neighbourhood))
         return false;
       // Age range
       if (minAge != null && p.ageMax != null && p.ageMax < minAge) return false;
       if (maxAge != null && p.ageMin != null && p.ageMin > maxAge) return false;
-      // Cost range
-      if (range) {
+      // Cost range (multi-select: match ANY selected range)
+      if (costRanges) {
         const cost = p.cost || 0;
-        if (range.max === 0 && cost !== 0) return false;
-        if (range.max !== 0 && range.min > 0) {
-          if (cost < range.min || cost > range.max) return false;
-        }
+        const matchesAny = costRanges.some((range) => {
+          if (range.max === 0) return cost === 0; // "Free"
+          if (range.min === 0 && range.max === Infinity) return true; // "Any price" (shouldn't be in multi-select, but safe)
+          return cost >= range.min && cost <= range.max;
+        });
+        if (!matchesAny) return false;
       }
       return true;
     });
-  }, [search, catFilter, seasonFilter, selectedHoods, ageMin, ageMax, costRange, showFavoritesOnly, favorites, regStatusFilter]);
+  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses]);
 
   // Sort after filtering
   const sortedFiltered = useMemo(
@@ -595,19 +612,35 @@ export default function DiscoverTab({
             border: `1px solid ${C.border}`,
           }}
         >
-          {/* Registration status chips */}
+          {/* Registration status chips (multi-select) */}
           <div
             style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              color: C.muted,
-              textTransform: "uppercase",
-              letterSpacing: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: 6,
             }}
           >
-            REGISTRATION STATUS
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              REGISTRATION STATUS{selectedRegStatuses.size > 0 ? ` (${selectedRegStatuses.size})` : ""}
+            </div>
+            {selectedRegStatuses.size > 0 && (
+              <button
+                onClick={() => { setSelectedRegStatuses(new Set()); setVisibleCount(PAGE_SIZE); }}
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
           </div>
           <div
             style={{
@@ -617,40 +650,56 @@ export default function DiscoverTab({
               flexWrap: "wrap",
             }}
           >
-            {[{ key: "All", label: "All", color: C.seaGreen }, ...REGISTRATION_STATUSES].map((st) => (
-              <button
-                key={st.key}
-                className="chip-btn"
-                onClick={() => {
-                  setRegStatusFilter(st.key === "All" ? "All" : st.key);
-                  setVisibleCount(PAGE_SIZE);
-                }}
-                style={{
-                  ...s.filterChip,
-                  fontSize: 12,
-                  background: regStatusFilter === st.key ? (st.color || C.seaGreen) : "transparent",
-                  color: regStatusFilter === st.key ? C.cream : C.muted,
-                  borderColor: regStatusFilter === st.key ? (st.color || C.seaGreen) : C.border,
-                }}
-              >
-                {st.icon ? `${st.icon} ` : ""}{st.label}
-              </button>
-            ))}
+            {REGISTRATION_STATUSES.map((st) => {
+              const isActive = selectedRegStatuses.has(st.key);
+              return (
+                <button
+                  key={st.key}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedRegStatuses, st.key)}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 12,
+                    background: isActive ? st.color : "transparent",
+                    color: isActive ? C.cream : C.muted,
+                    borderColor: isActive ? st.color : C.border,
+                  }}
+                >
+                  {st.icon} {st.label}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Category chips */}
+          {/* Category chips (multi-select) */}
           <div
             style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              color: C.muted,
-              textTransform: "uppercase",
-              letterSpacing: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: 6,
             }}
           >
-            CATEGORY
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              CATEGORY{selectedCats.size > 0 ? ` (${selectedCats.size})` : ""}
+            </div>
+            {selectedCats.size > 0 && (
+              <button
+                onClick={() => { setSelectedCats(new Set()); setVisibleCount(PAGE_SIZE); }}
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
           </div>
           <div
             style={{
@@ -660,41 +709,56 @@ export default function DiscoverTab({
               flexWrap: "wrap",
             }}
           >
-            {["All", ...CATEGORIES].map((cat) => (
-              <button
-                key={cat}
-                className="chip-btn"
-                onClick={() => {
-                  setCatFilter(cat);
-                  setVisibleCount(PAGE_SIZE);
-                }}
-                style={{
-                  ...s.filterChip,
-                  fontSize: 12,
-                  background: catFilter === cat ? C.blue : "transparent",
-                  color: catFilter === cat ? C.cream : C.muted,
-                  borderColor: catFilter === cat ? C.blue : C.border,
-                }}
-              >
-                {cat !== "All" && (CAT_EMOJI[cat] || "") + " "}
-                {cat}
-              </button>
-            ))}
+            {CATEGORIES.map((cat) => {
+              const isActive = selectedCats.has(cat);
+              return (
+                <button
+                  key={cat}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedCats, cat)}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 12,
+                    background: isActive ? C.blue : "transparent",
+                    color: isActive ? C.cream : C.muted,
+                    borderColor: isActive ? C.blue : C.border,
+                  }}
+                >
+                  {(CAT_EMOJI[cat] || "") + " "}{cat}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Season type chips */}
+          {/* Season type chips (multi-select) */}
           <div
             style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              color: C.muted,
-              textTransform: "uppercase",
-              letterSpacing: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: 6,
             }}
           >
-            SEASON TYPE
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              SEASON TYPE{selectedSeasons.size > 0 ? ` (${selectedSeasons.size})` : ""}
+            </div>
+            {selectedSeasons.size > 0 && (
+              <button
+                onClick={() => { setSelectedSeasons(new Set()); setVisibleCount(PAGE_SIZE); }}
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
           </div>
           <div
             style={{
@@ -704,25 +768,25 @@ export default function DiscoverTab({
               flexWrap: "wrap",
             }}
           >
-            {["All", ...SEASON_TYPES].map((st) => (
-              <button
-                key={st}
-                className="chip-btn"
-                onClick={() => {
-                  setSeasonFilter(st);
-                  setVisibleCount(PAGE_SIZE);
-                }}
-                style={{
-                  ...s.filterChip,
-                  fontSize: 12,
-                  background: seasonFilter === st ? C.olive : "transparent",
-                  color: seasonFilter === st ? C.cream : C.muted,
-                  borderColor: seasonFilter === st ? C.olive : C.border,
-                }}
-              >
-                {st}
-              </button>
-            ))}
+            {SEASON_TYPES.map((st) => {
+              const isActive = selectedSeasons.has(st);
+              return (
+                <button
+                  key={st}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedSeasons, st)}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 12,
+                    background: isActive ? C.olive : "transparent",
+                    color: isActive ? C.cream : C.muted,
+                    borderColor: isActive ? C.olive : C.border,
+                  }}
+                >
+                  {st}
+                </button>
+              );
+            })}
           </div>
 
           {/* Neighbourhood multi-select by city */}
@@ -948,34 +1012,64 @@ export default function DiscoverTab({
             />
           </div>
 
-          {/* Cost range dropdown */}
+          {/* Cost range chips (multi-select) */}
           <div
             style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              color: C.muted,
-              textTransform: "uppercase",
-              letterSpacing: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: 6,
             }}
           >
-            COST
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              COST{selectedCosts.size > 0 ? ` (${selectedCosts.size})` : ""}
+            </div>
+            {selectedCosts.size > 0 && (
+              <button
+                onClick={() => { setSelectedCosts(new Set()); setVisibleCount(PAGE_SIZE); }}
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
           </div>
-          <select
-            style={s.input}
-            value={costRange}
-            onChange={(e) => {
-              setCostRange(Number(e.target.value));
-              setVisibleCount(PAGE_SIZE);
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              flexWrap: "wrap",
             }}
           >
-            {COST_RANGES.map((r, i) => (
-              <option key={i} value={i}>
-                {r.label}
-              </option>
-            ))}
-          </select>
+            {COST_RANGES.slice(1).map((r, i) => {
+              const idx = i + 1; // skip "Any price" (index 0)
+              const isActive = selectedCosts.has(idx);
+              return (
+                <button
+                  key={idx}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedCosts, idx)}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 12,
+                    background: isActive ? C.lilac : "transparent",
+                    color: isActive ? C.cream : C.muted,
+                    borderColor: isActive ? C.lilac : C.border,
+                  }}
+                >
+                  {r.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -1001,19 +1095,19 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || catFilter !== "All" || seasonFilter !== "All" || selectedHoods.size > 0 || ageMin || ageMax || costRange !== 0 || showFavoritesOnly || sortBy !== "relevance" || regStatusFilter !== "All") && (
+        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || selectedRegStatuses.size > 0) && (
           <button
             onClick={() => {
               setSearch("");
-              setCatFilter("All");
-              setSeasonFilter("All");
+              setSelectedCats(new Set());
+              setSelectedSeasons(new Set());
               setSelectedHoods(new Set());
               setAgeMin("");
               setAgeMax("");
-              setCostRange(0);
+              setSelectedCosts(new Set());
               setShowFavoritesOnly(false);
               setSortBy("relevance");
-              setRegStatusFilter("All");
+              setSelectedRegStatuses(new Set());
               setVisibleCount(PAGE_SIZE);
             }}
             style={{
