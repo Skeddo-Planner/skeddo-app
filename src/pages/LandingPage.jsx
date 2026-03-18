@@ -78,36 +78,40 @@ export default function LandingPage({ onNavigate }) {
         </p>
 
         {/* CTA Buttons */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 300, margin: "0 auto" }}>
-          <button
-            onClick={() => onNavigate("signup")}
-            style={{
-              ...s.primaryBtn,
-              padding: "14px 40px",
-              fontSize: 16,
-              borderRadius: 12,
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            Get Started
-          </button>
+        <button
+          onClick={() => onNavigate("signup")}
+          style={{
+            ...s.primaryBtn,
+            display: "block",
+            padding: "14px 40px",
+            fontSize: 16,
+            borderRadius: 12,
+            width: "100%",
+            maxWidth: 300,
+            margin: "0 auto 12px",
+            textAlign: "center",
+          }}
+        >
+          Get Started
+        </button>
 
-          <button
-            onClick={() => onNavigate("signin")}
-            style={{
-              ...s.secondaryBtn,
-              padding: "14px 40px",
-              fontSize: 16,
-              borderRadius: 12,
-              width: "100%",
-              textAlign: "center",
-              flex: "none",
-            }}
-          >
-            I already have an account
-          </button>
-        </div>
+        <button
+          onClick={() => onNavigate("signin")}
+          style={{
+            background: "none",
+            border: "none",
+            color: C.seaGreen,
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 15,
+            fontWeight: 700,
+            cursor: "pointer",
+            display: "block",
+            margin: "0 auto",
+            padding: "8px 0",
+          }}
+        >
+          I already have an account
+        </button>
       </div>
     </div>
   );
