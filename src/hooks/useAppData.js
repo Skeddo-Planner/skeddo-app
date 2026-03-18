@@ -28,6 +28,7 @@ export function useAppData() {
   const [statusFilter, setStatusFilter] = useState("All");
   const [catFilter, setCatFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [kidFilter, setKidFilter] = useState(null); // null = all kids, or a kid ID
   const [onboarded, setOnboarded] = useState(() => {
     try {
       return localStorage.getItem(ONBOARDED_KEY) === "true";
@@ -147,6 +148,9 @@ export function useAppData() {
 
   const filteredPrograms = useMemo(() => {
     let list = programs;
+    if (kidFilter) {
+      list = list.filter((p) => (p.kidIds || []).includes(kidFilter));
+    }
     if (statusFilter !== "All") {
       list = list.filter((p) => p.status === statusFilter);
     }
@@ -163,7 +167,7 @@ export function useAppData() {
       );
     }
     return list;
-  }, [programs, statusFilter, catFilter, searchQuery]);
+  }, [programs, kidFilter, statusFilter, catFilter, searchQuery]);
 
   /* ── CRUD: Programs ── */
   const saveProgram = useCallback((form) => {
@@ -227,6 +231,8 @@ export function useAppData() {
     setCatFilter,
     searchQuery,
     setSearchQuery,
+    kidFilter,
+    setKidFilter,
     onboarded,
     completeOnboarding,
 

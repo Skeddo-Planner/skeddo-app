@@ -2,12 +2,15 @@ import { C, CATEGORIES, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import ProgramCard from "../components/ProgramCard";
 import EmptyState from "../components/EmptyState";
+import KidFilterBar from "../components/KidFilterBar";
 
 export default function ProgramsTab({
   filteredPrograms,
   statusFilter,
   catFilter,
   kids,
+  kidFilter,
+  onKidFilter,
   onStatusFilter,
   onCatFilter,
   onOpenDetail,
@@ -34,6 +37,9 @@ export default function ProgramsTab({
           + Add
         </button>
       </div>
+
+      {/* Kid filter */}
+      <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
 
       {/* Status filter chips */}
       <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap" }}>

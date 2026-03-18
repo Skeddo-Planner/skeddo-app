@@ -190,7 +190,13 @@ function MiniCalendar({ currentMonday, onSelectWeek }) {
   );
 }
 
-export default function ScheduleTab({ programs, kids, onOpenDetail }) {
+import KidFilterBar from "../components/KidFilterBar";
+
+export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail }) {
+  /* Filter programs by kid if selected */
+  const visiblePrograms = kidFilter
+    ? programs.filter((p) => (p.kidIds || []).includes(kidFilter))
+    : programs;
   const [weekStart, setWeekStart] = useState(() => getMonday(new Date()));
 
   const weekDates = useMemo(
@@ -203,7 +209,7 @@ export default function ScheduleTab({ programs, kids, onOpenDetail }) {
 
   const scheduledByDay = useMemo(() => {
     const byDay = Array.from({ length: 7 }, () => []);
-    programs.forEach((p) => {
+    visiblePrograms.forEach((p) => {
       const dayIndices = parseDays(p.days);
       const timeRange = parseTimeRange(p.times);
       dayIndices.forEach((dayIdx) => {
@@ -216,13 +222,16 @@ export default function ScheduleTab({ programs, kids, onOpenDetail }) {
     // Sort each day by start time
     byDay.forEach((day) => day.sort((a, b) => a.timeRange.start - b.timeRange.start));
     return byDay;
-  }, [programs, weekDates]);
+  }, [visiblePrograms, weekDates]);
 
   const totalThisWeek = scheduledByDay.reduce((sum, day) => sum + day.length, 0);
 
   return (
     <div>
       <h2 style={s.pageTitle}>Schedule</h2>
+
+      {/* Kid filter */}
+      <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
 
       {/* Mini calendar for quick week jumping */}
       <MiniCalendar currentMonday={weekStart} onSelectWeek={setWeekStart} />

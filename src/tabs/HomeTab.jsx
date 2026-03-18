@@ -530,22 +530,74 @@ export default function HomeTab({
             const kidPrograms = (enrolledPrograms || []).filter(
               (p) => (p.kidIds || []).includes(k.id)
             );
+            const allKidPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms].filter(
+              (p) => (p.kidIds || []).includes(k.id)
+            );
+            const kidCost = allKidPrograms.reduce((sum, p) => sum + Number(p.cost || 0), 0);
             return (
               <div
                 key={k.id}
-                className="skeddo-card"
-                style={s.kidCard}
-                onClick={() => onEditKid && onEditKid(k)}
+                style={{
+                  ...s.kidCard,
+                  flexDirection: "column",
+                  alignItems: "stretch",
+                  gap: 0,
+                }}
               >
-                <div style={s.kidAvatar}>{k.name?.[0]?.toUpperCase() || "?"}</div>
-                <div style={{ flex: 1 }}>
-                  <div style={s.kidName}>{k.name}</div>
-                  {k.age && <div style={s.kidAge}>Age {k.age}</div>}
-                  <div style={s.kidMeta}>
-                    {kidPrograms.length} program{kidPrograms.length !== 1 && "s"} enrolled
+                {/* Top row: avatar + name + edit button */}
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}
+                  className="skeddo-card"
+                  onClick={() => onEditKid && onEditKid(k)}
+                >
+                  <div style={s.kidAvatar}>{k.name?.[0]?.toUpperCase() || "?"}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={s.kidName}>{k.name}</div>
+                    {k.age && <div style={s.kidAge}>Age {k.age}</div>}
+                    <div style={s.kidMeta}>
+                      {kidPrograms.length} enrolled · {allKidPrograms.length} total · {fmt$(kidCost)}
+                    </div>
                   </div>
+                  <div style={{ color: C.muted, fontSize: 12, fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>Edit</div>
                 </div>
-                <div style={{ color: C.muted, fontSize: 18 }}>&rsaquo;</div>
+                {/* Quick nav buttons */}
+                {allKidPrograms.length > 0 && (
+                  <div style={{
+                    display: "flex",
+                    gap: 6,
+                    marginTop: 10,
+                    paddingTop: 10,
+                    borderTop: `1px solid ${C.border}`,
+                  }}>
+                    {[
+                      { label: "Schedule", icon: "\uD83D\uDCC5", tab: "schedule" },
+                      { label: "Programs", icon: "\u25A6", tab: "programs" },
+                      { label: "Budget", icon: "$", tab: "budget" },
+                    ].map(({ label, icon, tab: t }) => (
+                      <button
+                        key={t}
+                        onClick={() => onNavigateToTab(t, null, k.id)}
+                        style={{
+                          flex: 1,
+                          fontFamily: "'Barlow', sans-serif",
+                          fontSize: 11,
+                          fontWeight: 700,
+                          color: C.seaGreen,
+                          background: `${C.seaGreen}0A`,
+                          border: `1px solid ${C.seaGreen}20`,
+                          borderRadius: 8,
+                          padding: "7px 6px",
+                          cursor: "pointer",
+                          textAlign: "center",
+                          transition: "all 0.12s",
+                        }}
+                        className="chip-btn"
+                      >
+                        {icon} {label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}

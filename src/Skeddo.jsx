@@ -102,6 +102,7 @@ function SkedDoApp({ onSignOut, userEmail }) {
   const {
     programs, kids, loaded, tab, setTab, onboarded, completeOnboarding,
     statusFilter, setStatusFilter, catFilter, setCatFilter,
+    kidFilter, setKidFilter,
     enrolledPrograms, waitlistPrograms, exploringPrograms,
     totalCostEnrolled, totalCostAll, filteredPrograms,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
@@ -206,10 +207,11 @@ function SkedDoApp({ onSignOut, userEmail }) {
     setModal(null);
   };
 
-  const handleNavigateToTab = (tabId, statusFilterVal) => {
+  const handleNavigateToTab = (tabId, statusFilterVal, kidId) => {
     setTab(tabId);
     if (statusFilterVal) setStatusFilter(statusFilterVal);
     else { setStatusFilter("All"); setCatFilter("All"); }
+    setKidFilter(kidId || null);
   };
 
   const handleOnboardingComplete = (onboardedKids, profileData) => {
@@ -306,6 +308,8 @@ function SkedDoApp({ onSignOut, userEmail }) {
           <ScheduleTab
             programs={programs}
             kids={kids}
+            kidFilter={kidFilter}
+            onKidFilter={setKidFilter}
             onOpenDetail={openDetail}
           />
         )}
@@ -316,6 +320,8 @@ function SkedDoApp({ onSignOut, userEmail }) {
             statusFilter={statusFilter}
             catFilter={catFilter}
             kids={kids}
+            kidFilter={kidFilter}
+            onKidFilter={setKidFilter}
             onStatusFilter={setStatusFilter}
             onCatFilter={setCatFilter}
             onOpenDetail={openDetail}
@@ -328,6 +334,8 @@ function SkedDoApp({ onSignOut, userEmail }) {
           <BudgetTab
             programs={programs}
             kids={kids}
+            kidFilter={kidFilter}
+            onKidFilter={setKidFilter}
             enrolledPrograms={enrolledPrograms}
             waitlistPrograms={waitlistPrograms}
             exploringPrograms={exploringPrograms}
