@@ -60,15 +60,6 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
         Email is managed through your sign-in account
       </div>
 
-      <Label>Phone Number</Label>
-      <input
-        style={s.input}
-        type="tel"
-        value={profile.phone || ""}
-        onChange={(e) => update("phone", e.target.value)}
-        placeholder="604-555-1234"
-      />
-
       <Label>Postal Code</Label>
       <input
         style={s.input}
@@ -115,12 +106,6 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
         Email notifications (coming soon)
       </div>
 
-      <ToggleRow
-        label="Waitlist alerts"
-        description="Get notified when a spot opens up"
-        checked={profile.notifyWaitlist !== false}
-        onChange={(val) => update("notifyWaitlist", val)}
-      />
       <ToggleRow
         label="Registration reminders"
         description="Reminders before registration deadlines"
