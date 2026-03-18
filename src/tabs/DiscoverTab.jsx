@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
@@ -301,9 +301,41 @@ export default function DiscoverTab({
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
   const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon"])); // default: show registrable programs
+  const [selectedProviders, setSelectedProviders] = useState(new Set());
+  const [providerSearch, setProviderSearch] = useState("");
+  const [showProviderDropdown, setShowProviderDropdown] = useState(false);
+  const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
+
+  // Compute unique providers (sorted alphabetically)
+  const allProviders = useMemo(() => {
+    return [...new Set(allDirectoryPrograms.map((p) => p.provider))].sort((a, b) =>
+      a.localeCompare(b, "en", { sensitivity: "base" })
+    );
+  }, []);
+
+  // Compute activity types available for the currently selected categories
+  const availableActivityTypes = useMemo(() => {
+    const types = new Set();
+    allDirectoryPrograms.forEach((p) => {
+      if (selectedCats.size === 0 || selectedCats.has(p.category)) {
+        if (p.activityType) types.add(p.activityType);
+      }
+    });
+    return [...types].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
+  }, [selectedCats]);
+
+  // When categories change, prune any selected activity types that are no longer available
+  useEffect(() => {
+    setSelectedActivityTypes((prev) => {
+      if (prev.size === 0) return prev;
+      const validTypes = new Set(availableActivityTypes);
+      const pruned = new Set([...prev].filter((t) => validTypes.has(t)));
+      return pruned.size === prev.size ? prev : pruned;
+    });
+  }, [availableActivityTypes]);
 
   // Generic multi-select toggle helper
   const toggleInSet = (setter, value) => {
@@ -385,6 +417,10 @@ export default function DiscoverTab({
       }
       // Category (multi-select)
       if (selectedCats.size > 0 && !selectedCats.has(p.category)) return false;
+      // Activity type (multi-select, context-aware from category)
+      if (selectedActivityTypes.size > 0 && !selectedActivityTypes.has(p.activityType)) return false;
+      // Provider (multi-select)
+      if (selectedProviders.size > 0 && !selectedProviders.has(p.provider)) return false;
       // Season type (multi-select)
       if (selectedSeasons.size > 0 && !selectedSeasons.has(p.campType)) return false;
       // Neighbourhood (multi-select)
@@ -405,7 +441,7 @@ export default function DiscoverTab({
       }
       return true;
     });
-  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses]);
+  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes]);
 
   // Sort after filtering
   const sortedFiltered = useMemo(
@@ -728,6 +764,245 @@ export default function DiscoverTab({
                 </button>
               );
             })}
+          </div>
+
+          {/* Activity type chips (context-aware from selected categories) */}
+          {availableActivityTypes.length > 0 && (
+            <>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: 6,
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "'Barlow', sans-serif",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    color: C.muted,
+                    textTransform: "uppercase",
+                    letterSpacing: 1,
+                  }}
+                >
+                  ACTIVITY TYPE{selectedActivityTypes.size > 0 ? ` (${selectedActivityTypes.size})` : ""}
+                  {selectedCats.size > 0 && (
+                    <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>
+                      {" "}&mdash; filtered by selected categories
+                    </span>
+                  )}
+                </div>
+                {selectedActivityTypes.size > 0 && (
+                  <button
+                    onClick={() => { setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }}
+                    style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 6,
+                  marginBottom: 14,
+                  flexWrap: "wrap",
+                }}
+              >
+                {availableActivityTypes.map((at) => {
+                  const isActive = selectedActivityTypes.has(at);
+                  return (
+                    <button
+                      key={at}
+                      className="chip-btn"
+                      onClick={() => toggleInSet(setSelectedActivityTypes, at)}
+                      style={{
+                        ...s.filterChip,
+                        fontSize: 12,
+                        background: isActive ? C.ink : "transparent",
+                        color: isActive ? C.cream : C.muted,
+                        borderColor: isActive ? C.ink : C.border,
+                      }}
+                    >
+                      {at}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
+
+          {/* Provider searchable multi-select */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: 6,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              PROVIDER{selectedProviders.size > 0 ? ` (${selectedProviders.size})` : ""}
+            </div>
+            {selectedProviders.size > 0 && (
+              <button
+                onClick={() => { setSelectedProviders(new Set()); setVisibleCount(PAGE_SIZE); }}
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+
+          {/* Selected providers as removable chips */}
+          {selectedProviders.size > 0 && (
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
+              {[...selectedProviders].sort().map((prov) => (
+                <button
+                  key={prov}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedProviders, prov)}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 11,
+                    background: C.seaGreen,
+                    color: C.cream,
+                    borderColor: C.seaGreen,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 4,
+                  }}
+                >
+                  {prov} <span style={{ fontSize: 13, lineHeight: 1 }}>&times;</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Provider search input + dropdown */}
+          <div style={{ position: "relative", marginBottom: 14 }}>
+            <input
+              style={{
+                ...s.input,
+                fontSize: 13,
+                paddingLeft: 32,
+              }}
+              placeholder="Search providers..."
+              value={providerSearch}
+              onChange={(e) => {
+                setProviderSearch(e.target.value);
+                setShowProviderDropdown(true);
+              }}
+              onFocus={() => setShowProviderDropdown(true)}
+              onBlur={() => setTimeout(() => setShowProviderDropdown(false), 200)}
+            />
+            <span
+              style={{
+                position: "absolute",
+                left: 10,
+                top: "50%",
+                transform: "translateY(-50%)",
+                fontSize: 14,
+                color: C.muted,
+                pointerEvents: "none",
+              }}
+            >
+              &#x1F50D;
+            </span>
+            {showProviderDropdown && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  right: 0,
+                  maxHeight: 180,
+                  overflowY: "auto",
+                  background: C.white,
+                  border: `1px solid ${C.border}`,
+                  borderRadius: 10,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                  zIndex: 20,
+                  marginTop: 4,
+                }}
+              >
+                {allProviders
+                  .filter((prov) =>
+                    prov.toLowerCase().includes(providerSearch.toLowerCase().trim())
+                  )
+                  .slice(0, 30)
+                  .map((prov) => {
+                    const isSelected = selectedProviders.has(prov);
+                    return (
+                      <div
+                        key={prov}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          toggleInSet(setSelectedProviders, prov);
+                        }}
+                        style={{
+                          padding: "8px 12px",
+                          fontFamily: "'Barlow', sans-serif",
+                          fontSize: 13,
+                          color: isSelected ? C.seaGreen : C.ink,
+                          fontWeight: isSelected ? 700 : 400,
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
+                          borderBottom: `1px solid ${C.border}`,
+                          background: isSelected ? C.seaGreen + "08" : "transparent",
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: 16,
+                            height: 16,
+                            borderRadius: 3,
+                            border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                            background: isSelected ? C.seaGreen : "transparent",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: 10,
+                            color: C.white,
+                            flexShrink: 0,
+                          }}
+                        >
+                          {isSelected ? "✓" : ""}
+                        </span>
+                        {prov}
+                      </div>
+                    );
+                  })}
+                {allProviders.filter((prov) =>
+                  prov.toLowerCase().includes(providerSearch.toLowerCase().trim())
+                ).length === 0 && (
+                  <div
+                    style={{
+                      padding: "12px",
+                      fontFamily: "'Barlow', sans-serif",
+                      fontSize: 13,
+                      color: C.muted,
+                      textAlign: "center",
+                    }}
+                  >
+                    No providers found
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Season type chips (multi-select) */}
@@ -1095,7 +1370,7 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) && (
+        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || selectedProviders.size > 0 || selectedActivityTypes.size > 0 || !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) && (
           <button
             onClick={() => {
               setSearch("");
@@ -1108,6 +1383,9 @@ export default function DiscoverTab({
               setShowFavoritesOnly(false);
               setSortBy("relevance");
               setSelectedRegStatuses(new Set(["open", "opening-soon"]));
+              setSelectedProviders(new Set());
+              setSelectedActivityTypes(new Set());
+              setProviderSearch("");
               setVisibleCount(PAGE_SIZE);
             }}
             style={{
