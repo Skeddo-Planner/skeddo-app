@@ -389,6 +389,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
               {dayPrograms.map((prog, i) => {
                 const st = STATUS_MAP[prog.status] || STATUS_MAP.Exploring;
+                const assignedKids = (prog.kidIds || [])
+                  .map((kid) => kids.find((k) => k.id === kid))
+                  .filter(Boolean);
                 return (
                   <div
                     key={prog.id + "-" + i}
@@ -430,12 +433,49 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       </div>
                       <div
                         style={{
-                          fontFamily: "'Barlow', sans-serif",
-                          fontSize: 11,
-                          color: C.muted,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 4,
+                          marginTop: 1,
                         }}
                       >
-                        {prog.times || "TBD"}
+                        <span
+                          style={{
+                            fontFamily: "'Barlow', sans-serif",
+                            fontSize: 11,
+                            color: C.muted,
+                          }}
+                        >
+                          {prog.times || "TBD"}
+                        </span>
+                        {assignedKids.length > 0 && (
+                          <>
+                            <span style={{ color: C.border, fontSize: 11 }}>·</span>
+                            {assignedKids.map((k) => (
+                              <span
+                                key={k.id}
+                                title={k.name}
+                                style={{
+                                  width: 18,
+                                  height: 18,
+                                  borderRadius: 6,
+                                  background: `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
+                                  color: C.cream,
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  fontFamily: "'Instrument Serif', serif",
+                                  fontSize: 10,
+                                  fontWeight: 400,
+                                  lineHeight: 1,
+                                  flexShrink: 0,
+                                }}
+                              >
+                                {k.name?.[0]?.toUpperCase()}
+                              </span>
+                            ))}
+                          </>
+                        )}
                       </div>
                     </div>
                     <span
