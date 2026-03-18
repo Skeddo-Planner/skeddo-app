@@ -13,6 +13,9 @@ export const fmt$ = (n) =>
 /* ─── ONBOARDING KEY ─── */
 const ONBOARDED_KEY = "skeddo-onboarded";
 
+/* ─── FAVORITES KEY ─── */
+const FAVORITES_KEY = "skeddo-favorites";
+
 /* ─── HOOK ─── */
 export function useAppData() {
   const [programs, setPrograms] = useState([]);
@@ -27,6 +30,14 @@ export function useAppData() {
       return localStorage.getItem(ONBOARDED_KEY) === "true";
     } catch {
       return false;
+    }
+  });
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const saved = localStorage.getItem(FAVORITES_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
     }
   });
 
@@ -59,6 +70,29 @@ export function useAppData() {
       /* storage full — silently fail */
     }
   }, [programs, kids, loaded]);
+
+  /* ── Persist favorites ── */
+  useEffect(() => {
+    try {
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+    } catch {
+      /* storage full — silently fail */
+    }
+  }, [favorites]);
+
+  /* ── Favorites helpers ── */
+  const toggleFavorite = useCallback((programId) => {
+    setFavorites((prev) =>
+      prev.includes(programId)
+        ? prev.filter((id) => id !== programId)
+        : [...prev, programId]
+    );
+  }, []);
+
+  const isFavorite = useCallback(
+    (programId) => favorites.includes(programId),
+    [favorites]
+  );
 
   /* ── Persist onboarded flag ── */
   const completeOnboarding = useCallback(() => {
@@ -183,6 +217,11 @@ export function useAppData() {
     totalCostEnrolled,
     totalCostAll,
     filteredPrograms,
+
+    // Favorites
+    favorites,
+    toggleFavorite,
+    isFavorite,
 
     // CRUD
     saveProgram,

@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
+import { useDataFreshness } from "../hooks/useDataFreshness";
 import allDirectoryPrograms from "../data/programs.json";
 
 const COST_RANGES = [
@@ -13,10 +14,47 @@ const COST_RANGES = [
   { label: "$500+", min: 500, max: Infinity },
 ];
 
+const SORT_OPTIONS = [
+  { key: "relevance", label: "Relevance" },
+  { key: "price-asc", label: "Price: Low to High" },
+  { key: "price-desc", label: "Price: High to Low" },
+  { key: "starting-soon", label: "Starting Soon" },
+  { key: "az", label: "A-Z" },
+];
+
 const PAGE_SIZE = 50;
 
+/* ─── Sort helper ─── */
+function sortPrograms(programs, sortKey) {
+  if (sortKey === "relevance") return programs;
+  const sorted = [...programs];
+  switch (sortKey) {
+    case "price-asc":
+      sorted.sort((a, b) => (a.cost || 0) - (b.cost || 0));
+      break;
+    case "price-desc":
+      sorted.sort((a, b) => (b.cost || 0) - (a.cost || 0));
+      break;
+    case "starting-soon":
+      sorted.sort((a, b) => {
+        const dateA = a.startDate ? new Date(a.startDate).getTime() : Infinity;
+        const dateB = b.startDate ? new Date(b.startDate).getTime() : Infinity;
+        return dateA - dateB;
+      });
+      break;
+    case "az":
+      sorted.sort((a, b) =>
+        (a.name || "").localeCompare(b.name || "", "en", { sensitivity: "base" })
+      );
+      break;
+    default:
+      break;
+  }
+  return sorted;
+}
+
 /* ─── Directory Card (no status, different from ProgramCard) ─── */
-function DirectoryCard({ program, alreadyAdded, onTap }) {
+function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite }) {
   return (
     <div
       className="skeddo-card"
@@ -27,14 +65,40 @@ function DirectoryCard({ program, alreadyAdded, onTap }) {
         marginBottom: 10,
         border: `1px solid ${C.border}`,
         cursor: "pointer",
+        position: "relative",
       }}
       onClick={() => onTap(program)}
     >
+      {/* Favorite heart button */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggleFavorite(program.id);
+        }}
+        style={{
+          position: "absolute",
+          top: 10,
+          right: 10,
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          fontSize: 20,
+          lineHeight: 1,
+          padding: 4,
+          zIndex: 2,
+          color: favorited ? C.olive : C.border,
+          transition: "color 0.15s ease, transform 0.15s ease",
+        }}
+        aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
+      >
+        {favorited ? "\u2764\uFE0F" : "\u2661"}
+      </button>
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
+          paddingRight: 28,
         }}
       >
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -152,6 +216,9 @@ function DirectoryCard({ program, alreadyAdded, onTap }) {
 export default function DiscoverTab({
   programs,
   kids,
+  favorites,
+  toggleFavorite,
+  isFavorite,
   onAddToSchedule,
   onOpenDirectoryDetail,
 }) {
@@ -164,6 +231,11 @@ export default function DiscoverTab({
   const [costRange, setCostRange] = useState(0);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [showFilters, setShowFilters] = useState(false);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [sortBy, setSortBy] = useState("relevance");
+
+  const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
+    useDataFreshness();
 
   // Extract unique neighbourhoods from dataset
   const neighbourhoods = useMemo(() => {
@@ -189,6 +261,8 @@ export default function DiscoverTab({
     const maxAge = ageMax ? Number(ageMax) : null;
 
     return allDirectoryPrograms.filter((p) => {
+      // Favorites filter
+      if (showFavoritesOnly && !favorites.includes(p.id)) return false;
       // Search
       if (q) {
         const haystack = [p.name, p.provider, p.description]
@@ -217,10 +291,16 @@ export default function DiscoverTab({
       }
       return true;
     });
-  }, [search, catFilter, seasonFilter, neighbourhood, ageMin, ageMax, costRange]);
+  }, [search, catFilter, seasonFilter, neighbourhood, ageMin, ageMax, costRange, showFavoritesOnly, favorites]);
 
-  const visiblePrograms = filtered.slice(0, visibleCount);
-  const hasMore = visibleCount < filtered.length;
+  // Sort after filtering
+  const sortedFiltered = useMemo(
+    () => sortPrograms(filtered, sortBy),
+    [filtered, sortBy]
+  );
+
+  const visiblePrograms = sortedFiltered.slice(0, visibleCount);
+  const hasMore = visibleCount < sortedFiltered.length;
 
   return (
     <div>
@@ -267,9 +347,130 @@ export default function DiscoverTab({
         />
       </div>
 
-      {/* Toggle filters */}
-      <button
-        onClick={() => setShowFilters(!showFilters)}
+      {/* Data freshness banner */}
+      <div
+        onClick={!isChecking ? checkForUpdates : undefined}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          marginBottom: 12,
+          padding: "6px 12px",
+          borderRadius: 8,
+          background: isStale ? C.olive + "12" : C.seaGreen + "0A",
+          cursor: isChecking ? "default" : "pointer",
+          transition: "all 0.2s",
+        }}
+      >
+        <span
+          style={{
+            fontSize: 13,
+            color: isStale ? C.olive : C.muted,
+            lineHeight: 1,
+            display: "inline-block",
+            animation: isChecking ? "skeddo-spin 1s linear infinite" : "none",
+          }}
+        >
+          ↻
+        </span>
+        <span
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            fontWeight: 600,
+            color: isStale ? C.olive : C.muted,
+          }}
+        >
+          {isChecking
+            ? "Checking for updates..."
+            : isStale
+              ? `Data updated: ${dataVersion} · Tap to check for updates`
+              : `Data updated: ${dataVersion} · Checked ${lastCheckedLabel}`}
+        </span>
+      </div>
+      <style>{`
+        @keyframes skeddo-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+
+      {/* Sort chips */}
+      <div style={{ marginBottom: 12 }}>
+        <div
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 10,
+            fontWeight: 700,
+            color: C.muted,
+            textTransform: "uppercase",
+            letterSpacing: 1,
+            marginBottom: 6,
+          }}
+        >
+          SORT BY
+        </div>
+        <div
+          style={{
+            display: "flex",
+            gap: 6,
+            overflowX: "auto",
+            paddingBottom: 4,
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          {SORT_OPTIONS.map((opt) => (
+            <button
+              key={opt.key}
+              className="chip-btn"
+              onClick={() => {
+                setSortBy(opt.key);
+                setVisibleCount(PAGE_SIZE);
+              }}
+              style={{
+                ...s.filterChip,
+                fontSize: 12,
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+                background: sortBy === opt.key ? C.seaGreen : "transparent",
+                color: sortBy === opt.key ? C.cream : C.muted,
+                borderColor: sortBy === opt.key ? C.seaGreen : C.border,
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Favorites chip + Toggle filters */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 12, alignItems: "center" }}>
+        <button
+          className="chip-btn"
+          onClick={() => {
+            setShowFavoritesOnly((v) => !v);
+            setVisibleCount(PAGE_SIZE);
+          }}
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 12,
+            fontWeight: 700,
+            background: showFavoritesOnly ? C.olive : "transparent",
+            color: showFavoritesOnly ? C.cream : C.muted,
+            border: `1.5px solid ${showFavoritesOnly ? C.olive : C.border}`,
+            borderRadius: 10,
+            padding: "6px 14px",
+            cursor: "pointer",
+            transition: "all 0.12s ease",
+          }}
+        >
+          {showFavoritesOnly ? "\u2764\uFE0F" : "\u2661"} Favorites
+          {favorites.length > 0 && ` (${favorites.length})`}
+        </button>
+        <button
+          onClick={() => setShowFilters(!showFilters)}
         style={{
           fontFamily: "'Barlow', sans-serif",
           fontSize: 12,
@@ -280,12 +481,12 @@ export default function DiscoverTab({
           borderRadius: 10,
           padding: "6px 14px",
           cursor: "pointer",
-          marginBottom: 12,
         }}
       >
         {showFilters ? "Hide Filters" : "Show Filters"}{" "}
         {showFilters ? "\u25B2" : "\u25BC"}
       </button>
+      </div>
 
       {showFilters && (
         <div
@@ -511,7 +712,7 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || catFilter !== "All" || seasonFilter !== "All" || neighbourhood !== "All" || ageMin || ageMax || costRange !== 0) && (
+        {(search || catFilter !== "All" || seasonFilter !== "All" || neighbourhood !== "All" || ageMin || ageMax || costRange !== 0 || showFavoritesOnly || sortBy !== "relevance") && (
           <button
             onClick={() => {
               setSearch("");
@@ -521,6 +722,8 @@ export default function DiscoverTab({
               setAgeMin("");
               setAgeMax("");
               setCostRange(0);
+              setShowFavoritesOnly(false);
+              setSortBy("relevance");
               setVisibleCount(PAGE_SIZE);
             }}
             style={{
@@ -550,6 +753,8 @@ export default function DiscoverTab({
           key={p.id}
           program={p}
           alreadyAdded={addedNames.has(p.name?.toLowerCase())}
+          favorited={isFavorite(p.id)}
+          onToggleFavorite={toggleFavorite}
           onTap={onOpenDirectoryDetail}
         />
       ))}
@@ -574,7 +779,7 @@ export default function DiscoverTab({
             transition: "all 0.15s",
           }}
         >
-          Load more ({filtered.length - visibleCount} remaining)
+          Load more ({sortedFiltered.length - visibleCount} remaining)
         </button>
       )}
     </div>

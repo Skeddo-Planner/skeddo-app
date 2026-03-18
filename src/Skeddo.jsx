@@ -95,6 +95,7 @@ function SkedDoApp({ onSignOut }) {
     enrolledPrograms, waitlistPrograms, exploringPrograms,
     totalCostEnrolled, totalCostAll, filteredPrograms,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
+    favorites, toggleFavorite, isFavorite,
   } = data;
 
   const [modal, setModal] = useState(null);
@@ -276,6 +277,9 @@ function SkedDoApp({ onSignOut }) {
           <DiscoverTab
             programs={programs}
             kids={kids}
+            favorites={favorites}
+            toggleFavorite={toggleFavorite}
+            isFavorite={isFavorite}
             onAddToSchedule={handleAddToSchedule}
             onOpenDirectoryDetail={openDirectoryDetail}
           />
