@@ -92,13 +92,13 @@ export default function Skeddo() {
   }
 
   /* ── Authenticated — show the app ── */
-  return <SkedDoApp onSignOut={signOut} userEmail={user?.email} />;
+  return <SkedDoApp onSignOut={signOut} userEmail={user?.email} userId={user?.id} />;
 }
 
 
 /* ── The existing app, extracted into its own component ── */
-function SkedDoApp({ onSignOut, userEmail }) {
-  const data = useAppData();
+function SkedDoApp({ onSignOut, userEmail, userId }) {
+  const data = useAppData(userId);
   const {
     programs, kids, loaded, tab, setTab, onboarded, completeOnboarding,
     statusFilter, setStatusFilter, catFilter, setCatFilter,
