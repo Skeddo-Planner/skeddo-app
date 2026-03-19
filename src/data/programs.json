@@ -1422,7 +1422,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1453,7 +1453,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1484,7 +1484,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1515,7 +1515,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1546,7 +1546,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1577,7 +1577,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1608,7 +1608,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -1639,7 +1639,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -3563,7 +3563,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.schoolofrock.com/locations/vancouver/music-camps",
-    "description": "Band-focused music camp — learn songs and perform live.",
+    "description": "Band-focused music camp \u2014 learn songs and perform live.",
     "tags": [
       "music",
       "band",
@@ -3595,7 +3595,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.schoolofrock.com/locations/vancouver/music-camps",
-    "description": "Band-focused music camp — learn songs and perform live.",
+    "description": "Band-focused music camp \u2014 learn songs and perform live.",
     "tags": [
       "music",
       "band",
@@ -3627,7 +3627,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.schoolofrock.com/locations/vancouver/music-camps",
-    "description": "Band-focused music camp — learn songs and perform live.",
+    "description": "Band-focused music camp \u2014 learn songs and perform live.",
     "tags": [
       "music",
       "band",
@@ -3659,7 +3659,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.schoolofrock.com/locations/vancouver/music-camps",
-    "description": "Band-focused music camp — learn songs and perform live.",
+    "description": "Band-focused music camp \u2014 learn songs and perform live.",
     "tags": [
       "music",
       "band",
@@ -3691,7 +3691,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.schoolofrock.com/locations/vancouver/music-camps",
-    "description": "Band-focused music camp — learn songs and perform live.",
+    "description": "Band-focused music camp \u2014 learn songs and perform live.",
     "tags": [
       "music",
       "band",
@@ -3723,7 +3723,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.schoolofrock.com/locations/vancouver/music-camps",
-    "description": "Band-focused music camp — learn songs and perform live.",
+    "description": "Band-focused music camp \u2014 learn songs and perform live.",
     "tags": [
       "music",
       "band",
@@ -6408,7 +6408,7 @@
       "art",
       "engineering"
     ],
-    "activityType": "Painting & Drawing"
+    "activityType": "STEM"
   },
   {
     "id": 216,
@@ -6439,7 +6439,7 @@
       "art",
       "engineering"
     ],
-    "activityType": "Painting & Drawing"
+    "activityType": "STEM"
   },
   {
     "id": 217,
@@ -6470,7 +6470,7 @@
       "art",
       "engineering"
     ],
-    "activityType": "Painting & Drawing"
+    "activityType": "STEM"
   },
   {
     "id": 218,
@@ -6501,7 +6501,7 @@
       "art",
       "engineering"
     ],
-    "activityType": "Painting & Drawing"
+    "activityType": "STEM"
   },
   {
     "id": 219,
@@ -7379,7 +7379,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7409,7 +7409,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7439,7 +7439,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7469,7 +7469,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7499,7 +7499,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7529,7 +7529,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7559,7 +7559,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7589,7 +7589,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Beginner bike riding camp — learn to ride without training wheels.",
+    "description": "Beginner bike riding camp \u2014 learn to ride without training wheels.",
     "tags": [
       "biking",
       "cycling",
@@ -7603,9 +7603,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-07-06",
     "endDate": "2026-07-10",
     "days": "Mon-Fri",
@@ -7633,9 +7633,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-07-13",
     "endDate": "2026-07-17",
     "days": "Mon-Fri",
@@ -7663,9 +7663,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-07-20",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
@@ -7693,9 +7693,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-07-27",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
@@ -7723,9 +7723,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-08-04",
     "endDate": "2026-08-07",
     "days": "Mon-Fri",
@@ -7753,9 +7753,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-08-10",
     "endDate": "2026-08-14",
     "days": "Mon-Fri",
@@ -7783,9 +7783,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-08-17",
     "endDate": "2026-08-21",
     "days": "Mon-Fri",
@@ -7813,9 +7813,9 @@
     "provider": "Pedalheads",
     "category": "Sports",
     "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 12,
+    "scheduleType": "Half Day",
+    "ageMin": 4,
+    "ageMax": 10,
     "startDate": "2026-08-24",
     "endDate": "2026-08-28",
     "days": "Mon-Fri",
@@ -10135,7 +10135,7 @@
       "swimming",
       "sports"
     ],
-    "activityType": "Swimming"
+    "activityType": "Multi-Sport"
   },
   {
     "id": 354,
@@ -10165,7 +10165,7 @@
       "swimming",
       "sports"
     ],
-    "activityType": "Swimming"
+    "activityType": "Multi-Sport"
   },
   {
     "id": 355,
@@ -10195,7 +10195,7 @@
       "swimming",
       "sports"
     ],
-    "activityType": "Swimming"
+    "activityType": "Multi-Sport"
   },
   {
     "id": 356,
@@ -10225,7 +10225,7 @@
       "swimming",
       "sports"
     ],
-    "activityType": "Swimming"
+    "activityType": "Multi-Sport"
   },
   {
     "id": 357,
@@ -13399,7 +13399,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "forest school",
       "nature",
@@ -13430,7 +13430,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "forest school",
       "nature",
@@ -13461,7 +13461,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "forest school",
       "nature",
@@ -13492,7 +13492,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "forest school",
       "nature",
@@ -13523,7 +13523,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "forest school",
       "nature",
@@ -13554,7 +13554,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, and survival skills. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "forest school",
       "nature",
@@ -15051,7 +15051,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://qwanoes.ca/summer/",
-    "description": "Overnight camp on Hornby Island — 75+ activities including water sports and outdoor adventures.",
+    "description": "Overnight camp on Hornby Island \u2014 75+ activities including water sports and outdoor adventures.",
     "tags": [
       "overnight",
       "adventure",
@@ -15082,7 +15082,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://qwanoes.ca/summer/",
-    "description": "Overnight camp on Hornby Island — 75+ activities including water sports and outdoor adventures.",
+    "description": "Overnight camp on Hornby Island \u2014 75+ activities including water sports and outdoor adventures.",
     "tags": [
       "overnight",
       "adventure",
@@ -15113,7 +15113,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://qwanoes.ca/summer/",
-    "description": "Overnight camp on Hornby Island — 75+ activities including water sports and outdoor adventures.",
+    "description": "Overnight camp on Hornby Island \u2014 75+ activities including water sports and outdoor adventures.",
     "tags": [
       "overnight",
       "adventure",
@@ -15144,7 +15144,7 @@
     "lng": null,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://qwanoes.ca/summer/",
-    "description": "Overnight camp on Hornby Island — 75+ activities including water sports and outdoor adventures.",
+    "description": "Overnight camp on Hornby Island \u2014 75+ activities including water sports and outdoor adventures.",
     "tags": [
       "overnight",
       "adventure",
@@ -41208,7 +41208,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41240,7 +41240,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41272,7 +41272,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41304,7 +41304,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41336,7 +41336,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41368,7 +41368,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41400,7 +41400,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41432,7 +41432,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41464,7 +41464,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41496,7 +41496,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41528,7 +41528,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41560,7 +41560,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "Burnaby",
     "address": "3883 Imperial St, Burnaby, BC",
     "lat": 49.2274,
     "lng": -122.9876,
@@ -41592,7 +41592,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41624,7 +41624,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41656,7 +41656,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41688,7 +41688,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41720,7 +41720,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41752,7 +41752,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41784,7 +41784,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41816,7 +41816,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41848,7 +41848,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41880,7 +41880,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41912,7 +41912,7 @@
     "endTime": "3:00 PM",
     "cost": 275,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41944,7 +41944,7 @@
     "endTime": "3:00 PM",
     "cost": 325,
     "indoorOutdoor": "Outdoor",
-    "neighbourhood": "University Endowment Lands",
+    "neighbourhood": "North Vancouver",
     "address": "600 Queens Rd W, North Vancouver, BC",
     "lat": 49.3385,
     "lng": -123.0742,
@@ -41982,7 +41982,7 @@
     "lng": -123.2583,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Explore beach and forest environments. Discover edible and medicinal plants, wildlife tracking, survival skills, and nature crafting with experienced naturalist mentors. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Explore beach and forest environments. Discover edible and medicinal plants, wildlife tracking, survival skills, and nature crafting with experienced naturalist mentors. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "ocean",
@@ -42014,7 +42014,7 @@
     "lng": -123.2583,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Explore beach and forest environments. Discover edible and medicinal plants, wildlife tracking, survival skills, and nature crafting with experienced naturalist mentors. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Explore beach and forest environments. Discover edible and medicinal plants, wildlife tracking, survival skills, and nature crafting with experienced naturalist mentors. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "ocean",
@@ -42046,7 +42046,7 @@
     "lng": -123.0824,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "preschool",
@@ -42078,7 +42078,7 @@
     "lng": -123.0824,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "preschool",
@@ -42110,7 +42110,7 @@
     "lng": -123.219,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "preschool",
@@ -42142,7 +42142,7 @@
     "lng": -123.219,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Nature camp for younger children with shorter days. Small group adventures exploring edible plants, wildlife tracking, and nature skills. Max 12 kids with 1:6 adult-to-child ratio. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "preschool",
@@ -42174,7 +42174,7 @@
     "lng": -123.2583,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Advanced camp for experienced youth. Higher-level skills including bow drill making, deepened naturalist and awareness skills. Requires previous Soaring Eagle experience. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Advanced camp for experienced youth. Higher-level skills including bow drill making, deepened naturalist and awareness skills. Requires previous Soaring Eagle experience. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "advanced",
@@ -42206,7 +42206,7 @@
     "lng": -123.11,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Advanced camp for experienced youth. Higher-level skills including bow drill making, deepened naturalist and awareness skills. Requires previous Soaring Eagle experience. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Advanced camp for experienced youth. Higher-level skills including bow drill making, deepened naturalist and awareness skills. Requires previous Soaring Eagle experience. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "advanced",
@@ -42238,7 +42238,7 @@
     "lng": -123.219,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Pacific Spirit parks. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Pacific Spirit parks. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "forest",
@@ -42270,7 +42270,7 @@
     "lng": -123.219,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Pacific Spirit parks. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Pacific Spirit parks. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "forest",
@@ -42302,7 +42302,7 @@
     "lng": -122.7932,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Coquitlam parks. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Coquitlam parks. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "forest",
@@ -42334,7 +42334,7 @@
     "lng": -123.0587,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://soaringeaglenatureschool.org/registration/",
-    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Delta parks. Note: 2026 summer pricing and times TBD — details from previous season.",
+    "description": "Curiosity-led outdoor exploration with edible plants, wildlife tracking, survival skills, and nature crafting in Delta parks. Note: 2026 summer pricing and times TBD \u2014 details from previous season.",
     "tags": [
       "nature",
       "forest",
@@ -43836,7 +43836,7 @@
   },
   {
     "id": 1439,
-    "name": "Byte Camp – Foundations in AI at Douglas Park",
+    "name": "Byte Camp \u2013 Foundations in AI at Douglas Park",
     "provider": "City of Vancouver - Douglas Park Community Centre",
     "category": "STEM",
     "campType": "Summer Camp",
@@ -43856,7 +43856,7 @@
     "lng": -123.1202,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/603792?onlineSiteId=0&from_original_cui=true",
-    "description": "Byte Camp – Foundations in AI at Douglas Park Community Centre.",
+    "description": "Byte Camp \u2013 Foundations in AI at Douglas Park Community Centre.",
     "tags": [
       "stem",
       "coding-robotics"
@@ -43867,7 +43867,7 @@
   },
   {
     "id": 1440,
-    "name": "Byte Camp – Introduction to Coding at Douglas Park",
+    "name": "Byte Camp \u2013 Introduction to Coding at Douglas Park",
     "provider": "City of Vancouver - Douglas Park Community Centre",
     "category": "STEM",
     "campType": "Summer Camp",
@@ -43887,7 +43887,7 @@
     "lng": -123.1202,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/603810?onlineSiteId=0&from_original_cui=true",
-    "description": "Byte Camp – Introduction to Coding at Douglas Park Community Centre.",
+    "description": "Byte Camp \u2013 Introduction to Coding at Douglas Park Community Centre.",
     "tags": [
       "stem",
       "coding-robotics"
@@ -58891,7 +58891,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -58923,7 +58923,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -58955,7 +58955,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -58987,7 +58987,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -59019,7 +59019,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -59051,7 +59051,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -59083,7 +59083,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -59115,7 +59115,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -59147,7 +59147,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -59179,7 +59179,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -59211,7 +59211,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -59243,7 +59243,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -59275,7 +59275,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -59306,7 +59306,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -59337,7 +59337,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -59369,7 +59369,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -59401,7 +59401,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -59433,7 +59433,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -59465,7 +59465,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -59497,7 +59497,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -59529,7 +59529,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -59561,7 +59561,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -59593,7 +59593,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -59625,7 +59625,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -59657,7 +59657,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -59689,7 +59689,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -59721,7 +59721,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -59752,7 +59752,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -59783,7 +59783,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -59815,7 +59815,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -59847,7 +59847,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -59879,7 +59879,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -59911,7 +59911,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -59943,7 +59943,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -59975,7 +59975,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -60007,7 +60007,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -60039,7 +60039,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -60071,7 +60071,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -60103,7 +60103,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -60135,7 +60135,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -60167,7 +60167,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -60198,7 +60198,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -60229,7 +60229,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -60261,7 +60261,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -60293,7 +60293,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -60325,7 +60325,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -60357,7 +60357,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -60389,7 +60389,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -60421,7 +60421,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -60453,7 +60453,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -60485,7 +60485,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -60517,7 +60517,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -60549,7 +60549,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -60581,7 +60581,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -60613,7 +60613,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -60644,7 +60644,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -60675,7 +60675,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -60707,7 +60707,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -60739,7 +60739,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -60771,7 +60771,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -60803,7 +60803,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -60835,7 +60835,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -60867,7 +60867,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -60899,7 +60899,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -60931,7 +60931,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -60963,7 +60963,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -60995,7 +60995,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -61027,7 +61027,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -61059,7 +61059,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -61090,7 +61090,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -61121,7 +61121,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -61153,7 +61153,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -61185,7 +61185,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -61217,7 +61217,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -61249,7 +61249,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -61281,7 +61281,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -61313,7 +61313,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -61345,7 +61345,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -61377,7 +61377,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -61409,7 +61409,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -61441,7 +61441,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -61473,7 +61473,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -61505,7 +61505,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -61536,7 +61536,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -61567,7 +61567,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -61599,7 +61599,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "adventure",
       "outdoor",
@@ -61631,7 +61631,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -61663,7 +61663,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "arts",
       "crafts",
@@ -61695,7 +61695,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -61727,7 +61727,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "sports",
       "active",
@@ -61759,7 +61759,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -61791,7 +61791,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "science",
       "experiments",
@@ -61823,7 +61823,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -61855,7 +61855,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "nature",
       "outdoor",
@@ -61887,7 +61887,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -61919,7 +61919,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "music",
       "instruments",
@@ -61951,7 +61951,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -61982,7 +61982,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "variety",
       "multi-activity",
@@ -62013,7 +62013,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Thompson+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Thompson Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62044,7 +62044,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+South+Arm+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at South Arm Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62075,7 +62075,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Steveston+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Steveston Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62106,7 +62106,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+City+Centre+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at City Centre Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62137,7 +62137,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+West+Richmond+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at West Richmond Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62168,7 +62168,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Cambie+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Cambie Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62199,7 +62199,7 @@
     "lng": null,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Sea+Island+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Sea Island Community Centre. Summer 2026 details and pricing TBD \u2014 check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
     "tags": [
       "preschool",
       "day camp",
@@ -62587,7 +62587,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for young athletes (born 2019-2020). Swimming, biking, running, plus outdoor games and STEAM activities. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62611,7 +62611,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for young athletes (born 2019-2020). Swimming, biking, running, plus outdoor games and STEAM activities. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62659,7 +62659,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for kids (born 2014-2018). Swimming, cycling, running with progressive training, team challenges, and neighbourhood bike trips. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62683,7 +62683,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for kids (born 2014-2018). Swimming, cycling, running with progressive training, team challenges, and neighbourhood bike trips. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62707,7 +62707,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for kids (born 2014-2018). Swimming, cycling, running with progressive training, team challenges, and neighbourhood bike trips. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62731,7 +62731,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for kids (born 2014-2018). Swimming, cycling, running with progressive training, team challenges, and neighbourhood bike trips. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62755,7 +62755,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for kids (born 2014-2018). Swimming, cycling, running with progressive training, team challenges, and neighbourhood bike trips. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62779,7 +62779,7 @@
     "city": "Vancouver",
     "address": "700 Templeton Dr, Vancouver, BC",
     "enrollmentStatus": "Full/Waitlist",
-    "spotsRemaining": "Full — waitlist available",
+    "spotsRemaining": "Full \u2014 waitlist available",
     "registrationUrl": "https://app.amilia.com/store/en/exceleration-triathlon-club/api/Program/Detail?programId=bz8d2Gx",
     "description": "Multi-sport triathlon camp for kids (born 2014-2018). Swimming, cycling, running with progressive training, team challenges, and neighbourhood bike trips. All programs start and finish at Templeton Park.",
     "season": "Summer 2026"
@@ -62869,7 +62869,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -62900,7 +62900,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -62931,7 +62931,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -62962,7 +62962,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -62993,7 +62993,7 @@
     "cost": 480,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
@@ -63024,7 +63024,7 @@
     "cost": 815,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
-    "address": "Seńáḵw/Vanier Park, Vancouver, BC",
+    "address": "Sen\u0301a\u0301\u1e35w/Vanier Park, Vancouver, BC",
     "lat": 49.2723,
     "lng": -123.1442,
     "enrollmentStatus": "Open",
