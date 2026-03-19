@@ -3882,7 +3882,7 @@
       "dance",
       "film"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 128,
@@ -3913,7 +3913,7 @@
       "dance",
       "film"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 129,
@@ -3944,7 +3944,7 @@
       "dance",
       "film"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 130,
@@ -3975,7 +3975,7 @@
       "dance",
       "film"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 131,
@@ -4005,7 +4005,7 @@
       "art",
       "dance"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 132,
@@ -4035,7 +4035,7 @@
       "art",
       "dance"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 133,
@@ -4065,7 +4065,7 @@
       "art",
       "dance"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 134,
@@ -4095,7 +4095,7 @@
       "art",
       "dance"
     ],
-    "activityType": "Dance"
+    "activityType": "Music"
   },
   {
     "id": 135,
@@ -4720,14 +4720,14 @@
     "category": "STEM",
     "campType": "Summer Camp",
     "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 14,
+    "ageMin": 4,
+    "ageMax": 6,
     "startDate": "2026-07-06",
     "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 660,
+    "cost": 300,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -4751,14 +4751,14 @@
     "category": "STEM",
     "campType": "Summer Camp",
     "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 14,
+    "ageMin": 4,
+    "ageMax": 6,
     "startDate": "2026-07-13",
     "endDate": "2026-07-17",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 660,
+    "cost": 300,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -4782,14 +4782,14 @@
     "category": "STEM",
     "campType": "Summer Camp",
     "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 14,
+    "ageMin": 4,
+    "ageMax": 6,
     "startDate": "2026-07-20",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 660,
+    "cost": 300,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -4813,14 +4813,14 @@
     "category": "STEM",
     "campType": "Summer Camp",
     "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 14,
+    "ageMin": 4,
+    "ageMax": 6,
     "startDate": "2026-07-27",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 660,
+    "cost": 300,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -4844,14 +4844,14 @@
     "category": "STEM",
     "campType": "Summer Camp",
     "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 14,
+    "ageMin": 4,
+    "ageMax": 6,
     "startDate": "2026-08-04",
     "endDate": "2026-08-07",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 528,
+    "cost": 300,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -4875,14 +4875,14 @@
     "category": "STEM",
     "campType": "Summer Camp",
     "scheduleType": "Full Day",
-    "ageMin": 7,
-    "ageMax": 14,
+    "ageMin": 4,
+    "ageMax": 6,
     "startDate": "2026-08-10",
     "endDate": "2026-08-14",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 660,
+    "cost": 300,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -5037,7 +5037,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 528,
+    "cost": 660,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Lower Lonsdale",
     "address": "730 Marine Drive, North Vancouver, BC",
@@ -15492,7 +15492,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 532,
@@ -15523,7 +15523,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 533,
@@ -15554,7 +15554,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 534,
@@ -15585,7 +15585,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 535,
@@ -15616,7 +15616,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 536,
@@ -15647,7 +15647,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 537,
@@ -15678,7 +15678,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 538,
@@ -15709,7 +15709,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 539,
