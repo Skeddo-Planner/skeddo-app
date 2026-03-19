@@ -22,12 +22,22 @@ export function useAuth() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signUp = useCallback(async (email, password) => {
+  const signUp = useCallback(async (email, password, displayName) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
     if (error) throw error;
+
+    // Notify founders about the new sign-up (fire-and-forget, don't block the user)
+    try {
+      fetch("/api/notify-signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, displayName: displayName || "" }),
+      }).catch(() => {}); // silently ignore notification failures
+    } catch {}
+
     return data;
   }, []);
 
