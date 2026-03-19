@@ -8264,434 +8264,6 @@
     "activityType": "Swimming"
   },
   {
-    "id": 271,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 272,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 273,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 274,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 275,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-08-04",
-    "endDate": "2026-08-07",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 276,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-08-10",
-    "endDate": "2026-08-14",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 277,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-08-17",
-    "endDate": "2026-08-21",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 278,
-    "name": "Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-08-24",
-    "endDate": "2026-08-28",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 200,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Soccer, basketball, hockey, baseball, and more in one camp.",
-    "tags": [
-      "multi-sport",
-      "soccer",
-      "basketball",
-      "baseball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 279,
-    "name": "Sport Specific Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 225,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Focus on one sport per week — soccer, basketball, or baseball.",
-    "tags": [
-      "sports",
-      "soccer",
-      "basketball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 280,
-    "name": "Sport Specific Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 225,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Focus on one sport per week — soccer, basketball, or baseball.",
-    "tags": [
-      "sports",
-      "soccer",
-      "basketball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 281,
-    "name": "Sport Specific Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 225,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Focus on one sport per week — soccer, basketball, or baseball.",
-    "tags": [
-      "sports",
-      "soccer",
-      "basketball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 282,
-    "name": "Sport Specific Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 225,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Focus on one sport per week — soccer, basketball, or baseball.",
-    "tags": [
-      "sports",
-      "soccer",
-      "basketball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 283,
-    "name": "Sport Specific Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-08-04",
-    "endDate": "2026-08-07",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 225,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Focus on one sport per week — soccer, basketball, or baseball.",
-    "tags": [
-      "sports",
-      "soccer",
-      "basketball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
-    "id": 284,
-    "name": "Sport Specific Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-08-10",
-    "endDate": "2026-08-14",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 225,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Focus on one sport per week — soccer, basketball, or baseball.",
-    "tags": [
-      "sports",
-      "soccer",
-      "basketball"
-    ],
-    "activityType": "Soccer"
-  },
-  {
     "id": 285,
     "name": "Baseball Camp",
     "provider": "Vancouver All Stars Baseball",
@@ -14234,262 +13806,6 @@
       "forest school",
       "nature",
       "spring break"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 469,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 470,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 471,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 472,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 473,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-08-04",
-    "endDate": "2026-08-07",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 474,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-08-10",
-    "endDate": "2026-08-14",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 475,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-08-17",
-    "endDate": "2026-08-21",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
-    ],
-    "activityType": "Nature & Outdoors"
-  },
-  {
-    "id": 476,
-    "name": "Eco-Adventure Summer Camp",
-    "provider": "Mount Seymour",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-08-24",
-    "endDate": "2026-08-28",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Seymour",
-    "address": "1700 Mt Seymour Rd, North Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://mtseymour.ca/summer/2026-summer-camps",
-    "description": "Week-long mountain adventure camps with hiking, art, and nature exploration. Bus shuttles from East Van, Burnaby, North Van.",
-    "tags": [
-      "mountain",
-      "hiking",
-      "nature",
-      "eco",
-      "adventure"
     ],
     "activityType": "Nature & Outdoors"
   },
@@ -20994,64 +20310,6 @@
       "spring break"
     ],
     "activityType": "Dance"
-  },
-  {
-    "id": 689,
-    "name": "Spring Break Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Spring Break",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-03-16",
-    "endDate": "2026-03-20",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 175,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Spring break multi-sport camp.",
-    "tags": [
-      "multi-sport",
-      "spring break"
-    ],
-    "activityType": "Multi-Sport"
-  },
-  {
-    "id": 690,
-    "name": "Spring Break Multi-Sport Camp",
-    "provider": "SportBall",
-    "category": "Sports",
-    "campType": "Spring Break",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 12,
-    "startDate": "2026-03-23",
-    "endDate": "2026-03-27",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 175,
-    "indoorOutdoor": "Both",
-    "neighbourhood": "Hastings-Sunrise",
-    "address": "Various community centres, Vancouver, BC",
-    "lat": null,
-    "lng": null,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://sportball.com/location/sportball-vancouver/camps/",
-    "description": "Spring break multi-sport camp.",
-    "tags": [
-      "multi-sport",
-      "spring break"
-    ],
-    "activityType": "Multi-Sport"
   },
   {
     "id": 691,
@@ -36926,7 +36184,7 @@
       "crafts",
       "science"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1189,
@@ -36958,7 +36216,7 @@
       "crafts",
       "science"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1190,
@@ -36990,7 +36248,7 @@
       "crafts",
       "art"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1191,
@@ -37022,7 +36280,7 @@
       "crafts",
       "art"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1192,
@@ -37054,7 +36312,7 @@
       "crafts",
       "nature"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1193,
@@ -37086,7 +36344,7 @@
       "crafts",
       "nature"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1194,
@@ -37118,7 +36376,7 @@
       "crafts",
       "heroes"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1195,
@@ -37150,7 +36408,7 @@
       "crafts",
       "heroes"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1196,
@@ -37182,7 +36440,7 @@
       "crafts",
       "top chef"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1197,
@@ -37214,7 +36472,7 @@
       "crafts",
       "top chef"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1198,
@@ -37246,7 +36504,7 @@
       "crafts",
       "animals"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1199,
@@ -37278,7 +36536,7 @@
       "crafts",
       "animals"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1200,
@@ -37310,7 +36568,7 @@
       "crafts",
       "olympics"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1201,
@@ -37342,7 +36600,7 @@
       "crafts",
       "olympics"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1202,
@@ -37374,7 +36632,7 @@
       "crafts",
       "transportation"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1203,
@@ -37406,7 +36664,7 @@
       "crafts",
       "transportation"
     ],
-    "activityType": "Dance"
+    "activityType": "General"
   },
   {
     "id": 1204,
