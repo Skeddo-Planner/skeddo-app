@@ -319,34 +319,13 @@ export default function DiscoverTab({
   onAddToSchedule,
   onOpenDirectoryDetail,
 }) {
-  /* ─── Fetch programs from Supabase (with JSON fallback) ─── */
-  const [allDirectoryPrograms, setAllDirectoryPrograms] = useState(fallbackPrograms);
-  const [isLoadingPrograms, setIsLoadingPrograms] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function fetchFromSupabase() {
-      try {
-        const { data, error } = await supabase
-          .from("directory_programs")
-          .select("*")
-          .order("id", { ascending: true });
-
-        if (error) throw error;
-        if (!cancelled && data && data.length > 0) {
-          setAllDirectoryPrograms(data.map(dbRowToCamelCase));
-        }
-        // If Supabase returns empty, keep the fallback JSON data
-      } catch (err) {
-        console.warn("Supabase fetch failed, using local programs.json fallback:", err.message);
-        // Keep fallbackPrograms (already set as default)
-      } finally {
-        if (!cancelled) setIsLoadingPrograms(false);
-      }
-    }
-    fetchFromSupabase();
-    return () => { cancelled = true; };
-  }, []);
+  /* ─── Use programs.json as the single source of truth ─── */
+  /* programs.json is always up-to-date (deployed with the code) and includes
+     centre names in titles, corrected URLs, and neighbourhood data.
+     Supabase directory_programs can be re-enabled later when an auto-sync
+     pipeline keeps it in sync with programs.json on every deploy. */
+  const allDirectoryPrograms = fallbackPrograms;
+  const isLoadingPrograms = false;
 
   const [search, setSearch] = useState("");
   const [selectedCats, setSelectedCats] = useState(new Set());       // empty = all
