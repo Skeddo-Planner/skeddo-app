@@ -1,15 +1,6 @@
 import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
-import { fmt$ } from "../hooks/useAppData";
-
-/** Format a date string as "Jun 2" */
-function fmtShortDate(dateStr) {
-  if (!dateStr) return null;
-  const d = new Date(dateStr);
-  if (isNaN(d)) return null;
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  return `${months[d.getMonth()]} ${d.getDate()}`;
-}
+import { fmt$, fmtShortDate } from "../utils/helpers";
 
 /** Status -> left border color */
 const STATUS_BORDER = {

@@ -2,38 +2,13 @@ import { useState } from "react";
 import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
+import {
+  fmtDate, fmt$,
+  REGISTRATION_STATUSES, getRegistrationStatus,
+  isMunicipalProvider,
+} from "../utils/helpers";
 
-/** Format "2026-07-06" as "Jul 6, 2026" */
-function fmtDate(dateStr) {
-  if (!dateStr) return null;
-  const d = new Date(dateStr + "T00:00:00");
-  if (isNaN(d)) return dateStr;
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
-}
-
-/* ─── Registration status (same logic as DiscoverTab) ─── */
-const REGISTRATION_STATUSES = [
-  { key: "open", label: "Open", color: "#3A9E6A", icon: "●" },
-  { key: "opening-soon", label: "Opening Soon", color: "#2A5F8A", icon: "◷" },
-  { key: "full", label: "Full / Waitlist", color: "#B89A2A", icon: "●" },
-  { key: "in-progress", label: "In Progress", color: "#C87FA0", icon: "▶" },
-  { key: "completed", label: "Completed", color: "#8A9A8E", icon: "✗" },
-];
-
-function getRegistrationStatus(program) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
-  const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
-  if (end && end < today) return "completed";
-  if (start && start <= today) return "in-progress";
-  if (program.enrollmentStatus === "Full") return "full";
-  if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
-  return "open";
-}
-
-export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, fmt$ }) {
+export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const regStatus = getRegistrationStatus(p);
@@ -52,10 +27,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   );
 
   // Determine if this is a private provider (non-municipal)
-  const MUNICIPAL_PREFIXES = ["City of Vancouver", "City of Burnaby", "NVRC", "North Vancouver Recreation",
-    "City of Richmond", "Richmond Olympic", "District of West Vancouver", "City of New Westminster"];
-  const isMunicipal = MUNICIPAL_PREFIXES.some((m) => (p.provider || "").includes(m));
-  const isApproxPrice = !isMunicipal && typeof p.cost === "number" && p.cost > 0;
+  const isApproxPrice = !isMunicipalProvider(p.provider) && typeof p.cost === "number" && p.cost > 0;
 
   const toggleKid = (kidId) => {
     setSelectedKidIds((prev) =>

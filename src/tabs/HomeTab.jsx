@@ -4,6 +4,7 @@ import { s } from "../styles/shared";
 import ProgramCard from "../components/ProgramCard";
 import EmptyState from "../components/EmptyState";
 import DeadlineAlert from "../components/DeadlineAlert";
+import { fmt$, TIP_DISMISS_DURATION_MS } from "../utils/helpers";
 
 /* ─── Seasonal Tips ─── */
 const SEASONAL_TIPS = [
@@ -99,7 +100,6 @@ export default function HomeTab({
   exploringPrograms,
   totalCostEnrolled,
   kids,
-  fmt$,
   onOpenDetail,
   onCycleStatus,
   onNavigateToTab,
@@ -114,7 +114,7 @@ export default function HomeTab({
       if (!stored) return false;
       const { date } = JSON.parse(stored);
       // Reset after 24 hours so tips cycle daily
-      return date && (Date.now() - date) < 24 * 60 * 60 * 1000;
+      return date && (Date.now() - date) < TIP_DISMISS_DURATION_MS;
     } catch { return false; }
   });
 

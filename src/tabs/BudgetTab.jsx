@@ -1,6 +1,7 @@
 import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
+import { fmt$ } from "../utils/helpers";
 
 export default function BudgetTab({
   programs,
@@ -12,7 +13,6 @@ export default function BudgetTab({
   exploringPrograms,
   totalCostEnrolled,
   totalCostAll,
-  fmt$,
   budgetGoal,
 }) {
   /* Filter all program lists by kid if selected */

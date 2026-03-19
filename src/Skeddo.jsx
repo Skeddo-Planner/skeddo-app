@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { C } from "./constants/brand";
 import { uid } from "./constants/sampleData";
 import { s } from "./styles/shared";
-import { useAppData, fmt$ } from "./hooks/useAppData";
+import { useAppData } from "./hooks/useAppData";
 import { useAuth } from "./hooks/useAuth";
 
 import Header from "./components/Header";
@@ -297,7 +297,6 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             exploringPrograms={exploringPrograms}
             totalCostEnrolled={totalCostEnrolled}
             kids={kids}
-            fmt$={fmt$}
             onOpenDetail={openDetail}
             onCycleStatus={cycleStatus}
             onNavigateToTab={handleNavigateToTab}
@@ -359,7 +358,6 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             exploringPrograms={exploringPrograms}
             totalCostEnrolled={totalCostEnrolled}
             totalCostAll={totalCostAll}
-            fmt$={fmt$}
             budgetGoal={Number(profile.budgetGoal) || 0}
           />
         )}
@@ -381,7 +379,6 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             onEdit={() => openEditProgram(currentProgram)}
             onDelete={() => handleDeleteProgram(currentProgram.id)}
             onClose={() => setModal(null)}
-            fmt$={fmt$}
           />
         );
       })()}
@@ -393,7 +390,6 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           kids={kids}
           onAddToSchedule={handleAddToSchedule}
           onClose={() => setModal(null)}
-          fmt$={fmt$}
         />
       )}
 

@@ -2,69 +2,17 @@ import { useState, useMemo, useEffect } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
+import { SkeletonList } from "../components/SkeletonCard";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import { supabase } from "../lib/supabase";
 import fallbackPrograms from "../data/programs.json";
-
-/* ─── Transform snake_case DB rows to camelCase for the app ─── */
-function dbRowToCamelCase(row) {
-  return {
-    id: row.id,
-    name: row.name,
-    provider: row.provider,
-    category: row.category,
-    campType: row.camp_type,
-    scheduleType: row.schedule_type,
-    ageMin: row.age_min,
-    ageMax: row.age_max,
-    startDate: row.start_date,
-    endDate: row.end_date,
-    days: row.days,
-    startTime: row.start_time,
-    endTime: row.end_time,
-    cost: row.cost,
-    indoorOutdoor: row.indoor_outdoor,
-    neighbourhood: row.neighbourhood,
-    address: row.address,
-    lat: row.lat,
-    lng: row.lng,
-    enrollmentStatus: row.enrollment_status,
-    registrationUrl: row.registration_url,
-    description: row.description,
-    tags: row.tags,
-    activityType: row.activity_type,
-  };
-}
-
-/* ─── Compute registration status from dates + enrollment field ─── */
-const REGISTRATION_STATUSES = [
-  { key: "open", label: "Open for Registration", color: "#3A9E6A", icon: "✓" },
-  { key: "opening-soon", label: "Opening Soon", color: "#2A5F8A", icon: "◷" },
-  { key: "full", label: "Full / Waitlist", color: "#B89A2A", icon: "●" },
-  { key: "in-progress", label: "In Progress", color: "#C87FA0", icon: "▶" },
-  { key: "completed", label: "Completed", color: "#8A9A8E", icon: "✗" },
-];
-
-function getRegistrationStatus(program) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
-  const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
-
-  // If the program has ended, it's completed
-  if (end && end < today) return "completed";
-
-  // If the program has started but not ended, it's in progress
-  if (start && start <= today) return "in-progress";
-
-  // Program hasn't started yet — check enrollment status
-  if (program.enrollmentStatus === "Full") return "full";
-  if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
-
-  // Default: open for registration
-  return "open";
-}
+import {
+  REGISTRATION_STATUSES,
+  getRegistrationStatus,
+  isMunicipalProvider,
+  sortPrograms,
+  PAGE_SIZE,
+} from "../utils/helpers";
 
 /* ─── City → Neighbourhood groupings ─── */
 const CITY_NEIGHBOURHOODS = [
@@ -141,53 +89,10 @@ const SORT_OPTIONS = [
   { key: "az", label: "A-Z" },
 ];
 
-const PAGE_SIZE = 50;
-
-/* ─── Sort helper ─── */
-function sortPrograms(programs, sortKey) {
-  if (sortKey === "relevance") return programs;
-  const sorted = [...programs];
-  switch (sortKey) {
-    case "price-asc":
-      sorted.sort((a, b) => {
-        const ca = typeof a.cost === "number" ? a.cost : Infinity;
-        const cb = typeof b.cost === "number" ? b.cost : Infinity;
-        return ca - cb;
-      });
-      break;
-    case "price-desc":
-      sorted.sort((a, b) => {
-        const ca = typeof a.cost === "number" ? a.cost : -1;
-        const cb = typeof b.cost === "number" ? b.cost : -1;
-        return cb - ca;
-      });
-      break;
-    case "starting-soon":
-      sorted.sort((a, b) => {
-        const dateA = a.startDate ? new Date(a.startDate).getTime() : Infinity;
-        const dateB = b.startDate ? new Date(b.startDate).getTime() : Infinity;
-        return dateA - dateB;
-      });
-      break;
-    case "az":
-      sorted.sort((a, b) =>
-        (a.name || "").localeCompare(b.name || "", "en", { sensitivity: "base" })
-      );
-      break;
-    default:
-      break;
-  }
-  return sorted;
-}
-
 /* ─── Directory Card (no status, different from ProgramCard) ─── */
-const MUNICIPAL_PREFIXES = ["City of Vancouver", "City of Burnaby", "NVRC", "North Vancouver Recreation",
-  "City of Richmond", "Richmond Olympic", "District of West Vancouver", "City of New Westminster"];
-
 function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus }) {
   const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
-  const isMunicipal = MUNICIPAL_PREFIXES.some((m) => (program.provider || "").includes(m));
-  const isApprox = !isMunicipal && typeof program.cost === "number" && program.cost > 0;
+  const isApprox = !isMunicipalProvider(program.provider) && typeof program.cost === "number" && program.cost > 0;
   return (
     <div
       className="skeddo-card"
@@ -1528,13 +1433,14 @@ export default function DiscoverTab({
       </div>
 
       {/* Program cards */}
-      {filtered.length === 0 && (
+      {isLoadingPrograms && <SkeletonList count={6} />}
+      {!isLoadingPrograms && filtered.length === 0 && (
         <EmptyState
           icon={"\uD83D\uDD0D"}
           message="No programs match your search. Try broadening your filters."
         />
       )}
-      {visiblePrograms.map((p) => (
+      {!isLoadingPrograms && visiblePrograms.map((p) => (
         <DirectoryCard
           key={p.id}
           program={p}
