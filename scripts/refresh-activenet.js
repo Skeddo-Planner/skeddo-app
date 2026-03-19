@@ -296,6 +296,107 @@ async function fetchActivities(centreId, keyword, cookies) {
 }
 
 /**
+ * Fetch real price for an activity from ActiveNet's estimateprice endpoint.
+ * Checks both formats: prices[] array (detailed fee) and estimate_price string (simple fee).
+ * Returns the price as a number, or 0 if not available.
+ */
+async function fetchActivityPrice(activityId, cookies) {
+  const url = `${ACTIVENET_BASE}/rest/activity/detail/estimateprice/${activityId}?locale=en-US`;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "Skeddo/1.0 (skeddo.ca; program refresh)",
+        ...(cookies ? { Cookie: cookies } : {}),
+      },
+    });
+    if (!res.ok) return 0;
+    const data = await res.json();
+    const ep = data?.body || {};
+
+    // Method 1: prices array (detailed fee)
+    if (ep.prices && ep.prices.length > 0) {
+      for (const detail of ep.prices[0]?.details || []) {
+        if (detail.price && detail.price.startsWith("$")) {
+          const price = parseFloat(detail.price.replace("$", "").replace(",", ""));
+          if (price > 0) return price;
+        }
+      }
+    }
+
+    // Method 2: estimate_price string (simple fee)
+    if (ep.estimate_price && ep.estimate_price.startsWith("$")) {
+      const price = parseFloat(ep.estimate_price.replace("$", "").replace(",", ""));
+      if (price > 0) return price;
+    }
+
+    return 0;
+  } catch {
+    return 0;
+  }
+}
+
+/**
+ * Fetch real age range and enrollment info from ActiveNet's detail endpoint.
+ * Returns { ageMin, ageMax, spotsAvailable, showPriceOnline } or nulls on failure.
+ */
+async function fetchActivityDetail(activityId, cookies) {
+  const url = `${ACTIVENET_BASE}/rest/activity/detail/${activityId}?locale=en-US`;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "Skeddo/1.0 (skeddo.ca; program refresh)",
+        ...(cookies ? { Cookie: cookies } : {}),
+      },
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const detail = data?.body?.detail || {};
+
+    return {
+      ageMin: detail.age_min_year ?? null,
+      ageMax: detail.age_max_year ?? null,
+      spotsAvailable: detail.spots_available ?? null,
+      isFull: detail.is_sold_out === true,
+      registrationStartDate: detail.registration_start_date ?? null,
+      showPriceOnline: detail.show_price_info_online ?? true,
+    };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Determine enrollment status from detail info.
+ */
+function determineEnrollmentStatus(detail, startDate) {
+  if (!detail) return "Open";
+
+  if (detail.isFull) return "Full/Waitlist";
+
+  // Check if registration hasn't opened yet
+  if (detail.registrationStartDate) {
+    const regDate = new Date(detail.registrationStartDate);
+    if (regDate > new Date()) return "Opening Soon";
+  }
+
+  // Check if program has already started
+  if (startDate) {
+    const start = new Date(startDate);
+    const now = new Date();
+    if (start < now) {
+      const end = new Date(start);
+      end.setDate(end.getDate() + 5); // assume ~1 week program
+      if (now > end) return "Completed";
+      return "In Progress";
+    }
+  }
+
+  return "Open";
+}
+
+/**
  * Establish a session with ActiveNet by visiting the search page.
  * Returns cookies string for subsequent requests.
  */
@@ -377,15 +478,15 @@ async function main() {
         // Skip if we already have this program in this batch
         if (allPrograms.has(activityId)) continue;
 
-        // Parse fields
-        const { ageMin, ageMax } = parseAges(item.ages || item.age_range || "");
+        // Parse basic fields from the list endpoint (used as fallback)
+        const fallbackAges = parseAges(item.ages || item.age_range || "");
         const { startDate, endDate } = parseDateRange(item.date_range || "");
         const { startTime, endTime, scheduleType } = parseTimeRange(item.time_range || "");
         const { category, activityType } = categorizeProgram(item.name || "");
         const days = parseDays(item.days_of_week);
 
-        // Skip adult programs
-        if (ageMin !== null && ageMin >= 18) continue;
+        // Skip adult programs (using fallback ages for quick filter)
+        if (fallbackAges.ageMin !== null && fallbackAges.ageMin >= 18) continue;
 
         // Skip programs starting before June (not summer)
         if (startDate) {
@@ -393,29 +494,29 @@ async function main() {
           if (startMonth < 6) continue;
         }
 
-        // Determine location label
-        const locationLabel = item.location?.label || item.location || centre.name + " Community Centre";
-
+        // Store basic info now; detail + price fetched in batch below
         const program = {
+          _activityId: activityId,
+          _fallbackAges: fallbackAges,
           name: item.name,
           provider: "City of Vancouver",
           category,
           camp_type: "Summer Camp",
           schedule_type: scheduleType,
-          age_min: ageMin,
-          age_max: ageMax,
+          age_min: fallbackAges.ageMin,
+          age_max: fallbackAges.ageMax,
           start_date: startDate,
           end_date: endDate,
           days,
           start_time: startTime,
           end_time: endTime,
-          cost: item.cost || item.price || 0,
+          cost: 0, // Will be filled by price fetch
           indoor_outdoor: "Indoor",
           neighbourhood: centre.hood,
           address: centre.addr,
           lat: centre.lat,
           lng: centre.lng,
-          enrollment_status: "Open",
+          enrollment_status: "Open", // Will be updated by detail fetch
           registration_url: REGISTRATION_URL_TEMPLATE(activityId),
           description: item.description || `${item.name} at ${centre.name} Community Centre.`,
           tags: [category.toLowerCase(), activityType.toLowerCase()],
@@ -441,10 +542,70 @@ async function main() {
     console.log(`  Total for ${centre.name}: ${centreStats[centre.name].found} programs (${centreStats[centre.name].new} new)`);
   }
 
+  // ─── Enrich with real prices, ages, and enrollment status ───
+  const programsList = Array.from(allPrograms.values());
+  console.log(`\n─── Enriching ${programsList.length} programs with detail + price data ───`);
+
+  let pricesFetched = 0;
+  let detailsFetched = 0;
+  let pricesFound = 0;
+
+  for (let i = 0; i < programsList.length; i++) {
+    const program = programsList[i];
+    const activityId = program._activityId;
+
+    // Fetch real price
+    await sleep(RATE_LIMIT_MS);
+    const realPrice = await fetchActivityPrice(activityId, cookies);
+    if (realPrice > 0) {
+      program.cost = realPrice;
+      pricesFound++;
+    }
+    pricesFetched++;
+
+    // Fetch detail for accurate ages + enrollment status
+    await sleep(RATE_LIMIT_MS);
+    const detail = await fetchActivityDetail(activityId, cookies);
+    if (detail) {
+      // Use API age fields (accurate) instead of text parsing (off-by-one)
+      if (detail.ageMin !== null) program.age_min = detail.ageMin;
+      if (detail.ageMax !== null) program.age_max = detail.ageMax;
+
+      // Determine enrollment status from real data
+      program.enrollment_status = determineEnrollmentStatus(detail, program.start_date);
+
+      // Skip programs where price isn't published yet and cost is 0
+      // (likely pre-registration add-ons or not yet priced)
+      if (!detail.showPriceOnline && program.cost === 0) {
+        allPrograms.delete(activityId);
+        continue;
+      }
+
+      detailsFetched++;
+    }
+
+    // Clean up temporary fields before upsert
+    delete program._activityId;
+    delete program._fallbackAges;
+
+    // Log progress every 50 programs
+    if ((i + 1) % 50 === 0) {
+      console.log(`  Progress: ${i + 1}/${programsList.length} (${pricesFound} prices found)`);
+    }
+  }
+
+  console.log(`  Prices fetched: ${pricesFetched} (${pricesFound} had real prices)`);
+  console.log(`  Details fetched: ${detailsFetched}`);
+
   // Upsert to Supabase
   const programsArray = Array.from(allPrograms.values());
+  // Clean up any remaining temp fields
+  for (const p of programsArray) {
+    delete p._activityId;
+    delete p._fallbackAges;
+  }
   console.log(`\n═══════════════════════════════════════════════════`);
-  console.log(`  Total unique programs found: ${programsArray.length}`);
+  console.log(`  Total unique programs to upsert: ${programsArray.length}`);
   console.log(`═══════════════════════════════════════════════════\n`);
 
   if (programsArray.length === 0) {
