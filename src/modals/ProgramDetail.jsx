@@ -2,6 +2,15 @@ import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
 
+/** Format "2026-07-06" as "Jul 6, 2026" */
+function fmtDate(dateStr) {
+  if (!dateStr) return "\u2014";
+  const d = new Date(dateStr + "T00:00:00");
+  if (isNaN(d)) return dateStr;
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
 export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose, fmt$ }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
@@ -58,11 +67,11 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         </div>
         <div>
           <div style={s.detailLabel}>START DATE</div>
-          <div style={s.detailValue}>{p.startDate || "\u2014"}</div>
+          <div style={s.detailValue}>{fmtDate(p.startDate)}</div>
         </div>
         <div>
           <div style={s.detailLabel}>END DATE</div>
-          <div style={s.detailValue}>{p.endDate || "\u2014"}</div>
+          <div style={s.detailValue}>{fmtDate(p.endDate)}</div>
         </div>
         <div>
           <div style={s.detailLabel}>AGE RANGE</div>

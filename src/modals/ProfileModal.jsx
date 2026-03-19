@@ -29,8 +29,20 @@ const PLANS = [
   },
 ];
 
+import { useState as useLocalState } from "react";
+
 export default function ProfileModal({ profile, setProfile, email, onSignOut, onClose }) {
-  const update = (field, value) => setProfile((prev) => ({ ...prev, [field]: value }));
+  // Work on a local draft so changes aren't auto-saved on every keystroke
+  const [draft, setDraft] = useLocalState({ ...profile });
+  const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
+
+  const handleSave = () => {
+    setProfile(draft);
+    onClose();
+  };
+  const handleCancel = () => {
+    onClose();
+  };
 
   return (
     <Modal onClose={onClose}>
@@ -45,7 +57,7 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
       <Label>Display Name</Label>
       <input
         style={s.input}
-        value={profile.displayName || ""}
+        value={draft.displayName || ""}
         onChange={(e) => update("displayName", e.target.value)}
         placeholder="e.g. Nicole"
       />
@@ -64,7 +76,7 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
       <Label>Postal Code</Label>
       <input
         style={s.input}
-        value={profile.postalCode || ""}
+        value={draft.postalCode || ""}
         onChange={(e) => update("postalCode", e.target.value.toUpperCase())}
         placeholder="V6B 1A1"
         maxLength={7}
@@ -91,7 +103,7 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
         <input
           style={{ ...s.input, paddingLeft: 28 }}
           type="number"
-          value={profile.budgetGoal || ""}
+          value={draft.budgetGoal || ""}
           onChange={(e) => update("budgetGoal", e.target.value)}
           placeholder="2,000"
           min={0}
@@ -110,19 +122,19 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
       <ToggleRow
         label="Registration reminders"
         description="Reminders before registration deadlines"
-        checked={profile.notifyRegistration !== false}
+        checked={draft.notifyRegistration !== false}
         onChange={(val) => update("notifyRegistration", val)}
       />
       <ToggleRow
         label="New programs nearby"
         description="Discover new camps and classes in your area"
-        checked={profile.notifyNewPrograms !== false}
+        checked={draft.notifyNewPrograms !== false}
         onChange={(val) => update("notifyNewPrograms", val)}
       />
       <ToggleRow
         label="Weekly summary"
         description="A snapshot of your upcoming week"
-        checked={profile.notifyWeeklySummary !== false}
+        checked={draft.notifyWeeklySummary !== false}
         onChange={(val) => update("notifyWeeklySummary", val)}
       />
 
@@ -134,7 +146,7 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
       <SectionLabel>Subscription</SectionLabel>
 
       {PLANS.map((plan) => {
-        const isSelected = (profile.plan || "free") === plan.key;
+        const isSelected = (draft.plan || "free") === plan.key;
         return (
           <div
             key={plan.key}
@@ -214,8 +226,11 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
 
       {/* ─── Actions ─── */}
       <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-        <button style={s.secondaryBtn} onClick={onClose}>
-          Done
+        <button style={s.secondaryBtn} onClick={handleCancel}>
+          Cancel
+        </button>
+        <button style={s.primaryBtn} onClick={handleSave}>
+          Save
         </button>
         <button
           style={{

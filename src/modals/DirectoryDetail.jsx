@@ -3,6 +3,15 @@ import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
 
+/** Format "2026-07-06" as "Jul 6, 2026" */
+function fmtDate(dateStr) {
+  if (!dateStr) return null;
+  const d = new Date(dateStr + "T00:00:00");
+  if (isNaN(d)) return dateStr;
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
 export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, fmt$ }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
@@ -133,8 +142,8 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
           <div style={s.detailLabel}>DATES</div>
           <div style={s.detailValue}>
             {p.startDate && p.endDate
-              ? `${p.startDate} \u2013 ${p.endDate}`
-              : p.startDate || "\u2014"}
+              ? `${fmtDate(p.startDate)} \u2013 ${fmtDate(p.endDate)}`
+              : fmtDate(p.startDate) || "\u2014"}
           </div>
         </div>
         <div>

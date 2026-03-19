@@ -104,6 +104,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   const {
     programs, kids, loaded, tab, setTab, onboarded, completeOnboarding,
     statusFilter, setStatusFilter, catFilter, setCatFilter,
+    searchQuery, setSearchQuery,
     kidFilter, setKidFilter,
     enrolledPrograms, waitlistPrograms, exploringPrograms,
     totalCostEnrolled, totalCostAll, filteredPrograms,
@@ -341,6 +342,8 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             onOpenDetail={openDetail}
             onCycleStatus={cycleStatus}
             onOpenAddProgram={openAddProgram}
+            searchQuery={searchQuery}
+            onSearchQuery={setSearchQuery}
           />
         )}
 

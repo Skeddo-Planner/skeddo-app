@@ -3,7 +3,38 @@ import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
 import { useDataFreshness } from "../hooks/useDataFreshness";
-import allDirectoryPrograms from "../data/programs.json";
+import { supabase } from "../lib/supabase";
+import fallbackPrograms from "../data/programs.json";
+
+/* ─── Transform snake_case DB rows to camelCase for the app ─── */
+function dbRowToCamelCase(row) {
+  return {
+    id: row.id,
+    name: row.name,
+    provider: row.provider,
+    category: row.category,
+    campType: row.camp_type,
+    scheduleType: row.schedule_type,
+    ageMin: row.age_min,
+    ageMax: row.age_max,
+    startDate: row.start_date,
+    endDate: row.end_date,
+    days: row.days,
+    startTime: row.start_time,
+    endTime: row.end_time,
+    cost: row.cost,
+    indoorOutdoor: row.indoor_outdoor,
+    neighbourhood: row.neighbourhood,
+    address: row.address,
+    lat: row.lat,
+    lng: row.lng,
+    enrollmentStatus: row.enrollment_status,
+    registrationUrl: row.registration_url,
+    description: row.description,
+    tags: row.tags,
+    activityType: row.activity_type,
+  };
+}
 
 /* ─── Compute registration status from dates + enrollment field ─── */
 const REGISTRATION_STATUSES = [
@@ -288,6 +319,35 @@ export default function DiscoverTab({
   onAddToSchedule,
   onOpenDirectoryDetail,
 }) {
+  /* ─── Fetch programs from Supabase (with JSON fallback) ─── */
+  const [allDirectoryPrograms, setAllDirectoryPrograms] = useState(fallbackPrograms);
+  const [isLoadingPrograms, setIsLoadingPrograms] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function fetchFromSupabase() {
+      try {
+        const { data, error } = await supabase
+          .from("directory_programs")
+          .select("*")
+          .order("id", { ascending: true });
+
+        if (error) throw error;
+        if (!cancelled && data && data.length > 0) {
+          setAllDirectoryPrograms(data.map(dbRowToCamelCase));
+        }
+        // If Supabase returns empty, keep the fallback JSON data
+      } catch (err) {
+        console.warn("Supabase fetch failed, using local programs.json fallback:", err.message);
+        // Keep fallbackPrograms (already set as default)
+      } finally {
+        if (!cancelled) setIsLoadingPrograms(false);
+      }
+    }
+    fetchFromSupabase();
+    return () => { cancelled = true; };
+  }, []);
+
   const [search, setSearch] = useState("");
   const [selectedCats, setSelectedCats] = useState(new Set());       // empty = all
   const [selectedSeasons, setSelectedSeasons] = useState(new Set()); // empty = all
@@ -314,7 +374,7 @@ export default function DiscoverTab({
     return [...new Set(allDirectoryPrograms.map((p) => p.provider))].sort((a, b) =>
       a.localeCompare(b, "en", { sensitivity: "base" })
     );
-  }, []);
+  }, [allDirectoryPrograms]);
 
   // Compute activity types available for the currently selected categories
   const availableActivityTypes = useMemo(() => {
@@ -325,7 +385,7 @@ export default function DiscoverTab({
       }
     });
     return [...types].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
-  }, [selectedCats]);
+  }, [selectedCats, allDirectoryPrograms]);
 
   // When categories change, prune any selected activity types that are no longer available
   useEffect(() => {
@@ -465,8 +525,9 @@ export default function DiscoverTab({
             marginTop: 2,
           }}
         >
-          Browse {allDirectoryPrograms.length.toLocaleString()} programs in
-          Vancouver
+          {isLoadingPrograms
+            ? "Loading programs..."
+            : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in Vancouver`}
         </p>
       </div>
 

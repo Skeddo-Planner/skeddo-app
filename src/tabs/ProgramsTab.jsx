@@ -16,6 +16,8 @@ export default function ProgramsTab({
   onOpenDetail,
   onCycleStatus,
   onOpenAddProgram,
+  searchQuery,
+  onSearchQuery,
 }) {
   return (
     <div>
@@ -40,6 +42,35 @@ export default function ProgramsTab({
 
       {/* Kid filter */}
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
+
+      {/* Search input */}
+      <div style={{ position: "relative", marginBottom: 10 }}>
+        <span
+          style={{
+            position: "absolute",
+            left: 12,
+            top: "50%",
+            transform: "translateY(-50%)",
+            fontSize: 14,
+            color: C.muted,
+            pointerEvents: "none",
+          }}
+        >
+          {"\uD83D\uDD0D"}
+        </span>
+        <input
+          style={{
+            ...s.input,
+            paddingLeft: 34,
+            fontSize: 13,
+            marginBottom: 0,
+          }}
+          type="text"
+          placeholder="Search my programs..."
+          value={searchQuery || ""}
+          onChange={(e) => onSearchQuery && onSearchQuery(e.target.value)}
+        />
+      </div>
 
       {/* Status filter chips */}
       <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap" }}>
