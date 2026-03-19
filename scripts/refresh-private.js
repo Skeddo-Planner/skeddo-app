@@ -61,7 +61,7 @@ const PROVIDERS = [
   { name: "Lights Up Musical Theatre", url: "https://lightsuptheatre.ca/camps/", platform: "generic" },
   { name: "Theatrix Youtheatre Society", url: "https://theatrixyoutheatre.com/theatre-classes-and-camps/", platform: "generic" },
   { name: "Vancouver Young Actors School", url: "https://vancouveryoungactorsschool.com/acting-class-descriptions/camps/", platform: "generic" },
-  { name: "Camp Cue", url: "https://www.campcue.com", platform: "generic" },
+  { name: "Camp Cue", url: "https://www.campcue.com/camp-information", platform: "generic" },
   { name: "StageKidz", url: "https://www.stagekidz.ca/summer-camps/", platform: "generic" },
   { name: "The Stage Musical Theatre", url: "https://www.thestagenewwest.ca/program/summermusicaltheatredaycamps/", platform: "generic" },
   { name: "Presentation House Theatre", url: "https://www.phtheatre.org/summer-camps/", platform: "generic" },
@@ -93,7 +93,7 @@ const PROVIDERS = [
   { name: "Zebra Robotics", url: "https://www.zebrarobotics.com/langley/camps", platform: "generic" },
   { name: "Science Alive", url: "https://sciencealive.ca/summer-academy", platform: "generic" },
   { name: "VISST", url: "https://www.visst.ca/camps", platform: "generic" },
-  { name: "Kingcrest Academy", url: "https://www.kingcrestacademy.com", platform: "generic" },
+  { name: "Kingcrest Academy", url: "https://www.kingcrestlearning.com/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // SPORTS — Team Sports
@@ -104,7 +104,7 @@ const PROVIDERS = [
   { name: "Free Kick FC", url: "https://www.freekickfc.com/our-programs/", platform: "generic" },
   { name: "Pacific Coast Volleyball Club", url: "https://www.pacificcoastvolleyballclub.com/beach-volleyball-summer-camps.html", platform: "generic" },
   { name: "Smash Volleyball", url: "https://smashvball.com/camps/", platform: "generic" },
-  { name: "3D Basketball", url: "https://www.3dbasketball.net/", platform: "generic" },
+  { name: "3D Basketball", url: "https://3dbasketball.net/camps", platform: "generic" },
   { name: "New Westminster Soccer Club", url: "https://newwestsc.ca/summer-camp/", platform: "generic" },
   { name: "SportBall", url: "https://sportball.com/location/sportball-vancouver/camps/", platform: "generic" },
   { name: "Sports Camps Canada", url: "https://www.sportscampscanada.com/camps/nike-basketball-camp-north-vancouver-bc", platform: "generic" },
@@ -116,14 +116,14 @@ const PROVIDERS = [
   { name: "Jump Gymnastics", url: "https://www.jumpgymnastics.ca/programs/intensives/summer-camp", platform: "generic" },
   { name: "Flicka Gymnastics", url: "https://www.flickagymclub.com/camps", platform: "generic" },
   { name: "Phoenix Gymnastics", url: "http://phoenixgym.ca/Camps.php", platform: "generic" },
-  { name: "White Rock Gymnastics", url: "https://www.whiterockgym.org/camps", platform: "generic" },
+  { name: "White Rock Gymnastics", url: "https://portal.iclasspro.com/whiterockgym/camps/100?sortBy=time", platform: "generic" },
   { name: "My Gym", url: "https://www.mygym.com/camp", platform: "generic" },
   { name: "Exceleration", url: "https://excelerationtriclub.ca/camps/", platform: "generic" },
   { name: "Dynamo Fencing", url: "https://www.dynamofencing.com/camps", platform: "generic" },
   { name: "Art of Kickboxing", url: "https://artofkickboxing.ca/summer-programs-for-kids/", platform: "generic" },
   { name: "Third Eye Martial Arts", url: "https://www.temartialarts.com/camps", platform: "generic" },
   { name: "Roll Jiu Jitsu Academy", url: "https://www.rjja.ca/programs", platform: "generic" },
-  { name: "Metro Taekwondo Studios", url: "https://metrotkdstudios.com/", platform: "generic" },
+  { name: "Metro Taekwondo Studios", url: "https://metrotkdstudios.com/programs", platform: "generic" },
   { name: "SC Kim's Taekwondo", url: "https://sckimstaekwondo.com/summer-camp-burnaby/", platform: "generic" },
   { name: "KFitness", url: "https://www.kfitness.com/martial-arts-classes/summer-camps-vancouver/", platform: "generic" },
   { name: "Excel Martial Arts", url: "https://martialartsportcoquitlam.com/program/summer-camp/", platform: "generic" },
@@ -169,7 +169,7 @@ const PROVIDERS = [
   { name: "Room to Roam Outdoor Learning", url: "https://roomtoroam.ca/port-coquitlam-summer-camps-2025/", platform: "generic" },
   { name: "Saplings Outdoor Program", url: "https://www.saplingsoutdoorprogram.ca/camps-1", platform: "generic" },
   { name: "Sea Smart School Society", url: "https://www.seasmartschool.com/summer-camps", platform: "generic" },
-  { name: "Muddy Boot Prints", url: "https://muddybootprints.ca/", platform: "generic" },
+  { name: "Muddy Boot Prints", url: "https://muddybootprints.com/programs/summer-camps/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // GENERAL / MULTI-ACTIVITY / DAY CAMPS
@@ -177,7 +177,7 @@ const PROVIDERS = [
   { name: "YMCA of Greater Vancouver", url: "https://www.gv.ymca.ca/day-camps", platform: "generic" },
   { name: "Mulgrave School", url: "https://www.mulgrave.com/campus-life/mulgrave-school-summer-camps", platform: "generic" },
   { name: "JCC of Greater Vancouver", url: "https://jccgv.com/camps-pro-d-days/", platform: "generic" },
-  { name: "Rainforest Adventure Camps", url: "https://www.rfcamps.com", platform: "generic" },
+  { name: "Rainforest Adventure Camps", url: "https://www.rfcamps.com/Register/", platform: "generic" },
   { name: "Clubhouse Kids", url: "https://www.clubhousekids.ca", platform: "generic" },
   { name: "Funderland", url: "https://funderland.ca/summer-camp/", platform: "generic" },
   { name: "Extra Steps", url: "http://www.extrasteps.ca/fun-camps", platform: "generic" },
