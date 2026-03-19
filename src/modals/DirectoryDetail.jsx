@@ -47,6 +47,15 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const [showAddForm, setShowAddForm] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("Exploring");
   const [selectedKidIds, setSelectedKidIds] = useState([]);
+  const [customCost, setCustomCost] = useState(
+    p.cost === "TBD" ? "" : (typeof p.cost === "number" ? String(p.cost) : "")
+  );
+
+  // Determine if this is a private provider (non-municipal)
+  const MUNICIPAL_PREFIXES = ["City of Vancouver", "City of Burnaby", "NVRC", "North Vancouver Recreation",
+    "City of Richmond", "Richmond Olympic", "District of West Vancouver", "City of New Westminster"];
+  const isMunicipal = MUNICIPAL_PREFIXES.some((m) => (p.provider || "").includes(m));
+  const isApproxPrice = !isMunicipal && typeof p.cost === "number" && p.cost > 0;
 
   const toggleKid = (kidId) => {
     setSelectedKidIds((prev) =>
@@ -57,6 +66,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const handleConfirmAdd = () => {
     onAddToSchedule({
       ...p,
+      cost: customCost !== "" ? Number(customCost) : (p.cost === "TBD" ? 0 : Number(p.cost) || 0),
       status: selectedStatus,
       kidIds: selectedKidIds,
     });
@@ -170,13 +180,21 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       )}
 
       {/* Key info highlights */}
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16, alignItems: "center" }}>
         {p.cost != null && (
           <span style={{
             fontFamily: "'Instrument Serif', serif", fontSize: 16,
             color: C.ink, background: C.cream, padding: "4px 12px", borderRadius: 8,
           }}>
-            {fmt$(p.cost)}
+            {isApproxPrice ? "~" : ""}{fmt$(p.cost)}
+          </span>
+        )}
+        {isApproxPrice && (
+          <span style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 11,
+            color: C.muted, fontStyle: "italic",
+          }}>
+            approx.
           </span>
         )}
         {p.ageMin != null && p.ageMax != null && (
@@ -309,6 +327,63 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
                 </button>
               );
             })}
+          </div>
+
+          {/* Editable price */}
+          <div
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              color: C.muted,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              marginBottom: 8,
+            }}
+          >
+            PRICE
+            {isApproxPrice && (
+              <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0, fontStyle: "italic", marginLeft: 6 }}>
+                (approximate — update if you know the exact price)
+              </span>
+            )}
+            {p.cost === "TBD" && (
+              <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0, fontStyle: "italic", marginLeft: 6 }}>
+                (not yet published — enter price if known)
+              </span>
+            )}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.ink }}>$</span>
+            <input
+              type="number"
+              min="0"
+              step="1"
+              value={customCost}
+              onChange={(e) => setCustomCost(e.target.value)}
+              placeholder={p.cost === "TBD" ? "Enter price" : "0"}
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 15,
+                color: C.ink,
+                background: C.white,
+                border: `1px solid ${C.border}`,
+                borderRadius: 8,
+                padding: "8px 12px",
+                width: 120,
+                outline: "none",
+              }}
+            />
+            {customCost !== "" && Number(customCost) !== (typeof p.cost === "number" ? p.cost : 0) && (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 11,
+                color: C.seaGreen,
+                fontWeight: 700,
+              }}>
+                Updated
+              </span>
+            )}
           </div>
 
           {/* Kid assignment */}

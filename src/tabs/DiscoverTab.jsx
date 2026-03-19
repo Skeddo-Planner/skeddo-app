@@ -181,8 +181,13 @@ function sortPrograms(programs, sortKey) {
 }
 
 /* ─── Directory Card (no status, different from ProgramCard) ─── */
+const MUNICIPAL_PREFIXES = ["City of Vancouver", "City of Burnaby", "NVRC", "North Vancouver Recreation",
+  "City of Richmond", "Richmond Olympic", "District of West Vancouver", "City of New Westminster"];
+
 function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus }) {
   const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
+  const isMunicipal = MUNICIPAL_PREFIXES.some((m) => (program.provider || "").includes(m));
+  const isApprox = !isMunicipal && typeof program.cost === "number" && program.cost > 0;
   return (
     <div
       className="skeddo-card"
@@ -279,7 +284,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             color: C.ink,
           }}
         >
-          {program.cost === "TBD" ? "TBD" : program.cost ? "$" + Number(program.cost).toLocaleString() : "Free"}
+          {program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() : "Free"}
         </div>
       </div>
       <div
