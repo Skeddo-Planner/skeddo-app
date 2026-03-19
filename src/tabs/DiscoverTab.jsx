@@ -1464,6 +1464,36 @@ export default function DiscoverTab({
         )}
       </div>
 
+      {/* Result count and active filter note */}
+      <div style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 8,
+      }}>
+        <span style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 12,
+          fontWeight: 600,
+          color: C.muted,
+        }}>
+          {sortedFiltered.length.toLocaleString()} program{sortedFiltered.length !== 1 ? "s" : ""}
+        </span>
+        {selectedRegStatuses.size > 0 && selectedRegStatuses.size < REGISTRATION_STATUSES.length && (
+          <span style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 10,
+            fontWeight: 700,
+            color: C.olive,
+            background: C.olive + "14",
+            padding: "2px 8px",
+            borderRadius: 6,
+          }}>
+            Filtered by registration status
+          </span>
+        )}
+      </div>
+
       {/* Program cards */}
       {filtered.length === 0 && (
         <EmptyState

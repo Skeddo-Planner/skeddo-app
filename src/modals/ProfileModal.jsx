@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import Label from "../components/Label";
@@ -29,11 +30,9 @@ const PLANS = [
   },
 ];
 
-import { useState as useLocalState } from "react";
-
 export default function ProfileModal({ profile, setProfile, email, onSignOut, onClose }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
-  const [draft, setDraft] = useLocalState({ ...profile });
+  const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
 
   const handleSave = () => {

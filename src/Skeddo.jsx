@@ -278,7 +278,8 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
         input:focus, select:focus, textarea:focus { outline: none; border-color: ${C.seaGreen} !important; box-shadow: 0 0 0 3px rgba(58,158,106,0.12); }
         .status-chip { cursor: pointer; user-select: none; transition: all 0.12s; }
         .status-chip:hover { filter: brightness(0.95); transform: scale(1.05); }
-        .status-chip:active { transform: scale(0.95); }
+        .status-chip:active { transform: scale(0.9); animation: chipFlash 0.3s ease; }
+        @keyframes chipFlash { 0% { box-shadow: 0 0 0 0 rgba(58,158,106,0.4); } 50% { box-shadow: 0 0 0 6px rgba(58,158,106,0); } 100% { box-shadow: 0 0 0 0 transparent; } }
         .del-btn:hover { background: ${C.danger} !important; color: white !important; }
         .progress-bar { transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
       `}</style>
@@ -359,6 +360,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             totalCostEnrolled={totalCostEnrolled}
             totalCostAll={totalCostAll}
             fmt$={fmt$}
+            budgetGoal={Number(profile.budgetGoal) || 0}
           />
         )}
       </main>

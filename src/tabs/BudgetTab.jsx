@@ -13,6 +13,7 @@ export default function BudgetTab({
   totalCostEnrolled,
   totalCostAll,
   fmt$,
+  budgetGoal,
 }) {
   /* Filter all program lists by kid if selected */
   const filterByKid = (list) =>
@@ -111,6 +112,41 @@ export default function BudgetTab({
             <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted, fontWeight: 600 }}>Exploring</span>
           </div>
         </div>
+
+        {/* Budget goal progress */}
+        {budgetGoal > 0 && (
+          <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.border}` }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                Budget Goal
+              </span>
+              <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 14, color: C.ink }}>
+                {fmt$(allCost)} / {fmt$(budgetGoal)}
+              </span>
+            </div>
+            <div style={{ height: 6, borderRadius: 3, background: C.cream, overflow: "hidden" }}>
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${Math.min((allCost / budgetGoal) * 100, 100)}%`,
+                  height: "100%",
+                  borderRadius: 3,
+                  background: allCost > budgetGoal ? C.danger : C.seaGreen,
+                }}
+              />
+            </div>
+            {allCost > budgetGoal && (
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.danger, fontWeight: 600, marginTop: 4 }}>
+                Over budget by {fmt$(allCost - budgetGoal)}
+              </div>
+            )}
+            {allCost <= budgetGoal && allCost > 0 && (
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.seaGreen, fontWeight: 600, marginTop: 4 }}>
+                {fmt$(budgetGoal - allCost)} remaining
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 20 }}>

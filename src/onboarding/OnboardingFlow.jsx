@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
-
 import { uid } from "../constants/sampleData";
 
 export default function OnboardingFlow({ onComplete }) {
