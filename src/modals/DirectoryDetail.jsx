@@ -5,7 +5,7 @@ import Modal from "../components/Modal";
 import {
   fmtDate, fmt$,
   REGISTRATION_STATUSES, getRegistrationStatus,
-  isMunicipalProvider,
+  isMunicipalProvider, downloadICS,
 } from "../utils/helpers";
 
 export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose }) {
@@ -219,9 +219,9 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         )}
       </div>
 
-      {/* Registration URL */}
-      {p.registrationUrl && (
-        <div style={{ marginTop: 16 }}>
+      {/* Links row — Register + Add to Calendar */}
+      <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
+        {p.registrationUrl && (
           <a
             href={p.registrationUrl}
             target="_blank"
@@ -236,8 +236,28 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
           >
             View registration page &rarr;
           </a>
-        </div>
-      )}
+        )}
+        {p.startDate && (
+          <button
+            onClick={() => downloadICS(p)}
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              fontWeight: 700,
+              color: C.blue,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            &#128197; Add to Calendar
+          </button>
+        )}
+      </div>
 
       {/* Add to schedule flow */}
       {!showAddForm ? (

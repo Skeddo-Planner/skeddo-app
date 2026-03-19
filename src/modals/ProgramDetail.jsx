@@ -1,7 +1,7 @@
 import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
-import { fmtDate, fmt$ } from "../utils/helpers";
+import { fmtDate, fmt$, downloadICS } from "../utils/helpers";
 
 export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose }) {
   const p = program;
@@ -85,9 +85,9 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         </div>
       </div>
 
-      {/* Registration URL */}
-      {p.registrationUrl && (
-        <div style={{ marginTop: 16 }}>
+      {/* Links row — Register + Add to Calendar */}
+      <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
+        {p.registrationUrl && (
           <a
             href={p.registrationUrl}
             target="_blank"
@@ -105,8 +105,28 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
           >
             Register &rarr;
           </a>
-        </div>
-      )}
+        )}
+        {p.startDate && (
+          <button
+            onClick={() => downloadICS(p)}
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              fontWeight: 700,
+              color: C.blue,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            &#128197; Add to Calendar
+          </button>
+        )}
+      </div>
 
       {/* Notes */}
       {p.notes && (

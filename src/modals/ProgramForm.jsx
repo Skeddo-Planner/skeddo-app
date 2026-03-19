@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { C, CATEGORIES, SEASON_TYPES } from "../constants/brand";
 import { s } from "../styles/shared";
 import Label from "../components/Label";
@@ -5,6 +6,45 @@ import Modal from "../components/Modal";
 
 export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClose }) {
   const update = (field, value) => setForm((f) => ({ ...f, [field]: value }));
+  const [errors, setErrors] = useState({});
+
+  /* ─── Validation ─── */
+  function validate() {
+    const e = {};
+
+    // Name is required
+    if (!form.name?.trim()) e.name = "Program name is required";
+
+    // Cost must be a positive number (if provided)
+    if (form.cost !== "" && form.cost != null) {
+      const costNum = Number(form.cost);
+      if (isNaN(costNum) || costNum < 0) e.cost = "Enter a valid amount";
+    }
+
+    // Age min <= age max
+    if (form.ageMin && form.ageMax) {
+      if (Number(form.ageMin) > Number(form.ageMax)) e.ageMax = "Max must be ≥ min";
+    }
+
+    // End date >= start date
+    if (form.startDate && form.endDate && form.endDate < form.startDate) {
+      e.endDate = "End must be after start";
+    }
+
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  }
+
+  function handleSave() {
+    if (validate()) onSave();
+  }
+
+  const errorStyle = {
+    fontFamily: "'Barlow', sans-serif",
+    fontSize: 11,
+    color: C.danger,
+    marginTop: 2,
+  };
 
   return (
     <Modal onClose={onClose}>
@@ -12,12 +52,13 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
 
       <Label>Name</Label>
       <input
-        style={s.input}
+        style={{ ...s.input, ...(errors.name ? { borderColor: C.danger } : {}) }}
         value={form.name || ""}
         onChange={(e) => update("name", e.target.value)}
         placeholder="e.g. Soccer Skills Camp"
         autoFocus
       />
+      {errors.name && <div style={errorStyle}>{errors.name}</div>}
 
       <Label>Provider</Label>
       <input
@@ -58,12 +99,14 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         <div>
           <Label>Cost ($)</Label>
           <input
-            style={s.input}
+            style={{ ...s.input, ...(errors.cost ? { borderColor: C.danger } : {}) }}
             type="number"
+            min="0"
             value={form.cost || ""}
             onChange={(e) => update("cost", e.target.value)}
             placeholder="285"
           />
+          {errors.cost && <div style={errorStyle}>{errors.cost}</div>}
         </div>
         <div>
           <Label>Days</Label>
@@ -101,11 +144,12 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         <div>
           <Label>End Date</Label>
           <input
-            style={s.input}
+            style={{ ...s.input, ...(errors.endDate ? { borderColor: C.danger } : {}) }}
             type="date"
             value={form.endDate || ""}
             onChange={(e) => update("endDate", e.target.value)}
           />
+          {errors.endDate && <div style={errorStyle}>{errors.endDate}</div>}
         </div>
         <div>
           <Label>Season Type</Label>
@@ -128,6 +172,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
           <input
             style={s.input}
             type="number"
+            min="0"
             value={form.ageMin || ""}
             onChange={(e) => update("ageMin", e.target.value)}
             placeholder="5"
@@ -136,12 +181,14 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         <div>
           <Label>Age Max</Label>
           <input
-            style={s.input}
+            style={{ ...s.input, ...(errors.ageMax ? { borderColor: C.danger } : {}) }}
             type="number"
+            min="0"
             value={form.ageMax || ""}
             onChange={(e) => update("ageMax", e.target.value)}
             placeholder="12"
           />
+          {errors.ageMax && <div style={errorStyle}>{errors.ageMax}</div>}
         </div>
       </div>
 
@@ -217,7 +264,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         <button style={s.secondaryBtn} onClick={onClose}>
           Cancel
         </button>
-        <button style={s.primaryBtn} onClick={onSave}>
+        <button style={s.primaryBtn} onClick={handleSave}>
           {isEdit ? "Save Changes" : "Add Program"}
         </button>
       </div>
