@@ -15860,7 +15860,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 544,
@@ -15891,7 +15891,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 545,
@@ -15922,7 +15922,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 546,
@@ -15953,7 +15953,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 547,
@@ -15984,7 +15984,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 548,
@@ -16015,7 +16015,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 549,
@@ -16046,7 +16046,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 550,
@@ -16077,7 +16077,7 @@
       "arts",
       "swimming"
     ],
-    "activityType": "Swimming"
+    "activityType": "General"
   },
   {
     "id": 551,
@@ -38854,7 +38854,7 @@
     "address": "6288 Stadium Rd, Vancouver, BC",
     "lat": 49.2625,
     "lng": -123.2456,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Full/Waitlist",
     "registrationUrl": "https://recreation.ubc.ca/camps/summer/ropes-course/",
     "description": "Team building, leadership and communication through progressive ropes challenges. Start with ground-based activities and advance to high ropes including Giant's Ladder, Swinging Steps, and zip-line.",
     "tags": [
@@ -38886,7 +38886,7 @@
     "address": "6288 Stadium Rd, Vancouver, BC",
     "lat": 49.2625,
     "lng": -123.2456,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Full/Waitlist",
     "registrationUrl": "https://recreation.ubc.ca/camps/summer/ropes-course/",
     "description": "Team building, leadership and communication through progressive ropes challenges. Start with ground-based activities and advance to high ropes including Giant's Ladder, Swinging Steps, and zip-line.",
     "tags": [
