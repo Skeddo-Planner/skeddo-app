@@ -349,6 +349,9 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           }}
         >
           {statusInfo.icon} {statusInfo.label}
+          {regStatus === "opening-soon" && program.registrationDateLabel && (
+            <span style={{ fontWeight: 400 }}> &mdash; {program.registrationDateLabel}</span>
+          )}
         </span>
       </div>
     </div>

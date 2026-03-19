@@ -12,9 +12,32 @@ function fmtDate(dateStr) {
   return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 }
 
+/* ─── Registration status (same logic as DiscoverTab) ─── */
+const REGISTRATION_STATUSES = [
+  { key: "open", label: "Open", color: "#3A9E6A", icon: "●" },
+  { key: "opening-soon", label: "Opening Soon", color: "#2A5F8A", icon: "◷" },
+  { key: "full", label: "Full / Waitlist", color: "#B89A2A", icon: "●" },
+  { key: "in-progress", label: "In Progress", color: "#C87FA0", icon: "▶" },
+  { key: "completed", label: "Completed", color: "#8A9A8E", icon: "✗" },
+];
+
+function getRegistrationStatus(program) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
+  const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
+  if (end && end < today) return "completed";
+  if (start && start <= today) return "in-progress";
+  if (program.enrollmentStatus === "Full") return "full";
+  if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
+  return "open";
+}
+
 export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, fmt$ }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
+  const regStatus = getRegistrationStatus(p);
+  const regInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
 
   // Check if this program is already in the user's list (match by name + provider)
   const alreadyAdded = (userPrograms || []).some(
@@ -81,6 +104,54 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       {/* Provider */}
       <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 12 }}>
         {p.provider}
+      </div>
+
+      {/* Registration status banner */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "8px 12px",
+          borderRadius: 10,
+          background: regInfo.color + "14",
+          marginBottom: 12,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 13,
+            fontWeight: 700,
+            color: regInfo.color,
+          }}
+        >
+          {regInfo.icon} {regInfo.label}
+        </span>
+        {regStatus === "opening-soon" && p.registrationDateLabel && (
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              fontWeight: 400,
+              color: regInfo.color,
+            }}
+          >
+            &mdash; {p.registrationDateLabel}
+          </span>
+        )}
+        {regStatus === "open" && p.registrationDateLabel && (
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 12,
+              fontWeight: 400,
+              color: C.muted,
+            }}
+          >
+            (opened {p.registrationDateLabel})
+          </span>
+        )}
       </div>
 
       {/* Description */}
