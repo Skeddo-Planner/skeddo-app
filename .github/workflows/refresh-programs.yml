@@ -1,0 +1,44 @@
+# Skeddo — Auto-refresh program data from ActiveNet (City of Vancouver)
+#
+# Runs daily at 6 AM Pacific (2 PM UTC) and can also be triggered manually.
+#
+# Required repository secrets (set in GitHub → Settings → Secrets):
+#   SUPABASE_URL             — Your Supabase project URL (e.g. https://kjlsnlzcammvbdbqpiwp.supabase.co)
+#   SUPABASE_SERVICE_ROLE_KEY — Your Supabase service role key (NOT the anon key)
+
+name: Refresh Programs
+
+on:
+  schedule:
+    # 6 AM Pacific = 2 PM UTC (during PDT; 7 AM PST = 3 PM UTC during PST)
+    - cron: '0 14 * * *'
+  workflow_dispatch: # Manual trigger from GitHub Actions UI
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: skeddo-app
+
+      - name: Run ActiveNet refresh script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/refresh-activenet.js
+        working-directory: skeddo-app
+
+      - name: Report results
+        if: always()
+        run: echo "Refresh completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
