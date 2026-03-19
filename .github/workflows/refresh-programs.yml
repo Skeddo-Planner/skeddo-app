@@ -1,9 +1,13 @@
-# Skeddo — Auto-refresh program data from ActiveNet (City of Vancouver)
+# Skeddo — Auto-refresh program data from all sources
 #
 # Runs daily at 6 AM Pacific (2 PM UTC) and can also be triggered manually.
+# Refreshes programs from:
+#   1. City of Vancouver (ActiveNet API)
+#   2. City of Richmond (PerfectMind system)
+#   3. Private providers (web scraping camp pages)
 #
 # Required repository secrets (set in GitHub → Settings → Secrets):
-#   SUPABASE_URL             — Your Supabase project URL (e.g. https://kjlsnlzcammvbdbqpiwp.supabase.co)
+#   SUPABASE_URL             — Your Supabase project URL
 #   SUPABASE_SERVICE_ROLE_KEY — Your Supabase service role key (NOT the anon key)
 
 name: Refresh Programs
@@ -17,7 +21,7 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
@@ -31,12 +35,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ActiveNet refresh script
+      - name: Refresh City of Vancouver (ActiveNet)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/refresh-activenet.js
 
+      - name: Refresh City of Richmond (PerfectMind)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/refresh-richmond.js
+
+      - name: Refresh Private Providers (web scraping)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/refresh-private.js
+
       - name: Report results
         if: always()
-        run: echo "Refresh completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
+        run: echo "All refreshes completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
