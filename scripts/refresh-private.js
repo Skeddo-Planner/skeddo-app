@@ -40,40 +40,40 @@ const PROVIDERS = [
   // ══════════════════════════════════════════════════════════════
   { name: "Arts Umbrella", url: "https://www.artsumbrella.com/summer-camps/", platform: "generic" },
   { name: "4Cats Art Studio", url: "https://4cats.com/camps/", platform: "generic" },
-  { name: "Vancouver Art Gallery", url: "https://www.vanartgallery.bc.ca/learn/kids-and-families", platform: "generic" },
-  { name: "Boogaloo Academy", url: "https://www.boogalooacademy.com/camps", platform: "generic" },
-  { name: "The Cut Design Academy", url: "https://www.thecutfashionacademy.com/summer-camps", platform: "generic" },
-  { name: "Shoreline Studios", url: "https://www.shoreline-studios.com/summer-camps", platform: "generic" },
-  { name: "Paintlounge", url: "https://www.paintlounge.ca/camps", platform: "generic" },
+  { name: "Vancouver Art Gallery", url: "https://www.vanartgallery.bc.ca/events/summer-camp-july-2025/", platform: "generic" },
+  { name: "Boogaloo Academy", url: "https://www.boogalooacademy.com/index.php/summer-camps/", platform: "generic" },
+  { name: "The Cut Design Academy", url: "https://www.thecutfashionacademy.com/youth-camps", platform: "generic" },
+  { name: "Shoreline Studios", url: "https://www.shoreline-studios.com/crafting-the-actor", platform: "generic" },
+  { name: "Paintlounge", url: "https://www.paintlounge.ca/students/kids/", platform: "generic" },
   { name: "Petit Architect", url: "https://www.petitarchitect.com/camps", platform: "generic" },
-  { name: "Monarch Arts Education", url: "https://www.monarcharts.com/summer-camps", platform: "generic" },
+  { name: "Monarch Arts Education", url: "https://www.monarcharts.com/calendar", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // PERFORMING ARTS — Dance, Theatre, Circus
   // ══════════════════════════════════════════════════════════════
-  { name: "Dance Co", url: "https://www.danceco.com/summer-camps", platform: "generic" },
+  { name: "Dance Co", url: "https://www.danceco.com/summer-dance-camps", platform: "generic" },
   { name: "The Happening Dance", url: "https://www.thehappeningdance.com/camps", platform: "generic" },
-  { name: "Harbour Dance Centre", url: "https://www.harbourdance.com/summer-dance-camps/", platform: "generic" },
-  { name: "Vancouver Performing Stars", url: "https://www.performingstars.ca/summer-camps", platform: "generic" },
-  { name: "Vancouver Circus School", url: "https://www.vancouvercircusschool.ca/summer-camps", platform: "generic" },
+  { name: "Harbour Dance Centre", url: "https://www.harbourdance.com/summer-intensive", platform: "generic" },
+  { name: "Vancouver Performing Stars", url: "https://www.performingstars.ca/camp-checkout", platform: "generic" },
+  { name: "Vancouver Circus School", url: "https://vancouvercircusschool.ca/camps/", platform: "generic" },
   { name: "West Coast Circus", url: "https://www.westcoastcircus.ca/summer-camps", platform: "generic" },
   { name: "Bard on the Beach", url: "https://www.bardonthebeach.org/education/young-shakespeareans/", platform: "generic" },
   { name: "Lights Up Musical Theatre", url: "https://www.lightsuptheatre.ca/summer-camp", platform: "generic" },
-  { name: "Theatrix Youtheatre Society", url: "https://www.theatrixyoutheatre.com/summer-camps", platform: "generic" },
-  { name: "Vancouver Young Actors School", url: "https://www.vancouveryoungactorsschool.com/summer-camps", platform: "generic" },
-  { name: "Camp Cue", url: "https://www.campcue.com/summer-camps", platform: "generic" },
+  { name: "Theatrix Youtheatre Society", url: "https://theatrixyoutheatre.com/theatre-classes-and-camps/", platform: "generic" },
+  { name: "Vancouver Young Actors School", url: "https://vancouveryoungactorsschool.com/acting-class-descriptions/camps/", platform: "generic" },
+  { name: "Camp Cue", url: "https://www.campcue.com", platform: "generic" },
   { name: "StageKidz", url: "https://www.stagekidz.ca/summer-camps", platform: "generic" },
   { name: "The Stage Musical Theatre", url: "https://www.thestagenewwest.ca/summer-camps", platform: "generic" },
   { name: "Presentation House Theatre", url: "https://www.phtheatre.org/education/summer-camps/", platform: "generic" },
-  { name: "This World's Ours Centre", url: "https://www.thisworldsours.com/summer-camps", platform: "generic" },
-  { name: "Place des Arts", url: "https://www.placedesarts.ca/summer-camps", platform: "generic" },
+  { name: "This World's Ours Centre", url: "https://www.thisworldsours.com/camps", platform: "generic" },
+  { name: "Place des Arts", url: "https://placedesarts.ca/art-camps/summer-fun/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // MUSIC
   // ══════════════════════════════════════════════════════════════
-  { name: "VSO School of Music", url: "https://www.vsoschoolofmusic.ca/summer-music-camps/", platform: "generic" },
-  { name: "Ava Music & Art Centre", url: "https://www.avamusic.com/summer-camps", platform: "generic" },
-  { name: "Musicworks Canada", url: "https://www.musicworkscanada.com/summer-camps", platform: "generic" },
+  { name: "VSO School of Music", url: "https://vsoschoolofmusic.ca/program-type/camps-vancouver/", platform: "generic" },
+  { name: "Ava Music & Art Centre", url: "https://avamusic.com/collections/summer-camp", platform: "generic" },
+  { name: "Musicworks Canada", url: "https://musicworkscanada.com/summer-camp/", platform: "generic" },
   { name: "Deep Cove Music", url: "https://www.deepcovemusic.com/summer-camps", platform: "generic" },
   { name: "Vancouver Academy of Music", url: "https://www.vam.ca/summer-programs/", platform: "generic" },
   { name: "School of Rock", url: "https://www.schoolofrock.com/vancouver/summer-camps", platform: "generic" },
@@ -81,64 +81,64 @@ const PROVIDERS = [
   // ══════════════════════════════════════════════════════════════
   // STEM / TECH / CODING
   // ══════════════════════════════════════════════════════════════
-  { name: "Brainstem Learning", url: "https://www.brainstemlearning.ca/summer-camps", platform: "generic" },
-  { name: "Byte Camp", url: "https://www.bytecamp.ca/summer-camps/", platform: "generic" },
+  { name: "Brainstem Learning", url: "https://www.brainstemlearning.ca/programs/summer-camp", platform: "generic" },
+  { name: "Byte Camp", url: "https://bytecamp.ca/calendar/", platform: "generic" },
   { name: "Code Ninjas", url: "https://www.codeninjas.com/vancouver-bc-ca/camps", platform: "generic" },
-  { name: "Steamoji", url: "https://www.steamoji.com/summer-camps", platform: "generic" },
-  { name: "Stema Learning Center", url: "https://www.stemalearning.com/summer-camps", platform: "generic" },
-  { name: "STEMA Learning", url: "https://www.stemalearning.com/summer-camps", platform: "generic" },
-  { name: "Ultimate Coders", url: "https://ultimatecoders.ca/summer-camps", platform: "generic" },
+  { name: "Steamoji", url: "https://www.steamoji.com/camps/canada-bc-kitsilano/", platform: "generic" },
+  { name: "Stema Learning Center", url: "https://vancouver.stemalearning.com/product/summercamp2026/", platform: "generic" },
+  { name: "STEMA Learning", url: "https://vancouver.stemalearning.com/product/summercamp2026/", platform: "generic" },
+  { name: "Ultimate Coders", url: "https://www.ultimatecoders.ca/programs/coding-camps", platform: "generic" },
   { name: "KiddoSTEAM Academy", url: "https://www.kiddosteam.ca/summer-camps", platform: "generic" },
   { name: "STEM Camp", url: "https://www.stemcamp.ca/british-columbia/", platform: "generic" },
   { name: "Zebra Robotics", url: "https://www.zebrarobotics.com/summer-camps", platform: "generic" },
   { name: "Science Alive", url: "https://www.sciencealive.ca/summer-camps", platform: "generic" },
   { name: "VISST", url: "https://www.visst.ca/summer-camps", platform: "generic" },
-  { name: "Kingcrest Academy", url: "https://www.kingcrestacademy.com/summer-camps", platform: "generic" },
+  { name: "Kingcrest Academy", url: "https://www.kingcrestacademy.com", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // SPORTS — Team Sports
   // ══════════════════════════════════════════════════════════════
   { name: "Whitecaps FC", url: "https://whitecapsfcyouth.com/programs/summer-camps/", platform: "generic" },
   { name: "Royal City Soccer Club", url: "https://www.royalsoccer.com/summer-camps/", platform: "generic" },
-  { name: "Vancouver All Stars Baseball", url: "https://www.vancouverallstars.ca/summer-camps", platform: "generic" },
-  { name: "Free Kick FC", url: "https://www.freekickfc.com/summer-camps", platform: "generic" },
-  { name: "Pacific Coast Volleyball Club", url: "https://www.pacificcoastvolleyballclub.com/camps", platform: "generic" },
-  { name: "Smash Volleyball", url: "https://www.smashvball.com/camps", platform: "generic" },
+  { name: "Vancouver All Stars Baseball", url: "https://vancouverallstars.ca/summer-camps/", platform: "generic" },
+  { name: "Free Kick FC", url: "https://www.freekickfc.com/our-programs/", platform: "generic" },
+  { name: "Pacific Coast Volleyball Club", url: "https://www.pacificcoastvolleyballclub.com/beach-volleyball-summer-camps.html", platform: "generic" },
+  { name: "Smash Volleyball", url: "https://smashvball.com/camps/", platform: "generic" },
   { name: "3D Basketball", url: "https://www.3dbasketball.net/camps", platform: "generic" },
-  { name: "New Westminster Soccer Club", url: "https://www.newwestsc.ca/summer-camps", platform: "generic" },
+  { name: "New Westminster Soccer Club", url: "https://newwestsc.ca/summer-camp/", platform: "generic" },
   { name: "SportBall", url: "https://www.sportball.ca/vancouver/camps/", platform: "generic" },
-  { name: "Sports Camps Canada", url: "https://www.sportscampscanada.com/summer-camps", platform: "generic" },
-  { name: "Canlan Sports", url: "https://www.canlansports.com/summer-camps", platform: "generic" },
+  { name: "Sports Camps Canada", url: "https://www.sportscampscanada.com/camps/nike-basketball-camp-north-vancouver-bc", platform: "generic" },
+  { name: "Canlan Sports", url: "https://www.canlansports.com/camps/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // SPORTS — Gymnastics, Martial Arts, Individual
   // ══════════════════════════════════════════════════════════════
   { name: "Jump Gymnastics", url: "https://www.jumpgymnastics.ca/summer-camps", platform: "generic" },
   { name: "Flicka Gymnastics", url: "https://www.flickagymclub.com/summer-camps", platform: "generic" },
-  { name: "Phoenix Gymnastics", url: "https://www.phoenixgym.ca/summer-camps", platform: "generic" },
-  { name: "White Rock Gymnastics", url: "https://www.whiterockgym.org/summer-camps", platform: "generic" },
-  { name: "My Gym", url: "https://www.mygym.com/vancouver/camps", platform: "generic" },
+  { name: "Phoenix Gymnastics", url: "http://phoenixgym.ca/Camps.php", platform: "generic" },
+  { name: "White Rock Gymnastics", url: "https://www.whiterockgym.org/camps", platform: "generic" },
+  { name: "My Gym", url: "https://www.mygym.com/camp", platform: "generic" },
   { name: "Exceleration", url: "https://excelerationtriclub.ca/summer-camps/", platform: "generic" },
-  { name: "Dynamo Fencing", url: "https://www.dynamofencing.com/summer-camps", platform: "generic" },
-  { name: "Art of Kickboxing", url: "https://www.artofkickboxing.ca/summer-camps", platform: "generic" },
-  { name: "Third Eye Martial Arts", url: "https://www.temartialarts.com/summer-camps", platform: "generic" },
-  { name: "Roll Jiu Jitsu Academy", url: "https://www.rjja.ca/summer-camps", platform: "generic" },
+  { name: "Dynamo Fencing", url: "https://www.dynamofencing.com/camps", platform: "generic" },
+  { name: "Art of Kickboxing", url: "https://artofkickboxing.ca/summer-programs-for-kids/", platform: "generic" },
+  { name: "Third Eye Martial Arts", url: "https://www.temartialarts.com/camps", platform: "generic" },
+  { name: "Roll Jiu Jitsu Academy", url: "https://www.rjja.ca/programs", platform: "generic" },
   { name: "Metro Taekwondo Studios", url: "https://www.metrotkdstudios.com/camps", platform: "generic" },
-  { name: "SC Kim's Taekwondo", url: "https://www.sckimstaekwondo.com/summer-camps", platform: "generic" },
-  { name: "KFitness", url: "https://www.kfitness.com/summer-camps", platform: "generic" },
-  { name: "Excel Martial Arts", url: "https://www.martialartsportcoquitlam.com/summer-camps", platform: "generic" },
-  { name: "Wayland Sports", url: "https://www.waylandsports.com/summer-camps", platform: "generic" },
+  { name: "SC Kim's Taekwondo", url: "https://sckimstaekwondo.com/summer-camp-burnaby/", platform: "generic" },
+  { name: "KFitness", url: "https://www.kfitness.com/martial-arts-classes/summer-camps-vancouver/", platform: "generic" },
+  { name: "Excel Martial Arts", url: "https://martialartsportcoquitlam.com/program/summer-camp/", platform: "generic" },
+  { name: "Wayland Sports", url: "https://www.waylandsports.com/ironwood-campus/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // SPORTS — Racquet, Tennis, Badminton
   // ══════════════════════════════════════════════════════════════
-  { name: "Vancouver Lawn Tennis Club", url: "https://www.vanlawn.com/summer-camps", platform: "generic" },
-  { name: "Shuttlesport Badminton Academy", url: "https://www.shuttlesport.com/summer-camps", platform: "generic" },
+  { name: "Vancouver Lawn Tennis Club", url: "https://www.vanlawn.com/PROGRAMS_SERVICES/TENNIS_(1)", platform: "generic" },
+  { name: "Shuttlesport Badminton Academy", url: "https://www.shuttlesport.com/camps", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // SPORTS — Climbing
   // ══════════════════════════════════════════════════════════════
-  { name: "The Hive Climbing", url: "https://www.hiveclimbing.com/summer-camps/", platform: "generic" },
+  { name: "The Hive Climbing", url: "https://hiveclimbing.com/youth-kids/camps/", platform: "generic" },
   { name: "Squamish Climbing Academy", url: "https://www.squamishclimbingacademy.com/summer-camps", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
@@ -146,17 +146,17 @@ const PROVIDERS = [
   // ══════════════════════════════════════════════════════════════
   { name: "Pedalheads", url: "https://www.pedalheads.com/programs/summer-camps", platform: "generic" },
   { name: "MacSailing", url: "https://www.macsailing.com/youth-sailing-camps/", platform: "generic" },
-  { name: "Windsure Adventure Watersports", url: "https://www.windsure.com/summer-camps/", platform: "generic" },
-  { name: "Deep Cove Kayak", url: "https://www.deepcovekayak.com/summer-camps/", platform: "generic" },
+  { name: "Windsure Adventure Watersports", url: "https://www.windsure.com/summercamps", platform: "generic" },
+  { name: "Deep Cove Kayak", url: "https://deepcovekayak.com/lessons/", platform: "generic" },
   { name: "Jericho Beach Kayak", url: "https://www.jerichobeachkayak.com/summer-camps", platform: "generic" },
   { name: "Bowen Island Sea Kayaking", url: "https://www.bowenislandkayaking.com/camps", platform: "generic" },
-  { name: "Rosewood Hunter Jumper", url: "https://www.rosewoodhj.com/summer-camps", platform: "generic" },
-  { name: "Mountain Skills Academy", url: "https://www.mountainskillsacademy.com/summer-camps", platform: "generic" },
+  { name: "Rosewood Hunter Jumper", url: "https://rosewoodhj.com/summer-riding-camps", platform: "generic" },
+  { name: "Mountain Skills Academy", url: "https://www.mountainskillsacademy.com/camps/", platform: "generic" },
   { name: "Mt Seymour", url: "https://mtseymour.ca/summer-camps", platform: "generic" },
   { name: "Mount Seymour", url: "https://mtseymour.ca/summer-camps", platform: "generic" },
   { name: "WildPlay Element Parks", url: "https://www.wildplay.com/summer-camps", platform: "generic" },
   { name: "Fireside Adventures", url: "https://www.firesideadventures.ca/summer-camps", platform: "generic" },
-  { name: "Woods and Waves Outdoor Learning", url: "https://woodsandwaves.ca/summer-camps", platform: "generic" },
+  { name: "Woods and Waves Outdoor Learning", url: "https://woodsandwaves.ca/camps", platform: "generic" },
   { name: "Camp Qwanoes", url: "https://www.qwanoes.ca/summer-camp/", platform: "generic" },
   { name: "Timberline Ranch", url: "https://www.timberlineranch.com/summer-camp/", platform: "generic" },
 
@@ -165,9 +165,9 @@ const PROVIDERS = [
   // ══════════════════════════════════════════════════════════════
   { name: "Soaring Eagle Nature School", url: "https://soaringeaglenatureschool.org/summer-camp/", platform: "generic" },
   { name: "Thriving Roots", url: "https://www.thrivingroots.org/summer-camps", platform: "generic" },
-  { name: "Stanley Park Ecology Society", url: "https://www.stanleyparkecology.ca/programs/camps/", platform: "generic" },
-  { name: "Room to Roam Outdoor Learning", url: "https://www.roomtoroam.ca/summer-camps", platform: "generic" },
-  { name: "Saplings Outdoor Program", url: "https://www.saplingsoutdoorprogram.ca/summer-camps", platform: "generic" },
+  { name: "Stanley Park Ecology Society", url: "https://stanleyparkecology.ca/ecocamps/", platform: "generic" },
+  { name: "Room to Roam Outdoor Learning", url: "https://roomtoroam.ca/port-coquitlam-summer-camps-2025/", platform: "generic" },
+  { name: "Saplings Outdoor Program", url: "https://www.saplingsoutdoorprogram.ca/camps-1", platform: "generic" },
   { name: "Sea Smart School Society", url: "https://www.seasmartschool.com/summer-camps", platform: "generic" },
   { name: "Muddy Boot Prints", url: "https://muddybootprints.ca/summer-camps", platform: "generic" },
 
@@ -175,38 +175,38 @@ const PROVIDERS = [
   // GENERAL / MULTI-ACTIVITY / DAY CAMPS
   // ══════════════════════════════════════════════════════════════
   { name: "YMCA of Greater Vancouver", url: "https://www.gv.ymca.ca/day-camps", platform: "generic" },
-  { name: "JCC of Greater Vancouver", url: "https://www.jccgv.com/day-camps/", platform: "generic" },
-  { name: "Rainforest Adventure Camps", url: "https://www.rfcamps.com/summer-camps", platform: "generic" },
-  { name: "Clubhouse Kids", url: "https://www.clubhousekids.ca/summer-camps", platform: "generic" },
-  { name: "Funderland", url: "https://www.funderland.ca/summer-camps", platform: "generic" },
+  { name: "JCC of Greater Vancouver", url: "https://jccgv.com/camps-pro-d-days/", platform: "generic" },
+  { name: "Rainforest Adventure Camps", url: "https://www.rfcamps.com", platform: "generic" },
+  { name: "Clubhouse Kids", url: "https://www.clubhousekids.ca", platform: "generic" },
+  { name: "Funderland", url: "https://funderland.ca/summer-camp/", platform: "generic" },
   { name: "Extra Steps", url: "https://www.extrasteps.ca/summer-camps", platform: "generic" },
-  { name: "LDS Society", url: "https://ldsociety.ca/summer-camps", platform: "generic" },
-  { name: "Thrive Kids Canada", url: "https://www.thrivekidscanada.ca/summer-camps", platform: "generic" },
-  { name: "CTS Youth Society", url: "https://www.ctsyouthsociety.com/summer-camps", platform: "generic" },
+  { name: "LDS Society", url: "https://ldsociety.ca/program/camps/", platform: "generic" },
+  { name: "Thrive Kids Canada", url: "https://www.thrivekidscanada.ca/pages/day-camps", platform: "generic" },
+  { name: "CTS Youth Society", url: "https://ctsyouthsociety.com/programs/camps/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // EDUCATION / ACADEMIC / LANGUAGE
   // ══════════════════════════════════════════════════════════════
   { name: "Westside Montessori Academy", url: "https://www.wmasummercamp.com/", platform: "generic" },
-  { name: "Burnaby Family Life", url: "https://www.burnabyfamilylife.org/summer-camps", platform: "generic" },
-  { name: "Renaissance Academy", url: "https://www.renaissanceacademy.ca/summer-camps", platform: "generic" },
-  { name: "Dharma Kids Centre", url: "https://www.dharmakids.ca/summer-camps", platform: "generic" },
-  { name: "Parkland Players", url: "https://www.parklandplayers.com/summer-camps", platform: "generic" },
+  { name: "Burnaby Family Life", url: "https://www.burnabyfamilylife.org/summer-camp", platform: "generic" },
+  { name: "Renaissance Academy", url: "https://renaissanceacademy.ca/spring-summer-winter-pro-d-wondercamps/", platform: "generic" },
+  { name: "Dharma Kids Centre", url: "https://www.dharmakids.ca/burnaby/camps", platform: "generic" },
+  { name: "Parkland Players", url: "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/", platform: "generic" },
   { name: "Alliance Francaise Vancouver", url: "https://www.alliancefrancaise.ca/summer-camps", platform: "generic" },
-  { name: "Crocodile Mandarin", url: "https://www.crocodilemandarin.com/summer-camps", platform: "generic" },
-  { name: "LWL Education", url: "https://www.lwleducation.com/summer-camps", platform: "generic" },
-  { name: "FDT Academy", url: "https://www.fdtacademy.com/summer-camps", platform: "generic" },
+  { name: "Crocodile Mandarin", url: "https://www.crocodilemandarin.com/courses/summer-day-camps.html", platform: "generic" },
+  { name: "LWL Education", url: "https://www.lwleducation.com/summer-camp", platform: "generic" },
+  { name: "FDT Academy", url: "https://fdtacademy.com/debate-camps/", platform: "generic" },
   { name: "Christiane's Lyceum", url: "https://www.christianneslyceum.com/summer-camps", platform: "generic" },
-  { name: "Aspire Learning Academy", url: "https://www.aspiremathacademy.com/summer-camps", platform: "generic" },
+  { name: "Aspire Learning Academy", url: "https://aspiremathacademy.com/camps/", platform: "generic" },
   { name: "Mulgrave School", url: "https://www.mulgrave.com/summer-camps", platform: "generic" },
   { name: "Queen's Academy", url: "https://www.queensacademy.ca/summer-camps", platform: "generic" },
-  { name: "Linbjerg Academy", url: "https://www.lindbjergacademy.com/summer-camps", platform: "generic" },
-  { name: "Pear Tree Education", url: "https://www.pear-tree.ca/summer-camps", platform: "generic" },
+  { name: "Linbjerg Academy", url: "https://www.lindbjergacademy.com/programs", platform: "generic" },
+  { name: "Pear Tree Education", url: "https://www.pear-tree.ca/our-camps/summer-camps-vancouver/", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // COOKING
   // ══════════════════════════════════════════════════════════════
-  { name: "Little Cooks Club", url: "https://littlecooksclub.ca/summer-camps/", platform: "generic" },
+  { name: "Little Cooks Club", url: "https://littlecooksclub.ca/summer-camps", platform: "generic" },
 
   // ══════════════════════════════════════════════════════════════
   // UNIVERSITY / INSTITUTIONAL
@@ -223,7 +223,7 @@ const PROVIDERS = [
   { name: "VanDusen Botanical Garden", url: "https://app.amilia.com/store/en/vancouver-botanical-gardens-association/shop/programs", platform: "amilia" },
 
   // Pike13 platform
-  { name: "Southlands Farm", url: "https://southlandsfarm.pike13.com/schedule", platform: "pike13" },
+  { name: "Southlands Farm", url: "https://southlandsfarm.pike13.com/categories/71400", platform: "pike13" },
 
   // ══════════════════════════════════════════════════════════════
   // MUNICIPAL / RECREATION COMMISSIONS (non-Vancouver, non-Richmond)
