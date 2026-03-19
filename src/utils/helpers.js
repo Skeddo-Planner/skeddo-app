@@ -50,19 +50,25 @@ export function getRegistrationStatus(program) {
   const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
   if (end && end < today) return "completed";
   if (start && start <= today) return "in-progress";
-  if (program.enrollmentStatus === "Full") return "full";
+  if (program.enrollmentStatus === "Full" || program.enrollmentStatus === "Full/Waitlist") return "full";
   if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
   return "open";
 }
 
-/* ─── Municipal provider detection ─── */
-export const MUNICIPAL_PREFIXES = [
+/* ─── Verified pricing provider detection ─── */
+/* Municipal providers have verified pricing from public portals.
+   Other providers with verified pricing (confirmed from registration pages) are also listed. */
+export const VERIFIED_PROVIDERS = [
   "City of Vancouver", "City of Burnaby", "NVRC", "North Vancouver Recreation",
   "City of Richmond", "Richmond Olympic", "District of West Vancouver", "City of New Westminster",
+  "Exceleration", "Soaring Eagle",
 ];
 
+// Keep old name as alias for backward compatibility
+export const MUNICIPAL_PREFIXES = VERIFIED_PROVIDERS;
+
 export function isMunicipalProvider(providerName) {
-  return MUNICIPAL_PREFIXES.some((m) => (providerName || "").includes(m));
+  return VERIFIED_PROVIDERS.some((m) => (providerName || "").includes(m));
 }
 
 /* ─── DB row transformer ─── */
