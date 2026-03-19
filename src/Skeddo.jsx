@@ -450,7 +450,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             whiteSpace: "nowrap",
           }}
         >
-          {toast}
+          &#10003; {toast}
         </div>
       )}
     </div>

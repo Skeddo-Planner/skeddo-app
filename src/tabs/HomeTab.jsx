@@ -108,7 +108,15 @@ export default function HomeTab({
   onEditKid,
 }) {
   const [tipIndex, setTipIndex] = useState(0);
-  const [tipDismissed, setTipDismissed] = useState(false);
+  const [tipDismissed, setTipDismissed] = useState(() => {
+    try {
+      const stored = localStorage.getItem("skeddo_tip_dismissed");
+      if (!stored) return false;
+      const { date } = JSON.parse(stored);
+      // Reset after 24 hours so tips cycle daily
+      return date && (Date.now() - date) < 24 * 60 * 60 * 1000;
+    } catch { return false; }
+  });
 
   const tips = getSeasonalTips();
   const currentTip = tips[tipIndex % tips.length];
@@ -274,7 +282,10 @@ export default function HomeTab({
         >
           {/* Dismiss button */}
           <button
-            onClick={() => setTipDismissed(true)}
+            onClick={() => {
+              setTipDismissed(true);
+              try { localStorage.setItem("skeddo_tip_dismissed", JSON.stringify({ date: Date.now() })); } catch {}
+            }}
             style={{
               position: "absolute",
               top: 10,

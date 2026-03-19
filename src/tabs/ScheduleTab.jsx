@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
@@ -336,6 +336,20 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
   const totalThisWeek = scheduledByDay.reduce((sum, day) => sum + day.length, 0);
 
+  /* ─── Swipe gesture for week navigation ─── */
+  const touchStartX = useRef(null);
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+  const handleTouchEnd = useCallback((e) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(deltaX) > 60) {
+      setWeekStart((prev) => addDays(prev, deltaX < 0 ? 7 : -7));
+    }
+    touchStartX.current = null;
+  }, []);
+
   return (
     <div>
       <h2 style={s.pageTitle}>Schedule</h2>
@@ -417,8 +431,12 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         </button>
       )}
 
-      {/* Day columns */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      {/* Day columns — swipe left/right to change week */}
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{ display: "flex", flexDirection: "column", gap: 6 }}
+      >
         {weekDates.map((date, dayIdx) => {
           const dayPrograms = scheduledByDay[dayIdx];
           const isToday = new Date().toDateString() === date.toDateString();
@@ -561,7 +579,10 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                         {assignedKids.length > 0 && (
                           <>
                             <span style={{ color: C.border, fontSize: 11 }}>·</span>
-                            {assignedKids.map((k) => (
+                            {assignedKids.map((k) => {
+                              const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
+                              const kidColor = KID_COLORS[kidIdx >= 0 ? kidIdx % KID_COLORS.length : 0];
+                              return (
                               <span
                                 key={k.id}
                                 title={k.name}
@@ -569,7 +590,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                                   width: 18,
                                   height: 18,
                                   borderRadius: 6,
-                                  background: `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
+                                  background: kidColor,
                                   color: C.cream,
                                   display: "inline-flex",
                                   alignItems: "center",
@@ -583,7 +604,8 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                               >
                                 {k.name?.[0]?.toUpperCase()}
                               </span>
-                            ))}
+                              );
+                            })}
                           </>
                         )}
                       </div>
