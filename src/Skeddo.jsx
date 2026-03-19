@@ -201,7 +201,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
       provider: dirProgram.provider || "",
       category: dirProgram.category || "Sports",
       status: dirProgram.status || "Exploring",
-      cost: Number(dirProgram.cost) || 0,
+      cost: dirProgram.cost === "TBD" ? 0 : Number(dirProgram.cost) || 0,
       days: dirProgram.days || "",
       times: dirProgram.startTime && dirProgram.endTime
         ? `${dirProgram.startTime}\u2013${dirProgram.endTime}`

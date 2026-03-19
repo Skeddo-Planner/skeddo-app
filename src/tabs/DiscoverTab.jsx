@@ -71,18 +71,55 @@ const CITY_NEIGHBOURHOODS = [
   {
     city: "Vancouver",
     neighbourhoods: [
-      "Downtown", "Dunbar-Southlands", "Fairview", "Grandview-Woodland",
-      "Hastings-Sunrise", "Kensington-Cedar Cottage", "Kerrisdale", "Killarney",
-      "Kitsilano", "Marpole", "Mount Pleasant", "Renfrew-Collingwood",
-      "Riley Park", "Strathcona", "Sunset", "West End", "West Point Grey",
+      "Cambie", "Coal Harbour", "Commercial Drive", "Downtown",
+      "Dunbar-Southlands", "Fairview", "Grandview-Woodland", "Hastings-Sunrise",
+      "Kensington-Cedar Cottage", "Kerrisdale", "Killarney", "Kitsilano",
+      "Main Street", "Marpole", "Mount Pleasant", "Point Grey",
+      "Renfrew-Collingwood", "Riley Park", "Shaughnessy", "Strathcona",
+      "Sunset", "University Endowment Lands", "West End", "West Point Grey",
+      "Yaletown",
     ],
   },
-  { city: "North Vancouver", neighbourhoods: ["North Vancouver"] },
-  { city: "West Vancouver", neighbourhoods: ["West Vancouver"] },
-  { city: "Burnaby", neighbourhoods: ["Burnaby"] },
-  { city: "Richmond", neighbourhoods: ["Richmond"] },
-  { city: "New Westminster", neighbourhoods: ["New Westminster"] },
-  { city: "Greater Vancouver", neighbourhoods: ["Greater Vancouver"] },
+  {
+    city: "Burnaby",
+    neighbourhoods: [
+      "Burnaby Heights", "Capitol Hill", "Cariboo", "Central Park",
+      "Deer Lake", "Edmonds", "Metrotown", "SFU / UniverCity",
+      "South Slope", "Sperling-Duthie",
+    ],
+  },
+  {
+    city: "North Vancouver",
+    neighbourhoods: [
+      "Central Lonsdale", "Deep Cove", "Delbrook", "Lower Capilano",
+      "Lower Lonsdale", "Lynn Creek", "Lynn Valley", "Maplewood", "Seymour",
+    ],
+  },
+  {
+    city: "West Vancouver",
+    neighbourhoods: ["Ambleside", "British Properties", "Gleneagles"],
+  },
+  {
+    city: "Richmond",
+    neighbourhoods: [
+      "Broadmoor", "City Centre", "East Cambie", "Ironwood",
+      "Sea Island", "South Arm", "Steveston", "Thompson",
+    ],
+  },
+  {
+    city: "New Westminster",
+    neighbourhoods: ["Downtown New West", "Moody Park", "Queens Park", "Queensborough"],
+  },
+  { city: "Surrey", neighbourhoods: ["South Surrey"] },
+  {
+    city: "Coquitlam",
+    neighbourhoods: ["Burquitlam", "Central Coquitlam", "Maillardville"],
+  },
+  { city: "Port Coquitlam", neighbourhoods: ["Central Port Coquitlam"] },
+  { city: "Maple Ridge", neighbourhoods: ["Town Centre"] },
+  { city: "Pitt Meadows", neighbourhoods: ["Central Pitt Meadows"] },
+  { city: "Squamish", neighbourhoods: ["Squamish"] },
+  { city: "Bowen Island", neighbourhoods: ["Bowen Island"] },
 ];
 
 const ALL_NEIGHBOURHOODS = CITY_NEIGHBOURHOODS.flatMap((c) => c.neighbourhoods);
@@ -112,10 +149,18 @@ function sortPrograms(programs, sortKey) {
   const sorted = [...programs];
   switch (sortKey) {
     case "price-asc":
-      sorted.sort((a, b) => (a.cost || 0) - (b.cost || 0));
+      sorted.sort((a, b) => {
+        const ca = typeof a.cost === "number" ? a.cost : Infinity;
+        const cb = typeof b.cost === "number" ? b.cost : Infinity;
+        return ca - cb;
+      });
       break;
     case "price-desc":
-      sorted.sort((a, b) => (b.cost || 0) - (a.cost || 0));
+      sorted.sort((a, b) => {
+        const ca = typeof a.cost === "number" ? a.cost : -1;
+        const cb = typeof b.cost === "number" ? b.cost : -1;
+        return cb - ca;
+      });
       break;
     case "starting-soon":
       sorted.sort((a, b) => {
@@ -234,7 +279,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             color: C.ink,
           }}
         >
-          {program.cost ? "$" + Number(program.cost).toLocaleString() : "Free"}
+          {program.cost === "TBD" ? "TBD" : program.cost ? "$" + Number(program.cost).toLocaleString() : "Free"}
         </div>
       </div>
       <div
@@ -470,7 +515,8 @@ export default function DiscoverTab({
       if (maxAge != null && p.ageMin != null && p.ageMin > maxAge) return false;
       // Cost range (multi-select: match ANY selected range)
       if (costRanges) {
-        const cost = p.cost || 0;
+        if (p.cost === "TBD") return true; // Show TBD programs in any price filter
+        const cost = typeof p.cost === "number" ? p.cost : 0;
         const matchesAny = costRanges.some((range) => {
           if (range.max === 0) return cost === 0; // "Free"
           if (range.min === 0 && range.max === Infinity) return true; // "Any price" (shouldn't be in multi-select, but safe)

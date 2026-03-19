@@ -4,6 +4,7 @@ import { STORAGE_KEY, uid } from "../constants/sampleData";
 
 /* ─── CURRENCY FORMATTER ─── */
 export const fmt$ = (n) =>
+  n === "TBD" ? "TBD" :
   Number(n || 0).toLocaleString("en-CA", {
     style: "currency",
     currency: "CAD",
