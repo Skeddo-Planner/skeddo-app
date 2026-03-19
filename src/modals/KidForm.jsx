@@ -45,7 +45,9 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
           {isEdit ? "Save" : "Add Kid"}
         </button>
         {isEdit && onDelete && (
-          <button className="del-btn" style={s.dangerBtn} onClick={onDelete}>
+          <button className="del-btn" style={s.dangerBtn} onClick={() => {
+            if (window.confirm(`Remove ${form.name || "this kid"}? This can't be undone.`)) onDelete();
+          }}>
             Delete
           </button>
         )}

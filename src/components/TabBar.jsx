@@ -2,11 +2,11 @@ import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 
 const TABS = [
-  { id: "home", label: "Home", icon: "\u2302" },
+  { id: "home", label: "Home", icon: "\uD83C\uDFE0" },
   { id: "discover", label: "Discover", icon: "\uD83D\uDD0D" },
   { id: "schedule", label: "Schedule", icon: "\uD83D\uDCC5" },
-  { id: "programs", label: "Programs", icon: "\u25A6" },
-  { id: "budget", label: "Budget", icon: "$" },
+  { id: "programs", label: "Programs", icon: "\uD83D\uDCCB" },
+  { id: "budget", label: "Budget", icon: "\uD83D\uDCB0" },
 ];
 
 export default function TabBar({ tab, setTab }) {

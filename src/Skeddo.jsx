@@ -22,8 +22,10 @@ import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 
-/* Check for ?preview=true to bypass the Coming Soon page */
-const isPreview = new URLSearchParams(window.location.search).get("preview") === "true";
+/* Check for ?preview=true OR if we're past the April 1, 2026 launch date to bypass the Coming Soon page */
+const isPreview =
+  new URLSearchParams(window.location.search).get("preview") === "true" ||
+  new Date() >= new Date("2026-04-01T00:00:00-07:00");
 
 export default function Skeddo() {
   const { user, loading: authLoading, signOut } = useAuth();
@@ -112,6 +114,12 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
 
   const [modal, setModal] = useState(null);
   const [form, setForm] = useState({});
+  const [toast, setToast] = useState(null);
+
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 2000);
+  };
 
   /* ── Scroll to top on tab switch ── */
   useEffect(() => {
@@ -163,22 +171,26 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
       id: form.id || uid(),
     });
     setModal(null);
+    showToast(form.id ? "Program updated" : "Program added");
   };
 
   const handleDeleteProgram = (id) => {
     deleteProgram(id);
     setModal(null);
+    showToast("Program deleted");
   };
 
   const handleSaveKid = () => {
     if (!form.name?.trim()) return;
     saveKid({ ...form, name: form.name.trim(), id: form.id || uid() });
     setModal(null);
+    showToast(form.id ? "Kid updated" : "Kid added");
   };
 
   const handleDeleteKid = (id) => {
     deleteKid(id);
     setModal(null);
+    showToast("Kid removed");
   };
 
   const handleAddToSchedule = (dirProgram) => {
@@ -205,6 +217,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
       notes: "",
     });
     setModal(null);
+    showToast("Added to your schedule");
   };
 
   const handleNavigateToTab = (tabId, statusFilterVal, kidId) => {
@@ -311,6 +324,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             kidFilter={kidFilter}
             onKidFilter={setKidFilter}
             onOpenDetail={openDetail}
+            onNavigateToDiscover={() => handleNavigateToTab("discover")}
           />
         )}
 
@@ -349,22 +363,23 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
       <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} />
 
       {/* ─── MODALS ─── */}
-      {modal?.type === "programDetail" && (
-        <ProgramDetail
-          program={modal.data}
-          kids={kids}
-          onCycleStatus={() => {
-            cycleStatus(modal.data.id);
-            const order = ["Enrolled", "Waitlist", "Exploring"];
-            const idx = order.indexOf(modal.data.status);
-            setModal({ ...modal, data: { ...modal.data, status: order[(idx + 1) % 3] } });
-          }}
-          onEdit={() => openEditProgram(modal.data)}
-          onDelete={() => handleDeleteProgram(modal.data.id)}
-          onClose={() => setModal(null)}
-          fmt$={fmt$}
-        />
-      )}
+      {modal?.type === "programDetail" && (() => {
+        // Read from current programs state to avoid stale modal data
+        const currentProgram = programs.find((p) => p.id === modal.data.id) || modal.data;
+        return (
+          <ProgramDetail
+            program={currentProgram}
+            kids={kids}
+            onCycleStatus={() => {
+              cycleStatus(currentProgram.id);
+            }}
+            onEdit={() => openEditProgram(currentProgram)}
+            onDelete={() => handleDeleteProgram(currentProgram.id)}
+            onClose={() => setModal(null)}
+            fmt$={fmt$}
+          />
+        );
+      })()}
 
       {modal?.type === "directoryDetail" && (
         <DirectoryDetail
@@ -407,6 +422,31 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           onSignOut={onSignOut}
           onClose={() => setModal(null)}
         />
+      )}
+
+      {/* Toast notification */}
+      {toast && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 90,
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: C.ink,
+            color: C.cream,
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 13,
+            fontWeight: 600,
+            padding: "10px 20px",
+            borderRadius: 10,
+            boxShadow: "0 4px 16px rgba(26,46,38,0.2)",
+            zIndex: 9999,
+            animation: "fadeIn 0.2s ease",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {toast}
+        </div>
       )}
     </div>
   );

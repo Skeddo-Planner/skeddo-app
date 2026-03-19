@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
+import KidFilterBar from "../components/KidFilterBar";
 
 const DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -301,9 +302,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
   );
 }
 
-import KidFilterBar from "../components/KidFilterBar";
-
-export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail }) {
+export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover }) {
   /* Filter programs by kid if selected */
   const visiblePrograms = kidFilter
     ? programs.filter((p) => (p.kidIds || []).includes(kidFilter))
@@ -613,6 +612,20 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           <span style={{ fontSize: 28 }}>📅</span>
           <p style={{ marginTop: 8 }}>No programs scheduled this week.</p>
           <p style={{ fontSize: 12, color: C.muted }}>Try navigating to a different week, or add programs from the Discover tab.</p>
+          {onNavigateToDiscover && (
+            <button
+              onClick={onNavigateToDiscover}
+              style={{
+                ...s.primaryBtn,
+                marginTop: 12,
+                padding: "10px 24px",
+                fontSize: 13,
+                flex: "none",
+              }}
+            >
+              Browse Programs
+            </button>
+          )}
         </div>
       )}
     </div>

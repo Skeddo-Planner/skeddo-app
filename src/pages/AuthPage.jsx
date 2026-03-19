@@ -2,6 +2,7 @@ import { useState } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../lib/supabase";
 
 export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
   const { signUp, signIn } = useAuth();
@@ -10,6 +11,8 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
 
   const isSignUp = mode === "signup";
   const title = isSignUp ? "Create your account" : "Welcome back";
@@ -42,6 +45,92 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
       setLoading(false);
     }
   };
+
+  const handleForgotPassword = async () => {
+    if (!email.trim()) {
+      setError("Please enter your email address first, then tap Forgot Password.");
+      return;
+    }
+    setResetLoading(true);
+    setError("");
+    try {
+      const { error: resetErr } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin,
+      });
+      if (resetErr) throw resetErr;
+      setResetSent(true);
+    } catch (err) {
+      setError(err.message || "Could not send reset email. Please try again.");
+    } finally {
+      setResetLoading(false);
+    }
+  };
+
+  if (resetSent) {
+    return (
+      <div
+        style={{
+          fontFamily: "'Barlow', sans-serif",
+          background: C.cream,
+          minHeight: "100vh",
+          maxWidth: 480,
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "40px 24px",
+          textAlign: "center",
+        }}
+      >
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+          body { background: ${C.cream}; }
+          @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
+        <div style={{ animation: "fadeUp 0.4s ease" }}>
+          <div style={{ fontSize: 48, marginBottom: 16 }}>&#9993;</div>
+          <h1
+            style={{
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: 26,
+              color: C.ink,
+              marginBottom: 8,
+            }}
+          >
+            Check your email
+          </h1>
+          <p
+            style={{
+              fontSize: 14,
+              color: C.muted,
+              lineHeight: 1.6,
+              maxWidth: 300,
+              margin: "0 auto 24px",
+            }}
+          >
+            We sent a password reset link to <strong style={{ color: C.ink }}>{email}</strong>.
+            Follow the link to set a new password.
+          </p>
+          <button
+            onClick={() => { setResetSent(false); setError(""); }}
+            style={{
+              ...s.secondaryBtn,
+              padding: "12px 32px",
+              borderRadius: 12,
+              fontSize: 14,
+              flex: "none",
+            }}
+          >
+            Back to Sign In
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (confirmationSent) {
     return (
@@ -212,6 +301,28 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
               minLength={6}
               style={s.input}
             />
+            {!isSignUp && (
+              <button
+                type="button"
+                onClick={handleForgotPassword}
+                disabled={resetLoading}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: C.seaGreen,
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: resetLoading ? "not-allowed" : "pointer",
+                  padding: 0,
+                  marginTop: 6,
+                  display: "block",
+                  opacity: resetLoading ? 0.6 : 1,
+                }}
+              >
+                {resetLoading ? "Sending..." : "Forgot password?"}
+              </button>
+            )}
           </div>
 
           {error && (

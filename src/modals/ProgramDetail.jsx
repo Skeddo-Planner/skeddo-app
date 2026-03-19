@@ -155,7 +155,9 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         <button style={s.primaryBtn} onClick={onEdit}>
           Edit
         </button>
-        <button className="del-btn" style={s.dangerBtn} onClick={onDelete}>
+        <button className="del-btn" style={s.dangerBtn} onClick={() => {
+          if (window.confirm(`Delete "${p.name}"? This can't be undone.`)) onDelete();
+        }}>
           Delete
         </button>
       </div>

@@ -269,49 +269,59 @@ export function useAppData(userId) {
     } catch {}
   }, [programs, kids]);
 
-  // Save favorites to localStorage
+  // Save favorites to localStorage + Supabase (debounced)
+  const favoritesTimerRef = useRef(null);
   useEffect(() => {
     if (!initialLoadDone.current) return;
     try {
       localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
     } catch {}
-    // Also save to Supabase
+    // Debounce Supabase write
     if (usingSupabase.current && userId) {
-      supabase
-        .from("profiles")
-        .update({ favorites })
-        .eq("id", userId)
-        .then(({ error }) => {
-          if (error) console.warn("Failed to save favorites to Supabase:", error);
-        });
+      if (favoritesTimerRef.current) clearTimeout(favoritesTimerRef.current);
+      favoritesTimerRef.current = setTimeout(() => {
+        supabase
+          .from("profiles")
+          .update({ favorites })
+          .eq("id", userId)
+          .then(({ error }) => {
+            if (error) console.warn("Failed to save favorites to Supabase:", error);
+          });
+      }, 500);
     }
+    return () => { if (favoritesTimerRef.current) clearTimeout(favoritesTimerRef.current); };
   }, [favorites, userId]);
 
-  // Save profile to localStorage + Supabase
+  // Save profile to localStorage + Supabase (debounced)
+  const profileTimerRef = useRef(null);
   useEffect(() => {
     if (!initialLoadDone.current) return;
     try {
       localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
     } catch {}
-    // Also save to Supabase
+    // Debounce Supabase write
     if (usingSupabase.current && userId) {
-      const dbProfile = {
-        display_name: profile.displayName || "",
-        postal_code: profile.postalCode || "",
-        budget_goal: Number(profile.budgetGoal) || 0,
-        plan: profile.plan || "free",
-        notify_registration: profile.notifyRegistration !== false,
-        notify_new_programs: profile.notifyNewPrograms !== false,
-        notify_weekly_summary: profile.notifyWeeklySummary !== false,
-      };
-      supabase
-        .from("profiles")
-        .update(dbProfile)
-        .eq("id", userId)
-        .then(({ error }) => {
-          if (error) console.warn("Failed to save profile to Supabase:", error);
-        });
+      if (profileTimerRef.current) clearTimeout(profileTimerRef.current);
+      profileTimerRef.current = setTimeout(() => {
+        const dbProfile = {
+          display_name: profile.displayName || "",
+          postal_code: profile.postalCode || "",
+          budget_goal: Number(profile.budgetGoal) || 0,
+          plan: profile.plan || "free",
+          notify_registration: profile.notifyRegistration !== false,
+          notify_new_programs: profile.notifyNewPrograms !== false,
+          notify_weekly_summary: profile.notifyWeeklySummary !== false,
+        };
+        supabase
+          .from("profiles")
+          .update(dbProfile)
+          .eq("id", userId)
+          .then(({ error }) => {
+            if (error) console.warn("Failed to save profile to Supabase:", error);
+          });
+      }, 500);
     }
+    return () => { if (profileTimerRef.current) clearTimeout(profileTimerRef.current); };
   }, [profile, userId]);
 
   /* ══════════════════════════════════════════════
@@ -490,9 +500,28 @@ export function useAppData(userId) {
 
   const deleteKid = useCallback((id) => {
     setKids((prev) => prev.filter((k) => k.id !== id));
-    setPrograms((prev) =>
-      prev.map((p) => ({ ...p, kidIds: (p.kidIds || []).filter((kid) => kid !== id) }))
-    );
+    setPrograms((prev) => {
+      const updated = prev.map((p) => ({
+        ...p,
+        kidIds: (p.kidIds || []).filter((kid) => kid !== id),
+      }));
+      // Sync cleaned kidIds to Supabase for affected programs
+      if (usingSupabase.current && userId) {
+        updated.forEach((p) => {
+          const original = prev.find((op) => op.id === p.id);
+          if (original && (original.kidIds || []).includes(id)) {
+            supabase
+              .from("user_programs")
+              .update({ kid_ids: p.kidIds })
+              .eq("id", p.id)
+              .then(({ error }) => {
+                if (error) console.warn("Failed to update program kidIds:", error);
+              });
+          }
+        });
+      }
+      return updated;
+    });
     if (usingSupabase.current && userId) {
       supabase.from("kids").delete().eq("id", id)
         .then(({ error }) => { if (error) console.warn("Failed to delete kid:", error); });

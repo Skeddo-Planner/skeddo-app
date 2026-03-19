@@ -2,7 +2,7 @@ import { useState } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 
-const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+import { uid } from "../constants/sampleData";
 
 export default function OnboardingFlow({ onComplete }) {
   const [screen, setScreen] = useState(0);
@@ -392,7 +392,10 @@ export default function OnboardingFlow({ onComplete }) {
                   ...s.secondaryBtn,
                   textAlign: "center",
                 }}
-                onClick={() => setScreen(3)}
+                onClick={() => {
+                  setKids([]); // Skip means don't save any kids
+                  setScreen(3);
+                }}
               >
                 Skip
               </button>
@@ -400,10 +403,12 @@ export default function OnboardingFlow({ onComplete }) {
                 style={{
                   ...s.primaryBtn,
                   textAlign: "center",
+                  opacity: kids.length === 0 ? 0.5 : 1,
                 }}
                 onClick={() => setScreen(3)}
+                disabled={kids.length === 0}
               >
-                Next
+                Next ({kids.length} kid{kids.length !== 1 ? "s" : ""})
               </button>
             </div>
           </div>

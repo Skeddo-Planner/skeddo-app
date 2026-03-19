@@ -152,7 +152,7 @@ export default function ComingSoonPage() {
               color: "rgba(250,248,243,0.8)",
             }}
           >
-            Browse <strong style={{ color: C.seaGreen }}>1,800+ camps & programs</strong> across Vancouver
+            Browse <strong style={{ color: C.seaGreen }}>5,000+ camps & programs</strong> across Vancouver
             <br />
             Track waitlists · Manage budgets · Coordinate schedules
           </p>

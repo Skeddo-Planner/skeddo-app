@@ -1,20 +1,8 @@
 export const STORAGE_KEY = "skeddo-app-v3";
 export const uid = () =>
-  Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-
-/* ─── SAMPLE PROGRAMS (user's personal tracker) ─── */
-export const SAMPLE_PROGRAMS = [
-  { id: uid(), name: "Soccer Skills Camp", provider: "Riverside FC", category: "Sports", status: "Enrolled", cost: 285, days: "Mon\u2013Fri", times: "9:00\u201312:00", startDate: "2026-07-06", endDate: "2026-07-17", kidIds: [], seasonType: "Summer Camp", ageMin: 6, ageMax: 10, location: "Trout Lake Park", neighbourhood: "East Vancouver", registrationUrl: "" },
-  { id: uid(), name: "Summer Art Intensive", provider: "Hillside Arts Centre", category: "Arts", status: "Enrolled", cost: 320, days: "Tue/Thu", times: "1:00\u20134:00", startDate: "2026-07-07", endDate: "2026-08-13", kidIds: [], seasonType: "Summer Camp", ageMin: 5, ageMax: 12, location: "Hillside Arts Centre", neighbourhood: "Kitsilano", registrationUrl: "" },
-  { id: uid(), name: "Swim Lessons", provider: "Aqua Academy", category: "Sports", status: "Waitlist", cost: 180, days: "Mon/Wed", times: "10:00\u201310:45", startDate: "2026-07-06", endDate: "2026-08-12", kidIds: [], seasonType: "Summer Camp", ageMin: 4, ageMax: 8, location: "Kitsilano Pool", neighbourhood: "Kitsilano", registrationUrl: "" },
-  { id: uid(), name: "Coding for Kids", provider: "TechSprouts", category: "STEM", status: "Waitlist", cost: 250, days: "Wed", times: "3:30\u20135:00", startDate: "2026-07-08", endDate: "2026-08-12", kidIds: [], seasonType: "Summer Camp", ageMin: 8, ageMax: 12, location: "TechSprouts Lab", neighbourhood: "Mount Pleasant", registrationUrl: "" },
-  { id: uid(), name: "Piano Lessons", provider: "Melody Studio", category: "Music", status: "Enrolled", cost: 400, days: "Sat", times: "11:00\u201311:45", startDate: "2026-06-01", endDate: "2026-08-29", kidIds: [], seasonType: "Year-Round", ageMin: 5, ageMax: 14, location: "Melody Studio", neighbourhood: "Main Street", registrationUrl: "" },
-  { id: uid(), name: "Soccer Camp", provider: "Riverside FC", category: "Sports", status: "Exploring", cost: 195, days: "Mon\u2013Fri", times: "9:00\u20133:00", startDate: "2026-08-10", endDate: "2026-08-14", kidIds: [], seasonType: "Summer Camp", ageMin: 7, ageMax: 12, location: "Trout Lake Park", neighbourhood: "East Vancouver", registrationUrl: "" },
-  { id: uid(), name: "Nature Explorers", provider: "Trailhead Outdoors", category: "Outdoor", status: "Enrolled", cost: 150, days: "Fri", times: "9:30\u201312:30", startDate: "2026-07-10", endDate: "2026-08-14", kidIds: [], seasonType: "Summer Camp", ageMin: 5, ageMax: 9, location: "Pacific Spirit Park", neighbourhood: "UBC", registrationUrl: "" },
-  { id: uid(), name: "Young Chefs", provider: "Community Kitchen", category: "Life Skills", status: "Exploring", cost: 175, days: "Sat", times: "10:00\u201312:00", startDate: "2026-07-12", endDate: "2026-08-09", kidIds: [], seasonType: "Summer Camp", ageMin: 6, ageMax: 12, location: "Community Kitchen", neighbourhood: "Commercial Drive", registrationUrl: "" },
-  { id: uid(), name: "Drama & Theatre", provider: "Stage Door Youth", category: "Arts", status: "Enrolled", cost: 295, days: "Mon/Wed/Fri", times: "1:00\u20133:00", startDate: "2026-07-06", endDate: "2026-07-24", kidIds: [], seasonType: "Summer Camp", ageMin: 7, ageMax: 13, location: "Stage Door Studio", neighbourhood: "Granville Island", registrationUrl: "" },
-  { id: uid(), name: "Gymnastics", provider: "FlipZone", category: "Sports", status: "Waitlist", cost: 220, days: "Tue/Thu", times: "4:00\u20135:30", startDate: "2026-07-07", endDate: "2026-08-13", kidIds: [], seasonType: "Summer Camp", ageMin: 4, ageMax: 10, location: "FlipZone Gym", neighbourhood: "North Vancouver", registrationUrl: "" },
-];
+  typeof crypto !== "undefined" && crypto.randomUUID
+    ? crypto.randomUUID()
+    : Date.now().toString(36) + Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 10);
 
 /* ─── DIRECTORY PROGRAMS (browsable/discoverable) ─── */
 export const DIRECTORY_PROGRAMS = [
