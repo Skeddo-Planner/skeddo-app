@@ -238,11 +238,21 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
 
   /* ── Loading state ── */
   if (!loaded) return (
-    <div style={{ ...s.app, display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
-      <div style={{ textAlign: "center" }}>
-        <div style={{ ...s.logoMark, fontSize: 32, marginBottom: 12, color: C.ink }}>
-          sked<em style={{ color: C.olive }}>do</em>
-        </div>
+    <div style={{
+      ...s.app,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "100vh",
+      paddingBottom: 0,
+    }}>
+      <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
+      <div style={{ textAlign: "center", animation: "pulse 1.8s ease-in-out infinite" }}>
+        <img
+          src="/skeddo-logo-dark.png"
+          alt="Skeddo"
+          style={{ height: 64, width: "auto", borderRadius: 14, marginBottom: 16 }}
+        />
         <div style={{ color: C.muted, fontSize: 13, fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>
           Loading your planner...
         </div>
