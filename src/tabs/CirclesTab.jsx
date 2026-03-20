@@ -222,7 +222,7 @@ function CirclesHome({ onOpenCircle, onOpenInvite }) {
             <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>Invite a friend, get a free month</span>
           </div>
           <p style={{ fontSize: 12, color: C.muted, margin: 0, lineHeight: 1.5, fontFamily: "'Barlow', sans-serif" }}>
-            When they join Skeddo Plus, you both get a free month. Share your link &rarr;
+            When they join Skeddo Plus within 7 days, you both get a free month. Share your link &rarr;
           </p>
         </div>
       </div>
@@ -230,10 +230,24 @@ function CirclesHome({ onOpenCircle, onOpenInvite }) {
   );
 }
 
+/* ─── Duplicate detection: count how many parents shared the same activity+provider ─── */
+function getDuplicateCounts(feed) {
+  const counts = {};
+  feed.forEach((item) => {
+    const key = `${item.activity}|||${item.provider}`;
+    counts[key] = (counts[key] || 0) + 1;
+  });
+  return counts;
+}
+
 /* ─── Screen 2: Circle Feed ─── */
 function CircleFeed({ circle, onBack, onOpenShare }) {
   const [saved, setSaved] = useState({ 2: true });
+  const [flagged, setFlagged] = useState({});
   const toggle = (id) => setSaved((p) => ({ ...p, [id]: !p[id] }));
+  const toggleFlag = (id) => setFlagged((p) => ({ ...p, [id]: !p[id] }));
+
+  const dupCounts = getDuplicateCounts(SAMPLE_FEED);
 
   return (
     <div>
@@ -257,8 +271,25 @@ function CircleFeed({ circle, onBack, onOpenShare }) {
       </div>
 
       <div style={{ padding: "14px 20px" }}>
-        {SAMPLE_FEED.map((item) => (
+        {SAMPLE_FEED.map((item) => {
+          const dupKey = `${item.activity}|||${item.provider}`;
+          const dupCount = dupCounts[dupKey];
+
+          return (
           <div key={item.id} style={{ background: C.white, borderRadius: 14, padding: 16, marginBottom: 12, border: `1px solid ${C.border}` }}>
+            {/* Duplicate indicator */}
+            {dupCount > 1 && (
+              <div style={{
+                display: "flex", alignItems: "center", gap: 6, marginBottom: 10,
+                padding: "5px 10px", background: SOFT.gold, borderRadius: 8,
+              }}>
+                <span style={{ fontSize: 12 }}>{"\uD83D\uDD25"}</span>
+                <span style={{ fontSize: 11, fontWeight: 600, color: C.olive, fontFamily: "'Barlow', sans-serif" }}>
+                  {dupCount} parents shared this program
+                </span>
+              </div>
+            )}
+
             {/* Who shared */}
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
               <div style={{
@@ -296,7 +327,7 @@ function CircleFeed({ circle, onBack, onOpenShare }) {
               </div>
             </div>
 
-            {/* Actions */}
+            {/* Actions: Bookmark, Register, Flag */}
             <div style={{ display: "flex", gap: 8 }}>
               <button
                 onClick={() => toggle(item.id)}
@@ -319,9 +350,26 @@ function CircleFeed({ circle, onBack, onOpenShare }) {
               }}>
                 Register &rarr;
               </button>
+              <button
+                onClick={() => toggleFlag(item.id)}
+                style={{
+                  padding: "9px 12px",
+                  background: flagged[item.id] ? SOFT.lilac : "transparent",
+                  border: `1.5px solid ${flagged[item.id] ? C.lilac : C.border}`,
+                  borderRadius: 9,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                  color: flagged[item.id] ? C.lilac : C.muted,
+                  cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
+                }}
+                aria-label="Flag outdated info"
+                title="Report outdated info"
+              >
+                {flagged[item.id] ? "\u2713" : "\u26A0\uFE0F"}
+              </button>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -413,7 +461,7 @@ function InviteScreen({ onBack }) {
             Give a month,<br />get a <span style={{ fontStyle: "italic", color: C.olive }}>month</span>
           </div>
           <p style={{ fontSize: 13, opacity: 0.75, lineHeight: 1.5, margin: "0 0 16px", fontFamily: "'Barlow', sans-serif" }}>
-            Invite friends to Skeddo Plus. When they subscribe, you both get a free month. No limits.
+            Invite friends to Skeddo Plus. When they subscribe within 7 days, you both get a free month. No limits.
           </p>
           <div style={{ display: "flex", gap: 16, paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.12)" }}>
             {[
@@ -478,7 +526,7 @@ function InviteScreen({ onBack }) {
           <div style={{ fontSize: 13, fontWeight: 600, color: C.ink, marginBottom: 12, fontFamily: "'Barlow', sans-serif" }}>How referrals work</div>
           {[
             "Share your invite link with a friend",
-            "They sign up for Skeddo Plus",
+            "They sign up for Skeddo Plus within 7 days",
             "You both get a free month \u2014 instantly",
           ].map((text, i) => (
             <div key={i} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
