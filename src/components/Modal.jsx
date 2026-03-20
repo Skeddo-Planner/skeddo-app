@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 
-export default function Modal({ onClose, children }) {
+export default function Modal({ onClose, children, centered }) {
   const modalRef = useRef(null);
 
   /* Close on Escape key */
@@ -63,12 +63,12 @@ export default function Modal({ onClose, children }) {
   return (
     <div
       className="modal-bg"
-      style={s.overlay}
+      style={{ ...s.overlay, ...(centered ? { alignItems: "center", padding: "20px" } : {}) }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
       role="dialog"
       aria-modal="true"
     >
-      <div className="modal-content" ref={modalRef} style={s.modal}>
+      <div className="modal-content" ref={modalRef} style={{ ...s.modal, ...(centered ? { borderRadius: 20 } : {}) }}>
         <button
           onClick={onClose}
           aria-label="Close"

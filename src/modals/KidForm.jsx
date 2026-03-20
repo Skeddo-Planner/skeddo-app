@@ -42,7 +42,7 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
   }, [dropdownOpen]);
 
   return (
-    <Modal onClose={onClose}>
+    <Modal onClose={onClose} centered>
       <h3 style={s.modalTitle}>{isEdit ? "Edit Kid" : "Add Kid"}</h3>
 
       <Label>Name</Label>
