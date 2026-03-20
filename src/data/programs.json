@@ -442,7 +442,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 375,
+    "cost": 650,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kitsilano",
     "address": "1888 West 1st Avenue, Vancouver, BC",
@@ -458,7 +458,7 @@
       "style"
     ],
     "activityType": "Fashion Design",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -475,7 +475,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 375,
+    "cost": 650,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kitsilano",
     "address": "1888 West 1st Avenue, Vancouver, BC",
@@ -491,7 +491,7 @@
       "sewing"
     ],
     "activityType": "Fashion Design",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -508,7 +508,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 375,
+    "cost": 295,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kitsilano",
     "address": "1888 West 1st Avenue, Vancouver, BC",
@@ -524,7 +524,7 @@
       "summer"
     ],
     "activityType": "Fashion Design",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -541,7 +541,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 375,
+    "cost": 295,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kitsilano",
     "address": "1888 West 1st Avenue, Vancouver, BC",
@@ -557,7 +557,7 @@
       "sewing"
     ],
     "activityType": "Fashion Design",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1378,7 +1378,7 @@
       "avengers"
     ],
     "activityType": "General Music",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1411,7 +1411,7 @@
       "harry potter"
     ],
     "activityType": "General Music",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1443,7 +1443,7 @@
       "instruments"
     ],
     "activityType": "General Music",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1475,7 +1475,7 @@
       "instruments"
     ],
     "activityType": "General Music",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1492,7 +1492,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 300,
+    "cost": 350,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Deep Cove",
     "address": "1046 Deep Cove Rd, North Vancouver, BC",
@@ -1507,7 +1507,7 @@
       "acting"
     ],
     "activityType": "Theatre & Drama",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1524,7 +1524,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 300,
+    "cost": 350,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Deep Cove",
     "address": "1046 Deep Cove Rd, North Vancouver, BC",
@@ -1539,7 +1539,7 @@
       "acting"
     ],
     "activityType": "Theatre & Drama",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1556,7 +1556,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 300,
+    "cost": 350,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Deep Cove",
     "address": "1046 Deep Cove Rd, North Vancouver, BC",
@@ -1571,7 +1571,7 @@
       "acting"
     ],
     "activityType": "Theatre & Drama",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -1588,7 +1588,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 300,
+    "cost": 350,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Deep Cove",
     "address": "1046 Deep Cove Rd, North Vancouver, BC",
@@ -1603,7 +1603,7 @@
       "acting"
     ],
     "activityType": "Theatre & Drama",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -3995,7 +3995,7 @@
       "engineering"
     ],
     "activityType": "STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -4028,7 +4028,7 @@
       "engineering"
     ],
     "activityType": "STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -4061,7 +4061,7 @@
       "engineering"
     ],
     "activityType": "STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -4094,7 +4094,7 @@
       "engineering"
     ],
     "activityType": "STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -6177,7 +6177,7 @@
       "sports"
     ],
     "activityType": "Volleyball",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -6208,7 +6208,7 @@
       "sports"
     ],
     "activityType": "Volleyball",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -6239,7 +6239,7 @@
       "sports"
     ],
     "activityType": "Volleyball",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -6270,7 +6270,7 @@
       "sports"
     ],
     "activityType": "Volleyball",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -7243,7 +7243,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 250,
+    "cost": 65,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Surrey",
     "address": "114-15272 Croydon Drive, Surrey, BC",
@@ -7257,7 +7257,7 @@
       "tumbling"
     ],
     "activityType": "Gymnastics",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -7274,7 +7274,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 250,
+    "cost": 65,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Surrey",
     "address": "114-15272 Croydon Drive, Surrey, BC",
@@ -7288,7 +7288,7 @@
       "tumbling"
     ],
     "activityType": "Gymnastics",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -7305,7 +7305,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 250,
+    "cost": 65,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Surrey",
     "address": "114-15272 Croydon Drive, Surrey, BC",
@@ -7319,7 +7319,7 @@
       "tumbling"
     ],
     "activityType": "Gymnastics",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -7336,7 +7336,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 250,
+    "cost": 65,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Surrey",
     "address": "114-15272 Croydon Drive, Surrey, BC",
@@ -7350,7 +7350,7 @@
       "tumbling"
     ],
     "activityType": "Gymnastics",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -14807,7 +14807,7 @@
       "immersion"
     ],
     "activityType": "Language",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -14839,7 +14839,7 @@
       "immersion"
     ],
     "activityType": "Language",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -14871,7 +14871,7 @@
       "immersion"
     ],
     "activityType": "Language",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -14903,7 +14903,7 @@
       "immersion"
     ],
     "activityType": "Language",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -14935,7 +14935,7 @@
       "immersion"
     ],
     "activityType": "Language",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -14967,7 +14967,7 @@
       "immersion"
     ],
     "activityType": "Language",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -15644,7 +15644,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 325,
+    "cost": 499,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
     "address": "Suite 215 - 2678 West Broadway, Vancouver, BC",
@@ -15660,7 +15660,7 @@
       "sports"
     ],
     "activityType": "General STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -15677,7 +15677,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 325,
+    "cost": 499,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
     "address": "Suite 215 - 2678 West Broadway, Vancouver, BC",
@@ -15693,7 +15693,7 @@
       "sports"
     ],
     "activityType": "General STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -15710,7 +15710,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 325,
+    "cost": 499,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
     "address": "Suite 215 - 2678 West Broadway, Vancouver, BC",
@@ -15726,7 +15726,7 @@
       "sports"
     ],
     "activityType": "General STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -15743,7 +15743,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 325,
+    "cost": 499,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
     "address": "Suite 215 - 2678 West Broadway, Vancouver, BC",
@@ -15759,7 +15759,7 @@
       "sports"
     ],
     "activityType": "General STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -15776,7 +15776,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 325,
+    "cost": 499,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
     "address": "Suite 215 - 2678 West Broadway, Vancouver, BC",
@@ -15792,7 +15792,7 @@
       "sports"
     ],
     "activityType": "General STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
@@ -15809,7 +15809,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 325,
+    "cost": 499,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kitsilano",
     "address": "Suite 215 - 2678 West Broadway, Vancouver, BC",
@@ -15825,7 +15825,7 @@
       "sports"
     ],
     "activityType": "General STEM",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true
   },
   {
