@@ -151,30 +151,25 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
     };
     window.addEventListener("appinstalled", installedHandler);
 
-    // Determine platform for fallback messaging
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-    // If already standalone (installed PWA), skip showing banner
-    if (!isStandalone) {
-      if (isIOS && !window.navigator.standalone) {
-        // iOS: show manual share-button instructions immediately
+    if (isIOS && !window.navigator.standalone) {
+      setShowInstallBanner(true);
+    }
+
+    // On Android/desktop, always show banner after 3s as fallback.
+    // If beforeinstallprompt fires first, the Install button will appear.
+    // If not (e.g. after cross-browser uninstall), show manual instructions.
+    // The banner hides itself when actually running as standalone PWA.
+    let timer;
+    if (!isIOS) {
+      timer = setTimeout(() => {
         setShowInstallBanner(true);
-      } else if (!isIOS) {
-        // Android/desktop: show banner after short delay as fallback
-        // (beforeinstallprompt may fire sooner and show the Install button)
-        const timer = setTimeout(() => {
-          setShowInstallBanner(true);
-        }, 3000);
-        return () => {
-          clearTimeout(timer);
-          window.removeEventListener("beforeinstallprompt", handler);
-          window.removeEventListener("appinstalled", installedHandler);
-          mq.removeEventListener("change", mqHandler);
-        };
-      }
+      }, 3000);
     }
 
     return () => {
+      if (timer) clearTimeout(timer);
       window.removeEventListener("beforeinstallprompt", handler);
       window.removeEventListener("appinstalled", installedHandler);
       mq.removeEventListener("change", mqHandler);
@@ -400,7 +395,8 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             onOpenAddKid={openAddKid}
             onEditKid={openEditKid}
             installPrompt={installPrompt}
-            showInstallBanner={showInstallBanner && !isStandalone}
+            showInstallBanner={showInstallBanner}
+            isStandalone={isStandalone}
             onInstallClick={handleInstallClick}
             onDismissInstall={() => setShowInstallBanner(false)}
           />
