@@ -20,6 +20,7 @@ import KidForm from "./modals/KidForm";
 import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import InfoPage from "./pages/InfoPages";
+import { usePushNotifications } from "./hooks/usePushNotifications";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
@@ -119,6 +120,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   const [form, setForm] = useState({});
   const [toast, setToast] = useState(null);
   const [infoPage, setInfoPage] = useState(null);
+  const pushNotifications = usePushNotifications();
 
   /* ── PWA Install Prompt ── */
   const [installPrompt, setInstallPrompt] = useState(null);
@@ -547,6 +549,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           lastSynced={lastSynced}
           onSignOut={onSignOut}
           onClose={() => setModal(null)}
+          pushNotifications={pushNotifications}
         />
       )}
 

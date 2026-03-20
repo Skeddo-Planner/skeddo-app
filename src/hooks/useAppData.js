@@ -91,6 +91,12 @@ const profileToDb = (p, userId) => ({
   notify_registration: p.notifyRegistration !== false,
   notify_new_programs: p.notifyNewPrograms !== false,
   notify_weekly_summary: p.notifyWeeklySummary !== false,
+  notify_upcoming_programs: p.notifyUpcomingPrograms !== false,
+  notify_circle_activity: p.notifyCircleActivity !== false,
+  notify_favourite_updates: p.notifyFavouriteUpdates !== false,
+  notify_waitlist_alerts: p.notifyWaitlistAlerts !== false,
+  notify_budget_milestones: p.notifyBudgetMilestones !== false,
+  notify_circle_requests: p.notifyCircleRequests !== false,
   favorites: p._favorites || [],
   onboarded: true,
 });
@@ -103,6 +109,12 @@ const profileFromDb = (row) => ({
   notifyRegistration: row.notify_registration !== false,
   notifyNewPrograms: row.notify_new_programs !== false,
   notifyWeeklySummary: row.notify_weekly_summary !== false,
+  notifyUpcomingPrograms: row.notify_upcoming_programs !== false,
+  notifyCircleActivity: row.notify_circle_activity !== false,
+  notifyFavouriteUpdates: row.notify_favourite_updates !== false,
+  notifyWaitlistAlerts: row.notify_waitlist_alerts !== false,
+  notifyBudgetMilestones: row.notify_budget_milestones !== false,
+  notifyCircleRequests: row.notify_circle_requests !== false,
 });
 
 /* ─── HOOK ─── */
@@ -331,6 +343,12 @@ export function useAppData(userId) {
           notify_registration: profile.notifyRegistration !== false,
           notify_new_programs: profile.notifyNewPrograms !== false,
           notify_weekly_summary: profile.notifyWeeklySummary !== false,
+          notify_upcoming_programs: profile.notifyUpcomingPrograms !== false,
+          notify_circle_activity: profile.notifyCircleActivity !== false,
+          notify_favourite_updates: profile.notifyFavouriteUpdates !== false,
+          notify_waitlist_alerts: profile.notifyWaitlistAlerts !== false,
+          notify_budget_milestones: profile.notifyBudgetMilestones !== false,
+          notify_circle_requests: profile.notifyCircleRequests !== false,
         };
         supabase
           .from("profiles")
@@ -361,6 +379,12 @@ export function useAppData(userId) {
           notify_registration: prof.notifyRegistration !== false,
           notify_new_programs: prof.notifyNewPrograms !== false,
           notify_weekly_summary: prof.notifyWeeklySummary !== false,
+          notify_upcoming_programs: prof.notifyUpcomingPrograms !== false,
+          notify_circle_activity: prof.notifyCircleActivity !== false,
+          notify_favourite_updates: prof.notifyFavouriteUpdates !== false,
+          notify_waitlist_alerts: prof.notifyWaitlistAlerts !== false,
+          notify_budget_milestones: prof.notifyBudgetMilestones !== false,
+          notify_circle_requests: prof.notifyCircleRequests !== false,
           favorites: favs || [],
           onboarded: true,
         })

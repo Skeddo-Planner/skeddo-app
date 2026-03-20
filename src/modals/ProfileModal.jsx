@@ -47,7 +47,7 @@ function formatLastSynced(ts) {
   return `Last synced: ${d.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} at ${time}`;
 }
 
-export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose }) {
+export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
@@ -147,28 +147,140 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
       </div>
 
       {/* ─── Notifications Section ─── */}
-      <SectionLabel>Notifications</SectionLabel>
-      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 12 }}>
-        Email notifications (coming soon)
-      </div>
+      <SectionLabel>Push Notifications</SectionLabel>
 
+      {/* Push subscribe/unsubscribe button */}
+      {pushNotifications?.isSupported ? (
+        <div style={{ marginBottom: 16 }}>
+          {pushNotifications.isSubscribed ? (
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                flex: 1,
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 13,
+                fontWeight: 600,
+                color: C.seaGreen,
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+              }}>
+                <span style={{ fontSize: 16 }}>{"\u2713"}</span> Push notifications enabled
+              </div>
+              <button
+                onClick={pushNotifications.unsubscribe}
+                disabled={pushNotifications.loading}
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: C.muted,
+                  background: "none",
+                  border: `1.5px solid ${C.border}`,
+                  borderRadius: 8,
+                  padding: "6px 12px",
+                  cursor: "pointer",
+                }}
+              >
+                Disable
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={pushNotifications.subscribe}
+              disabled={pushNotifications.loading}
+              style={{
+                width: "100%",
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 14,
+                fontWeight: 700,
+                color: C.cream,
+                background: C.seaGreen,
+                border: "none",
+                borderRadius: 10,
+                padding: "12px 16px",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                opacity: pushNotifications.loading ? 0.6 : 1,
+              }}
+            >
+              {pushNotifications.loading ? "Enabling..." : "Enable Push Notifications"}
+            </button>
+          )}
+          {pushNotifications.permission === "denied" && (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 11,
+              color: C.danger,
+              marginTop: 6,
+            }}>
+              Notifications are blocked. Update your browser settings to allow notifications from this site.
+            </div>
+          )}
+        </div>
+      ) : (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 12,
+          color: C.muted,
+          marginBottom: 12,
+          lineHeight: 1.5,
+        }}>
+          Install Skeddo to your home screen to enable push notifications.
+        </div>
+      )}
+
+      {/* Programs group */}
+      <SubLabel>Programs</SubLabel>
+      <ToggleRow
+        label="Upcoming program reminders"
+        description="Alerts before enrolled programs start"
+        checked={draft.notifyUpcomingPrograms !== false}
+        onChange={(val) => update("notifyUpcomingPrograms", val)}
+      />
       <ToggleRow
         label="Registration reminders"
-        description="Reminders before registration deadlines"
+        description="When registration opens for saved programs"
         checked={draft.notifyRegistration !== false}
         onChange={(val) => update("notifyRegistration", val)}
       />
       <ToggleRow
-        label="New programs nearby"
-        description="Discover new camps and classes in your area"
-        checked={draft.notifyNewPrograms !== false}
-        onChange={(val) => update("notifyNewPrograms", val)}
+        label="Waitlist alerts"
+        description="When a waitlisted program has openings"
+        checked={draft.notifyWaitlistAlerts !== false}
+        onChange={(val) => update("notifyWaitlistAlerts", val)}
       />
       <ToggleRow
-        label="Weekly summary"
-        description="A snapshot of your upcoming week"
-        checked={draft.notifyWeeklySummary !== false}
-        onChange={(val) => update("notifyWeeklySummary", val)}
+        label="Favourite updates"
+        description="Status changes for favourited programs"
+        checked={draft.notifyFavouriteUpdates !== false}
+        onChange={(val) => update("notifyFavouriteUpdates", val)}
+      />
+
+      {/* Social group */}
+      <SubLabel>Social</SubLabel>
+      <ToggleRow
+        label="Circle activity"
+        description="When someone shares to your circle"
+        checked={draft.notifyCircleActivity !== false}
+        onChange={(val) => update("notifyCircleActivity", val)}
+      />
+      <ToggleRow
+        label="Circle join requests"
+        description="When someone wants to join your circle"
+        checked={draft.notifyCircleRequests !== false}
+        onChange={(val) => update("notifyCircleRequests", val)}
+      />
+
+      {/* Budget group */}
+      <SubLabel>Budget</SubLabel>
+      <ToggleRow
+        label="Budget milestones"
+        description="Alerts at 50%, 75%, and 90% of your goal"
+        checked={draft.notifyBudgetMilestones !== false}
+        onChange={(val) => update("notifyBudgetMilestones", val)}
       />
 
       {/* ─── Payment Method Section ─── */}
@@ -484,6 +596,22 @@ function SectionLabel({ children }) {
   );
 }
 
+
+/* ─── Sub Label (for notification groups) ─── */
+function SubLabel({ children }) {
+  return (
+    <div style={{
+      fontFamily: "'Barlow', sans-serif",
+      fontSize: 12,
+      fontWeight: 700,
+      color: C.ink,
+      marginTop: 14,
+      marginBottom: 4,
+    }}>
+      {children}
+    </div>
+  );
+}
 
 /* ─── Toggle Row ─── */
 function ToggleRow({ label, description, checked, onChange }) {
