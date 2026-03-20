@@ -12,6 +12,7 @@ import DiscoverTab from "./tabs/DiscoverTab";
 import ScheduleTab from "./tabs/ScheduleTab";
 import ProgramsTab from "./tabs/ProgramsTab";
 import BudgetTab from "./tabs/BudgetTab";
+import CirclesTab from "./tabs/CirclesTab";
 import ProgramDetail from "./modals/ProgramDetail";
 import DirectoryDetail from "./modals/DirectoryDetail";
 import ProgramForm from "./modals/ProgramForm";
@@ -403,6 +404,10 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             searchQuery={searchQuery}
             onSearchQuery={setSearchQuery}
           />
+        )}
+
+        {tab === "circles" && (
+          <CirclesTab />
         )}
 
         {tab === "budget" && (

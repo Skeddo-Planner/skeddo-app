@@ -39,6 +39,14 @@ const TabIcon = ({ id, color }) => {
           <line x1="7" y1="16" x2="13" y2="16" />
         </svg>
       );
+    case "circles":
+      return (
+        <svg {...props}>
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="10" r="3" />
+          <path d="M6.5 18.5C7.5 15.5 9.5 14 12 14s4.5 1.5 5.5 4.5" />
+        </svg>
+      );
     case "budget":
       return (
         <svg {...props}>
@@ -56,6 +64,7 @@ const TABS = [
   { id: "discover", label: "Discover" },
   { id: "schedule", label: "Schedule" },
   { id: "programs", label: "Programs" },
+  { id: "circles", label: "Circles" },
   { id: "budget", label: "Budget" },
 ];
 
