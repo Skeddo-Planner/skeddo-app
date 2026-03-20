@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import ProgramCard from "../components/ProgramCard";
@@ -127,6 +127,19 @@ export default function HomeTab({
   const { icon: seasonIcon, season } = getSeasonalGreeting();
   const hasPrograms = totalPrograms > 0;
 
+  // Derive camp types from the user's actual enrolled programs
+  const enrolledCampTypes = useMemo(() => {
+    const types = new Set();
+    enrolledPrograms.forEach((p) => {
+      if (p.campType) types.add(p.campType.replace(/^day camp$/i, "Day Camp"));
+    });
+    const arr = [...types].sort();
+    if (arr.length === 0) return season;
+    if (arr.length === 1) return arr[0].toLowerCase();
+    if (arr.length === 2) return `${arr[0]} and ${arr[1]}`.toLowerCase();
+    return (arr.slice(0, -1).join(", ") + ", and " + arr[arr.length - 1]).toLowerCase();
+  }, [enrolledPrograms, season]);
+
   return (
     <div>
       {/* Quick action cards */}
@@ -230,7 +243,7 @@ export default function HomeTab({
                 {enrolledPrograms.length} program
                 {enrolledPrograms.length !== 1 ? "s" : ""}
               </strong>{" "}
-              lined up for {season}
+              lined up for {enrolledCampTypes}
               {waitlistPrograms.length > 0 && (
                 <>
                   , <strong style={{ color: C.ink }}>{waitlistPrograms.length}</strong> on
