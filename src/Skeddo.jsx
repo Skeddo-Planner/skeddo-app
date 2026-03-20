@@ -156,25 +156,12 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
     };
     window.addEventListener("appinstalled", installedHandler);
 
-    // For iOS Safari (no beforeinstallprompt), show manual instructions
+    // For iOS Safari (no beforeinstallprompt), show manual instructions immediately
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (isIOS && !window.navigator.standalone) {
       setShowInstallBanner(true);
     }
-
-    // If not standalone and not iOS, show the banner anyway after a delay
-    // (handles case where beforeinstallprompt hasn't fired yet after uninstall)
-    if (!isIOS) {
-      const timer = setTimeout(() => {
-        setShowInstallBanner(true);
-      }, 3000);
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener("beforeinstallprompt", handler);
-        window.removeEventListener("appinstalled", installedHandler);
-        mq.removeEventListener("change", mqHandler);
-      };
-    }
+    // On Android/desktop, banner only shows once beforeinstallprompt fires (handled above)
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
@@ -183,16 +170,19 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
     };
   }, [isStandalone]);
 
-  const handleInstallClick = async () => {
-    if (installPrompt) {
-      installPrompt.prompt();
-      const result = await installPrompt.userChoice;
+  const handleInstallClick = () => {
+    if (!installPrompt) return;
+    // Call prompt() synchronously in the click handler so Android Chrome
+    // recognizes the user gesture (async wrappers can lose gesture context)
+    const promptEvent = installPrompt;
+    setInstallPrompt(null);
+    promptEvent.prompt();
+    promptEvent.userChoice.then((result) => {
       if (result.outcome === "accepted") {
         setShowInstallBanner(false);
         setIsStandalone(true);
       }
-      setInstallPrompt(null);
-    }
+    });
   };
 
   const showToast = (message) => {
