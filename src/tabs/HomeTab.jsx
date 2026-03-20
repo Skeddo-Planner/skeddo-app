@@ -142,50 +142,13 @@ export default function HomeTab({
 
   return (
     <div>
-      {/* Quick action cards */}
-      <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
-        <button
-          onClick={onOpenAddProgram}
-          aria-label="Add a new program"
-          style={{
-            flex: 1,
-            background: C.white,
-            border: `1.5px solid ${C.border}`,
-            borderRadius: 14,
-            padding: "14px 16px",
-            cursor: "pointer",
-            textAlign: "left",
-            transition: "all 0.15s",
-          }}
-          className="skeddo-card"
-        >
-          <div style={{ fontSize: 22, marginBottom: 4 }}>+</div>
-          <div
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 13,
-              fontWeight: 700,
-              color: C.ink,
-            }}
-          >
-            Add a program
-          </div>
-          <div
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
-              color: C.muted,
-              marginTop: 2,
-            }}
-          >
-            Track camps & classes
-          </div>
-        </button>
+      {/* Add a kid + kids list */}
+      <div style={{ marginBottom: 16 }}>
         <button
           onClick={onOpenAddKid}
           aria-label="Add a new kid"
           style={{
-            flex: 1,
+            width: "100%",
             background: C.white,
             border: `1.5px solid ${C.border}`,
             borderRadius: 14,
@@ -218,6 +181,87 @@ export default function HomeTab({
             Assign programs
           </div>
         </button>
+        {kids.length > 0 && (
+          <div style={{ marginTop: 12 }}>
+            {kids.map((k) => {
+              const kidPrograms = (enrolledPrograms || []).filter(
+                (p) => (p.kidIds || []).includes(k.id)
+              );
+              const allKidPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms].filter(
+                (p) => (p.kidIds || []).includes(k.id)
+              );
+              const kidCost = allKidPrograms.reduce((sum, p) => sum + Number(p.cost || 0), 0);
+              return (
+                <div
+                  key={k.id}
+                  style={{
+                    ...s.kidCard,
+                    flexDirection: "column",
+                    alignItems: "stretch",
+                    gap: 0,
+                  }}
+                >
+                  <div
+                    style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}
+                    className="skeddo-card"
+                    onClick={() => onEditKid && onEditKid(k)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Edit ${k.name}`}
+                  >
+                    <div style={s.kidAvatar}>{k.name?.[0]?.toUpperCase() || "?"}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={s.kidName}>{k.name}</div>
+                      {k.age && <div style={s.kidAge}>Age {k.age}</div>}
+                      <div style={s.kidMeta}>
+                        {kidPrograms.length} enrolled · {allKidPrograms.length} total · {fmt$(kidCost)}
+                      </div>
+                    </div>
+                    <div style={{ color: C.muted, fontSize: 12, fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>Edit</div>
+                  </div>
+                  {allKidPrograms.length > 0 && (
+                    <div style={{
+                      display: "flex",
+                      gap: 6,
+                      marginTop: 10,
+                      paddingTop: 10,
+                      borderTop: `1px solid ${C.border}`,
+                    }}>
+                      {[
+                        { label: "Schedule", icon: "\uD83D\uDCC5", tab: "schedule" },
+                        { label: "Programs", icon: "\u25A6", tab: "programs" },
+                        { label: "Budget", icon: "$", tab: "budget" },
+                      ].map(({ label, icon, tab: t }) => (
+                        <button
+                          key={t}
+                          onClick={() => onNavigateToTab(t, null, k.id)}
+                          aria-label={`View ${k.name}'s ${label}`}
+                          style={{
+                            flex: 1,
+                            fontFamily: "'Barlow', sans-serif",
+                            fontSize: 11,
+                            fontWeight: 700,
+                            color: C.seaGreen,
+                            background: `${C.seaGreen}0A`,
+                            border: `1px solid ${C.seaGreen}20`,
+                            borderRadius: 8,
+                            padding: "7px 6px",
+                            cursor: "pointer",
+                            textAlign: "center",
+                            transition: "all 0.12s",
+                          }}
+                          className="chip-btn"
+                        >
+                          {icon} {label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Welcome card — context-aware */}
@@ -565,93 +609,6 @@ export default function HomeTab({
         </>
       )}
 
-      {/* Kids Section */}
-      {kids.length > 0 && (
-        <div style={{ marginTop: 24 }}>
-          <div style={s.sectionHeader}>
-            <h3 style={s.sectionTitle}>Your Kids</h3>
-          </div>
-          {kids.map((k) => {
-            const kidPrograms = (enrolledPrograms || []).filter(
-              (p) => (p.kidIds || []).includes(k.id)
-            );
-            const allKidPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms].filter(
-              (p) => (p.kidIds || []).includes(k.id)
-            );
-            const kidCost = allKidPrograms.reduce((sum, p) => sum + Number(p.cost || 0), 0);
-            return (
-              <div
-                key={k.id}
-                style={{
-                  ...s.kidCard,
-                  flexDirection: "column",
-                  alignItems: "stretch",
-                  gap: 0,
-                }}
-              >
-                {/* Top row: avatar + name + edit button */}
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}
-                  className="skeddo-card"
-                  onClick={() => onEditKid && onEditKid(k)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Edit ${k.name}`}
-                >
-                  <div style={s.kidAvatar}>{k.name?.[0]?.toUpperCase() || "?"}</div>
-                  <div style={{ flex: 1 }}>
-                    <div style={s.kidName}>{k.name}</div>
-                    {k.age && <div style={s.kidAge}>Age {k.age}</div>}
-                    <div style={s.kidMeta}>
-                      {kidPrograms.length} enrolled · {allKidPrograms.length} total · {fmt$(kidCost)}
-                    </div>
-                  </div>
-                  <div style={{ color: C.muted, fontSize: 12, fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>Edit</div>
-                </div>
-                {/* Quick nav buttons */}
-                {allKidPrograms.length > 0 && (
-                  <div style={{
-                    display: "flex",
-                    gap: 6,
-                    marginTop: 10,
-                    paddingTop: 10,
-                    borderTop: `1px solid ${C.border}`,
-                  }}>
-                    {[
-                      { label: "Schedule", icon: "\uD83D\uDCC5", tab: "schedule" },
-                      { label: "Programs", icon: "\u25A6", tab: "programs" },
-                      { label: "Budget", icon: "$", tab: "budget" },
-                    ].map(({ label, icon, tab: t }) => (
-                      <button
-                        key={t}
-                        onClick={() => onNavigateToTab(t, null, k.id)}
-                        aria-label={`View ${k.name}'s ${label}`}
-                        style={{
-                          flex: 1,
-                          fontFamily: "'Barlow', sans-serif",
-                          fontSize: 11,
-                          fontWeight: 700,
-                          color: C.seaGreen,
-                          background: `${C.seaGreen}0A`,
-                          border: `1px solid ${C.seaGreen}20`,
-                          borderRadius: 8,
-                          padding: "7px 6px",
-                          cursor: "pointer",
-                          textAlign: "center",
-                          transition: "all 0.12s",
-                        }}
-                        className="chip-btn"
-                      >
-                        {icon} {label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 }
