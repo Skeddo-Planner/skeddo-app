@@ -398,6 +398,10 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             onOpenAddProgram={openAddProgram}
             onOpenAddKid={openAddKid}
             onEditKid={openEditKid}
+            installPrompt={installPrompt}
+            showInstallBanner={showInstallBanner && !isStandalone}
+            onInstallClick={handleInstallClick}
+            onDismissInstall={() => setShowInstallBanner(false)}
           />
         )}
 
@@ -466,67 +470,6 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           />
         )}
       </main>}
-
-      {/* PWA Install Banner — compact pill on the right */}
-      {showInstallBanner && !isStandalone && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: 72,
-            right: 12,
-            background: C.ink,
-            color: C.cream,
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "8px 12px",
-            borderRadius: 12,
-            zIndex: 999,
-            boxShadow: "0 2px 12px rgba(26,46,38,0.2)",
-          }}
-        >
-          {installPrompt ? (
-            <button
-              onClick={handleInstallClick}
-              style={{
-                background: C.seaGreen,
-                color: "#fff",
-                border: "none",
-                borderRadius: 8,
-                padding: "6px 12px",
-                fontFamily: "'Barlow', sans-serif",
-                fontWeight: 700,
-                fontSize: 12,
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Add to Home Screen
-            </button>
-          ) : (
-            <span style={{ fontWeight: 600, whiteSpace: "nowrap" }}>
-              Tap Share → Add to Home
-            </span>
-          )}
-          <button
-            onClick={() => setShowInstallBanner(false)}
-            aria-label="Dismiss"
-            style={{
-              background: "none",
-              border: "none",
-              color: "#8A9A8E",
-              fontSize: 16,
-              cursor: "pointer",
-              padding: 0,
-              lineHeight: 1,
-            }}
-          >
-            ×
-          </button>
-        </div>
-      )}
 
       {!infoPage && <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} />}
 

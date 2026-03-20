@@ -29,6 +29,10 @@ export default function HomeTab({
   onOpenAddProgram,
   onOpenAddKid,
   onEditKid,
+  installPrompt,
+  showInstallBanner,
+  onInstallClick,
+  onDismissInstall,
 }) {
   const allPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms];
   const totalPrograms = allPrograms.length;
@@ -235,6 +239,68 @@ export default function HomeTab({
         onOpenDetail={onOpenDetail}
       />
 
+
+      {/* Install banner */}
+      {showInstallBanner && (
+        <div style={{
+          background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
+          borderRadius: 14,
+          padding: "14px 16px",
+          margin: "0 0 16px",
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+        }}>
+          <div style={{ fontSize: 28, flexShrink: 0 }}>{"\uD83D\uDCF2"}</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.cream, marginBottom: 3 }}>
+              Install Skeddo
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6", lineHeight: 1.4 }}>
+              {installPrompt
+                ? "Add Skeddo to your home screen for quick access."
+                : "Tap the share button in your browser, then \"Add to Home Screen\"."
+              }
+            </div>
+          </div>
+          {installPrompt && (
+            <button
+              onClick={onInstallClick}
+              style={{
+                background: C.seaGreen,
+                color: C.cream,
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 14px",
+                fontFamily: "'Barlow', sans-serif",
+                fontWeight: 700,
+                fontSize: 12,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              Install
+            </button>
+          )}
+          <button
+            onClick={onDismissInstall}
+            aria-label="Dismiss"
+            style={{
+              background: "none",
+              border: "none",
+              color: "#6B8A72",
+              fontSize: 18,
+              cursor: "pointer",
+              padding: "0 2px",
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            {"\u00D7"}
+          </button>
+        </div>
+      )}
 
       {/* Enrolled Programs */}
       <div style={s.sectionHeader}>
