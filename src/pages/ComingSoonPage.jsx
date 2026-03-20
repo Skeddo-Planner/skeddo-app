@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
+import directoryPrograms from "../data/programs.json";
 
 export default function ComingSoonPage() {
   const launchDate = new Date("2026-04-01T00:00:00-07:00"); // April 1, PDT
@@ -152,7 +153,7 @@ export default function ComingSoonPage() {
               color: "rgba(250,248,243,0.8)",
             }}
           >
-            Browse <strong style={{ color: C.seaGreen }}>5,000+ camps & programs</strong> across Vancouver
+            Browse <strong style={{ color: C.seaGreen }}>{(Math.floor(directoryPrograms.length / 100) * 100).toLocaleString()}+ camps & programs</strong> across Vancouver
             <br />
             Track waitlists · Manage budgets · Coordinate schedules
           </p>
