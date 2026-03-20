@@ -27,7 +27,7 @@ function MenuIcon({ pathData, color, size = 18 }) {
   );
 }
 
-export default function Header({ displayName, onOpenProfile, onOpenPage }) {
+export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleItemClick = (id) => {
@@ -43,7 +43,13 @@ export default function Header({ displayName, onOpenProfile, onOpenPage }) {
     <>
       <header style={s.header}>
         <div style={s.headerRow}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}
+            onClick={onLogoClick}
+            role="button"
+            tabIndex={0}
+            aria-label="Go to homepage"
+          >
             <img
               src="/skeddo-logo-dark.png"
               alt="Skeddo"

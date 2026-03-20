@@ -376,6 +376,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
         displayName={profile.displayName}
         onOpenProfile={() => setModal({ type: "profile" })}
         onOpenPage={(pageId) => setInfoPage(pageId)}
+        onLogoClick={() => { setTab("home"); setInfoPage(null); }}
       />
 
       {/* Info pages (About, Privacy, etc.) */}
