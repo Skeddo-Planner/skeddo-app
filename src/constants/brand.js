@@ -32,7 +32,7 @@ export const CATEGORIES = [
 ];
 
 export const CAT_EMOJI = {
-  Sports: "\u26BD",
+  Sports: "\u26BD\uD83C\uDFC0",
   Arts: "\ud83c\udfa8",
   STEM: "\ud83d\udcbb",
   Music: "\ud83c\udfb5",
