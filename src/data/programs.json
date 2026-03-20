@@ -1213,134 +1213,6 @@
     "confirmed2026": false
   },
   {
-    "id": 99,
-    "name": "Kids Painting Camp",
-    "provider": "Paintlounge",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 275,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Kitsilano",
-    "address": "3632 W 4th Ave, Vancouver, BC",
-    "lat": 49.2685,
-    "lng": -123.19,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.paintlounge.ca/students/kids/",
-    "description": "Creative painting camp in a fun studio environment.",
-    "tags": [
-      "painting",
-      "art",
-      "creative"
-    ],
-    "activityType": "Painting & Drawing",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 100,
-    "name": "Kids Painting Camp",
-    "provider": "Paintlounge",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 275,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Kitsilano",
-    "address": "3632 W 4th Ave, Vancouver, BC",
-    "lat": 49.2685,
-    "lng": -123.19,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.paintlounge.ca/students/kids/",
-    "description": "Creative painting camp in a fun studio environment.",
-    "tags": [
-      "painting",
-      "art",
-      "creative"
-    ],
-    "activityType": "Painting & Drawing",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 101,
-    "name": "Kids Painting Camp",
-    "provider": "Paintlounge",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 275,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Kitsilano",
-    "address": "3632 W 4th Ave, Vancouver, BC",
-    "lat": 49.2685,
-    "lng": -123.19,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.paintlounge.ca/students/kids/",
-    "description": "Creative painting camp in a fun studio environment.",
-    "tags": [
-      "painting",
-      "art",
-      "creative"
-    ],
-    "activityType": "Painting & Drawing",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 102,
-    "name": "Kids Painting Camp",
-    "provider": "Paintlounge",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 12,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 275,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Kitsilano",
-    "address": "3632 W 4th Ave, Vancouver, BC",
-    "lat": 49.2685,
-    "lng": -123.19,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.paintlounge.ca/students/kids/",
-    "description": "Creative painting camp in a fun studio environment.",
-    "tags": [
-      "painting",
-      "art",
-      "creative"
-    ],
-    "activityType": "Painting & Drawing",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
     "id": 103,
     "name": "Architecture & Design Camp",
     "provider": "Petit Architect",
@@ -7482,204 +7354,6 @@
     "confirmed2026": true
   },
   {
-    "id": 347,
-    "name": "Indoor Active Camp",
-    "provider": "My Gym",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 3,
-    "ageMax": 9,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 250,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "City Centre",
-    "address": "5300 No. 3 Rd, Richmond, BC",
-    "lat": 49.161,
-    "lng": -123.138,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.mygym.com/richmondbc/camp",
-    "description": "NOTE: My Gym does not have a Vancouver BC location. Nearest BC locations are Richmond (778-859-9680) and Surrey. Ages 6wk-10yr. Check mygym.com/richmondbc for 2026 camps.",
-    "tags": [
-      "gymnastics",
-      "games",
-      "active",
-      "arts"
-    ],
-    "activityType": "Gymnastics",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 348,
-    "name": "Indoor Active Camp",
-    "provider": "My Gym",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 3,
-    "ageMax": 9,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 250,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "City Centre",
-    "address": "5300 No. 3 Rd, Richmond, BC",
-    "lat": 49.161,
-    "lng": -123.138,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.mygym.com/richmondbc/camp",
-    "description": "NOTE: My Gym does not have a Vancouver BC location. Nearest BC locations are Richmond (778-859-9680) and Surrey. Ages 6wk-10yr. Check mygym.com/richmondbc for 2026 camps.",
-    "tags": [
-      "gymnastics",
-      "games",
-      "active",
-      "arts"
-    ],
-    "activityType": "Gymnastics",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 349,
-    "name": "Indoor Active Camp",
-    "provider": "My Gym",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 3,
-    "ageMax": 9,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 250,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "City Centre",
-    "address": "5300 No. 3 Rd, Richmond, BC",
-    "lat": 49.161,
-    "lng": -123.138,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.mygym.com/richmondbc/camp",
-    "description": "NOTE: My Gym does not have a Vancouver BC location. Nearest BC locations are Richmond (778-859-9680) and Surrey. Ages 6wk-10yr. Check mygym.com/richmondbc for 2026 camps.",
-    "tags": [
-      "gymnastics",
-      "games",
-      "active",
-      "arts"
-    ],
-    "activityType": "Gymnastics",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 350,
-    "name": "Indoor Active Camp",
-    "provider": "My Gym",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 3,
-    "ageMax": 9,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 250,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "City Centre",
-    "address": "5300 No. 3 Rd, Richmond, BC",
-    "lat": 49.161,
-    "lng": -123.138,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.mygym.com/richmondbc/camp",
-    "description": "NOTE: My Gym does not have a Vancouver BC location. Nearest BC locations are Richmond (778-859-9680) and Surrey. Ages 6wk-10yr. Check mygym.com/richmondbc for 2026 camps.",
-    "tags": [
-      "gymnastics",
-      "games",
-      "active",
-      "arts"
-    ],
-    "activityType": "Gymnastics",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 351,
-    "name": "Indoor Active Camp",
-    "provider": "My Gym",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 3,
-    "ageMax": 9,
-    "startDate": "2026-08-04",
-    "endDate": "2026-08-07",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 250,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "City Centre",
-    "address": "5300 No. 3 Rd, Richmond, BC",
-    "lat": 49.161,
-    "lng": -123.138,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.mygym.com/richmondbc/camp",
-    "description": "NOTE: My Gym does not have a Vancouver BC location. Nearest BC locations are Richmond (778-859-9680) and Surrey. Ages 6wk-10yr. Check mygym.com/richmondbc for 2026 camps.",
-    "tags": [
-      "gymnastics",
-      "games",
-      "active",
-      "arts"
-    ],
-    "activityType": "Gymnastics",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 352,
-    "name": "Indoor Active Camp",
-    "provider": "My Gym",
-    "category": "Sports",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 3,
-    "ageMax": 9,
-    "startDate": "2026-08-10",
-    "endDate": "2026-08-14",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 250,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "City Centre",
-    "address": "5300 No. 3 Rd, Richmond, BC",
-    "lat": 49.161,
-    "lng": -123.138,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.mygym.com/richmondbc/camp",
-    "description": "NOTE: My Gym does not have a Vancouver BC location. Nearest BC locations are Richmond (778-859-9680) and Surrey. Ages 6wk-10yr. Check mygym.com/richmondbc for 2026 camps.",
-    "tags": [
-      "gymnastics",
-      "games",
-      "active",
-      "arts"
-    ],
-    "activityType": "Gymnastics",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
     "id": 353,
     "name": "Gymnastics & Swim Camp",
     "provider": "Wayland Sports",
@@ -12610,7 +12284,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 0,
+    "cost": "Free",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Cariboo",
     "address": "Various Regional Parks, Metro Vancouver",
@@ -12642,7 +12316,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 0,
+    "cost": "Free",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Cariboo",
     "address": "Various Regional Parks, Metro Vancouver",
@@ -12674,7 +12348,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 0,
+    "cost": "Free",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Cariboo",
     "address": "Various Regional Parks, Metro Vancouver",
@@ -12706,7 +12380,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 0,
+    "cost": "Free",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Cariboo",
     "address": "Various Regional Parks, Metro Vancouver",
@@ -17005,130 +16679,6 @@
     "confirmed2026": true
   },
   {
-    "id": 665,
-    "name": "Art & Musical Theatre Camp",
-    "provider": "Queen's Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 14,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "5:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Lougheed",
-    "address": "3355 North Rd Unit 204, Burnaby, BC V3J 1H9",
-    "lat": 49.2524,
-    "lng": -122.9063,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.queensacademy.ca/summer-camps",
-    "description": "Musical theatre camps with singing, dance, games, and a mini musical showcase. Also offers piano camps.",
-    "tags": [
-      "art",
-      "musical theatre"
-    ],
-    "activityType": "Musical Theatre",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 666,
-    "name": "Art & Musical Theatre Camp",
-    "provider": "Queen's Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 14,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "5:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Lougheed",
-    "address": "3355 North Rd Unit 204, Burnaby, BC V3J 1H9",
-    "lat": 49.2524,
-    "lng": -122.9063,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.queensacademy.ca/summer-camps",
-    "description": "Musical theatre camps with singing, dance, games, and a mini musical showcase. Also offers piano camps.",
-    "tags": [
-      "art",
-      "musical theatre"
-    ],
-    "activityType": "Musical Theatre",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 667,
-    "name": "Art & Musical Theatre Camp",
-    "provider": "Queen's Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 14,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "5:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Lougheed",
-    "address": "3355 North Rd Unit 204, Burnaby, BC V3J 1H9",
-    "lat": 49.2524,
-    "lng": -122.9063,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.queensacademy.ca/summer-camps",
-    "description": "Musical theatre camps with singing, dance, games, and a mini musical showcase. Also offers piano camps.",
-    "tags": [
-      "art",
-      "musical theatre"
-    ],
-    "activityType": "Musical Theatre",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 668,
-    "name": "Art & Musical Theatre Camp",
-    "provider": "Queen's Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 4,
-    "ageMax": 14,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "5:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Lougheed",
-    "address": "3355 North Rd Unit 204, Burnaby, BC V3J 1H9",
-    "lat": 49.2524,
-    "lng": -122.9063,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.queensacademy.ca/summer-camps",
-    "description": "Musical theatre camps with singing, dance, games, and a mini musical showcase. Also offers piano camps.",
-    "tags": [
-      "art",
-      "musical theatre"
-    ],
-    "activityType": "Musical Theatre",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
     "id": 669,
     "name": "Musical Theatre Camp",
     "provider": "The Stage Musical Theatre",
@@ -17385,134 +16935,6 @@
       "creative"
     ],
     "activityType": "Painting & Drawing",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 677,
-    "name": "Dance Intensive",
-    "provider": "Lindbjerg Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 18,
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Burquitlam",
-    "address": "7-75 Blue Mountain Street, Coquitlam, BC",
-    "lat": 49.2775,
-    "lng": -122.7935,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.lindbjergacademy.com/programs",
-    "description": "Dance camp in Coquitlam for all levels.",
-    "tags": [
-      "dance",
-      "ballet",
-      "contemporary"
-    ],
-    "activityType": "Dance",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 678,
-    "name": "Dance Intensive",
-    "provider": "Lindbjerg Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 18,
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Burquitlam",
-    "address": "7-75 Blue Mountain Street, Coquitlam, BC",
-    "lat": 49.2775,
-    "lng": -122.7935,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.lindbjergacademy.com/programs",
-    "description": "Dance camp in Coquitlam for all levels.",
-    "tags": [
-      "dance",
-      "ballet",
-      "contemporary"
-    ],
-    "activityType": "Dance",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 679,
-    "name": "Dance Intensive",
-    "provider": "Lindbjerg Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 18,
-    "startDate": "2026-07-20",
-    "endDate": "2026-07-24",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Burquitlam",
-    "address": "7-75 Blue Mountain Street, Coquitlam, BC",
-    "lat": 49.2775,
-    "lng": -122.7935,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.lindbjergacademy.com/programs",
-    "description": "Dance camp in Coquitlam for all levels.",
-    "tags": [
-      "dance",
-      "ballet",
-      "contemporary"
-    ],
-    "activityType": "Dance",
-    "priceVerified": false,
-    "confirmed2026": false
-  },
-  {
-    "id": 680,
-    "name": "Dance Intensive",
-    "provider": "Lindbjerg Academy",
-    "category": "Arts",
-    "campType": "Summer Camp",
-    "scheduleType": "Full Day",
-    "ageMin": 5,
-    "ageMax": 18,
-    "startDate": "2026-07-27",
-    "endDate": "2026-07-31",
-    "days": "Mon-Fri",
-    "startTime": "9:00 AM",
-    "endTime": "4:00 PM",
-    "cost": 300,
-    "indoorOutdoor": "Indoor",
-    "neighbourhood": "Burquitlam",
-    "address": "7-75 Blue Mountain Street, Coquitlam, BC",
-    "lat": 49.2775,
-    "lng": -122.7935,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.lindbjergacademy.com/programs",
-    "description": "Dance camp in Coquitlam for all levels.",
-    "tags": [
-      "dance",
-      "ballet",
-      "contemporary"
-    ],
-    "activityType": "Dance",
     "priceVerified": false,
     "confirmed2026": false
   },
@@ -53120,7 +52542,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53128,7 +52550,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -53138,7 +52560,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1925,
@@ -53154,7 +52576,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53162,7 +52584,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -53172,7 +52594,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1926,
@@ -53188,7 +52610,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53196,7 +52618,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -53206,7 +52628,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1927,
@@ -53222,7 +52644,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53230,7 +52652,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -53240,7 +52662,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1928,
@@ -53256,7 +52678,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53264,7 +52686,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -53274,7 +52696,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1929,
@@ -53290,7 +52712,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53298,7 +52720,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -53308,7 +52730,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1930,
@@ -53324,7 +52746,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53332,7 +52754,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -53342,7 +52764,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1931,
@@ -53358,7 +52780,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53366,7 +52788,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -53376,7 +52798,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1932,
@@ -53392,7 +52814,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53400,7 +52822,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -53410,7 +52832,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1933,
@@ -53426,7 +52848,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53434,7 +52856,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -53444,7 +52866,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1934,
@@ -53460,7 +52882,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53468,7 +52890,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -53478,7 +52900,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1935,
@@ -53494,7 +52916,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53502,7 +52924,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -53512,7 +52934,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1936,
@@ -53528,7 +52950,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53536,7 +52958,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -53545,7 +52967,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1937,
@@ -53561,7 +52983,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -53569,7 +52991,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -53578,7 +53000,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1938,
@@ -53594,7 +53016,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53602,7 +53024,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -53612,7 +53034,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1939,
@@ -53628,7 +53050,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53636,7 +53058,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -53646,7 +53068,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1940,
@@ -53662,7 +53084,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53670,7 +53092,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -53680,7 +53102,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1941,
@@ -53696,7 +53118,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53704,7 +53126,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -53714,7 +53136,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1942,
@@ -53730,7 +53152,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53738,7 +53160,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -53748,7 +53170,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1943,
@@ -53764,7 +53186,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53772,7 +53194,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -53782,7 +53204,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1944,
@@ -53798,7 +53220,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53806,7 +53228,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -53816,7 +53238,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1945,
@@ -53832,7 +53254,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53840,7 +53262,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -53850,7 +53272,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1946,
@@ -53866,7 +53288,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53874,7 +53296,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -53884,7 +53306,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1947,
@@ -53900,7 +53322,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53908,7 +53330,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -53918,7 +53340,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1948,
@@ -53934,7 +53356,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53942,7 +53364,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -53952,7 +53374,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1949,
@@ -53968,7 +53390,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -53976,7 +53398,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -53986,7 +53408,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1950,
@@ -54002,7 +53424,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -54010,7 +53432,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -54019,7 +53441,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1951,
@@ -54035,7 +53457,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -54043,7 +53465,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -54052,7 +53474,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1952,
@@ -54068,7 +53490,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54076,7 +53498,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -54086,7 +53508,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1953,
@@ -54102,7 +53524,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54110,7 +53532,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -54120,7 +53542,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1954,
@@ -54136,7 +53558,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54144,7 +53566,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -54154,7 +53576,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1955,
@@ -54170,7 +53592,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54178,7 +53600,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -54188,7 +53610,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1956,
@@ -54204,7 +53626,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54212,7 +53634,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -54222,7 +53644,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1957,
@@ -54238,7 +53660,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54246,7 +53668,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -54256,7 +53678,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1958,
@@ -54272,7 +53694,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54280,7 +53702,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -54290,7 +53712,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1959,
@@ -54306,7 +53728,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54314,7 +53736,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -54324,7 +53746,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1960,
@@ -54340,7 +53762,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54348,7 +53770,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -54358,7 +53780,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1961,
@@ -54374,7 +53796,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54382,7 +53804,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -54392,7 +53814,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1962,
@@ -54408,7 +53830,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54416,7 +53838,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -54426,7 +53848,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1963,
@@ -54442,7 +53864,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54450,7 +53872,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -54460,7 +53882,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1964,
@@ -54476,7 +53898,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54484,7 +53906,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -54493,7 +53915,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1965,
@@ -54509,7 +53931,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -54517,7 +53939,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -54526,7 +53948,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1966,
@@ -54542,7 +53964,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54550,7 +53972,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -54560,7 +53982,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1967,
@@ -54576,7 +53998,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54584,7 +54006,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -54594,7 +54016,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1968,
@@ -54610,7 +54032,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54618,7 +54040,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -54628,7 +54050,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1969,
@@ -54644,7 +54066,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54652,7 +54074,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -54662,7 +54084,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1970,
@@ -54678,7 +54100,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54686,7 +54108,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -54696,7 +54118,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1971,
@@ -54712,7 +54134,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54720,7 +54142,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -54730,7 +54152,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1972,
@@ -54746,7 +54168,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54754,7 +54176,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -54764,7 +54186,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1973,
@@ -54780,7 +54202,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54788,7 +54210,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -54798,7 +54220,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1974,
@@ -54814,7 +54236,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54822,7 +54244,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -54832,7 +54254,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1975,
@@ -54848,7 +54270,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54856,7 +54278,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -54866,7 +54288,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1976,
@@ -54882,7 +54304,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54890,7 +54312,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -54900,7 +54322,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1977,
@@ -54916,7 +54338,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54924,7 +54346,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -54934,7 +54356,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1978,
@@ -54950,7 +54372,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54958,7 +54380,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -54967,7 +54389,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1979,
@@ -54983,7 +54405,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -54991,7 +54413,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -55000,7 +54422,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1980,
@@ -55016,7 +54438,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55024,7 +54446,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55034,7 +54456,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1981,
@@ -55050,7 +54472,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55058,7 +54480,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55068,7 +54490,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1982,
@@ -55084,7 +54506,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55092,7 +54514,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -55102,7 +54524,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1983,
@@ -55118,7 +54540,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55126,7 +54548,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -55136,7 +54558,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1984,
@@ -55152,7 +54574,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55160,7 +54582,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -55170,7 +54592,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1985,
@@ -55186,7 +54608,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55194,7 +54616,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -55204,7 +54626,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1986,
@@ -55220,7 +54642,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55228,7 +54650,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -55238,7 +54660,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1987,
@@ -55254,7 +54676,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55262,7 +54684,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -55272,7 +54694,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1988,
@@ -55288,7 +54710,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55296,7 +54718,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -55306,7 +54728,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1989,
@@ -55322,7 +54744,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55330,7 +54752,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -55340,7 +54762,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1990,
@@ -55356,7 +54778,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55364,7 +54786,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -55374,7 +54796,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1991,
@@ -55390,7 +54812,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55398,7 +54820,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -55408,7 +54830,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1992,
@@ -55424,7 +54846,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55432,7 +54854,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -55441,7 +54863,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1993,
@@ -55457,7 +54879,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -55465,7 +54887,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -55474,7 +54896,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1994,
@@ -55490,7 +54912,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55498,7 +54920,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55508,7 +54930,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1995,
@@ -55524,7 +54946,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55532,7 +54954,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55542,7 +54964,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1996,
@@ -55558,7 +54980,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55566,7 +54988,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -55576,7 +54998,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1997,
@@ -55592,7 +55014,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55600,7 +55022,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -55610,7 +55032,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1998,
@@ -55626,7 +55048,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55634,7 +55056,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -55644,7 +55066,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 1999,
@@ -55660,7 +55082,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55668,7 +55090,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -55678,7 +55100,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2000,
@@ -55694,7 +55116,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55702,7 +55124,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -55712,7 +55134,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2001,
@@ -55728,7 +55150,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55736,7 +55158,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -55746,7 +55168,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2002,
@@ -55762,7 +55184,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55770,7 +55192,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -55780,7 +55202,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2003,
@@ -55796,7 +55218,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55804,7 +55226,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -55814,7 +55236,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2004,
@@ -55830,7 +55252,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55838,7 +55260,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -55848,7 +55270,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2005,
@@ -55864,7 +55286,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55872,7 +55294,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -55882,7 +55304,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2006,
@@ -55898,7 +55320,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55906,7 +55328,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -55915,7 +55337,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2007,
@@ -55931,7 +55353,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -55939,7 +55361,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -55948,7 +55370,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2008,
@@ -55964,7 +55386,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -55972,7 +55394,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55982,7 +55404,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2009,
@@ -55998,7 +55420,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56006,7 +55428,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond adventure camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "adventure",
       "outdoor",
@@ -56016,7 +55438,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2010,
@@ -56032,7 +55454,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56040,7 +55462,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -56050,7 +55472,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2011,
@@ -56066,7 +55488,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56074,7 +55496,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond arts camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "arts",
       "crafts",
@@ -56084,7 +55506,7 @@
     "activityType": "Art",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2012,
@@ -56100,7 +55522,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56108,7 +55530,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -56118,7 +55540,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2013,
@@ -56134,7 +55556,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56142,7 +55564,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond sports camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "sports",
       "active",
@@ -56152,7 +55574,7 @@
     "activityType": "Sports",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2014,
@@ -56168,7 +55590,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56176,7 +55598,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -56186,7 +55608,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2015,
@@ -56202,7 +55624,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56210,7 +55632,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond science camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "science",
       "experiments",
@@ -56220,7 +55642,7 @@
     "activityType": "Science",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2016,
@@ -56236,7 +55658,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56244,7 +55666,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -56254,7 +55676,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2017,
@@ -56270,7 +55692,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56278,7 +55700,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond nature camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "nature",
       "outdoor",
@@ -56288,7 +55710,7 @@
     "activityType": "Nature",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2018,
@@ -56304,7 +55726,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56312,7 +55734,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -56322,7 +55744,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2019,
@@ -56338,7 +55760,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$264.00/week",
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56346,7 +55768,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond music camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "music",
       "instruments",
@@ -56356,7 +55778,7 @@
     "activityType": "Music",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2020,
@@ -56372,7 +55794,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56380,7 +55802,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -56389,7 +55811,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2021,
@@ -56405,7 +55827,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": "TBD",
+    "cost": "$235.90/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56413,7 +55835,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond variety camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "variety",
       "multi-activity",
@@ -56422,7 +55844,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2022,
@@ -56438,7 +55860,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Thompson",
     "address": "5151 Granville Ave, Richmond, BC",
@@ -56446,7 +55868,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Thompson+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Thompson Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56455,7 +55877,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2023,
@@ -56471,7 +55893,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "South Arm",
     "address": "8880 Williams Rd, Richmond, BC",
@@ -56479,7 +55901,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+South+Arm+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at South Arm Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56488,7 +55910,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2024,
@@ -56504,7 +55926,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Steveston",
     "address": "4111 Moncton St, Richmond, BC",
@@ -56512,7 +55934,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Steveston+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Steveston Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56521,7 +55943,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2025,
@@ -56537,7 +55959,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
     "address": "5900 Minoru Blvd, Richmond, BC",
@@ -56545,7 +55967,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+City+Centre+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at City Centre Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56554,7 +55976,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2026,
@@ -56570,7 +55992,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Broadmoor",
     "address": "9180 No. 1 Rd, Richmond, BC",
@@ -56578,7 +56000,7 @@
     "lng": -123.131,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+West+Richmond+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at West Richmond Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56587,7 +56009,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2027,
@@ -56603,7 +56025,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "East Cambie",
     "address": "12800 Cambie Rd, Richmond, BC",
@@ -56611,7 +56033,7 @@
     "lng": -123.08,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Cambie+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Cambie Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56620,7 +56042,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2028,
@@ -56636,7 +56058,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
-    "cost": "TBD",
+    "cost": "$146.25/week",
     "indoorOutdoor": "Both",
     "neighbourhood": "Sea Island",
     "address": "7140 Miller Rd, Richmond, BC",
@@ -56644,7 +56066,7 @@
     "lng": -123.096,
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Sea+Island+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Sea Island Community Centre. Summer 2026 details and pricing TBD — check registration page for updates. Licensed daycamps may be subsidized by the Provincial Child Care Fee Reduction Initiative.",
+    "description": "City of Richmond preschool day camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
     "tags": [
       "preschool",
       "day camp",
@@ -56653,7 +56075,7 @@
     "activityType": "General",
     "registrationDateLabel": "TBD",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": false
   },
   {
     "id": 2029,
