@@ -52,10 +52,10 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
 
-  // Bug report state
-  const [showBugForm, setShowBugForm] = useState(false);
-  const [bugDescription, setBugDescription] = useState("");
-  const [bugStatus, setBugStatus] = useState(null); // null | "sending" | "sent" | "error"
+  // Feedback state — feedbackType: null | "bug" | "feedback"
+  const [feedbackType, setFeedbackType] = useState(null);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [feedbackStatus, setFeedbackStatus] = useState(null); // null | "sending" | "sent" | "error"
 
   const handleSave = () => {
     setProfile(draft);
@@ -260,37 +260,57 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         );
       })}
 
-      {/* ─── Report a Bug ─── */}
+      {/* ─── Feedback ─── */}
       <SectionLabel>Feedback</SectionLabel>
-      {!showBugForm ? (
-        <button
-          onClick={() => setShowBugForm(true)}
-          style={{
-            width: "100%",
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 13,
-            fontWeight: 600,
-            color: C.blue,
-            background: `${C.blue}0A`,
-            border: `1.5px solid ${C.blue}20`,
-            borderRadius: 10,
-            padding: "12px 16px",
-            cursor: "pointer",
-            textAlign: "left",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            transition: "all 0.12s",
-          }}
-          className="chip-btn"
-        >
-          <span style={{ fontSize: 16 }}>🐛</span>
-          Report a bug
-        </button>
+      {!feedbackType ? (
+        <div style={{ display: "flex", gap: 8 }}>
+          <button
+            onClick={() => setFeedbackType("bug")}
+            style={{
+              flex: 1,
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              fontWeight: 600,
+              color: C.blue,
+              background: `${C.blue}0A`,
+              border: `1.5px solid ${C.blue}20`,
+              borderRadius: 10,
+              padding: "12px 14px",
+              cursor: "pointer",
+              textAlign: "center",
+              transition: "all 0.12s",
+            }}
+            className="chip-btn"
+          >
+            <span style={{ fontSize: 16, display: "block", marginBottom: 4 }}>🐛</span>
+            Report a bug
+          </button>
+          <button
+            onClick={() => setFeedbackType("feedback")}
+            style={{
+              flex: 1,
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              fontWeight: 600,
+              color: C.seaGreen,
+              background: `${C.seaGreen}0A`,
+              border: `1.5px solid ${C.seaGreen}20`,
+              borderRadius: 10,
+              padding: "12px 14px",
+              cursor: "pointer",
+              textAlign: "center",
+              transition: "all 0.12s",
+            }}
+            className="chip-btn"
+          >
+            <span style={{ fontSize: 16, display: "block", marginBottom: 4 }}>💬</span>
+            Leave feedback
+          </button>
+        </div>
       ) : (
         <div style={{
-          background: `${C.blue}06`,
-          border: `1.5px solid ${C.blue}20`,
+          background: feedbackType === "bug" ? `${C.blue}06` : `${C.seaGreen}06`,
+          border: `1.5px solid ${feedbackType === "bug" ? `${C.blue}20` : `${C.seaGreen}20`}`,
           borderRadius: 12,
           padding: 14,
         }}>
@@ -301,7 +321,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
             color: C.ink,
             marginBottom: 8,
           }}>
-            What went wrong?
+            {feedbackType === "bug" ? "What went wrong?" : "What's on your mind?"}
           </div>
           <textarea
             style={{
@@ -310,9 +330,11 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
               resize: "vertical",
               fontSize: 13,
             }}
-            value={bugDescription}
-            onChange={(e) => setBugDescription(e.target.value)}
-            placeholder="Describe what happened and what you expected..."
+            value={feedbackText}
+            onChange={(e) => setFeedbackText(e.target.value)}
+            placeholder={feedbackType === "bug"
+              ? "Describe what happened and what you expected..."
+              : "Share an idea, suggestion, or anything else..."}
             autoFocus
           />
           <div style={{
@@ -322,15 +344,17 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
             marginTop: 4,
             marginBottom: 10,
           }}>
-            We'll also include your device info to help us investigate.
+            {feedbackType === "bug"
+              ? "We'll also include your device info to help us investigate."
+              : "We read every message — your input helps shape Skeddo."}
           </div>
           <div style={{ display: "flex", gap: 8 }}>
             <button
               style={s.secondaryBtn}
               onClick={() => {
-                setShowBugForm(false);
-                setBugDescription("");
-                setBugStatus(null);
+                setFeedbackType(null);
+                setFeedbackText("");
+                setFeedbackStatus(null);
               }}
             >
               Cancel
@@ -338,41 +362,42 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
             <button
               style={{
                 ...s.primaryBtn,
-                opacity: !bugDescription.trim() || bugStatus === "sending" ? 0.5 : 1,
+                opacity: !feedbackText.trim() || feedbackStatus === "sending" ? 0.5 : 1,
               }}
-              disabled={!bugDescription.trim() || bugStatus === "sending"}
+              disabled={!feedbackText.trim() || feedbackStatus === "sending"}
               onClick={async () => {
-                setBugStatus("sending");
+                setFeedbackStatus("sending");
                 try {
                   const res = await fetch("/api/report-bug", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                      description: bugDescription.trim(),
+                      description: feedbackText.trim(),
+                      type: feedbackType,
                       email: email || "",
                       displayName: profile.displayName || "",
                       userAgent: navigator.userAgent,
                     }),
                   });
                   if (res.ok) {
-                    setBugStatus("sent");
-                    setBugDescription("");
+                    setFeedbackStatus("sent");
+                    setFeedbackText("");
                     setTimeout(() => {
-                      setShowBugForm(false);
-                      setBugStatus(null);
+                      setFeedbackType(null);
+                      setFeedbackStatus(null);
                     }, 2500);
                   } else {
-                    setBugStatus("error");
+                    setFeedbackStatus("error");
                   }
                 } catch {
-                  setBugStatus("error");
+                  setFeedbackStatus("error");
                 }
               }}
             >
-              {bugStatus === "sending" ? "Sending..." : "Send Report"}
+              {feedbackStatus === "sending" ? "Sending..." : "Send"}
             </button>
           </div>
-          {bugStatus === "sent" && (
+          {feedbackStatus === "sent" && (
             <div style={{
               fontFamily: "'Barlow', sans-serif",
               fontSize: 13,
@@ -380,10 +405,10 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
               fontWeight: 600,
               marginTop: 10,
             }}>
-              Thanks! We received your report.
+              {feedbackType === "bug" ? "Thanks! We received your report." : "Thanks for your feedback!"}
             </div>
           )}
-          {bugStatus === "error" && (
+          {feedbackStatus === "error" && (
             <div style={{
               fontFamily: "'Barlow', sans-serif",
               fontSize: 13,

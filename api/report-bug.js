@@ -24,10 +24,12 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Notification not configured" });
   }
 
-  const { description, email, displayName, userAgent } = req.body || {};
+  const { description, type, email, displayName, userAgent } = req.body || {};
+  const isFeedback = type === "feedback";
+  const label = isFeedback ? "Feedback" : "Bug Report";
 
   if (!description || !description.trim()) {
-    return res.status(400).json({ error: "Missing bug description" });
+    return res.status(400).json({ error: "Missing description" });
   }
 
   const reportTime = new Date().toLocaleString("en-CA", {
@@ -46,11 +48,11 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: "Skeddo <onboarding@resend.dev>",
         to: notifyEmail,
-        subject: `Bug Report from ${displayName || email || "Anonymous"}`,
+        subject: `${label} from ${displayName || email || "Anonymous"}`,
         html: `
           <div style="font-family: 'Barlow', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 24px;">
             <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 16px;">
-              Bug Report
+              ${label}
             </h2>
             <div style="background: #FAF8F3; border: 1px solid #E4E0D8; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
               <p style="margin: 0 0 12px; font-size: 14px; color: #1A2E26; line-height: 1.6; white-space: pre-wrap;">
