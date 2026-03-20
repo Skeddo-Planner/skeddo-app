@@ -45,7 +45,7 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         </div>
         <div>
           <div style={s.detailLabel}>COST</div>
-          <div style={{ ...s.detailValue, fontFamily: "'Instrument Serif', serif", fontSize: 20 }}>
+          <div style={{ ...s.detailValue, fontFamily: "'Poppins', sans-serif", fontSize: 20 }}>
             {fmt$(p.cost)}
           </div>
         </div>

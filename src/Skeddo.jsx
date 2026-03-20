@@ -54,7 +54,7 @@ export default function Skeddo() {
         paddingBottom: 0,
       }}>
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body { background: ${C.cream}; }
           @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -309,7 +309,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   return (
     <div style={s.app}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: ${C.cream}; }
         .skeddo-card { transition: transform 0.15s ease, box-shadow 0.15s ease; cursor: pointer; }

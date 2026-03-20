@@ -176,7 +176,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16, alignItems: "center" }}>
         {p.cost != null && (
           <span style={{
-            fontFamily: "'Instrument Serif', serif", fontSize: 16,
+            fontFamily: "'Poppins', sans-serif", fontSize: 16,
             color: C.ink, background: C.cream, padding: "4px 12px", borderRadius: 8,
           }}>
             {isApproxPrice ? "~" : ""}{fmt$(p.cost)}

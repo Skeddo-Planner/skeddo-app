@@ -41,10 +41,10 @@ export default function Header({ displayName, onOpenProfile }) {
           >
             {initial ? (
               <span style={{
-                fontFamily: "'Instrument Serif', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontSize: 17,
                 color: C.cream,
-                fontWeight: 400,
+                fontWeight: 700,
                 lineHeight: 1,
               }}>
                 {initial}

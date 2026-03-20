@@ -240,7 +240,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         </div>
         <div
           style={{
-            fontFamily: "'Instrument Serif', serif",
+            fontFamily: "'Poppins', sans-serif",
             fontSize: 16,
             color: C.ink,
           }}

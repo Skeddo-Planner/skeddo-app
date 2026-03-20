@@ -43,7 +43,7 @@ export default function BudgetTab({
         ) : (
           <>
             Programs cost{" "}
-            <em style={{ fontFamily: "'Instrument Serif', serif", color: C.olive, fontStyle: "italic" }}>
+            <em style={{ fontFamily: "'Poppins', sans-serif", color: C.olive, fontStyle: "italic" }}>
               HOW much?!
             </em>{" "}
             Here's your breakdown.
@@ -59,7 +59,7 @@ export default function BudgetTab({
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 12 }}>
           <div>
             <div style={s.budgetLabel}>{selectedKid ? `${selectedKid.name.toUpperCase()}'S BUDGET` : "TOTAL BUDGET"}</div>
-            <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: 32, color: C.ink, lineHeight: 1.1, marginTop: 4 }}>
+            <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 32, color: C.ink, lineHeight: 1.1, marginTop: 4 }}>
               {fmt$(allCost)}
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function BudgetTab({
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
                 Budget Goal
               </span>
-              <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 14, color: C.ink }}>
+              <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 14, color: C.ink }}>
                 {fmt$(allCost)} / {fmt$(budgetGoal)}
               </span>
             </div>
@@ -195,7 +195,7 @@ export default function BudgetTab({
                   </div>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: 18, color: C.ink }}>
+                  <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink }}>
                     {fmt$(kCost)}
                   </div>
                   <div style={{ color: C.muted, fontSize: 16 }}>&rsaquo;</div>
@@ -223,7 +223,7 @@ export default function BudgetTab({
                   {p.provider} · <span style={{ color: st.color }}>{p.status}</span>
                 </div>
               </div>
-              <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: 17, color: C.ink }}>
+              <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 17, color: C.ink }}>
                 {fmt$(p.cost)}
               </div>
             </div>

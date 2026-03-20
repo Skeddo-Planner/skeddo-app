@@ -127,7 +127,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span
             style={{
-              fontFamily: "'Instrument Serif', serif",
+              fontFamily: "'Poppins', sans-serif",
               fontSize: 16,
               color: C.ink,
             }}

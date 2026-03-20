@@ -19,7 +19,7 @@ export default function LandingPage({ onNavigate }) {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: ${C.cream}; }
         @keyframes fadeUp {
@@ -43,7 +43,7 @@ export default function LandingPage({ onNavigate }) {
 
         <h1
           style={{
-            fontFamily: "'Instrument Serif', serif",
+            fontFamily: "'Poppins', sans-serif",
             fontSize: 32,
             color: C.ink,
             lineHeight: 1.2,

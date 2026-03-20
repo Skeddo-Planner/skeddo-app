@@ -387,7 +387,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         <div style={{ textAlign: "center" }}>
           <div
             style={{
-              fontFamily: "'Instrument Serif', serif",
+              fontFamily: "'Poppins', sans-serif",
               fontSize: 16,
               color: C.ink,
             }}
@@ -481,7 +481,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                   </span>
                   <span
                     style={{
-                      fontFamily: "'Instrument Serif', serif",
+                      fontFamily: "'Poppins', sans-serif",
                       fontSize: 15,
                       color: isToday ? C.seaGreen : C.ink,
                     }}
@@ -603,9 +603,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                                   display: "inline-flex",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  fontFamily: "'Instrument Serif', serif",
+                                  fontFamily: "'Poppins', sans-serif",
                                   fontSize: 10,
-                                  fontWeight: 400,
+                                  fontWeight: 700,
                                   lineHeight: 1,
                                   flexShrink: 0,
                                 }}

@@ -385,7 +385,7 @@ export default function HomeTab({
           </div>
           <p
             style={{
-              fontFamily: "'Instrument Serif', serif",
+              fontFamily: "'Poppins', sans-serif",
               fontSize: 15,
               fontStyle: "italic",
               color: C.ink,

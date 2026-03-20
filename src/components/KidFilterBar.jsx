@@ -77,9 +77,9 @@ export default function KidFilterBar({ kids, kidFilter, onKidFilter }) {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontFamily: "'Instrument Serif', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontSize: 11,
-                fontWeight: 400,
+                fontWeight: 700,
                 lineHeight: 1,
                 flexShrink: 0,
               }}

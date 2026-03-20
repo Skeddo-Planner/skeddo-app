@@ -83,7 +83,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         }}
       >
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body { background: ${C.cream}; }
           @keyframes fadeUp {
@@ -95,7 +95,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
           <div style={{ fontSize: 48, marginBottom: 16 }}>&#9993;</div>
           <h1
             style={{
-              fontFamily: "'Instrument Serif', serif",
+              fontFamily: "'Poppins', sans-serif",
               fontSize: 26,
               color: C.ink,
               marginBottom: 8,
@@ -149,7 +149,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         }}
       >
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body { background: ${C.cream}; }
           @keyframes fadeUp {
@@ -162,7 +162,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
           <div style={{ fontSize: 48, marginBottom: 16 }}>&#9993;</div>
           <h1
             style={{
-              fontFamily: "'Instrument Serif', serif",
+              fontFamily: "'Poppins', sans-serif",
               fontSize: 26,
               color: C.ink,
               marginBottom: 8,
@@ -214,7 +214,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: ${C.cream}; }
         @keyframes fadeUp {
@@ -254,7 +254,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
 
         <h1
           style={{
-            fontFamily: "'Instrument Serif', serif",
+            fontFamily: "'Poppins', sans-serif",
             fontSize: 26,
             color: C.ink,
             textAlign: "center",

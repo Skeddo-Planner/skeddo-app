@@ -78,7 +78,7 @@ export default function OnboardingFlow({ onComplete }) {
 
             <h1
               style={{
-                fontFamily: "'Instrument Serif', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontSize: 28,
                 color: C.ink,
                 lineHeight: 1.2,
@@ -133,7 +133,7 @@ export default function OnboardingFlow({ onComplete }) {
           <div style={{ animation: "fadeUp 0.4s ease" }}>
             <h1
               style={{
-                fontFamily: "'Instrument Serif', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontSize: 26,
                 color: C.ink,
                 lineHeight: 1.2,
@@ -234,7 +234,7 @@ export default function OnboardingFlow({ onComplete }) {
           <div style={{ animation: "fadeUp 0.4s ease" }}>
             <h1
               style={{
-                fontFamily: "'Instrument Serif', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontSize: 26,
                 color: C.ink,
                 lineHeight: 1.2,
@@ -335,7 +335,7 @@ export default function OnboardingFlow({ onComplete }) {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        fontFamily: "'Instrument Serif', serif",
+                        fontFamily: "'Poppins', sans-serif",
                         fontSize: 14,
                         flexShrink: 0,
                       }}
@@ -421,7 +421,7 @@ export default function OnboardingFlow({ onComplete }) {
 
             <h1
               style={{
-                fontFamily: "'Instrument Serif', serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontSize: 28,
                 color: C.ink,
                 lineHeight: 1.2,

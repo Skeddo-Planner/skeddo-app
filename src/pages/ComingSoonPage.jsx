@@ -41,7 +41,7 @@ export default function ComingSoonPage() {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: ${C.ink}; }
         @keyframes fadeUp {
@@ -70,7 +70,7 @@ export default function ComingSoonPage() {
         {/* Tagline */}
         <h1
           style={{
-            fontFamily: "'Instrument Serif', serif",
+            fontFamily: "'Poppins', sans-serif",
             fontSize: 36,
             color: C.cream,
             lineHeight: 1.2,
@@ -109,9 +109,9 @@ export default function ComingSoonPage() {
             <div key={label} style={{ textAlign: "center" }}>
               <div
                 style={{
-                  fontFamily: "'Instrument Serif', serif",
+                  fontFamily: "'Poppins', sans-serif",
                   fontSize: 40,
-                  fontWeight: 400,
+                  fontWeight: 700,
                   color: C.seaGreen,
                   lineHeight: 1,
                   minWidth: 56,
