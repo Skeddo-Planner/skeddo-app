@@ -25,9 +25,10 @@ import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 
-/* Check for ?preview=true OR if we're past the April 1, 2026 launch date to bypass the Coming Soon page */
+/* Bypass Coming Soon page if: ?preview=true, app.skeddo.ca subdomain, or past launch date */
 const isPreview =
   new URLSearchParams(window.location.search).get("preview") === "true" ||
+  window.location.hostname === "app.skeddo.ca" ||
   new Date() >= new Date("2026-04-01T00:00:00-07:00");
 
 export default function Skeddo() {
