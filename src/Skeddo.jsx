@@ -161,9 +161,18 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
     if (isIOS && !window.navigator.standalone) {
       setShowInstallBanner(true);
     }
-    // On Android/desktop, banner only shows once beforeinstallprompt fires (handled above)
+
+    // On Android/desktop, if beforeinstallprompt hasn't fired after 3s,
+    // show banner with manual instructions (Chrome menu → Add to Home Screen)
+    let timer;
+    if (!isIOS) {
+      timer = setTimeout(() => {
+        setShowInstallBanner(true);
+      }, 3000);
+    }
 
     return () => {
+      if (timer) clearTimeout(timer);
       window.removeEventListener("beforeinstallprompt", handler);
       window.removeEventListener("appinstalled", installedHandler);
       mq.removeEventListener("change", mqHandler);

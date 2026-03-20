@@ -259,7 +259,9 @@ export default function HomeTab({
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6", lineHeight: 1.4 }}>
               {installPrompt
                 ? "Add Skeddo to your home screen for quick access."
-                : "Tap the share button in your browser, then \"Add to Home Screen\"."
+                : /iPad|iPhone|iPod/.test(navigator.userAgent)
+                  ? "Tap the share button in your browser, then \"Add to Home Screen\"."
+                  : "Tap \u22EE (menu) in Chrome, then \"Add to Home Screen\"."
               }
             </div>
           </div>
