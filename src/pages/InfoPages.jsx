@@ -22,13 +22,8 @@ const PAGES = {
             "Free to use. No hidden costs to get started",
           ]} />
         </Section>
-      </>
-    ),
-  },
-  how: {
-    title: "How It Works",
-    content: () => (
-      <>
+        <Divider />
+        <h2 style={h2Style}>How It Works</h2>
         <Section title="1. Add Your Kids">
           <p>Start by adding your children with their names and ages. This helps Skeddo show you age-appropriate programs and keep everything organized per kid.</p>
         </Section>
@@ -47,25 +42,11 @@ const PAGES = {
       </>
     ),
   },
-  faq: {
-    title: "Help & FAQ",
+  legal: {
+    title: "Privacy & Terms",
     content: () => (
       <>
-        <FAQ q="Is Skeddo free?" a="Yes! Skeddo is free to use. We may introduce optional premium features in the future, but the core planning tools will always be free." />
-        <FAQ q="How do I add a program to my list?" a="Go to the Discover tab, find a program you like, and tap it. From the detail view, you can save it to your list and set its status (Exploring, Waitlist, or Enrolled)." />
-        <FAQ q="Can I use Skeddo for multiple kids?" a="Absolutely. Add as many kids as you need from the Home tab. You can assign programs to specific kids and filter views per child." />
-        <FAQ q="Where does the program data come from?" a="We source program information directly from provider websites and registration systems across Vancouver. We verify details regularly, but always confirm with the provider before registering." />
-        <FAQ q="Can I install Skeddo on my phone?" a="Yes! Skeddo is a web app that works like a native app. On your phone, tap 'Add to Home Screen' from your browser menu to install it." />
-        <FAQ q="Is my data safe?" a="Your data is stored securely with Supabase (built on PostgreSQL with row-level security). We never sell or share your personal information." />
-        <FAQ q="How do I delete my account?" a="Contact us at skeddo.planner@gmail.com and we'll take care of it. We'll delete all your data within 48 hours." />
-        <FAQ q="I found incorrect program information. What should I do?" a="Please let us know! Email skeddo.planner@gmail.com with the program name and what needs updating. We appreciate the help keeping our data accurate." />
-      </>
-    ),
-  },
-  privacy: {
-    title: "Privacy Policy",
-    content: () => (
-      <>
+        <h2 style={h2Style}>Privacy Policy</h2>
         <p style={{ ...bodyStyle, marginBottom: 16, fontStyle: "italic", color: C.muted }}>Last updated: March 2026</p>
         <Section title="What We Collect">
           <BulletList items={[
@@ -95,16 +76,8 @@ const PAGES = {
         <Section title="Cookies">
           <p>We use minimal cookies for authentication (keeping you signed in) and basic analytics. We don't use tracking cookies or advertising cookies.</p>
         </Section>
-        <Section title="Contact">
-          <p>Questions about privacy? Email us at <strong>skeddo.planner@gmail.com</strong>.</p>
-        </Section>
-      </>
-    ),
-  },
-  terms: {
-    title: "Terms of Service",
-    content: () => (
-      <>
+        <Divider />
+        <h2 style={h2Style}>Terms of Service</h2>
         <p style={{ ...bodyStyle, marginBottom: 16, fontStyle: "italic", color: C.muted }}>Last updated: March 2026</p>
         <Section title="Agreement">
           <p>By using Skeddo, you agree to these terms. Skeddo is operated by Mended with Gold Inc., registered in British Columbia, Canada.</p>
@@ -130,16 +103,24 @@ const PAGES = {
         <Section title="Governing Law">
           <p>These terms are governed by the laws of British Columbia, Canada.</p>
         </Section>
-        <Section title="Contact">
-          <p>Questions? Email <strong>skeddo.planner@gmail.com</strong>.</p>
-        </Section>
       </>
     ),
   },
-  contact: {
-    title: "Contact Us",
+  help: {
+    title: "Help & Contact",
     content: () => (
       <>
+        <h2 style={h2Style}>Frequently Asked Questions</h2>
+        <FAQ q="Is Skeddo free?" a="Yes! Skeddo is free to use. We may introduce optional premium features in the future, but the core planning tools will always be free." />
+        <FAQ q="How do I add a program to my list?" a="Go to the Discover tab, find a program you like, and tap it. From the detail view, you can save it to your list and set its status (Exploring, Waitlist, or Enrolled)." />
+        <FAQ q="Can I use Skeddo for multiple kids?" a="Absolutely. Add as many kids as you need from the Home tab. You can assign programs to specific kids and filter views per child." />
+        <FAQ q="Where does the program data come from?" a="We source program information directly from provider websites and registration systems across Vancouver. We verify details regularly, but always confirm with the provider before registering." />
+        <FAQ q="Can I install Skeddo on my phone?" a="Yes! Skeddo is a web app that works like a native app. On your phone, tap 'Add to Home Screen' from your browser menu to install it." />
+        <FAQ q="Is my data safe?" a="Your data is stored securely with Supabase (built on PostgreSQL with row-level security). We never sell or share your personal information." />
+        <FAQ q="How do I delete my account?" a="Contact us at skeddo.planner@gmail.com and we'll take care of it. We'll delete all your data within 48 hours." />
+        <FAQ q="I found incorrect program information. What should I do?" a="Please let us know! Email skeddo.planner@gmail.com with the program name and what needs updating. We appreciate the help keeping our data accurate." />
+        <Divider />
+        <h2 style={h2Style}>Contact Us</h2>
         <Section title="Get in Touch">
           <p>We'd love to hear from you — whether it's a bug report, a feature idea, a data correction, or just to say hi.</p>
         </Section>
@@ -160,6 +141,19 @@ const PAGES = {
     ),
   },
 };
+
+const h2Style = {
+  fontFamily: "'Poppins', sans-serif",
+  fontSize: 20,
+  fontWeight: 700,
+  color: C.ink,
+  marginBottom: 12,
+  marginTop: 8,
+};
+
+function Divider() {
+  return <hr style={{ border: "none", borderTop: `1px solid ${C.border}`, margin: "24px 0" }} />;
+}
 
 const bodyStyle = {
   fontFamily: "'Barlow', sans-serif",
