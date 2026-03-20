@@ -31,7 +31,6 @@ export default function HomeTab({
   onEditKid,
   installPrompt,
   showInstallBanner,
-  isStandalone,
   onInstallClick,
   onDismissInstall,
 }) {
@@ -63,15 +62,6 @@ export default function HomeTab({
 
   return (
     <div>
-      {/* TEMP DEBUG — remove after diagnosing Android install issue */}
-      <div style={{ background: "#FFF3CD", border: "1px solid #FFECB5", borderRadius: 8, padding: "8px 12px", marginBottom: 12, fontSize: 11, fontFamily: "monospace", lineHeight: 1.6 }}>
-        <strong>Install Debug:</strong><br />
-        standalone: {String(isStandalone)}<br />
-        showBanner: {String(showInstallBanner)}<br />
-        hasPrompt: {String(!!installPrompt)}<br />
-        displayMode: {window.matchMedia("(display-mode: standalone)").matches ? "standalone" : "browser"}<br />
-        swRegistered: {String("serviceWorker" in navigator)}
-      </div>
       {/* Kids row + Add button inline */}
       <div style={{ display: "flex", gap: 10, marginBottom: 16, overflowX: "auto", paddingBottom: 4 }}>
         {kids.map((k) => {

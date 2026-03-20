@@ -396,7 +396,6 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             onEditKid={openEditKid}
             installPrompt={installPrompt}
             showInstallBanner={showInstallBanner}
-            isStandalone={isStandalone}
             onInstallClick={handleInstallClick}
             onDismissInstall={() => setShowInstallBanner(false)}
           />
