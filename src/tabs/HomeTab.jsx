@@ -218,7 +218,7 @@ export default function HomeTab({
                     tabIndex={0}
                     aria-label={`Edit ${k.name}`}
                   >
-                    <div style={s.kidAvatar}>{k.name?.[0]?.toUpperCase() || "?"}</div>
+                    <div style={{ ...s.kidAvatar, background: k.color || s.kidAvatar.background }}>{k.name?.[0]?.toUpperCase() || "?"}</div>
                     <div style={{ flex: 1 }}>
                       <div style={s.kidName}>{k.name}</div>
                       {k.age && <div style={s.kidAge}>Age {k.age}</div>}

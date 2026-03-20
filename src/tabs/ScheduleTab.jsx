@@ -59,8 +59,8 @@ function isDateInRange(date, startDate, endDate) {
   return true;
 }
 
-/* ─── Kid dot colors — distinct palette for up to 6 kids ─── */
-const KID_COLORS = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
+/* ─── Fallback kid colors if kid.color is not set ─── */
+const KID_COLORS_FALLBACK = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
 
 /* ─── Build a map of date → [kidId, …] for the visible month ─── */
 function buildBookingMap(programs, kids, year, month) {
@@ -113,10 +113,10 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Build kid → color index map
+  // Build kid → color map (use kid's saved color, fall back to palette)
   const kidColorMap = {};
   (kids || []).forEach((k, i) => {
-    kidColorMap[k.id] = KID_COLORS[i % KID_COLORS.length];
+    kidColorMap[k.id] = k.color || KID_COLORS_FALLBACK[i % KID_COLORS_FALLBACK.length];
   });
 
   // Build booking map for this month
@@ -168,7 +168,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                 width: 6,
                 height: 6,
                 borderRadius: 3,
-                background: KID_COLORS[i % KID_COLORS.length],
+                background: k.color || KID_COLORS_FALLBACK[i % KID_COLORS_FALLBACK.length],
                 flexShrink: 0,
               }} />
               <span style={{
@@ -229,7 +229,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             } else {
               (kids || []).forEach((k, ki) => {
                 if (bookedKids.has(k.id) || bookedKids.has("__all__")) {
-                  dots.push(KID_COLORS[ki % KID_COLORS.length]);
+                  dots.push(k.color || KID_COLORS_FALLBACK[ki % KID_COLORS_FALLBACK.length]);
                 }
               });
             }
@@ -588,7 +588,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                             <span style={{ color: C.border, fontSize: 11 }}>·</span>
                             {assignedKids.map((k) => {
                               const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
-                              const kidColor = KID_COLORS[kidIdx >= 0 ? kidIdx % KID_COLORS.length : 0];
+                              const kidColor = k.color || KID_COLORS_FALLBACK[kidIdx >= 0 ? kidIdx % KID_COLORS_FALLBACK.length : 0];
                               return (
                               <span
                                 key={k.id}

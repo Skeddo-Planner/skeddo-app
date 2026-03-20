@@ -58,10 +58,10 @@ export default function KidFilterBar({ kids, kidFilter, onKidFilter }) {
               whiteSpace: "nowrap",
               flexShrink: 0,
               background: isActive
-                ? `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`
+                ? (k.color || C.seaGreen)
                 : "transparent",
               color: isActive ? C.cream : C.ink,
-              borderColor: isActive ? C.seaGreen : C.border,
+              borderColor: isActive ? (k.color || C.seaGreen) : C.border,
             }}
           >
             {/* Mini avatar */}
@@ -72,7 +72,7 @@ export default function KidFilterBar({ kids, kidFilter, onKidFilter }) {
                 borderRadius: 6,
                 background: isActive
                   ? "rgba(255,255,255,0.25)"
-                  : `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
+                  : (k.color || C.seaGreen),
                 color: C.cream,
                 display: "inline-flex",
                 alignItems: "center",

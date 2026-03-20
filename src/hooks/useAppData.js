@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import { STORAGE_KEY, uid } from "../constants/sampleData";
+import { KID_COLORS } from "../constants/brand";
 
 /* ─── CURRENCY FORMATTER ─── */
 export const fmt$ = (n) =>
@@ -70,6 +71,7 @@ const kidToDb = (k, userId) => ({
   name: k.name,
   age: k.age != null ? Number(k.age) : null,
   notes: k.notes || "",
+  color: k.color || "",
 });
 
 const kidFromDb = (row) => ({
@@ -77,6 +79,7 @@ const kidFromDb = (row) => ({
   name: row.name,
   age: row.age,
   notes: row.notes || "",
+  color: row.color || "",
 });
 
 const profileToDb = (p, userId) => ({
@@ -502,6 +505,12 @@ export function useAppData(userId) {
 
     setKids((prev) => {
       const existing = prev.find((k) => k.id === kidId);
+      // Auto-assign color for new kids if not already set
+      if (!existing && !kid.color) {
+        const usedColors = new Set(prev.map((k) => k.color));
+        const available = KID_COLORS.find((c) => !usedColors.has(c.hex));
+        kid.color = available ? available.hex : KID_COLORS[prev.length % KID_COLORS.length].hex;
+      }
       if (existing) return prev.map((k) => (k.id === kidId ? { ...k, ...kid } : k));
       return [...prev, kid];
     });

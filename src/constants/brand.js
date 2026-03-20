@@ -42,6 +42,18 @@ export const CAT_EMOJI = {
   Social: "\ud83e\uddf8",
 };
 
+/* ─── Kid color palette — auto-assigned, user-editable ─── */
+export const KID_COLORS = [
+  { hex: "#3A9E6A", name: "Sea Green" },
+  { hex: "#2A5F8A", name: "Blue" },
+  { hex: "#C87FA0", name: "Lilac" },
+  { hex: "#B89A2A", name: "Gold" },
+  { hex: "#E06C50", name: "Coral" },
+  { hex: "#5BB5A2", name: "Teal" },
+  { hex: "#7B68AE", name: "Purple" },
+  { hex: "#E8913A", name: "Orange" },
+];
+
 export const SEASON_TYPES = [
   "Summer Camp",
   "Spring Break",

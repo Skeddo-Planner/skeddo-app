@@ -183,7 +183,7 @@ export default function BudgetTab({
                 tabIndex={0}
                 aria-label={`View budget for ${k.name}`}
               >
-                <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14 }}>
+                <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14, background: k.color || s.kidAvatar.background }}>
                   {k.name?.[0]?.toUpperCase()}
                 </div>
                 <div style={{ flex: 1 }}>
