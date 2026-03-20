@@ -389,6 +389,7 @@ export default function DiscoverTab({
   const [showProviderDropdown, setShowProviderDropdown] = useState(false);
   const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
   const [showActivityTypeDropdown, setShowActivityTypeDropdown] = useState(false);
+  const [showHoodPanel, setShowHoodPanel] = useState(false);
   const [selectedLengths, setSelectedLengths] = useState(new Set());
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
@@ -1330,7 +1331,37 @@ export default function DiscoverTab({
               </button>
             )}
           </div>
-          <div
+          <button
+            onClick={() => setShowHoodPanel(!showHoodPanel)}
+            aria-label={showHoodPanel ? "Collapse neighbourhood filter" : "Expand neighbourhood filter"}
+            aria-expanded={showHoodPanel}
+            style={{
+              width: "100%",
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              color: selectedHoods.size > 0 ? C.ink : C.muted,
+              background: C.white,
+              border: `1.5px solid ${showHoodPanel ? C.blue : C.border}`,
+              borderRadius: 10,
+              padding: "10px 12px",
+              textAlign: "left",
+              cursor: "pointer",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: showHoodPanel ? 6 : 14,
+            }}
+          >
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
+              {selectedHoods.size === 0
+                ? "All neighbourhoods"
+                : `${selectedHoods.size} neighbourhood${selectedHoods.size !== 1 ? "s" : ""} selected`}
+            </span>
+            <span style={{ fontSize: 10, marginLeft: 8, color: C.muted }}>
+              {showHoodPanel ? "\u25B2" : "\u25BC"}
+            </span>
+          </button>
+          {showHoodPanel && <div
             style={{
               background: C.cream,
               borderRadius: 10,
@@ -1471,7 +1502,7 @@ export default function DiscoverTab({
                 </div>
               );
             })}
-          </div>
+          </div>}
 
           {/* Age range */}
           <div
