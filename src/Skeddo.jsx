@@ -132,8 +132,15 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   );
 
   useEffect(() => {
+    // Listen for display-mode changes (detects uninstall → browser switch)
+    const mq = window.matchMedia("(display-mode: standalone)");
+    const mqHandler = (e) => setIsStandalone(e.matches);
+    mq.addEventListener("change", mqHandler);
+
     // Already installed as PWA — don't show banner
-    if (isStandalone) return;
+    if (isStandalone) {
+      return () => mq.removeEventListener("change", mqHandler);
+    }
 
     const handler = (e) => {
       e.preventDefault();
@@ -142,13 +149,38 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
     };
     window.addEventListener("beforeinstallprompt", handler);
 
+    // Detect when app is installed to hide the banner
+    const installedHandler = () => {
+      setShowInstallBanner(false);
+      setIsStandalone(true);
+    };
+    window.addEventListener("appinstalled", installedHandler);
+
     // For iOS Safari (no beforeinstallprompt), show manual instructions
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (isIOS && !window.navigator.standalone) {
       setShowInstallBanner(true);
     }
 
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+    // If not standalone and not iOS, show the banner anyway after a delay
+    // (handles case where beforeinstallprompt hasn't fired yet after uninstall)
+    if (!isIOS) {
+      const timer = setTimeout(() => {
+        setShowInstallBanner(true);
+      }, 3000);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("beforeinstallprompt", handler);
+        window.removeEventListener("appinstalled", installedHandler);
+        mq.removeEventListener("change", mqHandler);
+      };
+    }
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("appinstalled", installedHandler);
+      mq.removeEventListener("change", mqHandler);
+    };
   }, [isStandalone]);
 
   const handleInstallClick = async () => {
