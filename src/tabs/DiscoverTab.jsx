@@ -388,6 +388,7 @@ export default function DiscoverTab({
   const [providerSearch, setProviderSearch] = useState("");
   const [showProviderDropdown, setShowProviderDropdown] = useState(false);
   const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
+  const [showActivityTypeDropdown, setShowActivityTypeDropdown] = useState(false);
   const [selectedLengths, setSelectedLengths] = useState(new Set());
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
@@ -869,7 +870,7 @@ export default function DiscoverTab({
             })}
           </div>
 
-          {/* Activity type chips (context-aware from selected categories) */}
+          {/* Activity type dropdown (context-aware from selected categories) */}
           {availableActivityTypes.length > 0 && (
             <>
               <div
@@ -907,35 +908,83 @@ export default function DiscoverTab({
                   </button>
                 )}
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  gap: 6,
-                  marginBottom: 14,
-                  flexWrap: "wrap",
-                }}
-              >
-                {availableActivityTypes.map((at) => {
-                  const isActive = selectedActivityTypes.has(at);
-                  return (
-                    <button
-                      key={at}
-                      className="chip-btn"
-                      onClick={() => toggleInSet(setSelectedActivityTypes, at)}
-                      aria-label={`Filter by activity type: ${at}`}
-                      aria-pressed={isActive}
-                      style={{
-                        ...s.filterChip,
-                        fontSize: 12,
-                        background: isActive ? C.ink : "transparent",
-                        color: isActive ? C.cream : C.muted,
-                        borderColor: isActive ? C.ink : C.border,
-                      }}
-                    >
-                      {at}
-                    </button>
-                  );
-                })}
+              <div style={{ position: "relative", marginBottom: 14 }}>
+                <button
+                  onClick={() => setShowActivityTypeDropdown(!showActivityTypeDropdown)}
+                  aria-label="Select activity types"
+                  aria-expanded={showActivityTypeDropdown}
+                  style={{
+                    width: "100%",
+                    fontFamily: "'Barlow', sans-serif",
+                    fontSize: 13,
+                    color: selectedActivityTypes.size > 0 ? C.ink : C.muted,
+                    background: C.white,
+                    border: `1.5px solid ${showActivityTypeDropdown ? C.blue : C.border}`,
+                    borderRadius: 10,
+                    padding: "10px 12px",
+                    textAlign: "left",
+                    cursor: "pointer",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
+                    {selectedActivityTypes.size === 0
+                      ? "All activity types"
+                      : [...selectedActivityTypes].join(", ")}
+                  </span>
+                  <span style={{ fontSize: 10, marginLeft: 8, color: C.muted }}>
+                    {showActivityTypeDropdown ? "\u25B2" : "\u25BC"}
+                  </span>
+                </button>
+                {showActivityTypeDropdown && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: 0,
+                      right: 0,
+                      background: C.white,
+                      border: `1.5px solid ${C.border}`,
+                      borderRadius: 10,
+                      marginTop: 4,
+                      maxHeight: 200,
+                      overflowY: "auto",
+                      zIndex: 20,
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    {availableActivityTypes.map((at) => {
+                      const isActive = selectedActivityTypes.has(at);
+                      return (
+                        <div
+                          key={at}
+                          role="option"
+                          aria-selected={isActive}
+                          onClick={() => { toggleInSet(setSelectedActivityTypes, at); setVisibleCount(PAGE_SIZE); }}
+                          style={{
+                            fontFamily: "'Barlow', sans-serif",
+                            fontSize: 13,
+                            padding: "9px 12px",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 8,
+                            background: isActive ? `${C.blue}10` : "transparent",
+                            color: isActive ? C.ink : C.muted,
+                            borderBottom: `1px solid ${C.border}`,
+                          }}
+                        >
+                          <span style={{ width: 18, textAlign: "center", fontSize: 14, color: C.blue }}>
+                            {isActive ? "\u2713" : ""}
+                          </span>
+                          {at}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </>
           )}
