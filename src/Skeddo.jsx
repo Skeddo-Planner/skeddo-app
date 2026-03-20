@@ -413,36 +413,26 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
         )}
       </main>
 
-      {/* PWA Install Banner */}
+      {/* PWA Install Banner — compact pill on the right */}
       {showInstallBanner && !isStandalone && (
         <div
           style={{
             position: "fixed",
-            bottom: 64,
-            left: 0,
-            right: 0,
+            bottom: 72,
+            right: 12,
             background: C.ink,
             color: C.cream,
             fontFamily: "'Barlow', sans-serif",
-            fontSize: 13,
+            fontSize: 12,
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            padding: "10px 16px",
+            gap: 8,
+            padding: "8px 12px",
+            borderRadius: 12,
             zIndex: 999,
-            boxShadow: "0 -2px 12px rgba(26,46,38,0.15)",
+            boxShadow: "0 2px 12px rgba(26,46,38,0.2)",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 10, flex: 1 }}>
-            <img
-              src="/skeddo-logo-dark.png"
-              alt=""
-              style={{ width: 28, height: 28, borderRadius: 6 }}
-            />
-            <span style={{ fontWeight: 600 }}>
-              Add Skeddo to your home screen
-            </span>
-          </div>
           {installPrompt ? (
             <button
               onClick={handleInstallClick}
@@ -451,26 +441,18 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
                 color: "#fff",
                 border: "none",
                 borderRadius: 8,
-                padding: "6px 14px",
+                padding: "6px 12px",
                 fontFamily: "'Barlow', sans-serif",
                 fontWeight: 700,
                 fontSize: 12,
                 cursor: "pointer",
                 whiteSpace: "nowrap",
-                flexShrink: 0,
               }}
             >
-              Install
+              Add to Home Screen
             </button>
           ) : (
-            <span
-              style={{
-                fontSize: 11,
-                color: "#8A9A8E",
-                whiteSpace: "nowrap",
-                flexShrink: 0,
-              }}
-            >
+            <span style={{ fontWeight: 600, whiteSpace: "nowrap" }}>
               Tap Share → Add to Home
             </span>
           )}
@@ -481,11 +463,10 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
               background: "none",
               border: "none",
               color: "#8A9A8E",
-              fontSize: 18,
+              fontSize: 16,
               cursor: "pointer",
-              padding: "0 0 0 10px",
+              padding: 0,
               lineHeight: 1,
-              flexShrink: 0,
             }}
           >
             ×
