@@ -132,47 +132,49 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   );
 
   useEffect(() => {
-    // Listen for display-mode changes (detects uninstall → browser switch)
     const mq = window.matchMedia("(display-mode: standalone)");
     const mqHandler = (e) => setIsStandalone(e.matches);
     mq.addEventListener("change", mqHandler);
 
-    // Already installed as PWA — don't show banner
-    if (isStandalone) {
-      return () => mq.removeEventListener("change", mqHandler);
-    }
-
     const handler = (e) => {
       e.preventDefault();
       setInstallPrompt(e);
+      // beforeinstallprompt only fires when NOT installed — override stale standalone state
+      setIsStandalone(false);
       setShowInstallBanner(true);
     };
     window.addEventListener("beforeinstallprompt", handler);
 
-    // Detect when app is installed to hide the banner
     const installedHandler = () => {
       setShowInstallBanner(false);
       setIsStandalone(true);
     };
     window.addEventListener("appinstalled", installedHandler);
 
-    // For iOS Safari (no beforeinstallprompt), show manual instructions immediately
+    // Determine platform for fallback messaging
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    if (isIOS && !window.navigator.standalone) {
-      setShowInstallBanner(true);
-    }
 
-    // On Android/desktop, if beforeinstallprompt hasn't fired after 3s,
-    // show banner with manual instructions (Chrome menu → Add to Home Screen)
-    let timer;
-    if (!isIOS) {
-      timer = setTimeout(() => {
+    // If already standalone (installed PWA), skip showing banner
+    if (!isStandalone) {
+      if (isIOS && !window.navigator.standalone) {
+        // iOS: show manual share-button instructions immediately
         setShowInstallBanner(true);
-      }, 3000);
+      } else if (!isIOS) {
+        // Android/desktop: show banner after short delay as fallback
+        // (beforeinstallprompt may fire sooner and show the Install button)
+        const timer = setTimeout(() => {
+          setShowInstallBanner(true);
+        }, 3000);
+        return () => {
+          clearTimeout(timer);
+          window.removeEventListener("beforeinstallprompt", handler);
+          window.removeEventListener("appinstalled", installedHandler);
+          mq.removeEventListener("change", mqHandler);
+        };
+      }
     }
 
     return () => {
-      if (timer) clearTimeout(timer);
       window.removeEventListener("beforeinstallprompt", handler);
       window.removeEventListener("appinstalled", installedHandler);
       mq.removeEventListener("change", mqHandler);
