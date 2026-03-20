@@ -410,7 +410,12 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
         )}
 
         {tab === "circles" && (
-          <CirclesTab />
+          <CirclesTab
+            programs={programs}
+            kids={kids}
+            profile={profile}
+            showToast={showToast}
+          />
         )}
 
         {tab === "budget" && (
