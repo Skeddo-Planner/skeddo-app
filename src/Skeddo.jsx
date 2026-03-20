@@ -18,6 +18,7 @@ import ProgramForm from "./modals/ProgramForm";
 import KidForm from "./modals/KidForm";
 import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
+import InfoPage from "./pages/InfoPages";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
@@ -116,6 +117,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   const [modal, setModal] = useState(null);
   const [form, setForm] = useState({});
   const [toast, setToast] = useState(null);
+  const [infoPage, setInfoPage] = useState(null);
 
   /* ── PWA Install Prompt ── */
   const [installPrompt, setInstallPrompt] = useState(null);
@@ -337,9 +339,15 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
       <Header
         displayName={profile.displayName}
         onOpenProfile={() => setModal({ type: "profile" })}
+        onOpenPage={(pageId) => setInfoPage(pageId)}
       />
 
-      <main style={s.main}>
+      {/* Info pages (About, Privacy, etc.) */}
+      {infoPage && (
+        <InfoPage pageId={infoPage} onBack={() => setInfoPage(null)} />
+      )}
+
+      {!infoPage && <main style={s.main}>
         {tab === "home" && (
           <HomeTab
             enrolledPrograms={enrolledPrograms}
@@ -411,7 +419,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             budgetGoal={Number(profile.budgetGoal) || 0}
           />
         )}
-      </main>
+      </main>}
 
       {/* PWA Install Banner — compact pill on the right */}
       {showInstallBanner && !isStandalone && (
@@ -474,7 +482,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
         </div>
       )}
 
-      <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} />
+      {!infoPage && <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} />}
 
       {/* ─── MODALS ─── */}
       {modal?.type === "programDetail" && (() => {
