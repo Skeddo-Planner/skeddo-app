@@ -52,6 +52,11 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
 
+  // Bug report state
+  const [showBugForm, setShowBugForm] = useState(false);
+  const [bugDescription, setBugDescription] = useState("");
+  const [bugStatus, setBugStatus] = useState(null); // null | "sending" | "sent" | "error"
+
   const handleSave = () => {
     setProfile(draft);
     onClose();
@@ -255,8 +260,145 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         );
       })}
 
+      {/* ─── Report a Bug ─── */}
+      <SectionLabel>Feedback</SectionLabel>
+      {!showBugForm ? (
+        <button
+          onClick={() => setShowBugForm(true)}
+          style={{
+            width: "100%",
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 13,
+            fontWeight: 600,
+            color: C.blue,
+            background: `${C.blue}0A`,
+            border: `1.5px solid ${C.blue}20`,
+            borderRadius: 10,
+            padding: "12px 16px",
+            cursor: "pointer",
+            textAlign: "left",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            transition: "all 0.12s",
+          }}
+          className="chip-btn"
+        >
+          <span style={{ fontSize: 16 }}>🐛</span>
+          Report a bug
+        </button>
+      ) : (
+        <div style={{
+          background: `${C.blue}06`,
+          border: `1.5px solid ${C.blue}20`,
+          borderRadius: 12,
+          padding: 14,
+        }}>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 13,
+            fontWeight: 600,
+            color: C.ink,
+            marginBottom: 8,
+          }}>
+            What went wrong?
+          </div>
+          <textarea
+            style={{
+              ...s.input,
+              minHeight: 80,
+              resize: "vertical",
+              fontSize: 13,
+            }}
+            value={bugDescription}
+            onChange={(e) => setBugDescription(e.target.value)}
+            placeholder="Describe what happened and what you expected..."
+            autoFocus
+          />
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            color: C.muted,
+            marginTop: 4,
+            marginBottom: 10,
+          }}>
+            We'll also include your device info to help us investigate.
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button
+              style={s.secondaryBtn}
+              onClick={() => {
+                setShowBugForm(false);
+                setBugDescription("");
+                setBugStatus(null);
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              style={{
+                ...s.primaryBtn,
+                opacity: !bugDescription.trim() || bugStatus === "sending" ? 0.5 : 1,
+              }}
+              disabled={!bugDescription.trim() || bugStatus === "sending"}
+              onClick={async () => {
+                setBugStatus("sending");
+                try {
+                  const res = await fetch("/api/report-bug", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      description: bugDescription.trim(),
+                      email: email || "",
+                      displayName: profile.displayName || "",
+                      userAgent: navigator.userAgent,
+                    }),
+                  });
+                  if (res.ok) {
+                    setBugStatus("sent");
+                    setBugDescription("");
+                    setTimeout(() => {
+                      setShowBugForm(false);
+                      setBugStatus(null);
+                    }, 2500);
+                  } else {
+                    setBugStatus("error");
+                  }
+                } catch {
+                  setBugStatus("error");
+                }
+              }}
+            >
+              {bugStatus === "sending" ? "Sending..." : "Send Report"}
+            </button>
+          </div>
+          {bugStatus === "sent" && (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              color: C.seaGreen,
+              fontWeight: 600,
+              marginTop: 10,
+            }}>
+              Thanks! We received your report.
+            </div>
+          )}
+          {bugStatus === "error" && (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              color: C.danger,
+              fontWeight: 600,
+              marginTop: 10,
+            }}>
+              Something went wrong. Please try again.
+            </div>
+          )}
+        </div>
+      )}
+
       {/* ─── Actions ─── */}
-      <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+      <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
         <button style={s.secondaryBtn} onClick={handleCancel}>
           Cancel
         </button>
