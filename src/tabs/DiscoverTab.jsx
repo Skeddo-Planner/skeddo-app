@@ -383,7 +383,7 @@ export default function DiscoverTab({
   const [showFilters, setShowFilters] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
-  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon", "likely-coming-soon"])); // default: show registrable + upcoming programs
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon"])); // default: show programs users can register for now or very soon
   const [selectedProviders, setSelectedProviders] = useState(new Set());
   const [providerSearch, setProviderSearch] = useState("");
   const [showProviderDropdown, setShowProviderDropdown] = useState(false);

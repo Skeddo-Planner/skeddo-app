@@ -117,6 +117,46 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   const [form, setForm] = useState({});
   const [toast, setToast] = useState(null);
 
+  /* ── PWA Install Prompt ── */
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  );
+
+  useEffect(() => {
+    // Already installed as PWA — don't show banner
+    if (isStandalone) return;
+
+    const handler = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+      setShowInstallBanner(true);
+    };
+    window.addEventListener("beforeinstallprompt", handler);
+
+    // For iOS Safari (no beforeinstallprompt), show manual instructions
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS && !window.navigator.standalone) {
+      setShowInstallBanner(true);
+    }
+
+    return () => window.removeEventListener("beforeinstallprompt", handler);
+  }, [isStandalone]);
+
+  const handleInstallClick = async () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+      const result = await installPrompt.userChoice;
+      if (result.outcome === "accepted") {
+        setShowInstallBanner(false);
+        setIsStandalone(true);
+      }
+      setInstallPrompt(null);
+    }
+  };
+
   const showToast = (message) => {
     setToast(message);
     setTimeout(() => setToast(null), 2000);
@@ -372,6 +412,86 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           />
         )}
       </main>
+
+      {/* PWA Install Banner */}
+      {showInstallBanner && !isStandalone && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 64,
+            left: 0,
+            right: 0,
+            background: C.ink,
+            color: C.cream,
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 13,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "10px 16px",
+            zIndex: 999,
+            boxShadow: "0 -2px 12px rgba(26,46,38,0.15)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flex: 1 }}>
+            <img
+              src="/skeddo-logo-dark.png"
+              alt=""
+              style={{ width: 28, height: 28, borderRadius: 6 }}
+            />
+            <span style={{ fontWeight: 600 }}>
+              Add Skeddo to your home screen
+            </span>
+          </div>
+          {installPrompt ? (
+            <button
+              onClick={handleInstallClick}
+              style={{
+                background: C.seaGreen,
+                color: "#fff",
+                border: "none",
+                borderRadius: 8,
+                padding: "6px 14px",
+                fontFamily: "'Barlow', sans-serif",
+                fontWeight: 700,
+                fontSize: 12,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              Install
+            </button>
+          ) : (
+            <span
+              style={{
+                fontSize: 11,
+                color: "#8A9A8E",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              Tap Share → Add to Home
+            </span>
+          )}
+          <button
+            onClick={() => setShowInstallBanner(false)}
+            aria-label="Dismiss"
+            style={{
+              background: "none",
+              border: "none",
+              color: "#8A9A8E",
+              fontSize: 18,
+              cursor: "pointer",
+              padding: "0 0 0 10px",
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
 
       <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} />
 

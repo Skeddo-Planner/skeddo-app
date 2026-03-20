@@ -68,6 +68,40 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         placeholder="e.g. Riverside FC"
       />
 
+      {/* Assign kids — at the top for easy access */}
+      {(kids || []).length > 0 && (
+        <>
+          <Label>Assign Kids</Label>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+            {kids.map((k) => {
+              const sel = (form.kidIds || []).includes(k.id);
+              return (
+                <button
+                  key={k.id}
+                  className="chip-btn"
+                  onClick={() =>
+                    setForm((f) => ({
+                      ...f,
+                      kidIds: sel
+                        ? (f.kidIds || []).filter((i) => i !== k.id)
+                        : [...(f.kidIds || []), k.id],
+                    }))
+                  }
+                  style={{
+                    ...s.filterChip,
+                    background: sel ? (k.color || C.seaGreen) : "transparent",
+                    color: sel ? "#fff" : C.ink,
+                    borderColor: sel ? (k.color || C.seaGreen) : C.border,
+                  }}
+                >
+                  {k.name}
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         <div>
           <Label>Category</Label>
@@ -216,40 +250,6 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         onChange={(e) => update("registrationUrl", e.target.value)}
         placeholder="https://..."
       />
-
-      {/* Assign kids */}
-      {(kids || []).length > 0 && (
-        <>
-          <Label>Assign Kids</Label>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {kids.map((k) => {
-              const sel = (form.kidIds || []).includes(k.id);
-              return (
-                <button
-                  key={k.id}
-                  className="chip-btn"
-                  onClick={() =>
-                    setForm((f) => ({
-                      ...f,
-                      kidIds: sel
-                        ? (f.kidIds || []).filter((i) => i !== k.id)
-                        : [...(f.kidIds || []), k.id],
-                    }))
-                  }
-                  style={{
-                    ...s.filterChip,
-                    background: sel ? C.seaGreen : "transparent",
-                    color: sel ? "#fff" : C.ink,
-                    borderColor: sel ? C.seaGreen : C.border,
-                  }}
-                >
-                  {k.name}
-                </button>
-              );
-            })}
-          </div>
-        </>
-      )}
 
       <Label>Notes</Label>
       <textarea

@@ -150,6 +150,8 @@ export function useAppData(userId) {
     }
 
     async function loadFromSupabase() {
+      // Prevent auto-save from persisting empty state during reload
+      initialLoadDone.current = false;
       try {
         // Load profile
         const { data: profileData, error: profileErr } = await supabase
