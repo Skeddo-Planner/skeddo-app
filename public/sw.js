@@ -1,4 +1,10 @@
-/* Skeddo Push Notification Service Worker */
+/* Skeddo Service Worker — PWA install + Push Notifications */
+
+/* Fetch handler (required by Chrome for PWA install eligibility).
+   Uses network-first strategy — no offline caching, just passes through. */
+self.addEventListener("fetch", (event) => {
+  event.respondWith(fetch(event.request));
+});
 
 self.addEventListener("push", (event) => {
   if (!event.data) return;
