@@ -1,5 +1,11 @@
 /* Skeddo Service Worker — PWA install + Push Notifications */
 
+/* Activate immediately — don't wait for old service worker to release */
+self.addEventListener("install", () => self.skipWaiting());
+self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
+});
+
 /* Fetch handler (required by Chrome for PWA install eligibility).
    Uses network-first strategy — no offline caching, just passes through. */
 self.addEventListener("fetch", (event) => {
