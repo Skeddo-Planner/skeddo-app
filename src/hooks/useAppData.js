@@ -72,6 +72,7 @@ const kidToDb = (k, userId) => ({
   age: k.age != null ? Number(k.age) : null,
   notes: k.notes || "",
   color: k.color || "",
+  interests: k.interests || [],
 });
 
 const kidFromDb = (row) => ({
@@ -80,6 +81,7 @@ const kidFromDb = (row) => ({
   age: row.age,
   notes: row.notes || "",
   color: row.color || "",
+  interests: row.interests || [],
 });
 
 const profileToDb = (p, userId) => ({

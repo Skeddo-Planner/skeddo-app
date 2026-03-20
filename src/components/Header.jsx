@@ -47,7 +47,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage }) {
             <img
               src="/skeddo-logo-dark.png"
               alt="Skeddo"
-              style={{ height: 40, width: "auto", borderRadius: 8 }}
+              style={{ height: 52, width: "auto", borderRadius: 10 }}
             />
             <div>
               <div style={s.tagline}>The planner for busy families</div>

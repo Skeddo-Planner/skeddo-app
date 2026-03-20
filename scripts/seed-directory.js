@@ -81,6 +81,8 @@ function transformProgram(program, index) {
     description: program.description || null,
     tags: program.tags || [],
     activity_type: program.activityType || null,
+    early_bird_cost: program.earlyBirdCost ?? null,
+    early_bird_deadline: program.earlyBirdDeadline || null,
     last_updated: new Date().toISOString(),
     source: isCoV && activeNetId ? "activenet-vancouver" : "manual",
     source_id: isCoV && activeNetId ? activeNetId : `manual-${index + 1}`,

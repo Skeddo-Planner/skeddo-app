@@ -1,10 +1,45 @@
-import { C, KID_COLORS } from "../constants/brand";
+import { useState, useRef, useEffect } from "react";
+import { C, KID_COLORS, ACTIVITY_INTERESTS } from "../constants/brand";
 import { s } from "../styles/shared";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
 
 export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClose }) {
   const update = (field, value) => setForm((f) => ({ ...f, [field]: value }));
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const dropdownRef = useRef(null);
+
+  const interests = form.interests || [];
+
+  const addInterest = (interest) => {
+    if (!interests.includes(interest)) {
+      update("interests", [...interests, interest]);
+    }
+    setSearch("");
+    setDropdownOpen(false);
+  };
+
+  const removeInterest = (interest) => {
+    update("interests", interests.filter((i) => i !== interest));
+  };
+
+  // Filter available options
+  const filteredOptions = ACTIVITY_INTERESTS.filter(
+    (a) => !interests.includes(a) && a.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const handleClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [dropdownOpen]);
 
   return (
     <Modal onClose={onClose}>
@@ -54,20 +89,112 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
               }}
             >
               {isSelected && (
-                <span style={{ color: C.cream, fontSize: 16, fontWeight: 700 }}>✓</span>
+                <span style={{ color: C.cream, fontSize: 16, fontWeight: 700 }}>{"\u2713"}</span>
               )}
             </button>
           );
         })}
       </div>
 
-      <Label>Notes</Label>
-      <textarea
-        style={{ ...s.input, minHeight: 50, resize: "vertical" }}
-        value={form.notes || ""}
-        onChange={(e) => update("notes", e.target.value)}
-        placeholder="Allergies, preferences, etc."
-      />
+      <Label>Activity Interests</Label>
+      <p style={{ fontSize: 11, color: C.muted, margin: "-4px 0 8px", fontFamily: "'Barlow', sans-serif" }}>
+        What activities does this kid enjoy?
+      </p>
+
+      {/* Selected interests as chips */}
+      {interests.length > 0 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 10 }}>
+          {interests.map((interest) => (
+            <span
+              key={interest}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                padding: "4px 10px",
+                background: "#EDF7F1",
+                color: C.seaGreen,
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 600,
+                fontFamily: "'Barlow', sans-serif",
+              }}
+            >
+              {interest}
+              <button
+                type="button"
+                onClick={() => removeInterest(interest)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: C.seaGreen,
+                  cursor: "pointer",
+                  fontSize: 14,
+                  fontWeight: 700,
+                  padding: "0 2px",
+                  lineHeight: 1,
+                }}
+                aria-label={`Remove ${interest}`}
+              >
+                {"\u00D7"}
+              </button>
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Dropdown selector */}
+      <div ref={dropdownRef} style={{ position: "relative", marginBottom: 12 }}>
+        <input
+          style={s.input}
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setDropdownOpen(true);
+          }}
+          onFocus={() => setDropdownOpen(true)}
+          placeholder="Search activities..."
+        />
+        {dropdownOpen && filteredOptions.length > 0 && (
+          <div style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            zIndex: 20,
+            background: C.white,
+            border: `1px solid ${C.border}`,
+            borderRadius: 10,
+            marginTop: 4,
+            maxHeight: 180,
+            overflowY: "auto",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          }}>
+            {filteredOptions.map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => addInterest(option)}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  textAlign: "left",
+                  padding: "10px 14px",
+                  background: "none",
+                  border: "none",
+                  borderBottom: `1px solid ${C.border}`,
+                  fontSize: 13,
+                  color: C.ink,
+                  cursor: "pointer",
+                  fontFamily: "'Barlow', sans-serif",
+                }}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Action buttons */}
       <div style={{ display: "flex", gap: 8, marginTop: 16 }}>

@@ -29,6 +29,9 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   // Price is approximate if explicitly flagged or if provider is not verified
   const isApproxPrice = (p.priceVerified === false || !isMunicipalProvider(p.provider)) && typeof p.cost === "number" && p.cost > 0;
 
+  const hasEarlyBird = p.earlyBirdCost != null && p.earlyBirdDeadline;
+  const earlyBirdActive = hasEarlyBird && new Date(p.earlyBirdDeadline) >= new Date();
+
   const toggleKid = (kidId) => {
     setSelectedKidIds((prev) =>
       prev.includes(kidId) ? prev.filter((id) => id !== kidId) : [...prev, kidId]
@@ -172,6 +175,34 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         </div>
       )}
 
+      {/* Early bird pricing banner */}
+      {earlyBirdActive && (
+        <div style={{
+          background: "#E8F5EE",
+          borderRadius: 10,
+          padding: "10px 14px",
+          marginBottom: 12,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+        }}>
+          <span style={{ fontSize: 16 }}>{"\uD83D\uDC26"}</span>
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.seaGreen }}>
+              Early bird: {fmt$(p.earlyBirdCost)}
+              {p.cost > 0 && (
+                <span style={{ fontWeight: 400, color: C.muted, textDecoration: "line-through", marginLeft: 6 }}>
+                  {fmt$(p.cost)}
+                </span>
+              )}
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 2 }}>
+              Register by {new Date(p.earlyBirdDeadline).toLocaleDateString("en-CA", { month: "short", day: "numeric", year: "numeric" })} to save
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Key info highlights */}
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16, alignItems: "center" }}>
         {p.cost != null && (
@@ -179,10 +210,10 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             fontFamily: "'Poppins', sans-serif", fontSize: 16,
             color: C.ink, background: C.cream, padding: "4px 12px", borderRadius: 8,
           }}>
-            {isApproxPrice ? "~" : ""}{fmt$(p.cost)}
+            {earlyBirdActive ? fmt$(p.earlyBirdCost) : isApproxPrice ? `~${fmt$(p.cost)}` : fmt$(p.cost)}
           </span>
         )}
-        {isApproxPrice && (
+        {!earlyBirdActive && isApproxPrice && (
           <span style={{
             fontFamily: "'Barlow', sans-serif", fontSize: 11,
             color: C.muted, fontStyle: "italic",

@@ -31,6 +31,9 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
 
   const locationText = p.location || p.neighbourhood || null;
 
+  const hasEarlyBird = p.earlyBirdCost != null && p.earlyBirdDeadline;
+  const earlyBirdActive = hasEarlyBird && new Date(p.earlyBirdDeadline) >= new Date();
+
   return (
     <div
       style={{
@@ -125,15 +128,44 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
           {p.days} &middot; {p.times}
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              fontSize: 16,
-              color: C.ink,
-            }}
-          >
-            {p.priceVerified === false ? `~${fmt$(p.cost)}` : fmt$(p.cost)}
-          </span>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+            {earlyBirdActive && (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.seaGreen,
+                background: "#E8F5EE",
+                padding: "1px 6px",
+                borderRadius: 4,
+                marginBottom: 2,
+              }}>
+                Early bird until {fmtShortDate(p.earlyBirdDeadline)}
+              </span>
+            )}
+            <span
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 16,
+                color: C.ink,
+              }}
+            >
+              {earlyBirdActive
+                ? fmt$(p.earlyBirdCost)
+                : p.priceVerified === false ? `~${fmt$(p.cost)}` : fmt$(p.cost)
+              }
+            </span>
+            {earlyBirdActive && p.cost > 0 && (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 11,
+                color: C.muted,
+                textDecoration: "line-through",
+              }}>
+                {fmt$(p.cost)}
+              </span>
+            )}
+          </div>
           {p.registrationUrl && (
             <a
               href={p.registrationUrl}
