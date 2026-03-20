@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 240" width="620" height="240">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- "sked" in Barlow Bold, Sea Green -->
+  <text x="0" y="185" font-family="'Barlow', Arial, sans-serif" font-weight="700" font-size="180" fill="#3A9E6A" letter-spacing="-4">sked</text>
+
+  <!-- Quarter note for "d" -->
+  <!-- Note head (filled oval, tilted) -->
+  <ellipse cx="472" cy="172" rx="24" ry="18" fill="#3A9E6A" transform="rotate(-20 472 172)"/>
+  <!-- Stem -->
+  <line x1="492" y1="30" x2="492" y2="165" stroke="#3A9E6A" stroke-width="10" stroke-linecap="round"/>
+  <!-- Flag -->
+  <path d="M492,30 Q510,50 505,75 Q500,60 492,65" fill="#3A9E6A"/>
+
+  <!-- Soccer ball "o" -->
+  <circle cx="565" cy="145" r="42" fill="#3A9E6A" stroke="none"/>
+  <!-- White pentagon pattern -->
+  <polygon points="565,117 576,124 573,136 557,136 554,124" fill="white"/>
+  <!-- Seam lines from pentagon to edge -->
+  <line x1="565" y1="117" x2="565" y2="105" stroke="white" stroke-width="3"/>
+  <line x1="576" y1="124" x2="586" y2="115" stroke="white" stroke-width="3"/>
+  <line x1="573" y1="136" x2="585" y2="143" stroke="white" stroke-width="3"/>
+  <line x1="557" y1="136" x2="545" y2="143" stroke="white" stroke-width="3"/>
+  <line x1="554" y1="124" x2="544" y2="115" stroke="white" stroke-width="3"/>
+  <!-- Outer seam connections -->
+  <line x1="565" y1="105" x2="586" y2="115" stroke="white" stroke-width="3"/>
+  <line x1="586" y1="115" x2="585" y2="143" stroke="white" stroke-width="3"/>
+  <line x1="585" y1="143" x2="565" y2="155" stroke="white" stroke-width="3"/>
+  <line x1="565" y1="155" x2="545" y2="143" stroke="white" stroke-width="3"/>
+  <line x1="545" y1="143" x2="544" y2="115" stroke="white" stroke-width="3"/>
+  <line x1="544" y1="115" x2="565" y2="105" stroke="white" stroke-width="3"/>
+</svg>
