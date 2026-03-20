@@ -30,7 +30,24 @@ const PLANS = [
   },
 ];
 
-export default function ProfileModal({ profile, setProfile, email, onSignOut, onClose }) {
+function formatLastSynced(ts) {
+  if (!ts) return null;
+  const diff = Date.now() - ts;
+  const seconds = Math.floor(diff / 1000);
+  if (seconds < 60) return "Last synced: just now";
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `Last synced: ${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 12) return `Last synced: ${hours} hour${hours === 1 ? "" : "s"} ago`;
+  const d = new Date(ts);
+  const today = new Date();
+  const isToday = d.toDateString() === today.toDateString();
+  const time = d.toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit" });
+  if (isToday) return `Last synced: Today at ${time}`;
+  return `Last synced: ${d.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} at ${time}`;
+}
+
+export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
@@ -83,6 +100,18 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
       <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 4, marginBottom: 8 }}>
         Helps us show programs near you (coming soon)
       </div>
+
+      {formatLastSynced(lastSynced) && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 12,
+          color: "#888",
+          marginTop: 8,
+          marginBottom: 4,
+        }}>
+          {formatLastSynced(lastSynced)}
+        </div>
+      )}
 
       {/* ─── Budget Section ─── */}
       <SectionLabel>Budget</SectionLabel>
@@ -150,6 +179,9 @@ export default function ProfileModal({ profile, setProfile, email, onSignOut, on
           <div
             key={plan.key}
             onClick={() => !plan.disabled && update("plan", plan.key)}
+            role={plan.disabled ? undefined : "button"}
+            tabIndex={plan.disabled ? undefined : 0}
+            aria-label={plan.disabled ? `${plan.name} plan, coming soon` : `Select ${plan.name} plan`}
             style={{
               background: isSelected ? "#E8F5EE" : C.white,
               borderRadius: 12,
@@ -299,6 +331,10 @@ function ToggleRow({ label, description, checked, onChange }) {
         cursor: "pointer",
       }}
       onClick={() => onChange(!checked)}
+      role="switch"
+      tabIndex={0}
+      aria-checked={checked}
+      aria-label={label}
     >
       <div style={{ flex: 1, marginRight: 12 }}>
         <div style={{

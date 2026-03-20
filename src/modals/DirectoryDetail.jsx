@@ -26,8 +26,8 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
     p.cost === "TBD" ? "" : (typeof p.cost === "number" ? String(p.cost) : "")
   );
 
-  // Determine if this is a private provider (non-municipal)
-  const isApproxPrice = !isMunicipalProvider(p.provider) && typeof p.cost === "number" && p.cost > 0;
+  // Price is approximate if explicitly flagged or if provider is not verified
+  const isApproxPrice = (p.priceVerified === false || !isMunicipalProvider(p.provider)) && typeof p.cost === "number" && p.cost > 0;
 
   const toggleKid = (kidId) => {
     setSelectedKidIds((prev) =>
@@ -84,9 +84,30 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       </div>
 
       {/* Provider */}
-      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 12 }}>
+      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: p.confirmed2026 === false ? 8 : 12 }}>
         {p.provider}
       </div>
+
+      {/* Estimated program warning */}
+      {p.confirmed2026 === false && (
+        <div
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 12,
+            color: "#8B6914",
+            background: "#FFF8E1",
+            border: "1px solid #F0E0A0",
+            borderRadius: 10,
+            padding: "10px 14px",
+            marginBottom: 12,
+            lineHeight: 1.5,
+          }}
+        >
+          <strong>2026 programs not yet released</strong>
+          <br />
+          Dates, prices, and details shown are estimates based on this provider's prior year offerings. We'll update this listing once 2026 registration opens.
+        </div>
+      )}
 
       {/* Registration status banner */}
       <div
@@ -194,14 +215,14 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
           <div style={s.detailValue}>{p.days || "\u2014"}</div>
         </div>
         <div>
-          <div style={s.detailLabel}>TIMES</div>
-          <div style={s.detailValue}>
+          <div style={s.detailLabel}>TIMES{p.confirmed2026 === false ? " (est.)" : ""}</div>
+          <div style={{ ...s.detailValue, ...(p.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : {}) }}>
             {p.startTime && p.endTime ? `${p.startTime}\u2013${p.endTime}` : p.times || "\u2014"}
           </div>
         </div>
         <div>
-          <div style={s.detailLabel}>DATES</div>
-          <div style={s.detailValue}>
+          <div style={s.detailLabel}>DATES{p.confirmed2026 === false ? " (est.)" : ""}</div>
+          <div style={{ ...s.detailValue, ...(p.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : {}) }}>
             {p.startDate && p.endDate
               ? `${fmtDate(p.startDate)} \u2013 ${fmtDate(p.endDate)}`
               : fmtDate(p.startDate) || "\u2014"}

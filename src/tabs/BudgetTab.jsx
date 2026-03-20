@@ -179,6 +179,9 @@ export default function BudgetTab({
                 style={{ ...s.budgetKidRow, cursor: "pointer" }}
                 className="skeddo-card"
                 onClick={() => onKidFilter(k.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={`View budget for ${k.name}`}
               >
                 <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14 }}>
                   {k.name?.[0]?.toUpperCase()}

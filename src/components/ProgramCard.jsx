@@ -40,6 +40,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
       onClick={() => onTap && onTap(p)}
       role="button"
       tabIndex={0}
+      aria-label={`View details for ${p.name}`}
     >
       {/* Top row: category + status chip */}
       <div
@@ -131,7 +132,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
               color: C.ink,
             }}
           >
-            {fmt$(p.cost)}
+            {p.priceVerified === false ? `~${fmt$(p.cost)}` : fmt$(p.cost)}
           </span>
           {p.registrationUrl && (
             <a
@@ -139,6 +140,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
+              aria-label={`Register for ${p.name}`}
               style={{
                 fontFamily: "'Barlow', sans-serif",
                 fontSize: 11,

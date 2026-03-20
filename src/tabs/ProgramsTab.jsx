@@ -35,6 +35,7 @@ export default function ProgramsTab({
           className="chip-btn"
           style={s.addButton}
           onClick={onOpenAddProgram}
+          aria-label="Add a new program"
         >
           + Add
         </button>
@@ -79,6 +80,8 @@ export default function ProgramsTab({
             key={st}
             className="chip-btn"
             onClick={() => onStatusFilter(st)}
+            aria-label={`Filter by status: ${st}`}
+            aria-pressed={statusFilter === st}
             style={{
               ...s.filterChip,
               background: statusFilter === st ? C.ink : "transparent",
@@ -99,6 +102,8 @@ export default function ProgramsTab({
             key={cat}
             className="chip-btn"
             onClick={() => onCatFilter(cat)}
+            aria-label={`Filter by category: ${cat}`}
+            aria-pressed={catFilter === cat}
             style={{
               ...s.filterChip,
               fontSize: 12,

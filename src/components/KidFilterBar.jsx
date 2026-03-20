@@ -24,6 +24,8 @@ export default function KidFilterBar({ kids, kidFilter, onKidFilter }) {
       <button
         className="chip-btn"
         onClick={() => onKidFilter(null)}
+        aria-label="Show programs for all kids"
+        aria-pressed={!kidFilter}
         style={{
           ...s.filterChip,
           display: "flex",
@@ -46,6 +48,8 @@ export default function KidFilterBar({ kids, kidFilter, onKidFilter }) {
             key={k.id}
             className="chip-btn"
             onClick={() => onKidFilter(k.id)}
+            aria-label={`Show programs for ${k.name}`}
+            aria-pressed={isActive}
             style={{
               ...s.filterChip,
               display: "flex",

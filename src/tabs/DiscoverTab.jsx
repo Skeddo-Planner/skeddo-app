@@ -11,6 +11,7 @@ import {
   getRegistrationStatus,
   isMunicipalProvider,
   sortPrograms,
+  fmtDate,
   PAGE_SIZE,
 } from "../utils/helpers";
 
@@ -81,6 +82,22 @@ const COST_RANGES = [
   { label: "$500+", min: 500, max: Infinity },
 ];
 
+const PROGRAM_LENGTHS = [
+  { key: "full-week", label: "Full Week (5 days)" },
+  { key: "partial-week", label: "Partial Week (2–4 days)" },
+  { key: "multi-week", label: "Multi-Week" },
+];
+
+function getProgramLength(p) {
+  const sd = p.startDate, ed = p.endDate;
+  if (!sd || !ed) return "full-week"; // default assumption
+  const days = Math.round((new Date(ed) - new Date(sd)) / 86400000) + 1;
+  if (days <= 1) return "partial-week";
+  if (days <= 4) return "partial-week";
+  if (days <= 5) return "full-week";
+  return "multi-week";
+}
+
 const SORT_OPTIONS = [
   { key: "relevance", label: "Relevance" },
   { key: "price-asc", label: "Price: Low to High" },
@@ -106,6 +123,9 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         position: "relative",
       }}
       onClick={() => onTap(program)}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${program.name}`}
     >
       {/* Favorite heart button */}
       <button
@@ -145,6 +165,23 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           </div>
           <div style={s.cardName}>{program.name}</div>
           <div style={s.cardProvider}>{program.provider}</div>
+          {program.confirmed2026 === false && (
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 600,
+                color: "#B8860B",
+                background: "#B8860B14",
+                padding: "3px 8px",
+                borderRadius: 6,
+                marginTop: 4,
+                display: "inline-block",
+              }}
+            >
+              2026 not yet confirmed — dates & prices are estimates based on prior year
+            </div>
+          )}
         </div>
         {alreadyAdded && (
           <span
@@ -174,11 +211,28 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         }}
       >
         <div style={s.cardMeta}>
+          {program.startDate && (
+            <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
+              {(() => {
+                const s = new Date(program.startDate + "T00:00:00");
+                const e = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
+                const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                const est = program.confirmed2026 === false ? " (est.)" : "";
+                if (!e || program.startDate === program.endDate) return fmtDate(program.startDate) + est;
+                if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear())
+                  return `${mo[s.getMonth()]} ${s.getDate()} – ${e.getDate()}, ${s.getFullYear()}${est}`;
+                if (s.getFullYear() === e.getFullYear())
+                  return `${mo[s.getMonth()]} ${s.getDate()} – ${mo[e.getMonth()]} ${e.getDate()}, ${e.getFullYear()}${est}`;
+                return `${fmtDate(program.startDate)} – ${fmtDate(program.endDate)}${est}`;
+              })()}
+            </span>
+          )}
+          {program.startDate && program.days && <span> &middot; </span>}
           {program.days && <span>{program.days}</span>}
           {program.startTime && program.endTime && (
-            <span>
+            <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
               {" "}
-              &middot; {program.startTime}-{program.endTime}
+              &middot; {program.startTime}-{program.endTime}{program.confirmed2026 === false ? " (est.)" : ""}
             </span>
           )}
         </div>
@@ -263,6 +317,38 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             <span style={{ fontWeight: 400 }}> &mdash; {program.registrationDateLabel}</span>
           )}
         </span>
+        {program.spotsRemaining && (() => {
+          const isFull = program.spotsRemaining.toLowerCase().startsWith("full");
+          const match = program.spotsRemaining.match(/^(\d+)\s+of\s+(\d+)/);
+          const spotsLeft = match ? parseInt(match[1], 10) : null;
+          const isLow = spotsLeft !== null && spotsLeft <= 5;
+          const color = isFull ? "#D32F2F" : isLow ? "#E65100" : C.blue;
+          const asOf = program.spotsUpdatedAt ? (() => {
+            const d = new Date(program.spotsUpdatedAt);
+            const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+            const fmt = d.toLocaleString("en-US", { timeZone: "America/Vancouver", hour: "numeric", minute: "2-digit", hour12: true, month: "short", day: "numeric" });
+            const parts = fmt.split(", ");
+            const datePart = parts[0];
+            const timePart = (parts[1] || "").replace(/:00 /, " ").toLowerCase();
+            return ` (as of ${datePart} at ${timePart} PDT)`;
+          })() : "";
+          return (
+            <span
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                background: color + "18",
+                color,
+                padding: "2px 8px",
+                borderRadius: 10,
+              }}
+            >
+              {isFull ? "⛔ " : isLow ? "🔥 " : ""}{program.spotsRemaining}
+              <span style={{ fontWeight: 400 }}>{asOf}</span>
+            </span>
+          );
+        })()}
       </div>
     </div>
   );
@@ -297,11 +383,12 @@ export default function DiscoverTab({
   const [showFilters, setShowFilters] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
-  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon"])); // default: show registrable programs
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon", "likely-coming-soon"])); // default: show registrable + upcoming programs
   const [selectedProviders, setSelectedProviders] = useState(new Set());
   const [providerSearch, setProviderSearch] = useState("");
   const [showProviderDropdown, setShowProviderDropdown] = useState(false);
   const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
+  const [selectedLengths, setSelectedLengths] = useState(new Set());
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
@@ -437,9 +524,11 @@ export default function DiscoverTab({
         });
         if (!matchesAny) return false;
       }
+      // Program length filter
+      if (selectedLengths.size > 0 && !selectedLengths.has(getProgramLength(p))) return false;
       return true;
     });
-  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes]);
+  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedLengths]);
 
   // Sort after filtering
   const sortedFiltered = useMemo(
@@ -499,6 +588,9 @@ export default function DiscoverTab({
       {/* Data freshness banner */}
       <div
         onClick={!isChecking ? checkForUpdates : undefined}
+        role="button"
+        tabIndex={0}
+        aria-label={isChecking ? "Checking for updates" : "Check for program data updates"}
         style={{
           display: "flex",
           alignItems: "center",
@@ -578,6 +670,8 @@ export default function DiscoverTab({
                 setSortBy(opt.key);
                 setVisibleCount(PAGE_SIZE);
               }}
+              aria-label={`Sort by ${opt.label}`}
+              aria-pressed={sortBy === opt.key}
               style={{
                 ...s.filterChip,
                 fontSize: 12,
@@ -602,6 +696,8 @@ export default function DiscoverTab({
             setShowFavoritesOnly((v) => !v);
             setVisibleCount(PAGE_SIZE);
           }}
+          aria-label={showFavoritesOnly ? "Show all programs" : "Show only favorited programs"}
+          aria-pressed={showFavoritesOnly}
           style={{
             fontFamily: "'Barlow', sans-serif",
             fontSize: 12,
@@ -620,6 +716,8 @@ export default function DiscoverTab({
         </button>
         <button
           onClick={() => setShowFilters(!showFilters)}
+          aria-label={showFilters ? "Hide filter panel" : "Show filter panel"}
+          aria-expanded={showFilters}
         style={{
           fontFamily: "'Barlow', sans-serif",
           fontSize: 12,
@@ -671,6 +769,7 @@ export default function DiscoverTab({
             {selectedRegStatuses.size > 0 && (
               <button
                 onClick={() => { setSelectedRegStatuses(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear registration status filters"
                 style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
               >
                 Clear
@@ -692,6 +791,8 @@ export default function DiscoverTab({
                   key={st.key}
                   className="chip-btn"
                   onClick={() => toggleInSet(setSelectedRegStatuses, st.key)}
+                  aria-label={`Filter by registration status: ${st.label}`}
+                  aria-pressed={isActive}
                   style={{
                     ...s.filterChip,
                     fontSize: 12,
@@ -730,6 +831,7 @@ export default function DiscoverTab({
             {selectedCats.size > 0 && (
               <button
                 onClick={() => { setSelectedCats(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear category filters"
                 style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
               >
                 Clear
@@ -751,6 +853,8 @@ export default function DiscoverTab({
                   key={cat}
                   className="chip-btn"
                   onClick={() => toggleInSet(setSelectedCats, cat)}
+                  aria-label={`Filter by category: ${cat}`}
+                  aria-pressed={isActive}
                   style={{
                     ...s.filterChip,
                     fontSize: 12,
@@ -796,6 +900,7 @@ export default function DiscoverTab({
                 {selectedActivityTypes.size > 0 && (
                   <button
                     onClick={() => { setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }}
+                    aria-label="Clear activity type filters"
                     style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
                   >
                     Clear
@@ -817,6 +922,8 @@ export default function DiscoverTab({
                       key={at}
                       className="chip-btn"
                       onClick={() => toggleInSet(setSelectedActivityTypes, at)}
+                      aria-label={`Filter by activity type: ${at}`}
+                      aria-pressed={isActive}
                       style={{
                         ...s.filterChip,
                         fontSize: 12,
@@ -857,6 +964,7 @@ export default function DiscoverTab({
             {selectedProviders.size > 0 && (
               <button
                 onClick={() => { setSelectedProviders(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear provider filters"
                 style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
               >
                 Clear
@@ -872,6 +980,7 @@ export default function DiscoverTab({
                   key={prov}
                   className="chip-btn"
                   onClick={() => toggleInSet(setSelectedProviders, prov)}
+                  aria-label={`Remove provider filter: ${prov}`}
                   style={{
                     ...s.filterChip,
                     fontSize: 11,
@@ -950,6 +1059,8 @@ export default function DiscoverTab({
                           e.preventDefault();
                           toggleInSet(setSelectedProviders, prov);
                         }}
+                        role="option"
+                        aria-selected={isSelected}
                         style={{
                           padding: "8px 12px",
                           fontFamily: "'Barlow', sans-serif",
@@ -1028,6 +1139,7 @@ export default function DiscoverTab({
             {selectedSeasons.size > 0 && (
               <button
                 onClick={() => { setSelectedSeasons(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear season type filters"
                 style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
               >
                 Clear
@@ -1049,6 +1161,8 @@ export default function DiscoverTab({
                   key={st}
                   className="chip-btn"
                   onClick={() => toggleInSet(setSelectedSeasons, st)}
+                  aria-label={`Filter by season type: ${st}`}
+                  aria-pressed={isActive}
                   style={{
                     ...s.filterChip,
                     fontSize: 12,
@@ -1058,6 +1172,68 @@ export default function DiscoverTab({
                   }}
                 >
                   {st}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Program length filter */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: 6,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              PROGRAM LENGTH{selectedLengths.size > 0 ? ` (${selectedLengths.size})` : ""}
+            </div>
+            {selectedLengths.size > 0 && (
+              <button
+                onClick={() => { setSelectedLengths(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear program length filters"
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              marginBottom: 14,
+              flexWrap: "wrap",
+            }}
+          >
+            {PROGRAM_LENGTHS.map((pl) => {
+              const isActive = selectedLengths.has(pl.key);
+              return (
+                <button
+                  key={pl.key}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedLengths, pl.key)}
+                  aria-label={`Filter by program length: ${pl.label}`}
+                  aria-pressed={isActive}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 12,
+                    background: isActive ? C.olive : "transparent",
+                    color: isActive ? C.cream : C.muted,
+                    borderColor: isActive ? C.olive : C.border,
+                  }}
+                >
+                  {pl.label}
                 </button>
               );
             })}
@@ -1090,6 +1266,7 @@ export default function DiscoverTab({
                   setSelectedHoods(new Set());
                   setVisibleCount(PAGE_SIZE);
                 }}
+                aria-label="Clear neighbourhood filters"
                 style={{
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: 10,
@@ -1132,6 +1309,10 @@ export default function DiscoverTab({
                       cursor: "pointer",
                     }}
                     onClick={() => toggleCityExpand(cityObj.city)}
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={isExpanded}
+                    aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}
                   >
                     {/* Expand/collapse arrow */}
                     <span
@@ -1170,6 +1351,7 @@ export default function DiscoverTab({
                         e.stopPropagation();
                         toggleCity(cityObj);
                       }}
+                      aria-label={allInCitySelected ? `Deselect all ${cityObj.city} neighbourhoods` : `Select all ${cityObj.city} neighbourhoods`}
                       style={{
                         fontFamily: "'Barlow', sans-serif",
                         fontSize: 10,
@@ -1310,6 +1492,7 @@ export default function DiscoverTab({
             {selectedCosts.size > 0 && (
               <button
                 onClick={() => { setSelectedCosts(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear cost filters"
                 style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
               >
                 Clear
@@ -1331,6 +1514,8 @@ export default function DiscoverTab({
                   key={idx}
                   className="chip-btn"
                   onClick={() => toggleInSet(setSelectedCosts, idx)}
+                  aria-label={`Filter by cost: ${r.label}`}
+                  aria-pressed={isActive}
                   style={{
                     ...s.filterChip,
                     fontSize: 12,
@@ -1381,12 +1566,14 @@ export default function DiscoverTab({
               setSelectedCosts(new Set());
               setShowFavoritesOnly(false);
               setSortBy("relevance");
-              setSelectedRegStatuses(new Set(["open", "opening-soon"]));
+              setSelectedRegStatuses(new Set(["open", "opening-soon", "likely-coming-soon"]));
               setSelectedProviders(new Set());
               setSelectedActivityTypes(new Set());
+              setSelectedLengths(new Set());
               setProviderSearch("");
               setVisibleCount(PAGE_SIZE);
             }}
+            aria-label="Clear all filters"
             style={{
               fontFamily: "'Barlow', sans-serif",
               fontSize: 11,
@@ -1456,6 +1643,7 @@ export default function DiscoverTab({
       {hasMore && (
         <button
           onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
+          aria-label={`Load more programs, ${sortedFiltered.length - visibleCount} remaining`}
           style={{
             width: "100%",
             fontFamily: "'Barlow', sans-serif",

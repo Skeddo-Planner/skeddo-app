@@ -110,7 +110,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
     totalCostEnrolled, totalCostAll, filteredPrograms,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
     favorites, toggleFavorite, isFavorite,
-    profile, setProfile,
+    profile, setProfile, lastSynced,
   } = data;
 
   const [modal, setModal] = useState(null);
@@ -430,6 +430,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           profile={profile}
           setProfile={setProfile}
           email={userEmail}
+          lastSynced={lastSynced}
           onSignOut={onSignOut}
           onClose={() => setModal(null)}
         />

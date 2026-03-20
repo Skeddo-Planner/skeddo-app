@@ -16,6 +16,7 @@ export const fmt$ = (n) =>
 const ONBOARDED_KEY = "skeddo-onboarded";
 const FAVORITES_KEY = "skeddo-favorites";
 const PROFILE_KEY = "skeddo-profile";
+const LAST_SYNCED_KEY = "skeddo_last_synced";
 
 /* ─── FIELD MAPPING: localStorage (camelCase) ↔ Supabase (snake_case) ─── */
 const programToDb = (p, userId) => ({
@@ -118,6 +119,15 @@ export function useAppData(userId) {
   const [profile, setProfile] = useState(() => {
     try { const s = localStorage.getItem(PROFILE_KEY); return s ? JSON.parse(s) : {}; } catch { return {}; }
   });
+  const [lastSynced, setLastSynced] = useState(() => {
+    try { const t = localStorage.getItem(LAST_SYNCED_KEY); return t ? Number(t) : null; } catch { return null; }
+  });
+
+  const markSynced = useCallback(() => {
+    const now = Date.now();
+    setLastSynced(now);
+    try { localStorage.setItem(LAST_SYNCED_KEY, String(now)); } catch {}
+  }, []);
 
   // Track whether we're using Supabase or localStorage
   const usingSupabase = useRef(false);
@@ -232,6 +242,7 @@ export function useAppData(userId) {
           }
         }
 
+        markSynced();
         setLoaded(true);
         initialLoadDone.current = true;
 
@@ -287,6 +298,7 @@ export function useAppData(userId) {
           .eq("id", userId)
           .then(({ error }) => {
             if (error) console.warn("Failed to save favorites to Supabase:", error);
+            else markSynced();
           });
       }, 500);
     }
@@ -319,6 +331,7 @@ export function useAppData(userId) {
           .eq("id", userId)
           .then(({ error }) => {
             if (error) console.warn("Failed to save profile to Supabase:", error);
+            else markSynced();
           });
       }, 500);
     }
@@ -392,7 +405,7 @@ export function useAppData(userId) {
     try { localStorage.setItem(ONBOARDED_KEY, "true"); } catch {}
     if (usingSupabase.current && userId) {
       supabase.from("profiles").update({ onboarded: true }).eq("id", userId)
-        .then(({ error }) => { if (error) console.warn("Failed to save onboarded:", error); });
+        .then(({ error }) => { if (error) console.warn("Failed to save onboarded:", error); else markSynced(); });
     }
   }, [userId]);
 
@@ -448,7 +461,7 @@ export function useAppData(userId) {
     if (usingSupabase.current && userId) {
       const row = programToDb(program, userId);
       supabase.from("user_programs").upsert(row, { onConflict: "id" })
-        .then(({ error }) => { if (error) console.warn("Failed to save program:", error); });
+        .then(({ error }) => { if (error) console.warn("Failed to save program:", error); else markSynced(); });
     }
   }, [userId]);
 
@@ -456,7 +469,7 @@ export function useAppData(userId) {
     setPrograms((prev) => prev.filter((p) => p.id !== id));
     if (usingSupabase.current && userId) {
       supabase.from("user_programs").delete().eq("id", id)
-        .then(({ error }) => { if (error) console.warn("Failed to delete program:", error); });
+        .then(({ error }) => { if (error) console.warn("Failed to delete program:", error); else markSynced(); });
     }
   }, [userId]);
 
@@ -471,7 +484,7 @@ export function useAppData(userId) {
         // Save to Supabase
         if (usingSupabase.current && userId) {
           supabase.from("user_programs").update({ status: next }).eq("id", id)
-            .then(({ error }) => { if (error) console.warn("Failed to cycle status:", error); });
+            .then(({ error }) => { if (error) console.warn("Failed to cycle status:", error); else markSynced(); });
         }
         return updated;
       })
@@ -495,7 +508,7 @@ export function useAppData(userId) {
     if (usingSupabase.current && userId) {
       const row = kidToDb(kid, userId);
       supabase.from("kids").upsert(row, { onConflict: "id" })
-        .then(({ error }) => { if (error) console.warn("Failed to save kid:", error); });
+        .then(({ error }) => { if (error) console.warn("Failed to save kid:", error); else markSynced(); });
     }
   }, [userId]);
 
@@ -525,7 +538,7 @@ export function useAppData(userId) {
     });
     if (usingSupabase.current && userId) {
       supabase.from("kids").delete().eq("id", id)
-        .then(({ error }) => { if (error) console.warn("Failed to delete kid:", error); });
+        .then(({ error }) => { if (error) console.warn("Failed to delete kid:", error); else markSynced(); });
     }
   }, [userId]);
 
@@ -537,7 +550,7 @@ export function useAppData(userId) {
     enrolledPrograms, waitlistPrograms, exploringPrograms,
     totalCostEnrolled, totalCostAll, filteredPrograms,
     favorites, toggleFavorite, isFavorite,
-    profile, setProfile,
+    profile, setProfile, lastSynced,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
   };
 }

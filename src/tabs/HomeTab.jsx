@@ -133,6 +133,7 @@ export default function HomeTab({
       <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
         <button
           onClick={onOpenAddProgram}
+          aria-label="Add a new program"
           style={{
             flex: 1,
             background: C.white,
@@ -169,6 +170,7 @@ export default function HomeTab({
         </button>
         <button
           onClick={onOpenAddKid}
+          aria-label="Add a new kid"
           style={{
             flex: 1,
             background: C.white,
@@ -331,6 +333,7 @@ export default function HomeTab({
           {tips.length > 1 && (
             <button
               onClick={() => setTipIndex((i) => i + 1)}
+              aria-label="Show next tip"
               style={{
                 fontFamily: "'Barlow', sans-serif",
                 fontSize: 12,
@@ -355,6 +358,9 @@ export default function HomeTab({
           style={{ ...s.statBox, borderLeft: `3px solid ${C.seaGreen}`, cursor: "pointer" }}
           onClick={() => onNavigateToTab("programs", "Enrolled")}
           className="skeddo-card"
+          role="button"
+          tabIndex={0}
+          aria-label={`${enrolledPrograms.length} enrolled programs. Tap to view.`}
         >
           <div style={s.statNum}>{enrolledPrograms.length}</div>
           <div style={s.statLabel}>ENROLLED</div>
@@ -363,6 +369,9 @@ export default function HomeTab({
           style={{ ...s.statBox, borderLeft: `3px solid ${C.olive}`, cursor: "pointer" }}
           onClick={() => onNavigateToTab("programs", "Waitlist")}
           className="skeddo-card"
+          role="button"
+          tabIndex={0}
+          aria-label={`${waitlistPrograms.length} waitlisted programs. Tap to view.`}
         >
           <div style={s.statNum}>{waitlistPrograms.length}</div>
           <div style={s.statLabel}>WAITLIST</div>
@@ -371,6 +380,9 @@ export default function HomeTab({
           style={{ ...s.statBox, borderLeft: `3px solid ${C.blue}`, cursor: "pointer" }}
           onClick={() => onNavigateToTab("programs", "Exploring")}
           className="skeddo-card"
+          role="button"
+          tabIndex={0}
+          aria-label={`${exploringPrograms.length} programs being explored. Tap to view.`}
         >
           <div style={s.statNum}>{exploringPrograms.length}</div>
           <div style={s.statLabel}>EXPLORING</div>
@@ -379,6 +391,9 @@ export default function HomeTab({
           style={{ ...s.statBox, borderLeft: `3px solid ${C.lilac}`, cursor: "pointer" }}
           onClick={() => onNavigateToTab("budget")}
           className="skeddo-card"
+          role="button"
+          tabIndex={0}
+          aria-label={`${fmt$(totalCostEnrolled)} committed. Tap to view budget.`}
         >
           <div style={s.statNum}>{fmt$(totalCostEnrolled)}</div>
           <div style={s.statLabel}>COMMITTED</div>
@@ -405,6 +420,9 @@ export default function HomeTab({
                 key={p.id}
                 className="skeddo-card"
                 onClick={() => onOpenDetail(p)}
+                role="button"
+                tabIndex={0}
+                aria-label={`${p.name}, ${formatUpcomingDate(p.startDate)}`}
                 style={{
                   background: C.white,
                   borderRadius: 12,
@@ -466,6 +484,7 @@ export default function HomeTab({
         <button
           style={s.seeAll}
           onClick={() => onNavigateToTab("programs", "Enrolled")}
+          aria-label="See all enrolled programs"
         >
           See all &rarr;
         </button>
@@ -491,6 +510,7 @@ export default function HomeTab({
             <button
               style={s.seeAll}
               onClick={() => onNavigateToTab("programs", "Waitlist")}
+              aria-label="See all waitlisted programs"
             >
               See all &rarr;
             </button>
@@ -515,6 +535,7 @@ export default function HomeTab({
             <button
               style={s.seeAll}
               onClick={() => onNavigateToTab("programs", "Exploring")}
+              aria-label="See all programs being explored"
             >
               See all &rarr;
             </button>
@@ -560,6 +581,9 @@ export default function HomeTab({
                   style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }}
                   className="skeddo-card"
                   onClick={() => onEditKid && onEditKid(k)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Edit ${k.name}`}
                 >
                   <div style={s.kidAvatar}>{k.name?.[0]?.toUpperCase() || "?"}</div>
                   <div style={{ flex: 1 }}>
@@ -588,6 +612,7 @@ export default function HomeTab({
                       <button
                         key={t}
                         onClick={() => onNavigateToTab(t, null, k.id)}
+                        aria-label={`View ${k.name}'s ${label}`}
                         style={{
                           flex: 1,
                           fontFamily: "'Barlow', sans-serif",

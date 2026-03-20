@@ -38,12 +38,15 @@ export function fmtShortDate(dateStr) {
 export const REGISTRATION_STATUSES = [
   { key: "open", label: "Open for Registration", color: C.seaGreen, icon: "✓" },
   { key: "opening-soon", label: "Opening Soon", color: C.blue, icon: "◷" },
+  { key: "likely-coming-soon", label: "Likely Coming Soon", color: "#B8860B", icon: "◷" },
   { key: "full", label: "Full / Waitlist", color: C.olive, icon: "●" },
   { key: "in-progress", label: "In Progress", color: C.lilac, icon: "▶" },
   { key: "completed", label: "Completed", color: C.muted, icon: "✗" },
 ];
 
 export function getRegistrationStatus(program) {
+  // Unconfirmed 2026 programs always show "Likely Coming Soon"
+  if (program.confirmed2026 === false) return "likely-coming-soon";
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
@@ -61,6 +64,15 @@ export function getRegistrationStatus(program) {
 export const VERIFIED_PROVIDERS = [
   "City of Vancouver", "City of Burnaby", "NVRC", "North Vancouver Recreation",
   "City of Richmond", "Richmond Olympic", "District of West Vancouver", "City of New Westminster",
+  "Arts Umbrella", "PAL Ropes Course", "Extra Steps", "Flicka Gymnastics",
+  "Stanley Park Ecology Society", "UBC Recreation", "BrainSTEM Learning",
+  "STEMA Learning", "Harbour Dance Centre", "VSO School of Music",
+  "VanDusen Botanical Garden", "Jump Gymnastics", "Code Ninjas",
+  "YMCA of Greater Vancouver", "Mount Seymour", "School of Rock",
+  "MacSailing", "Vancouver Circus School", "Zebra Robotics",
+  "Ava Music & Art Centre", "Dynamo Fencing", "Vancouver Art Gallery",
+  "SFU Summer Camps", "Pedalheads", "JCC of Greater Vancouver",
+  "Science AL!VE", "Bard on the Beach",
   "Exceleration", "Soaring Eagle",
 ];
 

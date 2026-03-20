@@ -245,6 +245,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
               onClick={() => {
                 if (date) onSelectWeek(getMonday(date));
               }}
+              aria-label={inMonth && date ? `Select week of ${formatDateShort(date)}` : undefined}
               style={{
                 fontFamily: "'Barlow', sans-serif",
                 fontSize: 11,
@@ -372,6 +373,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       >
         <button
           onClick={() => setWeekStart(addDays(weekStart, -7))}
+          aria-label="Previous week"
           style={{
             ...s.secondaryBtn,
             flex: "none",
@@ -398,6 +400,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         </div>
         <button
           onClick={() => setWeekStart(addDays(weekStart, 7))}
+          aria-label="Next week"
           style={{
             ...s.secondaryBtn,
             flex: "none",
@@ -413,6 +416,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       {!isThisWeek && (
         <button
           onClick={() => setWeekStart(getMonday(new Date()))}
+          aria-label="Jump to this week"
           style={{
             fontFamily: "'Barlow', sans-serif",
             fontSize: 12,
@@ -524,6 +528,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                   <div
                     key={prog.id + "-" + i}
                     onClick={() => onOpenDetail(prog)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`View ${prog.name}, ${prog.times || "TBD"}`}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -586,6 +593,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                               <span
                                 key={k.id}
                                 title={k.name}
+                                aria-label={k.name}
                                 style={{
                                   width: 18,
                                   height: 18,
@@ -637,6 +645,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           {onNavigateToDiscover && (
             <button
               onClick={onNavigateToDiscover}
+              aria-label="Browse programs in the Discover tab"
               style={{
                 ...s.primaryBtn,
                 marginTop: 12,
