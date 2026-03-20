@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import directoryPrograms from "../data/programs.json";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import ProgramCard from "../components/ProgramCard";
@@ -131,7 +132,15 @@ export default function HomeTab({
   const enrolledCampTypes = useMemo(() => {
     const types = new Set();
     enrolledPrograms.forEach((p) => {
-      if (p.campType) types.add(p.campType.replace(/^day camp$/i, "Day Camp"));
+      let ct = p.campType;
+      // If campType is missing, look it up from directory by name + provider
+      if (!ct) {
+        const match = directoryPrograms.find(
+          (dp) => dp.name === p.name && dp.provider === p.provider
+        );
+        if (match) ct = match.campType;
+      }
+      if (ct) types.add(ct.replace(/^day camp$/i, "Day Camp"));
     });
     const arr = [...types].sort();
     if (arr.length === 0) return season;
