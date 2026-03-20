@@ -142,8 +142,10 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           cursor: "pointer",
           fontSize: 20,
           lineHeight: 1,
-          padding: 4,
+          padding: 10,
           zIndex: 2,
+          minWidth: 40,
+          minHeight: 40,
           color: favorited ? C.olive : C.border,
           transition: "color 0.15s ease, transform 0.15s ease",
         }}

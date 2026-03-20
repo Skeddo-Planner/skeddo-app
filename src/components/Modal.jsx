@@ -69,6 +69,31 @@ export default function Modal({ onClose, children }) {
       aria-modal="true"
     >
       <div className="modal-content" ref={modalRef} style={s.modal}>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            position: "absolute",
+            top: 16,
+            right: 16,
+            background: "none",
+            border: "none",
+            fontSize: 22,
+            color: C.muted,
+            cursor: "pointer",
+            padding: 8,
+            minWidth: 40,
+            minHeight: 40,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 8,
+            lineHeight: 1,
+            zIndex: 1,
+          }}
+        >
+          &times;
+        </button>
         {children}
       </div>
     </div>

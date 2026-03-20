@@ -22,13 +22,13 @@ export const s = {
   seeAll: { fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.seaGreen, background: "none", border: "none", cursor: "pointer" },
 
   pageTitle: { fontFamily: "'Instrument Serif', serif", fontSize: 24, color: C.ink },
-  addButton: { fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.cream, background: C.seaGreen, border: "none", borderRadius: 10, padding: "8px 18px", cursor: "pointer" },
+  addButton: { fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.cream, background: C.seaGreen, border: "none", borderRadius: 10, padding: "11px 18px", cursor: "pointer", minHeight: 40 },
 
   programCard: { background: C.white, borderRadius: 14, padding: "14px 16px", marginBottom: 10, border: `1px solid ${C.border}` },
   cardCategory: { fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
   cardName: { fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.3 },
   cardProvider: { fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 1 },
-  statusChip: { fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, padding: "4px 10px", borderRadius: 8, whiteSpace: "nowrap", letterSpacing: 0.3 },
+  statusChip: { fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, padding: "7px 12px", borderRadius: 8, whiteSpace: "nowrap", letterSpacing: 0.3, minHeight: 32 },
   cardBottom: { display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8, paddingTop: 8, borderTop: `1px solid ${C.border}` },
   cardMeta: { fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted },
 
@@ -44,7 +44,7 @@ export const s = {
   budgetRow: { display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: `1px solid ${C.border}` },
   budgetKidRow: { display: "flex", alignItems: "center", gap: 10, padding: "10px 0", borderBottom: `1px solid ${C.border}` },
 
-  filterChip: { fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, border: `1.5px solid ${C.border}`, borderRadius: 10, padding: "5px 14px", cursor: "pointer", background: "transparent", transition: "all 0.12s" },
+  filterChip: { fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, border: `1.5px solid ${C.border}`, borderRadius: 10, padding: "8px 14px", cursor: "pointer", background: "transparent", transition: "all 0.12s", minHeight: 36 },
 
   emptyState: { textAlign: "center", padding: "32px 16px", color: C.muted, fontFamily: "'Barlow', sans-serif", fontSize: 14, lineHeight: 1.6 },
 
@@ -53,7 +53,7 @@ export const s = {
   tabIndicator: { position: "absolute", top: -1, left: "50%", transform: "translateX(-50%)", width: 20, height: 2.5, borderRadius: 2, background: C.seaGreen },
 
   overlay: { position: "fixed", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(26,46,38,0.4)", display: "flex", alignItems: "flex-end", justifyContent: "center", zIndex: 200, padding: 0 },
-  modal: { background: C.white, borderRadius: "20px 20px 0 0", padding: "24px 20px env(safe-area-inset-bottom, 20px)", width: "100%", maxWidth: 480, maxHeight: "88vh", overflowY: "auto" },
+  modal: { background: C.white, borderRadius: "20px 20px 0 0", padding: "24px 20px env(safe-area-inset-bottom, 20px)", width: "100%", maxWidth: 480, maxHeight: "88vh", overflowY: "auto", position: "relative" },
   modalTitle: { fontFamily: "'Instrument Serif', serif", fontSize: 22, color: C.ink, marginBottom: 4 },
 
   input: { width: "100%", fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 500, border: `1.5px solid ${C.border}`, borderRadius: 10, padding: "10px 14px", color: C.ink, background: C.cream, transition: "all 0.15s" },

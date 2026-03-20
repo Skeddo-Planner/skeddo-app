@@ -149,7 +149,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
                 textDecoration: "none",
                 background: "#E8F5EE",
                 borderRadius: 6,
-                padding: "3px 8px",
+                padding: "6px 12px",
               }}
             >
               Register &rarr;
