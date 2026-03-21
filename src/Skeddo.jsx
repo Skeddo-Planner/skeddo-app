@@ -95,16 +95,32 @@ export default function Skeddo() {
   if (pendingInviteCode) {
     const handleAcceptInvite = async (code) => {
       const token = session?.access_token;
-      const res = await fetch("/api/invite-accept", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-        body: JSON.stringify({ inviteCode: code }),
+      const headers = { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) };
+
+      // Try child invite first
+      const childRes = await fetch("/api/invite-accept", {
+        method: "POST", headers, body: JSON.stringify({ inviteCode: code }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-      // Clear invite from URL after accepting
-      window.history.replaceState({}, "", "/");
-      return data;
+      const childData = await childRes.json();
+
+      if (childRes.ok) {
+        window.history.replaceState({}, "", "/");
+        return childData;
+      }
+
+      // If child invite failed, try as a referral code
+      const refRes = await fetch("/api/referral-convert", {
+        method: "POST", headers, body: JSON.stringify({ referralCode: code }),
+      });
+      const refData = await refRes.json();
+
+      if (refRes.ok) {
+        window.history.replaceState({}, "", "/");
+        return refData;
+      }
+
+      // Both failed — throw the most relevant error
+      throw new Error(childData.error || refData.error || "Invalid invite link");
     };
 
     if (!user) {

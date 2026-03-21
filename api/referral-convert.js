@@ -1,3 +1,17 @@
+/**
+ * POST /api/referral-convert
+ *
+ * Called when a new user signs up using a referral code (from /invite/:code URL).
+ * Awards BOTH users a free month:
+ *   - Referrer: +1 to reward_months_earned on their profile
+ *   - New user: +1 to reward_months_earned on their profile + referred_by set
+ *
+ * When billing goes live, the subscription logic should check
+ * profiles.reward_months_earned and deduct from it when applying free months.
+ *
+ * Body: { referralCode }
+ */
+
 import { verifyUser, getSupabaseClient, handleCors } from "./_helpers.js";
 
 export default async function handler(req, res) {
@@ -12,55 +26,73 @@ export default async function handler(req, res) {
 
   const sb = getSupabaseClient(user._token);
 
-  // Find the referral
-  const { data: referral } = await sb
-    .from("referrals")
-    .select("*")
+  // Find the referrer by their permanent referral code on profiles
+  const { data: referrer } = await sb
+    .from("profiles")
+    .select("id, referral_code, reward_months_earned")
     .eq("referral_code", referralCode)
     .single();
 
-  if (!referral) return res.status(404).json({ error: "Referral not found" });
-  if (referral.status !== "pending") return res.status(400).json({ error: "Referral already used" });
-  if (referral.referrer_id === user.id) return res.status(400).json({ error: "Cannot use your own referral" });
+  if (!referrer) return res.status(404).json({ error: "Invalid referral code" });
+  if (referrer.id === user.id) return res.status(400).json({ error: "Cannot use your own referral code" });
 
-  // Check if within 7-day reward window
-  const withinWindow = new Date(referral.reward_expires_at) >= new Date();
+  // Check if this user already used a referral code
+  const { data: newUserProfile } = await sb
+    .from("profiles")
+    .select("id, referred_by, reward_months_earned")
+    .eq("id", user.id)
+    .single();
 
-  // Convert the referral
-  const { error } = await sb
-    .from("referrals")
+  if (newUserProfile?.referred_by) {
+    return res.status(400).json({ error: "You've already used a referral code" });
+  }
+
+  // ─── Credit the REFERRER: +1 free month ───
+  const { error: referrerErr } = await sb
+    .from("profiles")
     .update({
-      referred_id: user.id,
-      status: "converted",
-      converted_at: new Date().toISOString(),
-      reward_months: withinWindow ? 1 : 0,
+      reward_months_earned: (referrer.reward_months_earned || 0) + 1,
     })
-    .eq("id", referral.id);
+    .eq("id", referrer.id);
 
-  if (error) return res.status(500).json({ error: error.message });
+  if (referrerErr) {
+    console.error("Failed to credit referrer:", referrerErr);
+    return res.status(500).json({ error: "Failed to credit referrer" });
+  }
 
-  // If there's a circle attached, auto-request to join
-  if (referral.circle_id) {
-    const { data: existing } = await sb
-      .from("circle_memberships")
-      .select("id")
-      .eq("circle_id", referral.circle_id)
-      .eq("user_id", user.id)
-      .single();
+  // ─── Credit the NEW USER: +1 free month + record who referred them ───
+  const { error: newUserErr } = await sb
+    .from("profiles")
+    .update({
+      reward_months_earned: (newUserProfile?.reward_months_earned || 0) + 1,
+      referred_by: referralCode,
+    })
+    .eq("id", user.id);
 
-    if (!existing) {
-      await sb.from("circle_memberships").insert({
-        circle_id: referral.circle_id,
-        user_id: user.id,
-        role: "member",
-        status: "pending",
-      });
-    }
+  if (newUserErr) {
+    console.error("Failed to credit new user:", newUserErr);
+    return res.status(500).json({ error: "Failed to credit new user" });
+  }
+
+  // ─── Also record in referrals table for tracking/display ───
+  try {
+    await sb.from("referrals").insert({
+      referrer_id: referrer.id,
+      referred_id: user.id,
+      referral_code: referralCode,
+      status: "converted",
+      reward_months: 1,
+      converted_at: new Date().toISOString(),
+      reward_expires_at: new Date().toISOString(), // already converted, no expiry needed
+    });
+  } catch {
+    // Non-critical — the profile credits are what matter
   }
 
   return res.status(200).json({
     success: true,
-    rewardApplied: withinWindow,
-    circleId: referral.circle_id,
+    message: "Both you and the person who referred you have been awarded a free month!",
+    referrerCredited: true,
+    newUserCredited: true,
   });
 }
