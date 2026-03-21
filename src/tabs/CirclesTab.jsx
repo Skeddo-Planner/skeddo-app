@@ -13,6 +13,51 @@ const SOFT = {
 
 const CIRCLE_EMOJIS = ["👨‍👩‍👧‍👦", "⚽", "🎨", "🎵", "📚", "🏕️", "🎭", "🧪", "🏊", "🚴"];
 
+/* SVG share icons matching tab bar stroke style */
+function ShareIcon({ type, color, size = 18 }) {
+  const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+  switch (type) {
+    case "whatsapp": return <svg {...props}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>;
+    case "text": return <svg {...props}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>;
+    case "email": return <svg {...props}><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 7L2 7" /></svg>;
+    case "copy": return <svg {...props}><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>;
+    case "share": return <svg {...props}><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></svg>;
+    default: return null;
+  }
+}
+
+function ShareIcons({ shareText, shareUrl, onCopy, subject }) {
+  const fullText = shareText + "\n\n" + shareUrl;
+  const actions = [
+    { label: "WhatsApp", type: "whatsapp", color: "#25D366", action: () => window.open(`https://wa.me/?text=${encodeURIComponent(fullText)}`, "_blank") },
+    { label: "Text", type: "text", color: C.blue, action: () => window.open(`sms:?body=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank") },
+    { label: "Email", type: "email", color: C.lilac, action: () => window.open(`mailto:?subject=${encodeURIComponent(subject || "Skeddo")}&body=${encodeURIComponent(fullText)}`, "_blank") },
+    { label: "Copy", type: "copy", color: C.olive, action: onCopy },
+    ...(navigator.share ? [{ label: "Share", type: "share", color: C.seaGreen, action: () => navigator.share({ title: subject || "Skeddo", text: shareText, url: shareUrl }).catch(() => {}) }] : []),
+  ];
+  return (
+    <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
+      {actions.map((a) => (
+        <button key={a.label} onClick={a.action} style={{
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+          background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
+        }}>
+          <div style={{
+            width: 42, height: 42, borderRadius: 12,
+            background: a.color + "14", border: `1.5px solid ${a.color}30`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
+            <ShareIcon type={a.type} color={a.color} />
+          </div>
+          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 9, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>
+            {a.label}
+          </span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
 /* ─── Sub-header with back arrow ─── */
 function SubHeader({ title, onBack, right }) {
   return (
@@ -206,10 +251,10 @@ export default function CirclesTab({
               <div key={req.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 0", borderBottom: `1px solid ${C.lilac}18` }}>
                 <div>
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
-                    {req.profiles?.display_name || "Someone"}
+                    {req.displayName || "Someone"}
                   </div>
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
-                    wants to join {req.circles?.name}
+                    wants to join {req.circleName || "your circle"}
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 6 }}>
@@ -398,13 +443,89 @@ export default function CirclesTab({
           }
         />
 
-        <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
-          <Tag color={C.seaGreen} bg={SOFT.seaGreen}>
-            {circleMembers.length} member{circleMembers.length !== 1 ? "s" : ""}
-          </Tag>
-          {activeCircle?.role === "owner" && (
-            <Tag color={C.olive} bg={SOFT.gold}>Owner</Tag>
-          )}
+        {/* Members list with roles + remove */}
+        <div style={{
+          background: C.white, borderRadius: 12, border: `1px solid ${C.border}`,
+          padding: "12px 14px", marginBottom: 16,
+        }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8 }}>
+            Members ({circleMembers.length})
+          </div>
+          {circleMembers.map((m) => {
+            const isMe = m.userId === userId;
+            const isOwner = activeCircle?.role === "owner";
+            return (
+              <div key={m.userId} style={{
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                padding: "8px 0", borderBottom: `1px solid ${C.border}`,
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{
+                    width: 28, height: 28, borderRadius: 8,
+                    background: m.role === "owner" ? C.seaGreen : C.blue,
+                    color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                  }}>
+                    {m.displayName?.[0]?.toUpperCase() || "?"}
+                  </div>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
+                    {m.displayName}{isMe ? " (you)" : ""}
+                  </span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{
+                    fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                    color: m.role === "owner" ? C.seaGreen : C.muted,
+                    textTransform: "uppercase",
+                  }}>
+                    {m.role}
+                  </span>
+                  {isOwner && !isMe && (
+                    <button
+                      onClick={async () => {
+                        if (!window.confirm(`Remove ${m.displayName} from this circle?`)) return;
+                        try {
+                          await removeMember(activeCircle.id, m.userId);
+                          const updated = await getMembers(activeCircle.id);
+                          setCircleMembers(updated);
+                          showToast("Removed");
+                        } catch (e) { showToast(e.message); }
+                      }}
+                      style={{
+                        background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+                        fontSize: 11, fontWeight: 600, color: C.danger, cursor: "pointer",
+                      }}
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+          <button
+            onClick={async () => {
+              if (activeCircle?.role === "owner") {
+                const otherMembers = circleMembers.filter((m) => m.userId !== userId);
+                if (otherMembers.length === 0) {
+                  showToast("You're the only member.");
+                  return;
+                }
+                if (!window.confirm(`Transfer ownership to ${otherMembers[0].displayName} and leave?`)) return;
+                try { await leaveCircle(activeCircle.id, otherMembers[0].userId); setScreen("home"); showToast("Left circle"); } catch (e) { showToast(e.message); }
+              } else {
+                if (!window.confirm("Leave this circle? Your shared activities will become anonymous.")) return;
+                try { await leaveCircle(activeCircle.id); setScreen("home"); showToast("Left circle"); } catch (e) { showToast(e.message); }
+              }
+            }}
+            style={{
+              background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+              fontSize: 12, fontWeight: 600, color: C.danger, cursor: "pointer",
+              marginTop: 8, padding: 0,
+            }}
+          >
+            Leave this circle
+          </button>
         </div>
 
         {/* Invite code + share icons */}
@@ -422,139 +543,13 @@ export default function CirclesTab({
             }}>
               {activeCircle.inviteCode}
             </div>
-            <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
-              {[
-                {
-                  label: "WhatsApp", icon: "\uD83D\uDCAC", color: "#25D366",
-                  action: () => window.open(`https://wa.me/?text=${encodeURIComponent(`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}\n\nDownload Skeddo: https://skeddo.ca`)}`, "_blank"),
-                },
-                {
-                  label: "Text", icon: "\uD83D\uDCF1", color: C.blue,
-                  action: () => window.open(`sms:?body=${encodeURIComponent(`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode} — https://skeddo.ca`)}`, "_blank"),
-                },
-                {
-                  label: "Email", icon: "\u2709\uFE0F", color: C.lilac,
-                  action: () => window.open(`mailto:?subject=${encodeURIComponent(`Join my Skeddo circle: ${activeCircle.name}`)}&body=${encodeURIComponent(`I'm using Skeddo to plan my kids' activities. Join my circle "${activeCircle.name}" to share schedules!\n\nInvite code: ${activeCircle.inviteCode}\n\nGet Skeddo: https://skeddo.ca`)}`, "_blank"),
-                },
-                {
-                  label: "Copy", icon: "\uD83D\uDCCB", color: C.olive,
-                  action: () => {
-                    navigator.clipboard.writeText(activeCircle.inviteCode).catch(() => {});
-                    showToast("Invite code copied!");
-                  },
-                },
-                ...(navigator.share ? [{
-                  label: "More", icon: "\uD83D\uDD17", color: C.seaGreen,
-                  action: () => navigator.share({
-                    title: `Join ${activeCircle.name} on Skeddo`,
-                    text: `Join my circle "${activeCircle.name}" on Skeddo! Invite code: ${activeCircle.inviteCode}`,
-                    url: "https://skeddo.ca",
-                  }).catch(() => {}),
-                }] : []),
-              ].map((a) => (
-                <button
-                  key={a.label}
-                  onClick={a.action}
-                  style={{
-                    display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
-                    background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
-                  }}
-                >
-                  <div style={{
-                    width: 42, height: 42, borderRadius: 12,
-                    background: a.color + "14", border: `1.5px solid ${a.color}30`,
-                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: 19,
-                  }}>
-                    {a.icon}
-                  </div>
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 9, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>
-                    {a.label}
-                  </span>
-                </button>
-              ))}
-            </div>
+            <ShareIcons
+              shareText={`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}`}
+              shareUrl="https://skeddo.ca"
+              onCopy={() => { navigator.clipboard.writeText(activeCircle.inviteCode).catch(() => {}); showToast("Invite code copied!"); }}
+              subject={`Join my Skeddo circle: ${activeCircle.name}`}
+            />
           </div>
-        )}
-
-        {/* Members + Leave */}
-        <div style={{
-          display: "flex", justifyContent: "space-between", alignItems: "center",
-          marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}`,
-        }}>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
-            {circleMembers.map((m) => m.displayName).join(", ")}
-          </div>
-          <button
-            onClick={async () => {
-              if (activeCircle?.role === "owner") {
-                const otherMembers = circleMembers.filter((m) => m.userId !== userId);
-                if (otherMembers.length === 0) {
-                  showToast("You're the only member. Delete the circle instead.");
-                  return;
-                }
-                const confirmed = window.confirm(`Transfer ownership to ${otherMembers[0].displayName} and leave this circle?`);
-                if (!confirmed) return;
-                try {
-                  await leaveCircle(activeCircle.id, otherMembers[0].userId);
-                  setScreen("home");
-                  showToast("Left circle");
-                } catch (e) { showToast(e.message); }
-              } else {
-                const confirmed = window.confirm("Leave this circle? Your shared activities will become anonymous.");
-                if (!confirmed) return;
-                try {
-                  await leaveCircle(activeCircle.id);
-                  setScreen("home");
-                  showToast("Left circle");
-                } catch (e) { showToast(e.message); }
-              }
-            }}
-            style={{
-              background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
-              fontSize: 12, fontWeight: 600, color: C.danger, cursor: "pointer",
-            }}
-          >
-            Leave
-          </button>
-        </div>
-
-        {/* Owner: remove members */}
-        {activeCircle?.role === "owner" && circleMembers.length > 1 && (
-          <details style={{ marginBottom: 16 }}>
-            <summary style={{
-              fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
-              color: C.muted, cursor: "pointer", marginBottom: 8,
-            }}>
-              Manage members
-            </summary>
-            {circleMembers.filter((m) => m.userId !== userId).map((m) => (
-              <div key={m.userId} style={{
-                display: "flex", justifyContent: "space-between", alignItems: "center",
-                padding: "6px 0", borderBottom: `1px solid ${C.border}`,
-              }}>
-                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.ink }}>
-                  {m.displayName}
-                </span>
-                <button
-                  onClick={async () => {
-                    if (!window.confirm(`Remove ${m.displayName} from this circle?`)) return;
-                    try {
-                      await removeMember(activeCircle.id, m.userId);
-                      const updated = await getMembers(activeCircle.id);
-                      setCircleMembers(updated);
-                      showToast("Removed");
-                    } catch (e) { showToast(e.message); }
-                  }}
-                  style={{
-                    background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
-                    fontSize: 11, fontWeight: 600, color: C.danger, cursor: "pointer",
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
-          </details>
         )}
 
         {/* Feed */}
@@ -747,46 +742,6 @@ export default function CirclesTab({
     const shareUrl = referralUrl || "Loading...";
     const shareText = "I use Skeddo to plan my kids' camps and activities. Join with my link and we both get a free month!";
 
-    const shareActions = [
-      {
-        label: "WhatsApp",
-        icon: "\uD83D\uDCAC",
-        color: "#25D366",
-        action: () => window.open(`https://wa.me/?text=${encodeURIComponent(shareText + "\n" + shareUrl)}`, "_blank"),
-      },
-      {
-        label: "Text",
-        icon: "\uD83D\uDCF1",
-        color: C.blue,
-        action: () => window.open(`sms:?body=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank"),
-      },
-      {
-        label: "Email",
-        icon: "\u2709\uFE0F",
-        color: C.lilac,
-        action: () => window.open(`mailto:?subject=${encodeURIComponent("Join me on Skeddo!")}&body=${encodeURIComponent(shareText + "\n\n" + shareUrl)}`, "_blank"),
-      },
-      {
-        label: "Copy",
-        icon: "\uD83D\uDCCB",
-        color: C.olive,
-        action: () => {
-          navigator.clipboard.writeText(shareUrl).catch(() => {});
-          showToast("Link copied!");
-        },
-      },
-    ];
-
-    // Add native share if supported
-    if (navigator.share) {
-      shareActions.push({
-        label: "More",
-        icon: "\uD83D\uDD17",
-        color: C.seaGreen,
-        action: () => navigator.share({ title: "Join Skeddo", text: shareText, url: shareUrl }).catch(() => {}),
-      });
-    }
-
     return (
       <div>
         <SubHeader title="Invite Friends" onBack={() => setScreen("home")} />
@@ -831,34 +786,13 @@ export default function CirclesTab({
         </div>
 
         {/* Share icons */}
-        <div style={{
-          display: "flex", justifyContent: "center", gap: 12, marginBottom: 20, flexWrap: "wrap",
-        }}>
-          {shareActions.map((a) => (
-            <button
-              key={a.label}
-              onClick={a.action}
-              style={{
-                display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
-                background: "none", border: "none", cursor: "pointer", padding: "8px 6px",
-              }}
-            >
-              <div style={{
-                width: 48, height: 48, borderRadius: 14,
-                background: a.color + "14", border: `1.5px solid ${a.color}30`,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 22,
-              }}>
-                {a.icon}
-              </div>
-              <span style={{
-                fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
-                color: C.muted, textTransform: "uppercase",
-              }}>
-                {a.label}
-              </span>
-            </button>
-          ))}
+        <div style={{ marginBottom: 20 }}>
+          <ShareIcons
+            shareText={shareText}
+            shareUrl={shareUrl}
+            onCopy={() => { navigator.clipboard.writeText(shareUrl).catch(() => {}); showToast("Link copied!"); }}
+            subject="Join me on Skeddo!"
+          />
         </div>
 
         {/* How referrals work */}

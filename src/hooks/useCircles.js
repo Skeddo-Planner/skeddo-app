@@ -65,12 +65,32 @@ export function useCircles(userId, session) {
           .map((m) => m.circles.id);
 
         if (ownedCircleIds.length > 0) {
-          const { data: pending } = await supabase
+          const { data: pendingRaw } = await supabase
             .from("circle_memberships")
-            .select("id, circle_id, user_id, joined_at, circles(name), profiles(display_name)")
+            .select("id, circle_id, user_id, joined_at")
             .eq("status", "pending")
             .in("circle_id", ownedCircleIds);
-          setPendingRequests(pending || []);
+
+          // Resolve names for pending requests
+          if (pendingRaw && pendingRaw.length > 0) {
+            const pendingUserIds = pendingRaw.map((p) => p.user_id);
+            const pendingCircleIds = [...new Set(pendingRaw.map((p) => p.circle_id))];
+            const [{ data: pendingProfiles }, { data: pendingCircles }] = await Promise.all([
+              supabase.from("profiles").select("id, display_name").in("id", pendingUserIds),
+              supabase.from("circles").select("id, name").in("id", pendingCircleIds),
+            ]);
+            const pNameMap = {};
+            (pendingProfiles || []).forEach((p) => { pNameMap[p.id] = p.display_name; });
+            const cNameMap = {};
+            (pendingCircles || []).forEach((c) => { cNameMap[c.id] = c.name; });
+            setPendingRequests(pendingRaw.map((p) => ({
+              ...p,
+              displayName: pNameMap[p.user_id] || "Someone",
+              circleName: cNameMap[p.circle_id] || "your circle",
+            })));
+          } else {
+            setPendingRequests([]);
+          }
         } else {
           setPendingRequests([]);
         }
@@ -266,14 +286,27 @@ export function useCircles(userId, session) {
 
   /* ── Get members of a circle ── */
   const getMembers = useCallback(async (circleId) => {
-    const { data } = await supabase
+    const { data: memberships } = await supabase
       .from("circle_memberships")
-      .select("user_id, role, status, joined_at, profiles(display_name)")
+      .select("user_id, role, status, joined_at")
       .eq("circle_id", circleId)
       .eq("status", "approved");
-    return (data || []).map((m) => ({
+
+    if (!memberships || memberships.length === 0) return [];
+
+    // Fetch display names separately (profiles join can fail with RLS)
+    const userIds = memberships.map((m) => m.user_id);
+    const { data: profiles } = await supabase
+      .from("profiles")
+      .select("id, display_name")
+      .in("id", userIds);
+
+    const nameMap = {};
+    (profiles || []).forEach((p) => { nameMap[p.id] = p.display_name; });
+
+    return memberships.map((m) => ({
       userId: m.user_id,
-      displayName: m.profiles?.display_name || "Unknown",
+      displayName: nameMap[m.user_id] || "Member",
       role: m.role,
       joinedAt: m.joined_at,
     }));
@@ -282,19 +315,32 @@ export function useCircles(userId, session) {
   /* ── Refresh pending requests (call when returning to home screen) ── */
   const refreshPending = useCallback(async () => {
     if (!userId) return;
-    // Get circles this user owns
     const { data: owned } = await supabase
       .from("circles")
-      .select("id")
+      .select("id, name")
       .eq("created_by", userId);
     const ownedIds = (owned || []).map((c) => c.id);
     if (ownedIds.length > 0) {
-      const { data: pending } = await supabase
+      const { data: pendingRaw } = await supabase
         .from("circle_memberships")
-        .select("id, circle_id, user_id, joined_at, circles(name), profiles(display_name)")
+        .select("id, circle_id, user_id, joined_at")
         .eq("status", "pending")
         .in("circle_id", ownedIds);
-      setPendingRequests(pending || []);
+      if (pendingRaw && pendingRaw.length > 0) {
+        const pIds = pendingRaw.map((p) => p.user_id);
+        const { data: pProfiles } = await supabase.from("profiles").select("id, display_name").in("id", pIds);
+        const pMap = {};
+        (pProfiles || []).forEach((p) => { pMap[p.id] = p.display_name; });
+        const cMap = {};
+        (owned || []).forEach((c) => { cMap[c.id] = c.name; });
+        setPendingRequests(pendingRaw.map((p) => ({
+          ...p,
+          displayName: pMap[p.user_id] || "Someone",
+          circleName: cMap[p.circle_id] || "your circle",
+        })));
+      } else {
+        setPendingRequests([]);
+      }
     } else {
       setPendingRequests([]);
     }
