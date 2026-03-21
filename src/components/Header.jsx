@@ -56,7 +56,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               style={{ height: 52, width: "auto", borderRadius: 10 }}
             />
             <div>
-              <div style={s.tagline}>The planner for busy families</div>
+              <div style={s.tagline}>The summer planner for busy families</div>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>

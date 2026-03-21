@@ -152,15 +152,15 @@ export default function BudgetTab({
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 20 }}>
         <div style={{ ...s.budgetCard, borderTop: `3px solid ${C.seaGreen}`, padding: "12px 14px" }}>
           <div style={{ ...s.budgetAmount, fontSize: 18 }}>{fmt$(enrolledCost)}</div>
-          <div style={s.budgetLabel}>ENROLLED</div>
+          <div style={s.budgetLabel}>COMMITTED</div>
         </div>
         <div style={{ ...s.budgetCard, borderTop: `3px solid ${C.olive}`, padding: "12px 14px" }}>
           <div style={{ ...s.budgetAmount, fontSize: 18 }}>{fmt$(waitlistCost)}</div>
-          <div style={s.budgetLabel}>WAITLIST</div>
+          <div style={s.budgetLabel}>PENDING</div>
         </div>
         <div style={{ ...s.budgetCard, borderTop: `3px solid ${C.blue}`, padding: "12px 14px" }}>
           <div style={{ ...s.budgetAmount, fontSize: 18 }}>{fmt$(exploringCost)}</div>
-          <div style={s.budgetLabel}>EXPLORING</div>
+          <div style={s.budgetLabel}>CONSIDERING</div>
         </div>
       </div>
 

@@ -5,10 +5,10 @@ import EmptyState from "../components/EmptyState";
 
 /* ─── Soft color variants ─── */
 const SOFT = {
-  seaGreen: "#EDF7F1",
-  blue: "#EBF2F8",
-  lilac: "#F9EFF3",
-  gold: "#FBF6E6",
+  seaGreen: "#ECFDF5",
+  blue: "#EFF6FF",
+  lilac: "#FEF3E2",
+  gold: "#FEF3E2",
 };
 
 const CIRCLE_EMOJIS = ["👨‍👩‍👧‍👦", "⚽", "🎨", "🎵", "📚", "🏕️", "🎭", "🧪", "🏊", "🚴"];

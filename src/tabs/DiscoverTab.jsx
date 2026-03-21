@@ -146,7 +146,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           zIndex: 2,
           minWidth: 40,
           minHeight: 40,
-          color: favorited ? C.olive : C.border,
+          color: favorited ? C.olive : "#9CA3AF",
           transition: "color 0.15s ease, transform 0.15s ease",
         }}
         aria-label={favorited ? "Remove from favorites" : "Add to favorites"}

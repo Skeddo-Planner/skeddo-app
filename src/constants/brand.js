@@ -1,23 +1,24 @@
 /* ─── SKEDDO BRAND TOKENS ─── */
 
+/* Fresh & Clean palette — March 2026 rebrand */
 export const C = {
-  seaGreen: "#3A9E6A",
-  blue: "#2A5F8A",
-  lilac: "#C87FA0",
-  olive: "#B89A2A",
-  ink: "#1A2E26",
-  cream: "#FAF8F3",
+  seaGreen: "#2D9F6F",       // Jade Green (primary accent)
+  blue: "#4A6FA5",            // Slate Blue (secondary)
+  lilac: "#F4A261",           // Peach (soft accent)
+  olive: "#E76F51",           // Terracotta (highlight/italic accent)
+  ink: "#1B2432",             // Midnight (dark base)
+  cream: "#F8F9FA",           // Cloud (light background)
   white: "#FFFFFF",
-  muted: "#8A9A8E",
-  border: "#E4E0D8",
-  dangerBg: "#FFF0F0",
-  danger: "#C0392B",
+  muted: "#6B7280",           // Neutral grey
+  border: "#E5E7EB",          // Light border
+  dangerBg: "#FEF2F2",
+  danger: "#EF4444",
 };
 
 export const STATUS_MAP = {
-  Enrolled: { color: C.seaGreen, bg: "#E8F5EE", icon: "\u2713" },
-  Waitlist: { color: C.olive, bg: "#FBF6E6", icon: "\u25F7" },
-  Exploring: { color: C.blue, bg: "#EAF0F6", icon: "\u25C7" },
+  Enrolled: { color: C.seaGreen, bg: "#ECFDF5", icon: "\u2713" },
+  Waitlist: { color: C.olive, bg: "#FEF3E2", icon: "\u25F7" },
+  Exploring: { color: C.blue, bg: "#EFF6FF", icon: "\u25C7" },
 };
 
 export const CATEGORIES = [

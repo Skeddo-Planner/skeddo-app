@@ -4,8 +4,8 @@
   "description": "The planner for busy families",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FAF8F3",
-  "theme_color": "#1A2E26",
+  "background_color": "#F8F9FA",
+  "theme_color": "#1B2432",
   "orientation": "portrait",
   "icons": [
     {
