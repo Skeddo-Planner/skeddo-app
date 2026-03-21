@@ -56,7 +56,7 @@ export default function CirclesTab({
     referralCode, referralUrl, membersRecruited, freeMonthsEarned,
     createCircle, joinCircle, handleMemberRequest, leaveCircle,
     shareActivities, loadFeed, toggleBookmark, flagActivity,
-    ensureReferralCode, getMembers, pendingCount,
+    ensureReferralCode, getMembers, refreshPending, pendingCount,
   } = circlesHook;
 
   const [screen, setScreen] = useState("home"); // home | feed | share | invite | create | join
@@ -73,7 +73,11 @@ export default function CirclesTab({
     if (screen === "invite" && !referralCode) {
       ensureReferralCode().catch(() => {});
     }
-  }, [screen, referralCode, ensureReferralCode]);
+    // Refresh pending requests when returning to home screen
+    if (screen === "home") {
+      refreshPending();
+    }
+  }, [screen, referralCode, ensureReferralCode, refreshPending]);
 
   // Build shareable activities from user's enrolled programs
   const shareableActivities = (programs || []).map((p) => {
@@ -398,33 +402,72 @@ export default function CirclesTab({
           )}
         </div>
 
-        {/* Invite code for sharing */}
-        {activeCircle?.inviteCode && activeCircle?.role === "owner" && (
+        {/* Invite code + share icons */}
+        {activeCircle?.inviteCode && (
           <div style={{
-            background: SOFT.blue, borderRadius: 10, padding: "10px 14px", marginBottom: 16,
-            display: "flex", alignItems: "center", justifyContent: "space-between",
+            background: SOFT.blue, borderRadius: 12, padding: "14px 16px", marginBottom: 16,
+            border: `1px solid ${C.blue}18`,
           }}>
-            <div>
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.blue, textTransform: "uppercase", letterSpacing: 0.5 }}>
-                Invite Code
-              </div>
-              <div style={{ fontFamily: "monospace", fontSize: 13, color: C.ink }}>
-                {activeCircle.inviteCode}
-              </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.blue, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>
+              Invite Code
             </div>
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText(activeCircle.inviteCode).catch(() => {});
-                showToast("Invite code copied!");
-              }}
-              style={{
-                background: C.blue, color: C.cream, border: "none", borderRadius: 6,
-                padding: "6px 12px", fontSize: 11, fontWeight: 700, cursor: "pointer",
-                fontFamily: "'Barlow', sans-serif",
-              }}
-            >
-              Copy
-            </button>
+            <div style={{
+              background: C.white, borderRadius: 8, padding: "8px 12px", marginBottom: 12,
+              fontFamily: "monospace", fontSize: 13, color: C.ink, border: `1px solid ${C.border}`,
+            }}>
+              {activeCircle.inviteCode}
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
+              {[
+                {
+                  label: "WhatsApp", icon: "\uD83D\uDCAC", color: "#25D366",
+                  action: () => window.open(`https://wa.me/?text=${encodeURIComponent(`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}\n\nDownload Skeddo: https://skeddo.ca`)}`, "_blank"),
+                },
+                {
+                  label: "Text", icon: "\uD83D\uDCF1", color: C.blue,
+                  action: () => window.open(`sms:?body=${encodeURIComponent(`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode} — https://skeddo.ca`)}`, "_blank"),
+                },
+                {
+                  label: "Email", icon: "\u2709\uFE0F", color: C.lilac,
+                  action: () => window.open(`mailto:?subject=${encodeURIComponent(`Join my Skeddo circle: ${activeCircle.name}`)}&body=${encodeURIComponent(`I'm using Skeddo to plan my kids' activities. Join my circle "${activeCircle.name}" to share schedules!\n\nInvite code: ${activeCircle.inviteCode}\n\nGet Skeddo: https://skeddo.ca`)}`, "_blank"),
+                },
+                {
+                  label: "Copy", icon: "\uD83D\uDCCB", color: C.olive,
+                  action: () => {
+                    navigator.clipboard.writeText(activeCircle.inviteCode).catch(() => {});
+                    showToast("Invite code copied!");
+                  },
+                },
+                ...(navigator.share ? [{
+                  label: "More", icon: "\uD83D\uDD17", color: C.seaGreen,
+                  action: () => navigator.share({
+                    title: `Join ${activeCircle.name} on Skeddo`,
+                    text: `Join my circle "${activeCircle.name}" on Skeddo! Invite code: ${activeCircle.inviteCode}`,
+                    url: "https://skeddo.ca",
+                  }).catch(() => {}),
+                }] : []),
+              ].map((a) => (
+                <button
+                  key={a.label}
+                  onClick={a.action}
+                  style={{
+                    display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
+                    background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
+                  }}
+                >
+                  <div style={{
+                    width: 42, height: 42, borderRadius: 12,
+                    background: a.color + "14", border: `1.5px solid ${a.color}30`,
+                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: 19,
+                  }}>
+                    {a.icon}
+                  </div>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 9, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>
+                    {a.label}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 

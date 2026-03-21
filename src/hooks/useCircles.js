@@ -68,16 +68,20 @@ export function useCircles(userId, session) {
         }
 
         // Get pending requests for circles this user owns
-        const { data: pending } = await supabase
-          .from("circle_memberships")
-          .select("id, circle_id, user_id, joined_at, circles(name), profiles(display_name)")
-          .eq("status", "pending")
-          .in("circle_id", (memberships || [])
-            .filter((m) => m.role === "owner" && m.circles)
-            .map((m) => m.circles.id)
-          );
+        const ownedCircleIds = (memberships || [])
+          .filter((m) => m.role === "owner" && m.circles)
+          .map((m) => m.circles.id);
 
-        setPendingRequests(pending || []);
+        if (ownedCircleIds.length > 0) {
+          const { data: pending } = await supabase
+            .from("circle_memberships")
+            .select("id, circle_id, user_id, joined_at, circles(name), profiles(display_name)")
+            .eq("status", "pending")
+            .in("circle_id", ownedCircleIds);
+          setPendingRequests(pending || []);
+        } else {
+          setPendingRequests([]);
+        }
 
         // Load bookmarks
         const { data: bm } = await supabase
@@ -271,6 +275,25 @@ export function useCircles(userId, session) {
     }));
   }, []);
 
+  /* ── Refresh pending requests (call when returning to home screen) ── */
+  const refreshPending = useCallback(async () => {
+    if (!userId) return;
+    // Get circles this user owns
+    const { data: owned } = await supabase
+      .from("circles")
+      .select("id")
+      .eq("created_by", userId);
+    const ownedIds = (owned || []).map((c) => c.id);
+    if (ownedIds.length > 0) {
+      const { data: pending } = await supabase
+        .from("circle_memberships")
+        .select("id, circle_id, user_id, joined_at, circles(name), profiles(display_name)")
+        .eq("status", "pending")
+        .in("circle_id", ownedIds);
+      setPendingRequests(pending || []);
+    }
+  }, [userId]);
+
   const membersRecruited = referrals.filter((r) => r.status === "converted").length;
   const freeMonthsEarned = referrals.reduce((sum, r) => sum + (r.status === "converted" ? r.reward_months : 0), 0);
 
@@ -296,6 +319,7 @@ export function useCircles(userId, session) {
     flagActivity,
     ensureReferralCode,
     getMembers,
+    refreshPending,
     pendingCount: pendingRequests.length,
   };
 }
