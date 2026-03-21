@@ -329,6 +329,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             registrationUrl: form.registrationUrl || "",
             userEmail: userEmail || "",
             userName: profile.displayName || "",
+            userId: userId || "",
           }),
         }).catch(() => {}); // fire-and-forget, don't block the user
       } catch {}

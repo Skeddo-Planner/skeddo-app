@@ -383,13 +383,62 @@ export default function DiscoverTab({
   onAddToSchedule,
   onOpenDirectoryDetail,
 }) {
-  /* ─── Use programs.json as the single source of truth ─── */
-  /* programs.json is always up-to-date (deployed with the code) and includes
-     centre names in titles, corrected URLs, and neighbourhood data.
-     Supabase directory_programs can be re-enabled later when an auto-sync
-     pipeline keeps it in sync with programs.json on every deploy. */
-  const allDirectoryPrograms = fallbackPrograms;
-  const isLoadingPrograms = false;
+  /* ─── Use programs.json + user-submitted programs from Supabase ─── */
+  const [userSubmitted, setUserSubmitted] = useState([]);
+  const [isLoadingPrograms, setIsLoadingPrograms] = useState(false);
+
+  useEffect(() => {
+    async function loadUserSubmitted() {
+      setIsLoadingPrograms(true);
+      try {
+        const { data } = await supabase
+          .from("directory_programs")
+          .select("*")
+          .eq("user_submitted", true);
+        if (data && data.length > 0) {
+          setUserSubmitted(data.map((row) => ({
+            id: `usub-${row.id}`,
+            name: row.name,
+            provider: row.provider || "",
+            category: row.category || "General",
+            campType: row.camp_type || "",
+            scheduleType: row.schedule_type || "",
+            ageMin: row.age_min,
+            ageMax: row.age_max,
+            startDate: row.start_date || "",
+            endDate: row.end_date || "",
+            days: row.days || "",
+            startTime: row.start_time || "",
+            endTime: row.end_time || "",
+            cost: row.cost != null ? Number(row.cost) : "",
+            indoorOutdoor: row.indoor_outdoor || "",
+            neighbourhood: row.neighbourhood || "",
+            address: row.address || "",
+            lat: row.lat,
+            lng: row.lng,
+            enrollmentStatus: row.enrollment_status || "Open",
+            registrationUrl: row.registration_url || "",
+            description: row.description || "",
+            tags: row.tags || [],
+            activityType: row.activity_type || "",
+            confirmed2026: true,
+            priceVerified: false,
+            userSubmitted: true,
+          })));
+        }
+      } catch {}
+      setIsLoadingPrograms(false);
+    }
+    loadUserSubmitted();
+  }, []);
+
+  // Merge static JSON + user-submitted from Supabase (dedup by name+provider)
+  const allDirectoryPrograms = useMemo(() => {
+    if (userSubmitted.length === 0) return fallbackPrograms;
+    const existing = new Set(fallbackPrograms.map((p) => `${p.name}|||${p.provider}`.toLowerCase()));
+    const newOnes = userSubmitted.filter((p) => !existing.has(`${p.name}|||${p.provider}`.toLowerCase()));
+    return [...fallbackPrograms, ...newOnes];
+  }, [userSubmitted]);
 
   const [search, setSearch] = useState("");
   const [selectedCats, setSelectedCats] = useState(new Set());       // empty = all

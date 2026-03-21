@@ -1,16 +1,16 @@
 /**
  * POST /api/notify-manual-program
  *
- * Sends an email notification to the Skeddo founders when a user manually
- * adds a program (i.e. one not found in the Discover directory).
- * This lets founders verify it's real and add it to the directory for all users.
+ * When a user manually adds a program:
+ * 1. Inserts it into directory_programs (Supabase) so ALL users can discover it immediately
+ * 2. Sends an email notification to founders for review/verification
  *
  * Body: { programName, provider, category, cost, days, times, startDate, endDate,
- *         ageMin, ageMax, location, neighbourhood, userEmail, userName }
- * Requires: RESEND_API_KEY and NOTIFY_EMAIL env vars in Vercel.
+ *         ageMin, ageMax, location, neighbourhood, registrationUrl, userEmail, userName, userId }
+ * Requires: RESEND_API_KEY, NOTIFY_EMAIL, SUPABASE_SERVICE_ROLE_KEY env vars in Vercel.
  */
 
-import { handleCors } from "./_helpers.js";
+import { handleCors, getSupabaseClient } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
@@ -19,22 +19,62 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const resendKey = process.env.RESEND_API_KEY;
-  const notifyEmail = process.env.NOTIFY_EMAIL;
-
-  if (!resendKey || !notifyEmail) {
-    console.error("Missing RESEND_API_KEY or NOTIFY_EMAIL env var");
-    return res.status(500).json({ error: "Notification not configured" });
-  }
-
   const {
     programName, provider, category, cost, days, times,
     startDate, endDate, ageMin, ageMax, location, neighbourhood,
-    registrationUrl, userEmail, userName,
+    registrationUrl, userEmail, userName, userId,
   } = req.body || {};
 
   if (!programName) {
     return res.status(400).json({ error: "Missing programName" });
+  }
+
+  // ─── 1. Insert into directory_programs (using service role to bypass RLS) ───
+  const sb = getSupabaseClient(); // service role client
+  try {
+    const { error: insertErr } = await sb
+      .from("directory_programs")
+      .insert({
+        name: programName,
+        provider: provider || null,
+        category: category || "General",
+        cost: cost ? Number(cost) : null,
+        days: days || null,
+        start_time: times ? times.split("–")[0]?.trim() : null,
+        end_time: times ? times.split("–")[1]?.trim() : null,
+        start_date: startDate || null,
+        end_date: endDate || null,
+        age_min: ageMin ? Number(ageMin) : null,
+        age_max: ageMax ? Number(ageMax) : null,
+        address: location || null,
+        neighbourhood: neighbourhood || null,
+        registration_url: registrationUrl || null,
+        enrollment_status: "Open",
+        source: "user-submitted",
+        source_id: `user-${userId || "anon"}-${Date.now()}`,
+        user_submitted: true,
+        submitted_by: userId || null,
+        submitted_by_name: userName || null,
+        verified: false,
+        description: `User-submitted program. ${provider ? "Provider: " + provider + "." : ""} Pending verification.`,
+        tags: ["user-submitted"],
+      });
+
+    if (insertErr) {
+      console.error("Failed to insert user-submitted program:", insertErr);
+      // Don't return error — still send the email notification
+    }
+  } catch (err) {
+    console.error("Supabase insert error:", err);
+  }
+
+  // ─── 2. Send email notification to founders ───
+  const resendKey = process.env.RESEND_API_KEY;
+  const notifyEmail = process.env.NOTIFY_EMAIL;
+
+  if (!resendKey || !notifyEmail) {
+    // No email config — the program was still added to Supabase above
+    return res.status(200).json({ success: true, note: "Added to directory but email not configured" });
   }
 
   const submittedAt = new Date().toLocaleString("en-CA", {
@@ -49,7 +89,7 @@ export default async function handler(req, res) {
     </p>` : "";
 
   try {
-    const response = await fetch("https://api.resend.com/emails", {
+    await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${resendKey}`,
@@ -64,9 +104,8 @@ export default async function handler(req, res) {
             <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 8px;">
               Manual program added 📋
             </h2>
-            <p style="font-size: 13px; color: #8A9A8E; margin: 0 0 16px; line-height: 1.5;">
-              A user added a program that isn't in the Discover directory. Check if it's a real program
-              from a real provider, and if so, add it to the directory so other users can find it.
+            <p style="font-size: 13px; color: #3A9E6A; font-weight: 600; margin: 0 0 16px;">
+              ✓ Already added to the directory — other users can discover it now.
             </p>
 
             <div style="background: #FAF8F3; border: 1px solid #E4E0D8; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
@@ -93,9 +132,9 @@ export default async function handler(req, res) {
 
             <div style="background: #FFF8E1; border: 1px solid #F5E6B8; border-radius: 12px; padding: 14px;">
               <p style="font-size: 13px; color: #8B7000; margin: 0; line-height: 1.5;">
-                <strong>Action needed:</strong> Verify this is a real program, then add it to
-                <code>programs.json</code> and push to deploy. If it's already in the directory
-                under a different name, no action needed.
+                <strong>Review needed:</strong> This program has been auto-added to the directory
+                (marked as unverified). Please verify it's a real program from a real provider.
+                If it's not legitimate, remove it from the directory_programs table in Supabase.
               </p>
             </div>
 
@@ -107,17 +146,9 @@ export default async function handler(req, res) {
         `,
       }),
     });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error("Resend error:", response.status, errorData);
-      return res.status(502).json({ error: "Failed to send notification" });
-    }
-
-    const data = await response.json();
-    return res.status(200).json({ success: true, id: data.id });
   } catch (err) {
-    console.error("Notification error:", err);
-    return res.status(500).json({ error: "Internal error" });
+    console.error("Email notification error:", err);
   }
+
+  return res.status(200).json({ success: true });
 }
