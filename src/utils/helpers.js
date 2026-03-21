@@ -260,6 +260,133 @@ export function downloadICS(program) {
   URL.revokeObjectURL(url);
 }
 
+/**
+ * Export ALL programs as a single ICS file (batch export).
+ */
+export function downloadAllICS(programs) {
+  const now = new Date();
+  const stamp = now.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+
+  function parseTime(timeStr) {
+    if (!timeStr) return null;
+    const match = timeStr.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+    if (!match) return null;
+    let h = parseInt(match[1], 10);
+    const m = parseInt(match[2], 10);
+    const ampm = match[3]?.toUpperCase();
+    if (ampm === "PM" && h < 12) h += 12;
+    if (ampm === "AM" && h === 12) h = 0;
+    return { h, m };
+  }
+
+  const events = programs.map((p) => {
+    const startDate = p.startDate || "";
+    const endDate = p.endDate || startDate;
+    if (!startDate) return "";
+
+    const times = (p.times || "").split(/[–\-]/);
+    const startTime = parseTime(times[0]?.trim());
+    const endTime = parseTime(times[1]?.trim());
+
+    const desc = [p.provider, p.category, p.days, p.times, p.registrationUrl].filter(Boolean).join("\\n");
+    const loc = p.location || p.neighbourhood || "";
+    const uid = `skeddo-${p.id}@skeddo.ca`;
+
+    if (startTime && endTime) {
+      const dtStart = `DTSTART;TZID=America/Vancouver:${startDate.replace(/-/g, "")}T${String(startTime.h).padStart(2, "0")}${String(startTime.m).padStart(2, "0")}00`;
+      const dtEnd = `DTEND;TZID=America/Vancouver:${endDate.replace(/-/g, "")}T${String(endTime.h).padStart(2, "0")}${String(endTime.m).padStart(2, "0")}00`;
+      return `BEGIN:VEVENT\r\n${dtStart}\r\n${dtEnd}\r\nSUMMARY:${p.name}\r\nDESCRIPTION:${desc}\r\nLOCATION:${loc}\r\nUID:${uid}\r\nDTSTAMP:${stamp}\r\nEND:VEVENT`;
+    }
+    // All-day event
+    const dtStart = `DTSTART;VALUE=DATE:${startDate.replace(/-/g, "")}`;
+    const nextDay = new Date(endDate + "T00:00:00");
+    nextDay.setDate(nextDay.getDate() + 1);
+    const dtEnd = `DTEND;VALUE=DATE:${nextDay.toISOString().slice(0, 10).replace(/-/g, "")}`;
+    return `BEGIN:VEVENT\r\n${dtStart}\r\n${dtEnd}\r\nSUMMARY:${p.name}\r\nDESCRIPTION:${desc}\r\nLOCATION:${loc}\r\nUID:${uid}\r\nDTSTAMP:${stamp}\r\nEND:VEVENT`;
+  }).filter(Boolean);
+
+  if (events.length === 0) return;
+
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Skeddo//skeddo.ca//EN",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "X-WR-CALNAME:Skeddo Schedule",
+    "X-WR-TIMEZONE:America/Vancouver",
+    ...events,
+    "END:VCALENDAR",
+  ].join("\r\n");
+
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "skeddo-schedule.ics";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * Detect schedule conflicts — programs with overlapping times on the same day.
+ * Returns array of { day, programs: [p1, p2] } conflict pairs.
+ */
+export function detectConflicts(programs) {
+  const conflicts = [];
+  const dayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
+
+  // Build a map of day → programs with parsed times
+  const byDay = {};
+  programs.forEach((p) => {
+    if (!p.times || !p.days || !p.startDate) return;
+    const times = (p.times || "").split(/[–\-]/);
+    const startMatch = times[0]?.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+    const endMatch = times[1]?.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+    if (!startMatch || !endMatch) return;
+
+    let sh = parseInt(startMatch[1]); const sm = parseInt(startMatch[2]);
+    if (startMatch[3]?.toUpperCase() === "PM" && sh < 12) sh += 12;
+    if (startMatch[3]?.toUpperCase() === "AM" && sh === 12) sh = 0;
+    let eh = parseInt(endMatch[1]); const em = parseInt(endMatch[2]);
+    if (endMatch[3]?.toUpperCase() === "PM" && eh < 12) eh += 12;
+    if (endMatch[3]?.toUpperCase() === "AM" && eh === 12) eh = 0;
+
+    const startDec = sh + sm / 60;
+    const endDec = eh + em / 60;
+
+    const weekdays = parseDayRange(p.days);
+    weekdays.forEach((d) => {
+      if (!byDay[d]) byDay[d] = [];
+      byDay[d].push({ ...p, startDec, endDec });
+    });
+  });
+
+  // Check each day for overlaps
+  Object.entries(byDay).forEach(([day, progs]) => {
+    progs.sort((a, b) => a.startDec - b.startDec);
+    for (let i = 0; i < progs.length; i++) {
+      for (let j = i + 1; j < progs.length; j++) {
+        // Overlap: p2 starts before p1 ends
+        if (progs[j].startDec < progs[i].endDec) {
+          const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+          conflicts.push({
+            day: dayNames[day],
+            program1: progs[i].name,
+            program2: progs[j].name,
+            time1: progs[i].times,
+            time2: progs[j].times,
+          });
+        }
+      }
+    }
+  });
+
+  return conflicts;
+}
+
 /* ─── Cost-Per-Hour Calculation ─── */
 
 /** Parse "Mon-Fri" or "Mon, Wed, Fri" into JS weekday numbers (0=Sun, 1=Mon, ...) */

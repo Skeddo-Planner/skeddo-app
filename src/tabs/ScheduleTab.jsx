@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useCallback } from "react";
 import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
+import { downloadAllICS, detectConflicts } from "../utils/helpers";
 
 const DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -351,9 +352,114 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
     touchStartX.current = null;
   }, []);
 
+  // Conflict detection
+  const conflicts = useMemo(() => detectConflicts(visiblePrograms), [visiblePrograms]);
+
+  // Export menu state
+  const [showExport, setShowExport] = useState(false);
+
   return (
     <div>
-      <h2 style={s.pageTitle}>Schedule</h2>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+        <h2 style={s.pageTitle}>Schedule</h2>
+        <div style={{ position: "relative" }}>
+          <button
+            onClick={() => setShowExport(!showExport)}
+            style={{
+              background: C.blue, color: "#fff", border: "none",
+              borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
+              fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+              display: "flex", alignItems: "center", gap: 6,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Export
+          </button>
+          {showExport && (
+            <div style={{
+              position: "absolute", top: "100%", right: 0, marginTop: 6,
+              background: C.white, borderRadius: 12, border: `1px solid ${C.border}`,
+              boxShadow: "0 4px 16px rgba(0,0,0,0.12)", zIndex: 20,
+              minWidth: 220, overflow: "hidden",
+            }}>
+              <button
+                onClick={() => {
+                  downloadAllICS(visiblePrograms.filter((p) => p.status === "Enrolled"));
+                  setShowExport(false);
+                }}
+                style={{
+                  display: "flex", alignItems: "center", gap: 10, width: "100%",
+                  padding: "14px 16px", background: "none", border: "none", cursor: "pointer",
+                  borderBottom: `1px solid ${C.border}`, textAlign: "left",
+                  fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink,
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                <div>
+                  <div style={{ fontWeight: 700 }}>Download .ics file</div>
+                  <div style={{ fontSize: 12, color: C.muted }}>Works with Apple Calendar, Outlook, Google Calendar</div>
+                </div>
+              </button>
+              <button
+                onClick={() => {
+                  const enrolled = visiblePrograms.filter((p) => p.status === "Enrolled" && p.startDate);
+                  if (enrolled.length > 0) {
+                    const p = enrolled[0];
+                    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(p.name)}&dates=${(p.startDate || "").replace(/-/g, "")}/${(p.endDate || p.startDate || "").replace(/-/g, "")}&details=${encodeURIComponent(`${p.provider || ""} · ${p.days || ""} · ${p.times || ""}`)}`;
+                    window.open(url, "_blank");
+                  }
+                  setShowExport(false);
+                }}
+                style={{
+                  display: "flex", alignItems: "center", gap: 10, width: "100%",
+                  padding: "14px 16px", background: "none", border: "none", cursor: "pointer",
+                  textAlign: "left", fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink,
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4l3 3" />
+                </svg>
+                <div>
+                  <div style={{ fontWeight: 700 }}>Open in Google Calendar</div>
+                  <div style={{ fontSize: 12, color: C.muted }}>Add your first enrolled program</div>
+                </div>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Conflict warnings */}
+      {conflicts.length > 0 && (
+        <div style={{
+          background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 12,
+          padding: "12px 16px", marginBottom: 12,
+        }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#991B1B", marginBottom: 6 }}>
+            {"\u26A0\uFE0F"} Schedule Conflicts ({conflicts.length})
+          </div>
+          {conflicts.slice(0, 5).map((c, i) => (
+            <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#7F1D1D", lineHeight: 1.5, marginBottom: 4 }}>
+              <strong>{c.day}:</strong> {c.program1} and {c.program2} overlap
+            </div>
+          ))}
+          {conflicts.length > 5 && (
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#991B1B", marginTop: 4 }}>
+              +{conflicts.length - 5} more conflicts
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Kid filter */}
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
