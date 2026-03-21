@@ -240,16 +240,26 @@ export function useCircles(userId, session) {
   }, [getAuthHeaders, loadFeed]);
 
   /* ── Bookmark/unbookmark a shared activity ── */
-  const toggleBookmark = useCallback(async (sharedActivityId) => {
-    // Optimistic update using functional state
+  const toggleBookmark = useCallback(async (sharedActivityId, activityData) => {
+    const wasBookmarked = bookmarks.has(sharedActivityId);
+    // Optimistic update for bookmarks Set
     setBookmarks((prev) => {
       const next = new Set(prev);
       if (next.has(sharedActivityId)) next.delete(sharedActivityId);
       else next.add(sharedActivityId);
       return next;
     });
+    // Optimistic update for bookmarkedActivities list
+    if (wasBookmarked) {
+      setBookmarkedActivities((prev) => prev.filter((a) => a.id !== sharedActivityId));
+    } else if (activityData) {
+      setBookmarkedActivities((prev) => [...prev, activityData]);
+    } else {
+      // Fetch activity details if not provided
+      const { data } = await supabase.from("shared_activities").select("*").eq("id", sharedActivityId).single();
+      if (data) setBookmarkedActivities((prev) => [...prev, data]);
+    }
     // Sync with Supabase
-    const wasBookmarked = bookmarks.has(sharedActivityId);
     try {
       if (wasBookmarked) {
         await supabase.from("circle_bookmarks").delete().eq("user_id", userId).eq("shared_activity_id", sharedActivityId);
@@ -264,6 +274,11 @@ export function useCircles(userId, session) {
         else next.delete(sharedActivityId);
         return next;
       });
+      if (wasBookmarked && activityData) {
+        setBookmarkedActivities((prev) => [...prev, activityData]);
+      } else {
+        setBookmarkedActivities((prev) => prev.filter((a) => a.id !== sharedActivityId));
+      }
     }
   }, [userId, bookmarks]);
 

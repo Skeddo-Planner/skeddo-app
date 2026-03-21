@@ -673,7 +673,7 @@ export default function CirclesTab({
                 {/* Actions */}
                 <div style={{ display: "flex", gap: 8 }}>
                   <button
-                    onClick={() => toggleBookmark(item.id)}
+                    onClick={() => toggleBookmark(item.id, item)}
                     style={{
                       background: isBookmarked ? SOFT.gold : "none",
                       border: `1px solid ${isBookmarked ? C.olive : C.border}`,
