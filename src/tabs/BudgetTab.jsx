@@ -281,7 +281,7 @@ export default function BudgetTab({
               {effectiveBudget > 0 && (
                 overBudget ? (
                   <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#E76F51" }}>
-                    -{fmt$(overflowAmt)} over budget
+                    {fmt$(overflowAmt)} over budget
                   </span>
                 ) : (
                   <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#2D9F6F" }}>
@@ -396,7 +396,7 @@ export default function BudgetTab({
                 {kBudget > 0 && (
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? "#E76F51" : "#2D9F6F", marginTop: 4 }}>
                     {kOver
-                      ? `-${fmt$((kSpent + kPotential) - kBudget)} over budget`
+                      ? `${fmt$((kSpent + kPotential) - kBudget)} over budget`
                       : `${fmt$(kBudget - kSpent - kPotential)} remaining`
                     }
                   </div>
