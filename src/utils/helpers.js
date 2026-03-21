@@ -260,6 +260,85 @@ export function downloadICS(program) {
   URL.revokeObjectURL(url);
 }
 
+/* ─── Cost-Per-Hour Calculation ─── */
+
+/** Parse "Mon-Fri" or "Mon, Wed, Fri" into JS weekday numbers (0=Sun, 1=Mon, ...) */
+export function parseDayRange(days) {
+  if (!days) return [];
+  const dayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
+  const normalized = days.toLowerCase().replace(/\u2013/g, "-"); // en-dash to hyphen
+
+  // Handle range like "Mon-Fri"
+  const rangeMatch = normalized.match(/^(\w{3})\s*-\s*(\w{3})$/);
+  if (rangeMatch) {
+    const start = dayMap[rangeMatch[1]];
+    const end = dayMap[rangeMatch[2]];
+    if (start != null && end != null) {
+      const result = [];
+      for (let d = start; d <= end; d++) result.push(d);
+      return result;
+    }
+  }
+
+  // Handle comma-separated like "Mon, Wed, Fri"
+  return normalized.split(/[,&]+/).map((d) => dayMap[d.trim().slice(0, 3)]).filter((d) => d != null);
+}
+
+/** Count sessions between startDate and endDate that fall on the given weekdays */
+export function countSessions(startDate, endDate, days) {
+  if (!startDate || !endDate || !days) return 0;
+  const weekdays = parseDayRange(days);
+  if (weekdays.length === 0) return 0;
+
+  const start = new Date(startDate + "T00:00:00");
+  const end = new Date(endDate + "T00:00:00");
+  let count = 0;
+  const d = new Date(start);
+  while (d <= end) {
+    if (weekdays.includes(d.getDay())) count++;
+    d.setDate(d.getDate() + 1);
+  }
+  return count;
+}
+
+/** Parse time string like "9:00 AM" or "15:00" into decimal hours */
+function parseTimeToHours(timeStr) {
+  if (!timeStr) return null;
+  const match = timeStr.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+  if (!match) return null;
+  let h = parseInt(match[1], 10);
+  const m = parseInt(match[2], 10);
+  const ampm = match[3]?.toUpperCase();
+  if (ampm === "PM" && h < 12) h += 12;
+  if (ampm === "AM" && h === 12) h = 0;
+  return h + m / 60;
+}
+
+/** Calculate cost per hour for a program */
+export function calcCostPerHour(program) {
+  const cost = Number(program.cost);
+  if (!cost || cost <= 0) return null;
+
+  const startH = parseTimeToHours(program.startTime || program.times?.split("–")[0]?.trim());
+  const endH = parseTimeToHours(program.endTime || program.times?.split("–")[1]?.trim());
+  if (startH == null || endH == null || endH <= startH) return null;
+
+  const hoursPerSession = endH - startH;
+  const sessions = countSessions(program.startDate, program.endDate, program.days);
+  if (sessions === 0) return null;
+
+  const totalHours = hoursPerSession * sessions;
+  return totalHours > 0 ? cost / totalHours : null;
+}
+
+/** Get colour for cost-per-hour value */
+export function costPerHourColor(cph) {
+  if (cph == null) return "#6B7280";
+  if (cph < 10) return "#2D9F6F"; // Jade Green — great value
+  if (cph <= 20) return "#4A6FA5"; // Slate Blue — typical
+  return "#F4A261"; // Peach — premium
+}
+
 /* ─── App-wide constants ─── */
 export const PAGE_SIZE = 50;
 export const MAX_WIDTH = 480;

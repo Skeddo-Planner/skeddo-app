@@ -17,6 +17,7 @@ import ProgramDetail from "./modals/ProgramDetail";
 import DirectoryDetail from "./modals/DirectoryDetail";
 import ProgramForm from "./modals/ProgramForm";
 import KidForm from "./modals/KidForm";
+import ManualCostForm from "./modals/ManualCostForm";
 import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import InfoPage from "./pages/InfoPages";
@@ -175,6 +176,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     enrolledPrograms, waitlistPrograms, exploringPrograms,
     totalCostEnrolled, totalCostAll, filteredPrograms,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
+    manualCosts, saveManualCost, deleteManualCost,
     favorites, toggleFavorite, isFavorite,
     profile, setProfile, lastSynced,
   } = data;
@@ -300,6 +302,29 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const openEditKid = (k) => {
     setForm({ ...k });
     setModal({ type: "kidForm", isEdit: true });
+  };
+
+  const openAddCost = () => {
+    setForm({ description: "", amount: "", category: "Other", kidId: kids[0]?.id || "", date: "" });
+    setModal({ type: "costForm", isEdit: false });
+  };
+
+  const openEditCost = (cost) => {
+    setForm({ ...cost });
+    setModal({ type: "costForm", isEdit: true });
+  };
+
+  const handleSaveCost = () => {
+    if (!form.description?.trim() || !form.amount) return;
+    saveManualCost({ ...form, amount: Number(form.amount), id: form.id || undefined });
+    setModal(null);
+    showToast(form.id ? "Expense updated" : "Expense added");
+  };
+
+  const handleDeleteCost = () => {
+    deleteManualCost(form.id);
+    setModal(null);
+    showToast("Expense deleted");
   };
 
   const openInviteModal = (kid) => {
@@ -573,6 +598,10 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             totalCostEnrolled={totalCostEnrolled}
             totalCostAll={totalCostAll}
             budgetGoal={Number(profile.budgetGoal) || 0}
+            manualCosts={manualCosts}
+            onAddCost={openAddCost}
+            onEditCost={openEditCost}
+            userId={userId}
           />
         )}
       </main>}
@@ -632,6 +661,18 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           ) : null}
           onManageAccess={(kid) => { setModal(null); setTimeout(() => openChildSettings(kid), 100); }}
           onInvite={(kid) => { setModal(null); setTimeout(() => openInviteModal(kid), 100); }}
+        />
+      )}
+
+      {modal?.type === "costForm" && (
+        <ManualCostForm
+          form={form}
+          setForm={setForm}
+          kids={kids}
+          isEdit={modal.isEdit}
+          onSave={handleSaveCost}
+          onDelete={modal.isEdit ? handleDeleteCost : null}
+          onClose={() => setModal(null)}
         />
       )}
 

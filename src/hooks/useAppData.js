@@ -127,6 +127,7 @@ const profileFromDb = (row) => ({
 export function useAppData(userId) {
   const [programs, setPrograms] = useState([]);
   const [kids, setKids] = useState([]);
+  const [manualCosts, setManualCosts] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [tab, setTab] = useState("home");
   const [statusFilter, setStatusFilter] = useState("All");
@@ -207,6 +208,21 @@ export function useAppData(userId) {
           console.warn("Supabase programs load error:", programsErr);
           throw programsErr;
         }
+
+        // Load manual costs
+        const { data: costsData } = await supabase
+          .from("manual_costs")
+          .select("*")
+          .eq("user_id", userId)
+          .order("created_at", { ascending: false });
+        setManualCosts((costsData || []).map((c) => ({
+          id: c.id,
+          description: c.description,
+          amount: Number(c.amount),
+          category: c.category,
+          kidId: c.kid_id,
+          date: c.date,
+        })));
 
         usingSupabase.current = true;
 
@@ -585,6 +601,40 @@ export function useAppData(userId) {
     }
   }, [userId]);
 
+  /* ── Manual cost entries ── */
+  const saveManualCost = useCallback((cost) => {
+    const id = cost.id || uid();
+    setManualCosts((prev) => {
+      const idx = prev.findIndex((c) => c.id === id);
+      if (idx >= 0) {
+        const updated = [...prev];
+        updated[idx] = { ...cost, id };
+        return updated;
+      }
+      return [{ ...cost, id }, ...prev];
+    });
+    if (usingSupabase.current && userId) {
+      supabase.from("manual_costs").upsert({
+        id,
+        user_id: userId,
+        kid_id: cost.kidId || null,
+        description: cost.description,
+        amount: cost.amount,
+        category: cost.category || "Other",
+        date: cost.date || null,
+      }, { onConflict: "id" })
+        .then(({ error }) => { if (error) console.warn("Failed to save manual cost:", error); else markSynced(); });
+    }
+  }, [userId]);
+
+  const deleteManualCost = useCallback((id) => {
+    setManualCosts((prev) => prev.filter((c) => c.id !== id));
+    if (usingSupabase.current && userId) {
+      supabase.from("manual_costs").delete().eq("id", id)
+        .then(({ error }) => { if (error) console.warn("Failed to delete manual cost:", error); else markSynced(); });
+    }
+  }, [userId]);
+
   return {
     programs, kids, loaded, tab, setTab,
     statusFilter, setStatusFilter, catFilter, setCatFilter,
@@ -595,6 +645,7 @@ export function useAppData(userId) {
     favorites, toggleFavorite, isFavorite,
     profile, setProfile, lastSynced,
     saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
+    manualCosts, saveManualCost, deleteManualCost,
   };
 }
 
