@@ -81,7 +81,15 @@ export default function HomeTab({
 
   return (
     <div>
-      {/* Recent activity from co-parents — at the top */}
+      {/* Deadline alerts — programs starting soon, at the very top */}
+      <DeadlineAlert
+        programs={allPrograms}
+        kids={kids}
+        daysThreshold={5}
+        onOpenDetail={onOpenDetail}
+      />
+
+      {/* Recent activity from co-parents */}
       {activityLog && activityLog.length > 0 && (
         <>
           <div style={s.sectionHeader}>
@@ -224,13 +232,7 @@ export default function HomeTab({
         </div>
       </div>
 
-      {/* Deadline alerts — programs starting within 5 days, showing kid names */}
-      <DeadlineAlert
-        programs={allPrograms}
-        kids={kids}
-        daysThreshold={5}
-        onOpenDetail={onOpenDetail}
-      />
+      {/* Deadline alerts moved to top — see above */}
 
 
       {/* Contextual tip/upgrade banner */}
