@@ -60,7 +60,6 @@ const TabIcon = ({ id, color }) => {
 };
 
 const TABS = [
-  { id: "home", label: "Home" },
   { id: "discover", label: "Discover" },
   { id: "schedule", label: "Schedule" },
   { id: "programs", label: "Programs" },

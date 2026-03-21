@@ -79,8 +79,8 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
       <div style={{ ...s.cardName, fontSize: 16 }}>{p.name}</div>
       <div style={s.cardProvider}>{p.provider}</div>
 
-      {/* Info badges row: date range, age, season type */}
-      {(dateRange || ageLabel || p.seasonType) && (
+      {/* Info badges row: date range, age, season type, early bird */}
+      {(dateRange || ageLabel || p.seasonType || earlyBirdActive) && (
         <div
           style={{
             display: "flex",
@@ -90,6 +90,11 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
             alignItems: "center",
           }}
         >
+          {earlyBirdActive && (
+            <span style={badgeStyle("#B8860B", "#FFF8E1")}>
+              {"\uD83D\uDC26"} Early Bird
+            </span>
+          )}
           {dateRange && (
             <span style={badgeStyle(C.muted, "#F2F0EC")}>
               {dateRange}

@@ -245,7 +245,10 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             color: C.ink,
           }}
         >
-          {program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() : "Free"}
+          {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date()
+            ? <><span>${Number(program.earlyBirdCost).toLocaleString()}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${Number(program.cost).toLocaleString()}</span></>
+            : program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() : "Free"
+          }
         </div>
       </div>
       <div
@@ -257,6 +260,21 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           alignItems: "center",
         }}
       >
+        {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date() && (
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              background: "#FFF8E1",
+              color: "#B8860B",
+              padding: "2px 8px",
+              borderRadius: 10,
+            }}
+          >
+            {"\uD83D\uDC26"} Early Bird
+          </span>
+        )}
         {program.ageMin != null && program.ageMax != null && (
           <span
             style={{

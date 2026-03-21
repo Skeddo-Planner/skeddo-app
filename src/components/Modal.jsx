@@ -68,7 +68,7 @@ export default function Modal({ onClose, children, centered }) {
       role="dialog"
       aria-modal="true"
     >
-      <div className="modal-content" ref={modalRef} style={{ ...s.modal, ...(centered ? { borderRadius: 20 } : {}) }}>
+      <div className="modal-content" ref={modalRef} style={{ ...s.modal, ...(centered ? { borderRadius: 20, maxHeight: "92vh" } : {}) }}>
         <button
           onClick={onClose}
           aria-label="Close"
