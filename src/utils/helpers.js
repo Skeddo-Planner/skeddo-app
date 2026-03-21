@@ -45,15 +45,16 @@ export const REGISTRATION_STATUSES = [
 ];
 
 export function getRegistrationStatus(program) {
-  // Unconfirmed 2026 programs always show "Likely Coming Soon"
-  if (program.confirmed2026 === false) return "likely-coming-soon";
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
   const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
   if (end && end < today) return "completed";
   if (start && start <= today) return "in-progress";
-  if (program.enrollmentStatus === "Full" || program.enrollmentStatus === "Full/Waitlist") return "full";
+  // Full/Waitlist takes priority over unconfirmed status
+  if (program.enrollmentStatus === "Full" || program.enrollmentStatus === "Full/Waitlist" || program.enrollmentStatus === "Waitlist") return "full";
+  // Unconfirmed 2026 programs show "Likely Coming Soon"
+  if (program.confirmed2026 === false) return "likely-coming-soon";
   if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
   if (program.enrollmentStatus === "Likely Coming Soon") return "likely-coming-soon";
   return "open";
