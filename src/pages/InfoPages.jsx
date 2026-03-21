@@ -7,8 +7,8 @@ const PAGES = {
     content: () => (
       <>
         <Section title="Our Mission">
-          <p>Skeddo was built by parents, for parents. We know the chaos of summer planning — juggling camp registrations, waitlists, schedules, and budgets across dozens of browser tabs and spreadsheets.</p>
-          <p>We built Skeddo to put everything in one place so you can spend less time planning and more time enjoying the summer with your kids.</p>
+          <p>Skeddo was built by parents, for parents. We know the chaos of planning kids' activities — juggling camp registrations, waitlists, schedules, and budgets across dozens of browser tabs and spreadsheets.</p>
+          <p>We built Skeddo to put everything in one place so you can spend less time planning and more time with your kids.</p>
         </Section>
         <Section title="Who We Are">
           <p>Skeddo is made by <strong>Mended with Gold Inc.</strong>, a small company based in Vancouver, BC. We're two co-founders with a simple belief: parents deserve better tools.</p>
@@ -28,10 +28,10 @@ const PAGES = {
           <p>Start by adding your children with their names and ages. This helps Skeddo show you age-appropriate programs and keep everything organized per kid.</p>
         </Section>
         <Section title="2. Discover Programs">
-          <p>Browse thousands of real summer camps, classes, and activities from providers across Vancouver. Filter by age, category, neighbourhood, schedule, and more.</p>
+          <p>Browse thousands of real camps, classes, and activities from providers across Vancouver. Filter by age, category, neighbourhood, schedule, and more.</p>
         </Section>
         <Section title="3. Track Everything">
-          <p>Save programs you're interested in and track their status — Exploring, Waitlisted, or Enrolled. Skeddo keeps your whole summer plan in one view.</p>
+          <p>Save programs you're interested in and track their status — Exploring, Waitlisted, or Enrolled. Skeddo keeps your whole plan in one view.</p>
         </Section>
         <Section title="4. Stay on Budget">
           <p>Set a budget goal and watch your spending across all kids and programs. Skeddo tracks costs automatically so there are no surprises.</p>
