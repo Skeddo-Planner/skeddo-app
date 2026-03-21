@@ -73,11 +73,26 @@ export default function BudgetTab({
 
       {/* ─── Budget Summary Card ─── */}
       <div style={{ ...s.budgetCard, marginBottom: 16, padding: "18px 16px" }}>
-        <div style={s.budgetLabel}>
-          {selectedKid ? `${selectedKid.name.toUpperCase()}'S TOTAL` : "GRAND TOTAL"}
-        </div>
-        <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 36, color: C.ink, lineHeight: 1.1, marginTop: 4 }}>
-          {fmt$(grandTotal)}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+          <div>
+            <div style={s.budgetLabel}>
+              {selectedKid ? `${selectedKid.name.toUpperCase()}'S TOTAL` : "GRAND TOTAL"}
+            </div>
+            <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 36, color: C.ink, lineHeight: 1.1, marginTop: 4 }}>
+              {fmt$(grandTotal)}
+            </div>
+          </div>
+          <button
+            onClick={onAddCost}
+            style={{
+              background: C.seaGreen, color: "#fff", border: "none",
+              borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 700,
+              fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+              whiteSpace: "nowrap", flexShrink: 0, marginTop: 4,
+            }}
+          >
+            + Add Expense
+          </button>
         </div>
 
         {/* Budget goal progress */}
@@ -280,21 +295,6 @@ export default function BudgetTab({
         </div>
       )}
 
-      {/* ─── Add Expense Button ─── */}
-      <button
-        onClick={onAddCost}
-        style={{
-          position: "fixed", bottom: 80, right: "calc(50% - 220px)",
-          background: C.seaGreen, color: "#fff", border: "none",
-          borderRadius: 28, padding: "12px 20px", fontSize: 14, fontWeight: 700,
-          fontFamily: "'Barlow', sans-serif", cursor: "pointer",
-          boxShadow: "0 4px 12px rgba(45,159,111,0.3)",
-          display: "flex", alignItems: "center", gap: 6,
-          zIndex: 50,
-        }}
-      >
-        + Add Expense
-      </button>
     </div>
   );
 }
