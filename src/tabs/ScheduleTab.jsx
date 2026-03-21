@@ -352,8 +352,11 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
     touchStartX.current = null;
   }, []);
 
-  // Conflict detection
-  const conflicts = useMemo(() => detectConflicts(visiblePrograms), [visiblePrograms]);
+  // Conflict detection — only enrolled programs
+  const conflicts = useMemo(() => {
+    const enrolled = visiblePrograms.filter((p) => p.status === "Enrolled");
+    return detectConflicts(enrolled);
+  }, [visiblePrograms]);
 
   // Export menu state
   const [showExport, setShowExport] = useState(false);

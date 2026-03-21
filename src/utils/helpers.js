@@ -331,58 +331,71 @@ export function downloadAllICS(programs) {
 }
 
 /**
- * Detect schedule conflicts — programs with overlapping times on the same day.
- * Returns array of { day, programs: [p1, p2] } conflict pairs.
+ * Detect schedule conflicts — programs with overlapping times AND date ranges
+ * on the same weekday. Returns one conflict per unique program pair (not per day).
  */
 export function detectConflicts(programs) {
+  const seen = new Set(); // track unique program pairs
   const conflicts = [];
-  const dayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
 
-  // Build a map of day → programs with parsed times
-  const byDay = {};
-  programs.forEach((p) => {
-    if (!p.times || !p.days || !p.startDate) return;
-    const times = (p.times || "").split(/[–\-]/);
-    const startMatch = times[0]?.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
-    const endMatch = times[1]?.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
-    if (!startMatch || !endMatch) return;
+  function parseTimeDec(timeStr) {
+    if (!timeStr) return null;
+    const m = timeStr.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+    if (!m) return null;
+    let h = parseInt(m[1]);
+    const min = parseInt(m[2]);
+    const ap = m[3]?.toUpperCase();
+    if (ap === "PM" && h < 12) h += 12;
+    if (ap === "AM" && h === 12) h = 0;
+    return h + min / 60;
+  }
 
-    let sh = parseInt(startMatch[1]); const sm = parseInt(startMatch[2]);
-    if (startMatch[3]?.toUpperCase() === "PM" && sh < 12) sh += 12;
-    if (startMatch[3]?.toUpperCase() === "AM" && sh === 12) sh = 0;
-    let eh = parseInt(endMatch[1]); const em = parseInt(endMatch[2]);
-    if (endMatch[3]?.toUpperCase() === "PM" && eh < 12) eh += 12;
-    if (endMatch[3]?.toUpperCase() === "AM" && eh === 12) eh = 0;
-
-    const startDec = sh + sm / 60;
-    const endDec = eh + em / 60;
-
+  // Pre-process: parse times and date ranges
+  const parsed = programs.map((p) => {
+    if (!p.times || !p.days || !p.startDate) return null;
+    const parts = (p.times || "").split(/[–\-]/);
+    const startDec = parseTimeDec(parts[0]);
+    const endDec = parseTimeDec(parts[1]);
+    if (startDec == null || endDec == null) return null;
     const weekdays = parseDayRange(p.days);
-    weekdays.forEach((d) => {
-      if (!byDay[d]) byDay[d] = [];
-      byDay[d].push({ ...p, startDec, endDec });
-    });
-  });
+    const dateStart = new Date(p.startDate + "T00:00:00");
+    const dateEnd = p.endDate ? new Date(p.endDate + "T00:00:00") : dateStart;
+    return { ...p, startDec, endDec, weekdays, dateStart, dateEnd };
+  }).filter(Boolean);
 
-  // Check each day for overlaps
-  Object.entries(byDay).forEach(([day, progs]) => {
-    progs.sort((a, b) => a.startDec - b.startDec);
-    for (let i = 0; i < progs.length; i++) {
-      for (let j = i + 1; j < progs.length; j++) {
-        // Overlap: p2 starts before p1 ends
-        if (progs[j].startDec < progs[i].endDec) {
-          const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-          conflicts.push({
-            day: dayNames[day],
-            program1: progs[i].name,
-            program2: progs[j].name,
-            time1: progs[i].times,
-            time2: progs[j].times,
-          });
-        }
-      }
+  // Compare each pair of programs
+  for (let i = 0; i < parsed.length; i++) {
+    for (let j = i + 1; j < parsed.length; j++) {
+      const a = parsed[i];
+      const b = parsed[j];
+
+      // Skip if date ranges don't overlap
+      if (a.dateEnd < b.dateStart || b.dateEnd < a.dateStart) continue;
+
+      // Skip if no shared weekdays
+      const sharedDays = a.weekdays.filter((d) => b.weekdays.includes(d));
+      if (sharedDays.length === 0) continue;
+
+      // Skip if times don't overlap
+      if (a.startDec >= b.endDec || b.startDec >= a.endDec) continue;
+
+      // Deduplicate by program pair
+      const pairKey = [a.id, b.id].sort().join("|");
+      if (seen.has(pairKey)) continue;
+      seen.add(pairKey);
+
+      const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const dayList = sharedDays.map((d) => dayNames[d]).join(", ");
+
+      conflicts.push({
+        day: dayList,
+        program1: a.name,
+        program2: b.name,
+        time1: a.times,
+        time2: b.times,
+      });
     }
-  });
+  }
 
   return conflicts;
 }
