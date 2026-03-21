@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
 import { fmt$ } from "../utils/helpers";
+import PromoBanner from "../components/PromoBanner";
 
 export default function BudgetTab({
   programs,
@@ -30,10 +32,12 @@ export default function BudgetTab({
   const allCost = enrolledCost + waitlistCost + exploringCost;
 
   const selectedKid = kidFilter ? kids.find((k) => k.id === kidFilter) : null;
+  const [showBanner, setShowBanner] = useState(true);
 
   return (
     <div>
       <h2 style={s.pageTitle}>Budget</h2>
+      {showBanner && <PromoBanner type="upgrade-budget" onDismiss={() => setShowBanner(false)} />}
       <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16 }}>
         {selectedKid ? (
           <>

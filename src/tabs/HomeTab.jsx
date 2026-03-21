@@ -1,10 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import directoryPrograms from "../data/programs.json";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import ProgramCard from "../components/ProgramCard";
 import EmptyState from "../components/EmptyState";
 import DeadlineAlert from "../components/DeadlineAlert";
+import PromoBanner from "../components/PromoBanner";
 import { fmt$ } from "../utils/helpers";
 
 /* ─── Seasonal greeting ─── */
@@ -39,6 +40,17 @@ export default function HomeTab({
   const totalPrograms = allPrograms.length;
   const { icon: seasonIcon, season } = getSeasonalGreeting();
   const hasPrograms = totalPrograms > 0;
+
+  // Tip banners — show one based on user state
+  const [dismissedBanners, setDismissBanner] = useState(new Set());
+  const dismissBanner = (id) => setDismissBanner((prev) => new Set(prev).add(id));
+  const tipBanner = !dismissedBanners.has("tip") ? (
+    kids.length > 1 && !dismissedBanners.has("upgrade-kids") ? "upgrade-kids" :
+    hasPrograms && !dismissedBanners.has("tip-calendar") ? "tip-calendar" :
+    !hasPrograms && !dismissedBanners.has("tip-search") ? "tip-search" :
+    enrolledPrograms.length === 0 && exploringPrograms.length > 0 && !dismissedBanners.has("tip-wishlist") ? "tip-wishlist" :
+    null
+  ) : null;
 
   // Derive camp types from the user's actual enrolled programs
   const enrolledCampTypes = useMemo(() => {
@@ -240,6 +252,14 @@ export default function HomeTab({
         onOpenDetail={onOpenDetail}
       />
 
+
+      {/* Contextual tip/upgrade banner */}
+      {tipBanner && (
+        <PromoBanner
+          type={tipBanner}
+          onDismiss={() => { dismissBanner(tipBanner); dismissBanner("tip"); }}
+        />
+      )}
 
       {/* Install banner — hide when actually running as installed PWA */}
       {showInstallBanner && !window.matchMedia("(display-mode: standalone)").matches && (

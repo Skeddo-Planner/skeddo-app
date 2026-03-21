@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
+import PromoBanner from "../components/PromoBanner";
 
 /* ─── Soft color variants ─── */
 const SOFT = {
@@ -113,6 +114,7 @@ export default function CirclesTab({
   const [selectedActivities, setSelectedActivities] = useState(new Set());
   const [circleMembers, setCircleMembers] = useState([]);
   const [actionLoading, setActionLoading] = useState(false);
+  const [showSharingBanner, setShowSharingBanner] = useState(true);
 
   // Stable refs to avoid useEffect dependency loops
   const ensureReferralCodeRef = useRef(ensureReferralCode);
@@ -240,6 +242,8 @@ export default function CirclesTab({
             </button>
           </div>
         </div>
+
+        {showSharingBanner && <PromoBanner type="upgrade-sharing" onDismiss={() => setShowSharingBanner(false)} />}
 
         {/* Pending requests */}
         {pendingRequests.length > 0 && (
