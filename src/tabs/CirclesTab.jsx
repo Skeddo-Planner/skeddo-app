@@ -53,9 +53,10 @@ export default function CirclesTab({
 }) {
   const {
     circles, pendingRequests, activeFeed, bookmarks, referrals, loading,
+    referralCode, referralUrl, membersRecruited, freeMonthsEarned,
     createCircle, joinCircle, handleMemberRequest, leaveCircle,
     shareActivities, loadFeed, toggleBookmark, flagActivity,
-    createReferral, getMembers, pendingCount,
+    ensureReferralCode, getMembers, pendingCount,
   } = circlesHook;
 
   const [screen, setScreen] = useState("home"); // home | feed | share | invite | create | join
@@ -66,6 +67,13 @@ export default function CirclesTab({
   const [selectedActivities, setSelectedActivities] = useState(new Set());
   const [circleMembers, setCircleMembers] = useState([]);
   const [actionLoading, setActionLoading] = useState(false);
+
+  // Auto-load referral code when visiting invite screen
+  useEffect(() => {
+    if (screen === "invite" && !referralCode) {
+      ensureReferralCode().catch(() => {});
+    }
+  }, [screen, referralCode, ensureReferralCode]);
 
   // Build shareable activities from user's enrolled programs
   const shareableActivities = (programs || []).map((p) => {
@@ -606,9 +614,48 @@ export default function CirclesTab({
 
   // ─── SCREEN: Invite & Referrals ───
   if (screen === "invite") {
-    const totalInvited = referrals.length;
-    const totalConverted = referrals.filter((r) => r.status === "converted").length;
-    const totalMonths = referrals.reduce((sum, r) => sum + (r.status === "converted" ? r.reward_months : 0), 0);
+    const shareUrl = referralUrl || "Loading...";
+    const shareText = "I use Skeddo to plan my kids' camps and activities. Join with my link and we both get a free month!";
+
+    const shareActions = [
+      {
+        label: "WhatsApp",
+        icon: "\uD83D\uDCAC",
+        color: "#25D366",
+        action: () => window.open(`https://wa.me/?text=${encodeURIComponent(shareText + "\n" + shareUrl)}`, "_blank"),
+      },
+      {
+        label: "Text",
+        icon: "\uD83D\uDCF1",
+        color: C.blue,
+        action: () => window.open(`sms:?body=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank"),
+      },
+      {
+        label: "Email",
+        icon: "\u2709\uFE0F",
+        color: C.lilac,
+        action: () => window.open(`mailto:?subject=${encodeURIComponent("Join me on Skeddo!")}&body=${encodeURIComponent(shareText + "\n\n" + shareUrl)}`, "_blank"),
+      },
+      {
+        label: "Copy",
+        icon: "\uD83D\uDCCB",
+        color: C.olive,
+        action: () => {
+          navigator.clipboard.writeText(shareUrl).catch(() => {});
+          showToast("Link copied!");
+        },
+      },
+    ];
+
+    // Add native share if supported
+    if (navigator.share) {
+      shareActions.push({
+        label: "More",
+        icon: "\uD83D\uDD17",
+        color: C.seaGreen,
+        action: () => navigator.share({ title: "Join Skeddo", text: shareText, url: shareUrl }).catch(() => {}),
+      });
+    }
 
     return (
       <div>
@@ -623,40 +670,66 @@ export default function CirclesTab({
           <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
             Give a month, get a month
           </div>
-          <div style={{ display: "flex", gap: 16 }}>
+          <div style={{ display: "flex", gap: 24, justifyContent: "center" }}>
             {[
-              { num: totalInvited, label: "Invited" },
-              { num: totalConverted, label: "Joined" },
-              { num: totalMonths, label: "mo Earned" },
+              { num: membersRecruited, label: "Recruited" },
+              { num: freeMonthsEarned, label: "Free Months" },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.cream }}>{stat.num}</div>
+                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Generate referral link */}
-        <button
-          onClick={async () => {
-            setActionLoading(true);
-            try {
-              const result = await createReferral();
-              showToast("Referral link created!");
-              // Copy to clipboard
-              await navigator.clipboard.writeText(result.referralUrl).catch(() => {});
-              showToast("Link copied to clipboard!");
-            } catch (err) {
-              showToast(err.message);
-            }
-            setActionLoading(false);
-          }}
-          style={{ ...s.primaryBtn, width: "100%", marginBottom: 16, opacity: actionLoading ? 0.5 : 1 }}
-          disabled={actionLoading}
-        >
-          {actionLoading ? "Generating..." : "Generate Referral Link"}
-        </button>
+        {/* Referral link */}
+        <div style={{
+          background: C.white, borderRadius: 14, padding: "16px 18px",
+          border: `1px solid ${C.border}`, marginBottom: 12,
+        }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+            Your Referral Link
+          </div>
+          <div style={{
+            background: "#F2F0EC", borderRadius: 10, padding: "10px 12px",
+            fontFamily: "monospace", fontSize: 12, color: C.ink, wordBreak: "break-all",
+            border: `1px solid ${C.border}`,
+          }}>
+            {shareUrl}
+          </div>
+        </div>
+
+        {/* Share icons */}
+        <div style={{
+          display: "flex", justifyContent: "center", gap: 12, marginBottom: 20, flexWrap: "wrap",
+        }}>
+          {shareActions.map((a) => (
+            <button
+              key={a.label}
+              onClick={a.action}
+              style={{
+                display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+                background: "none", border: "none", cursor: "pointer", padding: "8px 6px",
+              }}
+            >
+              <div style={{
+                width: 48, height: 48, borderRadius: 14,
+                background: a.color + "14", border: `1.5px solid ${a.color}30`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 22,
+              }}>
+                {a.icon}
+              </div>
+              <span style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                color: C.muted, textTransform: "uppercase",
+              }}>
+                {a.label}
+              </span>
+            </button>
+          ))}
+        </div>
 
         {/* How referrals work */}
         <div style={{ background: C.white, borderRadius: 14, padding: "16px 18px", border: `1px solid ${C.border}`, marginBottom: 16 }}>
@@ -665,7 +738,7 @@ export default function CirclesTab({
           </div>
           {[
             { num: "1", text: "Share your referral link with another parent" },
-            { num: "2", text: "They sign up for Skeddo Plus within 7 days" },
+            { num: "2", text: "They sign up for Skeddo Plus" },
             { num: "3", text: "You both get a free month!" },
           ].map((step) => (
             <div key={step.num} style={{ display: "flex", gap: 10, marginBottom: 8, alignItems: "flex-start" }}>
@@ -678,31 +751,6 @@ export default function CirclesTab({
             </div>
           ))}
         </div>
-
-        {/* Your referrals */}
-        {referrals.length > 0 && (
-          <div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
-              Your Referrals
-            </div>
-            {referrals.map((ref) => (
-              <div key={ref.id} style={{
-                display: "flex", justifyContent: "space-between", alignItems: "center",
-                padding: "8px 0", borderBottom: `1px solid ${C.border}`,
-              }}>
-                <div style={{ fontFamily: "monospace", fontSize: 12, color: C.ink }}>
-                  {ref.referral_code}
-                </div>
-                <Tag
-                  color={ref.status === "converted" ? C.seaGreen : C.olive}
-                  bg={ref.status === "converted" ? SOFT.seaGreen : SOFT.gold}
-                >
-                  {ref.status === "converted" ? "Joined" : ref.status === "expired" ? "Expired" : "Pending"}
-                </Tag>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     );
   }

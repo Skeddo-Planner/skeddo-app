@@ -10,6 +10,8 @@ export function useCircles(userId, session) {
   const [activeFeed, setActiveFeed] = useState([]);     // feed for the active circle
   const [bookmarks, setBookmarks] = useState(new Set());
   const [referrals, setReferrals] = useState([]);
+  const [referralCode, setReferralCode] = useState(null); // user's permanent referral code
+  const [referralUrl, setReferralUrl] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const getAuthHeaders = useCallback(() => {
@@ -84,7 +86,18 @@ export function useCircles(userId, session) {
           .eq("user_id", userId);
         setBookmarks(new Set((bm || []).map((b) => b.shared_activity_id)));
 
-        // Load referrals
+        // Load referral code from profile
+        const { data: profileData } = await supabase
+          .from("profiles")
+          .select("referral_code")
+          .eq("id", userId)
+          .single();
+        if (profileData?.referral_code) {
+          setReferralCode(profileData.referral_code);
+          setReferralUrl(`https://skeddo.ca/invite/${profileData.referral_code}`);
+        }
+
+        // Load referrals (conversions)
         const { data: refs } = await supabase
           .from("referrals")
           .select("*")
@@ -229,18 +242,19 @@ export function useCircles(userId, session) {
     return data;
   }, [getAuthHeaders]);
 
-  /* ── Create a referral link ── */
-  const createReferral = useCallback(async (circleId) => {
+  /* ── Get or create the user's permanent referral link ── */
+  const ensureReferralCode = useCallback(async () => {
+    if (referralCode) return { referralCode, referralUrl };
     const res = await fetch("/api/referral-create", {
       method: "POST",
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-      body: JSON.stringify({ circleId }),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error);
-    setReferrals((prev) => [data.referral, ...prev]);
+    setReferralCode(data.referralCode);
+    setReferralUrl(data.referralUrl);
     return data;
-  }, [getAuthHeaders]);
+  }, [getAuthHeaders, referralCode, referralUrl]);
 
   /* ── Get members of a circle ── */
   const getMembers = useCallback(async (circleId) => {
@@ -257,12 +271,19 @@ export function useCircles(userId, session) {
     }));
   }, []);
 
+  const membersRecruited = referrals.filter((r) => r.status === "converted").length;
+  const freeMonthsEarned = referrals.reduce((sum, r) => sum + (r.status === "converted" ? r.reward_months : 0), 0);
+
   return {
     circles,
     pendingRequests,
     activeFeed,
     bookmarks,
     referrals,
+    referralCode,
+    referralUrl,
+    membersRecruited,
+    freeMonthsEarned,
     loading,
     createCircle,
     joinCircle,
@@ -273,7 +294,7 @@ export function useCircles(userId, session) {
     loadFeed,
     toggleBookmark,
     flagActivity,
-    createReferral,
+    ensureReferralCode,
     getMembers,
     pendingCount: pendingRequests.length,
   };

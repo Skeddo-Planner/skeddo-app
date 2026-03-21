@@ -1,46 +1,49 @@
 import { verifyUser, getSupabaseClient, handleCors } from "./_helpers.js";
 import { randomBytes } from "crypto";
 
+/**
+ * GET /api/referral-create
+ * Returns the user's permanent referral code (creates one if they don't have one yet).
+ * Each user has exactly ONE referral code that never changes.
+ */
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
-  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+  if (req.method !== "GET" && req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   const user = await verifyUser(req);
   if (!user) return res.status(401).json({ error: "Unauthorized" });
 
-  const { circleId } = req.body;
-
   const sb = getSupabaseClient(user._token);
 
-  // Get user's display name for the referral code
+  // Check if user already has a referral code
   const { data: profile } = await sb
     .from("profiles")
-    .select("display_name")
+    .select("referral_code, display_name")
     .eq("id", user.id)
     .single();
 
+  if (profile?.referral_code) {
+    // Return existing code
+    return res.status(200).json({
+      referralCode: profile.referral_code,
+      referralUrl: `https://skeddo.ca/invite/${profile.referral_code}`,
+    });
+  }
+
+  // Generate a permanent code: first name + random suffix
   const firstName = (profile?.display_name || "user").split(" ")[0].toLowerCase().replace(/[^a-z]/g, "");
   const code = `${firstName}-${randomBytes(3).toString("hex")}`;
 
-  // 7-day reward window
-  const rewardExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
-
-  const { data: referral, error } = await sb
-    .from("referrals")
-    .insert({
-      referrer_id: user.id,
-      referral_code: code,
-      circle_id: circleId || null,
-      status: "pending",
-      reward_expires_at: rewardExpiresAt,
-    })
-    .select()
-    .single();
+  // Save to profile
+  const { error } = await sb
+    .from("profiles")
+    .update({ referral_code: code })
+    .eq("id", user.id);
 
   if (error) return res.status(500).json({ error: error.message });
 
   return res.status(200).json({
-    referral,
+    referralCode: code,
     referralUrl: `https://skeddo.ca/invite/${code}`,
   });
 }
