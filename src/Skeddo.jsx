@@ -21,6 +21,10 @@ import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import InfoPage from "./pages/InfoPages";
 import { usePushNotifications } from "./hooks/usePushNotifications";
+import { useChildAccess } from "./hooks/useChildAccess";
+import InviteModal from "./modals/InviteModal";
+import ChildSettingsModal from "./modals/ChildSettingsModal";
+import InviteAcceptPage from "./pages/InviteAcceptPage";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
@@ -31,8 +35,12 @@ const isPreview =
   window.location.hostname === "app.skeddo.ca" ||
   new Date() >= new Date("2026-04-01T00:00:00-07:00");
 
+// Check if this is an invite URL
+const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
+const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
+
 export default function Skeddo() {
-  const { user, loading: authLoading, signOut } = useAuth();
+  const { user, session, loading: authLoading, signOut } = useAuth();
   const [authPage, setAuthPage] = useState("landing"); // 'landing' | 'signin' | 'signup' | 'app'
 
   // When user becomes authenticated, switch to app view
@@ -82,6 +90,43 @@ export default function Skeddo() {
     );
   }
 
+  /* ── Invite accept page ── */
+  if (pendingInviteCode) {
+    const handleAcceptInvite = async (code) => {
+      const token = session?.access_token;
+      const res = await fetch("/api/invite-accept", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        body: JSON.stringify({ inviteCode: code }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      // Clear invite from URL after accepting
+      window.history.replaceState({}, "", "/");
+      return data;
+    };
+
+    if (!user) {
+      return (
+        <InviteAcceptPage
+          inviteCode={pendingInviteCode}
+          session={null}
+          onAccept={handleAcceptInvite}
+          onSignIn={() => setAuthPage("signin")}
+          onSignUp={() => setAuthPage("signup")}
+        />
+      );
+    }
+
+    return (
+      <InviteAcceptPage
+        inviteCode={pendingInviteCode}
+        session={session}
+        onAccept={handleAcceptInvite}
+      />
+    );
+  }
+
   /* ── Not authenticated — show landing or auth pages ── */
   if (!user) {
     if (authPage === "signin" || authPage === "signup") {
@@ -98,12 +143,12 @@ export default function Skeddo() {
   }
 
   /* ── Authenticated — show the app ── */
-  return <SkedDoApp onSignOut={signOut} userEmail={user?.email} userId={user?.id} />;
+  return <SkedDoApp onSignOut={signOut} userEmail={user?.email} userId={user?.id} session={session} />;
 }
 
 
 /* ── The existing app, extracted into its own component ── */
-function SkedDoApp({ onSignOut, userEmail, userId }) {
+function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const data = useAppData(userId);
   const {
     programs, kids, loaded, tab, setTab, onboarded, completeOnboarding,
@@ -122,6 +167,10 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   const [toast, setToast] = useState(null);
   const [infoPage, setInfoPage] = useState(null);
   const pushNotifications = usePushNotifications();
+  const childAccess = useChildAccess(userId, session);
+
+  // Merge shared kids into the kids list
+  const allKids = [...kids, ...childAccess.sharedKids.filter((sk) => !kids.some((k) => k.id === sk.id))];
 
   /* ── PWA Install Prompt ── */
   const [installPrompt, setInstallPrompt] = useState(null);
@@ -233,6 +282,14 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
   const openEditKid = (k) => {
     setForm({ ...k });
     setModal({ type: "kidForm", isEdit: true });
+  };
+
+  const openInviteModal = (kid) => {
+    setModal({ type: "invite", data: kid });
+  };
+
+  const openChildSettings = (kid) => {
+    setModal({ type: "childSettings", data: kid });
   };
 
   /* ── Modal actions ── */
@@ -373,6 +430,8 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
         onOpenProfile={() => setModal({ type: "profile" })}
         onOpenPage={(pageId) => setInfoPage(pageId)}
         onLogoClick={() => { setTab("home"); setInfoPage(null); }}
+        unreadCount={childAccess.unreadCount}
+        onOpenActivity={() => { childAccess.markActivityViewed(); setTab("home"); }}
       />
 
       {/* Info pages (About, Privacy, etc.) */}
@@ -398,6 +457,7 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
             showInstallBanner={showInstallBanner}
             onInstallClick={handleInstallClick}
             onDismissInstall={() => setShowInstallBanner(false)}
+            activityLog={childAccess.activityLog}
           />
         )}
 
@@ -515,6 +575,35 @@ function SkedDoApp({ onSignOut, userEmail, userId }) {
           isEdit={modal.isEdit}
           onSave={handleSaveKid}
           onDelete={modal.isEdit ? () => handleDeleteKid(form.id) : null}
+          onClose={() => setModal(null)}
+          coParents={modal.isEdit ? childAccess.getCoParents(form.id).concat(
+            // Include self in the list
+            [{ userId, displayName: profile.displayName || "You", role: (childAccess.childAccessMap[form.id] || []).find(a => a.userId === userId)?.role || "creator", joinedAt: null }]
+          ) : null}
+          onManageAccess={(kid) => { setModal(null); setTimeout(() => openChildSettings(kid), 100); }}
+          onInvite={(kid) => { setModal(null); setTimeout(() => openInviteModal(kid), 100); }}
+        />
+      )}
+
+      {modal?.type === "invite" && (
+        <InviteModal
+          kid={modal.data}
+          pendingInvites={childAccess.pendingInvites}
+          onCreateInvite={childAccess.createInvite}
+          onRevokeInvite={childAccess.revokeInvite}
+          onClose={() => setModal(null)}
+        />
+      )}
+
+      {modal?.type === "childSettings" && (
+        <ChildSettingsModal
+          kid={modal.data}
+          coParents={[
+            ...(childAccess.childAccessMap[modal.data.id] || []),
+          ]}
+          userId={userId}
+          onRemoveAccess={childAccess.removeAccess}
+          onInvite={(kid) => { setModal(null); setTimeout(() => openInviteModal(kid), 100); }}
           onClose={() => setModal(null)}
         />
       )}

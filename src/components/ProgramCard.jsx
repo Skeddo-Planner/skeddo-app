@@ -9,7 +9,7 @@ const STATUS_BORDER = {
   Exploring: C.blue,
 };
 
-export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
+export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId }) {
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const assignedKids = (p.kidIds || [])
     .map((id) => (kids || []).find((k) => k.id === id))
@@ -77,7 +77,14 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap }) {
 
       {/* Name + provider */}
       <div style={{ ...s.cardName, fontSize: 16 }}>{p.name}</div>
-      <div style={s.cardProvider}>{p.provider}</div>
+      <div style={s.cardProvider}>
+        {p.provider}
+        {p.addedByName && p.addedBy && currentUserId && p.addedBy !== currentUserId && (
+          <span style={{ color: C.blue, fontSize: 11, marginLeft: 6 }}>
+            · Added by {p.addedByName}
+          </span>
+        )}
+      </div>
 
       {/* Info badges row: date range, age, season type, early bird */}
       {(dateRange || ageLabel || p.seasonType || earlyBirdActive) && (

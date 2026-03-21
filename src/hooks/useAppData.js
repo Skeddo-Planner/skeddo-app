@@ -41,6 +41,8 @@ const programToDb = (p, userId) => ({
   registration_url: p.registrationUrl || "",
   notes: p.notes || "",
   kid_ids: p.kidIds || [],
+  added_by: p.addedBy || userId,
+  added_by_name: p.addedByName || "",
 });
 
 const programFromDb = (row) => ({
@@ -63,6 +65,8 @@ const programFromDb = (row) => ({
   registrationUrl: row.registration_url || "",
   notes: row.notes || "",
   kidIds: row.kid_ids || [],
+  addedBy: row.added_by || null,
+  addedByName: row.added_by_name || "",
 });
 
 const kidToDb = (k, userId) => ({

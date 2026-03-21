@@ -3,7 +3,7 @@ import { s } from "../styles/shared";
 import Modal from "../components/Modal";
 import { fmtDate, fmt$, downloadICS } from "../utils/helpers";
 
-export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose }) {
+export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose, activityLog }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const assignedKids = (kids || []).filter((k) => (p.kidIds || []).includes(k.id));
@@ -164,6 +164,31 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
             >
               {k.name}
             </span>
+          ))}
+        </div>
+      )}
+
+      {/* Activity log */}
+      {activityLog && activityLog.length > 0 && (
+        <div style={{ marginTop: 16 }}>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+            color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8,
+          }}>
+            Activity
+          </div>
+          {activityLog.map((log) => (
+            <div key={log.id} style={{
+              display: "flex", gap: 8, alignItems: "baseline",
+              padding: "6px 0", borderBottom: `1px solid ${C.border}`,
+              fontFamily: "'Barlow', sans-serif", fontSize: 12,
+            }}>
+              <span style={{ color: C.ink, fontWeight: 600 }}>{log.user_name}</span>
+              <span style={{ color: C.muted }}>{log.action}</span>
+              <span style={{ color: C.muted, marginLeft: "auto", fontSize: 10 }}>
+                {new Date(log.created_at).toLocaleDateString()}
+              </span>
+            </div>
           ))}
         </div>
       )}

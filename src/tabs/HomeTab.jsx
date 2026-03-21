@@ -33,6 +33,7 @@ export default function HomeTab({
   showInstallBanner,
   onInstallClick,
   onDismissInstall,
+  activityLog,
 }) {
   const allPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms];
   const totalPrograms = allPrograms.length;
@@ -302,6 +303,37 @@ export default function HomeTab({
             {"\u00D7"}
           </button>
         </div>
+      )}
+
+      {/* Recent activity from co-parents */}
+      {activityLog && activityLog.length > 0 && (
+        <>
+          <div style={s.sectionHeader}>
+            <h3 style={s.sectionTitle}>Recent Activity</h3>
+          </div>
+          <div style={{ background: C.white, borderRadius: 14, border: `1px solid ${C.border}`, padding: "12px 16px", marginBottom: 16 }}>
+            {activityLog.slice(0, 5).map((log) => (
+              <div key={log.id} style={{
+                display: "flex", gap: 8, alignItems: "baseline",
+                padding: "6px 0", borderBottom: `1px solid ${C.border}`,
+                fontFamily: "'Barlow', sans-serif", fontSize: 12,
+              }}>
+                <span style={{ fontWeight: 600, color: C.ink }}>{log.user_name}</span>
+                <span style={{ color: C.muted }}>{log.action} {log.details?.programName || "a program"}</span>
+                <span style={{ color: C.muted, marginLeft: "auto", fontSize: 10, whiteSpace: "nowrap" }}>
+                  {(() => {
+                    const diff = Date.now() - new Date(log.created_at).getTime();
+                    const mins = Math.floor(diff / 60000);
+                    if (mins < 60) return `${mins}m ago`;
+                    const hrs = Math.floor(mins / 60);
+                    if (hrs < 24) return `${hrs}h ago`;
+                    return `${Math.floor(hrs / 24)}d ago`;
+                  })()}
+                </span>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {/* Enrolled Programs */}

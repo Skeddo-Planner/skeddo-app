@@ -27,7 +27,7 @@ function MenuIcon({ pathData, color, size = 18 }) {
   );
 }
 
-export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick }) {
+export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, unreadCount, onOpenActivity }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleItemClick = (id) => {
@@ -59,28 +59,48 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               <div style={s.tagline}>The planner for busy families</div>
             </div>
           </div>
-          <button
-            onClick={() => setMenuOpen(true)}
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 10,
-              background: "rgba(26,46,38,0.05)",
-              border: "none",
-              cursor: "pointer",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 4,
-              flexShrink: 0,
-            }}
-            aria-label="Open menu"
-          >
-            <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
-            <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
-            <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            {/* Notification bell */}
+            {unreadCount > 0 && (
+              <button
+                onClick={onOpenActivity}
+                style={{
+                  width: 40, height: 40, borderRadius: 10,
+                  background: "rgba(26,46,38,0.05)", border: "none",
+                  cursor: "pointer", display: "flex", alignItems: "center",
+                  justifyContent: "center", position: "relative", flexShrink: 0,
+                }}
+                aria-label={`${unreadCount} new activity updates`}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <span style={{
+                  position: "absolute", top: 4, right: 4, width: 16, height: 16,
+                  borderRadius: "50%", background: "#E74C3C", color: "#fff",
+                  fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  {unreadCount > 9 ? "9+" : unreadCount}
+                </span>
+              </button>
+            )}
+            <button
+              onClick={() => setMenuOpen(true)}
+              style={{
+                width: 40, height: 40, borderRadius: 10,
+                background: "rgba(26,46,38,0.05)", border: "none",
+                cursor: "pointer", display: "flex", flexDirection: "column",
+                alignItems: "center", justifyContent: "center", gap: 4, flexShrink: 0,
+              }}
+              aria-label="Open menu"
+            >
+              <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
+              <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
+              <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
+            </button>
+          </div>
         </div>
       </header>
 

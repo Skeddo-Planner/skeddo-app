@@ -393,7 +393,7 @@ export default function OnboardingFlow({ onComplete }) {
                 }}
                 onClick={() => {
                   setKids([]); // Skip means don't save any kids
-                  setScreen(3);
+                  setScreen(4);
                 }}
               >
                 Skip
@@ -413,8 +413,62 @@ export default function OnboardingFlow({ onComplete }) {
           </div>
         )}
 
-        {/* ─── SCREEN 3: All Set ─── */}
+        {/* ─── SCREEN 3: Invite (optional) ─── */}
         {screen === 3 && (
+          <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>{"\uD83D\uDC65"}</div>
+            <h1
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 24,
+                color: C.ink,
+                lineHeight: 1.2,
+                marginBottom: 8,
+              }}
+            >
+              Does anyone else help manage{kids.length === 1 ? ` ${kids[0].name}'s` : " their"} schedule?
+            </h1>
+            <p
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 14,
+                color: C.muted,
+                lineHeight: 1.6,
+                maxWidth: 320,
+                margin: "0 auto 24px",
+              }}
+            >
+              A co-parent, grandparent, or caregiver? You can invite them to view and manage the schedule together.
+            </p>
+            <p
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 12,
+                color: C.muted,
+                marginBottom: 24,
+              }}
+            >
+              You can always do this later from the kid's settings.
+            </p>
+            <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
+              <button
+                style={{ ...s.secondaryBtn, textAlign: "center" }}
+                onClick={() => setScreen(4)}
+              >
+                Not right now
+              </button>
+              <button
+                style={{ ...s.primaryBtn, textAlign: "center" }}
+                onClick={() => setScreen(4)}
+              >
+                I'll invite later
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ─── SCREEN 4: All Set ─── */}
+        {screen === 4 && (
           <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
             {/* Celebration icon */}
             <div style={{ fontSize: 48, marginBottom: 16 }}>&#9788;</div>
@@ -487,7 +541,7 @@ export default function OnboardingFlow({ onComplete }) {
           zIndex: 10,
         }}
       >
-        {[0, 1, 2, 3].map((i) => (
+        {[0, 1, 2, 3, 4].map((i) => (
           <div
             key={i}
             style={{

@@ -4,7 +4,7 @@ import { s } from "../styles/shared";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
 
-export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClose }) {
+export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClose, coParents, onManageAccess, onInvite }) {
   const update = (field, value) => setForm((f) => ({ ...f, [field]: value }));
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -195,6 +195,77 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
           </div>
         )}
       </div>
+
+      {/* Shared access section — only show in edit mode */}
+      {isEdit && (
+        <>
+          <Label>People Managing {form.name || "This Child"}'s Schedule</Label>
+          {coParents && coParents.length > 0 ? (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 10 }}>
+              {coParents.map((person) => (
+                <span
+                  key={person.userId}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 4,
+                    padding: "4px 10px",
+                    background: person.role === "creator" ? "#E8F5EE" : "#EAF0F6",
+                    color: person.role === "creator" ? C.seaGreen : "#2A5F8A",
+                    borderRadius: 8,
+                    fontSize: 12,
+                    fontWeight: 600,
+                    fontFamily: "'Barlow', sans-serif",
+                  }}
+                >
+                  {person.displayName}
+                  {person.role === "creator" && (
+                    <span style={{ fontSize: 9, opacity: 0.7, marginLeft: 2 }}>(creator)</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p style={{ fontSize: 12, color: C.muted, fontFamily: "'Barlow', sans-serif", marginBottom: 10 }}>
+              Only you can see this child's schedule.
+            </p>
+          )}
+          <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+            {onInvite && (
+              <button
+                type="button"
+                onClick={() => onInvite(form)}
+                style={{
+                  ...s.secondaryBtn,
+                  fontSize: 12,
+                  padding: "6px 12px",
+                  flex: "none",
+                }}
+              >
+                + Invite someone
+              </button>
+            )}
+            {onManageAccess && coParents && coParents.length > 0 && (
+              <button
+                type="button"
+                onClick={() => onManageAccess(form)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: C.seaGreen,
+                  cursor: "pointer",
+                  padding: "6px 0",
+                }}
+              >
+                Manage access
+              </button>
+            )}
+          </div>
+        </>
+      )}
 
       {/* Action buttons */}
       <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
