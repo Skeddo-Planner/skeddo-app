@@ -544,6 +544,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             isFavorite={isFavorite}
             onAddToSchedule={handleAddToSchedule}
             onOpenDirectoryDetail={openDirectoryDetail}
+            userPlan={profile.plan}
           />
         )}
 

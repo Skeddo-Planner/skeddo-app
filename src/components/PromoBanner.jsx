@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const F = {
-  display: "'Instrument Serif', Georgia, serif",
+  display: "'Poppins', sans-serif",
   body: "'Barlow', sans-serif",
 };
 
@@ -56,7 +56,7 @@ export default function PromoBanner({ type, onDismiss }) {
           </p>
         )}
         <p style={{
-          fontFamily: F.display, fontSize: 20, fontWeight: 400,
+          fontFamily: F.display, fontSize: 20, fontWeight: 700,
           color: config.darkText ? "#1B2432" : "#fff",
           margin: 0, lineHeight: 1.3,
         }}>
@@ -92,6 +92,12 @@ const BANNERS = {
     bg: "linear-gradient(135deg, #E76F51 0%, #C85A3D 100%)",
     title: "Coordinating with your endless group chats?",
     body: "Skeddo Plus' circle feature lets you share programs with friends and coordinate your child's calendar with another adult.",
+    darkText: false,
+  },
+  "upgrade-discover": {
+    bg: "linear-gradient(135deg, #4A6FA5 0%, #3D5E90 100%)",
+    title: "Simplify your search",
+    body: "Skeddo Plus lets you filter by neighbourhood, provider, activity type, cost, and more.",
     darkText: false,
   },
   "tip-wishlist": {

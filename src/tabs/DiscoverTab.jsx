@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
+import PromoBanner from "../components/PromoBanner";
 import { SkeletonList } from "../components/SkeletonCard";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import { supabase } from "../lib/supabase";
@@ -382,10 +383,13 @@ export default function DiscoverTab({
   isFavorite,
   onAddToSchedule,
   onOpenDirectoryDetail,
+  userPlan,
 }) {
   /* ─── Use programs.json + user-submitted programs from Supabase ─── */
   const [userSubmitted, setUserSubmitted] = useState([]);
   const [isLoadingPrograms, setIsLoadingPrograms] = useState(false);
+  const [showDiscoverBanner, setShowDiscoverBanner] = useState(true);
+  const isPaid = userPlan === "plus" || userPlan === "pro";
 
   useEffect(() => {
     async function loadUserSubmitted() {
@@ -628,6 +632,10 @@ export default function DiscoverTab({
             : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in Vancouver`}
         </p>
       </div>
+
+      {showDiscoverBanner && !isPaid && (
+        <PromoBanner type="upgrade-discover" onDismiss={() => setShowDiscoverBanner(false)} />
+      )}
 
       {/* Search bar */}
       <div style={{ position: "relative", marginBottom: 12 }}>
