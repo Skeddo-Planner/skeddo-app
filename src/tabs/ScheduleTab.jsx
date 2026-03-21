@@ -442,23 +442,45 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         </div>
       </div>
 
-      {/* Conflict warnings */}
-      {conflicts.length > 0 && (
+      {/* Conflict warnings — true conflicts (same kid) */}
+      {conflicts.filter((c) => c.type === "conflict").length > 0 && (
         <div style={{
           background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 12,
           padding: "12px 16px", marginBottom: 12,
         }}>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#991B1B", marginBottom: 6 }}>
-            {"\u26A0\uFE0F"} Schedule Conflicts ({conflicts.length})
+            {"\u26A0\uFE0F"} Schedule Conflicts ({conflicts.filter((c) => c.type === "conflict").length})
           </div>
-          {conflicts.slice(0, 5).map((c, i) => (
+          {conflicts.filter((c) => c.type === "conflict").slice(0, 5).map((c, i) => (
             <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#7F1D1D", lineHeight: 1.5, marginBottom: 4 }}>
               <strong>{c.day}:</strong> {c.program1} and {c.program2} overlap
             </div>
           ))}
-          {conflicts.length > 5 && (
+          {conflicts.filter((c) => c.type === "conflict").length > 5 && (
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#991B1B", marginTop: 4 }}>
-              +{conflicts.length - 5} more conflicts
+              +{conflicts.filter((c) => c.type === "conflict").length - 5} more
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Logistics alerts — different kids at the same time */}
+      {conflicts.filter((c) => c.type === "logistics").length > 0 && (
+        <div style={{
+          background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 12,
+          padding: "12px 16px", marginBottom: 12,
+        }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 6 }}>
+            {"\uD83D\uDCCB"} Logistics Heads-Up ({conflicts.filter((c) => c.type === "logistics").length})
+          </div>
+          {conflicts.filter((c) => c.type === "logistics").slice(0, 5).map((c, i) => (
+            <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#78350F", lineHeight: 1.5, marginBottom: 4 }}>
+              <strong>{c.day}:</strong> {c.program1} and {c.program2} run at the same time for different kids
+            </div>
+          ))}
+          {conflicts.filter((c) => c.type === "logistics").length > 5 && (
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#92400E", marginTop: 4 }}>
+              +{conflicts.filter((c) => c.type === "logistics").length - 5} more
             </div>
           )}
         </div>

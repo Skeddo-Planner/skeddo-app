@@ -387,12 +387,19 @@ export function detectConflicts(programs) {
       const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       const dayList = sharedDays.map((d) => dayNames[d]).join(", ");
 
+      // Check if the same kid is assigned to both (true conflict vs logistics)
+      const aKids = a.kidIds || [];
+      const bKids = b.kidIds || [];
+      const sharedKids = aKids.filter((k) => bKids.includes(k));
+      const isSameKid = sharedKids.length > 0 || (aKids.length === 0 && bKids.length === 0);
+
       conflicts.push({
         day: dayList,
         program1: a.name,
         program2: b.name,
         time1: a.times,
         time2: b.times,
+        type: isSameKid ? "conflict" : "logistics",
       });
     }
   }
