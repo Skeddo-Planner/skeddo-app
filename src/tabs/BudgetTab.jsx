@@ -95,38 +95,104 @@ export default function BudgetTab({
           </button>
         </div>
 
-        {/* Budget goal progress */}
-        {budgetGoal > 0 ? (
-          <div style={{ marginTop: 14 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
-                Budget Goal
-              </span>
-              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
-                {fmt$(committedCost)} / {fmt$(budgetGoal)}
-              </span>
-            </div>
-            <div style={{ height: 8, borderRadius: 4, background: C.cream, overflow: "hidden" }}>
-              <div className="progress-bar" style={{
-                width: `${Math.min(budgetPct, 100)}%`,
-                height: "100%", borderRadius: 4, background: budgetBarColor,
-              }} />
-            </div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600, marginTop: 4,
-              color: committedCost > budgetGoal ? "#E76F51" : "#2D9F6F",
-            }}>
-              {committedCost > budgetGoal
-                ? `Over budget by ${fmt$(committedCost - budgetGoal)}`
-                : `${fmt$(budgetGoal - committedCost)} remaining`
-              }
-            </div>
-          </div>
-        ) : (
-          <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 8 }}>
-            Set a budget in your profile to track your spending.
-          </p>
-        )}
       </div>
+
+      {/* ─── Budget Bar Chart (stacked segments) ─── */}
+      {(() => {
+        const total = budgetGoal > 0 ? budgetGoal : (committedCost + potentialCost) || 1;
+        const committedPct = (committedCost / total) * 100;
+        const potentialPct = (potentialCost / total) * 100;
+        const overBudget = budgetGoal > 0 && (committedCost + potentialCost) > budgetGoal;
+        const remainingAmt = budgetGoal > 0 ? Math.max(budgetGoal - committedCost - potentialCost, 0) : 0;
+        const remainingPct = budgetGoal > 0 ? (remainingAmt / total) * 100 : 0;
+        const overflowAmt = overBudget ? (committedCost + potentialCost) - budgetGoal : 0;
+
+        return (
+          <div style={{ ...s.budgetCard, marginBottom: 16, padding: "16px 16px" }}>
+            {budgetGoal > 0 && (
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  Budget Goal: {fmt$(budgetGoal)}
+                </span>
+              </div>
+            )}
+            {/* Stacked bar */}
+            <div style={{ height: 28, borderRadius: 8, background: "#E5E7EB", overflow: "hidden", display: "flex", position: "relative" }}>
+              {committedCost > 0 && (
+                <div
+                  className="progress-bar"
+                  onClick={() => setStatusFilter && setStatusFilter("Enrolled")}
+                  style={{
+                    width: `${Math.min(committedPct, 100)}%`, height: "100%",
+                    background: "#2D9F6F", cursor: "pointer",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
+                  }}
+                >
+                  {committedPct > 15 && (
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>
+                      {fmt$(committedCost)} · {Math.round(committedPct)}%
+                    </span>
+                  )}
+                </div>
+              )}
+              {potentialCost > 0 && (
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${Math.min(potentialPct, overBudget ? 100 - committedPct : potentialPct)}%`, height: "100%",
+                    background: "repeating-linear-gradient(45deg, #F4A261, #F4A261 4px, #E8893A 4px, #E8893A 8px)",
+                    opacity: 0.8, cursor: "pointer",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
+                  }}
+                >
+                  {potentialPct > 15 && (
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#1B2432", whiteSpace: "nowrap" }}>
+                      {fmt$(potentialCost)} · {Math.round(potentialPct)}%
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Labels below bar */}
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, flexWrap: "wrap", gap: 4 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: "#2D9F6F" }} />
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.ink }}>
+                  {fmt$(committedCost)} committed
+                </span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: "#F4A261" }} />
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
+                  {fmt$(potentialCost)} potential
+                </span>
+              </div>
+              {budgetGoal > 0 && !overBudget && (
+                <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <div style={{ width: 10, height: 10, borderRadius: 3, background: "#E5E7EB" }} />
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
+                    {fmt$(remainingAmt)} remaining
+                  </span>
+                </div>
+              )}
+              {overBudget && (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#E76F51" }}>
+                  {fmt$(overflowAmt)} over budget
+                </span>
+              )}
+            </div>
+
+            {!budgetGoal && (
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 8, margin: "8px 0 0" }}>
+                Set a budget in your profile to see how much room you have left.
+              </p>
+            )}
+          </div>
+        );
+      })()}
 
       {/* ─── Committed vs Potential ─── */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 20 }}>
