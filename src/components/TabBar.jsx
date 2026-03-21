@@ -67,7 +67,7 @@ const TABS = [
   { id: "budget", label: "Budget" },
 ];
 
-export default function TabBar({ tab, setTab }) {
+export default function TabBar({ tab, setTab, badges }) {
   return (
     <nav style={s.tabBar}>
       {TABS.map((t) => {
@@ -83,7 +83,20 @@ export default function TabBar({ tab, setTab }) {
             aria-label={t.label}
           >
             {active && <span style={s.tabIndicator} />}
-            <TabIcon id={t.id} color={active ? C.seaGreen : "#8A9A8E"} />
+            <span style={{ position: "relative" }}>
+              <TabIcon id={t.id} color={active ? C.seaGreen : "#8A9A8E"} />
+              {badges?.[t.id] > 0 && (
+                <span style={{
+                  position: "absolute", top: -4, right: -6,
+                  width: 14, height: 14, borderRadius: "50%",
+                  background: "#E74C3C", color: "#fff",
+                  fontSize: 8, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  {badges[t.id] > 9 ? "9+" : badges[t.id]}
+                </span>
+              )}
+            </span>
             <span
               style={{
                 fontSize: 10,

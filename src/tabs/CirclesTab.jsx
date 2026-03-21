@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
+import EmptyState from "../components/EmptyState";
 
-/* ─── Soft color variants (not in brand.js) ─── */
+/* ─── Soft color variants ─── */
 const SOFT = {
   seaGreen: "#EDF7F1",
   blue: "#EBF2F8",
@@ -10,611 +11,701 @@ const SOFT = {
   gold: "#FBF6E6",
 };
 
+const CIRCLE_EMOJIS = ["👨‍👩‍👧‍👦", "⚽", "🎨", "🎵", "📚", "🏕️", "🎭", "🧪", "🏊", "🚴"];
+
 /* ─── Sub-header with back arrow ─── */
 function SubHeader({ title, onBack, right }) {
   return (
     <div style={{
-      padding: "14px 20px",
-      display: "flex",
-      alignItems: "center",
-      gap: 12,
-      borderBottom: `1px solid ${C.border}`,
-      background: C.cream,
-      position: "sticky",
-      top: 0,
-      zIndex: 10,
+      padding: "14px 0", display: "flex", alignItems: "center", gap: 12,
+      borderBottom: `1px solid ${C.border}`, marginBottom: 16,
     }}>
-      <button
-        onClick={onBack}
-        aria-label="Go back"
-        style={{ background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: "4px 8px", lineHeight: 1 }}
-      >
-        &larr;
-      </button>
-      <div style={{ flex: 1 }}>
-        <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink }}>{title}</div>
-      </div>
+      <button onClick={onBack} style={{
+        background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0,
+      }} aria-label="Go back">{"\u2190"}</button>
+      <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, flex: 1 }}>{title}</span>
       {right}
     </div>
   );
 }
 
-/* ─── Tag chip ─── */
 function Tag({ children, color, bg }) {
   return (
     <span style={{
-      fontSize: 11,
-      fontWeight: 600,
-      color,
-      background: bg,
-      padding: "3px 9px",
-      borderRadius: 6,
-      fontFamily: "'Barlow', sans-serif",
-    }}>
-      {children}
-    </span>
+      fontSize: 10, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+      color, background: bg, padding: "2px 8px", borderRadius: 20,
+      textTransform: "uppercase", letterSpacing: 0.3, whiteSpace: "nowrap",
+    }}>{children}</span>
   );
 }
 
-/* ─── Screen 1: Circles Home ─── */
-function CirclesHome({ circles, onOpenCircle, onOpenInvite, showToast }) {
-  return (
-    <div>
-      {/* Header */}
-      <div style={{ padding: "20px 20px 10px" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 24, fontWeight: 700, color: C.ink, margin: 0 }}>Circles</h2>
-          {circles.length > 0 && (
-            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.muted }}>
-              {circles.length} circle{circles.length !== 1 ? "s" : ""}
-            </span>
-          )}
-        </div>
-        <p style={{ fontSize: 13, color: C.muted, margin: "4px 0 0", fontFamily: "'Barlow', sans-serif" }}>
-          Share schedules with your parent groups
-        </p>
-      </div>
-
-      {/* Create button */}
-      <div style={{ padding: "6px 20px 14px" }}>
-        <button
-          onClick={() => showToast && showToast("Circles are coming soon!")}
-          style={{
-            width: "100%",
-            padding: 13,
-            background: C.seaGreen,
-            color: C.cream,
-            border: "none",
-            borderRadius: 12,
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 14,
-            fontWeight: 700,
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-          }}
-        >
-          <span style={{ fontSize: 18, lineHeight: 1 }}>+</span> Create a Circle
-        </button>
-      </div>
-
-      {/* Empty state when no circles */}
-      {circles.length === 0 && (
-        <div style={{ padding: "30px 20px 10px", textAlign: "center" }}>
-          <div style={{ fontSize: 48, marginBottom: 14, opacity: 0.8 }}>{"\uD83D\uDC65"}</div>
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 6 }}>
-            No circles yet
-          </div>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, lineHeight: 1.6, maxWidth: 280, margin: "0 auto" }}>
-            Circles let you share your kids&apos; schedules with other parents — like your soccer team, neighbours, or music class families.
-          </div>
-        </div>
-      )}
-
-      {/* Circle cards */}
-      {circles.length > 0 && (
-        <div style={{ padding: "0 20px" }}>
-          {circles.map((c) => (
-            <div
-              key={c.id}
-              className="skeddo-card"
-              onClick={() => onOpenCircle(c)}
-              role="button"
-              tabIndex={0}
-              style={{
-                background: C.white,
-                borderRadius: 14,
-                padding: "14px 16px",
-                marginBottom: 10,
-                border: `1px solid ${C.border}`,
-                display: "flex",
-                alignItems: "center",
-                gap: 14,
-                cursor: "pointer",
-              }}
-            >
-              <div style={{
-                width: 44, height: 44, borderRadius: 12, background: c.colorSoft,
-                display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, flexShrink: 0,
-              }}>
-                {c.emoji}
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 15, fontWeight: 600, color: C.ink, fontFamily: "'Barlow', sans-serif" }}>{c.name}</div>
-                <div style={{ fontSize: 12, color: C.muted, marginTop: 2, fontFamily: "'Barlow', sans-serif" }}>{c.members} members</div>
-              </div>
-              {c.newCount > 0 && <Tag color={C.cream} bg={c.color}>{c.newCount} new</Tag>}
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Referral banner */}
-      <div style={{ padding: "10px 20px 20px" }}>
-        <div
-          className="skeddo-card"
-          onClick={onOpenInvite}
-          role="button"
-          tabIndex={0}
-          style={{
-            background: `linear-gradient(135deg, ${SOFT.gold} 0%, #FFF3D0 100%)`,
-            borderRadius: 14,
-            padding: 16,
-            border: "1px solid #DDD09A",
-            cursor: "pointer",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-            <span style={{ fontSize: 18 }}>{"\uD83C\uDF81"}</span>
-            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>Invite a friend, get a free month</span>
-          </div>
-          <p style={{ fontSize: 12, color: C.muted, margin: 0, lineHeight: 1.5, fontFamily: "'Barlow', sans-serif" }}>
-            When they join Skeddo Plus within 7 days, you both get a free month. Share your link &rarr;
-          </p>
-        </div>
-      </div>
-    </div>
-  );
+function timeAgo(dateStr) {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
 }
 
-/* ─── Duplicate detection: count how many parents shared the same activity+provider ─── */
-function getDuplicateCounts(feed) {
-  const counts = {};
-  feed.forEach((item) => {
-    const key = `${item.activity}|||${item.provider}`;
-    counts[key] = (counts[key] || 0) + 1;
+export default function CirclesTab({
+  programs, kids, profile, showToast, userId, circlesHook,
+}) {
+  const {
+    circles, pendingRequests, activeFeed, bookmarks, referrals, loading,
+    createCircle, joinCircle, handleMemberRequest, leaveCircle,
+    shareActivities, loadFeed, toggleBookmark, flagActivity,
+    createReferral, getMembers, pendingCount,
+  } = circlesHook;
+
+  const [screen, setScreen] = useState("home"); // home | feed | share | invite | create | join
+  const [activeCircle, setActiveCircle] = useState(null);
+  const [createName, setCreateName] = useState("");
+  const [createEmoji, setCreateEmoji] = useState("👨‍👩‍👧‍👦");
+  const [joinCode, setJoinCode] = useState("");
+  const [selectedActivities, setSelectedActivities] = useState(new Set());
+  const [circleMembers, setCircleMembers] = useState([]);
+  const [actionLoading, setActionLoading] = useState(false);
+
+  // Build shareable activities from user's enrolled programs
+  const shareableActivities = (programs || []).map((p) => {
+    const kidNames = (p.kidIds || [])
+      .map((id) => (kids || []).find((k) => k.id === id)?.name)
+      .filter(Boolean);
+    return {
+      id: p.id,
+      activityName: p.name,
+      providerName: p.provider || "",
+      childName: kidNames.join(", ") || "",
+      scheduleInfo: [p.days, p.times].filter(Boolean).join(" · "),
+      ageGroup: p.ageMin && p.ageMax ? `Ages ${p.ageMin}-${p.ageMax}` : "",
+      registrationUrl: p.registrationUrl || "",
+      programId: p.id,
+    };
   });
-  return counts;
-}
 
-/* ─── Screen 2: Circle Feed ─── */
-function CircleFeed({ circle, feed, onBack, onOpenShare }) {
-  const [saved, setSaved] = useState({});
-  const [flagged, setFlagged] = useState({});
-  const toggle = (id) => setSaved((p) => ({ ...p, [id]: !p[id] }));
-  const toggleFlag = (id) => setFlagged((p) => ({ ...p, [id]: !p[id] }));
+  // Duplicate detection for feed
+  const getDuplicateCounts = () => {
+    const counts = {};
+    activeFeed.forEach((item) => {
+      const key = `${item.activity_name}|||${item.provider_name}`.toLowerCase();
+      counts[key] = (counts[key] || 0) + 1;
+    });
+    return counts;
+  };
 
-  const dupCounts = getDuplicateCounts(feed);
+  const openCircleFeed = async (circle) => {
+    setActiveCircle(circle);
+    setScreen("feed");
+    await loadFeed(circle.id);
+    const members = await getMembers(circle.id);
+    setCircleMembers(members);
+  };
 
-  return (
-    <div>
-      <SubHeader
-        title={`${circle.emoji} ${circle.name}`}
-        onBack={onBack}
-        right={
-          <button
-            onClick={onOpenShare}
-            style={{
-              background: C.seaGreen, color: C.cream, border: "none", borderRadius: 8,
-              padding: "7px 12px", fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, cursor: "pointer",
-            }}
-          >
-            + Share
-          </button>
-        }
-      />
-      <div style={{ fontSize: 11, color: C.muted, padding: "6px 20px 0", fontFamily: "'Barlow', sans-serif" }}>
-        {circle.members} members
-      </div>
+  const handleCreate = async () => {
+    if (!createName.trim()) return;
+    setActionLoading(true);
+    try {
+      await createCircle(createName.trim(), createEmoji);
+      setCreateName("");
+      setScreen("home");
+      showToast("Circle created!");
+    } catch (err) {
+      showToast(err.message);
+    }
+    setActionLoading(false);
+  };
 
-      {/* Empty feed state */}
-      {feed.length === 0 && (
-        <div style={{ padding: "50px 20px", textAlign: "center" }}>
-          <div style={{ fontSize: 44, marginBottom: 14, opacity: 0.8 }}>{"\uD83D\uDCE8"}</div>
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 6 }}>
-            No shared activities yet
-          </div>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, lineHeight: 1.6, maxWidth: 260, margin: "0 auto" }}>
-            Tap <strong style={{ color: C.seaGreen }}>+ Share</strong> to share your kids&apos; programs with this circle.
-          </div>
-        </div>
-      )}
+  const handleJoin = async () => {
+    if (!joinCode.trim()) return;
+    setActionLoading(true);
+    try {
+      await joinCircle(joinCode.trim());
+      setJoinCode("");
+      setScreen("home");
+      showToast("Join request sent! Waiting for approval.");
+    } catch (err) {
+      showToast(err.message);
+    }
+    setActionLoading(false);
+  };
 
-      {/* Feed items */}
-      {feed.length > 0 && (
-        <div style={{ padding: "14px 20px" }}>
-          {feed.map((item) => {
-            const dupKey = `${item.activity}|||${item.provider}`;
-            const dupCount = dupCounts[dupKey];
+  const handleShare = async () => {
+    if (selectedActivities.size === 0 || !activeCircle) return;
+    setActionLoading(true);
+    try {
+      const toShare = shareableActivities.filter((a) => selectedActivities.has(a.id));
+      await shareActivities(activeCircle.id, toShare);
+      setSelectedActivities(new Set());
+      setScreen("feed");
+      showToast(`Shared ${toShare.length} activit${toShare.length === 1 ? "y" : "ies"}!`);
+    } catch (err) {
+      showToast(err.message);
+    }
+    setActionLoading(false);
+  };
 
-            return (
-            <div key={item.id} style={{ background: C.white, borderRadius: 14, padding: 16, marginBottom: 12, border: `1px solid ${C.border}` }}>
-              {/* Duplicate indicator */}
-              {dupCount > 1 && (
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 6, marginBottom: 10,
-                  padding: "5px 10px", background: SOFT.gold, borderRadius: 8,
-                }}>
-                  <span style={{ fontSize: 12 }}>{"\uD83D\uDD25"}</span>
-                  <span style={{ fontSize: 11, fontWeight: 600, color: C.olive, fontFamily: "'Barlow', sans-serif" }}>
-                    {dupCount} parents shared this program
-                  </span>
-                </div>
+  const duplicateCounts = getDuplicateCounts();
+
+  // ─── SCREEN: Home ───
+  if (screen === "home") {
+    return (
+      <div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+          <div>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
+              Circles
+              {circles.length > 0 && (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.olive, fontStyle: "italic", marginLeft: 8 }}>
+                  {circles.length} circle{circles.length !== 1 ? "s" : ""}
+                </span>
               )}
-
-              {/* Who shared */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-                <div style={{
-                  width: 26, height: 26, borderRadius: "50%", background: SOFT.seaGreen,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 11, fontWeight: 700, color: C.seaGreen, flexShrink: 0,
-                }}>
-                  {item.parent[0]}
-                </div>
-                <div style={{ fontSize: 12, color: C.muted, flex: 1, lineHeight: 1.4, fontFamily: "'Barlow', sans-serif" }}>
-                  <strong style={{ color: C.ink, fontWeight: 600 }}>{item.parent}</strong> shared{" "}
-                  <strong style={{ color: C.ink, fontWeight: 600 }}>{item.child}</strong>&apos;s activity
-                </div>
-                <span style={{ fontSize: 10, color: C.muted, flexShrink: 0 }}>{item.time}</span>
-              </div>
-
-              {/* Activity details */}
-              <div style={{ background: C.cream, borderRadius: 10, padding: 14, marginBottom: 12 }}>
-                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 16, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
-                  {item.activity}
-                </div>
-                <div style={{ fontSize: 12, color: C.seaGreen, fontWeight: 600, marginBottom: 10, fontFamily: "'Barlow', sans-serif" }}>
-                  {item.provider}
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                  {[
-                    { icon: "\uD83D\uDCC5", text: item.schedule },
-                    { icon: "\uD83D\uDCC6", text: item.dates },
-                    { icon: "\uD83D\uDC66", text: item.age },
-                  ].filter((r) => r.text).map((r, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 7, fontSize: 12, color: C.muted, fontFamily: "'Barlow', sans-serif" }}>
-                      <span style={{ fontSize: 12 }}>{r.icon}</span>{r.text}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Actions: Bookmark, Register, Flag */}
-              <div style={{ display: "flex", gap: 8 }}>
-                <button
-                  onClick={() => toggle(item.id)}
-                  style={{
-                    flex: 1, padding: 9,
-                    background: saved[item.id] ? SOFT.seaGreen : "transparent",
-                    border: `1.5px solid ${saved[item.id] ? C.seaGreen : C.border}`,
-                    borderRadius: 9,
-                    fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
-                    color: saved[item.id] ? C.seaGreen : C.muted,
-                    cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 5,
-                  }}
-                >
-                  {saved[item.id] ? "\u2713 Saved" : "\uD83D\uDD16 Bookmark"}
-                </button>
-                <button style={{
-                  flex: 1, padding: 9, background: C.seaGreen, border: "none", borderRadius: 9,
-                  fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600, color: C.cream,
-                  cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 5,
-                }}>
-                  Register &rarr;
-                </button>
-                <button
-                  onClick={() => toggleFlag(item.id)}
-                  style={{
-                    padding: "9px 12px",
-                    background: flagged[item.id] ? SOFT.lilac : "transparent",
-                    border: `1.5px solid ${flagged[item.id] ? C.lilac : C.border}`,
-                    borderRadius: 9,
-                    fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
-                    color: flagged[item.id] ? C.lilac : C.muted,
-                    cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
-                  }}
-                  aria-label="Flag outdated info"
-                  title="Report outdated info"
-                >
-                  {flagged[item.id] ? "\u2713" : "\u26A0\uFE0F"}
-                </button>
-              </div>
-            </div>
-            );
-          })}
+            </h2>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, margin: "2px 0 0" }}>
+              Share schedules with your parent groups
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: 6 }}>
+            <button
+              onClick={() => setScreen("join")}
+              style={{ ...s.secondaryBtn, fontSize: 12, padding: "8px 12px" }}
+            >
+              Join
+            </button>
+            <button
+              onClick={() => setScreen("create")}
+              style={{ ...s.addButton, fontSize: 12, padding: "8px 12px" }}
+            >
+              + Create
+            </button>
+          </div>
         </div>
-      )}
-    </div>
-  );
-}
 
-/* ─── Screen 3: Share Sheet (bottom-sheet modal) ─── */
-function ShareSheet({ circle, activities, onClose, showToast }) {
-  const [sel, setSel] = useState({});
-  const toggle = (id) => setSel((p) => ({ ...p, [id]: !p[id] }));
-  const count = Object.values(sel).filter(Boolean).length;
-
-  return (
-    <div style={s.overlay} className="modal-bg" onClick={onClose}>
-      <div style={s.modal} className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* Drag handle */}
-        <div style={{ width: 34, height: 4, background: C.border, borderRadius: 2, margin: "0 auto 16px" }} />
-
-        <h3 style={{ ...s.modalTitle, marginBottom: 4 }}>Share to Circle</h3>
-        <p style={{ fontSize: 12, color: C.muted, margin: "0 0 6px", fontFamily: "'Barlow', sans-serif" }}>
-          Sharing to <strong style={{ color: C.ink }}>{circle.name}</strong>
-        </p>
-        <p style={{ fontSize: 12, color: C.muted, margin: "0 0 16px", lineHeight: 1.4, fontFamily: "'Barlow', sans-serif" }}>
-          Choose which activities to share. Circle members will see the child&apos;s first name and activity details.
-        </p>
-
-        {/* Empty state when user has no programs */}
-        {activities.length === 0 && (
-          <div style={{ padding: "24px 0", textAlign: "center" }}>
-            <div style={{ fontSize: 36, marginBottom: 10, opacity: 0.7 }}>{"\uD83D\uDCCB"}</div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, lineHeight: 1.6 }}>
-              No programs to share yet.<br />
-              Add programs to your schedule first.
+        {/* Pending requests */}
+        {pendingRequests.length > 0 && (
+          <div style={{ background: SOFT.lilac, borderRadius: 12, padding: "12px 16px", marginBottom: 16, border: `1px solid ${C.lilac}22` }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.lilac, marginBottom: 8, textTransform: "uppercase" }}>
+              {pendingRequests.length} pending request{pendingRequests.length !== 1 ? "s" : ""}
             </div>
+            {pendingRequests.map((req) => (
+              <div key={req.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 0", borderBottom: `1px solid ${C.lilac}18` }}>
+                <div>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
+                    {req.profiles?.display_name || "Someone"}
+                  </div>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                    wants to join {req.circles?.name}
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 6 }}>
+                  <button
+                    onClick={() => handleMemberRequest(req.id, "approve").then(() => showToast("Approved!"))}
+                    style={{ background: C.seaGreen, color: C.cream, border: "none", borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Barlow', sans-serif" }}
+                  >
+                    Accept
+                  </button>
+                  <button
+                    onClick={() => handleMemberRequest(req.id, "decline").then(() => showToast("Declined"))}
+                    style={{ background: "none", border: `1px solid ${C.border}`, borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 600, cursor: "pointer", color: C.muted, fontFamily: "'Barlow', sans-serif" }}
+                  >
+                    Decline
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         )}
 
-        {/* Program list */}
-        {activities.map((a) => (
-          <div
-            key={a.id}
-            onClick={() => toggle(a.id)}
-            style={{
-              display: "flex", alignItems: "center", gap: 12, padding: "12px 14px",
-              background: C.white, borderRadius: 11, marginBottom: 7,
-              border: `1.5px solid ${sel[a.id] ? C.seaGreen : C.border}`,
-              cursor: "pointer",
-            }}
-          >
-            <div style={{
-              width: 20, height: 20, borderRadius: 5, flexShrink: 0,
-              border: `2px solid ${sel[a.id] ? C.seaGreen : C.border}`,
-              background: sel[a.id] ? C.seaGreen : "transparent",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              color: C.cream, fontSize: 12, fontWeight: 700,
-            }}>
-              {sel[a.id] && "\u2713"}
-            </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: C.ink, fontFamily: "'Barlow', sans-serif" }}>{a.name}</div>
-              <div style={{ fontSize: 11, color: C.muted, marginTop: 2, fontFamily: "'Barlow', sans-serif" }}>
-                {a.provider}{a.detail ? ` \u00B7 ${a.detail}` : ""}
-              </div>
-              {a.child && (
-                <div style={{ fontSize: 10, color: C.blue, marginTop: 2, fontFamily: "'Barlow', sans-serif" }}>
-                  {a.child}
+        {/* Circle list */}
+        {circles.length === 0 && !loading ? (
+          <EmptyState
+            icon={"\uD83D\uDC65"}
+            message="No circles yet. Create one to start sharing schedules with other parents."
+          />
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {circles.map((c) => (
+              <div
+                key={c.id}
+                onClick={() => openCircleFeed(c)}
+                role="button"
+                tabIndex={0}
+                className="skeddo-card"
+                style={{
+                  background: C.white, borderRadius: 14, padding: "14px 16px",
+                  border: `1px solid ${C.border}`, cursor: "pointer",
+                  display: "flex", alignItems: "center", gap: 12,
+                }}
+              >
+                <div style={{
+                  width: 44, height: 44, borderRadius: 12, background: SOFT.seaGreen,
+                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0,
+                }}>
+                  {c.emoji}
                 </div>
-              )}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink }}>
+                    {c.name}
+                  </div>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                    {c.memberCount} member{c.memberCount !== 1 ? "s" : ""}
+                  </div>
+                </div>
+                {c.newCount > 0 && (
+                  <Tag color={C.seaGreen} bg={SOFT.seaGreen}>{c.newCount} new</Tag>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Referral banner */}
+        <div
+          onClick={() => setScreen("invite")}
+          role="button"
+          tabIndex={0}
+          style={{
+            marginTop: 20, borderRadius: 14, padding: "16px 18px",
+            background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
+            cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+          }}
+        >
+          <span style={{ fontSize: 28 }}>{"\uD83C\uDF81"}</span>
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.cream }}>
+              Invite a friend, get a free month
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6" }}>
+              Share your referral link with other parents
             </div>
           </div>
-        ))}
-
-        <div style={{ display: "flex", gap: 10, marginTop: 14 }}>
-          <button onClick={onClose} style={{ ...s.secondaryBtn, flex: 1 }}>Cancel</button>
-          <button
-            onClick={() => {
-              if (count > 0 && showToast) {
-                showToast("Sharing will be available when Circles launches");
-                onClose();
-              }
-            }}
-            style={{
-              ...s.primaryBtn, flex: 2,
-              opacity: count > 0 ? 1 : 0.5,
-              cursor: count > 0 ? "pointer" : "default",
-            }}
-          >
-            {count > 0 ? `Share ${count} Activit${count === 1 ? "y" : "ies"}` : "Select activities"}
-          </button>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
-/* ─── Screen 4: Invite & Referral ─── */
-function InviteScreen({ onBack, showToast }) {
-  const [copied, setCopied] = useState(false);
+  // ─── SCREEN: Create Circle ───
+  if (screen === "create") {
+    return (
+      <div>
+        <SubHeader title="Create a Circle" onBack={() => setScreen("home")} />
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+          Create a private group to share your kids' activity schedules with other parents.
+        </p>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+          Circle Name
+        </div>
+        <input
+          style={s.input}
+          value={createName}
+          onChange={(e) => setCreateName(e.target.value)}
+          placeholder="e.g. Grade 3 Parents"
+          autoFocus
+        />
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6, marginTop: 12 }}>
+          Icon
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+          {CIRCLE_EMOJIS.map((e) => (
+            <button
+              key={e}
+              onClick={() => setCreateEmoji(e)}
+              style={{
+                width: 40, height: 40, borderRadius: 10, fontSize: 20,
+                border: createEmoji === e ? `2px solid ${C.seaGreen}` : `1px solid ${C.border}`,
+                background: createEmoji === e ? SOFT.seaGreen : C.white,
+                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >
+              {e}
+            </button>
+          ))}
+        </div>
+        <button
+          style={{ ...s.primaryBtn, width: "100%", opacity: !createName.trim() || actionLoading ? 0.5 : 1 }}
+          onClick={handleCreate}
+          disabled={!createName.trim() || actionLoading}
+        >
+          {actionLoading ? "Creating..." : "Create Circle"}
+        </button>
+      </div>
+    );
+  }
 
-  const handleCopy = () => {
-    if (showToast) showToast("Referrals coming soon!");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  // ─── SCREEN: Join Circle ───
+  if (screen === "join") {
+    return (
+      <div>
+        <SubHeader title="Join a Circle" onBack={() => setScreen("home")} />
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+          Enter the invite code from another parent to request to join their circle.
+        </p>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+          Invite Code
+        </div>
+        <input
+          style={s.input}
+          value={joinCode}
+          onChange={(e) => setJoinCode(e.target.value)}
+          placeholder="Paste invite code here"
+          autoFocus
+        />
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 4, marginBottom: 16 }}>
+          The circle owner will need to approve your request.
+        </p>
+        <button
+          style={{ ...s.primaryBtn, width: "100%", opacity: !joinCode.trim() || actionLoading ? 0.5 : 1 }}
+          onClick={handleJoin}
+          disabled={!joinCode.trim() || actionLoading}
+        >
+          {actionLoading ? "Sending request..." : "Request to Join"}
+        </button>
+      </div>
+    );
+  }
 
-  return (
-    <div>
-      <SubHeader title="Invite Friends" onBack={onBack} />
+  // ─── SCREEN: Circle Feed ───
+  if (screen === "feed") {
+    return (
+      <div>
+        <SubHeader
+          title={activeCircle?.name || "Circle"}
+          onBack={() => { setScreen("home"); setActiveCircle(null); }}
+          right={
+            <button
+              onClick={() => setScreen("share")}
+              style={{ ...s.addButton, fontSize: 11, padding: "6px 12px" }}
+            >
+              + Share
+            </button>
+          }
+        />
 
-      <div style={{ padding: 20 }}>
-        {/* Hero card */}
-        <div style={{
-          background: `linear-gradient(145deg, ${C.ink} 0%, #2E4A3C 100%)`,
-          borderRadius: 18, padding: "22px 20px", marginBottom: 20, color: C.cream,
-        }}>
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, fontWeight: 700, lineHeight: 1.2, marginBottom: 10 }}>
-            Give a month,<br />get a <span style={{ fontStyle: "italic", color: C.olive }}>month</span>
+        <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
+          <Tag color={C.seaGreen} bg={SOFT.seaGreen}>
+            {circleMembers.length} member{circleMembers.length !== 1 ? "s" : ""}
+          </Tag>
+          {activeCircle?.role === "owner" && (
+            <Tag color={C.olive} bg={SOFT.gold}>Owner</Tag>
+          )}
+        </div>
+
+        {/* Invite code for sharing */}
+        {activeCircle?.inviteCode && activeCircle?.role === "owner" && (
+          <div style={{
+            background: SOFT.blue, borderRadius: 10, padding: "10px 14px", marginBottom: 16,
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}>
+            <div>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.blue, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                Invite Code
+              </div>
+              <div style={{ fontFamily: "monospace", fontSize: 13, color: C.ink }}>
+                {activeCircle.inviteCode}
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(activeCircle.inviteCode).catch(() => {});
+                showToast("Invite code copied!");
+              }}
+              style={{
+                background: C.blue, color: C.cream, border: "none", borderRadius: 6,
+                padding: "6px 12px", fontSize: 11, fontWeight: 700, cursor: "pointer",
+                fontFamily: "'Barlow', sans-serif",
+              }}
+            >
+              Copy
+            </button>
           </div>
-          <p style={{ fontSize: 13, opacity: 0.75, lineHeight: 1.5, margin: "0 0 16px", fontFamily: "'Barlow', sans-serif" }}>
-            Invite friends to Skeddo Plus. When they subscribe within 7 days, you both get a free month. No limits.
-          </p>
-          <div style={{ display: "flex", gap: 16, paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.12)" }}>
+        )}
+
+        {/* Feed */}
+        {activeFeed.length === 0 ? (
+          <EmptyState icon={"\uD83D\uDCE8"} message="No shared activities yet. Tap '+ Share' to share your first activity with this circle." />
+        ) : (
+          activeFeed.map((item) => {
+            const dupKey = `${item.activity_name}|||${item.provider_name}`.toLowerCase();
+            const dupCount = duplicateCounts[dupKey] || 1;
+            const isBookmarked = bookmarks.has(item.id);
+            const isFlagged = item.activity_flags?.length > 0;
+
+            return (
+              <div key={item.id} style={{
+                background: C.white, borderRadius: 14, padding: "14px 16px",
+                border: `1px solid ${C.border}`, marginBottom: 10,
+              }}>
+                {/* Attribution */}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                    <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
+                    {item.child_name && <> shared {item.child_name}'s activity</>}
+                  </div>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                    {timeAgo(item.shared_at)}
+                  </span>
+                </div>
+
+                {/* Activity card */}
+                <div style={{ background: "#FAF8F3", borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
+                    {item.activity_name}
+                  </div>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 6 }}>
+                    {item.provider_name}
+                  </div>
+                  {item.schedule_info && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                      {item.schedule_info}
+                    </div>
+                  )}
+                  {item.age_group && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                      {item.age_group}
+                    </div>
+                  )}
+                </div>
+
+                {/* Duplicate indicator */}
+                {dupCount > 1 && (
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.seaGreen, fontWeight: 600, marginBottom: 6 }}>
+                    {dupCount} parents shared this program
+                  </div>
+                )}
+
+                {/* Actions */}
+                <div style={{ display: "flex", gap: 8 }}>
+                  <button
+                    onClick={() => toggleBookmark(item.id)}
+                    style={{
+                      background: isBookmarked ? SOFT.gold : "none",
+                      border: `1px solid ${isBookmarked ? C.olive : C.border}`,
+                      borderRadius: 8, padding: "6px 12px", fontSize: 12,
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 600,
+                      color: isBookmarked ? C.olive : C.muted, cursor: "pointer",
+                    }}
+                  >
+                    {isBookmarked ? "\uD83D\uDD16 Saved" : "\uD83D\uDD16 Bookmark"}
+                  </button>
+                  {item.registration_url && (
+                    <a
+                      href={item.registration_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        background: SOFT.seaGreen, border: `1px solid ${C.seaGreen}22`,
+                        borderRadius: 8, padding: "6px 12px", fontSize: 12,
+                        fontFamily: "'Barlow', sans-serif", fontWeight: 600,
+                        color: C.seaGreen, textDecoration: "none", cursor: "pointer",
+                      }}
+                    >
+                      Register {"\u2192"}
+                    </a>
+                  )}
+                  <button
+                    onClick={() => {
+                      flagActivity(item.id, "Reported as outdated").then(() => showToast("Flagged!")).catch(() => {});
+                    }}
+                    style={{
+                      background: isFlagged ? "#FEE2E2" : "none",
+                      border: `1px solid ${isFlagged ? "#FECACA" : C.border}`,
+                      borderRadius: 8, padding: "6px 10px", fontSize: 12,
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 600,
+                      color: isFlagged ? "#991B1B" : C.muted, cursor: "pointer", marginLeft: "auto",
+                    }}
+                  >
+                    {isFlagged ? "Flagged" : "Flag"}
+                  </button>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+    );
+  }
+
+  // ─── SCREEN: Share Activity ───
+  if (screen === "share") {
+    return (
+      <div>
+        <SubHeader title="Share to Circle" onBack={() => setScreen("feed")} />
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+          Choose which activities to share with <strong style={{ color: C.ink }}>{activeCircle?.name}</strong>.
+          Circle members will see the child's first name and activity details.
+        </p>
+
+        {shareableActivities.length === 0 ? (
+          <EmptyState icon={"\uD83D\uDCCB"} message="No enrolled programs to share. Add programs from the Discover tab first." />
+        ) : (
+          <>
+            {shareableActivities.map((a) => {
+              const isSelected = selectedActivities.has(a.id);
+              return (
+                <div
+                  key={a.id}
+                  onClick={() => {
+                    setSelectedActivities((prev) => {
+                      const n = new Set(prev);
+                      if (n.has(a.id)) n.delete(a.id); else n.add(a.id);
+                      return n;
+                    });
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  style={{
+                    background: isSelected ? SOFT.seaGreen : C.white,
+                    borderRadius: 12, padding: "12px 14px", marginBottom: 8,
+                    border: `1px solid ${isSelected ? C.seaGreen : C.border}`,
+                    cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+                  }}
+                >
+                  <div style={{
+                    width: 22, height: 22, borderRadius: 6,
+                    border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                    background: isSelected ? C.seaGreen : "transparent",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 14, color: C.cream, flexShrink: 0,
+                  }}>
+                    {isSelected ? "\u2713" : ""}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink }}>
+                      {a.activityName}
+                    </div>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                      {a.providerName}{a.childName ? ` · ${a.childName}` : ""}
+                    </div>
+                    {a.scheduleInfo && (
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                        {a.scheduleInfo}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+            <button
+              style={{
+                ...s.primaryBtn, width: "100%", marginTop: 12,
+                opacity: selectedActivities.size === 0 || actionLoading ? 0.5 : 1,
+              }}
+              onClick={handleShare}
+              disabled={selectedActivities.size === 0 || actionLoading}
+            >
+              {actionLoading
+                ? "Sharing..."
+                : `Share ${selectedActivities.size} Activit${selectedActivities.size === 1 ? "y" : "ies"}`
+              }
+            </button>
+          </>
+        )}
+      </div>
+    );
+  }
+
+  // ─── SCREEN: Invite & Referrals ───
+  if (screen === "invite") {
+    const totalInvited = referrals.length;
+    const totalConverted = referrals.filter((r) => r.status === "converted").length;
+    const totalMonths = referrals.reduce((sum, r) => sum + (r.status === "converted" ? r.reward_months : 0), 0);
+
+    return (
+      <div>
+        <SubHeader title="Invite Friends" onBack={() => setScreen("home")} />
+
+        {/* Stats card */}
+        <div style={{
+          borderRadius: 14, padding: "18px 20px",
+          background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
+          marginBottom: 16,
+        }}>
+          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
+            Give a month, get a month
+          </div>
+          <div style={{ display: "flex", gap: 16 }}>
             {[
-              { val: "0", label: "Invited" },
-              { val: "0", label: "Joined" },
-              { val: "0", label: "Earned" },
-            ].map((stat, i) => (
-              <div key={i}>
-                <div style={{ fontSize: 22, fontWeight: 700, color: C.cream, fontFamily: "'Poppins', sans-serif" }}>{stat.val}</div>
-                <div style={{ fontSize: 10, opacity: 0.5, marginTop: 2, fontFamily: "'Barlow', sans-serif" }}>{stat.label}</div>
+              { num: totalInvited, label: "Invited" },
+              { num: totalConverted, label: "Joined" },
+              { num: totalMonths, label: "mo Earned" },
+            ].map((stat) => (
+              <div key={stat.label} style={{ textAlign: "center" }}>
+                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.cream }}>{stat.num}</div>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Referral link */}
-        <div style={{ background: C.white, borderRadius: 14, padding: 16, border: `1px solid ${C.border}`, marginBottom: 14 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: C.ink, marginBottom: 8, fontFamily: "'Barlow', sans-serif" }}>Your referral link</div>
-          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <div style={{
-              flex: 1, padding: "9px 12px", background: C.cream, borderRadius: 8,
-              fontSize: 12, color: C.muted, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              fontFamily: "'Barlow', sans-serif",
-            }}>
-              Coming soon
-            </div>
-            <button
-              onClick={handleCopy}
-              style={{
-                padding: "9px 14px",
-                background: copied ? SOFT.seaGreen : C.ink,
-                color: copied ? C.seaGreen : C.cream,
-                border: "none", borderRadius: 8, fontSize: 12, fontWeight: 600,
-                cursor: "pointer", fontFamily: "'Barlow', sans-serif", whiteSpace: "nowrap",
-              }}
-            >
-              {copied ? "Copied \u2713" : "Copy"}
-            </button>
+        {/* Generate referral link */}
+        <button
+          onClick={async () => {
+            setActionLoading(true);
+            try {
+              const result = await createReferral();
+              showToast("Referral link created!");
+              // Copy to clipboard
+              await navigator.clipboard.writeText(result.referralUrl).catch(() => {});
+              showToast("Link copied to clipboard!");
+            } catch (err) {
+              showToast(err.message);
+            }
+            setActionLoading(false);
+          }}
+          style={{ ...s.primaryBtn, width: "100%", marginBottom: 16, opacity: actionLoading ? 0.5 : 1 }}
+          disabled={actionLoading}
+        >
+          {actionLoading ? "Generating..." : "Generate Referral Link"}
+        </button>
+
+        {/* How referrals work */}
+        <div style={{ background: C.white, borderRadius: 14, padding: "16px 18px", border: `1px solid ${C.border}`, marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: 0.5 }}>
+            How referrals work
           </div>
-        </div>
-
-        {/* Share buttons */}
-        <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
           {[
-            { l: "Text", i: "\uD83D\uDCAC" },
-            { l: "Email", i: "\uD83D\uDCE7" },
-            { l: "WhatsApp", i: "\uD83D\uDCF1" },
-          ].map((o) => (
-            <button
-              key={o.l}
-              className="skeddo-card"
-              onClick={() => showToast && showToast("Referrals coming soon!")}
-              style={{
-                flex: 1, padding: "12px 8px", background: C.white,
-                border: `1px solid ${C.border}`, borderRadius: 10, cursor: "pointer",
-                display: "flex", flexDirection: "column", alignItems: "center", gap: 5,
-              }}
-            >
-              <span style={{ fontSize: 20 }}>{o.i}</span>
-              <span style={{ fontSize: 11, fontWeight: 600, color: C.ink, fontFamily: "'Barlow', sans-serif" }}>{o.l}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* How it works */}
-        <div style={{ marginBottom: 20 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: C.ink, marginBottom: 12, fontFamily: "'Barlow', sans-serif" }}>How referrals work</div>
-          {[
-            "Share your invite link with a friend",
-            "They sign up for Skeddo Plus within 7 days",
-            "You both get a free month \u2014 instantly",
-          ].map((text, i) => (
-            <div key={i} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
+            { num: "1", text: "Share your referral link with another parent" },
+            { num: "2", text: "They sign up for Skeddo Plus within 7 days" },
+            { num: "3", text: "You both get a free month!" },
+          ].map((step) => (
+            <div key={step.num} style={{ display: "flex", gap: 10, marginBottom: 8, alignItems: "flex-start" }}>
               <div style={{
-                width: 26, height: 26, borderRadius: "50%", background: SOFT.seaGreen, color: C.seaGreen,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 12, fontWeight: 700, flexShrink: 0, fontFamily: "'Barlow', sans-serif",
-              }}>{i + 1}</div>
-              <span style={{ fontSize: 13, color: C.ink, fontFamily: "'Barlow', sans-serif" }}>{text}</span>
+                width: 22, height: 22, borderRadius: "50%", background: C.seaGreen,
+                color: C.cream, display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif", flexShrink: 0,
+              }}>{step.num}</div>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, lineHeight: 1.4 }}>{step.text}</span>
             </div>
           ))}
         </div>
 
-        {/* Empty referral list */}
-        <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: C.ink, marginBottom: 10, fontFamily: "'Barlow', sans-serif" }}>Your referrals</div>
-          <div style={{ padding: "16px 0", textAlign: "center" }}>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
-              No referrals yet. Share your link to get started!
+        {/* Your referrals */}
+        {referrals.length > 0 && (
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              Your Referrals
             </div>
+            {referrals.map((ref) => (
+              <div key={ref.id} style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "8px 0", borderBottom: `1px solid ${C.border}`,
+              }}>
+                <div style={{ fontFamily: "monospace", fontSize: 12, color: C.ink }}>
+                  {ref.referral_code}
+                </div>
+                <Tag
+                  color={ref.status === "converted" ? C.seaGreen : C.olive}
+                  bg={ref.status === "converted" ? SOFT.seaGreen : SOFT.gold}
+                >
+                  {ref.status === "converted" ? "Joined" : ref.status === "expired" ? "Expired" : "Pending"}
+                </Tag>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Build activities list from user's real programs ─── */
-function buildActivities(programs, kids) {
-  return programs.map((p) => {
-    const kidNames = (p.kidIds || [])
-      .map((id) => kids.find((k) => k.id === id)?.name)
-      .filter(Boolean);
-    return {
-      id: p.id,
-      name: p.name || "Untitled Program",
-      provider: p.provider || "",
-      detail: [p.days, p.times].filter(Boolean).join(" \u00B7 ") || "",
-      child: kidNames.join(", ") || "",
-    };
-  });
-}
-
-/* ─── Main CirclesTab (manages sub-screen navigation) ─── */
-export default function CirclesTab({ programs = [], kids = [], profile = {}, showToast }) {
-  const [screen, setScreen] = useState("home"); // home | feed | invite
-  const [activeCircle, setActiveCircle] = useState(null);
-  const [showShareSheet, setShowShareSheet] = useState(false);
-
-  // No circles exist yet — will come from Supabase when the backend is built
-  const circles = [];
-  const feed = [];
-
-  const activities = buildActivities(programs, kids);
-
-  const openCircle = (circle) => {
-    setActiveCircle(circle);
-    setScreen("feed");
-  };
-
-  if (screen === "invite") {
-    return <InviteScreen onBack={() => setScreen("home")} showToast={showToast} />;
-  }
-
-  if (screen === "feed" && activeCircle) {
-    return (
-      <>
-        <CircleFeed
-          circle={activeCircle}
-          feed={feed}
-          onBack={() => { setScreen("home"); setActiveCircle(null); }}
-          onOpenShare={() => setShowShareSheet(true)}
-        />
-        {showShareSheet && (
-          <ShareSheet
-            circle={activeCircle}
-            activities={activities}
-            onClose={() => setShowShareSheet(false)}
-            showToast={showToast}
-          />
         )}
-      </>
+      </div>
     );
   }
 
-  return (
-    <CirclesHome
-      circles={circles}
-      onOpenCircle={openCircle}
-      onOpenInvite={() => setScreen("invite")}
-      showToast={showToast}
-    />
-  );
+  return null;
 }

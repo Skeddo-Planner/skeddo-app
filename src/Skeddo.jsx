@@ -22,6 +22,7 @@ import OnboardingFlow from "./onboarding/OnboardingFlow";
 import InfoPage from "./pages/InfoPages";
 import { usePushNotifications } from "./hooks/usePushNotifications";
 import { useChildAccess } from "./hooks/useChildAccess";
+import { useCircles } from "./hooks/useCircles";
 import InviteModal from "./modals/InviteModal";
 import ChildSettingsModal from "./modals/ChildSettingsModal";
 import InviteAcceptPage from "./pages/InviteAcceptPage";
@@ -168,6 +169,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const [infoPage, setInfoPage] = useState(null);
   const pushNotifications = usePushNotifications();
   const childAccess = useChildAccess(userId, session);
+  const circlesHook = useCircles(userId, session);
 
   // Merge shared kids into the kids list
   const allKids = [...kids, ...childAccess.sharedKids.filter((sk) => !kids.some((k) => k.id === sk.id))];
@@ -538,6 +540,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             kids={kids}
             profile={profile}
             showToast={showToast}
+            userId={userId}
+            circlesHook={circlesHook}
           />
         )}
 
@@ -557,7 +561,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         )}
       </main>}
 
-      {!infoPage && <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} />}
+      {!infoPage && <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} badges={{ circles: circlesHook.pendingCount }} />}
 
       {/* ─── MODALS ─── */}
       {modal?.type === "programDetail" && (() => {
