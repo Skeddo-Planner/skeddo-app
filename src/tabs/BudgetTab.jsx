@@ -208,17 +208,19 @@ export default function BudgetTab({
         const total = effectiveBudget > 0 ? effectiveBudget : (spentCost + potentialCost) || 1;
         const spentPct = (spentCost / total) * 100;
         const potentialPct = (potentialCost / total) * 100;
-        const overBudget = effectiveBudget > 0 && (spentCost + potentialCost) > budgetGoal;
-        const remainingAmt = effectiveBudget > 0 ? Math.max(budgetGoal - spentCost - potentialCost, 0) : 0;
+        const totalSpend = spentCost + potentialCost;
+        const overBudget = effectiveBudget > 0 && totalSpend > effectiveBudget;
+        const underBudgetAmt = effectiveBudget > 0 ? effectiveBudget - totalSpend : 0;
+        const remainingAmt = effectiveBudget > 0 ? Math.max(underBudgetAmt, 0) : 0;
         const remainingPct = effectiveBudget > 0 ? (remainingAmt / total) * 100 : 0;
-        const overflowAmt = overBudget ? (spentCost + potentialCost) - effectiveBudget : 0;
+        const overflowAmt = overBudget ? totalSpend - effectiveBudget : 0;
 
         return (
           <div style={{ ...s.budgetCard, marginBottom: 16, padding: "16px 16px" }}>
             {effectiveBudget > 0 && (
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
-                  Budget Goal: {fmt$(budgetGoal)}
+                  Budget Goal: {fmt$(effectiveBudget)}
                 </span>
               </div>
             )}
@@ -276,22 +278,20 @@ export default function BudgetTab({
                   {fmt$(potentialCost)} potential
                 </span>
               </div>
-              {effectiveBudget > 0 && !overBudget && (
-                <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                  <div style={{ width: 10, height: 10, borderRadius: 3, background: "#E5E7EB" }} />
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: "#2D9F6F" }}>
-                    {fmt$(remainingAmt)} remaining
+              {effectiveBudget > 0 && (
+                overBudget ? (
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#E76F51" }}>
+                    -{fmt$(overflowAmt)} over budget
                   </span>
-                </div>
-              )}
-              {overBudget && (
-                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#E76F51" }}>
-                  -{fmt$(overflowAmt)} over budget
-                </span>
+                ) : (
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#2D9F6F" }}>
+                    {fmt$(underBudgetAmt)} under budget
+                  </span>
+                )
               )}
             </div>
 
-            {!budgetGoal && (
+            {!effectiveBudget && (
               <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 8, margin: "8px 0 0" }}>
                 Set a budget in your profile to see how much room you have left.
               </p>
