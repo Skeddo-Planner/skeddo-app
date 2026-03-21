@@ -3,6 +3,14 @@ import { C } from "../constants/brand";
 import directoryPrograms from "../data/programs.json";
 
 export default function ComingSoonPage() {
+  // Prevent search engines from indexing the Coming Soon page
+  useEffect(() => {
+    let meta = document.querySelector('meta[name="robots"]');
+    if (!meta) { meta = document.createElement("meta"); meta.name = "robots"; document.head.appendChild(meta); }
+    meta.content = "noindex, nofollow";
+    return () => { if (meta) meta.content = "index, follow"; };
+  }, []);
+
   const launchDate = new Date("2026-04-01T00:00:00-07:00"); // April 1, PDT
 
   const calcTimeLeft = () => {
@@ -89,7 +97,7 @@ export default function ComingSoonPage() {
             marginBottom: 40,
           }}
         >
-          The planner for busy families — launching April 1, 2026
+          The planner for busy families — launching <time dateTime="2026-04-01T00:00:00-07:00">April 1, 2026</time>
         </p>
 
         {/* Countdown */}
