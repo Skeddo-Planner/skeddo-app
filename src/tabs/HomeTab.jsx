@@ -42,13 +42,16 @@ export default function HomeTab({
   const { icon: seasonIcon, season } = getSeasonalGreeting();
   const hasPrograms = totalPrograms > 0;
 
-  // Tip banners — show one based on user state
-  // Plus/Pro users only see tips, never upgrade nudges
+  // Banners — split into kids upgrade (shows after kids row) and tips (shows later)
   const isPaid = userPlan === "plus" || userPlan === "pro";
   const [dismissedBanners, setDismissBanner] = useState(new Set());
   const dismissBanner = (id) => setDismissBanner((prev) => new Set(prev).add(id));
+
+  // Kids upgrade banner — only for free users with 2+ kids
+  const showKidsBanner = !isPaid && kids.length > 1 && !dismissedBanners.has("upgrade-kids");
+
+  // Tip banner — contextual, shows later in the page
   const tipBanner = !dismissedBanners.has("tip") ? (
-    !isPaid && kids.length > 1 && !dismissedBanners.has("upgrade-kids") ? "upgrade-kids" :
     hasPrograms && !dismissedBanners.has("tip-calendar") ? "tip-calendar" :
     !hasPrograms && !dismissedBanners.has("tip-search") ? "tip-search" :
     enrolledPrograms.length === 0 && exploringPrograms.length > 0 && !dismissedBanners.has("tip-wishlist") ? "tip-wishlist" :
@@ -78,6 +81,38 @@ export default function HomeTab({
 
   return (
     <div>
+      {/* Recent activity from co-parents — at the top */}
+      {activityLog && activityLog.length > 0 && (
+        <>
+          <div style={s.sectionHeader}>
+            <h3 style={s.sectionTitle}>Recent Activity</h3>
+          </div>
+          <div style={{ background: C.white, borderRadius: 14, border: `1px solid ${C.border}`, padding: "12px 16px", marginBottom: 16 }}>
+            {activityLog.slice(0, 5).map((log) => (
+              <div key={log.id} style={{
+                display: "flex", gap: 8, alignItems: "baseline",
+                padding: "6px 0", borderBottom: `1px solid ${C.border}`,
+                fontFamily: "'Barlow', sans-serif", fontSize: 12,
+              }}>
+                <span style={{ fontWeight: 600, color: C.ink }}>{log.user_name}</span>
+                <span style={{ color: C.muted }}>{log.action} {log.details?.programName || "a program"}</span>
+                <span style={{ color: C.muted, marginLeft: "auto", fontSize: 10, whiteSpace: "nowrap" }}>
+                  {(() => {
+                    const diff = Date.now() - new Date(log.created_at).getTime();
+                    const mins = Math.floor(diff / 60000);
+                    if (mins < 1) return "Just now";
+                    if (mins < 60) return `${mins}m ago`;
+                    const hrs = Math.floor(mins / 60);
+                    if (hrs < 24) return `${hrs}h ago`;
+                    return `${Math.floor(hrs / 24)}d ago`;
+                  })()}
+                </span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
       {/* Kids row + Add button inline */}
       <div style={{ display: "flex", gap: 10, marginBottom: 16, overflowX: "auto", paddingBottom: 4 }}>
         {kids.map((k) => {
@@ -136,68 +171,10 @@ export default function HomeTab({
         </button>
       </div>
 
-      {/* Welcome card — context-aware */}
-      <div style={s.welcomeCard}>
-        <h2 style={s.welcomeTitle}>
-          {hasPrograms ? (
-            <>
-              {seasonIcon} You're on{" "}
-              <em style={{ color: C.olive, fontStyle: "italic" }}>track.</em>
-            </>
-          ) : (
-            <>
-              One app.{" "}
-              <em style={{ color: C.olive, fontStyle: "italic" }}>Zero chaos.</em>
-            </>
-          )}
-        </h2>
-        <p style={s.welcomeBody}>
-          {hasPrograms ? (
-            <>
-              You have{" "}
-              <strong style={{ color: C.ink }}>
-                {enrolledPrograms.length} program
-                {enrolledPrograms.length !== 1 ? "s" : ""}
-              </strong>{" "}
-              lined up for {enrolledCampTypes}
-              {waitlistPrograms.length > 0 && (
-                <>
-                  , <strong style={{ color: C.ink }}>{waitlistPrograms.length}</strong> on
-                  the waitlist
-                </>
-              )}
-              {exploringPrograms.length > 0 && (
-                <>
-                  , and <strong style={{ color: C.ink }}>{exploringPrograms.length}</strong>{" "}
-                  you're still exploring
-                </>
-              )}
-              . You've got this!
-            </>
-          ) : (
-            <>
-              Planning starts here. Browse real Vancouver programs, save
-              your favorites, and keep everything organized in one place.
-            </>
-          )}
-        </p>
-        {!hasPrograms && (
-          <button
-            onClick={() => onNavigateToTab("discover")}
-            style={{
-              ...s.primaryBtn,
-              marginTop: 12,
-              display: "inline-block",
-              flex: "none",
-              padding: "10px 20px",
-              fontSize: 13,
-            }}
-          >
-            Browse Programs
-          </button>
-        )}
-      </div>
-
+      {/* Kids upgrade banner — right below kids row */}
+      {showKidsBanner && (
+        <PromoBanner type="upgrade-kids" onDismiss={() => dismissBanner("upgrade-kids")} />
+      )}
 
       {/* Stats grid */}
       <div style={s.statsGrid}>
@@ -326,37 +303,6 @@ export default function HomeTab({
             {"\u00D7"}
           </button>
         </div>
-      )}
-
-      {/* Recent activity from co-parents */}
-      {activityLog && activityLog.length > 0 && (
-        <>
-          <div style={s.sectionHeader}>
-            <h3 style={s.sectionTitle}>Recent Activity</h3>
-          </div>
-          <div style={{ background: C.white, borderRadius: 14, border: `1px solid ${C.border}`, padding: "12px 16px", marginBottom: 16 }}>
-            {activityLog.slice(0, 5).map((log) => (
-              <div key={log.id} style={{
-                display: "flex", gap: 8, alignItems: "baseline",
-                padding: "6px 0", borderBottom: `1px solid ${C.border}`,
-                fontFamily: "'Barlow', sans-serif", fontSize: 12,
-              }}>
-                <span style={{ fontWeight: 600, color: C.ink }}>{log.user_name}</span>
-                <span style={{ color: C.muted }}>{log.action} {log.details?.programName || "a program"}</span>
-                <span style={{ color: C.muted, marginLeft: "auto", fontSize: 10, whiteSpace: "nowrap" }}>
-                  {(() => {
-                    const diff = Date.now() - new Date(log.created_at).getTime();
-                    const mins = Math.floor(diff / 60000);
-                    if (mins < 60) return `${mins}m ago`;
-                    const hrs = Math.floor(mins / 60);
-                    if (hrs < 24) return `${hrs}h ago`;
-                    return `${Math.floor(hrs / 24)}d ago`;
-                  })()}
-                </span>
-              </div>
-            ))}
-          </div>
-        </>
       )}
 
       {/* Enrolled Programs */}
