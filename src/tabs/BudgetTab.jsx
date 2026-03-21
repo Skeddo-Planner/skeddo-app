@@ -107,8 +107,8 @@ export default function BudgetTab({
                 }
               }}
               style={{
-                background: C.cream, color: C.ink, border: `1.5px solid ${C.border}`,
-                borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 700,
+                background: C.blue, color: "#fff", border: "none",
+                borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
                 fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
               }}
             >
@@ -118,7 +118,7 @@ export default function BudgetTab({
               onClick={onAddCost}
               style={{
                 background: C.seaGreen, color: "#fff", border: "none",
-                borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 700,
+                borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
                 fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
               }}
             >
@@ -337,34 +337,70 @@ export default function BudgetTab({
             const kPotential = kPrograms.filter((p) => p.status !== "Enrolled").reduce((a, p) => a + Number(p.cost || 0), 0);
             const kManual = (manualCosts || []).filter((c) => c.kidId === k.id).reduce((a, c) => a + Number(c.amount || 0), 0);
             const kCommitted = kEnrolled + kManual;
+            const kBudget = Number(k.budgetGoal) || 0;
+            const kTotal = kBudget || (kCommitted + kPotential) || 1;
+            const kCommPct = (kCommitted / kTotal) * 100;
+            const kPotPct = (kPotential / kTotal) * 100;
+            const kOver = kBudget > 0 && (kCommitted + kPotential) > kBudget;
             return (
               <div
                 key={k.id}
-                style={{ ...s.budgetKidRow, cursor: "pointer" }}
+                style={{ ...s.budgetCard, cursor: "pointer", padding: "14px 16px", marginBottom: 10 }}
                 className="skeddo-card"
                 onClick={() => onKidFilter(k.id)}
                 role="button"
                 tabIndex={0}
               >
-                <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14, background: k.color || s.kidAvatar.background }}>
-                  {k.name?.[0]?.toUpperCase()}
-                </div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 14, color: C.ink }}>
-                    {k.name}
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                  <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14, borderRadius: 8, background: k.color || s.kidAvatar.background }}>
+                    {k.name?.[0]?.toUpperCase()}
                   </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
-                    {kPrograms.length} program{kPrograms.length !== 1 ? "s" : ""}
-                    {k.budgetGoal ? ` · Budget: ${fmt$(k.budgetGoal)}` : ""}
-                    {kPotential > 0 && ` · ${fmt$(kPotential)} potential`}
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 16, color: C.ink }}>
+                      {k.name}
+                    </div>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                      {kPrograms.length} program{kPrograms.length !== 1 ? "s" : ""}
+                      {kBudget > 0 && ` · Budget: ${fmt$(kBudget)}`}
+                    </div>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink }}>
+                      {fmt$(kCommitted)}
+                    </div>
+                    {kPotential > 0 && (
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                        +{fmt$(kPotential)} potential
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 18, color: C.ink }}>
-                    {fmt$(kCommitted)}
-                  </div>
-                  <div style={{ color: C.muted, fontSize: 16 }}>&rsaquo;</div>
+                {/* Mini bar chart */}
+                <div style={{ height: 8, borderRadius: 4, background: "#E5E7EB", overflow: "hidden", display: "flex" }}>
+                  {kCommitted > 0 && (
+                    <div style={{
+                      width: `${Math.min(kCommPct, 100)}%`, height: "100%",
+                      background: kOver ? "#E76F51" : "#2D9F6F",
+                      transition: "width 0.4s ease",
+                    }} />
+                  )}
+                  {kPotential > 0 && (
+                    <div style={{
+                      width: `${Math.min(kPotPct, 100 - Math.min(kCommPct, 100))}%`, height: "100%",
+                      background: "repeating-linear-gradient(45deg, #F4A261, #F4A261 3px, #E8893A 3px, #E8893A 6px)",
+                      opacity: 0.7,
+                      transition: "width 0.4s ease",
+                    }} />
+                  )}
                 </div>
+                {kBudget > 0 && (
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? "#E76F51" : C.muted, marginTop: 4 }}>
+                    {kOver
+                      ? `${fmt$((kCommitted + kPotential) - kBudget)} over budget`
+                      : `${fmt$(kBudget - kCommitted - kPotential)} remaining`
+                    }
+                  </div>
+                )}
               </div>
             );
           })}
@@ -397,7 +433,7 @@ export default function BudgetTab({
         return (
           <div key={p.id} style={{ ...s.budgetRow, alignItems: "flex-start" }}>
             <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 14, color: C.ink }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 16, color: C.ink }}>
                 {p.name}
               </div>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
@@ -440,7 +476,7 @@ export default function BudgetTab({
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1 }}>
                   <span style={{ fontSize: 16 }}>{isNegative ? "\uD83C\uDF1F" : "\uD83E\uDDFE"}</span>
                   <div>
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 14, color: C.ink }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 16, color: C.ink }}>
                       {c.description}
                     </div>
                     <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
