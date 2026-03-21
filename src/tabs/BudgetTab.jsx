@@ -9,8 +9,9 @@ export default function BudgetTab({
   programs, kids, kidFilter, onKidFilter,
   enrolledPrograms, waitlistPrograms, exploringPrograms,
   totalCostEnrolled, totalCostAll, budgetGoal,
-  manualCosts, onAddCost, onEditCost, userId,
+  manualCosts, onAddCost, onEditCost, userId, userPlan,
 }) {
+  const isPaid = userPlan === "plus" || userPlan === "pro";
   const [showBanner, setShowBanner] = useState(true);
   const [sortBy, setSortBy] = useState("cost"); // cost | costPerHour | alpha
 
@@ -58,7 +59,7 @@ export default function BudgetTab({
   return (
     <div>
       <h2 style={s.pageTitle}>Budget</h2>
-      {showBanner && <PromoBanner type="upgrade-budget" onDismiss={() => setShowBanner(false)} />}
+      {showBanner && !isPaid && <PromoBanner type="upgrade-budget" onDismiss={() => setShowBanner(false)} />}
 
       <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16 }}>
         {selectedKid ? (

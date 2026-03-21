@@ -531,6 +531,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onInstallClick={handleInstallClick}
             onDismissInstall={() => setShowInstallBanner(false)}
             activityLog={childAccess.activityLog}
+            userPlan={profile.plan}
           />
         )}
 
@@ -583,6 +584,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             showToast={showToast}
             userId={userId}
             circlesHook={circlesHook}
+            userPlan={profile.plan}
           />
         )}
 
@@ -602,6 +604,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onAddCost={openAddCost}
             onEditCost={openEditCost}
             userId={userId}
+            userPlan={profile.plan}
           />
         )}
       </main>}

@@ -35,6 +35,7 @@ export default function HomeTab({
   onInstallClick,
   onDismissInstall,
   activityLog,
+  userPlan,
 }) {
   const allPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms];
   const totalPrograms = allPrograms.length;
@@ -42,10 +43,12 @@ export default function HomeTab({
   const hasPrograms = totalPrograms > 0;
 
   // Tip banners — show one based on user state
+  // Plus/Pro users only see tips, never upgrade nudges
+  const isPaid = userPlan === "plus" || userPlan === "pro";
   const [dismissedBanners, setDismissBanner] = useState(new Set());
   const dismissBanner = (id) => setDismissBanner((prev) => new Set(prev).add(id));
   const tipBanner = !dismissedBanners.has("tip") ? (
-    kids.length > 1 && !dismissedBanners.has("upgrade-kids") ? "upgrade-kids" :
+    !isPaid && kids.length > 1 && !dismissedBanners.has("upgrade-kids") ? "upgrade-kids" :
     hasPrograms && !dismissedBanners.has("tip-calendar") ? "tip-calendar" :
     !hasPrograms && !dismissedBanners.has("tip-search") ? "tip-search" :
     enrolledPrograms.length === 0 && exploringPrograms.length > 0 && !dismissedBanners.has("tip-wishlist") ? "tip-wishlist" :

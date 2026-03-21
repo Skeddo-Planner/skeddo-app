@@ -96,7 +96,7 @@ function timeAgo(dateStr) {
 }
 
 export default function CirclesTab({
-  programs, kids, profile, showToast, userId, circlesHook,
+  programs, kids, profile, showToast, userId, circlesHook, userPlan,
 }) {
   const {
     circles, pendingRequests, activeFeed, bookmarks, referrals, loading,
@@ -243,7 +243,7 @@ export default function CirclesTab({
           </div>
         </div>
 
-        {showSharingBanner && <PromoBanner type="upgrade-sharing" onDismiss={() => setShowSharingBanner(false)} />}
+        {showSharingBanner && !(userPlan === "plus" || userPlan === "pro") && <PromoBanner type="upgrade-sharing" onDismiss={() => setShowSharingBanner(false)} />}
 
         {/* Pending requests */}
         {pendingRequests.length > 0 && (
