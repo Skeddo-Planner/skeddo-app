@@ -99,7 +99,7 @@ export default function CirclesTab({
   programs, kids, profile, showToast, userId, circlesHook, userPlan,
 }) {
   const {
-    circles, pendingRequests, activeFeed, bookmarks, referrals, loading,
+    circles, pendingRequests, activeFeed, bookmarks, bookmarkedActivities, referrals, loading,
     referralCode, referralUrl, membersRecruited, freeMonthsEarned,
     createCircle, joinCircle, handleMemberRequest, leaveCircle, removeMember,
     shareActivities, loadFeed, toggleBookmark, flagActivity,
@@ -346,6 +346,67 @@ export default function CirclesTab({
             </div>
           </div>
         </div>
+
+        {/* Bookmarked activities */}
+        {bookmarkedActivities.length > 0 && (
+          <div style={{ marginTop: 20 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 10 }}>
+              {"\u2764\uFE0F"} Saved Activities ({bookmarkedActivities.length})
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {bookmarkedActivities.map((a) => (
+                <div key={a.id} style={{
+                  background: C.white, borderRadius: 12, padding: "12px 14px",
+                  border: `1px solid ${C.border}`,
+                  display: "flex", alignItems: "flex-start", gap: 10,
+                }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
+                      {a.activity_name}
+                    </div>
+                    {a.provider_name && (
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2 }}>
+                        {a.provider_name}
+                      </div>
+                    )}
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 2 }}>
+                      {[a.child_name, a.schedule_info, a.age_group].filter(Boolean).join(" · ")}
+                    </div>
+                    {a.shared_by_name && (
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.olive, marginTop: 4 }}>
+                        Shared by {a.shared_by_name} · {timeAgo(a.shared_at)}
+                      </div>
+                    )}
+                  </div>
+                  <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
+                    {a.registration_url && (
+                      <button
+                        onClick={() => window.open(a.registration_url, "_blank")}
+                        style={{
+                          background: C.seaGreen, color: C.cream, border: "none", borderRadius: 8,
+                          padding: "6px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer",
+                          fontFamily: "'Barlow', sans-serif",
+                        }}
+                      >
+                        Register
+                      </button>
+                    )}
+                    <button
+                      onClick={() => toggleBookmark(a.id)}
+                      style={{
+                        background: "none", border: `1px solid ${C.border}`, borderRadius: 8,
+                        padding: "6px 8px", fontSize: 14, cursor: "pointer", lineHeight: 1,
+                      }}
+                      aria-label="Remove bookmark"
+                    >
+                      {"\u2764\uFE0F"}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   }

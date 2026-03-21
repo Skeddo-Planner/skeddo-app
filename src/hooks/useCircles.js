@@ -9,6 +9,7 @@ export function useCircles(userId, session) {
   const [pendingRequests, setPendingRequests] = useState([]); // pending join requests (for owner)
   const [activeFeed, setActiveFeed] = useState([]);     // feed for the active circle
   const [bookmarks, setBookmarks] = useState(new Set());
+  const [bookmarkedActivities, setBookmarkedActivities] = useState([]);
   const [referrals, setReferrals] = useState([]);
   const [referralCode, setReferralCode] = useState(null); // user's permanent referral code
   const [referralUrl, setReferralUrl] = useState(null);
@@ -95,12 +96,22 @@ export function useCircles(userId, session) {
           setPendingRequests([]);
         }
 
-        // Load bookmarks
+        // Load bookmarks (IDs + full activity details)
         const { data: bm } = await supabase
           .from("circle_bookmarks")
           .select("shared_activity_id")
           .eq("user_id", userId);
-        setBookmarks(new Set((bm || []).map((b) => b.shared_activity_id)));
+        const bmIds = (bm || []).map((b) => b.shared_activity_id);
+        setBookmarks(new Set(bmIds));
+        if (bmIds.length > 0) {
+          const { data: bmActivities } = await supabase
+            .from("shared_activities")
+            .select("*")
+            .in("id", bmIds);
+          setBookmarkedActivities(bmActivities || []);
+        } else {
+          setBookmarkedActivities([]);
+        }
 
         // Load referral code from profile
         const { data: profileData } = await supabase
@@ -354,6 +365,7 @@ export function useCircles(userId, session) {
     pendingRequests,
     activeFeed,
     bookmarks,
+    bookmarkedActivities,
     referrals,
     referralCode,
     referralUrl,
