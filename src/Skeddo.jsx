@@ -24,6 +24,7 @@ import InfoPage from "./pages/InfoPages";
 import { usePushNotifications } from "./hooks/usePushNotifications";
 import { useChildAccess } from "./hooks/useChildAccess";
 import { useCircles } from "./hooks/useCircles";
+import usePlanAccess from "./hooks/usePlanAccess";
 import InviteModal from "./modals/InviteModal";
 import ChildSettingsModal from "./modals/ChildSettingsModal";
 import InviteAcceptPage from "./pages/InviteAcceptPage";
@@ -188,6 +189,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const pushNotifications = usePushNotifications();
   const childAccess = useChildAccess(userId, session);
   const circlesHook = useCircles(userId, session);
+  const planAccess = usePlanAccess(profile.plan || "free");
 
   // Merge shared kids into the kids list
   const allKids = [...kids, ...childAccess.sharedKids.filter((sk) => !kids.some((k) => k.id === sk.id))];
@@ -339,6 +341,12 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const handleSaveProgram = () => {
     if (!form.name?.trim()) return;
     const isNew = !form.id;
+    // Gate: free plan program limit
+    if (isNew && !planAccess.checkProgramLimit(programs.length).allowed) {
+      showToast("Upgrade to Skeddo Plus to add more than 3 programs");
+      setModal(null);
+      return;
+    }
     saveProgram({
       ...form,
       name: form.name.trim(),
@@ -399,6 +407,12 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const handleAddToSchedule = (dirProgram) => {
+    // Gate: free plan program limit
+    if (!planAccess.checkProgramLimit(programs.length).allowed) {
+      showToast("Upgrade to Skeddo Plus to add more than 3 programs");
+      setModal(null);
+      return;
+    }
     saveProgram({
       id: uid(),
       name: dirProgram.name,
@@ -498,6 +512,19 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         .progress-bar { transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
       `}</style>
 
+      {/* Test-mode indicator for founders */}
+      {planAccess.isTestMode && (
+        <div style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 10000,
+          background: planAccess.effectivePlan === "free" ? "#E76F51" : "#2D9F6F",
+          color: "#fff", textAlign: "center", padding: "4px 0",
+          fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+          letterSpacing: 0.5,
+        }}>
+          Testing: {planAccess.effectivePlan === "free" ? "Free Plan" : "Plus Plan"}
+        </div>
+      )}
+
       <Header
         displayName={profile.displayName}
         onOpenProfile={() => setModal({ type: "profile" })}
@@ -531,7 +558,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onInstallClick={handleInstallClick}
             onDismissInstall={() => setShowInstallBanner(false)}
             activityLog={childAccess.activityLog}
-            userPlan={profile.plan}
+            planAccess={planAccess}
+            programs={programs}
           />
         )}
 
@@ -544,7 +572,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             isFavorite={isFavorite}
             onAddToSchedule={handleAddToSchedule}
             onOpenDirectoryDetail={openDirectoryDetail}
-            userPlan={profile.plan}
+            planAccess={planAccess}
           />
         )}
 
@@ -585,7 +613,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             showToast={showToast}
             userId={userId}
             circlesHook={circlesHook}
-            userPlan={profile.plan}
+            planAccess={planAccess}
           />
         )}
 
@@ -605,7 +633,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onAddCost={openAddCost}
             onEditCost={openEditCost}
             userId={userId}
-            userPlan={profile.plan}
+            planAccess={planAccess}
             onSaveKid={saveKid}
           />
         )}
@@ -713,6 +741,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           onSignOut={onSignOut}
           onClose={() => setModal(null)}
           pushNotifications={pushNotifications}
+          planAccess={planAccess}
         />
       )}
 

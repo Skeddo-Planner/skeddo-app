@@ -84,7 +84,7 @@ const BANNERS = {
   "upgrade-kids": {
     bg: "linear-gradient(135deg, #F4A261 0%, #E8893A 100%)",
     title: "Got more than one kid?",
-    body: "Skeddo Plus lets you add unlimited kids and more than 5 programs.",
+    body: "Skeddo Plus lets you add unlimited kids and more than 3 programs.",
     label: null,
     darkText: true,
   },
@@ -98,6 +98,12 @@ const BANNERS = {
     bg: "linear-gradient(135deg, #4A6FA5 0%, #3D5E90 100%)",
     title: "Simplify your search",
     body: "Skeddo Plus lets you filter by neighbourhood, provider, activity type, cost, and more.",
+    darkText: false,
+  },
+  "upgrade-programs": {
+    bg: "linear-gradient(135deg, #E76F51 0%, #C85A3D 100%)",
+    title: "You've hit the free plan limit",
+    body: "Upgrade to Skeddo Plus to save unlimited programs and unlock all features.",
     darkText: false,
   },
   "tip-wishlist": {

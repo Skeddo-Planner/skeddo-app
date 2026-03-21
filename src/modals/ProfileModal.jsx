@@ -11,21 +11,14 @@ const PLANS = [
     key: "free",
     name: "Free",
     price: null,
-    description: "All features included during early access",
+    description: "Up to 3 programs, basic search & budget",
     disabled: false,
   },
   {
     key: "plus",
     name: "Skeddo+",
-    price: "$4.99/mo",
-    description: "Priority alerts, unlimited saved programs, family sharing",
-    disabled: true,
-  },
-  {
-    key: "pro",
-    name: "Skeddo Pro",
-    price: "$9.99/mo",
-    description: "Everything in Plus, plus multi-city search and provider reviews",
+    price: "$4.99/mo or $45/yr",
+    description: "Unlimited programs, advanced filters, budget tracking, circles",
     disabled: true,
   },
 ];
@@ -47,7 +40,7 @@ function formatLastSynced(ts) {
   return `Last synced: ${d.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} at ${time}`;
 }
 
-export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications }) {
+export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
@@ -371,6 +364,28 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
           </div>
         );
       })}
+
+      {/* Beta note */}
+      {planAccess?.isBeta && (
+        <div style={{
+          background: "#E8F5EE",
+          borderRadius: 10,
+          padding: "10px 14px",
+          marginTop: 4,
+          marginBottom: 4,
+        }}>
+          <p style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 12,
+            fontWeight: 600,
+            color: C.seaGreen,
+            margin: 0,
+            lineHeight: 1.5,
+          }}>
+            All features are unlocked during early access
+          </p>
+        </div>
+      )}
 
       {/* ─── Feedback ─── */}
       <SectionLabel>Feedback</SectionLabel>

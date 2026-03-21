@@ -9,9 +9,9 @@ export default function BudgetTab({
   programs, kids, kidFilter, onKidFilter,
   enrolledPrograms, waitlistPrograms, exploringPrograms,
   totalCostEnrolled, totalCostAll, budgetGoal,
-  manualCosts, onAddCost, onEditCost, userId, userPlan, onSaveKid,
+  manualCosts, onAddCost, onEditCost, userId, planAccess, onSaveKid,
 }) {
-  const isPaid = userPlan === "plus" || userPlan === "pro";
+  const isPaid = planAccess.canUseBudgetTracking;
   const [showBanner, setShowBanner] = useState(true);
   const [sortBy, setSortBy] = useState("cost"); // cost | costPerHour | alpha
   const [editingBudget, setEditingBudget] = useState(null); // kid id or "overall"
@@ -114,16 +114,18 @@ export default function BudgetTab({
             >
               Set Budget
             </button>
-            <button
-              onClick={onAddCost}
-              style={{
-                background: C.seaGreen, color: "#fff", border: "none",
-                borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
-                fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
-              }}
-            >
-              + Add Expense
-            </button>
+            {isPaid && (
+              <button
+                onClick={onAddCost}
+                style={{
+                  background: C.seaGreen, color: "#fff", border: "none",
+                  borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
+                  fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
+                }}
+              >
+                + Add Expense
+              </button>
+            )}
           </div>
         </div>
 
@@ -325,8 +327,8 @@ export default function BudgetTab({
         </div>
       </div>
 
-      {/* ─── Per Kid Breakdown ─── */}
-      {!kidFilter && kids.length > 0 && (
+      {/* ─── Per Kid Breakdown (Plus only) ─── */}
+      {isPaid && !kidFilter && kids.length > 0 && (
         <>
           <div style={s.sectionHeader}>
             <h3 style={s.sectionTitle}>Per Kid</h3>
@@ -444,7 +446,7 @@ export default function BudgetTab({
               <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 17, color: C.ink }}>
                 {fmt$(p.cost)}
               </div>
-              {p.cph != null ? (
+              {isPaid && (p.cph != null ? (
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: cphColor }}>
                   {fmt$(p.cph)}/hr
                 </div>
@@ -452,14 +454,14 @@ export default function BudgetTab({
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
                   — no times
                 </div>
-              )}
+              ))}
             </div>
           </div>
         );
       })}
 
-      {/* ─── Manual Cost Entries ─── */}
-      {visibleManualCosts.length > 0 && (
+      {/* ─── Manual Cost Entries (Plus only) ─── */}
+      {isPaid && visibleManualCosts.length > 0 && (
         <>
           <div style={{ ...s.sectionHeader, marginTop: 16 }}>
             <h3 style={s.sectionTitle}>Expenses</h3>

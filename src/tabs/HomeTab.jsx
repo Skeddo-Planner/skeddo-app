@@ -35,7 +35,8 @@ export default function HomeTab({
   onInstallClick,
   onDismissInstall,
   activityLog,
-  userPlan,
+  planAccess,
+  programs,
 }) {
   const allPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms];
   const totalPrograms = allPrograms.length;
@@ -43,7 +44,7 @@ export default function HomeTab({
   const hasPrograms = totalPrograms > 0;
 
   // Banners — split into kids upgrade (shows after kids row) and tips (shows later)
-  const isPaid = userPlan === "plus" || userPlan === "pro";
+  const isPaid = planAccess.isPaid;
   const [dismissedBanners, setDismissBanner] = useState(new Set());
   const dismissBanner = (id) => setDismissBanner((prev) => new Set(prev).add(id));
 
@@ -182,6 +183,11 @@ export default function HomeTab({
       {/* Kids upgrade banner — right below kids row */}
       {showKidsBanner && (
         <PromoBanner type="upgrade-kids" onDismiss={() => dismissBanner("upgrade-kids")} />
+      )}
+
+      {/* Program limit banner — free users at or over limit */}
+      {(programs || allPrograms).length >= planAccess.maxPrograms && !planAccess.isPaid && !dismissedBanners.has("upgrade-programs") && (
+        <PromoBanner type="upgrade-programs" onDismiss={() => dismissBanner("upgrade-programs")} />
       )}
 
       {/* Stats grid */}

@@ -96,7 +96,7 @@ function timeAgo(dateStr) {
 }
 
 export default function CirclesTab({
-  programs, kids, profile, showToast, userId, circlesHook, userPlan,
+  programs, kids, profile, showToast, userId, circlesHook, planAccess,
 }) {
   const {
     circles, pendingRequests, activeFeed, bookmarks, bookmarkedActivities, referrals, loading,
@@ -229,21 +229,21 @@ export default function CirclesTab({
           </div>
           <div style={{ display: "flex", gap: 6 }}>
             <button
-              onClick={() => setScreen("join")}
-              style={{ ...s.secondaryBtn, fontSize: 12, padding: "8px 12px" }}
+              onClick={() => planAccess.canUseCircles ? setScreen("join") : showToast("Upgrade to Skeddo Plus to use Circles")}
+              style={{ ...s.secondaryBtn, fontSize: 12, padding: "8px 12px", opacity: planAccess.canUseCircles ? 1 : 0.5 }}
             >
               Join
             </button>
             <button
-              onClick={() => setScreen("create")}
-              style={{ ...s.addButton, fontSize: 12, padding: "8px 12px" }}
+              onClick={() => planAccess.canUseCircles ? setScreen("create") : showToast("Upgrade to Skeddo Plus to use Circles")}
+              style={{ ...s.addButton, fontSize: 12, padding: "8px 12px", opacity: planAccess.canUseCircles ? 1 : 0.5 }}
             >
               + Create
             </button>
           </div>
         </div>
 
-        {showSharingBanner && !(userPlan === "plus" || userPlan === "pro") && <PromoBanner type="upgrade-sharing" onDismiss={() => setShowSharingBanner(false)} />}
+        {showSharingBanner && !planAccess.canUseCircles && <PromoBanner type="upgrade-sharing" onDismiss={() => setShowSharingBanner(false)} />}
 
         {/* Pending requests */}
         {pendingRequests.length > 0 && (
@@ -500,8 +500,8 @@ export default function CirclesTab({
           onBack={() => { setScreen("home"); setActiveCircle(null); }}
           right={
             <button
-              onClick={() => setScreen("share")}
-              style={{ ...s.addButton, fontSize: 11, padding: "6px 12px" }}
+              onClick={() => planAccess.canUseCircles ? setScreen("share") : showToast("Upgrade to Skeddo Plus to use Circles")}
+              style={{ ...s.addButton, fontSize: 11, padding: "6px 12px", opacity: planAccess.canUseCircles ? 1 : 0.5 }}
             >
               + Share
             </button>

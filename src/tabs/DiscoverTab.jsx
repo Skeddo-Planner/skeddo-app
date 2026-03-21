@@ -383,13 +383,14 @@ export default function DiscoverTab({
   isFavorite,
   onAddToSchedule,
   onOpenDirectoryDetail,
-  userPlan,
+  planAccess,
 }) {
   /* ─── Use programs.json + user-submitted programs from Supabase ─── */
   const [userSubmitted, setUserSubmitted] = useState([]);
   const [isLoadingPrograms, setIsLoadingPrograms] = useState(false);
   const [showDiscoverBanner, setShowDiscoverBanner] = useState(true);
-  const isPaid = userPlan === "plus" || userPlan === "pro";
+  const isPaid = planAccess.isPaid;
+  const canUseAdvancedFilters = planAccess.canUseAdvancedFilters;
 
   useEffect(() => {
     async function loadUserSubmitted() {
@@ -970,6 +971,7 @@ export default function DiscoverTab({
                   }}
                 >
                   ACTIVITY TYPE{selectedActivityTypes.size > 0 ? ` (${selectedActivityTypes.size})` : ""}
+                  {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
                   {selectedCats.size > 0 && (
                     <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>
                       {" "}&mdash; filtered by selected categories
@@ -1087,6 +1089,7 @@ export default function DiscoverTab({
               }}
             >
               PROVIDER{selectedProviders.size > 0 ? ` (${selectedProviders.size})` : ""}
+              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
             </div>
             {selectedProviders.size > 0 && (
               <button
@@ -1386,6 +1389,7 @@ export default function DiscoverTab({
               }}
             >
               NEIGHBOURHOODS{selectedHoods.size > 0 ? ` (${selectedHoods.size} selected)` : ""}
+              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
             </div>
             {selectedHoods.size > 0 && (
               <button
@@ -1645,6 +1649,7 @@ export default function DiscoverTab({
               }}
             >
               COST{selectedCosts.size > 0 ? ` (${selectedCosts.size})` : ""}
+              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
             </div>
             {selectedCosts.size > 0 && (
               <button
