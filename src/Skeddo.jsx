@@ -295,6 +295,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   /* ── Modal actions ── */
   const handleSaveProgram = () => {
     if (!form.name?.trim()) return;
+    const isNew = !form.id;
     saveProgram({
       ...form,
       name: form.name.trim(),
@@ -303,7 +304,35 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       id: form.id || uid(),
     });
     setModal(null);
-    showToast(form.id ? "Program updated" : "Program added");
+    showToast(isNew ? "Program added" : "Program updated");
+
+    // Notify founders when a user manually adds a new program
+    // (so they can verify and add it to the directory for all users)
+    if (isNew) {
+      try {
+        fetch("/api/notify-manual-program", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            programName: form.name.trim(),
+            provider: form.provider || "",
+            category: form.category || "",
+            cost: form.cost || "",
+            days: form.days || "",
+            times: form.times || "",
+            startDate: form.startDate || "",
+            endDate: form.endDate || "",
+            ageMin: form.ageMin || "",
+            ageMax: form.ageMax || "",
+            location: form.location || "",
+            neighbourhood: form.neighbourhood || "",
+            registrationUrl: form.registrationUrl || "",
+            userEmail: userEmail || "",
+            userName: profile.displayName || "",
+          }),
+        }).catch(() => {}); // fire-and-forget, don't block the user
+      } catch {}
+    }
   };
 
   const handleDeleteProgram = (id) => {
