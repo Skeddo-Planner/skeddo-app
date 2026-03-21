@@ -606,6 +606,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onEditCost={openEditCost}
             userId={userId}
             userPlan={profile.plan}
+            onSaveKid={saveKid}
           />
         )}
       </main>}

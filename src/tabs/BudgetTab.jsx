@@ -9,11 +9,13 @@ export default function BudgetTab({
   programs, kids, kidFilter, onKidFilter,
   enrolledPrograms, waitlistPrograms, exploringPrograms,
   totalCostEnrolled, totalCostAll, budgetGoal,
-  manualCosts, onAddCost, onEditCost, userId, userPlan,
+  manualCosts, onAddCost, onEditCost, userId, userPlan, onSaveKid,
 }) {
   const isPaid = userPlan === "plus" || userPlan === "pro";
   const [showBanner, setShowBanner] = useState(true);
   const [sortBy, setSortBy] = useState("cost"); // cost | costPerHour | alpha
+  const [editingBudget, setEditingBudget] = useState(null); // kid id or "overall"
+  const [budgetInput, setBudgetInput] = useState("");
 
   const filterByKid = (list) =>
     kidFilter ? list.filter((p) => (p.kidIds || []).includes(kidFilter)) : list;
@@ -37,8 +39,13 @@ export default function BudgetTab({
 
   const selectedKid = kidFilter ? kids.find((k) => k.id === kidFilter) : null;
 
+  // Per-kid budget: use kid's budgetGoal if set, otherwise fall back to overall
+  const effectiveBudget = selectedKid
+    ? (Number(selectedKid.budgetGoal) || 0)
+    : kids.reduce((sum, k) => sum + (Number(k.budgetGoal) || 0), 0) || budgetGoal;
+
   // Budget goal progress colour
-  const budgetPct = budgetGoal > 0 ? (committedCost / budgetGoal) * 100 : 0;
+  const budgetPct = effectiveBudget > 0 ? (committedCost / effectiveBudget) * 100 : 0;
   const budgetBarColor = budgetPct > 90 ? "#E76F51" : budgetPct > 75 ? "#F4A261" : "#2D9F6F";
 
   // Program list with cost-per-hour
@@ -82,34 +89,133 @@ export default function BudgetTab({
               {fmt$(grandTotal)}
             </div>
           </div>
-          <button
-            onClick={onAddCost}
-            style={{
-              background: C.seaGreen, color: "#fff", border: "none",
-              borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 700,
-              fontFamily: "'Barlow', sans-serif", cursor: "pointer",
-              whiteSpace: "nowrap", flexShrink: 0, marginTop: 4,
-            }}
-          >
-            + Add Expense
-          </button>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, marginTop: 4 }}>
+            <button
+              onClick={() => {
+                if (selectedKid) {
+                  setEditingBudget(selectedKid.id);
+                  setBudgetInput(String(selectedKid.budgetGoal || ""));
+                } else if (kids.length === 1) {
+                  setEditingBudget(kids[0].id);
+                  setBudgetInput(String(kids[0].budgetGoal || ""));
+                } else {
+                  // Show kid selection — for now, prompt for first kid without a budget
+                  const kidWithout = kids.find((k) => !k.budgetGoal);
+                  const target = kidWithout || kids[0];
+                  setEditingBudget(target.id);
+                  setBudgetInput(String(target.budgetGoal || ""));
+                }
+              }}
+              style={{
+                background: C.cream, color: C.ink, border: `1.5px solid ${C.border}`,
+                borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
+              }}
+            >
+              Set Budget
+            </button>
+            <button
+              onClick={onAddCost}
+              style={{
+                background: C.seaGreen, color: "#fff", border: "none",
+                borderRadius: 10, padding: "8px 14px", fontSize: 13, fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
+              }}
+            >
+              + Add Expense
+            </button>
+          </div>
         </div>
 
       </div>
 
+      {/* ─── Set Budget per Kid (inline editor) ─── */}
+      {editingBudget && (
+        <div style={{ ...s.budgetCard, marginBottom: 16, padding: "16px" }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
+            Set Budget by Kid
+          </div>
+          {kids.map((k) => {
+            const isEditing = editingBudget === k.id;
+            return (
+              <div key={k.id} style={{
+                display: "flex", alignItems: "center", gap: 10, padding: "8px 0",
+                borderBottom: `1px solid ${C.border}`,
+              }}>
+                <div style={{ ...s.kidAvatar, width: 28, height: 28, fontSize: 12, borderRadius: 8, background: k.color || s.kidAvatar.background }}>
+                  {k.name?.[0]?.toUpperCase()}
+                </div>
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink, flex: 1 }}>
+                  {k.name}
+                </span>
+                {isEditing ? (
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink }}>$</span>
+                    <input
+                      type="number"
+                      value={budgetInput}
+                      onChange={(e) => setBudgetInput(e.target.value)}
+                      autoFocus
+                      style={{
+                        ...s.input, width: 80, padding: "6px 8px", fontSize: 14, textAlign: "right",
+                      }}
+                    />
+                    <button
+                      onClick={() => {
+                        if (onSaveKid) {
+                          onSaveKid({ ...k, budgetGoal: Number(budgetInput) || 0 });
+                        }
+                        setEditingBudget(null);
+                      }}
+                      style={{
+                        background: C.seaGreen, color: "#fff", border: "none",
+                        borderRadius: 6, padding: "6px 10px", fontSize: 12, fontWeight: 700,
+                        fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+                      }}
+                    >
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => { setEditingBudget(k.id); setBudgetInput(String(k.budgetGoal || "")); }}
+                    style={{
+                      background: "none", border: `1px solid ${C.border}`, borderRadius: 6,
+                      padding: "4px 10px", fontSize: 13, fontWeight: 600, color: k.budgetGoal ? C.ink : C.muted,
+                      fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+                    }}
+                  >
+                    {k.budgetGoal ? fmt$(k.budgetGoal) : "Set"}
+                  </button>
+                )}
+              </div>
+            );
+          })}
+          <button
+            onClick={() => setEditingBudget(null)}
+            style={{
+              background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+              fontSize: 12, fontWeight: 600, color: C.muted, cursor: "pointer", marginTop: 8, padding: 0,
+            }}
+          >
+            Done
+          </button>
+        </div>
+      )}
+
       {/* ─── Budget Bar Chart (stacked segments) ─── */}
       {(() => {
-        const total = budgetGoal > 0 ? budgetGoal : (committedCost + potentialCost) || 1;
+        const total = effectiveBudget > 0 ? effectiveBudget : (committedCost + potentialCost) || 1;
         const committedPct = (committedCost / total) * 100;
         const potentialPct = (potentialCost / total) * 100;
-        const overBudget = budgetGoal > 0 && (committedCost + potentialCost) > budgetGoal;
-        const remainingAmt = budgetGoal > 0 ? Math.max(budgetGoal - committedCost - potentialCost, 0) : 0;
-        const remainingPct = budgetGoal > 0 ? (remainingAmt / total) * 100 : 0;
-        const overflowAmt = overBudget ? (committedCost + potentialCost) - budgetGoal : 0;
+        const overBudget = effectiveBudget > 0 && (committedCost + potentialCost) > budgetGoal;
+        const remainingAmt = effectiveBudget > 0 ? Math.max(budgetGoal - committedCost - potentialCost, 0) : 0;
+        const remainingPct = effectiveBudget > 0 ? (remainingAmt / total) * 100 : 0;
+        const overflowAmt = overBudget ? (committedCost + potentialCost) - effectiveBudget : 0;
 
         return (
           <div style={{ ...s.budgetCard, marginBottom: 16, padding: "16px 16px" }}>
-            {budgetGoal > 0 && (
+            {effectiveBudget > 0 && (
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
                   Budget Goal: {fmt$(budgetGoal)}
@@ -170,7 +276,7 @@ export default function BudgetTab({
                   {fmt$(potentialCost)} potential
                 </span>
               </div>
-              {budgetGoal > 0 && !overBudget && (
+              {effectiveBudget > 0 && !overBudget && (
                 <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                   <div style={{ width: 10, height: 10, borderRadius: 3, background: "#E5E7EB" }} />
                   <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
@@ -249,6 +355,7 @@ export default function BudgetTab({
                   </div>
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
                     {kPrograms.length} program{kPrograms.length !== 1 ? "s" : ""}
+                    {k.budgetGoal ? ` · Budget: ${fmt$(k.budgetGoal)}` : ""}
                     {kPotential > 0 && ` · ${fmt$(kPotential)} potential`}
                   </div>
                 </div>
