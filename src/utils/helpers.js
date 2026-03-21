@@ -55,6 +55,7 @@ export function getRegistrationStatus(program) {
   if (start && start <= today) return "in-progress";
   if (program.enrollmentStatus === "Full" || program.enrollmentStatus === "Full/Waitlist") return "full";
   if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
+  if (program.enrollmentStatus === "Likely Coming Soon") return "likely-coming-soon";
   return "open";
 }
 
