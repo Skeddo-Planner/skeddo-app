@@ -32,9 +32,11 @@ import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 
-/* Bypass Coming Soon page if: ?preview=true, app.skeddo.ca subdomain, or past launch date */
+/* Bypass Coming Soon page if: ?preview=true, ?beta=true, app.skeddo.ca subdomain, or past launch date */
+const params = new URLSearchParams(window.location.search);
 const isPreview =
-  new URLSearchParams(window.location.search).get("preview") === "true" ||
+  params.get("preview") === "true" ||
+  params.get("beta") === "true" ||
   window.location.hostname === "app.skeddo.ca" ||
   new Date() >= new Date("2026-04-01T00:00:00-07:00");
 
