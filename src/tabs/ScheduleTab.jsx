@@ -377,9 +377,14 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           style={{
             ...s.secondaryBtn,
             flex: "none",
-            padding: "8px 12px",
-            fontSize: 16,
-            borderRadius: 8,
+            width: 44,
+            height: 44,
+            padding: 0,
+            fontSize: 20,
+            borderRadius: 10,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           ‹
@@ -404,9 +409,14 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           style={{
             ...s.secondaryBtn,
             flex: "none",
-            padding: "8px 12px",
-            fontSize: 16,
-            borderRadius: 8,
+            width: 44,
+            height: 44,
+            padding: 0,
+            fontSize: 20,
+            borderRadius: 10,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           ›
@@ -505,11 +515,11 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                     </span>
                   )}
                 </div>
-                {dayPrograms.length === 0 && (
+                {dayPrograms.length === 0 && totalThisWeek > 0 && (
                   <span
                     style={{
                       fontFamily: "'Barlow', sans-serif",
-                      fontSize: 11,
+                      fontSize: 12,
                       color: isWeekend ? C.muted : C.border,
                       fontWeight: 500,
                     }}
