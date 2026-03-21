@@ -30,5 +30,5 @@ export default async function handler(req, res) {
 
   if (memberErr) return res.status(500).json({ error: memberErr.message });
 
-  return res.status(200).json({ circle, inviteUrl: `https://skeddo.ca/circle/${inviteCode}` });
+  return res.status(200).json({ circle });
 }

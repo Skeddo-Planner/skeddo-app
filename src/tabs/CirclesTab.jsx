@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
@@ -23,7 +23,7 @@ function SubHeader({ title, onBack, right }) {
       <button onClick={onBack} style={{
         background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0,
       }} aria-label="Go back">{"\u2190"}</button>
-      <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, flex: 1 }}>{title}</span>
+      <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 18, color: C.ink, flex: 1 }}>{title}</span>
       {right}
     </div>
   );
@@ -69,16 +69,20 @@ export default function CirclesTab({
   const [circleMembers, setCircleMembers] = useState([]);
   const [actionLoading, setActionLoading] = useState(false);
 
-  // Auto-load referral code when visiting invite screen
+  // Stable refs to avoid useEffect dependency loops
+  const ensureReferralCodeRef = useRef(ensureReferralCode);
+  ensureReferralCodeRef.current = ensureReferralCode;
+  const refreshPendingRef = useRef(refreshPending);
+  refreshPendingRef.current = refreshPending;
+
   useEffect(() => {
     if (screen === "invite" && !referralCode) {
-      ensureReferralCode().catch(() => {});
+      ensureReferralCodeRef.current().catch(() => {});
     }
-    // Refresh pending requests when returning to home screen
     if (screen === "home") {
-      refreshPending();
+      refreshPendingRef.current();
     }
-  }, [screen, referralCode, ensureReferralCode, refreshPending]);
+  }, [screen, referralCode]);
 
   // Build shareable activities from user's ENROLLED programs only
   const shareableActivities = (programs || []).filter((p) => p.status === "Enrolled").map((p) => {
@@ -97,15 +101,15 @@ export default function CirclesTab({
     };
   });
 
-  // Duplicate detection for feed
-  const getDuplicateCounts = () => {
+  // Duplicate detection for feed (memoized)
+  const duplicateCounts = useMemo(() => {
     const counts = {};
     activeFeed.forEach((item) => {
       const key = `${item.activity_name}|||${item.provider_name}`.toLowerCase();
       counts[key] = (counts[key] || 0) + 1;
     });
     return counts;
-  };
+  }, [activeFeed]);
 
   const openCircleFeed = async (circle) => {
     setActiveCircle(circle);
@@ -158,15 +162,13 @@ export default function CirclesTab({
     setActionLoading(false);
   };
 
-  const duplicateCounts = getDuplicateCounts();
-
   // ─── SCREEN: Home ───
   if (screen === "home") {
     return (
       <div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
           <div>
-            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 22, color: C.ink, margin: 0 }}>
               Circles
               {circles.length > 0 && (
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.olive, fontStyle: "italic", marginLeft: 8 }}>
@@ -241,6 +243,7 @@ export default function CirclesTab({
               <div
                 key={c.id}
                 onClick={() => openCircleFeed(c)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCircleFeed(c); } }}
                 role="button"
                 tabIndex={0}
                 className="skeddo-card"
@@ -275,6 +278,7 @@ export default function CirclesTab({
         {/* Referral banner */}
         <div
           onClick={() => setScreen("invite")}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setScreen("invite"); } }}
           role="button"
           tabIndex={0}
           style={{
@@ -684,6 +688,7 @@ export default function CirclesTab({
                       return n;
                     });
                   }}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedActivities((prev) => { const n = new Set(prev); if (n.has(a.id)) n.delete(a.id); else n.add(a.id); return n; }); } }}
                   role="button"
                   tabIndex={0}
                   style={{
@@ -792,7 +797,7 @@ export default function CirclesTab({
           background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
           marginBottom: 16,
         }}>
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
+          <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
             Give a month, get a month
           </div>
           <div style={{ display: "flex", gap: 24, justifyContent: "center" }}>
@@ -801,7 +806,7 @@ export default function CirclesTab({
               { num: freeMonthsEarned, label: "Free Months" },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
+                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
               </div>
             ))}

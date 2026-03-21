@@ -47,13 +47,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "You've already used a referral code" });
   }
 
-  // ─── Credit the REFERRER: +1 free month ───
-  const { error: referrerErr } = await sb
-    .from("profiles")
-    .update({
-      reward_months_earned: (referrer.reward_months_earned || 0) + 1,
-    })
-    .eq("id", referrer.id);
+  // ─── Credit the REFERRER: +1 free month (atomic increment) ───
+  const { error: referrerErr } = await sb.rpc("increment_reward_months", {
+    target_user_id: referrer.id,
+    amount: 1,
+  });
 
   if (referrerErr) {
     console.error("Failed to credit referrer:", referrerErr);
@@ -61,17 +59,24 @@ export default async function handler(req, res) {
   }
 
   // ─── Credit the NEW USER: +1 free month + record who referred them ───
-  const { error: newUserErr } = await sb
+  const { error: incrErr } = await sb.rpc("increment_reward_months", {
+    target_user_id: user.id,
+    amount: 1,
+  });
+
+  if (incrErr) {
+    console.error("Failed to credit new user:", incrErr);
+    return res.status(500).json({ error: "Failed to credit new user" });
+  }
+
+  // Set referred_by separately (can't do in the RPC)
+  const { error: refByErr } = await sb
     .from("profiles")
-    .update({
-      reward_months_earned: (newUserProfile?.reward_months_earned || 0) + 1,
-      referred_by: referralCode,
-    })
+    .update({ referred_by: referralCode })
     .eq("id", user.id);
 
-  if (newUserErr) {
-    console.error("Failed to credit new user:", newUserErr);
-    return res.status(500).json({ error: "Failed to credit new user" });
+  if (refByErr) {
+    console.error("Failed to set referred_by:", refByErr);
   }
 
   // ─── Also record in referrals table for tracking/display ───

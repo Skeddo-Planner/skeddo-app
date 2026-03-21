@@ -45,24 +45,16 @@ export function useCircles(userId, session) {
               role: m.role,
             }));
 
-          // Get member counts for each circle
-          for (const c of approvedCircles) {
-            const { count } = await supabase
-              .from("circle_memberships")
-              .select("*", { count: "exact", head: true })
-              .eq("circle_id", c.id)
-              .eq("status", "approved");
-            c.memberCount = count || 0;
-
-            // Get new activity count (last 7 days)
-            const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
-            const { count: newCount } = await supabase
-              .from("shared_activities")
-              .select("*", { count: "exact", head: true })
-              .eq("circle_id", c.id)
-              .gte("shared_at", weekAgo);
-            c.newCount = newCount || 0;
-          }
+          // Get member counts + new activity counts in parallel
+          const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+          await Promise.all(approvedCircles.map(async (c) => {
+            const [memberRes, activityRes] = await Promise.all([
+              supabase.from("circle_memberships").select("*", { count: "exact", head: true }).eq("circle_id", c.id).eq("status", "approved"),
+              supabase.from("shared_activities").select("*", { count: "exact", head: true }).eq("circle_id", c.id).gte("shared_at", weekAgo),
+            ]);
+            c.memberCount = memberRes.count || 0;
+            c.newCount = activityRes.count || 0;
+          }));
 
           setCircles(approvedCircles);
         }
