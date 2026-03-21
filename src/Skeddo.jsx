@@ -532,6 +532,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         onOpenProfile={() => setModal({ type: "profile" })}
         onOpenPage={(pageId) => setInfoPage(pageId)}
         onLogoClick={() => { setTab("home"); setInfoPage(null); }}
+        onSignOut={onSignOut}
         unreadCount={childAccess.unreadCount}
         onOpenActivity={() => { childAccess.markActivityViewed(); setTab("home"); }}
       />

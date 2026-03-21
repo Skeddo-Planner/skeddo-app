@@ -6,34 +6,29 @@ const MENU_ITEMS = [
   { id: "profile", label: "Profile", icon: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2|M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8" },
   { id: "about", label: "About Skeddo", icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8" },
   { id: "legal", label: "Privacy & Terms", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" },
-  { id: "help", label: "Help & Contact", icon: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" },
+  { id: "help", label: "Help & Contact", icon: "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3|M12 17h.01", circle: { cx: 12, cy: 12, r: 10 } },
+  { id: "signout", label: "Sign Out", icon: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4|M16 17l5-5-5-5|M21 12H9" },
 ];
 
-function MenuIcon({ pathData, color, size = 18 }) {
+function MenuIcon({ pathData, circle, color, size = 18 }) {
   const paths = pathData.split("|");
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {paths.map((d, i) => {
-        if (d.startsWith("M") && d.includes("a")) {
-          // Could be a circle — check for simple circle pattern
-          const circleMatch = d.match(/^M(\d+\.?\d*)\s+(\d+\.?\d*)a(\d+\.?\d*)/);
-          if (circleMatch) {
-            return <circle key={i} cx={circleMatch[1]} cy={circleMatch[2]} r={circleMatch[3]} />;
-          }
-        }
-        return <path key={i} d={d} />;
-      })}
+      {circle && <circle cx={circle.cx} cy={circle.cy} r={circle.r} />}
+      {paths.map((d, i) => <path key={i} d={d} />)}
     </svg>
   );
 }
 
-export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, unreadCount, onOpenActivity }) {
+export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleItemClick = (id) => {
     setMenuOpen(false);
     if (id === "profile") {
       onOpenProfile && onOpenProfile();
+    } else if (id === "signout") {
+      onSignOut && onSignOut();
     } else {
       onOpenPage && onOpenPage(id);
     }
@@ -194,8 +189,9 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
             {/* Menu items */}
             <div style={{ flex: 1, overflowY: "auto", padding: "8px 0" }}>
               {MENU_ITEMS.map((item) => (
+                <div key={item.id}>
+                {item.id === "signout" && <div style={{ margin: "4px 20px", borderTop: `1px solid ${C.border}` }} />}
                 <button
-                  key={item.id}
                   onClick={() => handleItemClick(item.id)}
                   style={{
                     width: "100%",
@@ -216,9 +212,10 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                   onMouseEnter={(e) => e.currentTarget.style.background = "#F2F0EC"}
                   onMouseLeave={(e) => e.currentTarget.style.background = "none"}
                 >
-                  <MenuIcon pathData={item.icon} color={C.seaGreen} />
-                  {item.label}
+                  <MenuIcon pathData={item.icon} circle={item.circle} color={item.id === "signout" ? "#C0392B" : C.seaGreen} />
+                  <span style={item.id === "signout" ? { color: "#C0392B" } : undefined}>{item.label}</span>
                 </button>
+                </div>
               ))}
             </div>
 
