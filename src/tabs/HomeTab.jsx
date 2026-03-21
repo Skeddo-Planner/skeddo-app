@@ -228,7 +228,7 @@ export default function HomeTab({
           aria-label={`${fmt$(totalCostEnrolled)} committed. Tap to view budget.`}
         >
           <div style={s.statNum}>{fmt$(totalCostEnrolled)}</div>
-          <div style={s.statLabel}>COMMITTED</div>
+          <div style={s.statLabel}>SPENT</div>
         </div>
       </div>
 

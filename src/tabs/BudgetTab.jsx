@@ -33,9 +33,9 @@ export default function BudgetTab({
   const exploringCost = visibleExploring.reduce((a, p) => a + Number(p.cost || 0), 0);
   const manualCostTotal = visibleManualCosts.reduce((a, c) => a + Number(c.amount || 0), 0);
 
-  const committedCost = enrolledCost + manualCostTotal;
+  const spentCost = enrolledCost + manualCostTotal;
   const potentialCost = waitlistCost + exploringCost;
-  const grandTotal = committedCost + potentialCost;
+  const grandTotal = spentCost + potentialCost;
 
   const selectedKid = kidFilter ? kids.find((k) => k.id === kidFilter) : null;
 
@@ -45,7 +45,7 @@ export default function BudgetTab({
     : kids.reduce((sum, k) => sum + (Number(k.budgetGoal) || 0), 0) || budgetGoal;
 
   // Budget goal progress colour
-  const budgetPct = effectiveBudget > 0 ? (committedCost / effectiveBudget) * 100 : 0;
+  const budgetPct = effectiveBudget > 0 ? (spentCost / effectiveBudget) * 100 : 0;
   const budgetBarColor = budgetPct > 90 ? "#E76F51" : budgetPct > 75 ? "#F4A261" : "#2D9F6F";
 
   // Program list with cost-per-hour
@@ -205,13 +205,13 @@ export default function BudgetTab({
 
       {/* ─── Budget Bar Chart (stacked segments) ─── */}
       {(() => {
-        const total = effectiveBudget > 0 ? effectiveBudget : (committedCost + potentialCost) || 1;
-        const committedPct = (committedCost / total) * 100;
+        const total = effectiveBudget > 0 ? effectiveBudget : (spentCost + potentialCost) || 1;
+        const spentPct = (spentCost / total) * 100;
         const potentialPct = (potentialCost / total) * 100;
-        const overBudget = effectiveBudget > 0 && (committedCost + potentialCost) > budgetGoal;
-        const remainingAmt = effectiveBudget > 0 ? Math.max(budgetGoal - committedCost - potentialCost, 0) : 0;
+        const overBudget = effectiveBudget > 0 && (spentCost + potentialCost) > budgetGoal;
+        const remainingAmt = effectiveBudget > 0 ? Math.max(budgetGoal - spentCost - potentialCost, 0) : 0;
         const remainingPct = effectiveBudget > 0 ? (remainingAmt / total) * 100 : 0;
-        const overflowAmt = overBudget ? (committedCost + potentialCost) - effectiveBudget : 0;
+        const overflowAmt = overBudget ? (spentCost + potentialCost) - effectiveBudget : 0;
 
         return (
           <div style={{ ...s.budgetCard, marginBottom: 16, padding: "16px 16px" }}>
@@ -224,20 +224,20 @@ export default function BudgetTab({
             )}
             {/* Stacked bar */}
             <div style={{ height: 28, borderRadius: 8, background: "#E5E7EB", overflow: "hidden", display: "flex", position: "relative" }}>
-              {committedCost > 0 && (
+              {spentCost > 0 && (
                 <div
                   className="progress-bar"
                   onClick={() => setStatusFilter && setStatusFilter("Enrolled")}
                   style={{
-                    width: `${Math.min(committedPct, 100)}%`, height: "100%",
+                    width: `${Math.min(spentPct, 100)}%`, height: "100%",
                     background: "#2D9F6F", cursor: "pointer",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
                   }}
                 >
-                  {committedPct > 15 && (
+                  {spentPct > 15 && (
                     <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>
-                      {fmt$(committedCost)} · {Math.round(committedPct)}%
+                      {fmt$(spentCost)} · {Math.round(spentPct)}%
                     </span>
                   )}
                 </div>
@@ -246,7 +246,7 @@ export default function BudgetTab({
                 <div
                   className="progress-bar"
                   style={{
-                    width: `${Math.min(potentialPct, overBudget ? 100 - committedPct : potentialPct)}%`, height: "100%",
+                    width: `${Math.min(potentialPct, overBudget ? 100 - spentPct : potentialPct)}%`, height: "100%",
                     background: "repeating-linear-gradient(45deg, #F4A261, #F4A261 4px, #E8893A 4px, #E8893A 8px)",
                     opacity: 0.8, cursor: "pointer",
                     display: "flex", alignItems: "center", justifyContent: "center",
@@ -267,7 +267,7 @@ export default function BudgetTab({
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                 <div style={{ width: 10, height: 10, borderRadius: 3, background: "#2D9F6F" }} />
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.ink }}>
-                  {fmt$(committedCost)} committed
+                  {fmt$(spentCost)} spent
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
@@ -279,14 +279,14 @@ export default function BudgetTab({
               {effectiveBudget > 0 && !overBudget && (
                 <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                   <div style={{ width: 10, height: 10, borderRadius: 3, background: "#E5E7EB" }} />
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: "#2D9F6F" }}>
                     {fmt$(remainingAmt)} remaining
                   </span>
                 </div>
               )}
               {overBudget && (
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#E76F51" }}>
-                  {fmt$(overflowAmt)} over budget
+                  -{fmt$(overflowAmt)} over budget
                 </span>
               )}
             </div>
@@ -300,13 +300,13 @@ export default function BudgetTab({
         );
       })()}
 
-      {/* ─── Committed vs Potential ─── */}
+      {/* ─── Spent vs Potential ─── */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 20 }}>
         <div style={{ ...s.budgetCard, borderLeft: `3px solid #2D9F6F`, padding: "14px 16px" }}>
           <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 22, color: C.ink }}>
-            {fmt$(committedCost)}
+            {fmt$(spentCost)}
           </div>
-          <div style={s.budgetLabel}>COMMITTED</div>
+          <div style={s.budgetLabel}>SPENT</div>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 2 }}>
             {visibleEnrolled.length} enrolled{manualCostTotal !== 0 ? ` + ${visibleManualCosts.length} expenses` : ""}
           </div>
@@ -336,12 +336,12 @@ export default function BudgetTab({
             const kEnrolled = kPrograms.filter((p) => p.status === "Enrolled").reduce((a, p) => a + Number(p.cost || 0), 0);
             const kPotential = kPrograms.filter((p) => p.status !== "Enrolled").reduce((a, p) => a + Number(p.cost || 0), 0);
             const kManual = (manualCosts || []).filter((c) => c.kidId === k.id).reduce((a, c) => a + Number(c.amount || 0), 0);
-            const kCommitted = kEnrolled + kManual;
+            const kSpent = kEnrolled + kManual;
             const kBudget = Number(k.budgetGoal) || 0;
-            const kTotal = kBudget || (kCommitted + kPotential) || 1;
-            const kCommPct = (kCommitted / kTotal) * 100;
+            const kTotal = kBudget || (kSpent + kPotential) || 1;
+            const kCommPct = (kSpent / kTotal) * 100;
             const kPotPct = (kPotential / kTotal) * 100;
-            const kOver = kBudget > 0 && (kCommitted + kPotential) > kBudget;
+            const kOver = kBudget > 0 && (kSpent + kPotential) > kBudget;
             return (
               <div
                 key={k.id}
@@ -366,7 +366,7 @@ export default function BudgetTab({
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink }}>
-                      {fmt$(kCommitted)}
+                      {fmt$(kSpent)}
                     </div>
                     {kPotential > 0 && (
                       <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
@@ -377,7 +377,7 @@ export default function BudgetTab({
                 </div>
                 {/* Mini bar chart */}
                 <div style={{ height: 8, borderRadius: 4, background: "#E5E7EB", overflow: "hidden", display: "flex" }}>
-                  {kCommitted > 0 && (
+                  {kSpent > 0 && (
                     <div style={{
                       width: `${Math.min(kCommPct, 100)}%`, height: "100%",
                       background: kOver ? "#E76F51" : "#2D9F6F",
@@ -394,10 +394,10 @@ export default function BudgetTab({
                   )}
                 </div>
                 {kBudget > 0 && (
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? "#E76F51" : C.muted, marginTop: 4 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? "#E76F51" : "#2D9F6F", marginTop: 4 }}>
                     {kOver
-                      ? `${fmt$((kCommitted + kPotential) - kBudget)} over budget`
-                      : `${fmt$(kBudget - kCommitted - kPotential)} remaining`
+                      ? `-${fmt$((kSpent + kPotential) - kBudget)} over budget`
+                      : `${fmt$(kBudget - kSpent - kPotential)} remaining`
                     }
                   </div>
                 )}
