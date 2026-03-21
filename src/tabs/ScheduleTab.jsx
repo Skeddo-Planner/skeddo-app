@@ -358,88 +358,87 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
     return detectConflicts(enrolled);
   }, [visiblePrograms]);
 
-  // Export menu state
+  // Export modal state
   const [showExport, setShowExport] = useState(false);
+  const [exportKidFilter, setExportKidFilter] = useState("all"); // "all" or kid id
+  const [exportSelected, setExportSelected] = useState(new Set());
+  const [exportDateMode, setExportDateMode] = useState("all"); // "all" | "month" | "week"
+  const [exportMonth, setExportMonth] = useState(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+  });
+
+  // Programs available for export (enrolled only, filtered by kid + date)
+  const exportablePrograms = useMemo(() => {
+    let list = visiblePrograms.filter((p) => p.status === "Enrolled");
+    if (exportKidFilter !== "all") {
+      list = list.filter((p) => (p.kidIds || []).includes(exportKidFilter));
+    }
+    if (exportDateMode === "month" && exportMonth) {
+      const [y, m] = exportMonth.split("-").map(Number);
+      const monthStart = new Date(y, m - 1, 1);
+      const monthEnd = new Date(y, m, 0);
+      list = list.filter((p) => {
+        if (!p.startDate) return false;
+        const ps = new Date(p.startDate + "T00:00:00");
+        const pe = p.endDate ? new Date(p.endDate + "T00:00:00") : ps;
+        return pe >= monthStart && ps <= monthEnd;
+      });
+    } else if (exportDateMode === "week") {
+      const weekEnd = new Date(weekStart);
+      weekEnd.setDate(weekEnd.getDate() + 6);
+      list = list.filter((p) => {
+        if (!p.startDate) return false;
+        const ps = new Date(p.startDate + "T00:00:00");
+        const pe = p.endDate ? new Date(p.endDate + "T00:00:00") : ps;
+        return pe >= weekStart && ps <= weekEnd;
+      });
+    }
+    return list;
+  }, [visiblePrograms, exportKidFilter, exportDateMode, exportMonth, weekStart]);
+
+  // When export modal opens, select all by default
+  const openExportModal = () => {
+    setShowExport(true);
+    setExportKidFilter("all");
+    setExportDateMode("all");
+    // will select all once exportablePrograms updates
+    setTimeout(() => {
+      setExportSelected(new Set(exportablePrograms.map((p) => p.id)));
+    }, 0);
+  };
+
+  // Keep selections in sync when filters change
+  const toggleExportProgram = (id) => {
+    setExportSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  };
+  const selectAllExport = () => setExportSelected(new Set(exportablePrograms.map((p) => p.id)));
+  const selectNoneExport = () => setExportSelected(new Set());
 
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
         <h2 style={s.pageTitle}>Schedule</h2>
-        <div style={{ position: "relative" }}>
-          <button
-            onClick={() => setShowExport(!showExport)}
-            style={{
-              background: C.blue, color: "#fff", border: "none",
-              borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
-              fontFamily: "'Barlow', sans-serif", cursor: "pointer",
-              display: "flex", alignItems: "center", gap: 6,
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Export
-          </button>
-          {showExport && (
-            <div style={{
-              position: "absolute", top: "100%", right: 0, marginTop: 6,
-              background: C.white, borderRadius: 12, border: `1px solid ${C.border}`,
-              boxShadow: "0 4px 16px rgba(0,0,0,0.12)", zIndex: 20,
-              minWidth: 220, overflow: "hidden",
-            }}>
-              <button
-                onClick={() => {
-                  downloadAllICS(visiblePrograms.filter((p) => p.status === "Enrolled"));
-                  setShowExport(false);
-                }}
-                style={{
-                  display: "flex", alignItems: "center", gap: 10, width: "100%",
-                  padding: "14px 16px", background: "none", border: "none", cursor: "pointer",
-                  borderBottom: `1px solid ${C.border}`, textAlign: "left",
-                  fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="4" width="18" height="18" rx="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-                <div>
-                  <div style={{ fontWeight: 700 }}>Download .ics file</div>
-                  <div style={{ fontSize: 12, color: C.muted }}>Works with Apple Calendar, Outlook, Google Calendar</div>
-                </div>
-              </button>
-              <button
-                onClick={() => {
-                  const enrolled = visiblePrograms.filter((p) => p.status === "Enrolled" && p.startDate);
-                  if (enrolled.length > 0) {
-                    const p = enrolled[0];
-                    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(p.name)}&dates=${(p.startDate || "").replace(/-/g, "")}/${(p.endDate || p.startDate || "").replace(/-/g, "")}&details=${encodeURIComponent(`${p.provider || ""} · ${p.days || ""} · ${p.times || ""}`)}`;
-                    window.open(url, "_blank");
-                  }
-                  setShowExport(false);
-                }}
-                style={{
-                  display: "flex", alignItems: "center", gap: 10, width: "100%",
-                  padding: "14px 16px", background: "none", border: "none", cursor: "pointer",
-                  textAlign: "left", fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink,
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v4l3 3" />
-                </svg>
-                <div>
-                  <div style={{ fontWeight: 700 }}>Open in Google Calendar</div>
-                  <div style={{ fontSize: 12, color: C.muted }}>Add your first enrolled program</div>
-                </div>
-              </button>
-            </div>
-          )}
-        </div>
+        <button
+          onClick={openExportModal}
+          style={{
+            background: C.blue, color: "#fff", border: "none",
+            borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
+            fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+            display: "flex", alignItems: "center", gap: 6,
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Export
+        </button>
       </div>
 
       {/* Conflict warnings — true conflicts (same kid) */}
@@ -798,6 +797,200 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
               Browse Programs
             </button>
           )}
+        </div>
+      )}
+
+      {/* ── Export Modal ── */}
+      {showExport && (
+        <div
+          style={{
+            position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+            background: "rgba(0,0,0,0.45)", zIndex: 100,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: 16,
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) setShowExport(false); }}
+        >
+          <div style={{
+            background: C.white, borderRadius: 20, width: "100%", maxWidth: 420,
+            maxHeight: "85vh", display: "flex", flexDirection: "column",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+          }}>
+            {/* Header */}
+            <div style={{ padding: "18px 20px 12px", borderBottom: `1px solid ${C.border}` }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <h3 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 20, color: C.ink, margin: 0 }}>
+                  Export Calendar
+                </h3>
+                <button onClick={() => setShowExport(false)} style={{ background: "none", border: "none", fontSize: 22, color: C.muted, cursor: "pointer", padding: "0 4px" }}>
+                  {"\u00D7"}
+                </button>
+              </div>
+
+              {/* Kid filter */}
+              <div style={{ marginTop: 12 }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+                  Export for
+                </div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  <button
+                    onClick={() => { setExportKidFilter("all"); setExportSelected(new Set()); }}
+                    style={{
+                      padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                      fontFamily: "'Barlow', sans-serif", border: `1px solid ${exportKidFilter === "all" ? C.seaGreen : C.border}`,
+                      background: exportKidFilter === "all" ? C.seaGreen + "18" : "transparent",
+                      color: exportKidFilter === "all" ? C.seaGreen : C.muted,
+                    }}
+                  >
+                    All Kids
+                  </button>
+                  {(kids || []).map((k) => (
+                    <button
+                      key={k.id}
+                      onClick={() => { setExportKidFilter(k.id); setExportSelected(new Set()); }}
+                      style={{
+                        padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                        fontFamily: "'Barlow', sans-serif", border: `1px solid ${exportKidFilter === k.id ? C.seaGreen : C.border}`,
+                        background: exportKidFilter === k.id ? C.seaGreen + "18" : "transparent",
+                        color: exportKidFilter === k.id ? C.seaGreen : C.muted,
+                      }}
+                    >
+                      {k.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Date range filter */}
+              <div style={{ marginTop: 12 }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+                  Date Range
+                </div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+                  {[
+                    { key: "all", label: "All Dates" },
+                    { key: "week", label: "This Week" },
+                    { key: "month", label: "By Month" },
+                  ].map((opt) => (
+                    <button
+                      key={opt.key}
+                      onClick={() => { setExportDateMode(opt.key); setExportSelected(new Set()); }}
+                      style={{
+                        padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                        fontFamily: "'Barlow', sans-serif", border: `1px solid ${exportDateMode === opt.key ? C.blue : C.border}`,
+                        background: exportDateMode === opt.key ? C.blue + "18" : "transparent",
+                        color: exportDateMode === opt.key ? C.blue : C.muted,
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                  {exportDateMode === "month" && (
+                    <input
+                      type="month"
+                      value={exportMonth}
+                      onChange={(e) => { setExportMonth(e.target.value); setExportSelected(new Set()); }}
+                      style={{
+                        fontFamily: "'Barlow', sans-serif", fontSize: 12, padding: "5px 8px",
+                        borderRadius: 8, border: `1px solid ${C.border}`, color: C.ink,
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Select all / none */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 12 }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
+                  {exportablePrograms.length} program{exportablePrograms.length !== 1 ? "s" : ""} · {exportSelected.size} selected
+                </div>
+                <div style={{ display: "flex", gap: 8 }}>
+                  <button onClick={selectAllExport} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.seaGreen, fontWeight: 700, background: "none", border: "none", cursor: "pointer" }}>
+                    Select All
+                  </button>
+                  <button onClick={selectNoneExport} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontWeight: 600, background: "none", border: "none", cursor: "pointer" }}>
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Program list */}
+            <div style={{ flex: 1, overflowY: "auto", padding: "8px 20px" }}>
+              {exportablePrograms.length === 0 ? (
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, textAlign: "center", padding: "24px 0" }}>
+                  No enrolled programs match these filters.
+                </div>
+              ) : (
+                exportablePrograms.map((p) => {
+                  const isChecked = exportSelected.has(p.id);
+                  const pKids = (p.kidIds || []).map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
+                  return (
+                    <div
+                      key={p.id}
+                      onClick={() => toggleExportProgram(p.id)}
+                      style={{
+                        display: "flex", alignItems: "center", gap: 10,
+                        padding: "10px 0", borderBottom: `1px solid ${C.border}20`,
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{
+                        width: 22, height: 22, borderRadius: 6, flexShrink: 0,
+                        border: `2px solid ${isChecked ? C.seaGreen : C.border}`,
+                        background: isChecked ? C.seaGreen : "transparent",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        color: C.cream, fontSize: 14,
+                      }}>
+                        {isChecked ? "\u2713" : ""}
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          {p.name}
+                        </div>
+                        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                          {[p.days, p.times, pKids.length > 0 ? pKids.join(", ") : null].filter(Boolean).join(" · ")}
+                        </div>
+                        {p.startDate && (
+                          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                            {p.startDate}{p.endDate && p.endDate !== p.startDate ? ` – ${p.endDate}` : ""}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+
+            {/* Export actions */}
+            <div style={{ padding: "12px 20px 18px", borderTop: `1px solid ${C.border}` }}>
+              <button
+                onClick={() => {
+                  const toExport = exportablePrograms.filter((p) => exportSelected.has(p.id));
+                  downloadAllICS(toExport);
+                  setShowExport(false);
+                }}
+                disabled={exportSelected.size === 0}
+                style={{
+                  ...s.primaryBtn, width: "100%", marginBottom: 8,
+                  opacity: exportSelected.size === 0 ? 0.5 : 1,
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                Download .ics ({exportSelected.size})
+              </button>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, textAlign: "center", lineHeight: 1.4 }}>
+                Works with Apple Calendar, Google Calendar, and Outlook
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
