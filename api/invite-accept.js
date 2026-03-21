@@ -55,14 +55,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "You already have access to this child's schedule" });
   }
 
-  // Check max 4 adults
+  // Check max 2 adults
   const { count } = await sb
     .from("child_access")
     .select("*", { count: "exact", head: true })
     .eq("child_id", invite.child_id);
 
-  if (count >= 4) {
-    return res.status(400).json({ error: "Maximum 4 adults per child reached" });
+  if (count >= 2) {
+    return res.status(400).json({ error: "Maximum 2 adults per child reached" });
   }
 
   // Grant access

@@ -89,14 +89,14 @@ export default function ChildSettingsModal({ kid, coParents, userId, onRemoveAcc
       </div>
 
       {/* Invite button */}
-      {allAdults.length < 4 && (
+      {allAdults.length < 2 && (
         <button style={{ ...s.primaryBtn, width: "100%" }} onClick={() => onInvite(kid)}>
           Invite someone to {kid.name}'s schedule
         </button>
       )}
-      {allAdults.length >= 4 && (
+      {allAdults.length >= 2 && (
         <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, textAlign: "center" }}>
-          Maximum 4 people reached
+          Maximum 2 adults reached
         </p>
       )}
 

@@ -23,14 +23,14 @@ export default async function handler(req, res) {
 
   if (!access) return res.status(403).json({ error: "No access to this child" });
 
-  // Check max 4 adults per child
+  // Check max 2 adults per child
   const { count } = await sb
     .from("child_access")
     .select("*", { count: "exact", head: true })
     .eq("child_id", childId);
 
-  if (count >= 4) {
-    return res.status(400).json({ error: "Maximum 4 adults per child reached" });
+  if (count >= 2) {
+    return res.status(400).json({ error: "Maximum 2 adults per child reached" });
   }
 
   // Generate unique invite code (URL-safe, 12 chars)
