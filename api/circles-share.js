@@ -8,7 +8,6 @@ export default async function handler(req, res) {
   if (!user) return res.status(401).json({ error: "Unauthorized" });
 
   const { circleId, activities } = req.body;
-  // activities: [{ activityName, providerName, childName, scheduleInfo, ageGroup, registrationUrl, programId }]
   if (!circleId || !activities?.length) {
     return res.status(400).json({ error: "circleId and activities array required" });
   }
@@ -36,8 +35,23 @@ export default async function handler(req, res) {
 
   const sharerName = profile?.display_name || "A parent";
 
-  // Insert shared activities
-  const rows = activities.map((a) => ({
+  // Check for already-shared activities by this user in this circle (dedup)
+  const { data: existingShares } = await sb
+    .from("shared_activities")
+    .select("program_id")
+    .eq("circle_id", circleId)
+    .eq("shared_by", user.id);
+
+  const alreadyShared = new Set((existingShares || []).map((s) => s.program_id).filter(Boolean));
+
+  // Filter out already-shared activities
+  const newActivities = activities.filter((a) => !a.programId || !alreadyShared.has(a.programId));
+
+  if (newActivities.length === 0) {
+    return res.status(400).json({ error: "These activities have already been shared to this circle" });
+  }
+
+  const rows = newActivities.map((a) => ({
     circle_id: circleId,
     shared_by: user.id,
     shared_by_name: sharerName,
@@ -57,5 +71,5 @@ export default async function handler(req, res) {
 
   if (error) return res.status(500).json({ error: error.message });
 
-  return res.status(200).json({ success: true, shared });
+  return res.status(200).json({ success: true, shared, skipped: activities.length - newActivities.length });
 }

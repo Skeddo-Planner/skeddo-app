@@ -32,8 +32,8 @@ export default async function handler(req, res) {
   if (existing) {
     if (existing.status === "approved") return res.status(400).json({ error: "Already a member" });
     if (existing.status === "pending") return res.status(400).json({ error: "Join request already pending" });
-    // If removed, allow re-request
-    await sb.from("circle_memberships").update({ status: "pending", joined_at: new Date().toISOString() }).eq("id", existing.id);
+    // If removed, allow re-request (reset role to member)
+    await sb.from("circle_memberships").update({ status: "pending", role: "member", joined_at: new Date().toISOString() }).eq("id", existing.id);
     return res.status(200).json({ success: true, circle, status: "pending" });
   }
 

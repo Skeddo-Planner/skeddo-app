@@ -218,24 +218,34 @@ export function useCircles(userId, session) {
 
   /* ── Bookmark/unbookmark a shared activity ── */
   const toggleBookmark = useCallback(async (sharedActivityId) => {
-    const isBookmarked = bookmarks.has(sharedActivityId);
-    if (isBookmarked) {
-      await supabase
-        .from("circle_bookmarks")
-        .delete()
-        .eq("user_id", userId)
-        .eq("shared_activity_id", sharedActivityId);
-      setBookmarks((prev) => { const n = new Set(prev); n.delete(sharedActivityId); return n; });
-    } else {
-      await supabase
-        .from("circle_bookmarks")
-        .insert({ user_id: userId, shared_activity_id: sharedActivityId });
-      setBookmarks((prev) => new Set(prev).add(sharedActivityId));
+    // Optimistic update using functional state
+    setBookmarks((prev) => {
+      const next = new Set(prev);
+      if (next.has(sharedActivityId)) next.delete(sharedActivityId);
+      else next.add(sharedActivityId);
+      return next;
+    });
+    // Sync with Supabase
+    const wasBookmarked = bookmarks.has(sharedActivityId);
+    try {
+      if (wasBookmarked) {
+        await supabase.from("circle_bookmarks").delete().eq("user_id", userId).eq("shared_activity_id", sharedActivityId);
+      } else {
+        await supabase.from("circle_bookmarks").insert({ user_id: userId, shared_activity_id: sharedActivityId });
+      }
+    } catch {
+      // Revert on error
+      setBookmarks((prev) => {
+        const next = new Set(prev);
+        if (wasBookmarked) next.add(sharedActivityId);
+        else next.delete(sharedActivityId);
+        return next;
+      });
     }
   }, [userId, bookmarks]);
 
-  /* ── Flag a shared activity ── */
-  const flagActivity = useCallback(async (sharedActivityId, reason) => {
+  /* ── Flag a shared activity (refreshes feed after) ── */
+  const flagActivity = useCallback(async (sharedActivityId, reason, circleId) => {
     const res = await fetch("/api/circles-flag", {
       method: "POST",
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
@@ -243,8 +253,10 @@ export function useCircles(userId, session) {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error);
+    // Refresh feed to show flagged state
+    if (circleId) await loadFeed(circleId);
     return data;
-  }, [getAuthHeaders]);
+  }, [getAuthHeaders, loadFeed]);
 
   /* ── Get or create the user's permanent referral link ── */
   const ensureReferralCode = useCallback(async () => {
@@ -291,6 +303,8 @@ export function useCircles(userId, session) {
         .eq("status", "pending")
         .in("circle_id", ownedIds);
       setPendingRequests(pending || []);
+    } else {
+      setPendingRequests([]);
     }
   }, [userId]);
 

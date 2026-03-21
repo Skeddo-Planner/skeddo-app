@@ -42,6 +42,7 @@ function Tag({ children, color, bg }) {
 function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "Just now";
   if (mins < 60) return `${mins}m ago`;
   const hrs = Math.floor(mins / 60);
   if (hrs < 24) return `${hrs}h ago`;
@@ -54,7 +55,7 @@ export default function CirclesTab({
   const {
     circles, pendingRequests, activeFeed, bookmarks, referrals, loading,
     referralCode, referralUrl, membersRecruited, freeMonthsEarned,
-    createCircle, joinCircle, handleMemberRequest, leaveCircle,
+    createCircle, joinCircle, handleMemberRequest, leaveCircle, removeMember,
     shareActivities, loadFeed, toggleBookmark, flagActivity,
     ensureReferralCode, getMembers, refreshPending, pendingCount,
   } = circlesHook;
@@ -79,8 +80,8 @@ export default function CirclesTab({
     }
   }, [screen, referralCode, ensureReferralCode, refreshPending]);
 
-  // Build shareable activities from user's enrolled programs
-  const shareableActivities = (programs || []).map((p) => {
+  // Build shareable activities from user's ENROLLED programs only
+  const shareableActivities = (programs || []).filter((p) => p.status === "Enrolled").map((p) => {
     const kidNames = (p.kidIds || [])
       .map((id) => (kids || []).find((k) => k.id === id)?.name)
       .filter(Boolean);
@@ -211,13 +212,13 @@ export default function CirclesTab({
                 </div>
                 <div style={{ display: "flex", gap: 6 }}>
                   <button
-                    onClick={() => handleMemberRequest(req.id, "approve").then(() => showToast("Approved!"))}
+                    onClick={() => handleMemberRequest(req.id, "approve").then(() => showToast("Approved!")).catch((e) => showToast(e.message || "Failed"))}
                     style={{ background: C.seaGreen, color: C.cream, border: "none", borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Barlow', sans-serif" }}
                   >
                     Accept
                   </button>
                   <button
-                    onClick={() => handleMemberRequest(req.id, "decline").then(() => showToast("Declined"))}
+                    onClick={() => handleMemberRequest(req.id, "decline").then(() => showToast("Declined")).catch((e) => showToast(e.message || "Failed"))}
                     style={{ background: "none", border: `1px solid ${C.border}`, borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 600, cursor: "pointer", color: C.muted, fontFamily: "'Barlow', sans-serif" }}
                   >
                     Decline
@@ -471,6 +472,87 @@ export default function CirclesTab({
           </div>
         )}
 
+        {/* Members + Leave */}
+        <div style={{
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          marginBottom: 16, paddingBottom: 12, borderBottom: `1px solid ${C.border}`,
+        }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+            {circleMembers.map((m) => m.displayName).join(", ")}
+          </div>
+          <button
+            onClick={async () => {
+              if (activeCircle?.role === "owner") {
+                const otherMembers = circleMembers.filter((m) => m.userId !== userId);
+                if (otherMembers.length === 0) {
+                  showToast("You're the only member. Delete the circle instead.");
+                  return;
+                }
+                const confirmed = window.confirm(`Transfer ownership to ${otherMembers[0].displayName} and leave this circle?`);
+                if (!confirmed) return;
+                try {
+                  await leaveCircle(activeCircle.id, otherMembers[0].userId);
+                  setScreen("home");
+                  showToast("Left circle");
+                } catch (e) { showToast(e.message); }
+              } else {
+                const confirmed = window.confirm("Leave this circle? Your shared activities will become anonymous.");
+                if (!confirmed) return;
+                try {
+                  await leaveCircle(activeCircle.id);
+                  setScreen("home");
+                  showToast("Left circle");
+                } catch (e) { showToast(e.message); }
+              }
+            }}
+            style={{
+              background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+              fontSize: 12, fontWeight: 600, color: C.danger, cursor: "pointer",
+            }}
+          >
+            Leave
+          </button>
+        </div>
+
+        {/* Owner: remove members */}
+        {activeCircle?.role === "owner" && circleMembers.length > 1 && (
+          <details style={{ marginBottom: 16 }}>
+            <summary style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+              color: C.muted, cursor: "pointer", marginBottom: 8,
+            }}>
+              Manage members
+            </summary>
+            {circleMembers.filter((m) => m.userId !== userId).map((m) => (
+              <div key={m.userId} style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "6px 0", borderBottom: `1px solid ${C.border}`,
+              }}>
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.ink }}>
+                  {m.displayName}
+                </span>
+                <button
+                  onClick={async () => {
+                    if (!window.confirm(`Remove ${m.displayName} from this circle?`)) return;
+                    try {
+                      await removeMember(activeCircle.id, m.userId);
+                      const updated = await getMembers(activeCircle.id);
+                      setCircleMembers(updated);
+                      showToast("Removed");
+                    } catch (e) { showToast(e.message); }
+                  }}
+                  style={{
+                    background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+                    fontSize: 11, fontWeight: 600, color: C.danger, cursor: "pointer",
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </details>
+        )}
+
         {/* Feed */}
         {activeFeed.length === 0 ? (
           <EmptyState icon={"\uD83D\uDCE8"} message="No shared activities yet. Tap '+ Share' to share your first activity with this circle." />
@@ -555,7 +637,7 @@ export default function CirclesTab({
                   )}
                   <button
                     onClick={() => {
-                      flagActivity(item.id, "Reported as outdated").then(() => showToast("Flagged!")).catch(() => {});
+                      flagActivity(item.id, "Reported as outdated", activeCircle?.id).then(() => showToast("Flagged!")).catch((e) => showToast(e.message || "Already flagged"));
                     }}
                     style={{
                       background: isFlagged ? "#FEE2E2" : "none",

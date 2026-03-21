@@ -12,6 +12,18 @@ export default async function handler(req, res) {
 
   const sb = getSupabaseClient(user._token);
 
+  // Verify user is an approved member
+  const { data: myMembership } = await sb
+    .from("circle_memberships")
+    .select("role, status")
+    .eq("circle_id", circleId)
+    .eq("user_id", user.id)
+    .single();
+
+  if (!myMembership || myMembership.status !== "approved") {
+    return res.status(400).json({ error: "You are not an active member of this circle" });
+  }
+
   // Check if user is the owner
   const { data: circle } = await sb
     .from("circles")
@@ -22,12 +34,21 @@ export default async function handler(req, res) {
   if (!circle) return res.status(404).json({ error: "Circle not found" });
 
   if (circle.created_by === user.id) {
-    // Owner must transfer ownership first
     if (!newOwnerId) {
       return res.status(400).json({ error: "As the circle owner, you must transfer ownership before leaving. Provide newOwnerId." });
     }
+    // Verify new owner is an approved member
+    const { data: newOwnerMembership } = await sb
+      .from("circle_memberships")
+      .select("status")
+      .eq("circle_id", circleId)
+      .eq("user_id", newOwnerId)
+      .single();
 
-    // Transfer ownership
+    if (!newOwnerMembership || newOwnerMembership.status !== "approved") {
+      return res.status(400).json({ error: "The new owner must be an approved member of this circle" });
+    }
+
     await sb.from("circles").update({ created_by: newOwnerId }).eq("id", circleId);
     await sb.from("circle_memberships").update({ role: "owner" }).eq("circle_id", circleId).eq("user_id", newOwnerId);
   }
