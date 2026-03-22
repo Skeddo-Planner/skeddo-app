@@ -316,29 +316,40 @@ export default function HomeTab({
         </div>
       )}
 
-      {/* Enrolled Programs */}
-      <div style={s.sectionHeader}>
-        <h3 style={s.sectionTitle}>Enrolled Programs</h3>
-        <button
-          style={s.seeAll}
-          onClick={() => onNavigateToTab("programs", "Enrolled")}
-          aria-label="See all enrolled programs"
-        >
-          See all &rarr;
-        </button>
-      </div>
-      {enrolledPrograms.length === 0 && (
-        <EmptyState icon={"\u2600\uFE0F"} message="No enrolled programs yet. Start exploring!" />
-      )}
-      {enrolledPrograms.slice(0, 4).map((p) => (
-        <ProgramCard
-          key={p.id}
-          p={p}
-          kids={kids}
-          onTap={() => onOpenDetail(p)}
-          onStatusTap={() => onCycleStatus(p.id)}
-        />
-      ))}
+      {/* Enrolled Programs — only show active (not past) */}
+      {(() => {
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        const activeEnrolled = enrolledPrograms.filter((p) =>
+          !p.endDate || new Date(p.endDate + "T00:00:00") >= now
+        );
+        return (
+          <>
+            <div style={s.sectionHeader}>
+              <h3 style={s.sectionTitle}>Enrolled Programs</h3>
+              <button
+                style={s.seeAll}
+                onClick={() => onNavigateToTab("programs", "Enrolled")}
+                aria-label="See all enrolled programs"
+              >
+                See all &rarr;
+              </button>
+            </div>
+            {activeEnrolled.length === 0 && (
+              <EmptyState icon={"\u2600\uFE0F"} message="No upcoming enrolled programs. Browse the Discover tab!" />
+            )}
+            {activeEnrolled.slice(0, 4).map((p) => (
+              <ProgramCard
+                key={p.id}
+                p={p}
+                kids={kids}
+                onTap={() => onOpenDetail(p)}
+                onStatusTap={() => onCycleStatus(p.id)}
+              />
+            ))}
+          </>
+        );
+      })()}
 
       {/* Waitlist */}
       {waitlistPrograms.length > 0 && (
