@@ -37,26 +37,73 @@ export function fmtShortDate(dateStr) {
 /* ─── Registration status logic ─── */
 export const REGISTRATION_STATUSES = [
   { key: "open", label: "Open for Registration", color: C.seaGreen, icon: "✓" },
-  { key: "opening-soon", label: "Opening Soon", color: C.blue, icon: "◷" },
+  { key: "coming-soon", label: "Coming Soon", color: C.blue, icon: "◷" },
+  { key: "upcoming", label: "Upcoming", color: "#6B8FA3", icon: "◷" },
   { key: "likely-coming-soon", label: "Likely Coming Soon", color: "#B8860B", icon: "◷" },
   { key: "full", label: "Full / Waitlist", color: C.olive, icon: "●" },
   { key: "in-progress", label: "In Progress", color: C.lilac, icon: "▶" },
   { key: "completed", label: "Completed", color: C.muted, icon: "✗" },
 ];
 
+/**
+ * Compute registration status dynamically based on dates and enrollment data.
+ *
+ * Priority:
+ * 1. Completed: camp end date has passed
+ * 2. In Progress: camp start date has passed but end date hasn't
+ * 3. Full/Waitlist: explicit enrollment status from provider
+ * 4. Open: registration date has passed AND not marked full
+ * 5. Coming Soon: registration date is confirmed and within 30 days
+ * 6. Upcoming: registration date is confirmed but more than 30 days away
+ * 7. Likely Coming Soon: no confirmed registration date, estimated data only
+ * 8. Open (fallback): enrollment status says "Open"
+ */
 export function getRegistrationStatus(program) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const start = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
-  const end = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
-  if (end && end < today) return "completed";
-  if (start && start <= today) return "in-progress";
-  // Full/Waitlist takes priority over unconfirmed status
-  if (program.enrollmentStatus === "Full" || program.enrollmentStatus === "Full/Waitlist" || program.enrollmentStatus === "Waitlist") return "full";
-  // Unconfirmed 2026 programs show "Likely Coming Soon"
-  if (program.confirmed2026 === false) return "likely-coming-soon";
-  if (program.enrollmentStatus === "Coming Soon") return "opening-soon";
-  if (program.enrollmentStatus === "Likely Coming Soon") return "likely-coming-soon";
+  const MS_PER_DAY = 86400000;
+
+  const campStart = program.startDate ? new Date(program.startDate + "T00:00:00") : null;
+  const campEnd = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
+  const regDate = program.registrationDate ? new Date(program.registrationDate + "T00:00:00") : null;
+
+  // 1. Completed: camp end date has passed
+  if (campEnd && campEnd < today) return "completed";
+
+  // 2. In Progress: camp has started but not ended, not accepting new applicants
+  if (campStart && campStart <= today && (!campEnd || campEnd >= today)) return "in-progress";
+
+  // 3. Full/Waitlist: explicit status from provider
+  const es = (program.enrollmentStatus || "").toLowerCase();
+  if (es === "full" || es === "full/waitlist" || es === "waitlist") return "full";
+
+  // 4. Open: registration date has passed (registration is live)
+  if (regDate && regDate <= today) {
+    return "open";
+  }
+
+  // 5. Open: explicit "Open" status from provider (no regDate but confirmed open)
+  if (es === "open") return "open";
+
+  // 6. Coming Soon: registration date confirmed and within 30 days
+  if (regDate) {
+    const daysUntilReg = Math.ceil((regDate - today) / MS_PER_DAY);
+    if (daysUntilReg <= 30) return "coming-soon";
+    // 7. Upcoming: registration date confirmed but more than 30 days away
+    return "upcoming";
+  }
+
+  // 8. Likely Coming Soon: no confirmed registration date, estimated data
+  if (program.confirmed2026 === false || es === "likely coming soon" || es === "tbd") {
+    return "likely-coming-soon";
+  }
+
+  // 9. Coming Soon: provider said "Coming Soon" but no specific date
+  if (es === "coming soon") return "coming-soon";
+
+  // 10. Fallback: if we have a future camp start but no registration info
+  if (campStart && campStart > today) return "likely-coming-soon";
+
   return "open";
 }
 

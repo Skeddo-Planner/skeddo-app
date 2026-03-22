@@ -386,8 +386,11 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           }}
         >
           {statusInfo.icon} {statusInfo.label}
-          {regStatus === "opening-soon" && program.registrationDateLabel && (
+          {(regStatus === "coming-soon" || regStatus === "upcoming") && program.registrationDateLabel && (
             <span style={{ fontWeight: 400 }}> &mdash; {program.registrationDateLabel}</span>
+          )}
+          {(regStatus === "coming-soon" || regStatus === "upcoming") && program.registrationDate && !program.registrationDateLabel && (
+            <span style={{ fontWeight: 400 }}> &mdash; Reg. opens {fmtDate(program.registrationDate)}</span>
           )}
         </span>
         {program.spotsRemaining && (() => {
