@@ -49,8 +49,12 @@ export default function OnboardingFlow({ onComplete }) {
     setKids((prev) => prev.filter((k) => k.id !== id));
   };
 
+  /* Canadian postal code: A1A 1A1 or A1A1A1 (case-insensitive) */
+  const isValidPostalCode = (code) =>
+    /^[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d$/.test(code.trim());
+
   const handleAboutYouNext = () => {
-    if (!displayName.trim() || !postalCode.trim()) {
+    if (!displayName.trim() || !postalCode.trim() || !isValidPostalCode(postalCode)) {
       setShowErrors(true);
       return;
     }
@@ -145,7 +149,7 @@ export default function OnboardingFlow({ onComplete }) {
               }}
               onClick={() => setScreen(1)}
             >
-              Get Started
+              Let's Go
             </button>
           </div>
         )}
@@ -207,15 +211,17 @@ export default function OnboardingFlow({ onComplete }) {
               <input
                 style={{
                   ...s.input,
-                  ...(showErrors && !postalCode.trim() ? errorBorder : {}),
+                  ...(showErrors && (!postalCode.trim() || !isValidPostalCode(postalCode)) ? errorBorder : {}),
                 }}
                 value={postalCode}
                 onChange={(e) => setPostalCode(e.target.value.toUpperCase())}
                 placeholder="V6B 1A1"
                 maxLength={7}
               />
-              {showErrors && !postalCode.trim() && (
-                <div style={errorText}>Please enter your postal code</div>
+              {showErrors && (!postalCode.trim() || !isValidPostalCode(postalCode)) && (
+                <div style={errorText}>
+                  {!postalCode.trim() ? "Please enter your postal code" : "Please enter a valid Canadian postal code (e.g. V6B 1A1)"}
+                </div>
               )}
               <div style={{
                 fontFamily: "'Barlow', sans-serif",
@@ -428,7 +434,7 @@ export default function OnboardingFlow({ onComplete }) {
                   textAlign: "center",
                 }}
                 onClick={() => {
-                  setKids([]); // Skip means don't save any kids
+                  // Skip proceeds without adding more kids (keeps any already added)
                   setScreen(4);
                 }}
               >
@@ -442,11 +448,11 @@ export default function OnboardingFlow({ onComplete }) {
                 }}
                 onClick={() => {
                   // If user typed a name but didn't click "Add", add it first
-                  if (kidName.trim() && kids.length === 0) {
+                  if (kidName.trim()) {
                     addKid();
                   }
-                  // Small delay to let state update if we just added
-                  setTimeout(() => setScreen(4), kidName.trim() && kids.length === 0 ? 50 : 0);
+                  // Use requestAnimationFrame to ensure state updates before advancing
+                  requestAnimationFrame(() => setScreen(4));
                 }}
                 disabled={kids.length === 0 && !kidName.trim()}
               >
