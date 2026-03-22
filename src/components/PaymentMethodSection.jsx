@@ -29,8 +29,8 @@ const CARD_STYLE = {
     fontFamily: "'Barlow', sans-serif",
     fontSize: "14px",
     fontWeight: "500",
-    color: "#1A2E26",
-    "::placeholder": { color: "#8A9A8E" },
+    color: "#1B2432",
+    "::placeholder": { color: "#4A6FA5" },
   },
   invalid: {
     color: "#C0392B",

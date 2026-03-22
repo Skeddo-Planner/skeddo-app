@@ -9,16 +9,16 @@ export const C = {
   ink: "#1B2432",             // Midnight (dark base)
   cream: "#F8F9FA",           // Cloud (light background)
   white: "#FFFFFF",
-  muted: "#6B7280",           // Neutral grey
+  muted: "#4A6FA5",           // Slate Blue (secondary text)
   border: "#E5E7EB",          // Light border
   dangerBg: "#FEF2F2",
   danger: "#EF4444",
 };
 
 export const STATUS_MAP = {
-  Enrolled: { color: C.seaGreen, bg: "#ECFDF5", icon: "\u2713" },
-  Waitlist: { color: C.olive, bg: "#FEF3E2", icon: "\u25F7" },
-  Exploring: { color: C.blue, bg: "#EFF6FF", icon: "\u25C7" },
+  Enrolled: { color: C.seaGreen, bg: "rgba(45,159,111,0.10)", icon: "\u2713" },
+  Waitlist: { color: C.olive, bg: "rgba(231,111,81,0.10)", icon: "\u25F7" },
+  Exploring: { color: C.blue, bg: "rgba(74,111,165,0.10)", icon: "\u25C7" },
 };
 
 export const CATEGORIES = [
@@ -45,10 +45,10 @@ export const CAT_EMOJI = {
 
 /* ─── Kid color palette — auto-assigned, user-editable ─── */
 export const KID_COLORS = [
-  { hex: "#3A9E6A", name: "Sea Green" },
-  { hex: "#2A5F8A", name: "Blue" },
-  { hex: "#C87FA0", name: "Lilac" },
-  { hex: "#B89A2A", name: "Gold" },
+  { hex: "#2D9F6F", name: "Jade Green" },
+  { hex: "#4A6FA5", name: "Slate Blue" },
+  { hex: "#F4A261", name: "Peach" },
+  { hex: "#E76F51", name: "Terracotta" },
   { hex: "#E06C50", name: "Coral" },
   { hex: "#5BB5A2", name: "Teal" },
   { hex: "#7B68AE", name: "Purple" },

@@ -1032,7 +1032,7 @@ export default function DiscoverTab({
                       maxHeight: 200,
                       overflowY: "auto",
                       zIndex: 20,
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                      boxShadow: "0 4px 12px rgba(27,36,50,0.1)",
                     }}
                   >
                     {availableActivityTypes.map((at) => {
@@ -1170,7 +1170,7 @@ export default function DiscoverTab({
                   background: C.white,
                   border: `1px solid ${C.border}`,
                   borderRadius: 10,
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                  boxShadow: "0 4px 12px rgba(27,36,50,0.08)",
                   zIndex: 20,
                   marginTop: 4,
                 }}

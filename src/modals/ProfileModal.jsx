@@ -685,7 +685,7 @@ function ToggleRow({ label, description, checked, onChange }) {
           top: 2,
           left: checked ? 22 : 2,
           transition: "left 0.2s ease",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.15)",
+          boxShadow: "0 1px 3px rgba(27,36,50,0.15)",
         }} />
       </div>
     </div>

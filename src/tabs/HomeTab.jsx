@@ -97,7 +97,7 @@ export default function HomeTab({
           <div style={s.sectionHeader}>
             <h3 style={s.sectionTitle}>Recent Activity</h3>
           </div>
-          <div style={{ background: C.white, borderRadius: 14, border: `1px solid ${C.border}`, padding: "12px 16px", marginBottom: 16 }}>
+          <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)", padding: "12px 16px", marginBottom: 16 }}>
             {activityLog.slice(0, 5).map((log) => (
               <div key={log.id} style={{
                 display: "flex", gap: 8, alignItems: "baseline",
@@ -301,7 +301,7 @@ export default function HomeTab({
             style={{
               background: "none",
               border: "none",
-              color: "#6B8A72",
+              color: "#4A6FA5",
               fontSize: 18,
               cursor: "pointer",
               padding: "0 2px",

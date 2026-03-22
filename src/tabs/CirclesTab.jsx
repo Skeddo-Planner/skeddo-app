@@ -549,7 +549,7 @@ export default function CirclesTab({
 
         {/* Members list with roles + remove */}
         <div style={{
-          background: C.white, borderRadius: 12, border: `1px solid ${C.border}`,
+          background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
           padding: "12px 14px", marginBottom: 16,
         }}>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8 }}>
@@ -683,7 +683,7 @@ export default function CirclesTab({
                 </div>
 
                 {/* Activity card */}
-                <div style={{ background: "#FAF8F3", borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
+                <div style={{ background: "#F8F9FA", borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
                     {item.activity_name}
                   </div>
@@ -900,7 +900,7 @@ export default function CirclesTab({
         </div>
 
         {/* How referrals work */}
-        <div style={{ background: C.white, borderRadius: 14, padding: "16px 18px", border: `1px solid ${C.border}`, marginBottom: 16 }}>
+        <div style={{ background: C.white, borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)", marginBottom: 16 }}>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: 0.5 }}>
             How referrals work
           </div>

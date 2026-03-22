@@ -168,7 +168,7 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
             marginTop: 4,
             maxHeight: 180,
             overflowY: "auto",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 12px rgba(27,36,50,0.1)",
           }}>
             {filteredOptions.map((option) => (
               <button
@@ -211,7 +211,7 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
                     gap: 4,
                     padding: "4px 10px",
                     background: person.role === "creator" ? "#E8F5EE" : "#EAF0F6",
-                    color: person.role === "creator" ? C.seaGreen : "#2A5F8A",
+                    color: person.role === "creator" ? C.seaGreen : "#4A6FA5",
                     borderRadius: 8,
                     fontSize: 12,
                     fontWeight: 600,

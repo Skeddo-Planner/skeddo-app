@@ -221,7 +221,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        input:focus { outline: none; border-color: ${C.seaGreen} !important; box-shadow: 0 0 0 3px rgba(58,158,106,0.12); }
+        input:focus { outline: none; border-color: ${C.seaGreen} !important; box-shadow: 0 0 0 3px rgba(45,159,111,0.12); }
       `}</style>
 
       <div style={{ animation: "fadeUp 0.4s ease" }}>
@@ -395,7 +395,7 @@ const labelStyle = {
   fontFamily: "'Barlow', sans-serif",
   fontSize: 11,
   fontWeight: 700,
-  color: "#8A9A8E",
+  color: "#4A6FA5",
   textTransform: "uppercase",
   letterSpacing: 0.8,
   marginBottom: 4,

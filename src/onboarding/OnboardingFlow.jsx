@@ -519,7 +519,7 @@ const labelStyle = {
   fontFamily: "'Barlow', sans-serif",
   fontSize: 11,
   fontWeight: 700,
-  color: "#8A9A8E",
+  color: "#4A6FA5",
   textTransform: "uppercase",
   letterSpacing: 0.8,
   marginBottom: 4,

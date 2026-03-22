@@ -68,13 +68,13 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 onClick={onOpenActivity}
                 style={{
                   width: 40, height: 40, borderRadius: 10,
-                  background: "rgba(26,46,38,0.05)", border: "none",
+                  background: "rgba(255,255,255,0.12)", border: "none",
                   cursor: "pointer", display: "flex", alignItems: "center",
                   justifyContent: "center", position: "relative", flexShrink: 0,
                 }}
                 aria-label={`${unreadCount} new activity updates`}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
                   <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                 </svg>
@@ -92,15 +92,15 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               onClick={() => setMenuOpen(true)}
               style={{
                 width: 40, height: 40, borderRadius: 10,
-                background: "rgba(26,46,38,0.05)", border: "none",
+                background: "rgba(255,255,255,0.12)", border: "none",
                 cursor: "pointer", display: "flex", flexDirection: "column",
                 alignItems: "center", justifyContent: "center", gap: 4, flexShrink: 0,
               }}
               aria-label="Open menu"
             >
-              <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
-              <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
-              <span style={{ width: 18, height: 2, background: C.ink, borderRadius: 1 }} />
+              <span style={{ width: 18, height: 2, background: "#FFFFFF", borderRadius: 1 }} />
+              <span style={{ width: 18, height: 2, background: "#FFFFFF", borderRadius: 1 }} />
+              <span style={{ width: 18, height: 2, background: "#FFFFFF", borderRadius: 1 }} />
             </button>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               left: 0,
               right: 0,
               bottom: 0,
-              background: "rgba(26,46,38,0.4)",
+              background: "rgba(27,36,50,0.4)",
             }}
           />
           {/* Drawer */}
@@ -140,7 +140,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               width: 280,
               maxWidth: "80vw",
               background: C.white,
-              boxShadow: "-4px 0 20px rgba(26,46,38,0.12)",
+              boxShadow: "-4px 0 20px rgba(27,36,50,0.12)",
               display: "flex",
               flexDirection: "column",
               overflow: "hidden",
@@ -160,7 +160,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     fontFamily: "'Poppins', sans-serif",
                     fontSize: 18,
                     fontWeight: 700,
-                    color: C.cream,
+                    color: "#FFFFFF",
                   }}>
                     {displayName}
                   </div>
@@ -168,7 +168,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 <div style={{
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: 11,
-                  color: C.muted,
+                  color: "rgba(255,255,255,0.6)",
                   fontWeight: 600,
                   letterSpacing: 0.5,
                   marginTop: 2,
@@ -182,7 +182,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 style={{
                   background: "none",
                   border: "none",
-                  color: C.muted,
+                  color: "rgba(255,255,255,0.6)",
                   fontSize: 24,
                   cursor: "pointer",
                   padding: 8,

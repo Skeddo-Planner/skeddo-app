@@ -805,7 +805,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         <div
           style={{
             position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
-            background: "rgba(0,0,0,0.45)", zIndex: 100,
+            background: "rgba(27,36,50,0.45)", zIndex: 100,
             display: "flex", alignItems: "center", justifyContent: "center",
             padding: 16,
           }}
@@ -814,7 +814,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           <div style={{
             background: C.white, borderRadius: 20, width: "100%", maxWidth: 420,
             maxHeight: "85vh", display: "flex", flexDirection: "column",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+            boxShadow: "0 8px 32px rgba(27,36,50,0.18)",
           }}>
             {/* Header */}
             <div style={{ padding: "18px 20px 12px", borderBottom: `1px solid ${C.border}` }}>

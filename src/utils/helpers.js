@@ -480,7 +480,7 @@ export function calcCostPerHour(program) {
 
 /** Get colour for cost-per-hour value */
 export function costPerHourColor(cph) {
-  if (cph == null) return "#6B7280";
+  if (cph == null) return "#4A6FA5";
   if (cph < 10) return "#2D9F6F"; // Jade Green — great value
   if (cph <= 20) return "#4A6FA5"; // Slate Blue — typical
   return "#F4A261"; // Peach — premium

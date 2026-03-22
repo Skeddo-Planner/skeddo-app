@@ -84,7 +84,7 @@ export default function TabBar({ tab, setTab, badges }) {
           >
             {active && <span style={s.tabIndicator} />}
             <span style={{ position: "relative" }}>
-              <TabIcon id={t.id} color={active ? C.seaGreen : "#8A9A8E"} />
+              <TabIcon id={t.id} color={active ? C.seaGreen : "#4A6FA5"} />
               {badges?.[t.id] > 0 && (
                 <span style={{
                   position: "absolute", top: -4, right: -6,

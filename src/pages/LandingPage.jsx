@@ -140,7 +140,7 @@ export default function LandingPage({ onNavigate }) {
       {/* Local SEO content */}
       <div style={{
         textAlign: "center", marginTop: 24, padding: "20px 16px",
-        background: C.white, borderRadius: 14, border: `1px solid ${C.border}`,
+        background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
       }}>
         <h2 style={{
           fontFamily: "'Instrument Serif', Georgia, serif",
