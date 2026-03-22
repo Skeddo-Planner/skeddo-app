@@ -381,11 +381,13 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   const [showExport, setShowExport] = useState(false);
   const [exportKidFilter, setExportKidFilter] = useState("all"); // "all" or kid id
   const [exportSelected, setExportSelected] = useState(new Set());
-  const [exportDateMode, setExportDateMode] = useState("all"); // "all" | "month" | "week"
+  const [exportDateMode, setExportDateMode] = useState("all"); // "all" | "month" | "week" | "custom"
   const [exportMonth, setExportMonth] = useState(() => {
     const now = new Date();
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
   });
+  const [exportCustomStart, setExportCustomStart] = useState("");
+  const [exportCustomEnd, setExportCustomEnd] = useState("");
 
   // Programs available for export (enrolled only, filtered by kid + date)
   const exportablePrograms = useMemo(() => {
@@ -412,9 +414,18 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         const pe = p.endDate ? new Date(p.endDate + "T00:00:00") : ps;
         return pe >= weekStart && ps <= weekEnd;
       });
+    } else if (exportDateMode === "custom" && exportCustomStart && exportCustomEnd) {
+      const customStart = new Date(exportCustomStart + "T00:00:00");
+      const customEnd = new Date(exportCustomEnd + "T00:00:00");
+      list = list.filter((p) => {
+        if (!p.startDate) return false;
+        const ps = new Date(p.startDate + "T00:00:00");
+        const pe = p.endDate ? new Date(p.endDate + "T00:00:00") : ps;
+        return pe >= customStart && ps <= customEnd;
+      });
     }
     return list;
-  }, [visiblePrograms, exportKidFilter, exportDateMode, exportMonth, weekStart]);
+  }, [visiblePrograms, exportKidFilter, exportDateMode, exportMonth, weekStart, exportCustomStart, exportCustomEnd]);
 
   // When export modal opens, select all by default
   const openExportModal = () => {
@@ -890,6 +901,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                     { key: "all", label: "All Dates" },
                     { key: "week", label: "This Week" },
                     { key: "month", label: "By Month" },
+                    { key: "custom", label: "Custom" },
                   ].map((opt) => (
                     <button
                       key={opt.key}
@@ -916,6 +928,29 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                     />
                   )}
                 </div>
+                {exportDateMode === "custom" && (
+                  <div style={{ display: "flex", gap: 8, marginTop: 8, alignItems: "center" }}>
+                    <input
+                      type="date"
+                      value={exportCustomStart}
+                      onChange={(e) => { setExportCustomStart(e.target.value); setExportSelected(new Set()); }}
+                      style={{
+                        flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, padding: "8px 10px",
+                        borderRadius: 8, border: `1px solid ${C.border}`, color: C.ink, minHeight: 40,
+                      }}
+                    />
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>to</span>
+                    <input
+                      type="date"
+                      value={exportCustomEnd}
+                      onChange={(e) => { setExportCustomEnd(e.target.value); setExportSelected(new Set()); }}
+                      style={{
+                        flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, padding: "8px 10px",
+                        borderRadius: 8, border: `1px solid ${C.border}`, color: C.ink, minHeight: 40,
+                      }}
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Select all / none */}
