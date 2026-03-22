@@ -38,7 +38,16 @@ export function useAuth() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, displayName: displayName || "" }),
-      }).catch(() => {}); // silently ignore notification failures
+      }).catch(() => {});
+    } catch {}
+
+    // Send welcome email with beta link to the new user (fire-and-forget)
+    try {
+      fetch("/api/welcome-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, displayName: displayName || "" }),
+      }).catch(() => {});
     } catch {}
 
     return data;
