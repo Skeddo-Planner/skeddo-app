@@ -2013,10 +2013,28 @@ export default function DiscoverTab({
       {/* Program cards */}
       {isLoadingPrograms && <SkeletonList count={6} />}
       {!isLoadingPrograms && filtered.length === 0 && (
-        <EmptyState
-          icon={"\uD83D\uDD0D"}
-          message="No programs match your search. Try broadening your filters."
-        />
+        <>
+          <EmptyState
+            icon={"\uD83D\uDD0D"}
+            message="No programs match your search. Try broadening your filters."
+          />
+          <div style={{
+            textAlign: "center",
+            padding: "0 16px 16px",
+            marginTop: -8,
+          }}>
+            <p style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 14,
+              color: C.muted,
+              lineHeight: 1.6,
+            }}>
+              Can't find a program you're registered for or one you know exists?
+              You can add it manually from the <strong style={{ color: C.ink }}>Programs</strong> tab
+              using the <strong style={{ color: C.ink }}>+ Add</strong> button at the top.
+            </p>
+          </div>
+        </>
       )}
       {!isLoadingPrograms && visiblePrograms.map((p) => (
         <DirectoryCard
