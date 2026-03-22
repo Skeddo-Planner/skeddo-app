@@ -12,3 +12,82 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
 @supports not (min-height: 100dvh) {
   #root > div { min-height: 100vh !important; }
 }
+
+/* ─── Responsive app container ─── */
+
+/* Mobile default: cap the main app at 480px */
+@media (max-width: 767px) {
+  .skeddo-app-container { max-width: 480px !important; }
+}
+
+/* Tablet: 768–1023px — wider layout */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .skeddo-app-container { max-width: 720px !important; }
+  .skeddo-main { padding: 20px 24px 0 !important; }
+}
+
+/* Desktop: 1024px+ — widest layout */
+@media (min-width: 1024px) {
+  .skeddo-app-container { max-width: 960px !important; }
+  .skeddo-main { padding: 24px 32px 0 !important; }
+}
+
+/* ─── Responsive tab bar ─── */
+@media (max-width: 767px) {
+  .skeddo-tabbar { max-width: 480px !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .skeddo-tabbar { max-width: 720px !important; }
+}
+@media (min-width: 1024px) {
+  .skeddo-tabbar { max-width: 960px !important; }
+}
+
+/* ─── Responsive modals — centered and wider on tablet/desktop ─── */
+@media (min-width: 768px) {
+  .skeddo-modal {
+    max-width: 600px !important;
+    border-radius: 20px !important;
+    margin-bottom: 40px !important;
+  }
+  .skeddo-overlay {
+    align-items: center !important;
+    padding: 24px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .skeddo-modal {
+    max-width: 700px !important;
+  }
+}
+
+/* ─── Discover tab: 2-column card grid on tablet+ ─── */
+@media (min-width: 768px) {
+  .discover-results {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .discover-results > * {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ─── Home tab: 4-column stats on tablet+ ─── */
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* ─── Home tab: program cards 2-col on desktop ─── */
+@media (min-width: 1024px) {
+  .home-programs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .home-programs-grid > * {
+    margin-bottom: 0 !important;
+  }
+}

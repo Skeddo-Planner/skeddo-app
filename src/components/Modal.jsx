@@ -62,13 +62,13 @@ export default function Modal({ onClose, children, centered }) {
 
   return (
     <div
-      className="modal-bg"
+      className="modal-bg skeddo-overlay"
       style={{ ...s.overlay, ...(centered ? { alignItems: "center", padding: "20px" } : {}) }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
       role="dialog"
       aria-modal="true"
     >
-      <div className="modal-content" ref={modalRef} style={{ ...s.modal, ...(centered ? { borderRadius: 20, maxHeight: "92vh" } : {}) }}>
+      <div className="modal-content skeddo-modal" ref={modalRef} style={{ ...s.modal, ...(centered ? { borderRadius: 20, maxHeight: "92vh" } : {}) }}>
         <button
           onClick={onClose}
           aria-label="Close"

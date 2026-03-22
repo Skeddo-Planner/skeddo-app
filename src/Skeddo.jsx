@@ -520,7 +520,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   /* ── Main App ── */
   return (
-    <div style={s.app}>
+    <div style={s.app} className="skeddo-app-container">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -576,7 +576,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         <InfoPage pageId={infoPage} onBack={() => setInfoPage(null)} />
       )}
 
-      {!infoPage && <main style={s.main}>
+      {!infoPage && <main style={s.main} className="skeddo-main">
         {tab === "home" && (
           <HomeTab
             enrolledPrograms={enrolledPrograms}

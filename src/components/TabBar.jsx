@@ -69,7 +69,7 @@ const TABS = [
 
 export default function TabBar({ tab, setTab, badges }) {
   return (
-    <nav style={s.tabBar}>
+    <nav style={s.tabBar} className="skeddo-tabbar">
       {TABS.map((t) => {
         const active = tab === t.id;
         return (

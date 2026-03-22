@@ -194,7 +194,7 @@ export default function HomeTab({
       )}
 
       {/* Stats grid */}
-      <div style={s.statsGrid}>
+      <div style={s.statsGrid} className="stats-grid">
         <div
           style={{ ...s.statBox, borderLeft: `3px solid ${C.seaGreen}`, cursor: "pointer" }}
           onClick={() => onNavigateToTab("programs", "Enrolled")}
@@ -338,15 +338,17 @@ export default function HomeTab({
             {activeEnrolled.length === 0 && (
               <EmptyState icon={"\u2600\uFE0F"} message="No upcoming enrolled programs. Browse the Discover tab!" />
             )}
-            {activeEnrolled.slice(0, 4).map((p) => (
-              <ProgramCard
-                key={p.id}
-                p={p}
-                kids={kids}
-                onTap={() => onOpenDetail(p)}
-                onStatusTap={() => onCycleStatus(p.id)}
-              />
-            ))}
+            <div className="home-programs-grid">
+              {activeEnrolled.slice(0, 4).map((p) => (
+                <ProgramCard
+                  key={p.id}
+                  p={p}
+                  kids={kids}
+                  onTap={() => onOpenDetail(p)}
+                  onStatusTap={() => onCycleStatus(p.id)}
+                />
+              ))}
+            </div>
           </>
         );
       })()}

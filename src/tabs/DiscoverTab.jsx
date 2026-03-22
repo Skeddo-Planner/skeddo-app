@@ -2048,18 +2048,22 @@ export default function DiscoverTab({
           </div>
         </>
       )}
-      {!isLoadingPrograms && visiblePrograms.map((p) => (
-        <DirectoryCard
-          key={p.id}
-          program={p}
-          alreadyAdded={addedNames.has(p.name?.toLowerCase())}
-          favorited={isFavorite(p.id)}
-          onToggleFavorite={toggleFavorite}
-          onTap={onOpenDirectoryDetail}
-          regStatus={getRegistrationStatus(p)}
-          eligibility={eligibilityMap ? eligibilityMap.get(p.id) : null}
-        />
-      ))}
+      {!isLoadingPrograms && (
+        <div className="discover-results">
+          {visiblePrograms.map((p) => (
+            <DirectoryCard
+              key={p.id}
+              program={p}
+              alreadyAdded={addedNames.has(p.name?.toLowerCase())}
+              favorited={isFavorite(p.id)}
+              onToggleFavorite={toggleFavorite}
+              onTap={onOpenDirectoryDetail}
+              regStatus={getRegistrationStatus(p)}
+              eligibility={eligibilityMap ? eligibilityMap.get(p.id) : null}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Load more */}
       {hasMore && (
