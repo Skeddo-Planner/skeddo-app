@@ -26,15 +26,34 @@ function formatDateShort(d) {
   return `${MONTHS[d.getMonth()]} ${d.getDate()}`;
 }
 
-function parseDays(daysStr) {
-  if (!daysStr) return [];
-  const s = daysStr.toLowerCase().replace(/\u2013/g, "-");
-  const result = [];
-  if (s.includes("mon-fri") || s.includes("mon\u2013fri")) return [0, 1, 2, 3, 4];
-  DAY_NAMES.forEach((name, i) => {
-    if (s.includes(name.toLowerCase())) result.push(i);
-  });
-  return result;
+function parseDays(daysStr, startDate, endDate) {
+  if (daysStr) {
+    const s = daysStr.toLowerCase().replace(/\u2013/g, "-");
+    const result = [];
+    // Handle range patterns
+    if (s.includes("mon-fri") || s.includes("monday-friday") || s.includes("weekdays")) return [0, 1, 2, 3, 4];
+    if (s.includes("mon-sat")) return [0, 1, 2, 3, 4, 5];
+    if (s.includes("mon-thu") || s.includes("monday-thursday")) return [0, 1, 2, 3];
+    // Handle full day names and abbreviations
+    const fullNames = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    const shortNames = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+    shortNames.forEach((name, i) => {
+      if (s.includes(fullNames[i]) || s.includes(name)) result.push(i);
+    });
+    if (result.length > 0) return result;
+  }
+  // Fallback: if no days parsed but we have start and end dates, assume Mon-Fri (weekdays)
+  if (startDate && endDate) {
+    return [0, 1, 2, 3, 4]; // Mon-Fri default
+  }
+  if (startDate && !endDate) {
+    // Single date — figure out which weekday it falls on
+    const d = new Date(startDate + "T00:00:00");
+    const jsDay = d.getDay(); // 0=Sun, 1=Mon...
+    const mapped = jsDay === 0 ? 6 : jsDay - 1; // convert to 0=Mon
+    return [mapped];
+  }
+  return [];
 }
 
 function parseTime(timeStr) {
@@ -322,7 +341,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   const scheduledByDay = useMemo(() => {
     const byDay = Array.from({ length: 7 }, () => []);
     visiblePrograms.forEach((p) => {
-      const dayIndices = parseDays(p.days);
+      const dayIndices = parseDays(p.days, p.startDate, p.endDate);
       const timeRange = parseTimeRange(p.times);
       dayIndices.forEach((dayIdx) => {
         const date = weekDates[dayIdx];

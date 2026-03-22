@@ -144,12 +144,48 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         </div>
         <div>
           <Label>Days</Label>
-          <input
-            style={s.input}
-            value={form.days || ""}
-            onChange={(e) => update("days", e.target.value)}
-            placeholder="Mon-Fri"
-          />
+          <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+            {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => {
+              const current = (form.days || "").toLowerCase();
+              const isSelected = current.includes(day.toLowerCase());
+              return (
+                <button
+                  key={day}
+                  type="button"
+                  onClick={() => {
+                    const days = (form.days || "").split(", ").filter(Boolean);
+                    if (isSelected) {
+                      update("days", days.filter((d) => d.toLowerCase() !== day.toLowerCase()).join(", "));
+                    } else {
+                      const allDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+                      const newDays = [...days.filter((d) => allDays.some((ad) => ad.toLowerCase() === d.toLowerCase())), day];
+                      newDays.sort((a, b) => allDays.findIndex((d) => d.toLowerCase() === a.toLowerCase()) - allDays.findIndex((d) => d.toLowerCase() === b.toLowerCase()));
+                      // Use "Mon-Fri" shorthand when all weekdays selected
+                      if (newDays.length === 5 && ["Mon","Tue","Wed","Thu","Fri"].every((d) => newDays.some((nd) => nd.toLowerCase() === d.toLowerCase()))) {
+                        update("days", "Mon-Fri");
+                      } else {
+                        update("days", newDays.join(", "));
+                      }
+                    }
+                  }}
+                  style={{
+                    padding: "6px 10px",
+                    borderRadius: 8,
+                    border: `1.5px solid ${isSelected ? C.seaGreen : C.border}`,
+                    background: isSelected ? C.seaGreen + "18" : "transparent",
+                    color: isSelected ? C.seaGreen : C.muted,
+                    fontFamily: "'Barlow', sans-serif",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    minHeight: 36,
+                  }}
+                >
+                  {day}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
