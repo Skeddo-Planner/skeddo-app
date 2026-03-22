@@ -33,6 +33,7 @@ export const CATEGORIES = [
   "Faith-Based",
   "Language",
   "Cultural",
+  "Childcare",
 ];
 
 export const CAT_EMOJI = {
@@ -46,6 +47,7 @@ export const CAT_EMOJI = {
   Social: "\ud83e\uddf8",
   "Faith-Based": "\u26ea",
   Language: "\ud83d\udde3\ufe0f",
+  Childcare: "\ud83d\udc76",
   Cultural: "\ud83c\udfad",
 };
 
