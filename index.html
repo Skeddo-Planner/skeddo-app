@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
 
     <!-- SEO: Title & Description -->
-    <title>Skeddo — Plan, Track & Budget Kids' Camps & Classes | Vancouver</title>
+    <title>Skeddo — The Planner for Busy Families</title>
     <meta name="description" content="Browse 2,000+ kids programs in Vancouver. Track registrations, waitlists, and budgets in one app. Free for parents." />
     <link rel="canonical" href="https://skeddo.ca/" />
 
@@ -48,6 +48,9 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
+    <!-- Google Fonts: loaded in <head> to avoid render-blocking @import in JS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap" />
+
     <!-- Structured Data: Organization + SoftwareApplication -->
     <script type="application/ld+json">
     {
@@ -88,7 +91,12 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Pre-hydration loading state: prevents white flash before React mounts -->
+      <div id="splash" style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#1B2432;font-family:'Barlow',sans-serif;">
+        <img src="/skeddo-logo-dark.png" alt="Skeddo" width="72" height="72" style="border-radius:14px;opacity:0.85;" />
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
       // Register service worker early for PWA install eligibility
