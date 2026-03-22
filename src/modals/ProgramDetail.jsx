@@ -68,7 +68,13 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         <div>
           <div style={s.detailLabel}>AGE RANGE</div>
           <div style={s.detailValue}>
-            {p.ageMin != null && p.ageMax != null ? `${p.ageMin}\u2013${p.ageMax}` : "\u2014"}
+            {p.ageMin != null && p.ageMax != null
+              ? `${p.ageMin}\u2013${p.ageMax}`
+              : p.ageMin != null
+                ? `${p.ageMin}+`
+                : p.ageMax != null
+                  ? `Up to ${p.ageMax}`
+                  : "\u2014"}
           </div>
         </div>
         <div>
