@@ -379,9 +379,13 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     // (so they can verify and add it to the directory for all users)
     if (isNew) {
       try {
+        const token = session?.access_token;
         fetch("/api/notify-manual-program", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
           body: JSON.stringify({
             programName: form.name.trim(),
             provider: form.provider || "",
@@ -830,6 +834,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           onClose={() => setModal(null)}
           pushNotifications={pushNotifications}
           planAccess={planAccess}
+          session={session}
         />
       )}
 

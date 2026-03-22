@@ -8,13 +8,22 @@
  * Requires: RESEND_API_KEY and NOTIFY_EMAIL env vars in Vercel.
  */
 
-import { handleCors } from "./_helpers.js";
+import { handleCors, verifyUser, escapeHtml } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Basic origin check — this endpoint is called from our frontend during signup.
+  // Full JWT auth isn't possible since the user may not have a confirmed session yet.
+  const origin = req.headers.origin || "";
+  const referer = req.headers.referer || "";
+  if (!origin.includes("skeddo.ca") && !origin.includes("localhost") &&
+      !referer.includes("skeddo.ca") && !referer.includes("localhost")) {
+    return res.status(403).json({ error: "Forbidden" });
   }
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -47,18 +56,18 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: "Skeddo <onboarding@resend.dev>",
         to: notifyEmail,
-        subject: `🎉 New Skeddo sign-up: ${displayName || email}`,
+        subject: `New Skeddo sign-up: ${escapeHtml(displayName || email)}`,
         html: `
           <div style="font-family: 'Barlow', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 24px;">
             <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 16px;">
-              New user signed up! 🎉
+              New user signed up!
             </h2>
             <div style="background: #FAF8F3; border: 1px solid #E4E0D8; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
               <p style="margin: 0 0 8px; font-size: 14px; color: #8A9A8E;">
-                <strong style="color: #1A2E26;">Name:</strong> ${displayName || "Not provided yet"}
+                <strong style="color: #1A2E26;">Name:</strong> ${escapeHtml(displayName) || "Not provided yet"}
               </p>
               <p style="margin: 0 0 8px; font-size: 14px; color: #8A9A8E;">
-                <strong style="color: #1A2E26;">Email:</strong> ${email}
+                <strong style="color: #1A2E26;">Email:</strong> ${escapeHtml(email)}
               </p>
               <p style="margin: 0; font-size: 14px; color: #8A9A8E;">
                 <strong style="color: #1A2E26;">Signed up:</strong> ${signupTime} PT

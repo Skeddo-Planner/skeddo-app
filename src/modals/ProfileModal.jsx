@@ -40,7 +40,7 @@ function formatLastSynced(ts) {
   return `Last synced: ${d.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} at ${time}`;
 }
 
-export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess }) {
+export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess, session }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
@@ -495,9 +495,13 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
               onClick={async () => {
                 setFeedbackStatus("sending");
                 try {
+                  const headers = { "Content-Type": "application/json" };
+                  if (session?.access_token) {
+                    headers["Authorization"] = `Bearer ${session.access_token}`;
+                  }
                   const res = await fetch("/api/report-bug", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers,
                     body: JSON.stringify({
                       description: feedbackText.trim(),
                       type: feedbackType,

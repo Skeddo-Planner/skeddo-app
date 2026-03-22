@@ -49,26 +49,55 @@ export function getSupabaseClient(userToken) {
 }
 
 /**
- * Standard CORS headers for API responses.
+ * Allowed CORS origins — restrict to our own domain.
+ * In development, also allow localhost.
  */
-export const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
+const ALLOWED_ORIGINS = [
+  "https://skeddo.ca",
+  "https://www.skeddo.ca",
+];
+
+// Allow localhost in development
+if (process.env.NODE_ENV !== "production") {
+  ALLOWED_ORIGINS.push("http://localhost:5173", "http://localhost:3000");
+}
 
 /**
  * Handle CORS preflight OPTIONS request.
  * Returns true if this was a preflight request (caller should return early).
  */
 export function handleCors(req, res) {
-  Object.entries(corsHeaders).forEach(([key, value]) => {
-    res.setHeader(key, value);
-  });
+  const origin = req.headers.origin;
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Push-Secret");
+  res.setHeader("Access-Control-Max-Age", "86400");
+  res.setHeader("Vary", "Origin");
 
   if (req.method === "OPTIONS") {
     res.status(200).end();
     return true;
   }
   return false;
+}
+
+// Legacy export for any code that references corsHeaders directly
+export const corsHeaders = {
+  "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Push-Secret",
+};
+
+/**
+ * Escape HTML special characters to prevent XSS/HTML injection in emails.
+ */
+export function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }

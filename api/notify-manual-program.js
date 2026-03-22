@@ -10,7 +10,7 @@
  *         ageMin, ageMax, location, neighbourhood, registrationUrl, userEmail, userName, userId }
  */
 
-import { handleCors, getSupabaseClient } from "./_helpers.js";
+import { handleCors, verifyUser, getSupabaseClient, escapeHtml } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
@@ -19,14 +19,33 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Require authentication to prevent spam submissions
+  const user = await verifyUser(req);
+  if (!user) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+
   const {
     programName, provider, category, cost, days, times,
     startDate, endDate, ageMin, ageMax, location, neighbourhood,
-    registrationUrl, userEmail, userName, userId,
+    registrationUrl, userEmail, userName,
   } = req.body || {};
+
+  // Use the authenticated user's ID, not user-supplied
+  const userId = user.id;
 
   if (!programName) {
     return res.status(400).json({ error: "Missing programName" });
+  }
+
+  // Input length limits to prevent abuse
+  if (programName.length > 200) {
+    return res.status(400).json({ error: "Program name too long" });
+  }
+
+  // Validate registrationUrl if provided — must be http(s) to prevent javascript: injection
+  if (registrationUrl && !/^https?:\/\//i.test(registrationUrl)) {
+    return res.status(400).json({ error: "Invalid registration URL" });
   }
 
   const sb = getSupabaseClient(); // service role client
@@ -71,7 +90,7 @@ export default async function handler(req, res) {
 
     const field = (label, value) =>
       value ? `<p style="margin: 0 0 6px; font-size: 14px; color: #8A9A8E;">
-        <strong style="color: #1A2E26;">${label}:</strong> ${value}
+        <strong style="color: #1A2E26;">${escapeHtml(label)}:</strong> ${escapeHtml(value)}
       </p>` : "";
 
     try {
@@ -84,7 +103,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           from: "Skeddo <onboarding@resend.dev>",
           to: notifyEmail,
-          subject: `📋 Program submission: ${programName} (${provider || "no provider"})`,
+          subject: `Program submission: ${escapeHtml(programName)} (${escapeHtml(provider) || "no provider"})`,
           html: `
             <div style="font-family: 'Barlow', Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 24px;">
               <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 12px;">
@@ -109,7 +128,9 @@ export default async function handler(req, res) {
                 ${field("Dates", startDate ? `${startDate}${endDate ? " to " + endDate : ""}` : null)}
                 ${field("Location", location)}
                 ${field("Neighbourhood", neighbourhood)}
-                ${field("Registration URL", registrationUrl ? `<a href="${registrationUrl}" style="color: #3A9E6A;">${registrationUrl}</a>` : null)}
+                ${registrationUrl ? `<p style="margin: 0 0 6px; font-size: 14px; color: #8A9A8E;">
+                  <strong style="color: #1A2E26;">Registration URL:</strong> <a href="${escapeHtml(registrationUrl)}" style="color: #3A9E6A;">${escapeHtml(registrationUrl)}</a>
+                </p>` : ""}
               </div>
 
               <div style="background: #F5F3EE; border: 1px solid #E4E0D8; border-radius: 12px; padding: 16px;">

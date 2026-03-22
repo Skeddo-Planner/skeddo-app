@@ -8,13 +8,22 @@
  * Requires: RESEND_API_KEY env var in Vercel.
  */
 
-import { handleCors } from "./_helpers.js";
+import { handleCors, verifyUser, escapeHtml } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Basic origin check — this endpoint is called from our frontend during signup.
+  // Full JWT auth isn't possible since the user may not have a confirmed session yet.
+  const origin = req.headers.origin || "";
+  const referer = req.headers.referer || "";
+  if (!origin.includes("skeddo.ca") && !origin.includes("localhost") &&
+      !referer.includes("skeddo.ca") && !referer.includes("localhost")) {
+    return res.status(403).json({ error: "Forbidden" });
   }
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -28,7 +37,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing email" });
   }
 
-  const name = displayName || "there";
+  // Basic email format validation
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: "Invalid email format" });
+  }
+
+  const name = escapeHtml(displayName) || "there";
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -69,14 +83,14 @@ export default async function handler(req, res) {
               </p>
               <p style="font-size: 14px; color: #4A5E52; line-height: 1.8; margin: 0;">
                 1. Tap the link above to open the app<br/>
-                2. Sign in with <strong>${email}</strong><br/>
+                2. Sign in with <strong>${escapeHtml(email)}</strong><br/>
                 3. Add your kids and start browsing programs<br/>
                 4. Save your favourites and build your schedule
               </p>
             </div>
 
             <p style="font-size: 14px; color: #4A5E52; line-height: 1.7; text-align: center; margin-bottom: 8px;">
-              Bookmark this link for easy access:<br/>
+              Bookmark this link for easy access:<br />
               <a href="https://skeddo.ca/?beta=true" style="color: #3A9E6A; font-weight: 600;">skeddo.ca/?beta=true</a>
             </p>
 

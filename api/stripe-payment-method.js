@@ -70,9 +70,19 @@ export default async function handler(req, res) {
   /* ── DELETE: Remove saved payment method ── */
   if (req.method === "DELETE") {
     try {
+      if (!customerId) {
+        return res.status(400).json({ error: "No Stripe customer on file" });
+      }
+
       const { paymentMethodId } = req.body || {};
       if (!paymentMethodId) {
         return res.status(400).json({ error: "paymentMethodId is required" });
+      }
+
+      // Verify the payment method belongs to THIS user's Stripe customer
+      const pm = await stripe.paymentMethods.retrieve(paymentMethodId);
+      if (pm.customer !== customerId) {
+        return res.status(403).json({ error: "Payment method does not belong to your account" });
       }
 
       await stripe.paymentMethods.detach(paymentMethodId);

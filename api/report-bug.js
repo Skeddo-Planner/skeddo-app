@@ -7,13 +7,19 @@
  * Requires: RESEND_API_KEY and NOTIFY_EMAIL env vars in Vercel.
  */
 
-import { handleCors } from "./_helpers.js";
+import { handleCors, verifyUser, escapeHtml } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Require authentication to prevent spam
+  const user = await verifyUser(req);
+  if (!user) {
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -32,6 +38,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing description" });
   }
 
+  // Input length limits to prevent abuse
+  if (description.length > 5000) {
+    return res.status(400).json({ error: "Description too long (max 5000 characters)" });
+  }
+
   const reportTime = new Date().toLocaleString("en-CA", {
     timeZone: "America/Vancouver",
     dateStyle: "medium",
@@ -48,7 +59,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: "Skeddo <onboarding@resend.dev>",
         to: notifyEmail,
-        subject: `${label} from ${displayName || email || "Anonymous"}`,
+        subject: `${label} from ${escapeHtml(displayName || email || "Anonymous")}`,
         html: `
           <div style="font-family: 'Barlow', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 24px;">
             <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 16px;">
@@ -60,7 +71,7 @@ export default async function handler(req, res) {
               </p>
               <hr style="border: none; border-top: 1px solid #E4E0D8; margin: 12px 0;" />
               <p style="margin: 0 0 4px; font-size: 12px; color: #8A9A8E;">
-                <strong style="color: #1A2E26;">From:</strong> ${displayName || "Unknown"} (${email || "no email"})
+                <strong style="color: #1A2E26;">From:</strong> ${escapeHtml(displayName) || "Unknown"} (${escapeHtml(email) || "no email"})
               </p>
               <p style="margin: 0 0 4px; font-size: 12px; color: #8A9A8E;">
                 <strong style="color: #1A2E26;">Time:</strong> ${reportTime} PT
