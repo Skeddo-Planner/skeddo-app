@@ -180,7 +180,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
             }}
           >
             We sent a confirmation link to <strong style={{ color: C.ink }}>{email}</strong>.
-            Click the link to activate your account.
+            Click the link in your email to activate your account — you'll be logged in automatically.
           </p>
           <button
             onClick={() => onNavigate("signin")}
@@ -192,7 +192,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
               flex: "none",
             }}
           >
-            Go to Sign In
+            Already confirmed? Sign In
           </button>
         </div>
       </div>
