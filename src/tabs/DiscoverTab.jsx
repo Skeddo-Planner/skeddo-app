@@ -4,6 +4,7 @@ import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
 import PromoBanner from "../components/PromoBanner";
 import { SkeletonList } from "../components/SkeletonCard";
+import KidFilterBar from "../components/KidFilterBar";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import { supabase } from "../lib/supabase";
 import fallbackPrograms from "../data/programs.json";
@@ -15,6 +16,7 @@ import {
   fmtDate,
   PAGE_SIZE,
 } from "../utils/helpers";
+import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
 
 /* ─── City → Neighbourhood groupings ─── */
 const CITY_NEIGHBOURHOODS = [
@@ -108,7 +110,7 @@ const SORT_OPTIONS = [
 ];
 
 /* ─── Directory Card (no status, different from ProgramCard) ─── */
-function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus }) {
+function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus, eligibility }) {
   const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
   const isApprox = !isMunicipalProvider(program.provider) && typeof program.cost === "number" && program.cost > 0;
   return (
@@ -336,6 +338,37 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             {program.dayLength}
           </span>
         )}
+        {/* Eligibility badge for borderline programs */}
+        {eligibility && eligibility.eligibilityTier === "borderline" && (
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              background: "rgba(244, 162, 97, 0.10)",
+              color: "#F4A261",
+              padding: "2px 8px",
+              borderRadius: 10,
+            }}
+          >
+            {eligibility.label}
+          </span>
+        )}
+        {eligibility && eligibility.eligibilityTier === "eligible" && (
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              background: "rgba(45, 159, 111, 0.10)",
+              color: "#2D9F6F",
+              padding: "2px 8px",
+              borderRadius: 10,
+            }}
+          >
+            {eligibility.label}
+          </span>
+        )}
         {/* Registration status badge */}
         <span
           style={{
@@ -399,6 +432,8 @@ export default function DiscoverTab({
   onAddToSchedule,
   onOpenDirectoryDetail,
   planAccess,
+  kidFilter,
+  onKidFilter,
 }) {
   /* ─── Use programs.json + user-submitted programs from Supabase ─── */
   const [userSubmitted, setUserSubmitted] = useState([]);
@@ -481,6 +516,7 @@ export default function DiscoverTab({
   const [showHoodPanel, setShowHoodPanel] = useState(false);
   const [selectedLengths, setSelectedLengths] = useState(new Set());
   const [selectedDayLengths, setSelectedDayLengths] = useState(new Set());
+  const [showBorderline, setShowBorderline] = useState(true);
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
@@ -630,8 +666,45 @@ export default function DiscoverTab({
     [filtered, sortBy]
   );
 
-  const visiblePrograms = sortedFiltered.slice(0, visibleCount);
-  const hasMore = visibleCount < sortedFiltered.length;
+  // Get the selected kid (for eligibility filtering)
+  const selectedKid = useMemo(
+    () => kidFilter ? (kids || []).find((k) => k.id === kidFilter) : null,
+    [kidFilter, kids]
+  );
+
+  // Compute eligibility for each program when a kid with birth info is selected
+  const eligibilityMap = useMemo(() => {
+    if (!selectedKid || !selectedKid.birthMonth || !selectedKid.birthYear) return null;
+    const map = new Map();
+    sortedFiltered.forEach((p) => {
+      const startDate = p.startDate || new Date().toISOString().split("T")[0];
+      const result = computeEligibility(
+        selectedKid.birthMonth, selectedKid.birthYear,
+        p.ageMin, p.ageMax, startDate
+      );
+      const label = getEligibilityLabel(
+        selectedKid.name, selectedKid.birthMonth, selectedKid.birthYear,
+        p.ageMin, p.ageMax, startDate
+      );
+      map.set(p.id, { ...result, label });
+    });
+    return map;
+  }, [selectedKid, sortedFiltered]);
+
+  // Apply eligibility filtering — hide ineligible, optionally hide borderline
+  const eligibilityFiltered = useMemo(() => {
+    if (!eligibilityMap) return sortedFiltered;
+    return sortedFiltered.filter((p) => {
+      const elig = eligibilityMap.get(p.id);
+      if (!elig || elig.eligibilityTier === null) return true; // no age data — show
+      if (elig.eligibilityTier === "ineligible") return false; // hide
+      if (elig.eligibilityTier === "borderline" && !showBorderline) return false;
+      return true;
+    });
+  }, [sortedFiltered, eligibilityMap, showBorderline]);
+
+  const visiblePrograms = eligibilityFiltered.slice(0, visibleCount);
+  const hasMore = visibleCount < eligibilityFiltered.length;
 
   return (
     <div>
@@ -682,6 +755,54 @@ export default function DiscoverTab({
           }}
         />
       </div>
+
+      {/* Kid filter bar for age eligibility */}
+      <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
+
+      {/* Show borderline toggle — only when a kid with birth info is selected */}
+      {selectedKid && selectedKid.birthMonth && selectedKid.birthYear && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 12,
+            padding: "8px 12px",
+            background: "rgba(244, 162, 97, 0.08)",
+            borderRadius: 10,
+          }}
+        >
+          <label
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 14,
+              color: C.ink,
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              cursor: "pointer",
+              flex: 1,
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={showBorderline}
+              onChange={() => setShowBorderline((v) => !v)}
+              style={{ accentColor: "#F4A261", width: 16, height: 16 }}
+            />
+            Show borderline camps
+          </label>
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 12,
+              color: C.muted,
+            }}
+          >
+            Filtering for {selectedKid.name}
+          </span>
+        </div>
+      )}
 
       {/* Data freshness banner */}
       <div
@@ -1845,7 +1966,7 @@ export default function DiscoverTab({
           fontWeight: 600,
           color: C.muted,
         }}>
-          {sortedFiltered.length.toLocaleString()} program{sortedFiltered.length !== 1 ? "s" : ""}
+          {eligibilityFiltered.length.toLocaleString()} program{eligibilityFiltered.length !== 1 ? "s" : ""}
         </span>
         {selectedRegStatuses.size > 0 && selectedRegStatuses.size < REGISTRATION_STATUSES.length && (
           <span style={{
@@ -1879,6 +2000,7 @@ export default function DiscoverTab({
           onToggleFavorite={toggleFavorite}
           onTap={onOpenDirectoryDetail}
           regStatus={getRegistrationStatus(p)}
+          eligibility={eligibilityMap ? eligibilityMap.get(p.id) : null}
         />
       ))}
 
@@ -1886,7 +2008,7 @@ export default function DiscoverTab({
       {hasMore && (
         <button
           onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
-          aria-label={`Load more programs, ${sortedFiltered.length - visibleCount} remaining`}
+          aria-label={`Load more programs, ${eligibilityFiltered.length - visibleCount} remaining`}
           style={{
             width: "100%",
             fontFamily: "'Barlow', sans-serif",
@@ -1903,7 +2025,7 @@ export default function DiscoverTab({
             transition: "all 0.15s",
           }}
         >
-          Load more ({sortedFiltered.length - visibleCount} remaining)
+          Load more ({eligibilityFiltered.length - visibleCount} remaining)
         </button>
       )}
     </div>

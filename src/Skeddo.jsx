@@ -594,6 +594,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onAddToSchedule={handleAddToSchedule}
             onOpenDirectoryDetail={openDirectoryDetail}
             planAccess={planAccess}
+            kidFilter={kidFilter}
+            onKidFilter={setKidFilter}
           />
         )}
 
@@ -688,6 +690,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           kids={kids}
           onAddToSchedule={handleAddToSchedule}
           onClose={() => setModal(null)}
+          selectedKid={kidFilter ? kids.find((k) => k.id === kidFilter) : null}
         />
       )}
 

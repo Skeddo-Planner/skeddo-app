@@ -1,6 +1,7 @@
 import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import { fmt$, fmtShortDate } from "../utils/helpers";
+import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
 
 /** Status -> left border color */
 const STATUS_BORDER = {
@@ -9,7 +10,7 @@ const STATUS_BORDER = {
   Exploring: C.blue,
 };
 
-export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId }) {
+export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId, selectedKid }) {
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const assignedKids = (p.kidIds || [])
     .map((id) => (kids || []).find((k) => k.id === id))
@@ -124,6 +125,33 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
           )}
         </div>
       )}
+
+      {/* Borderline age eligibility badge */}
+      {selectedKid && selectedKid.birthMonth && selectedKid.birthYear && (() => {
+        const startDate = p.startDate || new Date().toISOString().split("T")[0];
+        const result = computeEligibility(selectedKid.birthMonth, selectedKid.birthYear, p.ageMin, p.ageMax, startDate);
+        if (result.eligibilityTier === "borderline") {
+          const label = getEligibilityLabel(selectedKid.name, selectedKid.birthMonth, selectedKid.birthYear, p.ageMin, p.ageMax, startDate);
+          return (
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 11,
+                fontWeight: 600,
+                color: "#F4A261",
+                background: "rgba(244, 162, 97, 0.10)",
+                borderRadius: 6,
+                padding: "3px 8px",
+                marginTop: 6,
+                display: "inline-block",
+              }}
+            >
+              {label}
+            </div>
+          );
+        }
+        return null;
+      })()}
 
       {/* Location */}
       {locationText && (

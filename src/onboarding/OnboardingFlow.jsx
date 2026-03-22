@@ -8,6 +8,8 @@ export default function OnboardingFlow({ onComplete }) {
   const [kids, setKids] = useState([]);
   const [kidName, setKidName] = useState("");
   const [kidAge, setKidAge] = useState("");
+  const [kidBirthMonth, setKidBirthMonth] = useState("");
+  const [kidBirthYear, setKidBirthYear] = useState("");
 
   /* Profile fields collected during onboarding */
   const [displayName, setDisplayName] = useState("");
@@ -20,9 +22,27 @@ export default function OnboardingFlow({ onComplete }) {
 
   const addKid = () => {
     if (!kidName.trim()) return;
-    setKids((prev) => [...prev, { id: uid(), name: kidName.trim(), age: kidAge || "" }]);
+    const bm = kidBirthMonth ? Number(kidBirthMonth) : null;
+    const by = kidBirthYear ? Number(kidBirthYear) : null;
+    // Compute age from birth month/year if available
+    let computedAge = kidAge || "";
+    if (bm && by) {
+      const now = new Date();
+      let a = now.getFullYear() - by;
+      if (now.getMonth() + 1 < bm) a -= 1;
+      computedAge = String(a);
+    }
+    setKids((prev) => [...prev, {
+      id: uid(),
+      name: kidName.trim(),
+      age: computedAge,
+      birthMonth: bm,
+      birthYear: by,
+    }]);
     setKidName("");
     setKidAge("");
+    setKidBirthMonth("");
+    setKidBirthYear("");
   };
 
   const removeKid = (id) => {
@@ -261,34 +281,43 @@ export default function OnboardingFlow({ onComplete }) {
             </p>
 
             {/* Add kid form */}
-            <div
-              style={{
-                display: "flex",
-                gap: 8,
-                marginBottom: 12,
-                alignItems: "flex-end",
-              }}
-            >
-              <div style={{ flex: 2 }}>
-                <div style={labelStyle}>NAME</div>
-                <input
-                  style={s.input}
-                  value={kidName}
-                  onChange={(e) => setKidName(e.target.value)}
-                  placeholder="e.g. Maya"
-                  onKeyDown={(e) => e.key === "Enter" && addKid()}
-                />
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={labelStyle}>AGE</div>
-                <input
-                  style={s.input}
-                  type="number"
-                  value={kidAge}
-                  onChange={(e) => setKidAge(e.target.value)}
-                  placeholder="7"
-                  onKeyDown={(e) => e.key === "Enter" && addKid()}
-                />
+            <div style={{ marginBottom: 4 }}>
+              <div style={labelStyle}>NAME</div>
+              <input
+                style={s.input}
+                value={kidName}
+                onChange={(e) => setKidName(e.target.value)}
+                placeholder="e.g. Maya"
+                onKeyDown={(e) => e.key === "Enter" && addKid()}
+              />
+            </div>
+
+            <div style={{ marginBottom: 12 }}>
+              <div style={labelStyle}>WHEN WAS {kidName.trim() ? kidName.trim().toUpperCase() : "THIS CHILD"} BORN?</div>
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "0 0 6px", lineHeight: 1.4 }}>
+                Optional — helps us show age-appropriate programs.
+              </p>
+              <div style={{ display: "flex", gap: 8 }}>
+                <select
+                  style={{ ...s.input, flex: 1 }}
+                  value={kidBirthMonth}
+                  onChange={(e) => setKidBirthMonth(e.target.value)}
+                >
+                  <option value="">Month</option>
+                  {["January","February","March","April","May","June","July","August","September","October","November","December"].map((m, i) => (
+                    <option key={i + 1} value={i + 1}>{m}</option>
+                  ))}
+                </select>
+                <select
+                  style={{ ...s.input, flex: 1 }}
+                  value={kidBirthYear}
+                  onChange={(e) => setKidBirthYear(e.target.value)}
+                >
+                  <option value="">Year</option>
+                  {Array.from({ length: 19 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
+                    <option key={yr} value={yr}>{yr}</option>
+                  ))}
+                </select>
               </div>
             </div>
 
@@ -355,7 +384,7 @@ export default function OnboardingFlow({ onComplete }) {
                       >
                         {k.name}
                       </div>
-                      {k.age && (
+                      {(k.age || (k.birthMonth && k.birthYear)) && (
                         <div
                           style={{
                             fontFamily: "'Barlow', sans-serif",
@@ -363,7 +392,12 @@ export default function OnboardingFlow({ onComplete }) {
                             color: C.muted,
                           }}
                         >
-                          Age {k.age}
+                          Age {k.birthMonth && k.birthYear ? (() => {
+                            const now = new Date();
+                            let a = now.getFullYear() - k.birthYear;
+                            if (now.getMonth() + 1 < k.birthMonth) a -= 1;
+                            return a;
+                          })() : k.age}
                         </div>
                       )}
                     </div>

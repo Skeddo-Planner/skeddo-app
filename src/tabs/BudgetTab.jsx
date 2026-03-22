@@ -231,7 +231,7 @@ export default function BudgetTab({
               {spentCost > 0 && (
                 <div
                   className="progress-bar"
-                  onClick={() => setStatusFilter && setStatusFilter("Enrolled")}
+                  onClick={undefined}
                   style={{
                     width: `${Math.min(spentPct, 100)}%`, height: "100%",
                     background: "#2D9F6F", cursor: "pointer",

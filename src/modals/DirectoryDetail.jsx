@@ -7,8 +7,9 @@ import {
   REGISTRATION_STATUSES, getRegistrationStatus,
   isMunicipalProvider, downloadICS,
 } from "../utils/helpers";
+import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
 
-export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose }) {
+export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const regStatus = getRegistrationStatus(p);
@@ -229,6 +230,60 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             Ages {p.ageMin}&ndash;{p.ageMax}
           </span>
         )}
+        {/* Age eligibility status for selected kid */}
+        {(() => {
+          if (!selectedKid || !selectedKid.birthMonth || !selectedKid.birthYear) {
+            if (p.ageMin == null && p.ageMax == null) {
+              return (
+                <span style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                  color: "#4A6FA5", padding: "4px 12px", borderRadius: 8,
+                  background: "rgba(74, 111, 165, 0.08)",
+                }}>
+                  Age range not specified — check with provider
+                </span>
+              );
+            }
+            return null;
+          }
+          const startDate = p.startDate || new Date().toISOString().split("T")[0];
+          const result = computeEligibility(selectedKid.birthMonth, selectedKid.birthYear, p.ageMin, p.ageMax, startDate);
+          if (result.eligibilityTier === null) {
+            return (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                color: "#4A6FA5", padding: "4px 12px", borderRadius: 8,
+                background: "rgba(74, 111, 165, 0.08)",
+              }}>
+                Age range not specified — check with provider
+              </span>
+            );
+          }
+          const label = getEligibilityLabel(selectedKid.name, selectedKid.birthMonth, selectedKid.birthYear, p.ageMin, p.ageMax, startDate);
+          if (result.eligibilityTier === "eligible") {
+            return (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                color: "#2D9F6F", padding: "4px 12px", borderRadius: 8,
+                background: "rgba(45, 159, 111, 0.10)",
+              }}>
+                {label}
+              </span>
+            );
+          }
+          if (result.eligibilityTier === "borderline") {
+            return (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                color: "#F4A261", padding: "4px 12px", borderRadius: 8,
+                background: "rgba(244, 162, 97, 0.10)",
+              }}>
+                {label}
+              </span>
+            );
+          }
+          return null;
+        })()}
         {(p.seasonType || p.campType) && (
           <span style={{
             fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,

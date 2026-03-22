@@ -78,6 +78,8 @@ const kidToDb = (k, userId) => ({
   color: k.color || "",
   interests: k.interests || [],
   budget_goal: k.budgetGoal != null ? Number(k.budgetGoal) : null,
+  birth_month: k.birthMonth || null,
+  birth_year: k.birthYear || null,
 });
 
 const kidFromDb = (row) => ({
@@ -88,6 +90,8 @@ const kidFromDb = (row) => ({
   color: row.color || "",
   interests: row.interests || [],
   budgetGoal: row.budget_goal || null,
+  birthMonth: row.birth_month || null,
+  birthYear: row.birth_year || null,
 });
 
 const profileToDb = (p, userId) => ({

@@ -54,14 +54,42 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
         autoFocus
       />
 
-      <Label>Age</Label>
-      <input
-        style={s.input}
-        type="number"
-        value={form.age || ""}
-        onChange={(e) => update("age", e.target.value)}
-        placeholder="7"
-      />
+      <Label>When was {form.name || "this child"} born?</Label>
+      <p style={{ fontSize: 14, color: C.muted, margin: "-4px 0 8px", fontFamily: "'Barlow', sans-serif" }}>
+        We use this to show age-appropriate programs. Month and year only.
+      </p>
+      <div style={{ display: "flex", gap: 8, marginBottom: 4 }}>
+        <select
+          style={{ ...s.input, flex: 1 }}
+          value={form.birthMonth || ""}
+          onChange={(e) => update("birthMonth", e.target.value ? Number(e.target.value) : null)}
+        >
+          <option value="">Month</option>
+          {["January","February","March","April","May","June","July","August","September","October","November","December"].map((m, i) => (
+            <option key={i + 1} value={i + 1}>{m}</option>
+          ))}
+        </select>
+        <select
+          style={{ ...s.input, flex: 1 }}
+          value={form.birthYear || ""}
+          onChange={(e) => update("birthYear", e.target.value ? Number(e.target.value) : null)}
+        >
+          <option value="">Year</option>
+          {Array.from({ length: 19 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
+            <option key={yr} value={yr}>{yr}</option>
+          ))}
+        </select>
+      </div>
+      {form.birthMonth && form.birthYear && (() => {
+        const now = new Date();
+        let age = now.getFullYear() - form.birthYear;
+        if (now.getMonth() + 1 < form.birthMonth) age -= 1;
+        return (
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.seaGreen, fontWeight: 600, marginBottom: 8 }}>
+            Age: {age} years old
+          </div>
+        );
+      })()}
 
       <Label>Colour</Label>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>

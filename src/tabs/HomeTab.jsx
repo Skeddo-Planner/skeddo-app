@@ -301,7 +301,7 @@ export default function HomeTab({
             style={{
               background: "none",
               border: "none",
-              color: "#4A6FA5",
+              color: C.muted,
               fontSize: 18,
               cursor: "pointer",
               padding: "0 2px",

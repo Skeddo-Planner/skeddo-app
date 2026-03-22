@@ -78,7 +78,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
 
       <Label>Email</Label>
       <input
-        style={{ ...s.input, background: "#F0EDE6", color: C.muted, cursor: "not-allowed" }}
+        style={{ ...s.input, background: "#F0F1F3", color: C.muted, cursor: "not-allowed" }}
         value={email || ""}
         readOnly
         tabIndex={-1}
