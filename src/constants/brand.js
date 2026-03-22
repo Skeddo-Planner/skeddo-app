@@ -61,7 +61,7 @@ export const KID_COLORS = [
   { hex: "#E8913A", name: "Orange" },
 ];
 
-export const DAY_LENGTHS = ["Full Day", "Half Day"];
+export const DAY_LENGTHS = ["Full Day", "Half Day", "Single Day"];
 
 export const SEASON_TYPES = [
   "Summer Camp",

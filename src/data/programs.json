@@ -73371,7 +73371,7 @@
     "activityType": "Painting & Drawing",
     "confirmed2026": true,
     "priceVerified": true,
-    "dayLength": "Half Day",
+    "dayLength": "Single Day",
     "season": "Summer 2026"
   },
   {
@@ -73854,7 +73854,7 @@
     "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
-    "dayLength": "Half Day",
+    "dayLength": "Single Day",
     "season": "Summer 2026"
   },
   {
@@ -73885,7 +73885,7 @@
     "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
-    "dayLength": "Half Day",
+    "dayLength": "Single Day",
     "season": "Summer 2026"
   },
   {
@@ -73916,7 +73916,7 @@
     "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
-    "dayLength": "Half Day",
+    "dayLength": "Single Day",
     "season": "Summer 2026"
   },
   {
@@ -76589,7 +76589,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0134",
@@ -76918,7 +76918,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0143",
@@ -76950,7 +76950,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0144",
@@ -77082,7 +77082,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0148",
@@ -77115,7 +77115,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0149",
@@ -77148,7 +77148,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0150",
@@ -77280,7 +77280,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0154",
@@ -77313,7 +77313,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0155",
@@ -77379,7 +77379,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0157",
@@ -77412,7 +77412,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0158",
@@ -77446,7 +77446,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0159",
@@ -77480,7 +77480,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0160",
@@ -77512,7 +77512,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0161",
@@ -77544,7 +77544,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0162",
@@ -77643,7 +77643,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0165",
@@ -77898,7 +77898,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0173",
@@ -78060,7 +78060,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0179",
@@ -78157,7 +78157,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0182",
@@ -78190,7 +78190,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0183",
@@ -78387,7 +78387,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0189",
@@ -78419,7 +78419,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0190",
@@ -78451,7 +78451,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0191",
@@ -78550,7 +78550,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0194",
@@ -78583,7 +78583,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0195",
@@ -78616,7 +78616,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0196",
@@ -78714,7 +78714,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0199",
@@ -78747,7 +78747,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0200",
@@ -78781,7 +78781,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0201",
@@ -80531,7 +80531,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0255",
@@ -80566,7 +80566,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0256",
@@ -80599,7 +80599,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0257",
@@ -80632,7 +80632,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0258",
@@ -82336,7 +82336,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0308",
@@ -82377,7 +82377,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0309",
@@ -82716,7 +82716,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0319",
@@ -82757,7 +82757,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0320",
@@ -82867,7 +82867,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0323",
@@ -82909,7 +82909,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0324",
@@ -87321,7 +87321,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0443",
@@ -89726,7 +89726,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0509",
@@ -91673,7 +91673,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0568",
@@ -94234,7 +94234,7 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Single Day"
   },
   {
     "id": "ACT-0643",
@@ -104996,7 +104996,7 @@
     "registrationUrl": "https://www.vanchess.ca/",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Half Day",
+    "dayLength": "Single Day",
     "confirmed2026": true,
     "priceVerified": false,
     "tags": [
@@ -105660,7 +105660,7 @@
     "registrationUrl": "https://chorusandclouds.ca/collections/drop-in-classes",
     "enrollmentStatus": "Open",
     "season": "Year-Round",
-    "dayLength": "Half Day",
+    "dayLength": "Single Day",
     "description": "Saturday drop-in art and music class. No registration required. Sibling discount available."
   },
   {
