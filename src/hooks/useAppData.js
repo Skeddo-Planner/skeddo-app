@@ -100,6 +100,7 @@ const profileToDb = (p, userId) => ({
   postal_code: p.postalCode || "",
   budget_goal: Number(p.budgetGoal) || 0,
   plan: p.plan || "free",
+  is_beta_user: p.isBetaUser || false,
   notify_registration: p.notifyRegistration !== false,
   notify_new_programs: p.notifyNewPrograms !== false,
   notify_weekly_summary: p.notifyWeeklySummary !== false,
@@ -118,6 +119,7 @@ const profileFromDb = (row) => ({
   postalCode: row.postal_code || "",
   budgetGoal: row.budget_goal || "",
   plan: row.plan || "free",
+  isBetaUser: row.is_beta_user || false,
   notifyRegistration: row.notify_registration !== false,
   notifyNewPrograms: row.notify_new_programs !== false,
   notifyWeeklySummary: row.notify_weekly_summary !== false,
@@ -464,9 +466,11 @@ export function useAppData(userId) {
      ══════════════════════════════════════════════ */
   const completeOnboarding = useCallback(() => {
     setOnboarded(true);
+    // Mark as beta user so they get Plus for life
+    setProfile((prev) => ({ ...prev, isBetaUser: true }));
     try { localStorage.setItem(ONBOARDED_KEY, "true"); } catch {}
     if (usingSupabase.current && userId) {
-      supabase.from("profiles").update({ onboarded: true }).eq("id", userId)
+      supabase.from("profiles").update({ onboarded: true, is_beta_user: true }).eq("id", userId)
         .then(({ error }) => { if (error) console.warn("Failed to save onboarded:", error); else markSynced(); });
     }
   }, [userId, markSynced]);

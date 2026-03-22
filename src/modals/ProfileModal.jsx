@@ -366,7 +366,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
       })}
 
       {/* Beta note */}
-      {planAccess?.isBeta && (
+      {(planAccess?.isBeta || planAccess?.isBetaUser) && (
         <div style={{
           background: "#E8F5EE",
           borderRadius: 10,
@@ -382,7 +382,9 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
             margin: 0,
             lineHeight: 1.5,
           }}>
-            All features are unlocked during early access
+            {planAccess?.isBeta
+              ? "All features are unlocked during early access"
+              : "Thank you for being a beta tester! You have Skeddo Plus for life."}
           </p>
         </div>
       )}

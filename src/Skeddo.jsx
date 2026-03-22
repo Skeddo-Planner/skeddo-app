@@ -193,7 +193,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const pushNotifications = usePushNotifications();
   const childAccess = useChildAccess(userId, session);
   const circlesHook = useCircles(userId, session);
-  const planAccess = usePlanAccess(profile.plan || "free");
+  const planAccess = usePlanAccess(profile.plan || "free", profile.isBetaUser);
 
   // Merge shared kids into the kids list
   const allKids = [...kids, ...childAccess.sharedKids.filter((sk) => !kids.some((k) => k.id === sk.id))];
