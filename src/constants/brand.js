@@ -30,6 +30,7 @@ export const CATEGORIES = [
   "Life Skills",
   "Academic",
   "Social",
+  "Faith-Based",
 ];
 
 export const CAT_EMOJI = {
@@ -41,6 +42,7 @@ export const CAT_EMOJI = {
   "Life Skills": "\ud83c\udf73",
   Academic: "\ud83d\udcda",
   Social: "\ud83e\uddf8",
+  "Faith-Based": "\u26ea",
 };
 
 /* ─── Kid color palette — auto-assigned, user-editable ─── */
