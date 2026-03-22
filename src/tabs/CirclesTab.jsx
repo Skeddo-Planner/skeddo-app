@@ -650,7 +650,7 @@ export default function CirclesTab({
             <ShareIcons
               shareText={`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}`}
               shareUrl="https://skeddo.ca"
-              onCopy={() => { navigator.clipboard.writeText(activeCircle.inviteCode).catch(() => {}); showToast("Invite code copied!"); }}
+              onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(activeCircle.inviteCode) : Promise.reject()).catch(() => {}); showToast("Invite code copied!"); }}
               subject={`Join my Skeddo circle: ${activeCircle.name}`}
             />
           </div>
@@ -894,7 +894,7 @@ export default function CirclesTab({
           <ShareIcons
             shareText={shareText}
             shareUrl={shareUrl}
-            onCopy={() => { navigator.clipboard.writeText(shareUrl).catch(() => {}); showToast("Link copied!"); }}
+            onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(shareUrl) : Promise.reject()).catch(() => {}); showToast("Link copied!"); }}
             subject="Join me on Skeddo!"
           />
         </div>

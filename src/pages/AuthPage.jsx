@@ -72,7 +72,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         style={{
           fontFamily: "'Barlow', sans-serif",
           background: C.cream,
-          minHeight: "100vh",
+          minHeight: "100dvh",
           maxWidth: 480,
           margin: "0 auto",
           display: "flex",
@@ -138,7 +138,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         style={{
           fontFamily: "'Barlow', sans-serif",
           background: C.cream,
-          minHeight: "100vh",
+          minHeight: "100dvh",
           maxWidth: 480,
           margin: "0 auto",
           display: "flex",
@@ -204,7 +204,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
       style={{
         fontFamily: "'Barlow', sans-serif",
         background: C.cream,
-        minHeight: "100vh",
+        minHeight: "100dvh",
         maxWidth: 480,
         margin: "0 auto",
         display: "flex",

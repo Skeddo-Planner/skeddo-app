@@ -30,7 +30,7 @@ export default function LandingPage({ onNavigate }) {
       style={{
         fontFamily: "'Barlow', sans-serif",
         background: C.cream,
-        minHeight: "100vh",
+        minHeight: "100dvh",
         maxWidth: 480,
         margin: "0 auto",
         padding: "40px 24px 60px",

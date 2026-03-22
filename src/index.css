@@ -1,3 +1,14 @@
 /* Skeddo global reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #F8F9FA; -webkit-font-smoothing: antialiased; margin: 0; }
+body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0; }
+
+/* Force light color scheme — prevents browser dark mode from affecting form controls */
+:root { color-scheme: light; }
+
+/* iOS momentum scrolling for overflow containers */
+.scroll-touch { -webkit-overflow-scrolling: touch; }
+
+/* dvh fallback for browsers that don't support it — 100vh works fine for minHeight */
+@supports not (min-height: 100dvh) {
+  #root > div { min-height: 100vh !important; }
+}

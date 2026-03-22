@@ -1,7 +1,7 @@
 import { C } from "../constants/brand";
 
 export const s = {
-  app: { fontFamily: "'Barlow', sans-serif", background: C.cream, minHeight: "100vh", paddingBottom: 72, maxWidth: 480, margin: "0 auto", position: "relative" },
+  app: { fontFamily: "'Barlow', sans-serif", background: C.cream, minHeight: "100dvh", paddingBottom: 72, maxWidth: 480, margin: "0 auto", position: "relative" },
   header: { background: C.ink, padding: "20px 20px 16px", borderBottom: `3px solid ${C.seaGreen}` },
   headerRow: { display: "flex", justifyContent: "space-between", alignItems: "center" },
   logoMark: { fontFamily: "'Poppins', sans-serif", fontSize: 26, color: "#FFFFFF", letterSpacing: -0.5, lineHeight: 1 },
@@ -53,7 +53,7 @@ export const s = {
   tabIndicator: { position: "absolute", top: -1, left: "50%", transform: "translateX(-50%)", width: 20, height: 2.5, borderRadius: 2, background: C.seaGreen },
 
   overlay: { position: "fixed", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(27,36,50,0.4)", display: "flex", alignItems: "flex-end", justifyContent: "center", zIndex: 200, padding: 0 },
-  modal: { background: C.white, borderRadius: "20px 20px 0 0", padding: "24px 20px env(safe-area-inset-bottom, 20px)", width: "100%", maxWidth: 480, maxHeight: "88vh", overflowY: "auto", position: "relative" },
+  modal: { background: C.white, borderRadius: "20px 20px 0 0", padding: "24px 20px env(safe-area-inset-bottom, 20px)", width: "100%", maxWidth: 480, maxHeight: "88vh", overflowY: "auto", WebkitOverflowScrolling: "touch", position: "relative" },
   modalTitle: { fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, marginBottom: 4 },
 
   input: { width: "100%", fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 500, border: "1.5px solid rgba(27,36,50,0.18)", borderRadius: 8, padding: "10px 14px", color: C.ink, background: C.cream, transition: "all 0.15s" },

@@ -69,7 +69,7 @@ export default function Skeddo() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        minHeight: "100dvh",
         paddingBottom: 0,
       }}>
         <style>{`
@@ -485,7 +485,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      minHeight: "100vh",
+      minHeight: "100dvh",
       paddingBottom: 0,
     }}>
       <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>

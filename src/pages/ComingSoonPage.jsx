@@ -39,7 +39,7 @@ export default function ComingSoonPage() {
       style={{
         fontFamily: "'Barlow', sans-serif",
         background: C.ink,
-        minHeight: "100vh",
+        minHeight: "100dvh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
