@@ -40,9 +40,27 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         onAuthSuccess();
       }
     } catch (err) {
-      setError(err.message || "Something went wrong. Please try again.");
+      const msg = err.message || "Something went wrong. Please try again.";
+      setError(msg);
+      // If "email not confirmed", show resend option
+      if (msg.toLowerCase().includes("not confirmed") || msg.toLowerCase().includes("not been confirmed")) {
+        setShowResend(true);
+      }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const [showResend, setShowResend] = useState(false);
+  const [resendSent, setResendSent] = useState(false);
+
+  const handleResendConfirmation = async () => {
+    try {
+      await supabase.auth.resend({ type: "signup", email });
+      setResendSent(true);
+      setError("");
+    } catch (err) {
+      setError("Could not resend confirmation. Please try again.");
     }
   };
 
@@ -325,21 +343,59 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
             )}
           </div>
 
-          {error && (
+          {resendSent && (
             <div
               style={{
-                background: C.dangerBg,
-                color: C.danger,
-                fontSize: 13,
+                background: "rgba(45, 159, 111, 0.1)",
+                color: C.seaGreen,
+                fontSize: 14,
                 fontWeight: 600,
-                padding: "10px 14px",
+                padding: "12px 14px",
                 borderRadius: 10,
                 marginBottom: 16,
                 lineHeight: 1.4,
               }}
             >
+              ✅ Confirmation email resent! Check your inbox (and spam folder) and click the link to confirm.
+            </div>
+          )}
+          {error && (
+            <div
+              style={{
+                background: C.dangerBg,
+                color: C.danger,
+                fontSize: 14,
+                fontWeight: 600,
+                padding: "10px 14px",
+                borderRadius: 10,
+                marginBottom: showResend ? 8 : 16,
+                lineHeight: 1.4,
+              }}
+            >
               {error}
             </div>
+          )}
+          {showResend && !resendSent && (
+            <button
+              type="button"
+              onClick={handleResendConfirmation}
+              style={{
+                background: "none",
+                border: `1px solid ${C.seaGreen}`,
+                color: C.seaGreen,
+                fontSize: 14,
+                fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif",
+                padding: "10px 16px",
+                borderRadius: 8,
+                cursor: "pointer",
+                width: "100%",
+                marginBottom: 16,
+                minHeight: 44,
+              }}
+            >
+              Resend Confirmation Email
+            </button>
           )}
 
           <button

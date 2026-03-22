@@ -30,7 +30,19 @@ export function useAuth() {
       email,
       password,
     });
-    if (error) throw error;
+    // Handle "already registered but unconfirmed" — resend confirmation
+    if (error) {
+      if (error.message?.toLowerCase().includes("already registered")) {
+        // Resend confirmation email instead of showing error
+        await supabase.auth.resend({ type: "signup", email });
+        return { user: { email }, session: null };
+      }
+      throw error;
+    }
+    // If user already exists (Supabase returns user with no identities), tell them
+    if (data?.user && data.user.identities?.length === 0) {
+      throw new Error("An account with this email already exists. Try signing in instead.");
+    }
 
     // Notify founders about the new sign-up (fire-and-forget, don't block the user)
     try {
