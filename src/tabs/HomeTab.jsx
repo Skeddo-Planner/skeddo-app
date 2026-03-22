@@ -387,6 +387,52 @@ export default function HomeTab({
         </>
       )}
 
+      {/* Feedback & Bug Report */}
+      <div style={{
+        marginTop: 28, borderRadius: 14, padding: "16px 18px",
+        background: `linear-gradient(135deg, ${C.blue} 0%, #1E4A6E 100%)`,
+        display: "flex", flexDirection: "column", gap: 10,
+      }}>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700, color: C.cream }}>
+          Help us improve Skeddo
+        </div>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>
+          Your feedback shapes what we build next. Found a bug or have an idea? We'd love to hear it.
+        </div>
+        <div style={{ display: "flex", gap: 8 }}>
+          <button
+            onClick={() => window.open("mailto:skeddo.planner@gmail.com?subject=Bug%20Report", "_blank")}
+            style={{
+              flex: 1, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: 10, padding: "10px 12px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.cream,
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            Report Bug
+          </button>
+          <button
+            onClick={() => window.open("mailto:skeddo.planner@gmail.com?subject=Feedback", "_blank")}
+            style={{
+              flex: 1, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: 10, padding: "10px 12px", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.cream,
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+            Feedback
+          </button>
+        </div>
+      </div>
+
     </div>
   );
 }
