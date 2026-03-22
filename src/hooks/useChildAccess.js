@@ -25,18 +25,25 @@ export function useChildAccess(userId, session) {
     if (!userId) return;
 
     async function load() {
-      // 1. Get all child_access rows for this user
+      // 1. Get child_access rows for children this user has access to
+      // First get my child IDs, then get all adults for those children
+      const { data: myAccessRows } = await supabase
+        .from("child_access")
+        .select("child_id")
+        .eq("user_id", userId);
+
+      if (!myAccessRows || myAccessRows.length === 0) return;
+
+      const myChildIds = myAccessRows.map((r) => r.child_id);
+
+      // Now get all access rows for those children (to find co-parents)
       const { data: accessRows } = await supabase
         .from("child_access")
         .select("child_id, user_id, role, invited_by, joined_at")
+        .in("child_id", myChildIds)
         .order("joined_at", { ascending: true });
 
       if (!accessRows) return;
-
-      // Build map: for each child this user has access to, get all adults
-      const myChildIds = accessRows
-        .filter((r) => r.user_id === userId)
-        .map((r) => r.child_id);
 
       const accessMap = {};
       for (const childId of myChildIds) {

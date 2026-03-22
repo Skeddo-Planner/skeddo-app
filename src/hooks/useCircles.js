@@ -142,15 +142,25 @@ export function useCircles(userId, session) {
 
   /* ── Load feed for a specific circle ── */
   const loadFeed = useCallback(async (circleId) => {
-    const { data } = await supabase
-      .from("shared_activities")
-      .select("*, activity_flags(id)")
-      .eq("circle_id", circleId)
-      .order("shared_at", { ascending: false });
+    try {
+      const { data, error } = await supabase
+        .from("shared_activities")
+        .select("*, activity_flags(id)")
+        .eq("circle_id", circleId)
+        .order("shared_at", { ascending: false });
 
-    setActiveFeed(data || []);
-    return data || [];
-  }, []);
+      if (error) {
+        console.warn("Failed to load circle feed:", error);
+        return activeFeed; // return current feed on error
+      }
+
+      setActiveFeed(data || []);
+      return data || [];
+    } catch (err) {
+      console.warn("loadFeed error:", err);
+      return activeFeed;
+    }
+  }, [activeFeed]);
 
   /* ── Create a circle ── */
   const createCircle = useCallback(async (name, emoji) => {

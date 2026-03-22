@@ -469,7 +469,7 @@ export function useAppData(userId) {
       supabase.from("profiles").update({ onboarded: true }).eq("id", userId)
         .then(({ error }) => { if (error) console.warn("Failed to save onboarded:", error); else markSynced(); });
     }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   /* ══════════════════════════════════════════════
      COMPUTED LISTS
@@ -525,7 +525,7 @@ export function useAppData(userId) {
       supabase.from("user_programs").upsert(row, { onConflict: "id" })
         .then(({ error }) => { if (error) console.warn("Failed to save program:", error); else markSynced(); });
     }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   const deleteProgram = useCallback((id) => {
     setPrograms((prev) => prev.filter((p) => p.id !== id));
@@ -533,7 +533,7 @@ export function useAppData(userId) {
       supabase.from("user_programs").delete().eq("id", id)
         .then(({ error }) => { if (error) console.warn("Failed to delete program:", error); else markSynced(); });
     }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   const cycleStatus = useCallback((id) => {
     const order = ["Enrolled", "Waitlist", "Exploring"];
@@ -551,7 +551,7 @@ export function useAppData(userId) {
         return updated;
       })
     );
-  }, [userId]);
+  }, [userId, markSynced]);
 
   /* ══════════════════════════════════════════════
      CRUD: Kids
@@ -568,17 +568,16 @@ export function useAppData(userId) {
         const available = KID_COLORS.find((c) => !usedColors.has(c.hex));
         kid.color = available ? available.hex : KID_COLORS[prev.length % KID_COLORS.length].hex;
       }
+      // Save to Supabase AFTER color assignment so the DB gets the correct color
+      if (usingSupabase.current && userId) {
+        const row = kidToDb(kid, userId);
+        supabase.from("kids").upsert(row, { onConflict: "id" })
+          .then(({ error }) => { if (error) console.warn("Failed to save kid:", error); else markSynced(); });
+      }
       if (existing) return prev.map((k) => (k.id === kidId ? { ...k, ...kid } : k));
       return [...prev, kid];
     });
-
-    // Save to Supabase
-    if (usingSupabase.current && userId) {
-      const row = kidToDb(kid, userId);
-      supabase.from("kids").upsert(row, { onConflict: "id" })
-        .then(({ error }) => { if (error) console.warn("Failed to save kid:", error); else markSynced(); });
-    }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   const deleteKid = useCallback((id) => {
     setKids((prev) => prev.filter((k) => k.id !== id));
@@ -608,7 +607,7 @@ export function useAppData(userId) {
       supabase.from("kids").delete().eq("id", id)
         .then(({ error }) => { if (error) console.warn("Failed to delete kid:", error); else markSynced(); });
     }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   /* ── Manual cost entries ── */
   const saveManualCost = useCallback((cost) => {
@@ -634,7 +633,7 @@ export function useAppData(userId) {
       }, { onConflict: "id" })
         .then(({ error }) => { if (error) console.warn("Failed to save manual cost:", error); else markSynced(); });
     }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   const deleteManualCost = useCallback((id) => {
     setManualCosts((prev) => prev.filter((c) => c.id !== id));
@@ -642,7 +641,7 @@ export function useAppData(userId) {
       supabase.from("manual_costs").delete().eq("id", id)
         .then(({ error }) => { if (error) console.warn("Failed to delete manual cost:", error); else markSynced(); });
     }
-  }, [userId]);
+  }, [userId, markSynced]);
 
   return {
     programs, kids, loaded, tab, setTab,
