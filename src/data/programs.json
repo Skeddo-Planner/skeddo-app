@@ -19,7 +19,7 @@
     "address": "750 Hornby St, Vancouver, BC",
     "lat": 49.2827,
     "lng": -123.1207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.vanartgallery.bc.ca/events/summer-camp-july-2025/",
     "description": "Half-day art camp at the Vancouver Art Gallery. Ages 7-10, max 20 campers. 2025 price was $240 (non-member) / $220 (member). 2026 summer camp not yet announced — check vanartgallery.bc.ca for updates.",
     "tags": [
@@ -264,7 +264,7 @@
     "address": "212-810 Quayside Drive, New Westminster, BC",
     "lat": 49.198,
     "lng": -122.9105,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vancouvercircusschool.ca/camps/",
     "description": "Aerial arts, trampoline, juggling, and acrobatics. Price may vary — check website for current rates.",
     "tags": [
@@ -299,7 +299,7 @@
     "address": "212-810 Quayside Drive, New Westminster, BC",
     "lat": 49.198,
     "lng": -122.9105,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vancouvercircusschool.ca/camps/",
     "description": "Aerial arts, trampoline, juggling, and acrobatics. Price may vary — check website for current rates.",
     "tags": [
@@ -334,7 +334,7 @@
     "address": "212-810 Quayside Drive, New Westminster, BC",
     "lat": 49.198,
     "lng": -122.9105,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vancouvercircusschool.ca/camps/",
     "description": "Aerial arts, trampoline, juggling, and acrobatics. Price may vary — check website for current rates.",
     "tags": [
@@ -369,7 +369,7 @@
     "address": "212-810 Quayside Drive, New Westminster, BC",
     "lat": 49.198,
     "lng": -122.9105,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vancouvercircusschool.ca/camps/",
     "description": "Aerial arts, trampoline, juggling, and acrobatics. Price may vary — check website for current rates.",
     "tags": [
@@ -404,7 +404,7 @@
     "address": "212-810 Quayside Drive, New Westminster, BC",
     "lat": 49.198,
     "lng": -122.9105,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vancouvercircusschool.ca/camps/",
     "description": "Aerial arts, trampoline, juggling, and acrobatics. Price may vary — check website for current rates.",
     "tags": [
@@ -439,7 +439,7 @@
     "address": "212-810 Quayside Drive, New Westminster, BC",
     "lat": 49.198,
     "lng": -122.9105,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vancouvercircusschool.ca/camps/",
     "description": "Aerial arts, trampoline, juggling, and acrobatics. Price may vary — check website for current rates.",
     "tags": [
@@ -4927,7 +4927,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -4939,7 +4939,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 248,
@@ -4961,7 +4963,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -4973,7 +4975,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 249,
@@ -4995,7 +4999,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5007,7 +5011,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 250,
@@ -5029,7 +5035,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5041,7 +5047,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 251,
@@ -5063,7 +5071,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5075,7 +5083,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 252,
@@ -5097,7 +5107,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5109,7 +5119,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 253,
@@ -5131,7 +5143,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5143,7 +5155,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 254,
@@ -5165,7 +5179,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Beginner bike riding camp — learn to ride without training wheels. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5177,7 +5191,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 255,
@@ -5199,7 +5215,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5211,7 +5227,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 256,
@@ -5233,7 +5251,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5245,7 +5263,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 257,
@@ -5267,7 +5287,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5279,7 +5299,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 258,
@@ -5301,7 +5323,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5313,7 +5335,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 259,
@@ -5335,7 +5359,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5347,7 +5371,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 260,
@@ -5369,7 +5395,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5381,7 +5407,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 261,
@@ -5403,7 +5431,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5415,7 +5443,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 262,
@@ -5437,7 +5467,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Trail riding and mountain biking skills camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5449,7 +5479,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 263,
@@ -5471,7 +5503,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5483,7 +5515,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 264,
@@ -5505,7 +5539,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5517,7 +5551,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 265,
@@ -5539,7 +5575,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5551,7 +5587,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 266,
@@ -5573,7 +5611,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5585,7 +5623,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 267,
@@ -5607,7 +5647,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5619,7 +5659,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 268,
@@ -5641,7 +5683,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5653,7 +5695,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 269,
@@ -5675,7 +5719,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5687,7 +5731,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 270,
@@ -5709,7 +5755,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Swimming lessons in a fun camp format. Multiple locations. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -5721,7 +5767,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 285,
@@ -11462,7 +11510,7 @@
     "address": "1496 Frederick Road, North Vancouver, BC",
     "lat": 49.335,
     "lng": -123.053,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -11497,7 +11545,7 @@
     "address": "1496 Frederick Road, North Vancouver, BC",
     "lat": 49.335,
     "lng": -123.053,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -11532,7 +11580,7 @@
     "address": "1496 Frederick Road, North Vancouver, BC",
     "lat": 49.335,
     "lng": -123.053,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -11567,7 +11615,7 @@
     "address": "1496 Frederick Road, North Vancouver, BC",
     "lat": 49.335,
     "lng": -123.053,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -11602,7 +11650,7 @@
     "address": "1496 Frederick Road, North Vancouver, BC",
     "lat": 49.335,
     "lng": -123.053,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -11637,7 +11685,7 @@
     "address": "1496 Frederick Road, North Vancouver, BC",
     "lat": 49.335,
     "lng": -123.053,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -11706,7 +11754,7 @@
     "address": "Capilano River Regional Park, North Vancouver, BC",
     "lat": 49.354,
     "lng": -123.114,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -18302,7 +18350,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Spring break bike riding camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -18313,7 +18361,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 698,
@@ -18335,7 +18385,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Spring break bike riding camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -18346,7 +18396,9 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-04-09",
+    "registrationDateLabel": "Est. early April"
   },
   {
     "id": 699,
@@ -36242,7 +36294,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1205,
@@ -36277,7 +36330,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1206,
@@ -36312,7 +36366,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1207,
@@ -36347,7 +36402,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1208,
@@ -36382,7 +36438,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1209,
@@ -36417,7 +36474,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1210,
@@ -36452,7 +36510,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1211,
@@ -36487,7 +36546,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1212,
@@ -36522,7 +36582,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1213,
@@ -36557,7 +36618,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1214,
@@ -36592,7 +36654,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1215,
@@ -36627,7 +36690,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1216,
@@ -36662,7 +36726,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1217,
@@ -36697,7 +36762,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1218,
@@ -36732,7 +36798,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1219,
@@ -36767,7 +36834,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1220,
@@ -36802,7 +36870,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1221,
@@ -36837,7 +36906,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1222,
@@ -36872,7 +36942,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1223,
@@ -36907,7 +36978,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1224,
@@ -36942,7 +37014,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1225,
@@ -36977,7 +37050,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1226,
@@ -37012,7 +37086,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1227,
@@ -37047,7 +37122,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-15"
   },
   {
     "id": 1273,
@@ -37429,7 +37505,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -37464,7 +37540,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -37499,7 +37575,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -37534,7 +37610,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -37569,7 +37645,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -37604,7 +37680,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -37639,7 +37715,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -37674,7 +37750,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -37709,7 +37785,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -37744,7 +37820,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -37779,7 +37855,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -37814,7 +37890,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -37849,7 +37925,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -37884,7 +37960,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -37919,7 +37995,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -37954,7 +38030,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -37989,7 +38065,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -38024,7 +38100,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -38059,7 +38135,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -38094,7 +38170,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -38129,7 +38205,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -38164,7 +38240,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Fun introductory gymnastics camp for young athletes. Balance beam, bars, tumbling, and creative movement.",
     "tags": [
@@ -38199,7 +38275,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Full-day gymnastics camp with skill development on all apparatus, games, and creative activities.",
     "tags": [
@@ -38234,7 +38310,7 @@
     "address": "123 East 23rd Street, North Vancouver, BC",
     "lat": 49.3244,
     "lng": -123.0695,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.flickagymclub.com/camps",
     "description": "Advanced gymnastics camp with progressive skill building, conditioning, and choreography.",
     "tags": [
@@ -38269,7 +38345,7 @@
     "address": "Acadia Beach Park, Vancouver, BC",
     "lat": 49.2748,
     "lng": -123.2583,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38305,7 +38381,7 @@
     "address": "Acadia Beach Park, Vancouver, BC",
     "lat": 49.2748,
     "lng": -123.2583,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38341,7 +38417,7 @@
     "address": "North Vancouver, BC",
     "lat": 49.32,
     "lng": -123.0824,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38377,7 +38453,7 @@
     "address": "North Vancouver, BC",
     "lat": 49.32,
     "lng": -123.0824,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38413,7 +38489,7 @@
     "address": "Pacific Spirit Park, Vancouver, BC",
     "lat": 49.261,
     "lng": -123.219,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38449,7 +38525,7 @@
     "address": "Pacific Spirit Park, Vancouver, BC",
     "lat": 49.261,
     "lng": -123.219,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38485,7 +38561,7 @@
     "address": "Acadia Beach Park, Vancouver, BC",
     "lat": 49.2748,
     "lng": -123.2583,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38521,7 +38597,7 @@
     "address": "Capilano River Regional Park, North Vancouver, BC",
     "lat": 49.35,
     "lng": -123.11,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38557,7 +38633,7 @@
     "address": "Pacific Spirit Park, Vancouver, BC",
     "lat": 49.261,
     "lng": -123.219,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38593,7 +38669,7 @@
     "address": "Pacific Spirit Park, Vancouver, BC",
     "lat": 49.261,
     "lng": -123.219,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38629,7 +38705,7 @@
     "address": "Coquitlam, BC",
     "lat": 49.2838,
     "lng": -122.7932,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -38665,7 +38741,7 @@
     "address": "Delta, BC",
     "lat": 49.0847,
     "lng": -123.0587,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://soaringeaglenatureschool.org/summer-forest-camp/",
     "description": "Nature-based camps in city parks: edible plants, wildlife tracking, survival skills. Small groups (7 kids/mentor). 2026 dates and pricing TBA — check soaringeaglenatureschool.org.",
     "tags": [
@@ -70566,7 +70642,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70600,7 +70677,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70634,7 +70712,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70668,7 +70747,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70702,7 +70782,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70736,7 +70817,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70770,7 +70852,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70804,7 +70887,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70838,7 +70922,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70872,7 +70957,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70906,7 +70992,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70940,7 +71027,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -70974,7 +71062,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71008,7 +71097,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71042,7 +71132,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71076,7 +71167,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71110,7 +71202,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71144,7 +71237,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71178,7 +71272,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71212,7 +71307,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71246,7 +71342,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71280,7 +71377,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71314,7 +71412,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71348,7 +71447,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71382,7 +71482,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71416,7 +71517,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71450,7 +71552,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71484,7 +71587,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71518,7 +71622,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "provider": "Mount Seymour",
@@ -71552,7 +71657,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "registrationDate": "2026-03-19"
   },
   {
     "id": 2446,
