@@ -117,6 +117,11 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
               {p.seasonType}
             </span>
           )}
+          {p.dayLength && (
+            <span style={badgeStyle(C.seaGreen, "#E8F5EE")}>
+              {p.dayLength}
+            </span>
+          )}
         </div>
       )}
 

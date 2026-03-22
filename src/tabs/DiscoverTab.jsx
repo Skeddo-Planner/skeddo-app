@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES } from "../constants/brand";
+import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES, DAY_LENGTHS } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
 import PromoBanner from "../components/PromoBanner";
@@ -321,6 +321,21 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             {program.campType}
           </span>
         )}
+        {program.dayLength && (
+          <span
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 10,
+              fontWeight: 700,
+              background: C.seaGreen + "18",
+              color: C.seaGreen,
+              padding: "2px 8px",
+              borderRadius: 10,
+            }}
+          >
+            {program.dayLength}
+          </span>
+        )}
         {/* Registration status badge */}
         <span
           style={{
@@ -465,6 +480,7 @@ export default function DiscoverTab({
   const [showActivityTypeDropdown, setShowActivityTypeDropdown] = useState(false);
   const [showHoodPanel, setShowHoodPanel] = useState(false);
   const [selectedLengths, setSelectedLengths] = useState(new Set());
+  const [selectedDayLengths, setSelectedDayLengths] = useState(new Set());
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } =
     useDataFreshness();
@@ -602,9 +618,11 @@ export default function DiscoverTab({
       }
       // Program length filter
       if (selectedLengths.size > 0 && !selectedLengths.has(getProgramLength(p))) return false;
+      // Day length filter
+      if (selectedDayLengths.size > 0 && (!p.dayLength || !selectedDayLengths.has(p.dayLength))) return false;
       return true;
     });
-  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedLengths]);
+  }, [search, selectedCats, selectedSeasons, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedLengths, selectedDayLengths]);
 
   // Sort after filtering
   const sortedFiltered = useMemo(
@@ -1369,6 +1387,68 @@ export default function DiscoverTab({
             })}
           </div>
 
+          {/* Day Length filter */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: 6,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                fontWeight: 700,
+                color: C.muted,
+                textTransform: "uppercase",
+                letterSpacing: 1,
+              }}
+            >
+              DAY LENGTH{selectedDayLengths.size > 0 ? ` (${selectedDayLengths.size})` : ""}
+            </div>
+            {selectedDayLengths.size > 0 && (
+              <button
+                onClick={() => { setSelectedDayLengths(new Set()); setVisibleCount(PAGE_SIZE); }}
+                aria-label="Clear day length filters"
+                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              marginBottom: 14,
+              flexWrap: "wrap",
+            }}
+          >
+            {DAY_LENGTHS.map((dl) => {
+              const isActive = selectedDayLengths.has(dl);
+              return (
+                <button
+                  key={dl}
+                  className="chip-btn"
+                  onClick={() => toggleInSet(setSelectedDayLengths, dl)}
+                  aria-label={`Filter by day length: ${dl}`}
+                  aria-pressed={isActive}
+                  style={{
+                    ...s.filterChip,
+                    fontSize: 12,
+                    background: isActive ? C.olive : "transparent",
+                    color: isActive ? C.cream : C.muted,
+                    borderColor: isActive ? C.olive : C.border,
+                  }}
+                >
+                  {dl}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Neighbourhood multi-select by city */}
           <div
             style={{
@@ -1716,7 +1796,7 @@ export default function DiscoverTab({
           {filtered.length.toLocaleString()} program
           {filtered.length !== 1 && "s"} found
         </span>
-        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || selectedProviders.size > 0 || selectedActivityTypes.size > 0 || !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) && (
+        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || selectedProviders.size > 0 || selectedActivityTypes.size > 0 || selectedDayLengths.size > 0 || !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) && (
           <button
             onClick={() => {
               setSearch("");
@@ -1732,6 +1812,7 @@ export default function DiscoverTab({
               setSelectedProviders(new Set());
               setSelectedActivityTypes(new Set());
               setSelectedLengths(new Set());
+              setSelectedDayLengths(new Set());
               setProviderSearch("");
               setVisibleCount(PAGE_SIZE);
             }}
