@@ -262,12 +262,14 @@ export function useAppData(userId) {
         if (mappedKids.length > 0) {
           setKids(mappedKids);
         } else {
-          // Check localStorage for kids to migrate
+          // Only migrate from localStorage if data belongs to this user
           const localData = tryParseJson(localStorage.getItem(STORAGE_KEY), {});
-          if (localData.kids && localData.kids.length > 0) {
+          const localUserId = localData._userId;
+          if (localUserId === userId && localData.kids && localData.kids.length > 0) {
             setKids(localData.kids);
-            // Migrate kids to Supabase
             await migrateKidsToSupabase(userId, localData.kids);
+          } else {
+            setKids([]);
           }
         }
 
@@ -276,12 +278,13 @@ export function useAppData(userId) {
         if (mappedPrograms.length > 0) {
           setPrograms(mappedPrograms);
         } else {
-          // Check localStorage for programs to migrate
           const localData = tryParseJson(localStorage.getItem(STORAGE_KEY), {});
-          if (localData.programs && localData.programs.length > 0) {
+          const localUserId = localData._userId;
+          if (localUserId === userId && localData.programs && localData.programs.length > 0) {
             setPrograms(localData.programs);
-            // Migrate programs to Supabase
             await migrateProgramsToSupabase(userId, localData.programs);
+          } else {
+            setPrograms([]);
           }
         }
 
@@ -316,13 +319,13 @@ export function useAppData(userId) {
      AUTO-SAVE: Write to both Supabase and localStorage
      ══════════════════════════════════════════════ */
 
-  // Save programs + kids to localStorage (always, as cache)
+  // Save programs + kids to localStorage (always, as cache), tagged with userId
   useEffect(() => {
     if (!initialLoadDone.current) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ programs, kids }));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ programs, kids, _userId: userId }));
     } catch {}
-  }, [programs, kids]);
+  }, [programs, kids, userId]);
 
   // Save favorites to localStorage + Supabase (debounced)
   const favoritesTimerRef = useRef(null);
