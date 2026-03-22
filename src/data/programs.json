@@ -71759,7 +71759,7 @@
       "sport",
       "outdoor"
     ],
-    "activityType": "Multi-Sport",
+    "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day"
@@ -71789,7 +71789,7 @@
       "sport",
       "outdoor"
     ],
-    "activityType": "Multi-Sport",
+    "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day"
@@ -71819,7 +71819,7 @@
       "sport",
       "outdoor"
     ],
-    "activityType": "Multi-Sport",
+    "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day"
@@ -71848,7 +71848,7 @@
       "outdoor",
       "weekend"
     ],
-    "activityType": "Multi-Sport",
+    "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day"
@@ -71877,7 +71877,7 @@
       "outdoor",
       "weekend"
     ],
-    "activityType": "Multi-Sport",
+    "activityType": "Golf",
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day"
@@ -71909,7 +71909,7 @@
     "activityType": "Nature & Environment",
     "confirmed2026": false,
     "priceVerified": false,
-    "dayLength": null
+    "dayLength": "Full Day"
   },
   {
     "id": "camp-shalom-1",
@@ -72669,7 +72669,12 @@
     "enrollmentStatus": "Open",
     "registrationUrl": "https://ganisraelbc.com/register",
     "description": "Jewish day camp run by Chabad of BC for ages 3-13. Activities include arts, sports, swimming, and Jewish learning in a fun environment.",
-    "tags": ["faith-based", "jewish", "day-camp", "community"],
+    "tags": [
+      "faith-based",
+      "jewish",
+      "day-camp",
+      "community"
+    ],
     "activityType": "Jewish Day Camp",
     "confirmed2026": false,
     "priceVerified": false,
@@ -72696,7 +72701,13 @@
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.centrecamp.ca/dates-rates",
     "description": "JCC Greater Vancouver's flagship summer day camp for ages 4-13. Full-day program with sports, arts, swimming, and specialty activities. Runs June 29 to August 21, 2026.",
-    "tags": ["faith-based", "jewish", "day-camp", "sports", "arts"],
+    "tags": [
+      "faith-based",
+      "jewish",
+      "day-camp",
+      "sports",
+      "arts"
+    ],
     "activityType": "Jewish Day Camp",
     "confirmed2026": true,
     "priceVerified": false,
@@ -72718,7 +72729,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.camphatikvah.com/view-our-dates",
     "description": "Jewish overnight summer camp at Lake Kalamalka in the Okanagan. Ages 8-15. Traditional camp activities with Jewish programming in a beautiful lakeside setting.",
-    "tags": ["faith-based", "jewish", "overnight", "outdoor", "lake"],
+    "tags": [
+      "faith-based",
+      "jewish",
+      "overnight",
+      "outdoor",
+      "lake"
+    ],
     "activityType": "Jewish Overnight Camp",
     "confirmed2026": false,
     "priceVerified": false,
@@ -72742,7 +72759,13 @@
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.wcsya.com/campform",
     "description": "West Coast Sikh Youth Alliance overnight summer camp for ages 9-18. A week of Sikh learning, leadership, sports, and community at Khalsa Centre Miracle Valley in Mission, BC.",
-    "tags": ["faith-based", "sikh", "overnight", "youth", "leadership"],
+    "tags": [
+      "faith-based",
+      "sikh",
+      "overnight",
+      "youth",
+      "leadership"
+    ],
     "activityType": "Sikh Youth Camp",
     "confirmed2026": true,
     "priceVerified": false,
@@ -72767,7 +72790,12 @@
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.khalsacentre.ca/kcmv-camps/summer-camp",
     "description": "Khalsa Centre overnight summer camp for ages 8-16. Four-day program with Sikh learning, team-building, and community activities in Surrey, BC.",
-    "tags": ["faith-based", "sikh", "overnight", "youth"],
+    "tags": [
+      "faith-based",
+      "sikh",
+      "overnight",
+      "youth"
+    ],
     "activityType": "Sikh Youth Camp",
     "confirmed2026": true,
     "priceVerified": false,
@@ -72791,7 +72819,12 @@
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.ghiss.org/camp.asp",
     "description": "Guru Harkrishan Institute Gurmat overnight camp for ages 6-18. Nine days of Sikh learning, kirtan, sports, and community building.",
-    "tags": ["faith-based", "sikh", "gurmat", "overnight"],
+    "tags": [
+      "faith-based",
+      "sikh",
+      "gurmat",
+      "overnight"
+    ],
     "activityType": "Sikh Gurmat Camp",
     "confirmed2026": true,
     "priceVerified": false,
@@ -72815,7 +72848,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.gurmatcenter.com/programs/gurmat-camps",
     "description": "Free Gurmat day camp for ages 5-13 in Abbotsford. Sikh learning, music, arts, and sports in a welcoming community environment.",
-    "tags": ["faith-based", "sikh", "gurmat", "free", "day-camp"],
+    "tags": [
+      "faith-based",
+      "sikh",
+      "gurmat",
+      "free",
+      "day-camp"
+    ],
     "activityType": "Sikh Gurmat Day Camp",
     "confirmed2026": false,
     "priceVerified": true,
@@ -72838,7 +72877,12 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://sukhsagar.academy/",
     "description": "Sukh Sagar Academy summer youth program for ages 12-15. Sikh education, leadership development, and community engagement in New Westminster.",
-    "tags": ["faith-based", "sikh", "youth", "leadership"],
+    "tags": [
+      "faith-based",
+      "sikh",
+      "youth",
+      "leadership"
+    ],
     "activityType": "Sikh Youth Program",
     "confirmed2026": false,
     "priceVerified": false,
@@ -72861,7 +72905,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://khalsaschool.ca/camps/",
     "description": "Free Gurmat day camp for ages 6-13 at multiple Khalsa School locations in Surrey and Vancouver. Sikh learning, sports, and arts.",
-    "tags": ["faith-based", "sikh", "gurmat", "free", "day-camp"],
+    "tags": [
+      "faith-based",
+      "sikh",
+      "gurmat",
+      "free",
+      "day-camp"
+    ],
     "activityType": "Sikh Gurmat Camp",
     "confirmed2026": false,
     "priceVerified": true,
@@ -72884,7 +72934,12 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.hinduvision.com/copy-of-classes",
     "description": "Hindu Heritage Centre summer day camp for ages 6-12. Cultural learning, yoga, arts, music, and community activities celebrating Hindu traditions.",
-    "tags": ["faith-based", "hindu", "cultural", "day-camp"],
+    "tags": [
+      "faith-based",
+      "hindu",
+      "cultural",
+      "day-camp"
+    ],
     "activityType": "Hindu Cultural Day Camp",
     "confirmed2026": false,
     "priceVerified": false,
@@ -72909,7 +72964,12 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://rvnwellness.com/pd-day-camp/",
     "description": "Movement and mindfulness day camp for ages 4-12 in Port Moody. Yoga, nature exploration, creative arts, and social-emotional learning.",
-    "tags": ["mindfulness", "yoga", "wellness", "movement"],
+    "tags": [
+      "mindfulness",
+      "yoga",
+      "wellness",
+      "movement"
+    ],
     "activityType": "Mindfulness Camp",
     "confirmed2026": false,
     "priceVerified": false,
@@ -72933,7 +72993,12 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.uphoriayoga.com/summer-camp-vancouver",
     "description": "Kids yoga and mindfulness half-day summer camp for ages 3-12 in Vancouver. Yoga, meditation, crafts, and nature activities.",
-    "tags": ["yoga", "mindfulness", "wellness", "half-day"],
+    "tags": [
+      "yoga",
+      "mindfulness",
+      "wellness",
+      "half-day"
+    ],
     "activityType": "Mindfulness & Yoga Camp",
     "confirmed2026": false,
     "priceVerified": true,
@@ -72942,14 +73007,14 @@
   },
   {
     "id": "alliance-francaise-1",
-    "name": "Alliance Fran\u00e7aise Summer Camp",
-    "provider": "Alliance Fran\u00e7aise de Vancouver",
+    "name": "Alliance Française Summer Camp",
+    "provider": "Alliance Française de Vancouver",
     "category": "Language",
     "campType": "Summer Camp",
     "scheduleType": "Half Day",
     "ageMin": 4,
     "ageMax": 12,
-    "cost": 460,
+    "cost": 465,
     "startDate": "2026-07-06",
     "endDate": "2026-08-28",
     "days": "Mon-Fri",
@@ -72961,7 +73026,12 @@
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.alliancefrancaise.ca/en/language/kids-and-teens-classes/summer-break/",
     "description": "French immersion half-day summer camp for ages 4-12. Fun language learning through games, arts, cooking, and cultural activities. July 6 to August 28, 2026.",
-    "tags": ["language", "french", "immersion", "cultural"],
+    "tags": [
+      "language",
+      "french",
+      "immersion",
+      "cultural"
+    ],
     "activityType": "French Immersion",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72989,7 +73059,12 @@
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.lecentreculturel.com/en/camp-virgule",
     "description": "French immersion full-day camp for ages 6-12. Arts, sports, games, and outings — all in French. June 29 to August 21, 2026.",
-    "tags": ["language", "french", "immersion", "day-camp"],
+    "tags": [
+      "language",
+      "french",
+      "immersion",
+      "day-camp"
+    ],
     "activityType": "French Immersion Day Camp",
     "confirmed2026": true,
     "priceVerified": true,
@@ -73014,7 +73089,12 @@
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://maillardville.com/activities/french-summer-camp/",
     "description": "French immersion day camp for ages 5-12 in Port Coquitlam. Language learning through sports, arts, cooking, and cultural activities.",
-    "tags": ["language", "french", "immersion", "day-camp"],
+    "tags": [
+      "language",
+      "french",
+      "immersion",
+      "day-camp"
+    ],
     "activityType": "French Immersion Day Camp",
     "confirmed2026": false,
     "priceVerified": false,
@@ -73037,7 +73117,12 @@
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.vancouvermandarinschool.com/mandarin-immersion-camps",
     "description": "Mandarin immersion half-day summer camp for ages 6-12 in Marpole. Interactive language learning through stories, songs, crafts, and cultural activities.",
-    "tags": ["language", "mandarin", "chinese", "immersion"],
+    "tags": [
+      "language",
+      "mandarin",
+      "chinese",
+      "immersion"
+    ],
     "activityType": "Mandarin Immersion",
     "confirmed2026": false,
     "priceVerified": false,
@@ -73049,8 +73134,8 @@
     "name": "Azalea Chinese Music Ensemble Camp",
     "provider": "VSO School of Music",
     "category": "Cultural",
-    "campType": "Summer Camp",
-    "scheduleType": "Half Day",
+    "campType": "",
+    "scheduleType": "Year-Round",
     "ageMin": 6,
     "ageMax": 18,
     "indoorOutdoor": "Indoor",
@@ -73058,13 +73143,18 @@
     "address": "843 Seymour Street, Vancouver, BC",
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vsoschoolofmusic.ca/program/azalea-chinese-music-ensemble/",
-    "description": "Chinese traditional music ensemble camp at VSO School of Music for ages 6-18. Learn traditional Chinese instruments and perform in an ensemble setting.",
-    "tags": ["cultural", "chinese", "music", "ensemble"],
+    "description": "Chinese traditional music ensemble camp at VSO School of Music for ages 6-18. Learn traditional Chinese instruments and perform in an ensemble setting. Note: This is a year-round Sunday ensemble program (Sep-Jun), not a summer-only camp.",
+    "tags": [
+      "cultural",
+      "chinese",
+      "music",
+      "ensemble"
+    ],
     "activityType": "Chinese Music Camp",
     "confirmed2026": false,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Year-Round"
   },
   {
     "id": "vcac-dayknight-1",
@@ -73087,7 +73177,11 @@
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.vcac.ca/english/ministries/summer-day-camp/",
     "description": "Christian day camp for ages 6-13 at Vancouver Chinese Alliance Church. Bible stories, sports, crafts, games, and music. August 5-15, 2026.",
-    "tags": ["faith-based", "christian", "day-camp"],
+    "tags": [
+      "faith-based",
+      "christian",
+      "day-camp"
+    ],
     "activityType": "Christian Day Camp",
     "confirmed2026": true,
     "priceVerified": true,
@@ -73111,7 +73205,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://vafcs.org/programs-for-families",
     "description": "Free Indigenous culture day camp for ages 6-12 at Vancouver Aboriginal Friendship Centre. Traditional arts, storytelling, land-based learning, and community activities.",
-    "tags": ["cultural", "indigenous", "free", "day-camp", "arts"],
+    "tags": [
+      "cultural",
+      "indigenous",
+      "free",
+      "day-camp",
+      "arts"
+    ],
     "activityType": "Indigenous Culture Day Camp",
     "confirmed2026": false,
     "priceVerified": true,
@@ -73135,7 +73235,13 @@
     "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://cedar.ubc.ca/camper-registration/",
     "description": "Free Indigenous STEM day camp for ages 8-12 at UBC. Science, technology, engineering, and math activities rooted in Indigenous knowledge and ways of learning.",
-    "tags": ["cultural", "indigenous", "stem", "free", "day-camp"],
+    "tags": [
+      "cultural",
+      "indigenous",
+      "stem",
+      "free",
+      "day-camp"
+    ],
     "activityType": "Indigenous STEM Camp",
     "confirmed2026": false,
     "priceVerified": true,
@@ -73158,7 +73264,14 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://isparc.ca/community-sport-development/aboriginal-youth-first/",
     "description": "Free Indigenous leadership and sport overnight camp for ages 13-18. Combines sport training, cultural activities, and leadership development across BC.",
-    "tags": ["cultural", "indigenous", "sport", "leadership", "free", "overnight"],
+    "tags": [
+      "cultural",
+      "indigenous",
+      "sport",
+      "leadership",
+      "free",
+      "overnight"
+    ],
     "activityType": "Indigenous Leadership & Sport",
     "confirmed2026": false,
     "priceVerified": true,
@@ -73181,7 +73294,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://moa.ubc.ca/indigenous-access-and-engagement/nyp/",
     "description": "Native Youth Program at UBC Museum of Anthropology for ages 15-18. Indigenous arts, culture, museum studies, and mentorship in a world-class museum setting.",
-    "tags": ["cultural", "indigenous", "arts", "museum", "youth"],
+    "tags": [
+      "cultural",
+      "indigenous",
+      "arts",
+      "museum",
+      "youth"
+    ],
     "activityType": "Indigenous Arts & Culture",
     "confirmed2026": false,
     "priceVerified": false,
@@ -73208,7 +73327,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://squamisharts.com/product/squamish-nation-camp/",
     "description": "Squamish Nation art camp for ages 10-17. Indigenous arts, carving, weaving, and cultural learning led by Squamish Nation artists. August 19-23, 2026.",
-    "tags": ["cultural", "indigenous", "arts", "carving", "weaving"],
+    "tags": [
+      "cultural",
+      "indigenous",
+      "arts",
+      "carving",
+      "weaving"
+    ],
     "activityType": "Indigenous Arts & Culture",
     "confirmed2026": true,
     "priceVerified": false,
@@ -73231,7 +73356,13 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://tubmancommunity.org/ekuas-heritage-summer-camp",
     "description": "African heritage day camp for ages 5-13 in Vancouver. Celebrating African culture through drumming, dance, storytelling, arts, and community building.",
-    "tags": ["cultural", "african-heritage", "dance", "drumming", "arts"],
+    "tags": [
+      "cultural",
+      "african-heritage",
+      "dance",
+      "drumming",
+      "arts"
+    ],
     "activityType": "African Heritage Day Camp",
     "confirmed2026": false,
     "priceVerified": false,
@@ -73253,7 +73384,12 @@
     "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://spiritofdanceacademy.com/",
     "description": "Bollywood dance camp for ages 4-14 in Maple Ridge. Learn Bollywood choreography, Indian classical dance basics, and perform in a fun, energetic environment.",
-    "tags": ["cultural", "bollywood", "dance", "indian"],
+    "tags": [
+      "cultural",
+      "bollywood",
+      "dance",
+      "indian"
+    ],
     "activityType": "Bollywood Dance",
     "confirmed2026": false,
     "priceVerified": false,
