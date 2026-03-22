@@ -69,7 +69,7 @@ function SubHeader({ title, onBack, right }) {
       <button onClick={onBack} style={{
         background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0,
       }} aria-label="Go back">{"\u2190"}</button>
-      <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 18, color: C.ink, flex: 1 }}>{title}</span>
+      <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, flex: 1 }}>{title}</span>
       {right}
     </div>
   );
@@ -215,7 +215,7 @@ export default function CirclesTab({
       <div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
           <div>
-            <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 22, color: C.ink, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
               Circles
               {circles.length > 0 && (
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.olive, fontStyle: "italic", marginLeft: 8 }}>
@@ -856,7 +856,7 @@ export default function CirclesTab({
           background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
           marginBottom: 16,
         }}>
-          <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
+          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
             Give a month, get a month
           </div>
           <div style={{ display: "flex", gap: 24, justifyContent: "center" }}>
@@ -865,7 +865,7 @@ export default function CirclesTab({
               { num: freeMonthsEarned, label: "Free Months" },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
+                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
               </div>
             ))}

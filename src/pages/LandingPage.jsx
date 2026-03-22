@@ -58,7 +58,7 @@ export default function LandingPage({ onNavigate }) {
 
         <h1
           style={{
-            fontFamily: "'Instrument Serif', Georgia, serif",
+            fontFamily: "'Poppins', sans-serif",
             fontSize: 30,
             color: C.ink,
             lineHeight: 1.2,
@@ -143,7 +143,7 @@ export default function LandingPage({ onNavigate }) {
         background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
       }}>
         <h2 style={{
-          fontFamily: "'Instrument Serif', Georgia, serif",
+          fontFamily: "'Poppins', sans-serif",
           fontSize: 20, color: C.ink, marginBottom: 8,
         }}>
           Built for Vancouver Families

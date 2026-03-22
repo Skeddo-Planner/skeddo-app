@@ -819,7 +819,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             {/* Header */}
             <div style={{ padding: "18px 20px 12px", borderBottom: `1px solid ${C.border}` }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <h3 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 20, color: C.ink, margin: 0 }}>
+                <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 20, color: C.ink, margin: 0 }}>
                   Export Calendar
                 </h3>
                 <button onClick={() => setShowExport(false)} style={{ background: "none", border: "none", fontSize: 22, color: C.muted, cursor: "pointer", padding: "0 4px" }}>
