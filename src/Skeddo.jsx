@@ -613,6 +613,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             planAccess={planAccess}
             kidFilter={kidFilter}
             onKidFilter={setKidFilter}
+            onOpenAddProgram={openAddProgram}
           />
         )}
 

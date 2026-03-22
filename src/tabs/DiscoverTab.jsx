@@ -441,6 +441,7 @@ export default function DiscoverTab({
   planAccess,
   kidFilter,
   onKidFilter,
+  onOpenAddProgram,
 }) {
   /* ─── Use programs.json + user-submitted programs from Supabase ─── */
   const [userSubmitted, setUserSubmitted] = useState([]);
@@ -2028,11 +2029,22 @@ export default function DiscoverTab({
               fontSize: 14,
               color: C.muted,
               lineHeight: 1.6,
+              marginBottom: 12,
             }}>
-              Can't find a program you're registered for or one you know exists?
-              You can add it manually from the <strong style={{ color: C.ink }}>Programs</strong> tab
-              using the <strong style={{ color: C.ink }}>+ Add</strong> button at the top.
+              Can't find a program you're registered for or one you know exists? You can add it manually by clicking the + Add button below.
             </p>
+            {onOpenAddProgram && (
+              <button
+                onClick={onOpenAddProgram}
+                style={{
+                  ...s.addButton,
+                  fontSize: 15,
+                  padding: "12px 28px",
+                }}
+              >
+                + Add Program
+              </button>
+            )}
           </div>
         </>
       )}
