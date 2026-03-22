@@ -337,6 +337,14 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             border: `1px solid ${C.border}`,
           }}
         >
+          {/* Program name reminder */}
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 700,
+            color: C.ink, marginBottom: 14, lineHeight: 1.3,
+          }}>
+            Adding: {p.name}
+          </div>
+
           {/* Status selector */}
           <div
             style={{
@@ -431,42 +439,47 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
           </div>
 
           {/* Kid assignment */}
-          {(kids || []).length > 0 && (
-            <>
-              <div
-                style={{
-                  fontFamily: "'Barlow', sans-serif",
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: C.muted,
-                  textTransform: "uppercase",
-                  letterSpacing: 1,
-                  marginBottom: 8,
-                }}
-              >
-                ASSIGN KIDS
-              </div>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
-                {kids.map((k) => {
-                  const sel = selectedKidIds.includes(k.id);
-                  return (
-                    <button
-                      key={k.id}
-                      className="chip-btn"
-                      onClick={() => toggleKid(k.id)}
-                      style={{
-                        ...s.filterChip,
-                        background: sel ? C.seaGreen : "transparent",
-                        color: sel ? "#fff" : C.ink,
-                        borderColor: sel ? C.seaGreen : C.border,
-                      }}
-                    >
-                      {k.name}
-                    </button>
-                  );
-                })}
-              </div>
-            </>
+          <div
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              color: C.muted,
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              marginBottom: 8,
+            }}
+          >
+            ASSIGN TO KID
+          </div>
+          {(kids || []).length > 0 ? (
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
+              {kids.map((k) => {
+                const sel = selectedKidIds.includes(k.id);
+                return (
+                  <button
+                    key={k.id}
+                    className="chip-btn"
+                    onClick={() => toggleKid(k.id)}
+                    style={{
+                      ...s.filterChip,
+                      background: sel ? (k.color || C.seaGreen) : "transparent",
+                      color: sel ? "#fff" : C.ink,
+                      borderColor: sel ? (k.color || C.seaGreen) : C.border,
+                    }}
+                  >
+                    {k.name}
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted,
+              marginBottom: 14, lineHeight: 1.5,
+            }}>
+              No kids added yet. Add a kid from the Home tab to assign programs.
+            </div>
           )}
 
           {/* Confirm / Cancel */}
