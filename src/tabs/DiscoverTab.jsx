@@ -5,6 +5,8 @@ import EmptyState from "../components/EmptyState";
 import PromoBanner from "../components/PromoBanner";
 import { SkeletonList } from "../components/SkeletonCard";
 import KidFilterBar from "../components/KidFilterBar";
+import FilterDrawer from "../components/FilterDrawer";
+import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import { supabase } from "../lib/supabase";
 import fallbackPrograms from "../data/programs.json";
@@ -87,7 +89,7 @@ const COST_RANGES = [
 
 const PROGRAM_LENGTHS = [
   { key: "full-week", label: "Full Week (5 days)" },
-  { key: "partial-week", label: "Partial Week (2–4 days)" },
+  { key: "partial-week", label: "Partial Week (2\u20134 days)" },
   { key: "multi-week", label: "Multi-Week" },
 ];
 
@@ -109,10 +111,54 @@ const SORT_OPTIONS = [
   { key: "az", label: "A-Z" },
 ];
 
-/* ─── Directory Card (no status, different from ProgramCard) ─── */
+/* ─── FilterChip — small pill button for horizontal chip bar ─── */
+function FilterChip({ label, icon, count, active, onClick, locked, onLocked }) {
+  return (
+    <button onClick={() => {
+      if (locked) { if (onLocked) onLocked(); return; }
+      onClick();
+    }} style={{
+      display: "flex", alignItems: "center", gap: 5,
+      padding: "6px 12px", borderRadius: 20,
+      border: active ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
+      background: active ? C.ink : "#FFFFFF",
+      color: active ? "#FFFFFF" : C.ink,
+      fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: active ? 600 : 500,
+      cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+      boxShadow: active ? "none" : "0 1px 3px rgba(27,36,50,0.04)",
+      minHeight: 36,
+    }}>
+      {icon && <span style={{ fontSize: 12 }}>{icon}</span>}
+      {label}
+      {locked && <span style={{ fontSize: 10 }}>🔒</span>}
+      {count > 0 && (
+        <span style={{
+          background: active ? "#FFF" : C.seaGreen, color: active ? C.ink : "#fff",
+          fontSize: 9, fontWeight: 700, width: 16, height: 16, borderRadius: 8,
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>{count}</span>
+      )}
+    </button>
+  );
+}
+
+/* ─── Directory Card ─── */
 function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus, eligibility }) {
   const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
   const isApprox = !isMunicipalProvider(program.provider) && typeof program.cost === "number" && program.cost > 0;
+
+  // Category-based accent color for left border
+  const catColors = {
+    "Sports": C.seaGreen,
+    "Arts": C.lilac,
+    "STEM": C.blue,
+    "Nature": "#2D9F6F",
+    "Music": "#9B59B6",
+    "Academic": "#3498DB",
+    "Cooking": C.olive,
+  };
+  const accent = catColors[program.category] || C.seaGreen;
+
   return (
     <div
       className="skeddo-card"
@@ -122,6 +168,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         padding: "14px 16px",
         marginBottom: 10,
         border: `1px solid ${C.border}`,
+        borderLeft: `3px solid ${accent}`,
         cursor: "pointer",
         position: "relative",
       }}
@@ -156,275 +203,176 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
       >
         {favorited ? "\u2764\uFE0F" : "\u2661"}
       </button>
-      <div
-        style={{
+
+      {/* Category header */}
+      <div style={{
+        fontFamily: "'Barlow', sans-serif",
+        fontSize: 10,
+        fontWeight: 700,
+        color: accent,
+        textTransform: "uppercase",
+        letterSpacing: 0.8,
+        marginBottom: 4,
+      }}>
+        {CAT_EMOJI[program.category] || ""} {program.category}
+      </div>
+
+      {/* Name + provider + status */}
+      <div style={{ paddingRight: 28 }}>
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 15,
+          fontWeight: 700,
+          color: C.ink,
+          lineHeight: 1.3,
+          marginBottom: 2,
+        }}>{program.name}</div>
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 12,
+          color: C.muted,
+          marginBottom: 4,
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          paddingRight: 28,
-        }}
-      >
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={s.cardCategory}>
-            {CAT_EMOJI[program.category] || ""} {program.category}
-          </div>
-          <div style={s.cardName}>{program.name}</div>
-          <div style={s.cardProvider}>{program.provider}</div>
-          {program.confirmed2026 === false && (
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 600,
-                color: "#B8860B",
-                background: "#B8860B14",
-                padding: "3px 8px",
-                borderRadius: 6,
-                marginTop: 4,
-                display: "inline-block",
-              }}
-            >
-              2026 not yet confirmed — dates & prices are estimates based on prior year
-            </div>
+          alignItems: "center",
+          gap: 8,
+          flexWrap: "wrap",
+        }}>
+          <span>{program.provider}</span>
+          {alreadyAdded && (
+            <span style={{
+              fontSize: 10, fontWeight: 700,
+              background: C.seaGreen + "18", color: C.seaGreen,
+              padding: "2px 8px", borderRadius: 6,
+            }}>Added</span>
           )}
+          <span style={{
+            fontSize: 10, fontWeight: 700,
+            background: statusInfo.color + "18", color: statusInfo.color,
+            padding: "2px 8px", borderRadius: 10,
+          }}>
+            {statusInfo.icon} {statusInfo.label}
+            {(regStatus === "coming-soon" || regStatus === "upcoming") && program.registrationDateLabel && (
+              <span style={{ fontWeight: 400 }}> &mdash; {program.registrationDateLabel}</span>
+            )}
+            {(regStatus === "coming-soon" || regStatus === "upcoming") && program.registrationDate && !program.registrationDateLabel && (
+              <span style={{ fontWeight: 400 }}> &mdash; Reg. opens {fmtDate(program.registrationDate)}</span>
+            )}
+          </span>
         </div>
-        {alreadyAdded && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: C.seaGreen + "18",
-              color: C.seaGreen,
-              padding: "3px 8px",
-              borderRadius: 6,
-              whiteSpace: "nowrap",
-            }}
-          >
-            Added
+        {program.confirmed2026 === false && (
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 600,
+            color: "#B8860B", background: "#B8860B14",
+            padding: "3px 8px", borderRadius: 6, marginBottom: 4, display: "inline-block",
+          }}>
+            2026 not yet confirmed — dates & prices are estimates based on prior year
+          </div>
+        )}
+      </div>
+
+      {/* Meta row: dates, days, times */}
+      <div style={{
+        fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 6,
+      }}>
+        {program.startDate && (
+          <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
+            {(() => {
+              const s = new Date(program.startDate + "T00:00:00");
+              const e = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
+              const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+              const est = program.confirmed2026 === false ? " (est.)" : "";
+              if (!e || program.startDate === program.endDate) return fmtDate(program.startDate) + est;
+              if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear())
+                return `${mo[s.getMonth()]} ${s.getDate()} \u2013 ${e.getDate()}, ${s.getFullYear()}${est}`;
+              if (s.getFullYear() === e.getFullYear())
+                return `${mo[s.getMonth()]} ${s.getDate()} \u2013 ${mo[e.getMonth()]} ${e.getDate()}, ${e.getFullYear()}${est}`;
+              return `${fmtDate(program.startDate)} \u2013 ${fmtDate(program.endDate)}${est}`;
+            })()}
+          </span>
+        )}
+        {program.startDate && program.days && <span> &middot; </span>}
+        {program.days && <span>{program.days}</span>}
+        {program.startTime && program.endTime && (
+          <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
+            {" "}&middot; {program.startTime}-{program.endTime}{program.confirmed2026 === false ? " (est.)" : ""}
           </span>
         )}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginTop: 8,
-          paddingTop: 8,
-          borderTop: `1px solid ${C.border}`,
-        }}
-      >
-        <div style={s.cardMeta}>
-          {program.startDate && (
-            <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
-              {(() => {
-                const s = new Date(program.startDate + "T00:00:00");
-                const e = program.endDate ? new Date(program.endDate + "T00:00:00") : null;
-                const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-                const est = program.confirmed2026 === false ? " (est.)" : "";
-                if (!e || program.startDate === program.endDate) return fmtDate(program.startDate) + est;
-                if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear())
-                  return `${mo[s.getMonth()]} ${s.getDate()} – ${e.getDate()}, ${s.getFullYear()}${est}`;
-                if (s.getFullYear() === e.getFullYear())
-                  return `${mo[s.getMonth()]} ${s.getDate()} – ${mo[e.getMonth()]} ${e.getDate()}, ${e.getFullYear()}${est}`;
-                return `${fmtDate(program.startDate)} – ${fmtDate(program.endDate)}${est}`;
-              })()}
+
+      {/* Bottom row: badges + price */}
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "flex-end",
+        marginTop: 8, paddingTop: 8, borderTop: `1px solid ${C.border}`,
+      }}>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", flex: 1 }}>
+          {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date() && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: "#FFF8E1", color: "#B8860B", padding: "2px 8px", borderRadius: 10 }}>
+              {"\uD83D\uDC26"} Early Bird
             </span>
           )}
-          {program.startDate && program.days && <span> &middot; </span>}
-          {program.days && <span>{program.days}</span>}
-          {program.startTime && program.endTime && (
-            <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
-              {" "}
-              &middot; {program.startTime}-{program.endTime}{program.confirmed2026 === false ? " (est.)" : ""}
+          {(program.ageMin != null || program.ageMax != null) && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: C.blue + "14", color: C.blue, padding: "2px 8px", borderRadius: 10 }}>
+              {program.ageMin != null && program.ageMax != null
+                ? `Ages ${program.ageMin}-${program.ageMax}`
+                : program.ageMin != null ? `Ages ${program.ageMin}+` : `Up to ${program.ageMax}`}
             </span>
           )}
+          {program.neighbourhood && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: C.lilac + "18", color: C.lilac, padding: "2px 8px", borderRadius: 10 }}>
+              {program.neighbourhood}
+            </span>
+          )}
+          {program.campType && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: C.olive + "18", color: C.olive, padding: "2px 8px", borderRadius: 10 }}>
+              {program.campType}
+            </span>
+          )}
+          {program.dayLength && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: C.seaGreen + "18", color: C.seaGreen, padding: "2px 8px", borderRadius: 10 }}>
+              {program.dayLength}
+            </span>
+          )}
+          {eligibility && eligibility.eligibilityTier === "borderline" && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: "rgba(244, 162, 97, 0.10)", color: "#F4A261", padding: "2px 8px", borderRadius: 10 }}>
+              {eligibility.label}
+            </span>
+          )}
+          {eligibility && eligibility.eligibilityTier === "eligible" && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: "rgba(45, 159, 111, 0.10)", color: "#2D9F6F", padding: "2px 8px", borderRadius: 10 }}>
+              {eligibility.label}
+            </span>
+          )}
+          {program.spotsRemaining && (() => {
+            const isFull = program.spotsRemaining.toLowerCase().startsWith("full");
+            const match = program.spotsRemaining.match(/^(\d+)\s+of\s+(\d+)/);
+            const spotsLeft = match ? parseInt(match[1], 10) : null;
+            const isLow = spotsLeft !== null && spotsLeft <= 5;
+            const color = isFull ? "#D32F2F" : isLow ? "#E65100" : C.blue;
+            const asOf = program.spotsUpdatedAt ? (() => {
+              const d = new Date(program.spotsUpdatedAt);
+              const fmt = d.toLocaleString("en-US", { timeZone: "America/Vancouver", hour: "numeric", minute: "2-digit", hour12: true, month: "short", day: "numeric" });
+              const parts = fmt.split(", ");
+              const datePart = parts[0];
+              const timePart = (parts[1] || "").replace(/:00 /, " ").toLowerCase();
+              return ` (as of ${datePart} at ${timePart} PDT)`;
+            })() : "";
+            return (
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: color + "18", color, padding: "2px 8px", borderRadius: 10 }}>
+                {isFull ? "\u26D4 " : isLow ? "\uD83D\uDD25 " : ""}{program.spotsRemaining}
+                <span style={{ fontWeight: 400 }}>{asOf}</span>
+              </span>
+            );
+          })()}
         </div>
-        <div
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: 16,
-            color: C.ink,
-          }}
-        >
+        <div style={{
+          fontFamily: "'Poppins', sans-serif", fontSize: 16, color: C.ink,
+          fontWeight: 700, whiteSpace: "nowrap", marginLeft: 8,
+        }}>
           {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date()
             ? <><span>${Number(program.earlyBirdCost).toLocaleString()}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${Number(program.cost).toLocaleString()}</span></>
             : program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() : "Free"
           }
         </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          gap: 6,
-          marginTop: 6,
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
-        {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date() && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: "#FFF8E1",
-              color: "#B8860B",
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {"\uD83D\uDC26"} Early Bird
-          </span>
-        )}
-        {(program.ageMin != null || program.ageMax != null) && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: C.blue + "14",
-              color: C.blue,
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {program.ageMin != null && program.ageMax != null
-              ? `Ages ${program.ageMin}-${program.ageMax}`
-              : program.ageMin != null
-                ? `Ages ${program.ageMin}+`
-                : `Up to ${program.ageMax}`}
-          </span>
-        )}
-        {program.neighbourhood && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: C.lilac + "18",
-              color: C.lilac,
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {program.neighbourhood}
-          </span>
-        )}
-        {program.campType && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: C.olive + "18",
-              color: C.olive,
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {program.campType}
-          </span>
-        )}
-        {program.dayLength && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: C.seaGreen + "18",
-              color: C.seaGreen,
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {program.dayLength}
-          </span>
-        )}
-        {/* Eligibility badge for borderline programs */}
-        {eligibility && eligibility.eligibilityTier === "borderline" && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: "rgba(244, 162, 97, 0.10)",
-              color: "#F4A261",
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {eligibility.label}
-          </span>
-        )}
-        {eligibility && eligibility.eligibilityTier === "eligible" && (
-          <span
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              background: "rgba(45, 159, 111, 0.10)",
-              color: "#2D9F6F",
-              padding: "2px 8px",
-              borderRadius: 10,
-            }}
-          >
-            {eligibility.label}
-          </span>
-        )}
-        {/* Registration status badge */}
-        <span
-          style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 10,
-            fontWeight: 700,
-            background: statusInfo.color + "18",
-            color: statusInfo.color,
-            padding: "2px 8px",
-            borderRadius: 10,
-          }}
-        >
-          {statusInfo.icon} {statusInfo.label}
-          {(regStatus === "coming-soon" || regStatus === "upcoming") && program.registrationDateLabel && (
-            <span style={{ fontWeight: 400 }}> &mdash; {program.registrationDateLabel}</span>
-          )}
-          {(regStatus === "coming-soon" || regStatus === "upcoming") && program.registrationDate && !program.registrationDateLabel && (
-            <span style={{ fontWeight: 400 }}> &mdash; Reg. opens {fmtDate(program.registrationDate)}</span>
-          )}
-        </span>
-        {program.spotsRemaining && (() => {
-          const isFull = program.spotsRemaining.toLowerCase().startsWith("full");
-          const match = program.spotsRemaining.match(/^(\d+)\s+of\s+(\d+)/);
-          const spotsLeft = match ? parseInt(match[1], 10) : null;
-          const isLow = spotsLeft !== null && spotsLeft <= 5;
-          const color = isFull ? "#D32F2F" : isLow ? "#E65100" : C.blue;
-          const asOf = program.spotsUpdatedAt ? (() => {
-            const d = new Date(program.spotsUpdatedAt);
-            const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-            const fmt = d.toLocaleString("en-US", { timeZone: "America/Vancouver", hour: "numeric", minute: "2-digit", hour12: true, month: "short", day: "numeric" });
-            const parts = fmt.split(", ");
-            const datePart = parts[0];
-            const timePart = (parts[1] || "").replace(/:00 /, " ").toLowerCase();
-            return ` (as of ${datePart} at ${timePart} PDT)`;
-          })() : "";
-          return (
-            <span
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                background: color + "18",
-                color,
-                padding: "2px 8px",
-                borderRadius: 10,
-              }}
-            >
-              {isFull ? "⛔ " : isLow ? "🔥 " : ""}{program.spotsRemaining}
-              <span style={{ fontWeight: 400 }}>{asOf}</span>
-            </span>
-          );
-        })()}
       </div>
     </div>
   );
@@ -516,7 +464,7 @@ export default function DiscoverTab({
   const [ageMax, setAgeMax] = useState("");
   const [selectedCosts, setSelectedCosts] = useState(new Set());     // empty = all
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const [showFilters, setShowFilters] = useState(false);
+  const [activeDrawer, setActiveDrawer] = useState(null);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
   const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon"])); // default: show programs users can register for now or very soon
@@ -607,6 +555,45 @@ export default function DiscoverTab({
       return next;
     });
   };
+
+  // Clear all filters helper
+  const clearAllFilters = () => {
+    setSearch("");
+    setSelectedCats(new Set());
+    setSelectedSeasons(new Set());
+    setSelectedHoods(new Set());
+    setAgeMin("");
+    setAgeMax("");
+    setSelectedCosts(new Set());
+    setShowFavoritesOnly(false);
+    setSortBy("relevance");
+    setSelectedRegStatuses(new Set(["open", "opening-soon", "likely-coming-soon"]));
+    setSelectedProviders(new Set());
+    setSelectedActivityTypes(new Set());
+    setSelectedLengths(new Set());
+    setSelectedDayLengths(new Set());
+    setProviderSearch("");
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  // Count total active filters for summary
+  const totalActiveFilters = useMemo(() => {
+    let count = 0;
+    if (selectedCats.size > 0) count++;
+    if (ageMin || ageMax) count++;
+    if (selectedCosts.size > 0) count++;
+    if (selectedHoods.size > 0) count++;
+    if (selectedSeasons.size > 0) count++;
+    if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) count++;
+    if (selectedLengths.size > 0) count++;
+    if (selectedDayLengths.size > 0) count++;
+    if (selectedActivityTypes.size > 0) count++;
+    if (selectedProviders.size > 0) count++;
+    if (showFavoritesOnly) count++;
+    if (sortBy !== "relevance") count++;
+    if (search) count++;
+    return count;
+  }, [selectedCats, ageMin, ageMax, selectedCosts, selectedHoods, selectedSeasons, selectedRegStatuses, selectedLengths, selectedDayLengths, selectedActivityTypes, selectedProviders, showFavoritesOnly, sortBy, search]);
 
   // Set of already-added program names (for marking duplicates)
   const addedNames = useMemo(() => {
@@ -843,7 +830,7 @@ export default function DiscoverTab({
             animation: isChecking ? "skeddo-spin 1s linear infinite" : "none",
           }}
         >
-          ↻
+          \u21BB
         </span>
         <span
           style={{
@@ -856,8 +843,8 @@ export default function DiscoverTab({
           {isChecking
             ? "Checking for updates..."
             : isStale
-              ? `Data updated: ${dataVersion} · Tap to check for updates`
-              : `Data updated: ${dataVersion} · Checked ${lastCheckedLabel}`}
+              ? `Data updated: ${dataVersion} \u00B7 Tap to check for updates`
+              : `Data updated: ${dataVersion} \u00B7 Checked ${lastCheckedLabel}`}
         </span>
       </div>
       <style>{`
@@ -867,1127 +854,45 @@ export default function DiscoverTab({
         }
       `}</style>
 
-      {/* Sort chips */}
-      <div style={{ marginBottom: 12 }}>
-        <div
-          style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 10,
-            fontWeight: 700,
-            color: C.muted,
-            textTransform: "uppercase",
-            letterSpacing: 1,
-            marginBottom: 6,
-          }}
-        >
-          SORT BY
-        </div>
-        <div
-          style={{
-            display: "flex",
-            gap: 6,
-            overflowX: "auto",
-            paddingBottom: 4,
-            WebkitOverflowScrolling: "touch",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-        >
-          {SORT_OPTIONS.map((opt) => (
-            <button
-              key={opt.key}
-              className="chip-btn"
-              onClick={() => {
-                setSortBy(opt.key);
-                setVisibleCount(PAGE_SIZE);
-              }}
-              aria-label={`Sort by ${opt.label}`}
-              aria-pressed={sortBy === opt.key}
-              style={{
-                ...s.filterChip,
-                fontSize: 12,
-                whiteSpace: "nowrap",
-                flexShrink: 0,
-                background: sortBy === opt.key ? C.seaGreen : "transparent",
-                color: sortBy === opt.key ? C.cream : C.muted,
-                borderColor: sortBy === opt.key ? C.seaGreen : C.border,
-              }}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+      {/* Horizontal filter chip bar */}
+      <div style={{ padding: "10px 0 0", overflowX: "auto", display: "flex", gap: 6, paddingLeft: 0, paddingRight: 0, alignItems: "center", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
+        <FilterChip label="Sort" icon="\u2195" active={sortBy !== "relevance"} onClick={() => setActiveDrawer("sort")} />
+        <FilterChip label={`\u2661 ${favorites.length}`} active={showFavoritesOnly} onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setVisibleCount(PAGE_SIZE); }} />
+        <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
+        <FilterChip label="Category" icon="\uD83C\uDFF7" count={selectedCats.size} active={selectedCats.size > 0} onClick={() => setActiveDrawer("category")} />
+        <FilterChip label="Age" icon="\uD83D\uDC76" count={ageMin || ageMax ? 1 : 0} active={!!(ageMin || ageMax)} onClick={() => setActiveDrawer("age")} />
+        <FilterChip label="Cost" icon="$" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Area" icon="\uD83D\uDCCD" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Season" icon="\u2600\uFE0F" count={selectedSeasons.size} active={selectedSeasons.size > 0} onClick={() => setActiveDrawer("season")} />
+        <FilterChip label="Status" icon="\u2713" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
+        <FilterChip label="Length" icon="\uD83D\uDCD0" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
+        <FilterChip label="Day" icon="\uD83D\uDD50" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
+        <FilterChip label="Activity" icon="\u26A1" count={selectedActivityTypes.size} active={selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("activityType")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Provider" icon="\uD83C\uDFE2" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
       </div>
 
-      {/* Favorites chip + Toggle filters */}
-      <div style={{ display: "flex", gap: 8, marginBottom: 12, alignItems: "center" }}>
-        <button
-          className="chip-btn"
-          onClick={() => {
-            setShowFavoritesOnly((v) => !v);
-            setVisibleCount(PAGE_SIZE);
-          }}
-          aria-label={showFavoritesOnly ? "Show all programs" : "Show only favorited programs"}
-          aria-pressed={showFavoritesOnly}
-          style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
-            fontWeight: 700,
-            background: showFavoritesOnly ? C.olive : "transparent",
-            color: showFavoritesOnly ? C.cream : C.muted,
-            border: `1.5px solid ${showFavoritesOnly ? C.olive : C.border}`,
-            borderRadius: 10,
-            padding: "6px 14px",
-            cursor: "pointer",
-            transition: "all 0.12s ease",
-          }}
-        >
-          {showFavoritesOnly ? "\u2764\uFE0F" : "\u2661"} Favorites
-          {favorites.length > 0 && ` (${favorites.length})`}
-        </button>
-        <button
-          onClick={() => setShowFilters(!showFilters)}
-          aria-label={showFilters ? "Hide filter panel" : "Show filter panel"}
-          aria-expanded={showFilters}
-        style={{
-          fontFamily: "'Barlow', sans-serif",
-          fontSize: 12,
-          fontWeight: 700,
-          color: C.seaGreen,
-          background: "none",
-          border: `1.5px solid ${C.seaGreen}`,
-          borderRadius: 10,
-          padding: "6px 14px",
-          cursor: "pointer",
-        }}
-      >
-        {showFilters ? "Hide Filters" : "Show Filters"}{" "}
-        {showFilters ? "\u25B2" : "\u25BC"}
-      </button>
-      </div>
-
-      {showFilters && (
-        <div
-          style={{
-            background: C.white,
-            borderRadius: 14,
-            padding: 16,
-            marginBottom: 16,
-            border: `1px solid ${C.border}`,
-          }}
-        >
-          {/* Registration status chips (multi-select) */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              REGISTRATION STATUS{selectedRegStatuses.size > 0 ? ` (${selectedRegStatuses.size})` : ""}
-            </div>
-            {selectedRegStatuses.size > 0 && (
-              <button
-                onClick={() => { setSelectedRegStatuses(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear registration status filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              marginBottom: 14,
-              flexWrap: "wrap",
-            }}
-          >
-            {REGISTRATION_STATUSES.map((st) => {
-              const isActive = selectedRegStatuses.has(st.key);
-              return (
-                <button
-                  key={st.key}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedRegStatuses, st.key)}
-                  aria-label={`Filter by registration status: ${st.label}`}
-                  aria-pressed={isActive}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 12,
-                    background: isActive ? st.color : "transparent",
-                    color: isActive ? C.cream : C.muted,
-                    borderColor: isActive ? st.color : C.border,
-                  }}
-                >
-                  {st.icon} {st.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Category chips (multi-select) */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              CATEGORY{selectedCats.size > 0 ? ` (${selectedCats.size})` : ""}
-            </div>
-            {selectedCats.size > 0 && (
-              <button
-                onClick={() => { setSelectedCats(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear category filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              marginBottom: 14,
-              flexWrap: "wrap",
-            }}
-          >
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCats.has(cat);
-              return (
-                <button
-                  key={cat}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedCats, cat)}
-                  aria-label={`Filter by category: ${cat}`}
-                  aria-pressed={isActive}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 12,
-                    background: isActive ? C.blue : "transparent",
-                    color: isActive ? C.cream : C.muted,
-                    borderColor: isActive ? C.blue : C.border,
-                  }}
-                >
-                  {(CAT_EMOJI[cat] || "") + " "}{cat}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Activity type dropdown (context-aware from selected categories) */}
-          {availableActivityTypes.length > 0 && (
-            <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
-            <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
-            <>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: 6,
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "'Barlow', sans-serif",
-                    fontSize: 10,
-                    fontWeight: 700,
-                    color: C.muted,
-                    textTransform: "uppercase",
-                    letterSpacing: 1,
-                  }}
-                >
-                  ACTIVITY TYPE{selectedActivityTypes.size > 0 ? ` (${selectedActivityTypes.size})` : ""}
-                  {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
-                  {selectedCats.size > 0 && (
-                    <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>
-                      {" "}&mdash; filtered by selected categories
-                    </span>
-                  )}
-                </div>
-                {selectedActivityTypes.size > 0 && (
-                  <button
-                    onClick={() => { setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }}
-                    aria-label="Clear activity type filters"
-                    style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-              <div style={{ position: "relative", marginBottom: 14 }}>
-                <button
-                  onClick={() => setShowActivityTypeDropdown(!showActivityTypeDropdown)}
-                  aria-label="Select activity types"
-                  aria-expanded={showActivityTypeDropdown}
-                  style={{
-                    width: "100%",
-                    fontFamily: "'Barlow', sans-serif",
-                    fontSize: 13,
-                    color: selectedActivityTypes.size > 0 ? C.ink : C.muted,
-                    background: C.white,
-                    border: `1.5px solid ${showActivityTypeDropdown ? C.blue : C.border}`,
-                    borderRadius: 10,
-                    padding: "10px 12px",
-                    textAlign: "left",
-                    cursor: "pointer",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
-                    {selectedActivityTypes.size === 0
-                      ? "All activity types"
-                      : [...selectedActivityTypes].join(", ")}
-                  </span>
-                  <span style={{ fontSize: 10, marginLeft: 8, color: C.muted }}>
-                    {showActivityTypeDropdown ? "\u25B2" : "\u25BC"}
-                  </span>
-                </button>
-                {showActivityTypeDropdown && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "100%",
-                      left: 0,
-                      right: 0,
-                      background: C.white,
-                      border: `1.5px solid ${C.border}`,
-                      borderRadius: 10,
-                      marginTop: 4,
-                      maxHeight: 200,
-                      overflowY: "auto",
-                      zIndex: 20,
-                      boxShadow: "0 4px 12px rgba(27,36,50,0.1)",
-                    }}
-                  >
-                    {availableActivityTypes.map((at) => {
-                      const isActive = selectedActivityTypes.has(at);
-                      return (
-                        <div
-                          key={at}
-                          role="option"
-                          aria-selected={isActive}
-                          onClick={() => { toggleInSet(setSelectedActivityTypes, at); setVisibleCount(PAGE_SIZE); }}
-                          style={{
-                            fontFamily: "'Barlow', sans-serif",
-                            fontSize: 13,
-                            padding: "9px 12px",
-                            cursor: "pointer",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 8,
-                            background: isActive ? `${C.blue}10` : "transparent",
-                            color: isActive ? C.ink : C.muted,
-                            borderBottom: `1px solid ${C.border}`,
-                          }}
-                        >
-                          <span style={{ width: 18, textAlign: "center", fontSize: 14, color: C.blue }}>
-                            {isActive ? "\u2713" : ""}
-                          </span>
-                          {at}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            </>
-            </div>
-            </div>
-          )}
-
-          {/* Provider searchable multi-select */}
-          <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
-          <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              PROVIDER{selectedProviders.size > 0 ? ` (${selectedProviders.size})` : ""}
-              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
-            </div>
-            {selectedProviders.size > 0 && (
-              <button
-                onClick={() => { setSelectedProviders(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear provider filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-
-          {/* Selected providers as removable chips */}
-          {selectedProviders.size > 0 && (
-            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
-              {[...selectedProviders].sort().map((prov) => (
-                <button
-                  key={prov}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedProviders, prov)}
-                  aria-label={`Remove provider filter: ${prov}`}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 11,
-                    background: C.seaGreen,
-                    color: C.cream,
-                    borderColor: C.seaGreen,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 4,
-                  }}
-                >
-                  {prov} <span style={{ fontSize: 13, lineHeight: 1 }}>&times;</span>
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Provider search input + dropdown */}
-          <div style={{ position: "relative", marginBottom: 14 }}>
-            <input
-              style={{
-                ...s.input,
-                fontSize: 13,
-                paddingLeft: 32,
-              }}
-              placeholder="Search providers..."
-              value={providerSearch}
-              onChange={(e) => {
-                setProviderSearch(e.target.value);
-                setShowProviderDropdown(true);
-              }}
-              onFocus={() => setShowProviderDropdown(true)}
-              onBlur={() => setTimeout(() => setShowProviderDropdown(false), 200)}
-            />
-            <span
-              style={{
-                position: "absolute",
-                left: 10,
-                top: "50%",
-                transform: "translateY(-50%)",
-                fontSize: 14,
-                color: C.muted,
-                pointerEvents: "none",
-              }}
-            >
-              &#x1F50D;
-            </span>
-            {showProviderDropdown && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "100%",
-                  left: 0,
-                  right: 0,
-                  maxHeight: 180,
-                  overflowY: "auto",
-                  background: C.white,
-                  border: `1px solid ${C.border}`,
-                  borderRadius: 10,
-                  boxShadow: "0 4px 12px rgba(27,36,50,0.08)",
-                  zIndex: 20,
-                  marginTop: 4,
-                }}
-              >
-                {allProviders
-                  .filter((prov) =>
-                    prov.toLowerCase().includes(providerSearch.toLowerCase().trim())
-                  )
-                  .slice(0, 30)
-                  .map((prov) => {
-                    const isSelected = selectedProviders.has(prov);
-                    return (
-                      <div
-                        key={prov}
-                        onMouseDown={(e) => {
-                          e.preventDefault();
-                          toggleInSet(setSelectedProviders, prov);
-                        }}
-                        role="option"
-                        aria-selected={isSelected}
-                        style={{
-                          padding: "8px 12px",
-                          fontFamily: "'Barlow', sans-serif",
-                          fontSize: 13,
-                          color: isSelected ? C.seaGreen : C.ink,
-                          fontWeight: isSelected ? 700 : 400,
-                          cursor: "pointer",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 8,
-                          borderBottom: `1px solid ${C.border}`,
-                          background: isSelected ? C.seaGreen + "08" : "transparent",
-                        }}
-                      >
-                        <span
-                          style={{
-                            width: 16,
-                            height: 16,
-                            borderRadius: 3,
-                            border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
-                            background: isSelected ? C.seaGreen : "transparent",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: 10,
-                            color: C.white,
-                            flexShrink: 0,
-                          }}
-                        >
-                          {isSelected ? "✓" : ""}
-                        </span>
-                        {prov}
-                      </div>
-                    );
-                  })}
-                {allProviders.filter((prov) =>
-                  prov.toLowerCase().includes(providerSearch.toLowerCase().trim())
-                ).length === 0 && (
-                  <div
-                    style={{
-                      padding: "12px",
-                      fontFamily: "'Barlow', sans-serif",
-                      fontSize: 13,
-                      color: C.muted,
-                      textAlign: "center",
-                    }}
-                  >
-                    No providers found
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-          </div>
-          </div>
-
-          {/* Season type chips (multi-select) */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              SEASON TYPE{selectedSeasons.size > 0 ? ` (${selectedSeasons.size})` : ""}
-            </div>
-            {selectedSeasons.size > 0 && (
-              <button
-                onClick={() => { setSelectedSeasons(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear season type filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              marginBottom: 14,
-              flexWrap: "wrap",
-            }}
-          >
-            {SEASON_TYPES.map((st) => {
-              const isActive = selectedSeasons.has(st);
-              return (
-                <button
-                  key={st}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedSeasons, st)}
-                  aria-label={`Filter by season type: ${st}`}
-                  aria-pressed={isActive}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 12,
-                    background: isActive ? C.olive : "transparent",
-                    color: isActive ? C.cream : C.muted,
-                    borderColor: isActive ? C.olive : C.border,
-                  }}
-                >
-                  {st}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Program length filter */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              PROGRAM LENGTH{selectedLengths.size > 0 ? ` (${selectedLengths.size})` : ""}
-            </div>
-            {selectedLengths.size > 0 && (
-              <button
-                onClick={() => { setSelectedLengths(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear program length filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              marginBottom: 14,
-              flexWrap: "wrap",
-            }}
-          >
-            {PROGRAM_LENGTHS.map((pl) => {
-              const isActive = selectedLengths.has(pl.key);
-              return (
-                <button
-                  key={pl.key}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedLengths, pl.key)}
-                  aria-label={`Filter by program length: ${pl.label}`}
-                  aria-pressed={isActive}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 12,
-                    background: isActive ? C.olive : "transparent",
-                    color: isActive ? C.cream : C.muted,
-                    borderColor: isActive ? C.olive : C.border,
-                  }}
-                >
-                  {pl.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Day Length filter */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              DAY LENGTH{selectedDayLengths.size > 0 ? ` (${selectedDayLengths.size})` : ""}
-            </div>
-            {selectedDayLengths.size > 0 && (
-              <button
-                onClick={() => { setSelectedDayLengths(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear day length filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              marginBottom: 14,
-              flexWrap: "wrap",
-            }}
-          >
-            {DAY_LENGTHS.map((dl) => {
-              const isActive = selectedDayLengths.has(dl);
-              return (
-                <button
-                  key={dl}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedDayLengths, dl)}
-                  aria-label={`Filter by day length: ${dl}`}
-                  aria-pressed={isActive}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 12,
-                    background: isActive ? C.olive : "transparent",
-                    color: isActive ? C.cream : C.muted,
-                    borderColor: isActive ? C.olive : C.border,
-                  }}
-                >
-                  {dl}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Neighbourhood multi-select by city */}
-          <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
-          <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              NEIGHBOURHOODS{selectedHoods.size > 0 ? ` (${selectedHoods.size} selected)` : ""}
-              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
-            </div>
-            {selectedHoods.size > 0 && (
-              <button
-                onClick={() => {
-                  setSelectedHoods(new Set());
-                  setVisibleCount(PAGE_SIZE);
-                }}
-                aria-label="Clear neighbourhood filters"
-                style={{
-                  fontFamily: "'Barlow', sans-serif",
-                  fontSize: 10,
-                  fontWeight: 700,
-                  color: C.danger,
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <button
-            onClick={() => setShowHoodPanel(!showHoodPanel)}
-            aria-label={showHoodPanel ? "Collapse neighbourhood filter" : "Expand neighbourhood filter"}
-            aria-expanded={showHoodPanel}
-            style={{
-              width: "100%",
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 13,
-              color: selectedHoods.size > 0 ? C.ink : C.muted,
-              background: C.white,
-              border: `1.5px solid ${showHoodPanel ? C.blue : C.border}`,
-              borderRadius: 10,
-              padding: "10px 12px",
-              textAlign: "left",
-              cursor: "pointer",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: showHoodPanel ? 6 : 14,
-            }}
-          >
-            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
-              {selectedHoods.size === 0
-                ? "All neighbourhoods"
-                : `${selectedHoods.size} neighbourhood${selectedHoods.size !== 1 ? "s" : ""} selected`}
-            </span>
-            <span style={{ fontSize: 10, marginLeft: 8, color: C.muted }}>
-              {showHoodPanel ? "\u25B2" : "\u25BC"}
-            </span>
+      {/* Active filter summary */}
+      {totalActiveFilters > 0 && (
+        <div style={{ padding: "6px 0 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 13, color: C.muted, fontFamily: "'Barlow', sans-serif" }}>
+            {totalActiveFilters} filter{totalActiveFilters !== 1 ? "s" : ""} \u00B7 {eligibilityFiltered.length} results
+          </span>
+          <button onClick={clearAllFilters} style={{ background: "none", border: "none", color: C.danger, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+            Clear all
           </button>
-          {showHoodPanel && <div
-            style={{
-              background: C.cream,
-              borderRadius: 10,
-              border: `1px solid ${C.border}`,
-              marginBottom: 14,
-              overflow: "hidden",
-            }}
-          >
-            {CITY_NEIGHBOURHOODS.map((cityObj) => {
-              const isExpanded = expandedCities.has(cityObj.city);
-              const selectedInCity = cityObj.neighbourhoods.filter((n) => selectedHoods.has(n)).length;
-              const allInCitySelected = selectedInCity === cityObj.neighbourhoods.length;
-              const someInCitySelected = selectedInCity > 0 && !allInCitySelected;
-
-              return (
-                <div key={cityObj.city}>
-                  {/* City header row */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 8,
-                      padding: "10px 12px",
-                      borderBottom: `1px solid ${C.border}`,
-                      cursor: "pointer",
-                    }}
-                    onClick={() => toggleCityExpand(cityObj.city)}
-                    role="button"
-                    tabIndex={0}
-                    aria-expanded={isExpanded}
-                    aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}
-                  >
-                    {/* Expand/collapse arrow */}
-                    <span
-                      style={{
-                        fontSize: 10,
-                        color: C.muted,
-                        transition: "transform 0.15s",
-                        transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)",
-                        display: "inline-block",
-                      }}
-                    >
-                      ▶
-                    </span>
-
-                    {/* City name */}
-                    <span
-                      style={{
-                        flex: 1,
-                        fontFamily: "'Barlow', sans-serif",
-                        fontSize: 13,
-                        fontWeight: 600,
-                        color: C.ink,
-                      }}
-                    >
-                      {cityObj.city}
-                      {someInCitySelected && (
-                        <span style={{ color: C.muted, fontWeight: 400 }}>
-                          {" "}({selectedInCity}/{cityObj.neighbourhoods.length})
-                        </span>
-                      )}
-                    </span>
-
-                    {/* Select All / Deselect All button */}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleCity(cityObj);
-                      }}
-                      aria-label={allInCitySelected ? `Deselect all ${cityObj.city} neighbourhoods` : `Select all ${cityObj.city} neighbourhoods`}
-                      style={{
-                        fontFamily: "'Barlow', sans-serif",
-                        fontSize: 10,
-                        fontWeight: 700,
-                        color: allInCitySelected ? C.danger : C.seaGreen,
-                        background: allInCitySelected ? C.dangerBg : C.seaGreen + "12",
-                        border: "none",
-                        borderRadius: 6,
-                        padding: "3px 8px",
-                        cursor: "pointer",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {allInCitySelected ? "Deselect All" : "Select All"}
-                    </button>
-                  </div>
-
-                  {/* Expanded neighbourhood list */}
-                  {isExpanded && (
-                    <div style={{ padding: "4px 12px 4px 28px" }}>
-                      {cityObj.neighbourhoods.sort().map((hood) => {
-                        const isSelected = selectedHoods.has(hood);
-                        return (
-                          <label
-                            key={hood}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: 8,
-                              padding: "6px 0",
-                              cursor: "pointer",
-                              fontFamily: "'Barlow', sans-serif",
-                              fontSize: 13,
-                              color: isSelected ? C.ink : C.muted,
-                              fontWeight: isSelected ? 600 : 400,
-                            }}
-                          >
-                            <span
-                              style={{
-                                width: 18,
-                                height: 18,
-                                borderRadius: 4,
-                                border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
-                                background: isSelected ? C.seaGreen : "transparent",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                fontSize: 11,
-                                color: C.white,
-                                flexShrink: 0,
-                                transition: "all 0.12s",
-                              }}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                toggleHood(hood);
-                              }}
-                            >
-                              {isSelected ? "✓" : ""}
-                            </span>
-                            <span onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>
-                              {hood}
-                            </span>
-                          </label>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>}
-          </div>
-          </div>
-
-          {/* Age range */}
-          <div
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              color: C.muted,
-              textTransform: "uppercase",
-              letterSpacing: 1,
-              marginBottom: 6,
-            }}
-          >
-            AGE RANGE
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 10,
-              marginBottom: 14,
-            }}
-          >
-            <input
-              style={s.input}
-              type="number"
-              placeholder="Min age"
-              value={ageMin}
-              onChange={(e) => {
-                setAgeMin(e.target.value);
-                setVisibleCount(PAGE_SIZE);
-              }}
-            />
-            <input
-              style={s.input}
-              type="number"
-              placeholder="Max age"
-              value={ageMax}
-              onChange={(e) => {
-                setAgeMax(e.target.value);
-                setVisibleCount(PAGE_SIZE);
-              }}
-            />
-          </div>
-
-          {/* Cost range chips (multi-select) */}
-          <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
-          <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 6,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                fontWeight: 700,
-                color: C.muted,
-                textTransform: "uppercase",
-                letterSpacing: 1,
-              }}
-            >
-              COST{selectedCosts.size > 0 ? ` (${selectedCosts.size})` : ""}
-              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
-            </div>
-            {selectedCosts.size > 0 && (
-              <button
-                onClick={() => { setSelectedCosts(new Set()); setVisibleCount(PAGE_SIZE); }}
-                aria-label="Clear cost filters"
-                style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.danger, background: "none", border: "none", cursor: "pointer" }}
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              flexWrap: "wrap",
-            }}
-          >
-            {COST_RANGES.slice(1).map((r, i) => {
-              const idx = i + 1; // skip "Any price" (index 0)
-              const isActive = selectedCosts.has(idx);
-              return (
-                <button
-                  key={idx}
-                  className="chip-btn"
-                  onClick={() => toggleInSet(setSelectedCosts, idx)}
-                  aria-label={`Filter by cost: ${r.label}`}
-                  aria-pressed={isActive}
-                  style={{
-                    ...s.filterChip,
-                    fontSize: 12,
-                    background: isActive ? C.lilac : "transparent",
-                    color: isActive ? C.cream : C.muted,
-                    borderColor: isActive ? C.lilac : C.border,
-                  }}
-                >
-                  {r.label}
-                </button>
-              );
-            })}
-          </div>
-          </div>
-          </div>
         </div>
       )}
 
-      {/* Results count + clear filters */}
+      {/* Results count */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 10,
+          marginTop: 12,
+          marginBottom: 8,
         }}
       >
-        <span
-          style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
-            fontWeight: 700,
-            color: C.muted,
-            textTransform: "uppercase",
-            letterSpacing: 0.5,
-          }}
-        >
-          {filtered.length.toLocaleString()} program
-          {filtered.length !== 1 && "s"} found
-        </span>
-        {(search || selectedCats.size > 0 || selectedSeasons.size > 0 || selectedHoods.size > 0 || ageMin || ageMax || selectedCosts.size > 0 || showFavoritesOnly || sortBy !== "relevance" || selectedProviders.size > 0 || selectedActivityTypes.size > 0 || selectedDayLengths.size > 0 || !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) && (
-          <button
-            onClick={() => {
-              setSearch("");
-              setSelectedCats(new Set());
-              setSelectedSeasons(new Set());
-              setSelectedHoods(new Set());
-              setAgeMin("");
-              setAgeMax("");
-              setSelectedCosts(new Set());
-              setShowFavoritesOnly(false);
-              setSortBy("relevance");
-              setSelectedRegStatuses(new Set(["open", "opening-soon", "likely-coming-soon"]));
-              setSelectedProviders(new Set());
-              setSelectedActivityTypes(new Set());
-              setSelectedLengths(new Set());
-              setSelectedDayLengths(new Set());
-              setProviderSearch("");
-              setVisibleCount(PAGE_SIZE);
-            }}
-            aria-label="Clear all filters"
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
-              fontWeight: 700,
-              color: C.danger,
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Clear all filters
-          </button>
-        )}
-      </div>
-
-      {/* Result count and active filter note */}
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 8,
-      }}>
         <span style={{
           fontFamily: "'Barlow', sans-serif",
           fontSize: 12,
@@ -2089,6 +994,312 @@ export default function DiscoverTab({
           Load more ({eligibilityFiltered.length - visibleCount} remaining)
         </button>
       )}
+
+      {/* ─── Filter Drawers ─── */}
+
+      {/* Sort Drawer */}
+      <FilterDrawer open={activeDrawer === "sort"} onClose={() => setActiveDrawer(null)} title="Sort by">
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {SORT_OPTIONS.map((opt) => (
+            <button
+              key={opt.key}
+              onClick={() => { setSortBy(opt.key); setVisibleCount(PAGE_SIZE); setActiveDrawer(null); }}
+              style={{
+                padding: "12px 16px", borderRadius: 10, border: "none",
+                background: sortBy === opt.key ? C.ink : "transparent",
+                color: sortBy === opt.key ? "#fff" : C.ink,
+                fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: sortBy === opt.key ? 600 : 400,
+                textAlign: "left", cursor: "pointer", minHeight: 44,
+                display: "flex", alignItems: "center", gap: 10,
+              }}
+            >
+              {sortBy === opt.key && <span>\u2713</span>}
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </FilterDrawer>
+
+      {/* Category Drawer */}
+      <FilterDrawer open={activeDrawer === "category"} onClose={() => setActiveDrawer(null)} title="Category"
+        onClear={() => { setSelectedCats(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <FilterOptions
+          options={CATEGORIES.map((cat) => ({ id: cat, label: cat, icon: CAT_EMOJI[cat] || "" }))}
+          selected={selectedCats}
+          onToggle={(id) => toggleInSet(setSelectedCats, id)}
+        />
+      </FilterDrawer>
+
+      {/* Age Drawer */}
+      <FilterDrawer open={activeDrawer === "age"} onClose={() => setActiveDrawer(null)} title="Age Range"
+        onClear={() => { setAgeMin(""); setAgeMax(""); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
+          <input
+            style={s.input}
+            type="number"
+            placeholder="Min age"
+            value={ageMin}
+            onChange={(e) => { setAgeMin(e.target.value); setVisibleCount(PAGE_SIZE); }}
+          />
+          <input
+            style={s.input}
+            type="number"
+            placeholder="Max age"
+            value={ageMax}
+            onChange={(e) => { setAgeMax(e.target.value); setVisibleCount(PAGE_SIZE); }}
+          />
+        </div>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
+          Quick presets
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {[{ label: "Under 5", min: "", max: "4" }, { label: "5-8", min: "5", max: "8" }, { label: "9-12", min: "9", max: "12" }, { label: "13+", min: "13", max: "" }].map((preset) => (
+            <button key={preset.label} onClick={() => { setAgeMin(preset.min); setAgeMax(preset.max); setVisibleCount(PAGE_SIZE); }}
+              style={{
+                padding: "10px 16px", borderRadius: 10,
+                border: (ageMin === preset.min && ageMax === preset.max) ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.12)",
+                background: (ageMin === preset.min && ageMax === preset.max) ? C.ink : "#FFF",
+                color: (ageMin === preset.min && ageMax === preset.max) ? "#FFF" : C.ink,
+                fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 500, cursor: "pointer", minHeight: 44,
+              }}
+            >{preset.label}</button>
+          ))}
+        </div>
+      </FilterDrawer>
+
+      {/* Cost Drawer */}
+      <FilterDrawer open={activeDrawer === "cost"} onClose={() => setActiveDrawer(null)} title="Cost"
+        onClear={() => { setSelectedCosts(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        {!canUseAdvancedFilters ? (
+          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
+            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for cost filters</p>
+          </div>
+        ) : (
+          <FilterOptions
+            options={COST_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
+            selected={selectedCosts}
+            onToggle={(id) => toggleInSet(setSelectedCosts, id)}
+          />
+        )}
+      </FilterDrawer>
+
+      {/* Neighbourhood Drawer */}
+      <FilterDrawer open={activeDrawer === "neighbourhood"} onClose={() => setActiveDrawer(null)} title="Neighbourhoods"
+        onClear={() => { setSelectedHoods(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        {!canUseAdvancedFilters ? (
+          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
+            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for neighbourhood filters</p>
+          </div>
+        ) : (
+          <div style={{ background: C.cream, borderRadius: 10, border: `1px solid ${C.border}`, overflow: "hidden" }}>
+            {CITY_NEIGHBOURHOODS.map((cityObj) => {
+              const isExpanded = expandedCities.has(cityObj.city);
+              const selectedInCity = cityObj.neighbourhoods.filter((n) => selectedHoods.has(n)).length;
+              const allInCitySelected = selectedInCity === cityObj.neighbourhoods.length;
+              const someInCitySelected = selectedInCity > 0 && !allInCitySelected;
+              return (
+                <div key={cityObj.city}>
+                  <div
+                    style={{
+                      display: "flex", alignItems: "center", gap: 8,
+                      padding: "10px 12px", borderBottom: `1px solid ${C.border}`, cursor: "pointer",
+                    }}
+                    onClick={() => toggleCityExpand(cityObj.city)}
+                    role="button" tabIndex={0}
+                    aria-expanded={isExpanded}
+                    aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}
+                  >
+                    <span style={{ fontSize: 10, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>\u25B6</span>
+                    <span style={{ flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
+                      {cityObj.city}
+                      {someInCitySelected && <span style={{ color: C.muted, fontWeight: 400 }}> ({selectedInCity}/{cityObj.neighbourhoods.length})</span>}
+                    </span>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); toggleCity(cityObj); }}
+                      aria-label={allInCitySelected ? `Deselect all ${cityObj.city} neighbourhoods` : `Select all ${cityObj.city} neighbourhoods`}
+                      style={{
+                        fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                        color: allInCitySelected ? C.danger : C.seaGreen,
+                        background: allInCitySelected ? C.dangerBg : C.seaGreen + "12",
+                        border: "none", borderRadius: 6, padding: "3px 8px", cursor: "pointer", whiteSpace: "nowrap",
+                      }}
+                    >
+                      {allInCitySelected ? "Deselect All" : "Select All"}
+                    </button>
+                  </div>
+                  {isExpanded && (
+                    <div style={{ padding: "4px 12px 4px 28px" }}>
+                      {cityObj.neighbourhoods.sort().map((hood) => {
+                        const isSelected = selectedHoods.has(hood);
+                        return (
+                          <label key={hood} style={{
+                            display: "flex", alignItems: "center", gap: 8, padding: "6px 0", cursor: "pointer",
+                            fontFamily: "'Barlow', sans-serif", fontSize: 13,
+                            color: isSelected ? C.ink : C.muted, fontWeight: isSelected ? 600 : 400,
+                          }}>
+                            <span style={{
+                              width: 18, height: 18, borderRadius: 4,
+                              border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                              background: isSelected ? C.seaGreen : "transparent",
+                              display: "flex", alignItems: "center", justifyContent: "center",
+                              fontSize: 11, color: C.white, flexShrink: 0, transition: "all 0.12s",
+                            }} onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>
+                              {isSelected ? "\u2713" : ""}
+                            </span>
+                            <span onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>{hood}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </FilterDrawer>
+
+      {/* Season Drawer */}
+      <FilterDrawer open={activeDrawer === "season"} onClose={() => setActiveDrawer(null)} title="Season Type"
+        onClear={() => { setSelectedSeasons(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <FilterOptions
+          options={SEASON_TYPES.map((st) => ({ id: st, label: st }))}
+          selected={selectedSeasons}
+          onToggle={(id) => toggleInSet(setSelectedSeasons, id)}
+        />
+      </FilterDrawer>
+
+      {/* Status Drawer */}
+      <FilterDrawer open={activeDrawer === "status"} onClose={() => setActiveDrawer(null)} title="Registration Status"
+        onClear={() => { setSelectedRegStatuses(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <FilterOptions
+          options={REGISTRATION_STATUSES.map((st) => ({ id: st.key, label: `${st.icon} ${st.label}` }))}
+          selected={selectedRegStatuses}
+          onToggle={(id) => toggleInSet(setSelectedRegStatuses, id)}
+        />
+      </FilterDrawer>
+
+      {/* Length Drawer */}
+      <FilterDrawer open={activeDrawer === "length"} onClose={() => setActiveDrawer(null)} title="Program Length"
+        onClear={() => { setSelectedLengths(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <FilterOptions
+          options={PROGRAM_LENGTHS.map((pl) => ({ id: pl.key, label: pl.label }))}
+          selected={selectedLengths}
+          onToggle={(id) => toggleInSet(setSelectedLengths, id)}
+        />
+      </FilterDrawer>
+
+      {/* Day Length Drawer */}
+      <FilterDrawer open={activeDrawer === "dayLength"} onClose={() => setActiveDrawer(null)} title="Day Length"
+        onClear={() => { setSelectedDayLengths(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <FilterOptions
+          options={DAY_LENGTHS.map((dl) => ({ id: dl, label: dl }))}
+          selected={selectedDayLengths}
+          onToggle={(id) => toggleInSet(setSelectedDayLengths, id)}
+        />
+      </FilterDrawer>
+
+      {/* Activity Type Drawer */}
+      <FilterDrawer open={activeDrawer === "activityType"} onClose={() => setActiveDrawer(null)} title="Activity Type"
+        onClear={() => { setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        {!canUseAdvancedFilters ? (
+          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
+            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for activity type filters</p>
+          </div>
+        ) : availableActivityTypes.length === 0 ? (
+          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted, fontSize: 14 }}>
+            No activity types available for current category selection
+          </div>
+        ) : (
+          <>
+            {selectedCats.size > 0 && (
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 12 }}>
+                Showing activity types for selected categories
+              </div>
+            )}
+            <FilterOptions
+              options={availableActivityTypes.map((at) => ({ id: at, label: at }))}
+              selected={selectedActivityTypes}
+              onToggle={(id) => toggleInSet(setSelectedActivityTypes, id)}
+            />
+          </>
+        )}
+      </FilterDrawer>
+
+      {/* Provider Drawer */}
+      <FilterDrawer open={activeDrawer === "provider"} onClose={() => setActiveDrawer(null)} title="Provider"
+        onClear={() => { setSelectedProviders(new Set()); setProviderSearch(""); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        {!canUseAdvancedFilters ? (
+          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
+            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for provider filters</p>
+          </div>
+        ) : (
+          <>
+            {/* Selected providers as removable chips */}
+            {selectedProviders.size > 0 && (
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+                {[...selectedProviders].sort().map((prov) => (
+                  <button key={prov} onClick={() => toggleInSet(setSelectedProviders, prov)}
+                    style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                      background: C.ink, color: "#fff", border: "none", borderRadius: 20,
+                      padding: "6px 12px", cursor: "pointer", display: "flex", alignItems: "center", gap: 4,
+                    }}>
+                    {prov} <span style={{ fontSize: 14, lineHeight: 1 }}>&times;</span>
+                  </button>
+                ))}
+              </div>
+            )}
+            {/* Provider search */}
+            <div style={{ position: "relative", marginBottom: 12 }}>
+              <input
+                style={{ ...s.input, fontSize: 13, paddingLeft: 32 }}
+                placeholder="Search providers..."
+                value={providerSearch}
+                onChange={(e) => setProviderSearch(e.target.value)}
+              />
+              <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14, color: C.muted, pointerEvents: "none" }}>
+                &#x1F50D;
+              </span>
+            </div>
+            {/* Provider list */}
+            <div style={{ maxHeight: 300, overflowY: "auto" }}>
+              {allProviders
+                .filter((prov) => prov.toLowerCase().includes(providerSearch.toLowerCase().trim()))
+                .slice(0, 50)
+                .map((prov) => {
+                  const isSelected = selectedProviders.has(prov);
+                  return (
+                    <div key={prov} onClick={() => toggleInSet(setSelectedProviders, prov)}
+                      role="option" aria-selected={isSelected}
+                      style={{
+                        padding: "10px 12px", fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                        color: isSelected ? C.ink : C.muted, fontWeight: isSelected ? 600 : 400,
+                        cursor: "pointer", display: "flex", alignItems: "center", gap: 10,
+                        borderBottom: `1px solid ${C.border}`, background: isSelected ? C.ink + "08" : "transparent",
+                      }}>
+                      <span style={{
+                        width: 18, height: 18, borderRadius: 4,
+                        border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                        background: isSelected ? C.seaGreen : "transparent",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        fontSize: 11, color: C.white, flexShrink: 0,
+                      }}>
+                        {isSelected ? "\u2713" : ""}
+                      </span>
+                      {prov}
+                    </div>
+                  );
+                })}
+              {allProviders.filter((prov) => prov.toLowerCase().includes(providerSearch.toLowerCase().trim())).length === 0 && (
+                <div style={{ padding: 12, fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, textAlign: "center" }}>
+                  No providers found
+                </div>
+              )}
+            </div>
+          </>
+        )}
+      </FilterDrawer>
 
       {/* Filter upgrade toast */}
       {filterToast && (
