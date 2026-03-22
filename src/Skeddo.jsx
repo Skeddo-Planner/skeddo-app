@@ -341,6 +341,16 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     setModal({ type: "childSettings", data: kid });
   };
 
+  const handleInviteCoParent = () => {
+    if (kids.length === 0) return; // no kids to invite for
+    if (kids.length === 1) {
+      openInviteModal(kids[0]);
+    } else {
+      // Multiple kids — show kid picker
+      setModal({ type: "coparentKidPicker" });
+    }
+  };
+
   /* ── Modal actions ── */
   const handleSaveProgram = () => {
     if (!form.name?.trim()) return;
@@ -537,6 +547,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         onSignOut={onSignOut}
         unreadCount={childAccess.unreadCount}
         onOpenActivity={() => { childAccess.markActivityViewed(); setTab("home"); }}
+        onInviteCoParent={handleInviteCoParent}
       />
 
       {/* Info pages (About, Privacy, etc.) */}
@@ -565,6 +576,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             activityLog={childAccess.activityLog}
             planAccess={planAccess}
             programs={programs}
+            onInviteCoParent={handleInviteCoParent}
           />
         )}
 
@@ -619,6 +631,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             userId={userId}
             circlesHook={circlesHook}
             planAccess={planAccess}
+            onInviteCoParent={handleInviteCoParent}
           />
         )}
 
@@ -712,6 +725,67 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           onDelete={modal.isEdit ? handleDeleteCost : null}
           onClose={() => setModal(null)}
         />
+      )}
+
+      {modal?.type === "coparentKidPicker" && (
+        <div className="modal-bg" style={{
+          position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+          background: "rgba(26,46,38,0.5)", zIndex: 1000,
+          display: "flex", alignItems: "center", justifyContent: "center", padding: 20,
+        }} onClick={() => setModal(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{
+            background: C.cream, borderRadius: 16, padding: "24px 20px",
+            maxWidth: 360, width: "100%", boxShadow: "0 12px 40px rgba(26,46,38,0.18)",
+          }}>
+            <h3 style={{
+              fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink,
+              marginBottom: 4,
+            }}>Invite a co-parent</h3>
+            <p style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted,
+              marginBottom: 16, lineHeight: 1.5,
+            }}>
+              Which kid's schedule do you want to share?
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {kids.map((k) => (
+                <button
+                  key={k.id}
+                  onClick={() => { setModal(null); setTimeout(() => openInviteModal(k), 100); }}
+                  className="skeddo-card"
+                  style={{
+                    display: "flex", alignItems: "center", gap: 10,
+                    background: C.white, border: `1.5px solid ${C.border}`, borderRadius: 12,
+                    padding: "12px 14px", cursor: "pointer", width: "100%",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600,
+                    color: C.ink, textAlign: "left",
+                  }}
+                >
+                  <div style={{
+                    width: 32, height: 32, borderRadius: 8,
+                    background: k.color || `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
+                    color: C.cream, display: "flex", alignItems: "center", justifyContent: "center",
+                    fontFamily: "'Poppins', sans-serif", fontSize: 14, flexShrink: 0,
+                  }}>
+                    {k.name?.[0]?.toUpperCase() || "?"}
+                  </div>
+                  {k.name}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setModal(null)}
+              style={{
+                marginTop: 16, width: "100%", padding: "10px",
+                background: "none", border: `1.5px solid ${C.border}`, borderRadius: 10,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                color: C.muted, cursor: "pointer",
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       )}
 
       {modal?.type === "invite" && (

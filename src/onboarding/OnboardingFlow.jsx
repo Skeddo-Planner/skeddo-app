@@ -16,6 +16,9 @@ export default function OnboardingFlow({ onComplete }) {
   /* Validation state */
   const [showErrors, setShowErrors] = useState(false);
 
+  /* Invite sharing state */
+  const [inviteCopied, setInviteCopied] = useState(false);
+
   const addKid = () => {
     if (!kidName.trim()) return;
     setKids((prev) => [...prev, { id: uid(), name: kidName.trim(), age: kidAge || "" }]);
@@ -435,35 +438,96 @@ export default function OnboardingFlow({ onComplete }) {
                 color: C.muted,
                 lineHeight: 1.6,
                 maxWidth: 320,
-                margin: "0 auto 24px",
+                margin: "0 auto 20px",
               }}
             >
-              A co-parent, grandparent, or caregiver? You can invite them to view and manage the schedule together.
+              A co-parent, grandparent, or caregiver? Send them a quick invite to plan together on Skeddo.
             </p>
+
+            {/* Share / invite actions */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 320, margin: "0 auto 20px" }}>
+              {navigator.share && (
+                <button
+                  onClick={() => {
+                    const kidNames = kids.map((k) => k.name).join(" & ");
+                    navigator.share({
+                      title: "Join me on Skeddo",
+                      text: `I'm using Skeddo to plan ${kidNames}'s camps and classes. Join me so we can manage the schedule together!`,
+                      url: "https://skeddo.ca",
+                    }).catch(() => {});
+                  }}
+                  style={{
+                    ...s.primaryBtn,
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    textAlign: "center",
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="18" cy="5" r="3" />
+                    <circle cx="6" cy="12" r="3" />
+                    <circle cx="18" cy="19" r="3" />
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                  </svg>
+                  Send Invite
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  const kidNames = kids.map((k) => k.name).join(" & ");
+                  const text = `I'm using Skeddo to plan ${kidNames}'s camps and classes. Join me: https://skeddo.ca`;
+                  navigator.clipboard.writeText(text).then(() => {
+                    setInviteCopied(true);
+                    setTimeout(() => setInviteCopied(false), 2000);
+                  }).catch(() => {
+                    // Fallback
+                    const input = document.createElement("input");
+                    input.value = text;
+                    document.body.appendChild(input);
+                    input.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(input);
+                    setInviteCopied(true);
+                    setTimeout(() => setInviteCopied(false), 2000);
+                  });
+                }}
+                style={{
+                  ...(!navigator.share ? s.primaryBtn : s.secondaryBtn),
+                  width: "100%",
+                  textAlign: "center",
+                }}
+              >
+                {inviteCopied ? "Copied!" : "Copy Invite Link"}
+              </button>
+            </div>
+
             <p
               style={{
                 fontFamily: "'Barlow', sans-serif",
                 fontSize: 12,
                 color: C.muted,
-                marginBottom: 24,
+                marginBottom: 20,
               }}
             >
-              You can always do this later from the kid's settings.
+              You can also send personalized invites from your kid's settings after setup.
             </p>
-            <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-              <button
-                style={{ ...s.secondaryBtn, textAlign: "center" }}
-                onClick={() => setScreen(4)}
-              >
-                Not right now
-              </button>
-              <button
-                style={{ ...s.primaryBtn, textAlign: "center" }}
-                onClick={() => setScreen(4)}
-              >
-                I'll invite later
-              </button>
-            </div>
+
+            <button
+              style={{
+                ...s.secondaryBtn,
+                textAlign: "center",
+                width: "100%",
+                maxWidth: 320,
+                margin: "0 auto",
+              }}
+              onClick={() => setScreen(4)}
+            >
+              Skip for now
+            </button>
           </div>
         )}
 

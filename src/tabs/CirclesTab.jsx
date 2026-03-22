@@ -96,7 +96,7 @@ function timeAgo(dateStr) {
 }
 
 export default function CirclesTab({
-  programs, kids, profile, showToast, userId, circlesHook, planAccess,
+  programs, kids, profile, showToast, userId, circlesHook, planAccess, onInviteCoParent,
 }) {
   const {
     circles, pendingRequests, activeFeed, bookmarks, bookmarkedActivities, referrals, loading,
@@ -321,6 +321,45 @@ export default function CirclesTab({
                 )}
               </div>
             ))}
+          </div>
+        )}
+
+        {/* Co-parent invite banner */}
+        {onInviteCoParent && kids.length > 0 && (
+          <div
+            onClick={onInviteCoParent}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onInviteCoParent(); } }}
+            role="button"
+            tabIndex={0}
+            className="skeddo-card"
+            style={{
+              marginTop: 20, borderRadius: 14, padding: "14px 16px",
+              background: C.white, border: `1.5px solid ${C.blue}30`,
+              cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+            }}
+          >
+            <div style={{
+              width: 42, height: 42, borderRadius: 12, background: `${C.blue}14`,
+              display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+            }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="8.5" cy="7" r="4" />
+                <line x1="20" y1="8" x2="20" y2="14" />
+                <line x1="23" y1="11" x2="17" y2="11" />
+              </svg>
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
+                Invite a co-parent
+              </div>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                Let a partner or caregiver help manage schedules
+              </div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </div>
         )}
 
