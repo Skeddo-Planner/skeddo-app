@@ -39,7 +39,7 @@ export default function SkeletonCard() {
           borderRadius: 14,
           padding: "14px 16px",
           marginBottom: 10,
-          border: `1px solid ${C.border}`,
+          boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
         }}
       >
         {/* Category badge */}

@@ -157,7 +157,7 @@ function Divider() {
 
 const bodyStyle = {
   fontFamily: "'Barlow', sans-serif",
-  fontSize: 14,
+  fontSize: 15,
   color: C.ink,
   lineHeight: 1.7,
   margin: "0 0 12px",
@@ -194,14 +194,14 @@ function FAQ({ q, a }) {
   return (
     <div style={{
       background: C.white,
-      border: `1px solid ${C.border}`,
+      boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
       borderRadius: 12,
       padding: "14px 16px",
       marginBottom: 10,
     }}>
       <div style={{
         fontFamily: "'Barlow', sans-serif",
-        fontSize: 14,
+        fontSize: 15,
         fontWeight: 700,
         color: C.ink,
         marginBottom: 6,
@@ -239,8 +239,13 @@ export default function InfoPage({ pageId, onBack }) {
             cursor: "pointer",
             fontSize: 20,
             color: C.ink,
-            padding: "4px 8px",
+            padding: "8px 12px",
             lineHeight: 1,
+            minWidth: 44,
+            minHeight: 44,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
           aria-label="Go back"
         >

@@ -55,7 +55,7 @@ export default function ChildSettingsModal({ kid, coParents, userId, onRemoveAcc
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
                     {person.displayName}{isMe ? " (you)" : ""}
                   </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
                     {person.role === "creator" ? "Added this child" : `Joined ${new Date(person.joinedAt).toLocaleDateString()}`}
                   </div>
                 </div>
@@ -63,7 +63,7 @@ export default function ChildSettingsModal({ kid, coParents, userId, onRemoveAcc
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 {person.role === "creator" && (
                   <span style={{
-                    fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                    fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                     color: C.seaGreen, background: "#E8F5EE", padding: "2px 8px",
                     borderRadius: 6, textTransform: "uppercase",
                   }}>

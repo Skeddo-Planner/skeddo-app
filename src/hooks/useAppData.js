@@ -498,8 +498,8 @@ export function useAppData(userId) {
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       list = list.filter((p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.provider.toLowerCase().includes(q) ||
+        (p.name || "").toLowerCase().includes(q) ||
+        (p.provider || "").toLowerCase().includes(q) ||
         (p.location || "").toLowerCase().includes(q)
       );
     }

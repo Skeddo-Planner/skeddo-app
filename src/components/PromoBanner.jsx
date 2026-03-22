@@ -32,9 +32,9 @@ export default function PromoBanner({ type, onDismiss }) {
           onClick={onDismiss}
           aria-label="Dismiss"
           style={{
-            position: "absolute", top: 10, right: 10, zIndex: 2,
+            position: "absolute", top: 6, right: 6, zIndex: 2,
             background: "rgba(255,255,255,0.15)", border: "none",
-            width: 28, height: 28, borderRadius: "50%",
+            width: 44, height: 44, borderRadius: "50%",
             display: "flex", alignItems: "center", justifyContent: "center",
             cursor: "pointer", color: config.darkText ? "rgba(27,36,50,0.4)" : "rgba(255,255,255,0.5)",
             fontSize: 16, lineHeight: 1,

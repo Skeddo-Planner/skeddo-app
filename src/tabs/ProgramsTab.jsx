@@ -63,7 +63,7 @@ export default function ProgramsTab({
           style={{
             ...s.input,
             paddingLeft: 34,
-            fontSize: 13,
+            fontSize: 14,
             marginBottom: 0,
           }}
           type="text"
@@ -106,7 +106,7 @@ export default function ProgramsTab({
             aria-pressed={catFilter === cat}
             style={{
               ...s.filterChip,
-              fontSize: 12,
+              fontSize: 13,
               background: catFilter === cat ? C.blue : "transparent",
               color: catFilter === cat ? C.cream : C.muted,
               borderColor: catFilter === cat ? C.blue : C.border,

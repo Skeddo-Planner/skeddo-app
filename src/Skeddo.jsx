@@ -420,6 +420,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   const handleDeleteKid = (id) => {
     deleteKid(id);
+    // Reset kid filter if the deleted kid was selected
+    if (kidFilter === id) setKidFilter(null);
     setModal(null);
     showToast("Kid removed");
   };
@@ -536,7 +538,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 10000,
           background: planAccess.effectivePlan === "free" ? "#E76F51" : "#2D9F6F",
           color: "#fff", textAlign: "center", padding: "4px 0",
-          fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+          fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
           letterSpacing: 0.5,
         }}>
           Testing: {planAccess.effectivePlan === "free" ? "Free Plan" : "Plus Plan"}
@@ -834,6 +836,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       {/* Toast notification */}
       {toast && (
         <div
+          role="status"
+          aria-live="polite"
           style={{
             position: "fixed",
             bottom: 90,
@@ -842,11 +846,11 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             background: C.ink,
             color: C.cream,
             fontFamily: "'Barlow', sans-serif",
-            fontSize: 13,
+            fontSize: 14,
             fontWeight: 600,
-            padding: "10px 20px",
+            padding: "12px 20px",
             borderRadius: 10,
-            boxShadow: "0 4px 16px rgba(26,46,38,0.2)",
+            boxShadow: "0 4px 16px rgba(27,36,50,0.2)",
             zIndex: 9999,
             animation: "fadeIn 0.2s ease",
             whiteSpace: "nowrap",

@@ -11,15 +11,13 @@ export default function DeadlineAlert({ programs = [], kids = [], daysThreshold 
   const upcoming = programs
     .filter((p) => {
       if (!p.startDate) return false;
-      const start = new Date(p.startDate);
+      const start = new Date(p.startDate + "T00:00:00");
       if (isNaN(start)) return false;
-      start.setHours(0, 0, 0, 0);
       const diffDays = Math.ceil((start - now) / (1000 * 60 * 60 * 24));
       return diffDays >= 0 && diffDays <= daysThreshold;
     })
     .map((p) => {
-      const start = new Date(p.startDate);
-      start.setHours(0, 0, 0, 0);
+      const start = new Date(p.startDate + "T00:00:00");
       const daysLeft = Math.ceil((start - now) / (1000 * 60 * 60 * 24));
       // Find assigned kid names
       const kidNames = (p.kidIds || [])
@@ -68,7 +66,7 @@ export default function DeadlineAlert({ programs = [], kids = [], daysThreshold 
             <span
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 13,
+                fontSize: 14,
                 fontWeight: 600,
                 color: C.ink,
                 lineHeight: 1.3,

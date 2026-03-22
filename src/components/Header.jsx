@@ -121,6 +121,9 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
           {/* Backdrop */}
           <div
             onClick={() => setMenuOpen(false)}
+            role="button"
+            tabIndex={0}
+            aria-label="Close menu"
             style={{
               position: "absolute",
               top: 0,
@@ -167,7 +170,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 )}
                 <div style={{
                   fontFamily: "'Barlow', sans-serif",
-                  fontSize: 11,
+                  fontSize: 12,
                   color: "rgba(255,255,255,0.6)",
                   fontWeight: 600,
                   letterSpacing: 0.5,
@@ -187,6 +190,11 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                   cursor: "pointer",
                   padding: 8,
                   lineHeight: 1,
+                  minWidth: 44,
+                  minHeight: 44,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 &times;
@@ -210,7 +218,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     border: "none",
                     cursor: "pointer",
                     fontFamily: "'Barlow', sans-serif",
-                    fontSize: 15,
+                    fontSize: 16,
                     fontWeight: 600,
                     color: C.ink,
                     textAlign: "left",
@@ -231,7 +239,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               padding: "16px 20px",
               borderTop: `1px solid ${C.border}`,
               fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
+              fontSize: 12,
               color: C.muted,
               textAlign: "center",
             }}>

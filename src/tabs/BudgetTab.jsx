@@ -70,7 +70,7 @@ export default function BudgetTab({
 
       <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16 }}>
         {selectedKid ? (
-          <>Spending breakdown for <strong style={{ color: C.ink }}>{selectedKid.name}</strong></>
+          <>Spending breakdown for <strong style={{ color: C.ink }}>{selectedKid.name || "this kid"}</strong></>
         ) : (
           <>Programs cost <em style={{ fontFamily: "'Poppins', sans-serif", color: C.olive, fontStyle: "italic" }}>HOW much?!</em> Here's your breakdown.</>
         )}
@@ -83,7 +83,7 @@ export default function BudgetTab({
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
           <div>
             <div style={s.budgetLabel}>
-              {selectedKid ? `${selectedKid.name.toUpperCase()}'S TOTAL` : "GRAND TOTAL"}
+              {selectedKid ? `${(selectedKid.name || "").toUpperCase()}'S TOTAL` : "GRAND TOTAL"}
             </div>
             <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 36, color: C.ink, lineHeight: 1.1, marginTop: 4 }}>
               {fmt$(grandTotal)}
@@ -95,6 +95,9 @@ export default function BudgetTab({
                 if (selectedKid) {
                   setEditingBudget(selectedKid.id);
                   setBudgetInput(String(selectedKid.budgetGoal || ""));
+                } else if (kids.length === 0) {
+                  // No kids — nothing to set budget for
+                  return;
                 } else if (kids.length === 1) {
                   setEditingBudget(kids[0].id);
                   setBudgetInput(String(kids[0].budgetGoal || ""));
@@ -412,7 +415,7 @@ export default function BudgetTab({
       {/* ─── Program Cost List ─── */}
       <div style={{ ...s.sectionHeader, marginTop: 20 }}>
         <h3 style={s.sectionTitle}>
-          {selectedKid ? `${selectedKid.name}'s Programs` : "All Programs"}
+          {selectedKid ? `${selectedKid.name || "Kid"}'s Programs` : "All Programs"}
         </h3>
         <select
           value={sortBy}
@@ -502,7 +505,7 @@ export default function BudgetTab({
       {sortedPrograms.length === 0 && visibleManualCosts.length === 0 && (
         <div style={s.emptyState}>
           <span style={{ fontSize: 28 }}>{"\uD83D\uDCB0"}</span>
-          <p>{selectedKid ? `No programs assigned to ${selectedKid.name} yet.` : "Add programs to see your budget breakdown."}</p>
+          <p>{selectedKid ? `No programs assigned to ${selectedKid.name || "this kid"} yet.` : "Add programs to see your budget breakdown."}</p>
         </div>
       )}
 

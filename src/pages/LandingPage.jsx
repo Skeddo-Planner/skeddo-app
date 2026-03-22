@@ -115,7 +115,7 @@ export default function LandingPage({ onNavigate }) {
               borderRadius: 14,
               padding: "18px 20px",
               marginBottom: 12,
-              border: `1px solid ${C.border}`,
+              boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
             }}
           >
             <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
@@ -168,7 +168,7 @@ export default function LandingPage({ onNavigate }) {
       </div>
 
       <p style={{
-        textAlign: "center", fontSize: 11, color: C.muted, marginTop: 24,
+        textAlign: "center", fontSize: 12, color: C.muted, marginTop: 24,
       }}>
         Made by Mended with Gold Inc. · Vancouver, BC
       </p>

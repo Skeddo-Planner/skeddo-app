@@ -81,7 +81,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
       <div style={s.cardProvider}>
         {p.provider}
         {p.addedByName && p.addedBy && currentUserId && p.addedBy !== currentUserId && (
-          <span style={{ color: C.blue, fontSize: 11, marginLeft: 6 }}>
+          <span style={{ color: C.blue, fontSize: 12, marginLeft: 6 }}>
             · Added by {p.addedByName}
           </span>
         )}
@@ -158,7 +158,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
         <div
           style={{
             fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
+            fontSize: 13,
             color: C.muted,
             marginTop: 5,
           }}
@@ -170,18 +170,18 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
       {/* Bottom row: days/times + cost + register link */}
       <div style={s.cardBottom}>
         <span style={s.cardMeta}>
-          {p.days} &middot; {p.times}
+          {[p.days, p.times].filter(Boolean).join(" \u00B7 ") || "\u2014"}
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
             {earlyBirdActive && (
               <span style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
+                fontSize: 11,
                 fontWeight: 700,
                 color: C.seaGreen,
                 background: "#E8F5EE",
-                padding: "1px 6px",
+                padding: "2px 6px",
                 borderRadius: 4,
                 marginBottom: 2,
               }}>
@@ -220,13 +220,16 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
               aria-label={`Register for ${p.name}`}
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
+                fontSize: 12,
                 fontWeight: 700,
                 color: C.seaGreen,
                 textDecoration: "none",
                 background: "#E8F5EE",
                 borderRadius: 6,
-                padding: "6px 12px",
+                padding: "8px 12px",
+                minHeight: 44,
+                display: "inline-flex",
+                alignItems: "center",
               }}
             >
               Register &rarr;
@@ -250,12 +253,12 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
               key={k.id}
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
+                fontSize: 12,
                 fontWeight: 600,
                 color: C.blue,
                 background: "#EAF0F6",
                 borderRadius: 6,
-                padding: "2px 8px",
+                padding: "3px 8px",
               }}
             >
               {k.name}
@@ -271,7 +274,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
 function badgeStyle(color, bg) {
   return {
     fontFamily: "'Barlow', sans-serif",
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: 600,
     color,
     background: bg,

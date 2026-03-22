@@ -8,18 +8,21 @@ export default function EmptyState({ icon, message, action }) {
       {action && (
         <button
           style={{
-            ...s.emptyState,
             marginTop: 12,
-            padding: "8px 20px",
+            padding: "10px 20px",
             fontWeight: 700,
-            fontSize: 13,
+            fontSize: 14,
+            fontFamily: "'Barlow', sans-serif",
             color: "#2D9F6F",
             background: "none",
             border: "1.5px solid #2D9F6F",
             borderRadius: 10,
             cursor: "pointer",
-            display: "inline-block",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
             textAlign: "center",
+            minHeight: 44,
           }}
           onClick={action.onClick}
         >

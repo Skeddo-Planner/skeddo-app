@@ -72,7 +72,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
           <span
             style={{
               fontFamily: "'Barlow', sans-serif",
-              fontSize: 10,
+              fontSize: 11,
               fontWeight: 700,
               color: C.seaGreen,
               background: STATUS_MAP.Enrolled.bg,
@@ -88,7 +88,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       </div>
 
       {/* Provider */}
-      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: p.confirmed2026 === false ? 8 : 12 }}>
+      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: p.confirmed2026 === false ? 8 : 12 }}>
         {p.provider}
       </div>
 
@@ -97,10 +97,10 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         <div
           style={{
             fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
+            fontSize: 13,
             color: "#8B6914",
             background: "#FFF8E1",
-            border: "1px solid #F0E0A0",
+            boxShadow: "inset 0 0 0 1px #F0E0A0",
             borderRadius: 10,
             padding: "10px 14px",
             marginBottom: 12,
@@ -222,12 +222,16 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             approx.
           </span>
         )}
-        {p.ageMin != null && p.ageMax != null && (
+        {(p.ageMin != null || p.ageMax != null) && (
           <span style={{
             fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
             color: C.blue, background: C.blue + "14", padding: "4px 12px", borderRadius: 8,
           }}>
-            Ages {p.ageMin}&ndash;{p.ageMax}
+            {p.ageMin != null && p.ageMax != null
+              ? <>Ages {p.ageMin}&ndash;{p.ageMax}</>
+              : p.ageMin != null
+                ? `Ages ${p.ageMin}+`
+                : `Up to ${p.ageMax}`}
           </span>
         )}
         {/* Age eligibility status for selected kid */}

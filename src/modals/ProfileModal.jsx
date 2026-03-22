@@ -61,7 +61,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
   return (
     <Modal onClose={onClose}>
       <h3 style={s.modalTitle}>Your Profile</h3>
-      <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 20, lineHeight: 1.5 }}>
+      <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 20, lineHeight: 1.5 }}>
         Manage your account details and preferences.
       </p>
 
@@ -103,7 +103,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         <div style={{
           fontFamily: "'Barlow', sans-serif",
           fontSize: 12,
-          color: "#888",
+          color: C.muted,
           marginTop: 8,
           marginBottom: 4,
         }}>

@@ -130,7 +130,7 @@ export default function ComingSoonPage() {
               </div>
               <div
                 style={{
-                  fontSize: 11,
+                  fontSize: 12,
                   fontWeight: 600,
                   textTransform: "uppercase",
                   letterSpacing: 1.5,
@@ -170,7 +170,7 @@ export default function ComingSoonPage() {
         {/* Footer text */}
         <p
           style={{
-            fontSize: 13,
+            fontSize: 14,
             color: C.muted,
             animation: "pulse 2.5s ease-in-out infinite",
           }}

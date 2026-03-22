@@ -125,7 +125,7 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
       </div>
 
       <Label>Activity Interests</Label>
-      <p style={{ fontSize: 11, color: C.muted, margin: "-4px 0 8px", fontFamily: "'Barlow', sans-serif" }}>
+      <p style={{ fontSize: 12, color: C.muted, margin: "-4px 0 8px", fontFamily: "'Barlow', sans-serif" }}>
         What activities does this kid enjoy?
       </p>
 
@@ -211,10 +211,11 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
                   background: "none",
                   border: "none",
                   borderBottom: `1px solid ${C.border}`,
-                  fontSize: 13,
+                  fontSize: 14,
                   color: C.ink,
                   cursor: "pointer",
                   fontFamily: "'Barlow', sans-serif",
+                  minHeight: 44,
                 }}
               >
                 {option}
@@ -248,13 +249,13 @@ export default function KidForm({ form, setForm, isEdit, onSave, onDelete, onClo
                 >
                   {person.displayName}
                   {person.role === "creator" && (
-                    <span style={{ fontSize: 9, opacity: 0.7, marginLeft: 2 }}>(creator)</span>
+                    <span style={{ fontSize: 11, opacity: 0.7, marginLeft: 2 }}>(creator)</span>
                   )}
                 </span>
               ))}
             </div>
           ) : (
-            <p style={{ fontSize: 12, color: C.muted, fontFamily: "'Barlow', sans-serif", marginBottom: 10 }}>
+            <p style={{ fontSize: 13, color: C.muted, fontFamily: "'Barlow', sans-serif", marginBottom: 10 }}>
               Only you can see this child's schedule.
             </p>
           )}

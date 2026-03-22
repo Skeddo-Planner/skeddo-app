@@ -68,7 +68,7 @@ export default function InviteModal({ kid, pendingInvites, onCreateInvite, onRev
       {error && (
         <div style={{
           background: "#FEE2E2", color: "#991B1B", borderRadius: 8, padding: "8px 12px",
-          fontSize: 12, fontFamily: "'Barlow', sans-serif", marginBottom: 12,
+          fontSize: 13, fontFamily: "'Barlow', sans-serif", marginBottom: 12,
         }}>
           {error}
         </div>
@@ -87,7 +87,7 @@ export default function InviteModal({ kid, pendingInvites, onCreateInvite, onRev
           <Label>Invite Link</Label>
           <div style={{
             background: "#F2F0EC", borderRadius: 10, padding: "10px 12px",
-            fontFamily: "monospace", fontSize: 12, color: C.ink, wordBreak: "break-all",
+            fontFamily: "monospace", fontSize: 13, color: C.ink, wordBreak: "break-all",
             marginBottom: 12, border: `1px solid ${C.border}`,
           }}>
             {inviteUrl}
@@ -115,10 +115,10 @@ export default function InviteModal({ kid, pendingInvites, onCreateInvite, onRev
               padding: "8px 0", borderBottom: `1px solid ${C.border}`,
             }}>
               <div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.ink }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.ink }}>
                   {inv.invite_code}
                 </div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
                   Expires {new Date(inv.expires_at).toLocaleDateString()}
                 </div>
               </div>

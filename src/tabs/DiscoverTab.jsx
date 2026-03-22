@@ -278,7 +278,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
             {"\uD83D\uDC26"} Early Bird
           </span>
         )}
-        {program.ageMin != null && program.ageMax != null && (
+        {(program.ageMin != null || program.ageMax != null) && (
           <span
             style={{
               fontFamily: "'Barlow', sans-serif",
@@ -290,7 +290,11 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
               borderRadius: 10,
             }}
           >
-            Ages {program.ageMin}-{program.ageMax}
+            {program.ageMin != null && program.ageMax != null
+              ? `Ages ${program.ageMin}-${program.ageMax}`
+              : program.ageMin != null
+                ? `Ages ${program.ageMin}+`
+                : `Up to ${program.ageMax}`}
           </span>
         )}
         {program.neighbourhood && (

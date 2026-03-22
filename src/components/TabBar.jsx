@@ -90,7 +90,7 @@ export default function TabBar({ tab, setTab, badges }) {
                   position: "absolute", top: -4, right: -6,
                   width: 14, height: 14, borderRadius: "50%",
                   background: "#E74C3C", color: "#fff",
-                  fontSize: 8, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+                  fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   {badges[t.id] > 9 ? "9+" : badges[t.id]}
@@ -99,7 +99,7 @@ export default function TabBar({ tab, setTab, badges }) {
             </span>
             <span
               style={{
-                fontSize: 10,
+                fontSize: 11,
                 fontWeight: 700,
                 letterSpacing: 0.3,
                 textTransform: "uppercase",

@@ -523,7 +523,7 @@ export default function OnboardingFlow({ onComplete }) {
           zIndex: 10,
         }}
       >
-        {[0, 1, 2, 3, 4].map((i) => (
+        {[0, 1, 2, 4].map((i) => (
           <div
             key={i}
             style={{

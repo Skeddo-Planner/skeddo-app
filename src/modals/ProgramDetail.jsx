@@ -133,7 +133,7 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         <div
           style={{
             fontFamily: "'Barlow', sans-serif",
-            fontSize: 13,
+            fontSize: 14,
             color: C.muted,
             marginTop: 12,
             padding: 12,
@@ -154,11 +154,11 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
               key={k.id}
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
+                fontSize: 12,
                 fontWeight: 700,
                 background: C.lilac + "22",
                 color: C.lilac,
-                padding: "3px 10px",
+                padding: "4px 10px",
                 borderRadius: 10,
               }}
             >
@@ -181,11 +181,11 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
             <div key={log.id} style={{
               display: "flex", gap: 8, alignItems: "baseline",
               padding: "6px 0", borderBottom: `1px solid ${C.border}`,
-              fontFamily: "'Barlow', sans-serif", fontSize: 12,
+              fontFamily: "'Barlow', sans-serif", fontSize: 13,
             }}>
               <span style={{ color: C.ink, fontWeight: 600 }}>{log.user_name}</span>
               <span style={{ color: C.muted }}>{log.action}</span>
-              <span style={{ color: C.muted, marginLeft: "auto", fontSize: 10 }}>
+              <span style={{ color: C.muted, marginLeft: "auto", fontSize: 11 }}>
                 {new Date(log.created_at).toLocaleDateString()}
               </span>
             </div>

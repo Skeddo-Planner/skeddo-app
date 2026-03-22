@@ -102,11 +102,11 @@ export default function HomeTab({
               <div key={log.id} style={{
                 display: "flex", gap: 8, alignItems: "baseline",
                 padding: "6px 0", borderBottom: `1px solid ${C.border}`,
-                fontFamily: "'Barlow', sans-serif", fontSize: 12,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13,
               }}>
                 <span style={{ fontWeight: 600, color: C.ink }}>{log.user_name}</span>
                 <span style={{ color: C.muted }}>{log.action} {log.details?.programName || "a program"}</span>
-                <span style={{ color: C.muted, marginLeft: "auto", fontSize: 10, whiteSpace: "nowrap" }}>
+                <span style={{ color: C.muted, marginLeft: "auto", fontSize: 11, whiteSpace: "nowrap" }}>
                   {(() => {
                     const diff = Date.now() - new Date(log.created_at).getTime();
                     const mins = Math.floor(diff / 60000);
@@ -152,7 +152,7 @@ export default function HomeTab({
               <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14, borderRadius: 10, background: k.color || s.kidAvatar.background }}>{k.name?.[0]?.toUpperCase() || "?"}</div>
               <div>
                 <div style={{ ...s.kidName, fontSize: 13 }}>{k.name}</div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>{kidPrograms.length} enrolled</div>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>{kidPrograms.length} enrolled</div>
               </div>
             </div>
           );
@@ -266,7 +266,7 @@ export default function HomeTab({
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.cream, marginBottom: 3 }}>
               Install Skeddo
             </div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6", lineHeight: 1.4 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#B0C4B6", lineHeight: 1.4 }}>
               {installPrompt
                 ? "Add Skeddo to your home screen for quick access."
                 : /iPad|iPhone|iPod/.test(navigator.userAgent)

@@ -19,16 +19,16 @@ export const s = {
 
   sectionHeader: { display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 },
   sectionTitle: { fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink },
-  seeAll: { fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.seaGreen, background: "none", border: "none", cursor: "pointer" },
+  seeAll: { fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.seaGreen, background: "none", border: "none", cursor: "pointer", minHeight: 44, display: "inline-flex", alignItems: "center" },
 
   pageTitle: { fontFamily: "'Poppins', sans-serif", fontSize: 24, color: C.ink },
   addButton: { fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: "#FFFFFF", background: C.seaGreen, border: "none", borderRadius: 8, padding: "12px 24px", cursor: "pointer", minHeight: 44 },
 
   programCard: { background: C.white, borderRadius: 12, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)" },
   cardCategory: { fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
-  cardName: { fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: C.ink, lineHeight: 1.3 },
-  cardProvider: { fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 1 },
-  statusChip: { fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, padding: "7px 12px", borderRadius: 8, whiteSpace: "nowrap", letterSpacing: 0.3, minHeight: 36 },
+  cardName: { fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: C.ink, lineHeight: 1.3, wordBreak: "break-word", overflowWrap: "break-word" },
+  cardProvider: { fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 1, wordBreak: "break-word", overflowWrap: "break-word" },
+  statusChip: { fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, padding: "7px 12px", borderRadius: 8, whiteSpace: "nowrap", letterSpacing: 0.3, minHeight: 44 },
   cardBottom: { display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8, paddingTop: 8, borderTop: `1px solid ${C.border}` },
   cardMeta: { fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted },
 
@@ -36,7 +36,7 @@ export const s = {
   kidAvatar: { width: 40, height: 40, borderRadius: 12, background: `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`, color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, flexShrink: 0 },
   kidName: { fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 700, color: C.ink },
   kidAge: { fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted },
-  kidMeta: { fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.seaGreen, fontWeight: 600, marginTop: 2 },
+  kidMeta: { fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.seaGreen, fontWeight: 600, marginTop: 2 },
 
   budgetCard: { background: C.white, borderRadius: 12, padding: "14px 16px", boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)" },
   budgetAmount: { fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink },
