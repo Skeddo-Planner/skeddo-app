@@ -91,7 +91,7 @@ const BANNERS = {
   "upgrade-sharing": {
     bg: "linear-gradient(135deg, #E76F51 0%, #C85A3D 100%)",
     title: "Coordinating with your endless group chats?",
-    body: "Skeddo Plus' circle feature lets you share programs with friends and coordinate your child's calendar with another adult.",
+    body: "Skeddo Plus lets you share programs with friends, coordinate circles, and share schedule management with a co-parent or caregiver.",
     darkText: false,
   },
   "upgrade-discover": {

@@ -342,7 +342,11 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const handleInviteCoParent = () => {
-    if (kids.length === 0) return; // no kids to invite for
+    if (!planAccess.canUseCoParent) {
+      showToast("Upgrade to Skeddo Plus to invite a co-parent");
+      return;
+    }
+    if (kids.length === 0) return;
     if (kids.length === 1) {
       openInviteModal(kids[0]);
     } else {

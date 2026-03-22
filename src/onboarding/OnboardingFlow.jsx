@@ -17,7 +17,6 @@ export default function OnboardingFlow({ onComplete }) {
   const [showErrors, setShowErrors] = useState(false);
 
   /* Invite sharing state */
-  const [inviteCopied, setInviteCopied] = useState(false);
 
   const addKid = () => {
     if (!kidName.trim()) return;
@@ -407,127 +406,12 @@ export default function OnboardingFlow({ onComplete }) {
                   textAlign: "center",
                   opacity: kids.length === 0 ? 0.5 : 1,
                 }}
-                onClick={() => setScreen(3)}
+                onClick={() => setScreen(4)}
                 disabled={kids.length === 0}
               >
                 Next ({kids.length} kid{kids.length !== 1 ? "s" : ""})
               </button>
             </div>
-          </div>
-        )}
-
-        {/* ─── SCREEN 3: Invite (optional) ─── */}
-        {screen === 3 && (
-          <div style={{ textAlign: "center", animation: "fadeUp 0.4s ease" }}>
-            <div style={{ fontSize: 48, marginBottom: 16 }}>{"\uD83D\uDC65"}</div>
-            <h1
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 24,
-                color: C.ink,
-                lineHeight: 1.2,
-                marginBottom: 8,
-              }}
-            >
-              Does anyone else help manage{kids.length === 1 ? ` ${kids[0].name}'s` : " their"} schedule?
-            </h1>
-            <p
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 14,
-                color: C.muted,
-                lineHeight: 1.6,
-                maxWidth: 320,
-                margin: "0 auto 20px",
-              }}
-            >
-              A co-parent, grandparent, or caregiver? Send them a quick invite to plan together on Skeddo.
-            </p>
-
-            {/* Share / invite actions */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 320, margin: "0 auto 20px" }}>
-              {navigator.share && (
-                <button
-                  onClick={() => {
-                    const kidNames = kids.map((k) => k.name).join(" & ");
-                    navigator.share({
-                      title: "Join me on Skeddo",
-                      text: `I'm using Skeddo to plan ${kidNames}'s camps and classes. Join me so we can manage the schedule together!`,
-                      url: "https://skeddo.ca",
-                    }).catch(() => {});
-                  }}
-                  style={{
-                    ...s.primaryBtn,
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 8,
-                    textAlign: "center",
-                  }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="18" cy="5" r="3" />
-                    <circle cx="6" cy="12" r="3" />
-                    <circle cx="18" cy="19" r="3" />
-                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                  </svg>
-                  Send Invite
-                </button>
-              )}
-              <button
-                onClick={() => {
-                  const kidNames = kids.map((k) => k.name).join(" & ");
-                  const text = `I'm using Skeddo to plan ${kidNames}'s camps and classes. Join me: https://skeddo.ca`;
-                  navigator.clipboard.writeText(text).then(() => {
-                    setInviteCopied(true);
-                    setTimeout(() => setInviteCopied(false), 2000);
-                  }).catch(() => {
-                    // Fallback
-                    const input = document.createElement("input");
-                    input.value = text;
-                    document.body.appendChild(input);
-                    input.select();
-                    document.execCommand("copy");
-                    document.body.removeChild(input);
-                    setInviteCopied(true);
-                    setTimeout(() => setInviteCopied(false), 2000);
-                  });
-                }}
-                style={{
-                  ...(!navigator.share ? s.primaryBtn : s.secondaryBtn),
-                  width: "100%",
-                  textAlign: "center",
-                }}
-              >
-                {inviteCopied ? "Copied!" : "Copy Invite Link"}
-              </button>
-            </div>
-
-            <p
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 12,
-                color: C.muted,
-                marginBottom: 20,
-              }}
-            >
-              You can also send personalized invites from your kid's settings after setup.
-            </p>
-
-            <button
-              style={{
-                ...s.secondaryBtn,
-                textAlign: "center",
-                width: "100%",
-                maxWidth: 320,
-                margin: "0 auto",
-              }}
-              onClick={() => setScreen(4)}
-            >
-              Skip for now
-            </button>
           </div>
         )}
 

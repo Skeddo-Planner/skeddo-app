@@ -186,52 +186,6 @@ export default function HomeTab({
         <PromoBanner type="upgrade-kids" onDismiss={() => dismissBanner("upgrade-kids")} />
       )}
 
-      {/* Co-parent invite card — show when user has at least one kid */}
-      {kids.length > 0 && onInviteCoParent && (
-        <div
-          onClick={onInviteCoParent}
-          role="button"
-          tabIndex={0}
-          className="skeddo-card"
-          style={{
-            background: C.white,
-            border: `1.5px solid ${C.border}`,
-            borderRadius: 14,
-            padding: "14px 16px",
-            marginBottom: 16,
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            cursor: "pointer",
-          }}
-        >
-          <div style={{
-            width: 40, height: 40, borderRadius: 10,
-            background: `${C.blue}18`,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            flexShrink: 0,
-          }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="8.5" cy="7" r="4" />
-              <line x1="20" y1="8" x2="20" y2="14" />
-              <line x1="23" y1="11" x2="17" y2="11" />
-            </svg>
-          </div>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
-              Invite a co-parent
-            </div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, lineHeight: 1.4 }}>
-              Share schedule management with a partner or caregiver
-            </div>
-          </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </div>
-      )}
-
       {/* Program limit banner — free users at or over limit */}
       {(programs || allPrograms).length >= planAccess.maxPrograms && !planAccess.isPaid && !dismissedBanners.has("upgrade-programs") && (
         <PromoBanner type="upgrade-programs" onDismiss={() => dismissBanner("upgrade-programs")} />

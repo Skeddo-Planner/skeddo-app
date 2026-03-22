@@ -42,6 +42,7 @@ export default function usePlanAccess(userPlan) {
       canUseAdvancedFilters: isPaid,
       canUseBudgetTracking: isPaid,
       canUseCircles: isPaid,
+      canUseCoParent: isPaid,
 
       /** Check if user can add another program */
       checkProgramLimit(currentCount) {
