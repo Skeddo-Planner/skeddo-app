@@ -329,6 +329,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   const showSchedToast = (msg) => { setSchedToast(msg); setTimeout(() => setSchedToast(null), 2500); };
   const canExport = planAccess?.canExportCalendar ?? true;
 
+  /* ─── Status visibility filter ─── */
+  const [visibleStatuses, setVisibleStatuses] = useState(() => new Set(["Enrolled", "Waitlist", "Exploring"]));
+
   /* ─── Hidden programs state (persisted to localStorage) ─── */
   const [hiddenPrograms, setHiddenPrograms] = useState(() => {
     try { const s = localStorage.getItem("skeddo-hidden-schedule-programs"); return s ? new Set(JSON.parse(s)) : new Set(); } catch { return new Set(); }
@@ -348,11 +351,11 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   const showAllPrograms = () => setHiddenPrograms(new Set());
   const hideAllPrograms = () => setHiddenPrograms(new Set(programs.map((p) => p.id)));
 
-  /* Filter programs by kid if selected, then exclude hidden */
+  /* Filter programs by kid, status, then exclude hidden */
   const visiblePrograms = (kidFilter
     ? programs.filter((p) => (p.kidIds || []).includes(kidFilter))
     : programs
-  ).filter((p) => !hiddenPrograms.has(p.id));
+  ).filter((p) => !hiddenPrograms.has(p.id) && visibleStatuses.has(p.status));
   const [weekStart, setWeekStart] = useState(() => getMonday(new Date()));
 
   const weekDates = useMemo(
@@ -696,6 +699,48 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
       {/* Kid filter */}
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
+
+      {/* Status filter chips — toggle Enrolled/Waitlist/Exploring visibility */}
+      <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
+        {[
+          { key: "Enrolled", label: "Enrolled", color: C.seaGreen, icon: "✓" },
+          { key: "Waitlist", label: "Waitlist", color: C.olive, icon: "◷" },
+          { key: "Exploring", label: "Exploring", color: C.blue, icon: "◇" },
+        ].map((st) => {
+          const isActive = visibleStatuses.has(st.key);
+          return (
+            <button
+              key={st.key}
+              onClick={() => {
+                setVisibleStatuses((prev) => {
+                  const next = new Set(prev);
+                  if (next.has(st.key)) {
+                    if (next.size > 1) next.delete(st.key); // don't allow deselecting all
+                  } else {
+                    next.add(st.key);
+                  }
+                  return next;
+                });
+              }}
+              style={{
+                display: "flex", alignItems: "center", gap: 5,
+                padding: "6px 12px", borderRadius: 8, cursor: "pointer",
+                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+                border: `1.5px solid ${isActive ? st.color : C.border}`,
+                background: isActive ? st.color + "18" : "transparent",
+                color: isActive ? st.color : C.muted,
+                minHeight: 36, transition: "all 0.15s",
+              }}
+            >
+              <span style={{
+                width: 8, height: 8, borderRadius: "50%",
+                background: isActive ? st.color : C.border,
+              }} />
+              {st.label}
+            </button>
+          );
+        })}
+      </div>
 
       {/* Mini calendar for quick week jumping */}
       <MiniCalendar currentMonday={weekStart} onSelectWeek={setWeekStart} programs={visiblePrograms} kids={kids} />
