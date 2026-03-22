@@ -337,7 +337,7 @@ export default function OnboardingFlow({ onComplete }) {
                 marginBottom: 20,
               }}
             >
-              + Add another
+              {kids.length === 0 ? "+ Add Kid" : "+ Add Another Kid"}
             </button>
 
             {/* Added kids */}
@@ -438,12 +438,19 @@ export default function OnboardingFlow({ onComplete }) {
                 style={{
                   ...s.primaryBtn,
                   textAlign: "center",
-                  opacity: kids.length === 0 ? 0.5 : 1,
+                  opacity: kids.length === 0 && !kidName.trim() ? 0.5 : 1,
                 }}
-                onClick={() => setScreen(4)}
-                disabled={kids.length === 0}
+                onClick={() => {
+                  // If user typed a name but didn't click "Add", add it first
+                  if (kidName.trim() && kids.length === 0) {
+                    addKid();
+                  }
+                  // Small delay to let state update if we just added
+                  setTimeout(() => setScreen(4), kidName.trim() && kids.length === 0 ? 50 : 0);
+                }}
+                disabled={kids.length === 0 && !kidName.trim()}
               >
-                Next ({kids.length} kid{kids.length !== 1 ? "s" : ""})
+                Next {kids.length > 0 ? `(${kids.length} kid${kids.length !== 1 ? "s" : ""})` : ""}
               </button>
             </div>
           </div>
