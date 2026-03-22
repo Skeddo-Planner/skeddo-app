@@ -625,6 +625,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onKidFilter={setKidFilter}
             onOpenDetail={openDetail}
             onNavigateToDiscover={() => handleNavigateToTab("discover")}
+            onOpenAddProgram={openAddProgram}
             planAccess={planAccess}
           />
         )}

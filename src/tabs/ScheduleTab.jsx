@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
@@ -323,15 +323,36 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
   );
 }
 
-export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover, planAccess }) {
+export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover, onOpenAddProgram, planAccess }) {
   /* Local toast for upgrade prompts */
   const [schedToast, setSchedToast] = useState(null);
   const showSchedToast = (msg) => { setSchedToast(msg); setTimeout(() => setSchedToast(null), 2500); };
   const canExport = planAccess?.canExportCalendar ?? true;
-  /* Filter programs by kid if selected */
-  const visiblePrograms = kidFilter
+
+  /* ─── Hidden programs state (persisted to localStorage) ─── */
+  const [hiddenPrograms, setHiddenPrograms] = useState(() => {
+    try { const s = localStorage.getItem("skeddo-hidden-schedule-programs"); return s ? new Set(JSON.parse(s)) : new Set(); } catch { return new Set(); }
+  });
+  useEffect(() => {
+    localStorage.setItem("skeddo-hidden-schedule-programs", JSON.stringify([...hiddenPrograms]));
+  }, [hiddenPrograms]);
+  const [showVisibilityPanel, setShowVisibilityPanel] = useState(false);
+
+  const toggleHidden = (id) => {
+    setHiddenPrograms((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  };
+  const showAllPrograms = () => setHiddenPrograms(new Set());
+  const hideAllPrograms = () => setHiddenPrograms(new Set(programs.map((p) => p.id)));
+
+  /* Filter programs by kid if selected, then exclude hidden */
+  const visiblePrograms = (kidFilter
     ? programs.filter((p) => (p.kidIds || []).includes(kidFilter))
-    : programs;
+    : programs
+  ).filter((p) => !hiddenPrograms.has(p.id));
   const [weekStart, setWeekStart] = useState(() => getMonday(new Date()));
 
   const weekDates = useMemo(
@@ -457,27 +478,177 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
         <h2 style={s.pageTitle}>Schedule</h2>
-        <button
-          onClick={() => {
-            if (!canExport) { showSchedToast("Upgrade to Skeddo Plus to export your calendar"); return; }
-            openExportModal();
-          }}
-          style={{
-            background: canExport ? C.blue : "#9CA3AF", color: "#fff", border: "none",
-            borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
-            fontFamily: "'Barlow', sans-serif", cursor: "pointer",
-            display: "flex", alignItems: "center", gap: 6,
-            opacity: canExport ? 1 : 0.6,
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          Export
-        </button>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {/* Add custom activity */}
+          {onOpenAddProgram && (
+            <button
+              onClick={onOpenAddProgram}
+              aria-label="Add custom activity"
+              style={{
+                background: C.seaGreen, color: "#fff", border: "none",
+                borderRadius: 10, width: 38, height: 38, fontSize: 20, fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >
+              +
+            </button>
+          )}
+          {/* Show/hide programs filter */}
+          <button
+            onClick={() => setShowVisibilityPanel((v) => !v)}
+            aria-label="Show or hide programs on calendar"
+            style={{
+              background: showVisibilityPanel ? C.seaGreen : C.white,
+              color: showVisibilityPanel ? "#fff" : C.ink,
+              border: `1.5px solid ${showVisibilityPanel ? C.seaGreen : C.border}`,
+              borderRadius: 10, width: 38, height: 38, fontSize: 16,
+              fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              position: "relative",
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+            </svg>
+            {hiddenPrograms.size > 0 && (
+              <span style={{
+                position: "absolute", top: -5, right: -5,
+                background: "#E76F51", color: "#fff",
+                borderRadius: 8, minWidth: 16, height: 16,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                padding: "0 4px",
+              }}>
+                {hiddenPrograms.size}
+              </span>
+            )}
+          </button>
+          {/* Export */}
+          <button
+            onClick={() => {
+              if (!canExport) { showSchedToast("Upgrade to Skeddo Plus to export your calendar"); return; }
+              openExportModal();
+            }}
+            style={{
+              background: canExport ? C.blue : "#9CA3AF", color: "#fff", border: "none",
+              borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
+              fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+              display: "flex", alignItems: "center", gap: 6,
+              opacity: canExport ? 1 : 0.6,
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Export
+          </button>
+        </div>
       </div>
+
+      {/* ── Calendar Visibility Panel ── */}
+      {showVisibilityPanel && (
+        <div style={{
+          background: C.white, borderRadius: 14, border: `1px solid ${C.border}`,
+          padding: "14px 16px", marginBottom: 12,
+          animation: "fadeIn 0.2s ease",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+            <div style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+              color: C.ink, textTransform: "uppercase", letterSpacing: 0.5,
+            }}>
+              Calendar Visibility
+            </div>
+            <div style={{ display: "flex", gap: 10 }}>
+              <button
+                onClick={showAllPrograms}
+                style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                  color: C.seaGreen, background: "none", border: "none", cursor: "pointer",
+                }}
+              >
+                Show All
+              </button>
+              <button
+                onClick={hideAllPrograms}
+                style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                  color: C.muted, background: "none", border: "none", cursor: "pointer",
+                }}
+              >
+                Hide All
+              </button>
+            </div>
+          </div>
+          {programs.length === 0 ? (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted,
+              textAlign: "center", padding: "12px 0",
+            }}>
+              No programs added yet.
+            </div>
+          ) : (
+            programs.map((p) => {
+              const isVisible = !hiddenPrograms.has(p.id);
+              const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
+              return (
+                <div
+                  key={p.id}
+                  style={{
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "8px 0",
+                    borderBottom: `1px solid ${C.border}20`,
+                  }}
+                >
+                  <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                      color: C.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                    }}>
+                      {p.name}
+                    </div>
+                    <span style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 9, fontWeight: 700,
+                      color: st.color, textTransform: "uppercase", flexShrink: 0,
+                    }}>
+                      {p.status}
+                    </span>
+                  </div>
+                  {/* Toggle switch */}
+                  <button
+                    onClick={() => toggleHidden(p.id)}
+                    aria-label={isVisible ? `Hide ${p.name} from calendar` : `Show ${p.name} on calendar`}
+                    style={{
+                      width: 44, height: 24, borderRadius: 12, border: "none",
+                      background: isVisible ? C.seaGreen : "#D1D5DB",
+                      cursor: "pointer", position: "relative", flexShrink: 0,
+                      transition: "background 0.2s ease",
+                    }}
+                  >
+                    <span style={{
+                      position: "absolute", top: 2, left: isVisible ? 22 : 2,
+                      width: 20, height: 20, borderRadius: 10,
+                      background: "#fff", boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                      transition: "left 0.2s ease",
+                    }} />
+                  </button>
+                </div>
+              );
+            })
+          )}
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted,
+            marginTop: 8, textAlign: "center",
+          }}>
+            {hiddenPrograms.size > 0
+              ? `${hiddenPrograms.size} program${hiddenPrograms.size !== 1 ? "s" : ""} hidden from calendar`
+              : "All programs visible"}
+          </div>
+        </div>
+      )}
 
       {/* Conflict warnings — true conflicts (same kid) */}
       {conflicts.filter((c) => c.type === "conflict").length > 0 && (
