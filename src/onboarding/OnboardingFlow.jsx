@@ -17,6 +17,7 @@ export default function OnboardingFlow({ onComplete }) {
 
   /* Validation state */
   const [showErrors, setShowErrors] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
 
   /* Invite sharing state */
 
@@ -286,69 +287,9 @@ export default function OnboardingFlow({ onComplete }) {
               Add your kids so you can assign programs to them.
             </p>
 
-            {/* Add kid form */}
-            <div style={{ marginBottom: 4 }}>
-              <div style={labelStyle}>NAME</div>
-              <input
-                style={s.input}
-                value={kidName}
-                onChange={(e) => setKidName(e.target.value)}
-                placeholder="e.g. Maya"
-                onKeyDown={(e) => e.key === "Enter" && addKid()}
-              />
-            </div>
-
-            <div style={{ marginBottom: 12 }}>
-              <div style={labelStyle}>WHEN WAS {kidName.trim() ? kidName.trim().toUpperCase() : "THIS CHILD"} BORN?</div>
-              <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "0 0 6px", lineHeight: 1.4 }}>
-                Optional — helps us show age-appropriate programs.
-              </p>
-              <div style={{ display: "flex", gap: 8 }}>
-                <select
-                  style={{ ...s.input, flex: 1 }}
-                  value={kidBirthMonth}
-                  onChange={(e) => setKidBirthMonth(e.target.value)}
-                >
-                  <option value="">Month</option>
-                  {["January","February","March","April","May","June","July","August","September","October","November","December"].map((m, i) => (
-                    <option key={i + 1} value={i + 1}>{m}</option>
-                  ))}
-                </select>
-                <select
-                  style={{ ...s.input, flex: 1 }}
-                  value={kidBirthYear}
-                  onChange={(e) => setKidBirthYear(e.target.value)}
-                >
-                  <option value="">Year</option>
-                  {Array.from({ length: 19 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
-                    <option key={yr} value={yr}>{yr}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <button
-              onClick={addKid}
-              style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 13,
-                fontWeight: 700,
-                color: C.seaGreen,
-                background: "transparent",
-                border: `1.5px solid ${C.seaGreen}`,
-                borderRadius: 10,
-                padding: "8px 16px",
-                cursor: "pointer",
-                width: "100%",
-                marginBottom: 20,
-              }}
-            >
-              {kids.length === 0 ? "+ Add Kid" : "+ Add Another Kid"}
-            </button>
-
             {/* Added kids */}
             {kids.length > 0 && (
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
                 {kids.map((k) => (
                   <div
                     key={k.id}
@@ -426,6 +367,104 @@ export default function OnboardingFlow({ onComplete }) {
               </div>
             )}
 
+            {/* Add kid form — always visible when no kids, collapsible after first kid */}
+            {(kids.length === 0 || showAddForm) && (
+              <>
+                <div style={{ marginBottom: 4 }}>
+                  <div style={labelStyle}>NAME</div>
+                  <input
+                    style={s.input}
+                    value={kidName}
+                    onChange={(e) => setKidName(e.target.value)}
+                    placeholder="e.g. Maya"
+                    autoFocus={kids.length === 0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && kidName.trim()) {
+                        addKid();
+                        if (kids.length === 0) setShowAddForm(false);
+                      }
+                    }}
+                  />
+                </div>
+
+                <div style={{ marginBottom: 12 }}>
+                  <div style={labelStyle}>WHEN WAS {kidName.trim() ? kidName.trim().toUpperCase() : "THIS CHILD"} BORN?</div>
+                  <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "0 0 6px", lineHeight: 1.4 }}>
+                    Optional — helps us show age-appropriate programs.
+                  </p>
+                  <div style={{ display: "flex", gap: 8 }}>
+                    <select
+                      style={{ ...s.input, flex: 1 }}
+                      value={kidBirthMonth}
+                      onChange={(e) => setKidBirthMonth(e.target.value)}
+                    >
+                      <option value="">Month</option>
+                      {["January","February","March","April","May","June","July","August","September","October","November","December"].map((m, i) => (
+                        <option key={i + 1} value={i + 1}>{m}</option>
+                      ))}
+                    </select>
+                    <select
+                      style={{ ...s.input, flex: 1 }}
+                      value={kidBirthYear}
+                      onChange={(e) => setKidBirthYear(e.target.value)}
+                    >
+                      <option value="">Year</option>
+                      {Array.from({ length: 19 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
+                        <option key={yr} value={yr}>{yr}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    if (kidName.trim()) {
+                      addKid();
+                      setShowAddForm(false);
+                    }
+                  }}
+                  disabled={!kidName.trim()}
+                  style={{
+                    fontFamily: "'Barlow', sans-serif",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: !kidName.trim() ? C.muted : C.seaGreen,
+                    background: "transparent",
+                    border: `1.5px solid ${!kidName.trim() ? C.border : C.seaGreen}`,
+                    borderRadius: 10,
+                    padding: "10px 16px",
+                    cursor: kidName.trim() ? "pointer" : "default",
+                    width: "100%",
+                    marginBottom: 16,
+                    minHeight: 44,
+                    opacity: kidName.trim() ? 1 : 0.5,
+                  }}
+                >
+                  {kids.length === 0 ? "Add Kid" : "Add Kid"}
+                </button>
+              </>
+            )}
+
+            {/* Show "+ Add Another Kid" button when form is collapsed */}
+            {kids.length > 0 && !showAddForm && (
+              <button
+                onClick={() => setShowAddForm(true)}
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: C.muted,
+                  background: "transparent",
+                  border: "none",
+                  padding: "8px 0",
+                  cursor: "pointer",
+                  marginBottom: 16,
+                }}
+              >
+                + Add another kid
+              </button>
+            )}
+
             {/* Navigation buttons */}
             <div style={{ display: "flex", gap: 8 }}>
               <button
@@ -433,10 +472,7 @@ export default function OnboardingFlow({ onComplete }) {
                   ...s.secondaryBtn,
                   textAlign: "center",
                 }}
-                onClick={() => {
-                  // Skip proceeds without adding more kids (keeps any already added)
-                  setScreen(4);
-                }}
+                onClick={() => setScreen(4)}
               >
                 Skip
               </button>
@@ -447,11 +483,9 @@ export default function OnboardingFlow({ onComplete }) {
                   opacity: kids.length === 0 && !kidName.trim() ? 0.5 : 1,
                 }}
                 onClick={() => {
-                  // If user typed a name but didn't click "Add", add it first
                   if (kidName.trim()) {
                     addKid();
                   }
-                  // Use requestAnimationFrame to ensure state updates before advancing
                   requestAnimationFrame(() => setScreen(4));
                 }}
                 disabled={kids.length === 0 && !kidName.trim()}
