@@ -3,7 +3,8 @@ import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import { uid } from "../constants/sampleData";
 
-export default function OnboardingFlow({ onComplete }) {
+export default function OnboardingFlow({ onComplete, planAccess }) {
+  const maxKids = planAccess?.maxKids ?? Infinity;
   const [screen, setScreen] = useState(0);
   const [kids, setKids] = useState([]);
   const [kidName, setKidName] = useState("");
@@ -445,8 +446,8 @@ export default function OnboardingFlow({ onComplete }) {
               </>
             )}
 
-            {/* Show "+ Add Another Kid" button when form is collapsed */}
-            {kids.length > 0 && !showAddForm && (
+            {/* Show "+ Add Another Kid" button when form is collapsed (hidden at kid limit for free users) */}
+            {kids.length > 0 && !showAddForm && kids.length < maxKids && (
               <button
                 onClick={() => setShowAddForm(true)}
                 style={{

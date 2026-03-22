@@ -323,7 +323,11 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
   );
 }
 
-export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover }) {
+export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover, planAccess }) {
+  /* Local toast for upgrade prompts */
+  const [schedToast, setSchedToast] = useState(null);
+  const showSchedToast = (msg) => { setSchedToast(msg); setTimeout(() => setSchedToast(null), 2500); };
+  const canExport = planAccess?.canExportCalendar ?? true;
   /* Filter programs by kid if selected */
   const visiblePrograms = kidFilter
     ? programs.filter((p) => (p.kidIds || []).includes(kidFilter))
@@ -454,12 +458,16 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
         <h2 style={s.pageTitle}>Schedule</h2>
         <button
-          onClick={openExportModal}
+          onClick={() => {
+            if (!canExport) { showSchedToast("Upgrade to Skeddo Plus to export your calendar"); return; }
+            openExportModal();
+          }}
           style={{
-            background: C.blue, color: "#fff", border: "none",
+            background: canExport ? C.blue : "#9CA3AF", color: "#fff", border: "none",
             borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
             fontFamily: "'Barlow', sans-serif", cursor: "pointer",
             display: "flex", alignItems: "center", gap: 6,
+            opacity: canExport ? 1 : 0.6,
           }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -1045,6 +1053,33 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Schedule upgrade toast */}
+      {schedToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          style={{
+            position: "fixed",
+            bottom: 90,
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: C.ink,
+            color: C.cream,
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 14,
+            fontWeight: 600,
+            padding: "12px 20px",
+            borderRadius: 10,
+            boxShadow: "0 4px 16px rgba(27,36,50,0.2)",
+            zIndex: 9999,
+            animation: "fadeIn 0.2s ease",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {schedToast}
         </div>
       )}
     </div>

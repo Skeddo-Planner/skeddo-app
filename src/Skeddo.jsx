@@ -301,6 +301,10 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const openAddKid = () => {
+    if (kids.length >= planAccess.maxKids) {
+      showToast("Upgrade to Skeddo Plus to add more kids");
+      return;
+    }
     setForm({ name: "", age: "", notes: "" });
     setModal({ type: "kidForm", isEdit: false });
   };
@@ -417,6 +421,13 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   const handleSaveKid = () => {
     if (!form.name?.trim()) return;
+    // Gate: free plan kid limit (only for new kids, not edits)
+    const isNewKid = !form.id;
+    if (isNewKid && kids.length >= planAccess.maxKids) {
+      showToast("Upgrade to Skeddo Plus to add more kids");
+      setModal(null);
+      return;
+    }
     saveKid({ ...form, name: form.name.trim(), id: form.id || uid() });
     setModal(null);
     showToast(form.id ? "Kid updated" : "Kid added");
@@ -504,7 +515,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   /* ── Onboarding ── */
   if (!onboarded) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+    return <OnboardingFlow onComplete={handleOnboardingComplete} planAccess={planAccess} />;
   }
 
   /* ── Main App ── */
@@ -613,6 +624,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onKidFilter={setKidFilter}
             onOpenDetail={openDetail}
             onNavigateToDiscover={() => handleNavigateToTab("discover")}
+            planAccess={planAccess}
           />
         )}
 

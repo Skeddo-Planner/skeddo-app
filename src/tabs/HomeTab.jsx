@@ -157,6 +157,7 @@ export default function HomeTab({
             </div>
           );
         })}
+        {kids.length < planAccess.maxKids && (
         <button
           onClick={onOpenAddKid}
           aria-label="Add a new kid"
@@ -179,6 +180,7 @@ export default function HomeTab({
         >
           + Add kid
         </button>
+        )}
       </div>
 
       {/* Kids upgrade banner — right below kids row */}

@@ -446,6 +446,10 @@ export default function DiscoverTab({
   const isPaid = planAccess.isPaid;
   const canUseAdvancedFilters = planAccess.canUseAdvancedFilters;
 
+  /* Local toast for upgrade prompts */
+  const [filterToast, setFilterToast] = useState(null);
+  const showFilterToast = (msg) => { setFilterToast(msg); setTimeout(() => setFilterToast(null), 2500); };
+
   useEffect(() => {
     async function loadUserSubmitted() {
       setIsLoadingPrograms(true);
@@ -1094,6 +1098,8 @@ export default function DiscoverTab({
 
           {/* Activity type dropdown (context-aware from selected categories) */}
           {availableActivityTypes.length > 0 && (
+            <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
+            <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
             <>
               <div
                 style={{
@@ -1114,7 +1120,7 @@ export default function DiscoverTab({
                   }}
                 >
                   ACTIVITY TYPE{selectedActivityTypes.size > 0 ? ` (${selectedActivityTypes.size})` : ""}
-                  {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
+                  {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
                   {selectedCats.size > 0 && (
                     <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0 }}>
                       {" "}&mdash; filtered by selected categories
@@ -1210,9 +1216,13 @@ export default function DiscoverTab({
                 )}
               </div>
             </>
+            </div>
+            </div>
           )}
 
           {/* Provider searchable multi-select */}
+          <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
+          <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
           <div
             style={{
               display: "flex",
@@ -1232,7 +1242,7 @@ export default function DiscoverTab({
               }}
             >
               PROVIDER{selectedProviders.size > 0 ? ` (${selectedProviders.size})` : ""}
-              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
+              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
             </div>
             {selectedProviders.size > 0 && (
               <button
@@ -1386,6 +1396,8 @@ export default function DiscoverTab({
                 )}
               </div>
             )}
+          </div>
+          </div>
           </div>
 
           {/* Season type chips (multi-select) */}
@@ -1575,6 +1587,8 @@ export default function DiscoverTab({
           </div>
 
           {/* Neighbourhood multi-select by city */}
+          <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
+          <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
           <div
             style={{
               display: "flex",
@@ -1594,7 +1608,7 @@ export default function DiscoverTab({
               }}
             >
               NEIGHBOURHOODS{selectedHoods.size > 0 ? ` (${selectedHoods.size} selected)` : ""}
-              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
+              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
             </div>
             {selectedHoods.size > 0 && (
               <button
@@ -1789,6 +1803,8 @@ export default function DiscoverTab({
               );
             })}
           </div>}
+          </div>
+          </div>
 
           {/* Age range */}
           <div
@@ -1835,6 +1851,8 @@ export default function DiscoverTab({
           </div>
 
           {/* Cost range chips (multi-select) */}
+          <div onClick={!canUseAdvancedFilters ? () => showFilterToast("Upgrade to Skeddo Plus for advanced filters") : undefined}>
+          <div style={!canUseAdvancedFilters ? { pointerEvents: "none", opacity: 0.4 } : undefined}>
           <div
             style={{
               display: "flex",
@@ -1854,7 +1872,7 @@ export default function DiscoverTab({
               }}
             >
               COST{selectedCosts.size > 0 ? ` (${selectedCosts.size})` : ""}
-              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none" }}>Plus</span>}
+              {!canUseAdvancedFilters && <span style={{ marginLeft: 6, fontSize: 9, background: C.seaGreen, color: "#fff", borderRadius: 4, padding: "1px 5px", fontWeight: 700, letterSpacing: 0, textTransform: "none", pointerEvents: "auto", opacity: 1 }}>Plus</span>}
             </div>
             {selectedCosts.size > 0 && (
               <button
@@ -1895,6 +1913,8 @@ export default function DiscoverTab({
                 </button>
               );
             })}
+          </div>
+          </div>
           </div>
         </div>
       )}
@@ -2031,6 +2051,33 @@ export default function DiscoverTab({
         >
           Load more ({eligibilityFiltered.length - visibleCount} remaining)
         </button>
+      )}
+
+      {/* Filter upgrade toast */}
+      {filterToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          style={{
+            position: "fixed",
+            bottom: 90,
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: C.ink,
+            color: C.cream,
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 14,
+            fontWeight: 600,
+            padding: "12px 20px",
+            borderRadius: 10,
+            boxShadow: "0 4px 16px rgba(27,36,50,0.2)",
+            zIndex: 9999,
+            animation: "fadeIn 0.2s ease",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {filterToast}
+        </div>
       )}
     </div>
   );

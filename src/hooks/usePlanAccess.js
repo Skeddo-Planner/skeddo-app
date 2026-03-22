@@ -44,6 +44,7 @@ export default function usePlanAccess(userPlan, isBetaUser) {
 
     const isPaid = effectivePlan === "plus";
     const maxPrograms = isPaid ? Infinity : 3;
+    const maxKids = isPaid ? Infinity : 1;
 
     return {
       effectivePlan,
@@ -52,10 +53,12 @@ export default function usePlanAccess(userPlan, isBetaUser) {
       isTestMode,
       isPaid,
       maxPrograms,
+      maxKids,
       canUseAdvancedFilters: isPaid,
       canUseBudgetTracking: isPaid,
       canUseCircles: isPaid,
       canUseCoParent: isPaid,
+      canExportCalendar: isPaid,
 
       /** Check if user can add another program */
       checkProgramLimit(currentCount) {
