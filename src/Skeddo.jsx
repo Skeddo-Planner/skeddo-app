@@ -76,38 +76,21 @@ export default function Skeddo() {
     return <ComingSoonPage />;
   }
 
-  /* ── Auth loading spinner ── */
+  /* ── Auth loading — simple centered logo on dark background ── */
   if (authLoading) {
     return (
       <div style={{
-        ...s.app,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100dvh",
-        paddingBottom: 0,
+        background: "#1B2432",
       }}>
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
-          * { box-sizing: border-box; margin: 0; padding: 0; }
-          body { background: ${C.cream}; }
-          @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        `}</style>
-        <div style={{ textAlign: "center", animation: "pulse 1.8s ease-in-out infinite" }}>
-          <img
-            src="/skeddo-logo-dark.png"
-            alt="Skeddo"
-            style={{ height: 64, width: "auto", borderRadius: 14, marginBottom: 16 }}
-          />
-          <div style={{
-            color: C.muted,
-            fontSize: 13,
-            fontFamily: "'Barlow', sans-serif",
-            fontWeight: 600,
-          }}>
-            Loading...
-          </div>
-        </div>
+        <img
+          src="/skeddo-logo-dark.png"
+          alt="Skeddo"
+          style={{ height: 140, width: "auto", borderRadius: 20 }}
+        />
       </div>
     );
   }
