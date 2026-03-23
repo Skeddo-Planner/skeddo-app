@@ -114,6 +114,7 @@ export default function CirclesTab({
   const [joinCode, setJoinCode] = useState("");
   const [selectedActivities, setSelectedActivities] = useState(new Set());
   const [circleMembers, setCircleMembers] = useState([]);
+  const [showInviteDrawer, setShowInviteDrawer] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const [showSharingBanner, setShowSharingBanner] = useState(true);
 
@@ -553,10 +554,22 @@ export default function CirclesTab({
         {/* Members list with roles + remove */}
         <div style={{
           background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
-          padding: "12px 14px", marginBottom: 16,
+          padding: "12px 14px", marginBottom: 12,
         }}>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8 }}>
-            Members ({circleMembers.length})
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
+              Members ({circleMembers.length})
+            </div>
+            {activeCircle?.inviteCode && (
+              <button
+                onClick={() => setShowInviteDrawer((v) => !v)}
+                style={{
+                  background: C.blue, color: "#fff", border: "none", borderRadius: 8,
+                  padding: "5px 12px", fontFamily: "'Barlow', sans-serif", fontSize: 12,
+                  fontWeight: 700, cursor: "pointer",
+                }}
+              >+ Invite</button>
+            )}
           </div>
           {circleMembers.map((m) => {
             const isMe = m.userId === userId;
@@ -739,28 +752,48 @@ export default function CirclesTab({
           })
         )}
 
-        {/* Invite code + share icons — below shared activities */}
-        {activeCircle?.inviteCode && (
-          <div style={{
-            background: SOFT.blue, borderRadius: 12, padding: "14px 16px", marginTop: 16,
-            border: `1px solid ${C.blue}18`,
-          }}>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.blue, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>
-              Invite someone
-            </div>
-            <div style={{
-              background: C.white, borderRadius: 8, padding: "8px 12px", marginBottom: 12,
-              fontFamily: "monospace", fontSize: 14, color: C.ink, border: `1px solid ${C.border}`,
-            }}>
-              {activeCircle.inviteCode}
-            </div>
-            <ShareIcons
-              shareText={`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}`}
-              shareUrl="https://skeddo.ca"
-              onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(activeCircle.inviteCode) : Promise.reject()).catch(() => {}); showToast("Invite code copied!"); }}
-              subject={`Join my Skeddo circle: ${activeCircle.name}`}
+        {/* Invite drawer — slides up from bottom */}
+        {showInviteDrawer && activeCircle?.inviteCode && (
+          <>
+            <div
+              onClick={() => setShowInviteDrawer(false)}
+              style={{
+                position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+                background: "rgba(0,0,0,0.4)", zIndex: 100,
+              }}
             />
-          </div>
+            <div style={{
+              position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 101,
+              background: C.white, borderRadius: "20px 20px 0 0",
+              padding: "20px 20px 32px", maxWidth: 480, margin: "0 auto",
+              boxShadow: "0 -4px 24px rgba(27,36,50,0.15)",
+              animation: "slideUp 0.25s ease-out",
+            }}>
+              <style>{`@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }`}</style>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink }}>
+                  Invite to {activeCircle.name}
+                </div>
+                <button onClick={() => setShowInviteDrawer(false)} style={{ background: "none", border: "none", fontSize: 20, color: C.muted, cursor: "pointer", padding: 4 }}>✕</button>
+              </div>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 12 }}>
+                Share this invite code with another parent:
+              </div>
+              <div style={{
+                background: C.cream, borderRadius: 10, padding: "12px 16px", marginBottom: 16,
+                fontFamily: "monospace", fontSize: 18, fontWeight: 700, color: C.ink,
+                textAlign: "center", border: `1px solid ${C.border}`, letterSpacing: 1,
+              }}>
+                {activeCircle.inviteCode}
+              </div>
+              <ShareIcons
+                shareText={`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}`}
+                shareUrl="https://skeddo.ca"
+                onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(activeCircle.inviteCode) : Promise.reject()).catch(() => {}); showToast("Invite code copied!"); setShowInviteDrawer(false); }}
+                subject={`Join my Skeddo circle: ${activeCircle.name}`}
+              />
+            </div>
+          </>
         )}
       </div>
     );
