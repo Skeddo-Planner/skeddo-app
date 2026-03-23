@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from "react";
-import { C, STATUS_MAP } from "../constants/brand";
+import { C, STATUS_MAP, KID_COLORS } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
 import { downloadAllICS, detectConflicts } from "../utils/helpers";
@@ -80,16 +80,61 @@ function isDateInRange(date, startDate, endDate) {
   return true;
 }
 
+/* ─── Format conflict dates into a readable string ─── */
+const FULL_MONTHS = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+
+function formatConflictDates(conflictList) {
+  // Collect all unique dates from all conflicts
+  const dateSet = new Set();
+  conflictList.forEach((c) => {
+    (c.dates || []).forEach((d) => {
+      const dt = new Date(d);
+      dateSet.add(`${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`);
+    });
+  });
+  if (dateSet.size === 0) return "";
+  // Sort dates chronologically
+  const sorted = [...dateSet].sort();
+  // Group by month+year
+  const groups = {};
+  sorted.forEach((ds) => {
+    const [y, m, d] = ds.split("-").map(Number);
+    const key = `${y}-${m}`;
+    if (!groups[key]) groups[key] = { year: y, month: m, days: [] };
+    groups[key].days.push(d);
+  });
+  const groupKeys = Object.keys(groups).sort();
+  // Format each group
+  const parts = groupKeys.map((key) => {
+    const g = groups[key];
+    const monthName = FULL_MONTHS[g.month - 1];
+    if (g.days.length === 1) return `${monthName} ${g.days[0]}`;
+    const allButLast = g.days.slice(0, -1).join(", ");
+    return `${monthName} ${allButLast} and ${g.days[g.days.length - 1]}`;
+  });
+  // If all in same month, it will be one part. If across months, join with ", "
+  return parts.join(", ");
+}
+
 /* ─── Fallback kid colors if kid.color is not set ─── */
 const KID_COLORS_FALLBACK = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
 
-/* ─── Build a map of date → [statusColor, …] for the visible month ─── */
+/* ─── Build a map of date → [{ kidColor, status }, …] for the visible month ─── */
 function buildBookingMap(programs, kids, year, month) {
-  const map = {}; // "YYYY-MM-DD" → Set<statusColor>
+  const map = {}; // "YYYY-MM-DD" → array of { kidColor, status }
   programs.forEach((p) => {
     const dayIndices = parseDays(p.days);
     if (dayIndices.length === 0) return;
-    const statusColor = (STATUS_MAP[p.status] || STATUS_MAP.Exploring).color;
+    const status = p.status || "Exploring";
+    // Determine kid colors for this program
+    const assignedKids = (p.kidIds || []).map((id) => (kids || []).find((k) => k.id === id)).filter(Boolean);
+    const kidColors = assignedKids.length > 0
+      ? assignedKids.map((k) => {
+          const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
+          return k.color || KID_COLORS[kidIdx >= 0 ? kidIdx % KID_COLORS.length : 0]?.hex || C.muted;
+        })
+      : [C.muted]; // unassigned programs get muted color
     // Iterate every day of the month
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     for (let d = 1; d <= daysInMonth; d++) {
@@ -99,8 +144,13 @@ function buildBookingMap(programs, kids, year, month) {
       if (!dayIndices.includes(calIdx)) continue;
       if (!isDateInRange(date, p.startDate, p.endDate)) continue;
       const key = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
-      if (!map[key]) map[key] = new Set();
-      map[key].add(statusColor);
+      if (!map[key]) map[key] = [];
+      kidColors.forEach((kc) => {
+        // Avoid duplicate kid+status combos on same date
+        if (!map[key].some((e) => e.kidColor === kc && e.status === status)) {
+          map[key].push({ kidColor: kc, status });
+        }
+      });
     }
   });
   return map;
@@ -240,34 +290,97 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
         </button>
       </div>
 
-      {/* Legend — show enrollment status color dots */}
+      {/* Legend — kid colors + status shapes */}
       <div style={{
         display: "flex",
         justifyContent: "center",
-        gap: 10,
+        gap: 8,
         marginBottom: 6,
         flexWrap: "wrap",
       }}>
-        {Object.entries(STATUS_MAP).map(([label, st]) => (
-          <div key={label} style={{ display: "flex", alignItems: "center", gap: 3 }}>
-            <div style={{
-              width: 6,
-              height: 6,
-              borderRadius: 3,
-              background: st.color,
-              flexShrink: 0,
-            }} />
-            <span style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
-              fontWeight: 600,
-              color: C.muted,
+        {/* Kid color legend */}
+        {(kids || []).map((k) => {
+          const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
+          const kidColor = k.color || KID_COLORS[kidIdx >= 0 ? kidIdx % KID_COLORS.length : 0]?.hex || C.muted;
+          return (
+            <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 3 }}>
+              <div style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                background: kidColor,
+                flexShrink: 0,
+              }} />
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 11,
+                fontWeight: 600,
+                color: C.muted,
               }}>
-                {label}
+                {k.name}
               </span>
             </div>
-          ))}
+          );
+        })}
+        {/* Separator */}
+        {(kids || []).length > 0 && (
+          <span style={{ color: C.border, fontSize: 11, lineHeight: "14px" }}>|</span>
+        )}
+        {/* Status shape legend */}
+        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+          <div style={{
+            width: 6,
+            height: 6,
+            borderRadius: 3,
+            background: C.ink,
+            flexShrink: 0,
+          }} />
+          <span style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            fontWeight: 600,
+            color: C.muted,
+          }}>
+            Enrolled
+          </span>
         </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+          <div style={{
+            width: 6,
+            height: 6,
+            borderRadius: 3,
+            background: "transparent",
+            border: `1.5px solid ${C.ink}`,
+            boxSizing: "border-box",
+            flexShrink: 0,
+          }} />
+          <span style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            fontWeight: 600,
+            color: C.muted,
+          }}>
+            Waitlist
+          </span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+          <div style={{
+            width: 6,
+            height: 6,
+            borderRadius: 0,
+            background: C.ink,
+            flexShrink: 0,
+          }} />
+          <span style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            fontWeight: 600,
+            color: C.muted,
+          }}>
+            Exploring
+          </span>
+        </div>
+      </div>
 
       <div
         style={{
@@ -302,12 +415,11 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             date < addDays(currentMonday, 7);
           const isToday = date && date.getTime() === today.getTime();
 
-          // Get booking dots for this date — colored by enrollment status
+          // Get booking dots for this date — kid color + status shape
           const dateKey = inMonth
             ? `${year}-${String(month + 1).padStart(2, "0")}-${String(dn).padStart(2, "0")}`
             : null;
-          const statusColors = dateKey ? bookingMap[dateKey] : null;
-          const dots = statusColors ? [...statusColors] : [];
+          const dots = dateKey ? (bookingMap[dateKey] || []) : [];
 
           return (
             <button
@@ -351,18 +463,54 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                   marginTop: 1,
                   justifyContent: "center",
                 }}>
-                  {dots.slice(0, 4).map((color, di) => (
-                    <span
-                      key={di}
-                      style={{
-                        width: 4,
-                        height: 4,
-                        borderRadius: 2,
-                        background: isToday ? C.cream : color,
-                        flexShrink: 0,
-                      }}
-                    />
-                  ))}
+                  {dots.slice(0, 4).map((dot, di) => {
+                    const dotColor = isToday ? C.cream : dot.kidColor;
+                    if (dot.status === "Waitlist") {
+                      // Dashed border circle (hollow)
+                      return (
+                        <span
+                          key={di}
+                          style={{
+                            width: 4,
+                            height: 4,
+                            borderRadius: 2,
+                            background: "transparent",
+                            border: `1px solid ${dotColor}`,
+                            boxSizing: "border-box",
+                            flexShrink: 0,
+                          }}
+                        />
+                      );
+                    }
+                    if (dot.status === "Exploring") {
+                      // Small square
+                      return (
+                        <span
+                          key={di}
+                          style={{
+                            width: 4,
+                            height: 4,
+                            borderRadius: 0,
+                            background: dotColor,
+                            flexShrink: 0,
+                          }}
+                        />
+                      );
+                    }
+                    // Enrolled: solid filled circle
+                    return (
+                      <span
+                        key={di}
+                        style={{
+                          width: 4,
+                          height: 4,
+                          borderRadius: 2,
+                          background: dotColor,
+                          flexShrink: 0,
+                        }}
+                      />
+                    );
+                  })}
                 </span>
               )}
             </button>
@@ -706,56 +854,48 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       )}
 
       {/* Conflict warnings — true conflicts (same kid) */}
-      {!dismissedConflicts && conflicts.filter((c) => c.type === "conflict").length > 0 && (
-        <div style={{
-          background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 12,
-          padding: "12px 16px", marginBottom: 12, position: "relative",
-        }}>
-          <button onClick={() => setDismissedConflicts(true)} aria-label="Dismiss conflicts" style={{
-            position: "absolute", top: 8, right: 10, background: "none", border: "none",
-            color: "#991B1B", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1,
-          }}>{"\u00D7"}</button>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#991B1B", marginBottom: 6 }}>
-            {"\u26A0\uFE0F"} Scheduling Heads Up
+      {!dismissedConflicts && conflicts.filter((c) => c.type === "conflict").length > 0 && (() => {
+        const conflictDates = formatConflictDates(conflicts.filter((c) => c.type === "conflict"));
+        return (
+          <div style={{
+            background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 12,
+            padding: "12px 16px", marginBottom: 12, position: "relative",
+          }}>
+            <button onClick={() => setDismissedConflicts(true)} aria-label="Dismiss conflicts" style={{
+              position: "absolute", top: 8, right: 10, background: "none", border: "none",
+              color: "#991B1B", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1,
+            }}>{"\u00D7"}</button>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#991B1B", marginBottom: 6 }}>
+              {"\u26A0\uFE0F"} Scheduling Heads Up
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#7F1D1D", lineHeight: 1.5 }}>
+              {conflictDates}
+            </div>
           </div>
-          {conflicts.filter((c) => c.type === "conflict").slice(0, 5).map((c, i) => (
-            <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#7F1D1D", lineHeight: 1.5, marginBottom: 4 }}>
-              {c.day}: {c.program1} and {c.program2} overlap
-            </div>
-          ))}
-          {conflicts.filter((c) => c.type === "conflict").length > 5 && (
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: "#991B1B", marginTop: 4 }}>
-              +{conflicts.filter((c) => c.type === "conflict").length - 5} more
-            </div>
-          )}
-        </div>
-      )}
+        );
+      })()}
 
       {/* Logistics alerts — different kids at the same time */}
-      {!dismissedLogistics && conflicts.filter((c) => c.type === "logistics").length > 0 && (
-        <div style={{
-          background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 12,
-          padding: "12px 16px", marginBottom: 12, position: "relative",
-        }}>
-          <button onClick={() => setDismissedLogistics(true)} aria-label="Dismiss logistics alerts" style={{
-            position: "absolute", top: 8, right: 10, background: "none", border: "none",
-            color: "#92400E", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1,
-          }}>{"\u00D7"}</button>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 6 }}>
-            {"\uD83D\uDCCB"} Logistics Heads-Up
+      {!dismissedLogistics && conflicts.filter((c) => c.type === "logistics").length > 0 && (() => {
+        const logisticsDates = formatConflictDates(conflicts.filter((c) => c.type === "logistics"));
+        return (
+          <div style={{
+            background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 12,
+            padding: "12px 16px", marginBottom: 12, position: "relative",
+          }}>
+            <button onClick={() => setDismissedLogistics(true)} aria-label="Dismiss logistics alerts" style={{
+              position: "absolute", top: 8, right: 10, background: "none", border: "none",
+              color: "#92400E", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1,
+            }}>{"\u00D7"}</button>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 6 }}>
+              {"\uD83D\uDCCB"} Logistics Heads-Up
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#78350F", lineHeight: 1.5 }}>
+              {logisticsDates}
+            </div>
           </div>
-          {conflicts.filter((c) => c.type === "logistics").slice(0, 5).map((c, i) => (
-            <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#78350F", lineHeight: 1.5, marginBottom: 4 }}>
-              {c.day}: {c.program1} and {c.program2} overlap
-            </div>
-          ))}
-          {conflicts.filter((c) => c.type === "logistics").length > 5 && (
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: "#92400E", marginTop: 4 }}>
-              +{conflicts.filter((c) => c.type === "logistics").length - 5} more
-            </div>
-          )}
-        </div>
-      )}
+        );
+      })()}
 
       {/* Kid filter */}
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />

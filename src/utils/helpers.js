@@ -434,6 +434,18 @@ export function detectConflicts(programs) {
       const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       const dayList = sharedDays.map((d) => dayNames[d]).join(", ");
 
+      // Compute actual overlapping dates for this conflict pair
+      const overlapStart = a.dateStart > b.dateStart ? a.dateStart : b.dateStart;
+      const overlapEnd = a.dateEnd < b.dateEnd ? a.dateEnd : b.dateEnd;
+      const conflictDates = [];
+      const cur = new Date(overlapStart);
+      while (cur <= overlapEnd) {
+        if (sharedDays.includes(cur.getDay())) {
+          conflictDates.push(new Date(cur));
+        }
+        cur.setDate(cur.getDate() + 1);
+      }
+
       // Check if the same kid is assigned to both (true conflict vs logistics)
       const aKids = a.kidIds || [];
       const bKids = b.kidIds || [];
@@ -447,6 +459,7 @@ export function detectConflicts(programs) {
         time1: a.times,
         time2: b.times,
         type: isSameKid ? "conflict" : "logistics",
+        dates: conflictDates,
       });
     }
   }
