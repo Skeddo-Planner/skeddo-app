@@ -1,23 +1,147 @@
 import { useMemo, useState } from "react";
-import directoryPrograms from "../data/programs.json";
-import { C } from "../constants/brand";
+import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
-import ProgramCard from "../components/ProgramCard";
-import EmptyState from "../components/EmptyState";
-import DeadlineAlert from "../components/DeadlineAlert";
 import PromoBanner from "../components/PromoBanner";
 import { fmt$ } from "../utils/helpers";
 
-/* ─── Seasonal greeting ─── */
-function getSeasonalGreeting() {
-  const month = new Date().getMonth() + 1;
-  if (month >= 3 && month <= 5) return { icon: "\ud83c\udf31", season: "spring" };
-  if (month >= 6 && month <= 8) return { icon: "\u2600\ufe0f", season: "summer" };
-  if (month >= 9 && month <= 11) return { icon: "\ud83c\udf42", season: "fall" };
-  return { icon: "\u2744\ufe0f", season: "winter" };
+/* ─── Helper: format a date as "Mon DD" ─── */
+function fmtDate(d) {
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
+/* ─── Chevron arrow SVG (replaces lucide-react) ─── */
+function ChevronRight({ size = 16, color = C.muted }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  );
+}
 
+/* ─── Section header ─── */
+function SectionHeader({ label, action, onAction }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.muted, letterSpacing: "0.06em", textTransform: "uppercase" }}>{label}</div>
+      {action && (
+        <span
+          onClick={onAction}
+          role="button"
+          tabIndex={0}
+          style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.seaGreen, cursor: "pointer" }}
+        >{action} →</span>
+      )}
+    </div>
+  );
+}
+
+/* ─── Kid pill button ─── */
+function KidPill({ kid, enrolledCount, active, onClick }) {
+  return (
+    <button onClick={onClick} style={{
+      display: "flex", alignItems: "center", gap: 10,
+      padding: "8px 16px 8px 8px", borderRadius: 24,
+      background: active ? C.white : "rgba(27,36,50,0.03)",
+      border: active ? `2px solid ${C.seaGreen}` : "2px solid rgba(27,36,50,0.08)",
+      boxShadow: active ? "0 2px 8px rgba(45,159,111,0.15)" : "none",
+      cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap", flexShrink: 0,
+      fontFamily: "'Barlow', sans-serif",
+    }}>
+      <div style={{
+        width: 36, height: 36, borderRadius: "50%",
+        background: active ? (kid.color || C.seaGreen) : "rgba(27,36,50,0.08)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        color: active ? C.white : C.muted,
+        fontSize: 15, fontWeight: 700, transition: "all 0.2s",
+      }}>{kid.name?.[0]?.toUpperCase() || "?"}</div>
+      <div style={{ textAlign: "left" }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: C.ink, lineHeight: 1.2 }}>{kid.name}</div>
+        <div style={{ fontSize: 11, color: C.muted, lineHeight: 1.2 }}>{enrolledCount} enrolled</div>
+      </div>
+    </button>
+  );
+}
+
+/* ─── Alert card with accent border ─── */
+function AlertCard({ icon, text, color, onAction }) {
+  return (
+    <div onClick={onAction} role="button" tabIndex={0} style={{
+      background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
+      padding: "12px 14px", display: "flex", alignItems: "center", gap: 12,
+      borderLeft: `3px solid ${color}`, cursor: "pointer", transition: "box-shadow 0.2s",
+    }}>
+      <span style={{
+        width: 36, height: 36, borderRadius: 10, background: `${color}15`,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        fontSize: 18, flexShrink: 0,
+      }}>{icon}</span>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink, fontWeight: 500, lineHeight: 1.4 }}>{text}</div>
+      </div>
+      <ChevronRight size={16} color={color} />
+    </div>
+  );
+}
+
+/* ─── Circle activity card ─── */
+function CircleCard({ icon, iconBg, title, subtitle, color, onAction }) {
+  return (
+    <div onClick={onAction} role="button" tabIndex={0} style={{
+      background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
+      padding: "12px 14px", borderLeft: `3px solid ${color}`,
+      display: "flex", alignItems: "center", gap: 10, cursor: "pointer",
+    }}>
+      <div style={{
+        width: 36, height: 36, borderRadius: 10,
+        background: iconBg, display: "flex", alignItems: "center", justifyContent: "center",
+        fontSize: 16, flexShrink: 0,
+      }}>{icon}</div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink, lineHeight: 1.4 }}>{title}</div>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>{subtitle}</div>
+      </div>
+      <ChevronRight size={16} color={color} />
+    </div>
+  );
+}
+
+/* ─── Compact program row for This Week / Next Week ─── */
+function ProgramRow({ p, kids, onTap }) {
+  const status = STATUS_MAP[p.status] || STATUS_MAP.Enrolled;
+  const assignedKids = (p.kidIds || []).map((id) => kids.find((k) => k.id === id)).filter(Boolean);
+  return (
+    <div onClick={onTap} role="button" tabIndex={0} style={{
+      background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
+      borderLeft: `3px solid ${status.color}`, padding: "12px 14px",
+      display: "flex", flexDirection: "column", gap: 4, cursor: "pointer",
+    }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 600, color: C.ink }}>{p.name}</div>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>{p.provider}</div>
+        </div>
+        <span style={{
+          background: status.bg, color: status.color, padding: "3px 10px", borderRadius: 6,
+          fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif", whiteSpace: "nowrap", flexShrink: 0,
+        }}>{p.status === "Enrolled" ? "\u2713 Enrolled" : p.status}</span>
+      </div>
+      {assignedKids.length > 0 && (
+        <div style={{ display: "flex", gap: 4, marginTop: 2 }}>
+          {assignedKids.map((k) => (
+            <span key={k.id} style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted,
+              background: "rgba(74,111,165,0.08)", padding: "2px 8px", borderRadius: 4,
+            }}>{k.name}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════
+   HOME TAB v3
+   ═══════════════════════════════════════════════════ */
 export default function HomeTab({
   enrolledPrograms,
   waitlistPrograms,
@@ -38,223 +162,356 @@ export default function HomeTab({
   planAccess,
   programs,
   onInviteCoParent,
+  profile,
+  circlesHook,
 }) {
-  const allPrograms = [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms];
-  const totalPrograms = allPrograms.length;
-  const { icon: seasonIcon, season } = getSeasonalGreeting();
-  const hasPrograms = totalPrograms > 0;
-
-  // Banners — split into kids upgrade (shows after kids row) and tips (shows later)
+  const allPrograms = useMemo(() => [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms], [enrolledPrograms, waitlistPrograms, exploringPrograms]);
   const isPaid = planAccess.isPaid;
   const [dismissedBanners, setDismissBanner] = useState(new Set());
   const dismissBanner = (id) => setDismissBanner((prev) => new Set(prev).add(id));
-
-  // Kids upgrade banner — only for free users with 2+ kids
   const showKidsBanner = !isPaid && kids.length > 1 && !dismissedBanners.has("upgrade-kids");
 
-  // Tip banner — contextual, shows later in the page
-  const tipBanner = !dismissedBanners.has("tip") ? (
-    hasPrograms && !dismissedBanners.has("tip-calendar") ? "tip-calendar" :
-    !hasPrograms && !dismissedBanners.has("tip-search") ? "tip-search" :
-    enrolledPrograms.length === 0 && exploringPrograms.length > 0 && !dismissedBanners.has("tip-wishlist") ? "tip-wishlist" :
-    null
-  ) : null;
+  /* ── Kid filter state ── */
+  const [activeKidId, setActiveKidId] = useState(null);
 
-  // Derive camp types from the user's actual enrolled programs
-  const enrolledCampTypes = useMemo(() => {
-    const types = new Set();
-    enrolledPrograms.forEach((p) => {
-      let ct = p.campType;
-      // If campType is missing, look it up from directory by name + provider
-      if (!ct) {
-        const match = directoryPrograms.find(
-          (dp) => dp.name === p.name && dp.provider === p.provider
-        );
-        if (match) ct = match.campType;
-      }
-      if (ct) types.add(ct.replace(/^day camp$/i, "Day Camp"));
+  /* ── Filter all program lists by selected kid ── */
+  const filterByKid = (list) => {
+    if (!activeKidId) return list;
+    return list.filter((p) => (p.kidIds || []).includes(activeKidId));
+  };
+  const fEnrolled = useMemo(() => filterByKid(enrolledPrograms), [activeKidId, enrolledPrograms]);
+  const fWaitlist = useMemo(() => filterByKid(waitlistPrograms), [activeKidId, waitlistPrograms]);
+  const fExploring = useMemo(() => filterByKid(exploringPrograms), [activeKidId, exploringPrograms]);
+  const fAll = useMemo(() => [...fEnrolled, ...fWaitlist, ...fExploring], [fEnrolled, fWaitlist, fExploring]);
+
+  /* ── Total spent (filtered) ── */
+  const filteredSpent = useMemo(() => fEnrolled.reduce((sum, p) => sum + (Number(p.cost) || 0), 0), [fEnrolled]);
+  const filteredPending = useMemo(() => [...fWaitlist, ...fExploring].reduce((sum, p) => sum + (Number(p.cost) || 0), 0), [fWaitlist, fExploring]);
+  const budgetGoal = Number(profile?.budgetGoal) || 0;
+
+  /* ── Needs Attention alerts (computed dynamically) ── */
+  const alerts = useMemo(() => {
+    const items = [];
+    // Waitlisted programs
+    fWaitlist.forEach((p) => {
+      items.push({
+        icon: "\u23F3",
+        text: `You're on the waitlist for ${p.name}`,
+        color: C.olive,
+        action: () => onOpenDetail(p),
+      });
     });
-    const arr = [...types].sort();
-    if (arr.length === 0) return season;
-    if (arr.length === 1) return arr[0].toLowerCase();
-    if (arr.length === 2) return `${arr[0]} and ${arr[1]}`.toLowerCase();
-    return (arr.slice(0, -1).join(", ") + ", and " + arr[arr.length - 1]).toLowerCase();
-  }, [enrolledPrograms, season]);
+    // Registration deadlines within 14 days
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const in14 = new Date(now);
+    in14.setDate(in14.getDate() + 14);
+    fAll.forEach((p) => {
+      if (p.registrationDeadline) {
+        const dl = new Date(p.registrationDeadline + "T00:00:00");
+        if (dl >= now && dl <= in14) {
+          items.push({
+            icon: "\uD83D\uDCC5",
+            text: `${p.name} registration closes ${fmtDate(dl)}`,
+            color: C.lilac,
+            action: () => onOpenDetail(p),
+          });
+        }
+      }
+    });
+    // Exploring count
+    if (fExploring.length > 0) {
+      items.push({
+        icon: "\uD83D\uDC40",
+        text: `${fExploring.length} program${fExploring.length > 1 ? "s" : ""} still exploring \u2014 decide before spots fill`,
+        color: C.blue,
+        action: () => onNavigateToTab("programs", "Exploring"),
+      });
+    }
+    return items;
+  }, [fWaitlist, fExploring, fAll, onOpenDetail, onNavigateToTab]);
+
+  /* ── This Week: programs active this week ── */
+  const thisWeekPrograms = useMemo(() => {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    // Start of this week (Monday)
+    const dayOfWeek = now.getDay();
+    const monday = new Date(now);
+    monday.setDate(now.getDate() - ((dayOfWeek + 6) % 7));
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+
+    return fAll.filter((p) => {
+      if (!p.startDate) return false;
+      const start = new Date(p.startDate + "T00:00:00");
+      const end = p.endDate ? new Date(p.endDate + "T00:00:00") : start;
+      // Program overlaps with this week
+      return start <= sunday && end >= monday;
+    });
+  }, [fAll]);
+
+  /* ── Starting Next Week ── */
+  const nextWeekPrograms = useMemo(() => {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const dayOfWeek = now.getDay();
+    const nextMonday = new Date(now);
+    nextMonday.setDate(now.getDate() - ((dayOfWeek + 6) % 7) + 7);
+    const nextSunday = new Date(nextMonday);
+    nextSunday.setDate(nextMonday.getDate() + 6);
+
+    return fAll.filter((p) => {
+      if (!p.startDate) return false;
+      const start = new Date(p.startDate + "T00:00:00");
+      // Starts within next week
+      return start >= nextMonday && start <= nextSunday;
+    });
+  }, [fAll]);
+
+  /* ── Circles data ── */
+  const circles = circlesHook?.circles || [];
+  const pendingRequests = circlesHook?.pendingRequests || [];
+  const activeFeed = circlesHook?.activeFeed || [];
+  const hasCircleActivity = pendingRequests.length > 0 || activeFeed.length > 0 || circles.length > 0;
 
   return (
     <div>
-      {/* Visually hidden h2 for heading hierarchy — SEO and accessibility */}
+      {/* Visually hidden h2 for heading hierarchy */}
       <h2 style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>Home Dashboard</h2>
-      {/* Deadline alerts — programs starting soon, at the very top */}
-      <DeadlineAlert
-        programs={allPrograms}
-        kids={kids}
-        daysThreshold={5}
-        onOpenDetail={onOpenDetail}
-      />
 
-      {/* Recent activity from co-parents */}
-      {activityLog && activityLog.length > 0 && (
-        <>
-          <div style={s.sectionHeader}>
-            <h3 style={s.sectionTitle}>Recent Activity</h3>
-          </div>
-          <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)", padding: "12px 16px", marginBottom: 16 }}>
-            {activityLog.slice(0, 5).map((log) => (
-              <div key={log.id} style={{
-                display: "flex", gap: 8, alignItems: "baseline",
-                padding: "6px 0", borderBottom: `1px solid ${C.border}`,
-                fontFamily: "'Barlow', sans-serif", fontSize: 13,
-              }}>
-                <span style={{ fontWeight: 600, color: C.ink }}>{log.user_name}</span>
-                <span style={{ color: C.muted }}>{log.action} {log.details?.programName || "a program"}</span>
-                <span style={{ color: C.muted, marginLeft: "auto", fontSize: 11, whiteSpace: "nowrap" }}>
-                  {(() => {
-                    const diff = Date.now() - new Date(log.created_at).getTime();
-                    const mins = Math.floor(diff / 60000);
-                    if (mins < 1) return "Just now";
-                    if (mins < 60) return `${mins}m ago`;
-                    const hrs = Math.floor(mins / 60);
-                    if (hrs < 24) return `${hrs}h ago`;
-                    return `${Math.floor(hrs / 24)}d ago`;
-                  })()}
-                </span>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
-      {/* Kids row + Add button inline */}
-      <div style={{ display: "flex", gap: 10, marginBottom: 16, overflowX: "auto", paddingBottom: 4 }}>
+      {/* ══ 1. Kid Pills ══ */}
+      <div style={{ display: "flex", gap: 10, marginBottom: 12, overflowX: "auto", paddingBottom: 4 }}>
         {kids.map((k) => {
-          const kidPrograms = (enrolledPrograms || []).filter(
-            (p) => (p.kidIds || []).includes(k.id)
-          );
+          const kidEnrolled = enrolledPrograms.filter((p) => (p.kidIds || []).includes(k.id)).length;
           return (
-            <div
+            <KidPill
               key={k.id}
-              onClick={() => onEditKid && onEditKid(k)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Edit ${k.name}`}
-              className="skeddo-card"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                background: k.color ? `${k.color}12` : "#ECFDF5",
-                border: `1.5px solid ${k.color ? `${k.color}30` : C.border}`,
-                borderRadius: 12,
-                padding: "8px 12px",
-                cursor: "pointer",
-                flexShrink: 0,
-              }}
-            >
-              <div style={{ ...s.kidAvatar, width: 32, height: 32, fontSize: 14, borderRadius: 10, background: k.color || s.kidAvatar.background }}>{k.name?.[0]?.toUpperCase() || "?"}</div>
-              <div>
-                <div style={{ ...s.kidName, fontSize: 13 }}>{k.name}</div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>{kidPrograms.length} enrolled</div>
-              </div>
-            </div>
+              kid={k}
+              enrolledCount={kidEnrolled}
+              active={activeKidId === k.id}
+              onClick={() => setActiveKidId(activeKidId === k.id ? null : k.id)}
+            />
           );
         })}
         {kids.length < planAccess.maxKids && (
-        <button
-          onClick={onOpenAddKid}
-          aria-label="Add a new kid"
-          className="skeddo-card"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            background: C.white,
-            border: `1.5px dashed ${C.border}`,
-            borderRadius: 12,
-            padding: "8px 14px",
-            cursor: "pointer",
-            flexShrink: 0,
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 13,
-            fontWeight: 700,
-            color: C.seaGreen,
-          }}
-        >
-          + Add kid
-        </button>
+          <button
+            onClick={onOpenAddKid}
+            aria-label="Add a new kid"
+            style={{
+              display: "flex", alignItems: "center", gap: 4, padding: "8px 16px", borderRadius: 24,
+              background: "transparent", border: "1.5px dashed rgba(27,36,50,0.15)",
+              color: C.seaGreen, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+              cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+            }}
+          >+ Add kid</button>
         )}
       </div>
 
-      {/* Kids upgrade banner — right below kids row */}
+      {/* Kids upgrade banner */}
       {showKidsBanner && (
         <PromoBanner type="upgrade-kids" onDismiss={() => dismissBanner("upgrade-kids")} />
       )}
 
-      {/* Program limit banner — free users at or over limit */}
-      {(programs || allPrograms).length >= planAccess.maxPrograms && !planAccess.isPaid && !dismissedBanners.has("upgrade-programs") && (
+      {/* Program limit banner */}
+      {(programs || allPrograms).length >= planAccess.maxPrograms && !isPaid && !dismissedBanners.has("upgrade-programs") && (
         <PromoBanner type="upgrade-programs" onDismiss={() => dismissBanner("upgrade-programs")} />
       )}
 
-      {/* Stats grid */}
-      <div style={s.statsGrid} className="stats-grid">
-        <div
-          style={{ ...s.statBox, borderLeft: `3px solid ${C.seaGreen}`, cursor: "pointer" }}
-          onClick={() => onNavigateToTab("programs", "Enrolled")}
-          className="skeddo-card"
-          role="button"
-          tabIndex={0}
-          aria-label={`${enrolledPrograms.length} enrolled programs. Tap to view.`}
-        >
-          <div style={s.statNum}>{enrolledPrograms.length}</div>
-          <div style={s.statLabel}>ENROLLED</div>
+      {/* ══ 2. Compact Stat Strip ══ */}
+      <div style={{
+        display: "flex", margin: "0 0 16px", padding: "10px 0",
+        background: C.white, borderRadius: 12,
+        boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
+        overflow: "hidden",
+      }}>
+        {[
+          { value: fEnrolled.length, label: "Enrolled", color: C.seaGreen, tap: () => onNavigateToTab("programs", "Enrolled") },
+          { value: fWaitlist.length, label: "Waitlist", color: C.olive, tap: () => onNavigateToTab("programs", "Waitlist") },
+          { value: fExploring.length, label: "Exploring", color: C.blue, tap: () => onNavigateToTab("programs", "Exploring") },
+          { value: fmt$(filteredSpent), label: "Spent", color: C.lilac, tap: () => onNavigateToTab("budget") },
+        ].map((stat, i, arr) => (
+          <div
+            key={i}
+            onClick={stat.tap}
+            role="button"
+            tabIndex={0}
+            aria-label={`${typeof stat.value === "number" ? stat.value : stat.value} ${stat.label}. Tap to view.`}
+            style={{
+              flex: 1, textAlign: "center", cursor: "pointer",
+              borderRight: i < arr.length - 1 ? "1px solid rgba(27,36,50,0.06)" : "none",
+              padding: "2px 0",
+            }}
+          >
+            <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, lineHeight: 1.1 }}>{stat.value}</div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: stat.color, letterSpacing: "0.05em", textTransform: "uppercase", marginTop: 2 }}>{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* ══ 3. Needs Attention ══ */}
+      {alerts.length > 0 && (
+        <div style={{ marginBottom: 20 }}>
+          <SectionHeader label="Needs attention" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {alerts.slice(0, 5).map((a, i) => (
+              <AlertCard key={i} icon={a.icon} text={a.text} color={a.color} onAction={a.action} />
+            ))}
+          </div>
         </div>
-        <div
-          style={{ ...s.statBox, borderLeft: `3px solid ${C.olive}`, cursor: "pointer" }}
-          onClick={() => onNavigateToTab("programs", "Waitlist")}
-          className="skeddo-card"
-          role="button"
-          tabIndex={0}
-          aria-label={`${waitlistPrograms.length} waitlisted programs. Tap to view.`}
-        >
-          <div style={s.statNum}>{waitlistPrograms.length}</div>
-          <div style={s.statLabel}>WAITLIST</div>
+      )}
+
+      {/* ══ 4. From Your Circles ══ */}
+      {hasCircleActivity && (
+        <div style={{ marginBottom: 20 }}>
+          <SectionHeader label="From your circles" action="All circles" onAction={() => onNavigateToTab("circles")} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {/* Pending join requests */}
+            {pendingRequests.length > 0 && (
+              <CircleCard
+                icon={"\uD83D\uDC65"}
+                iconBg="rgba(200,127,160,0.12)"
+                title={<><span style={{ fontWeight: 600 }}>{pendingRequests.length} pending request{pendingRequests.length > 1 ? "s" : ""}</span></>}
+                subtitle={pendingRequests[0]?.circleName || "Your circle"}
+                color="#C87FA0"
+                onAction={() => onNavigateToTab("circles")}
+              />
+            )}
+            {/* Recent feed items */}
+            {activeFeed.slice(0, 2).map((item, i) => (
+              <CircleCard
+                key={i}
+                icon={"\uD83D\uDD25"}
+                iconBg="rgba(244,162,97,0.12)"
+                title={<span style={{ fontWeight: 500 }}>{item.userName || "Someone"} shared <span style={{ fontWeight: 600 }}>{item.programName || "an activity"}</span></span>}
+                subtitle={item.circleName || "Your circle"}
+                color={C.lilac}
+                onAction={() => onNavigateToTab("circles")}
+              />
+            ))}
+            {/* If circles exist but no pending or feed, show a subtle prompt */}
+            {pendingRequests.length === 0 && activeFeed.length === 0 && circles.length > 0 && (
+              <CircleCard
+                icon={"\u2B50"}
+                iconBg="rgba(45,159,111,0.12)"
+                title={<span>Share programs with your {circles.length} circle{circles.length > 1 ? "s" : ""}</span>}
+                subtitle="Keep families in the loop"
+                color={C.seaGreen}
+                onAction={() => onNavigateToTab("circles")}
+              />
+            )}
+          </div>
         </div>
-        <div
-          style={{ ...s.statBox, borderLeft: `3px solid ${C.blue}`, cursor: "pointer" }}
-          onClick={() => onNavigateToTab("programs", "Exploring")}
-          className="skeddo-card"
-          role="button"
-          tabIndex={0}
-          aria-label={`${exploringPrograms.length} programs being explored. Tap to view.`}
-        >
-          <div style={s.statNum}>{exploringPrograms.length}</div>
-          <div style={s.statLabel}>EXPLORING</div>
-        </div>
-        <div
-          style={{ ...s.statBox, borderLeft: `3px solid ${C.lilac}`, cursor: "pointer" }}
-          onClick={() => onNavigateToTab("budget")}
-          className="skeddo-card"
-          role="button"
-          tabIndex={0}
-          aria-label={`${fmt$(totalCostEnrolled)} committed. Tap to view budget.`}
-        >
-          <div style={s.statNum}>{fmt$(totalCostEnrolled)}</div>
-          <div style={s.statLabel}>SPENT</div>
+      )}
+
+      {/* ══ 5. This Week ══ */}
+      <div style={{ marginBottom: 20 }}>
+        <SectionHeader label="This week" action="Full schedule" onAction={() => onNavigateToTab("schedule")} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {thisWeekPrograms.length > 0 ? thisWeekPrograms.slice(0, 5).map((p) => (
+            <ProgramRow key={p.id} p={p} kids={kids} onTap={() => onOpenDetail(p)} />
+          )) : (
+            <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)", padding: "20px 16px", textAlign: "center", fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
+              No programs this week
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Deadline alerts moved to top — see above */}
+      {/* ══ 6. Starting Next Week ══ */}
+      <div style={{ marginBottom: 20 }}>
+        <SectionHeader label="Starting next week" />
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {nextWeekPrograms.length > 0 ? nextWeekPrograms.slice(0, 5).map((p) => (
+            <ProgramRow key={p.id} p={p} kids={kids} onTap={() => onOpenDetail(p)} />
+          )) : (
+            <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)", padding: "20px 16px", textAlign: "center", fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
+              Nothing new starting next week
+            </div>
+          )}
+        </div>
+      </div>
 
+      {/* ══ 7. Budget Snapshot ══ */}
+      <div style={{ marginBottom: 20 }}>
+        <SectionHeader label="Budget snapshot" action="Budget tab" onAction={() => onNavigateToTab("budget")} />
+        <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)", padding: "16px 18px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 10 }}>
+            <div>
+              <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, color: C.ink }}>{fmt$(filteredSpent)}</span>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginLeft: 4 }}>committed</span>
+            </div>
+            {budgetGoal > 0 && (
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>of {fmt$(budgetGoal)}</span>
+            )}
+          </div>
+          {/* Progress bar */}
+          {budgetGoal > 0 && (
+            <div style={{ background: "rgba(27,36,50,0.06)", borderRadius: 6, height: 10, overflow: "hidden", marginBottom: 14 }}>
+              <div style={{
+                height: "100%", borderRadius: 6,
+                background: `${C.lilac}30`,
+                width: `${Math.min(((filteredSpent + filteredPending) / budgetGoal) * 100, 100)}%`,
+                position: "relative",
+              }}>
+                <div style={{
+                  position: "absolute", left: 0, top: 0, bottom: 0,
+                  width: (filteredSpent + filteredPending) > 0 ? `${(filteredSpent / (filteredSpent + filteredPending)) * 100}%` : "0%",
+                  background: C.seaGreen, borderRadius: 6,
+                }} />
+              </div>
+            </div>
+          )}
+          {/* Legend */}
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            {[
+              { label: "Enrolled", amount: filteredSpent, dot: C.seaGreen },
+              { label: "Pending", amount: filteredPending, dot: C.lilac },
+              ...(budgetGoal > 0 ? [{ label: "Remaining", amount: Math.max(budgetGoal - filteredSpent - filteredPending, 0), dot: "rgba(27,36,50,0.12)" }] : []),
+            ].map((b, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ width: 8, height: 8, borderRadius: "50%", background: b.dot, flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontWeight: 600 }}>{b.label}</div>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink, fontWeight: 600 }}>{fmt$(b.amount)}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-      {/* Contextual tip/upgrade banner */}
-      {tipBanner && (
-        <PromoBanner
-          type={tipBanner}
-          onDismiss={() => { dismissBanner(tipBanner); dismissBanner("tip"); }}
-        />
-      )}
+      {/* ══ 8. Quick Actions (2x2) ══ */}
+      <div style={{ marginBottom: 20 }}>
+        <SectionHeader label="Quick actions" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+          {[
+            { icon: "\u2795", label: "Add a program", color: C.seaGreen, action: onOpenAddProgram },
+            { icon: "\uD83D\uDC76", label: "Add a kid", color: C.blue, action: onOpenAddKid },
+            { icon: "\uD83D\uDC65", label: "Add a co-parent", color: C.muted, action: onInviteCoParent },
+            { icon: "\u2B55", label: "Create a circle", color: C.muted, action: () => onNavigateToTab("circles") },
+          ].map((a, i) => (
+            <button key={i} onClick={a.action} style={{
+              background: C.white, border: "none", borderRadius: 12,
+              boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
+              padding: "14px 14px",
+              display: "flex", alignItems: "center", gap: 10,
+              cursor: "pointer", transition: "all 0.2s",
+              fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600,
+              color: C.ink, textAlign: "left",
+            }}>
+              <span style={{
+                width: 36, height: 36, borderRadius: 10, background: `${a.color}12`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 18, flexShrink: 0,
+              }}>{a.icon}</span>
+              {a.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-      {/* Install banner — hide when actually running as installed PWA */}
+      {/* ══ 9. Install Banner ══ */}
       {showInstallBanner && !window.matchMedia("(display-mode: standalone)").matches && (
         <div style={{
           background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
@@ -318,96 +575,9 @@ export default function HomeTab({
         </div>
       )}
 
-      {/* Enrolled Programs — only show active (not past) */}
-      {(() => {
-        const now = new Date();
-        now.setHours(0, 0, 0, 0);
-        const activeEnrolled = enrolledPrograms.filter((p) =>
-          !p.endDate || new Date(p.endDate + "T00:00:00") >= now
-        );
-        return (
-          <>
-            <div style={s.sectionHeader}>
-              <h3 style={s.sectionTitle}>Enrolled Programs</h3>
-              <button
-                style={s.seeAll}
-                onClick={() => onNavigateToTab("programs", "Enrolled")}
-                aria-label="See all enrolled programs"
-              >
-                See all &rarr;
-              </button>
-            </div>
-            {activeEnrolled.length === 0 && (
-              <EmptyState icon={"\u2600\uFE0F"} message="No upcoming enrolled programs. Browse the Discover tab!" />
-            )}
-            <div className="home-programs-grid">
-              {activeEnrolled.slice(0, 4).map((p) => (
-                <ProgramCard
-                  key={p.id}
-                  p={p}
-                  kids={kids}
-                  onTap={() => onOpenDetail(p)}
-                  onStatusTap={() => onCycleStatus(p.id)}
-                />
-              ))}
-            </div>
-          </>
-        );
-      })()}
-
-      {/* Waitlist */}
-      {waitlistPrograms.length > 0 && (
-        <>
-          <div style={{ ...s.sectionHeader, marginTop: 24 }}>
-            <h3 style={s.sectionTitle}>On the Waitlist</h3>
-            <button
-              style={s.seeAll}
-              onClick={() => onNavigateToTab("programs", "Waitlist")}
-              aria-label="See all waitlisted programs"
-            >
-              See all &rarr;
-            </button>
-          </div>
-          {waitlistPrograms.slice(0, 3).map((p) => (
-            <ProgramCard
-              key={p.id}
-              p={p}
-              kids={kids}
-              onTap={() => onOpenDetail(p)}
-              onStatusTap={() => onCycleStatus(p.id)}
-            />
-          ))}
-        </>
-      )}
-
-      {/* Exploring */}
-      {exploringPrograms.length > 0 && (
-        <>
-          <div style={{ ...s.sectionHeader, marginTop: 24 }}>
-            <h3 style={s.sectionTitle}>Exploring</h3>
-            <button
-              style={s.seeAll}
-              onClick={() => onNavigateToTab("programs", "Exploring")}
-              aria-label="See all programs being explored"
-            >
-              See all &rarr;
-            </button>
-          </div>
-          {exploringPrograms.slice(0, 2).map((p) => (
-            <ProgramCard
-              key={p.id}
-              p={p}
-              kids={kids}
-              onTap={() => onOpenDetail(p)}
-              onStatusTap={() => onCycleStatus(p.id)}
-            />
-          ))}
-        </>
-      )}
-
-      {/* Feedback & Bug Report */}
+      {/* ══ Feedback & Bug Report ══ */}
       <div style={{
-        marginTop: 28, borderRadius: 14, padding: "16px 18px",
+        marginTop: 8, borderRadius: 14, padding: "16px 18px",
         background: `linear-gradient(135deg, ${C.blue} 0%, #1E4A6E 100%)`,
         display: "flex", flexDirection: "column", gap: 10,
       }}>

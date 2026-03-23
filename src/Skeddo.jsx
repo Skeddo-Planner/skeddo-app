@@ -614,6 +614,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             planAccess={planAccess}
             programs={programs}
             onInviteCoParent={handleInviteCoParent}
+            profile={profile}
+            circlesHook={circlesHook}
           />
         )}
 
