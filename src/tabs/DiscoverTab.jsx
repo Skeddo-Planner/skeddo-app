@@ -932,9 +932,6 @@ export default function DiscoverTab({
         )}
       </div>
 
-      {/* Kid filter bar for age eligibility */}
-      <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
-
       {/* Show borderline toggle — only when a kid with birth info is selected */}
       {selectedKid && selectedKid.birthMonth && selectedKid.birthYear && (
         <div
