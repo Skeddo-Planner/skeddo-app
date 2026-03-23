@@ -797,13 +797,39 @@ export default function DiscoverTab({
   );
 
   // Get the selected kid (for eligibility filtering)
+  const isAllKids = kidFilter === "all-kids";
   const selectedKid = useMemo(
-    () => kidFilter ? (kids || []).find((k) => k.id === kidFilter) : null,
-    [kidFilter, kids]
+    () => (kidFilter && !isAllKids) ? (kids || []).find((k) => k.id === kidFilter) : null,
+    [kidFilter, isAllKids, kids]
+  );
+
+  // Kids with birth info (for "All Kids Together" mode)
+  const kidsWithBirth = useMemo(
+    () => (kids || []).filter((k) => k.birthMonth && k.birthYear),
+    [kids]
   );
 
   // Compute eligibility for each program when a kid with birth info is selected
   const eligibilityMap = useMemo(() => {
+    if (isAllKids && kidsWithBirth.length > 0) {
+      // "All Kids Together" — program must be eligible for ALL kids
+      const map = new Map();
+      sortedFiltered.forEach((p) => {
+        const startDate = p.startDate || new Date().toISOString().split("T")[0];
+        let worstTier = "eligible";
+        const labels = [];
+        for (const kid of kidsWithBirth) {
+          const result = computeEligibility(kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate);
+          if (result.eligibilityTier === "ineligible") { worstTier = "ineligible"; break; }
+          if (result.eligibilityTier === "borderline") {
+            worstTier = "borderline";
+            labels.push(getEligibilityLabel(kid.name, kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate));
+          }
+        }
+        map.set(p.id, { eligibilityTier: p.ageMin == null && p.ageMax == null ? null : worstTier, label: labels.join("; ") || (worstTier === "eligible" ? "All kids eligible" : "") });
+      });
+      return map;
+    }
     if (!selectedKid || !selectedKid.birthMonth || !selectedKid.birthYear) return null;
     const map = new Map();
     sortedFiltered.forEach((p) => {
@@ -819,7 +845,7 @@ export default function DiscoverTab({
       map.set(p.id, { ...result, label });
     });
     return map;
-  }, [selectedKid, sortedFiltered]);
+  }, [isAllKids, kidsWithBirth, selectedKid, sortedFiltered]);
 
   // Apply eligibility filtering — hide ineligible, optionally hide borderline
   const eligibilityFiltered = useMemo(() => {
@@ -931,6 +957,51 @@ export default function DiscoverTab({
           </>
         )}
       </div>
+
+      {/* Kid filter buttons — auto-filter by age eligibility */}
+      {kids && kids.length > 0 && (
+        <div style={{ display: "flex", gap: 6, padding: "8px 0 4px", overflowX: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          <button
+            onClick={() => onKidFilter(null)}
+            style={{
+              padding: "6px 14px", borderRadius: 20, border: "none",
+              background: !kidFilter ? C.ink : "rgba(27,36,50,0.06)",
+              color: !kidFilter ? "#FFF" : C.ink,
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: !kidFilter ? 700 : 500,
+              cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+            }}
+          >All Programs</button>
+          {kids.length > 1 && (
+            <button
+              onClick={() => onKidFilter("all-kids")}
+              style={{
+                padding: "6px 14px", borderRadius: 20, border: "none",
+                background: kidFilter === "all-kids" ? C.seaGreen : "rgba(45,159,111,0.08)",
+                color: kidFilter === "all-kids" ? "#FFF" : C.seaGreen,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: kidFilter === "all-kids" ? 700 : 500,
+                cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+              }}
+            >All Kids Together</button>
+          )}
+          {kids.map((kid) => {
+            const isActive = kidFilter === kid.id;
+            const kidColor = kid.color || C.seaGreen;
+            return (
+              <button
+                key={kid.id}
+                onClick={() => onKidFilter(kid.id)}
+                style={{
+                  padding: "6px 14px", borderRadius: 20, border: "none",
+                  background: isActive ? kidColor : kidColor + "14",
+                  color: isActive ? "#FFF" : kidColor,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: isActive ? 700 : 500,
+                  cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+                }}
+              >{kid.name}</button>
+            );
+          })}
+        </div>
+      )}
 
       {/* Show borderline toggle — only when a kid with birth info is selected */}
       {selectedKid && selectedKid.birthMonth && selectedKid.birthYear && (
@@ -1065,7 +1136,7 @@ export default function DiscoverTab({
       {totalActiveFilters > 0 && (
         <div style={{ padding: "6px 0 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontSize: 13, color: C.muted, fontFamily: "'Barlow', sans-serif" }}>
-            {totalActiveFilters} filter{totalActiveFilters !== 1 ? "s" : ""} \u00B7 {eligibilityFiltered.length} results
+            {totalActiveFilters} filter{totalActiveFilters !== 1 ? "s" : ""} · {eligibilityFiltered.length} results
           </span>
           <button onClick={clearAllFilters} style={{ background: "none", border: "none", color: C.danger, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
             Clear all
@@ -1232,7 +1303,7 @@ export default function DiscoverTab({
                 display: "flex", alignItems: "center", gap: 10,
               }}
             >
-              {sortBy === opt.key && <span>\u2713</span>}
+              {sortBy === opt.key && <span>{"✓"}</span>}
               {opt.label}
             </button>
           ))}
@@ -1328,7 +1399,7 @@ export default function DiscoverTab({
                     aria-expanded={isExpanded}
                     aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}
                   >
-                    <span style={{ fontSize: 10, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>\u25B6</span>
+                    <span style={{ fontSize: 10, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"▶"}</span>
                     <span style={{ flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
                       {cityObj.city}
                       {someInCitySelected && <span style={{ color: C.muted, fontWeight: 400 }}> ({selectedInCity}/{cityObj.neighbourhoods.length})</span>}
@@ -1363,7 +1434,7 @@ export default function DiscoverTab({
                               display: "flex", alignItems: "center", justifyContent: "center",
                               fontSize: 11, color: C.white, flexShrink: 0, transition: "all 0.12s",
                             }} onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>
-                              {isSelected ? "\u2713" : ""}
+                              {isSelected ? "✓" : ""}
                             </span>
                             <span onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>{hood}</span>
                           </label>
@@ -1504,7 +1575,7 @@ export default function DiscoverTab({
                         display: "flex", alignItems: "center", justifyContent: "center",
                         fontSize: 11, color: C.white, flexShrink: 0,
                       }}>
-                        {isSelected ? "\u2713" : ""}
+                        {isSelected ? "✓" : ""}
                       </span>
                       {prov}
                     </div>
