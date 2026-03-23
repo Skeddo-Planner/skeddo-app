@@ -1078,7 +1078,7 @@ export default function DiscoverTab({
         {kids && kids.length > 0 && (
           <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
         )}
-        <FilterChip label="Category" count={selectedCats.size} active={selectedCats.size > 0} onClick={() => setActiveDrawer("category")} />
+        <FilterChip label="Category" count={selectedCats.size + selectedActivityTypes.size} active={selectedCats.size > 0 || selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("category")} />
         <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
@@ -1266,12 +1266,85 @@ export default function DiscoverTab({
 
       {/* Category Drawer */}
       <FilterDrawer open={activeDrawer === "category"} onClose={() => setActiveDrawer(null)} title="Category"
-        onClear={() => { setSelectedCats(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-        <FilterOptions
-          options={CATEGORIES.map((cat) => ({ id: cat, label: cat, icon: CAT_EMOJI[cat] || "" }))}
-          selected={selectedCats}
-          onToggle={(id) => toggleInSet(setSelectedCats, id)}
-        />
+        onClear={() => { setSelectedCats(new Set()); setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        {(() => {
+          // Build category → activity type map from actual data
+          const catTypeMap = {};
+          allDirectoryPrograms.forEach((p) => {
+            if (!p.category || !p.activityType || p.activityType === "General") return;
+            if (!catTypeMap[p.category]) catTypeMap[p.category] = {};
+            catTypeMap[p.category][p.activityType] = (catTypeMap[p.category][p.activityType] || 0) + 1;
+          });
+          return CATEGORIES.map((cat) => {
+            const isCatSelected = selectedCats.has(cat);
+            const subTypes = catTypeMap[cat] ? Object.entries(catTypeMap[cat]).sort((a, b) => b[1] - a[1]) : [];
+            const activeSubCount = subTypes.filter(([t]) => selectedActivityTypes.has(t)).length;
+            return (
+              <div key={cat} style={{ borderBottom: `1px solid ${C.border}` }}>
+                <div
+                  onClick={() => toggleInSet(setSelectedCats, cat)}
+                  style={{
+                    padding: "12px 14px", display: "flex", alignItems: "center", gap: 10,
+                    cursor: "pointer", background: isCatSelected ? C.ink + "08" : "transparent",
+                  }}
+                >
+                  <span style={{
+                    width: 20, height: 20, borderRadius: 4,
+                    border: `2px solid ${isCatSelected ? C.seaGreen : C.border}`,
+                    background: isCatSelected ? C.seaGreen : "transparent",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 12, color: "#fff", flexShrink: 0,
+                  }}>
+                    {isCatSelected ? "✓" : ""}
+                  </span>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: isCatSelected ? 600 : 400, color: C.ink, flex: 1 }}>
+                    {CAT_EMOJI[cat] || ""} {cat}
+                  </span>
+                  {activeSubCount > 0 && (
+                    <span style={{ background: C.seaGreen, color: "#fff", fontSize: 10, fontWeight: 700, width: 18, height: 18, borderRadius: 9, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {activeSubCount}
+                    </span>
+                  )}
+                  {subTypes.length > 0 && (
+                    <span style={{ fontSize: 12, color: C.muted, transition: "transform 0.15s", transform: isCatSelected ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"▶"}</span>
+                  )}
+                </div>
+                {isCatSelected && subTypes.length > 0 && (
+                  <div style={{ padding: "0 0 8px 44px" }}>
+                    {subTypes.map(([type, count]) => {
+                      const isTypeSelected = selectedActivityTypes.has(type);
+                      return (
+                        <div
+                          key={type}
+                          onClick={() => toggleInSet(setSelectedActivityTypes, type)}
+                          style={{
+                            padding: "8px 12px", display: "flex", alignItems: "center", gap: 8,
+                            cursor: "pointer", borderRadius: 8,
+                            background: isTypeSelected ? C.seaGreen + "10" : "transparent",
+                          }}
+                        >
+                          <span style={{
+                            width: 16, height: 16, borderRadius: 3,
+                            border: `2px solid ${isTypeSelected ? C.seaGreen : C.border}`,
+                            background: isTypeSelected ? C.seaGreen : "transparent",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: 10, color: "#fff", flexShrink: 0,
+                          }}>
+                            {isTypeSelected ? "✓" : ""}
+                          </span>
+                          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: isTypeSelected ? C.ink : C.muted, fontWeight: isTypeSelected ? 600 : 400, flex: 1 }}>
+                            {type}
+                          </span>
+                          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>{count}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          });
+        })()}
       </FilterDrawer>
 
       {/* Age Drawer */}
