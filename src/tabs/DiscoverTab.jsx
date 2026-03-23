@@ -897,7 +897,7 @@ export default function DiscoverTab({
                 Browse <strong style={{ color: C.seaGreen }}>{allDirectoryPrograms.length.toLocaleString()}</strong> programs
               </span>
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
-                {"\u21BB"} Updated {dataVersion}
+                Updated {dataVersion}
               </span>
             </div>
             <div style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
@@ -1007,7 +1007,7 @@ export default function DiscoverTab({
             animation: isChecking ? "skeddo-spin 1s linear infinite" : "none",
           }}
         >
-          \u21BB
+          ⟳
         </span>
         <span
           style={{
@@ -1020,8 +1020,8 @@ export default function DiscoverTab({
           {isChecking
             ? "Checking for updates..."
             : isStale
-              ? `Data updated: ${dataVersion} \u00B7 Tap to check for updates`
-              : `Data updated: ${dataVersion} \u00B7 Checked ${lastCheckedLabel}`}
+              ? `Data updated: ${dataVersion} · Tap to check for updates`
+              : `Data updated: ${dataVersion} · Checked ${lastCheckedLabel}`}
         </span>
       </div>
       <style>{`
