@@ -506,7 +506,7 @@ export default function HomeTab({
             },
             {
               label: "Add a co-parent", bgColor: C.olive, action: onInviteCoParent,
-              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="7" r="3.5"/><path d="M1 21v-2a3.5 3.5 0 0 1 3.5-3.5h7A3.5 3.5 0 0 1 15 19v2"/><circle cx="17" cy="7" r="3.5"/><path d="M23 21v-2a3.5 3.5 0 0 0-3.5-3.5H17"/></svg>,
+              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="7" cy="7" r="3"/><path d="M1 20v-1.5A3.5 3.5 0 0 1 4.5 15h5A3.5 3.5 0 0 1 13 18.5V20"/><circle cx="17" cy="7" r="3"/><path d="M11 20v-1.5a3.5 3.5 0 0 1 3.5-3.5h5a3.5 3.5 0 0 1 3.5 3.5V20"/></svg>,
             },
             {
               label: "Create a circle", bgColor: C.lilac, action: () => onNavigateToTab("circles"),
