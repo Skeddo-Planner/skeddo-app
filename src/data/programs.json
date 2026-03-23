@@ -76815,7 +76815,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0139",
@@ -77867,7 +77869,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0170",
@@ -79989,7 +79993,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0235",
@@ -80090,7 +80096,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0238",
@@ -80158,7 +80166,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0241",
@@ -80261,7 +80271,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0246",
@@ -80297,7 +80309,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0247",
@@ -80332,7 +80346,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0248",
@@ -80506,7 +80522,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0253",
@@ -80610,7 +80628,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Single Day"
+    "dayLength": "Single Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0256",
@@ -84687,7 +84707,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0372",
@@ -86565,7 +86587,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0423",
@@ -89050,7 +89074,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0490",
@@ -91193,7 +91219,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0553",
@@ -93615,7 +93643,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0623",
@@ -95436,7 +95466,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0680",
@@ -96496,7 +96528,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0716",
@@ -97800,7 +97834,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0756",
@@ -98510,7 +98546,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0777",
@@ -98621,7 +98659,9 @@
     ],
     "source": "ACTIVE Network API",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "ACT-0781",
@@ -106605,7 +106645,13 @@
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
-    "description": "Architecture camp at Hillcrest Community Centre. Registration opens April 8, 2026 at 7 PM."
+    "description": "Architecture camp at Hillcrest Community Centre. Registration opens April 8, 2026 at 7 PM.",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-hillcrest-w2",
@@ -106626,7 +106672,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604147",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-hillcrest-w3",
@@ -106647,7 +106699,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604149",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-hillcrest-w4",
@@ -106668,7 +106726,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604152",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-hillcrest-w5",
@@ -106689,7 +106753,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604155",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-killarney-w1",
@@ -106711,7 +106781,13 @@
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
-    "description": "Registration opens April 8, 2026 at 7 PM."
+    "description": "Registration opens April 8, 2026 at 7 PM.",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-troutlake-w2",
@@ -106732,7 +106808,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606200",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-troutlake-w3",
@@ -106753,7 +106835,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606203",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-troutlake-w4",
@@ -106774,7 +106862,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606207",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-troutlake-w5",
@@ -106795,7 +106889,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606210",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-roundhouse-w2",
@@ -106816,7 +106916,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/607500",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-marpole-w3",
@@ -106837,7 +106943,13 @@
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/608300",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-richmond-w2",
@@ -106859,7 +106971,13 @@
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
-    "description": "At Richmond Cultural Centre. Registration link coming soon."
+    "description": "At Richmond Cultural Centre. Registration link coming soon.",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-richmond-w3",
@@ -106880,7 +106998,13 @@
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-richmond-w4",
@@ -106901,7 +107025,13 @@
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   },
   {
     "id": "pa-richmond-w5",
@@ -106922,6 +107052,12 @@
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "campType": "Summer Camp",
+    "scheduleType": "Full Day",
+    "indoorOutdoor": "Indoor",
+    "tags": "architecture, design, building, art, STEAM, creative, hands-on",
+    "confirmed2026": true,
+    "priceVerified": true
   }
 ]
