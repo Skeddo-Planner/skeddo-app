@@ -1,7 +1,7 @@
 import { C } from "../constants/brand";
 
 export const s = {
-  app: { fontFamily: "'Barlow', sans-serif", background: C.cream, minHeight: "100dvh", paddingBottom: 72, maxWidth: 960, margin: "0 auto", position: "relative" },
+  app: { fontFamily: "'Barlow', sans-serif", background: C.cream, minHeight: "100dvh", paddingBottom: 72, maxWidth: "100%", margin: "0 auto", position: "relative" },
   header: { background: C.ink, padding: "20px 20px 16px", borderBottom: `3px solid ${C.seaGreen}` },
   headerRow: { display: "flex", justifyContent: "space-between", alignItems: "center" },
   logoMark: { fontFamily: "'Poppins', sans-serif", fontSize: 26, color: "#FFFFFF", letterSpacing: -0.5, lineHeight: 1 },

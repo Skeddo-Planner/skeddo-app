@@ -26,10 +26,10 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
   .skeddo-main { padding: 20px 24px 0 !important; }
 }
 
-/* Desktop: 1024px+ — widest layout */
+/* Desktop: 1024px+ — full width layout */
 @media (min-width: 1024px) {
-  .skeddo-app-container { max-width: 960px !important; }
-  .skeddo-main { padding: 24px 32px 0 !important; }
+  .skeddo-app-container { max-width: 100% !important; }
+  .skeddo-main { padding: 24px 48px 0 !important; max-width: 1400px; margin: 0 auto; }
 
   /* Hide bottom TabBar on desktop — navigation is in the header */
   .skeddo-tabbar {
@@ -82,6 +82,13 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
     margin-bottom: 0 !important;
   }
 }
+/* 3-column on wide desktop */
+@media (min-width: 1200px) {
+  .discover-results {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 16px;
+  }
+}
 
 /* ─── Home tab: 4-column stats on tablet+ ─── */
 @media (min-width: 768px) {
@@ -99,6 +106,13 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
   }
   .home-programs-grid > * {
     margin-bottom: 0 !important;
+  }
+}
+/* 3-column on wide desktop */
+@media (min-width: 1200px) {
+  .home-programs-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 16px;
   }
 }
 
