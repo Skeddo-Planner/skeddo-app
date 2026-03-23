@@ -2,20 +2,30 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
-import PromoBanner from "../components/PromoBanner";
 import { trackEvent } from "../utils/analytics";
 
-/* ─── Soft color variants ─── */
+/* ─── Design tokens ─── */
+const SHADOW = "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)";
 const SOFT = {
   seaGreen: "#ECFDF5",
   blue: "#EFF6FF",
   lilac: "#FEF3E2",
-  gold: "#FEF3E2",
+  peach: "#FFF5F0",
 };
 
 const CIRCLE_EMOJIS = ["👨‍👩‍👧‍👦", "⚽", "🎨", "🎵", "📚", "🏕️", "🎭", "🧪", "🏊", "🚴"];
 
-/* SVG share icons matching tab bar stroke style */
+/* ─── Emoji background color map (soft tints) ─── */
+function emojiBackground(emoji) {
+  const map = {
+    "👨‍👩‍👧‍👦": "#EFF6FF", "⚽": "#ECFDF5", "🎨": "#FEF3E2", "🎵": "#F5F0FF",
+    "📚": "#FFF5F0", "🏕️": "#ECFDF5", "🎭": "#FEF3E2", "🧪": "#EFF6FF",
+    "🏊": "#E8F8FF", "🚴": "#F0FFF4",
+  };
+  return map[emoji] || SOFT.blue;
+}
+
+/* ─── SVG share icons matching tab bar stroke style ─── */
 function ShareIcon({ type, color, size = 18 }) {
   const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
   switch (type) {
@@ -60,32 +70,7 @@ function ShareIcons({ shareText, shareUrl, onCopy, subject }) {
   );
 }
 
-/* ─── Sub-header with back arrow ─── */
-function SubHeader({ title, onBack, right, noBorder, titleBold }) {
-  return (
-    <div style={{
-      padding: "14px 0", display: "flex", alignItems: "center", gap: 12,
-      ...(noBorder ? { marginBottom: 4 } : { borderBottom: `1px solid ${C.border}`, marginBottom: 16 }),
-    }}>
-      <button onClick={onBack} style={{
-        background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0,
-      }} aria-label="Go back">{"\u2190"}</button>
-      <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, flex: 1, fontWeight: titleBold ? 700 : 400 }}>{title}</span>
-      {right}
-    </div>
-  );
-}
-
-function Tag({ children, color, bg }) {
-  return (
-    <span style={{
-      fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
-      color, background: bg, padding: "2px 8px", borderRadius: 20,
-      textTransform: "uppercase", letterSpacing: 0.3, whiteSpace: "nowrap",
-    }}>{children}</span>
-  );
-}
-
+/* ─── Helpers ─── */
 function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
@@ -96,7 +81,6 @@ function timeAgo(dateStr) {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
-/* Format date range for feed cards, e.g. "Jul 6-11" or "Jul 6 - Aug 2" */
 function formatDateRange(startDate, endDate) {
   if (!startDate) return null;
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -113,7 +97,7 @@ function formatDateRange(startDate, endDate) {
   } catch { return null; }
 }
 
-/* Heart SVG icon for bookmark/favorite */
+/* ─── Heart SVG for bookmarks ─── */
 function HeartIcon({ filled, size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24"
@@ -126,6 +110,21 @@ function HeartIcon({ filled, size = 18 }) {
   );
 }
 
+/* ─── Co-parent SVG (two equal people, same as HomeTab) ─── */
+function CoParentIcon({ color = C.blue, size = 22 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="7" cy="7" r="3" />
+      <path d="M1 20v-1.5A3.5 3.5 0 0 1 4.5 15h5A3.5 3.5 0 0 1 13 18.5V20" />
+      <circle cx="17" cy="7" r="3" />
+      <path d="M11 20v-1.5a3.5 3.5 0 0 1 3.5-3.5h5a3.5 3.5 0 0 1 3.5 3.5V20" />
+    </svg>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════
+   CirclesTab — v3 redesign
+   ════════════════════════════════════════════════════════════ */
 export default function CirclesTab({
   programs, kids, profile, showToast, userId, circlesHook, planAccess, onInviteCoParent,
 }) {
@@ -137,7 +136,7 @@ export default function CirclesTab({
     ensureReferralCode, getMembers, refreshPending, pendingCount,
   } = circlesHook;
 
-  const [screen, setScreen] = useState("home"); // home | feed | share | invite | create | join
+  const [screen, setScreen] = useState("home"); // home | feed | share | create | join
   const [activeCircle, setActiveCircle] = useState(null);
   const [createName, setCreateName] = useState("");
   const [createEmoji, setCreateEmoji] = useState("👨‍👩‍👧‍👦");
@@ -146,7 +145,6 @@ export default function CirclesTab({
   const [circleMembers, setCircleMembers] = useState([]);
   const [showInviteDrawer, setShowInviteDrawer] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
-  const [showSharingBanner, setShowSharingBanner] = useState(true);
   const [membersExpanded, setMembersExpanded] = useState(false);
 
   // Stable refs to avoid useEffect dependency loops
@@ -156,15 +154,12 @@ export default function CirclesTab({
   refreshPendingRef.current = refreshPending;
 
   useEffect(() => {
-    if (screen === "invite" && !referralCode) {
-      ensureReferralCodeRef.current().catch(() => {});
-    }
     if (screen === "home") {
       refreshPendingRef.current();
     }
-  }, [screen, referralCode]);
+  }, [screen]);
 
-  // Build shareable activities from ALL tracked programs (enrolled, waitlisted, and exploring)
+  // Build shareable activities from ALL tracked programs
   const shareableActivities = (programs || []).filter((p) => ["Enrolled", "Waitlist", "Exploring"].includes(p.status)).map((p) => {
     const kidNames = (p.kidIds || [])
       .map((id) => (kids || []).find((k) => k.id === id)?.name)
@@ -185,7 +180,13 @@ export default function CirclesTab({
     };
   });
 
-  // Duplicate detection for feed (memoized)
+  // Already-shared activity IDs for the current circle
+  const alreadySharedIds = useMemo(() => {
+    if (!activeCircle) return new Set();
+    return new Set(activeFeed.filter((item) => item.shared_by === userId).map((item) => item.program_id || item.activity_name));
+  }, [activeFeed, activeCircle, userId]);
+
+  // Duplicate detection for feed
   const duplicateCounts = useMemo(() => {
     const counts = {};
     activeFeed.forEach((item) => {
@@ -194,6 +195,12 @@ export default function CirclesTab({
     });
     return counts;
   }, [activeFeed]);
+
+  // Count new activities this week across all circles
+  const newThisWeek = useMemo(() => {
+    const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    return circles.reduce((sum, c) => sum + (c.newCount || 0), 0);
+  }, [circles]);
 
   const openCircleFeed = async (circle) => {
     setActiveCircle(circle);
@@ -247,67 +254,163 @@ export default function CirclesTab({
     setActionLoading(false);
   };
 
-  // ─── SCREEN: Home ───
+  /* ═══════════════════════════════════════════════
+     SCREEN 1: Circles Home
+     ═══════════════════════════════════════════════ */
   if (screen === "home") {
     return (
       <div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-          <div>
-            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
-              Circles
-              {circles.length > 0 && (
-                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.olive, fontStyle: "italic", marginLeft: 8 }}>
-                  {circles.length} circle{circles.length !== 1 ? "s" : ""}
-                </span>
-              )}
-            </h2>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "2px 0 0" }}>
-              Share schedules with your parent groups
-            </p>
-          </div>
-          <div style={{ display: "flex", gap: 6 }}>
-            <button
-              onClick={() => setScreen("join")}
-              style={{ ...s.secondaryBtn, fontSize: 12, padding: "8px 12px" }}
-            >
-              Join
-            </button>
-            <button
-              onClick={() => setScreen("create")}
-              style={{ ...s.addButton, fontSize: 12, padding: "8px 12px" }}
-            >
-              + Create
-            </button>
-          </div>
+        {/* Header row */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
+          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, fontWeight: 700, color: C.ink, margin: 0, lineHeight: 1.2 }}>
+            Circles
+          </h2>
+          <button
+            onClick={() => setScreen("create")}
+            style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+              background: C.seaGreen, color: "#fff", border: "none", borderRadius: 10,
+              padding: "8px 16px", cursor: "pointer", minHeight: 38,
+            }}
+          >
+            + New
+          </button>
         </div>
 
+        {/* Subtitle */}
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "0 0 20px", lineHeight: 1.4 }}>
+          {circles.length} group{circles.length !== 1 ? "s" : ""}
+          {newThisWeek > 0 && <> &middot; <span style={{ color: C.olive, fontWeight: 600 }}>{newThisWeek} new activit{newThisWeek === 1 ? "y" : "ies"} this week</span></>}
+        </p>
 
-        {/* Pending requests */}
+        {/* Circle cards */}
+        {circles.length === 0 && !loading ? (
+          <EmptyState
+            icon={"\uD83D\uDC65"}
+            message="No circles yet. Create one to start sharing schedules with other parents."
+          />
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {circles.map((c) => {
+              // Find pending requests for this circle
+              const circlePending = pendingRequests.filter((r) => r.circleId === c.id || r.circle_id === c.id);
+              // Last activity in feed (approximate from circle metadata)
+              return (
+                <div
+                  key={c.id}
+                  onClick={() => openCircleFeed(c)}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCircleFeed(c); } }}
+                  role="button"
+                  tabIndex={0}
+                  style={{
+                    background: C.white, borderRadius: 12, padding: "14px 16px",
+                    boxShadow: SHADOW, cursor: "pointer",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    {/* Emoji icon */}
+                    <div style={{
+                      width: 44, height: 44, borderRadius: 12, background: emojiBackground(c.emoji),
+                      display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0,
+                    }}>
+                      {c.emoji}
+                    </div>
+
+                    {/* Name + member count */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: C.ink }}>
+                        {c.name}
+                      </div>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                        {c.memberCount} member{c.memberCount !== 1 ? "s" : ""}
+                      </div>
+                    </div>
+
+                    {/* New activities badge */}
+                    {c.newCount > 0 && (
+                      <span style={{
+                        fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                        color: C.olive, background: `${C.olive}14`, padding: "3px 10px",
+                        borderRadius: 20, whiteSpace: "nowrap",
+                      }}>
+                        {c.newCount} new
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Pending requests inline bar */}
+                  {circlePending.length > 0 && (
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      style={{
+                        marginTop: 10, background: SOFT.peach, borderRadius: 8, padding: "8px 12px",
+                        display: "flex", justifyContent: "space-between", alignItems: "center",
+                      }}
+                    >
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.olive }}>
+                        {circlePending.length} pending request{circlePending.length !== 1 ? "s" : ""}
+                      </span>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); openCircleFeed(c); }}
+                        style={{
+                          fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+                          color: C.olive, background: "none", border: "none", cursor: "pointer", padding: 0,
+                        }}
+                      >
+                        Review &rarr;
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Last activity preview */}
+                  {c.lastActivity && (
+                    <div style={{
+                      marginTop: 8, fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted,
+                      overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                    }}>
+                      {c.lastActivity}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Pending requests (global, for requests across circles) */}
         {pendingRequests.length > 0 && (
-          <div style={{ background: SOFT.lilac, borderRadius: 12, padding: "12px 16px", marginBottom: 16, border: `1px solid ${C.lilac}22` }}>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.lilac, marginBottom: 8, textTransform: "uppercase" }}>
+          <div style={{ marginTop: 16, background: SOFT.peach, borderRadius: 12, padding: "12px 16px", boxShadow: SHADOW }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.olive, marginBottom: 8, textTransform: "uppercase" }}>
               {pendingRequests.length} pending request{pendingRequests.length !== 1 ? "s" : ""}
             </div>
             {pendingRequests.map((req) => (
-              <div key={req.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 0", borderBottom: `1px solid ${C.lilac}18` }}>
+              <div key={req.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 0", borderBottom: `1px solid ${C.olive}18` }}>
                 <div>
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
                     {req.displayName || "Someone"}
                   </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
                     wants to join {req.circleName || "your circle"}
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 6 }}>
                   <button
                     onClick={() => handleMemberRequest(req.id, "approve").then(() => showToast("Approved!")).catch((e) => showToast(e.message || "Failed"))}
-                    style={{ background: C.seaGreen, color: C.cream, border: "none", borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Barlow', sans-serif" }}
+                    style={{
+                      background: C.seaGreen, color: "#fff", border: "none", borderRadius: 8,
+                      padding: "6px 12px", fontSize: 12, fontWeight: 700, cursor: "pointer",
+                      fontFamily: "'Barlow', sans-serif", minHeight: 32,
+                    }}
                   >
                     Accept
                   </button>
                   <button
                     onClick={() => handleMemberRequest(req.id, "decline").then(() => showToast("Declined")).catch((e) => showToast(e.message || "Failed"))}
-                    style={{ background: "none", border: `1px solid ${C.border}`, borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 600, cursor: "pointer", color: C.muted, fontFamily: "'Barlow', sans-serif" }}
+                    style={{
+                      background: "none", border: `1px solid ${C.border}`, borderRadius: 8,
+                      padding: "6px 12px", fontSize: 12, fontWeight: 600, cursor: "pointer",
+                      color: C.muted, fontFamily: "'Barlow', sans-serif", minHeight: 32,
+                    }}
                   >
                     Decline
                   </button>
@@ -317,81 +420,31 @@ export default function CirclesTab({
           </div>
         )}
 
-        {/* Circle list */}
-        {circles.length === 0 && !loading ? (
-          <EmptyState
-            icon={"\uD83D\uDC65"}
-            message="No circles yet. Create one to start sharing schedules with other parents."
-          />
-        ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {circles.map((c) => (
-              <div
-                key={c.id}
-                onClick={() => openCircleFeed(c)}
-                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCircleFeed(c); } }}
-                role="button"
-                tabIndex={0}
-                className="skeddo-card"
-                style={{
-                  background: C.white, borderRadius: 14, padding: "14px 16px",
-                  border: `1px solid ${C.border}`, cursor: "pointer",
-                  display: "flex", alignItems: "center", gap: 12,
-                }}
-              >
-                <div style={{
-                  width: 44, height: 44, borderRadius: 12, background: SOFT.seaGreen,
-                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0,
-                }}>
-                  {c.emoji}
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 700, color: C.ink }}>
-                    {c.name}
-                  </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                    {c.memberCount} member{c.memberCount !== 1 ? "s" : ""}
-                  </div>
-                </div>
-                {c.newCount > 0 && (
-                  <Tag color={C.seaGreen} bg={SOFT.seaGreen}>{c.newCount} new</Tag>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Co-parent invite banner */}
+        {/* Co-parent invite card (dashed border) */}
         {onInviteCoParent && kids.length > 0 && (
           <div
             onClick={onInviteCoParent}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onInviteCoParent(); } }}
             role="button"
             tabIndex={0}
-            className="skeddo-card"
             style={{
-              marginTop: 20, borderRadius: 14, padding: "14px 16px",
-              background: C.white, border: `1.5px solid ${C.blue}30`,
-              cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+              marginTop: 20, borderRadius: 12, padding: "16px",
+              background: C.white, border: `1.5px dashed ${C.blue}50`,
+              cursor: "pointer", display: "flex", alignItems: "center", gap: 14,
             }}
           >
             <div style={{
-              width: 42, height: 42, borderRadius: 12, background: `${C.blue}14`,
+              width: 44, height: 44, borderRadius: 12, background: `${C.blue}14`,
               display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
             }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="8.5" cy="7" r="4" />
-                <line x1="20" y1="8" x2="20" y2="14" />
-                <line x1="23" y1="11" x2="17" y2="11" />
-              </svg>
+              <CoParentIcon color={C.blue} size={22} />
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
-                Invite a co-parent
+                Invite someone to manage {kids[0]?.name ? `${kids[0].name}'s` : "your kid's"} schedule
               </div>
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                Let a partner or caregiver help manage schedules
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 2 }}>
+                Share access with another parent or caregiver
               </div>
             </div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -400,9 +453,36 @@ export default function CirclesTab({
           </div>
         )}
 
+        {/* Join circle section */}
+        <div style={{ marginTop: 24 }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8 }}>
+            Join a Circle
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            <input
+              style={{ ...s.input, flex: 1, fontSize: 14 }}
+              value={joinCode}
+              onChange={(e) => setJoinCode(e.target.value)}
+              placeholder="Enter invite code"
+            />
+            <button
+              onClick={handleJoin}
+              disabled={!joinCode.trim() || actionLoading}
+              style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                background: C.blue, color: "#fff", border: "none", borderRadius: 8,
+                padding: "10px 18px", cursor: "pointer", minHeight: 44,
+                opacity: !joinCode.trim() || actionLoading ? 0.5 : 1,
+              }}
+            >
+              {actionLoading ? "..." : "Join"}
+            </button>
+          </div>
+        </div>
+
         {/* Bookmarked activities */}
         {bookmarkedActivities.length > 0 && (
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: 24 }}>
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 10 }}>
               {"\u2764\uFE0F"} Saved Activities ({bookmarkedActivities.length})
             </div>
@@ -410,24 +490,23 @@ export default function CirclesTab({
               {bookmarkedActivities.map((a) => (
                 <div key={a.id} style={{
                   background: C.white, borderRadius: 12, padding: "12px 14px",
-                  border: `1px solid ${C.border}`,
-                  display: "flex", alignItems: "flex-start", gap: 10,
+                  boxShadow: SHADOW, display: "flex", alignItems: "flex-start", gap: 10,
                 }}>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
                       {a.activity_name}
                     </div>
                     {a.provider_name && (
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 2 }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.seaGreen, marginTop: 2 }}>
                         {a.provider_name}
                       </div>
                     )}
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 2 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 2 }}>
                       {[a.child_name, a.schedule_info, a.age_group].filter(Boolean).join(" · ")}
                     </div>
                     {a.shared_by_name && (
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.olive, marginTop: 4 }}>
-                        Shared by {a.shared_by_name} · {timeAgo(a.shared_at)}
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 4 }}>
+                        Shared by {a.shared_by_name} &middot; {timeAgo(a.shared_at)}
                       </div>
                     )}
                   </div>
@@ -436,8 +515,8 @@ export default function CirclesTab({
                       <button
                         onClick={() => window.open(a.registration_url, "_blank")}
                         style={{
-                          background: C.seaGreen, color: C.cream, border: "none", borderRadius: 8,
-                          padding: "6px 10px", fontSize: 11, fontWeight: 700, cursor: "pointer",
+                          background: C.seaGreen, color: "#fff", border: "none", borderRadius: 8,
+                          padding: "6px 12px", fontSize: 12, fontWeight: 700, cursor: "pointer",
                           fontFamily: "'Barlow', sans-serif",
                         }}
                       >
@@ -448,11 +527,11 @@ export default function CirclesTab({
                       onClick={() => toggleBookmark(a.id)}
                       style={{
                         background: "none", border: `1px solid ${C.border}`, borderRadius: 8,
-                        padding: "6px 8px", fontSize: 14, cursor: "pointer", lineHeight: 1,
+                        padding: "6px 8px", cursor: "pointer", lineHeight: 1,
                       }}
                       aria-label="Remove bookmark"
                     >
-                      {"\u2764\uFE0F"}
+                      <HeartIcon filled size={16} />
                     </button>
                   </div>
                 </div>
@@ -464,11 +543,16 @@ export default function CirclesTab({
     );
   }
 
-  // ─── SCREEN: Create Circle ───
+  /* ═══════════════════════════════════════════════
+     SCREEN: Create Circle
+     ═══════════════════════════════════════════════ */
   if (screen === "create") {
     return (
       <div>
-        <SubHeader title="Create a Circle" onBack={() => setScreen("home")} />
+        <div style={{ padding: "14px 0", display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
+          <button onClick={() => setScreen("home")} style={{ background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0 }} aria-label="Go back">{"\u2190"}</button>
+          <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 20, fontWeight: 700, color: C.ink, flex: 1 }}>Create a Circle</span>
+        </div>
         <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
           Create a private group to share your kids' activity schedules with other parents.
         </p>
@@ -512,11 +596,16 @@ export default function CirclesTab({
     );
   }
 
-  // ─── SCREEN: Join Circle ───
+  /* ═══════════════════════════════════════════════
+     SCREEN: Join Circle (standalone)
+     ═══════════════════════════════════════════════ */
   if (screen === "join") {
     return (
       <div>
-        <SubHeader title="Join a Circle" onBack={() => setScreen("home")} />
+        <div style={{ padding: "14px 0", display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
+          <button onClick={() => setScreen("home")} style={{ background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0 }} aria-label="Go back">{"\u2190"}</button>
+          <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 20, fontWeight: 700, color: C.ink, flex: 1 }}>Join a Circle</span>
+        </div>
         <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
           Enter the invite code from another parent to request to join their circle.
         </p>
@@ -530,7 +619,7 @@ export default function CirclesTab({
           placeholder="Paste invite code here"
           autoFocus
         />
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 4, marginBottom: 16 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 4, marginBottom: 16 }}>
           The circle owner will need to approve your request.
         </p>
         <button
@@ -544,29 +633,54 @@ export default function CirclesTab({
     );
   }
 
-  // ─── SCREEN: Circle Feed ───
+  /* ═══════════════════════════════════════════════
+     SCREEN 2: Circle Feed
+     ═══════════════════════════════════════════════ */
   if (screen === "feed") {
     return (
       <div>
-        <SubHeader
-          title={activeCircle?.name || "Circle"}
-          onBack={() => { setScreen("home"); setActiveCircle(null); }}
-          noBorder
-          titleBold
-          right={
-            <button
-              onClick={() => setScreen("share")}
-              style={{ ...s.addButton, fontSize: 11, padding: "6px 12px" }}
-            >
-              + Share
-            </button>
-          }
-        />
+        {/* Sticky header */}
+        <div style={{
+          position: "sticky", top: 0, background: C.cream, zIndex: 10,
+          padding: "12px 0 10px", display: "flex", alignItems: "center", gap: 10,
+        }}>
+          <button
+            onClick={() => { setScreen("home"); setActiveCircle(null); }}
+            style={{ background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0, flexShrink: 0 }}
+            aria-label="Go back"
+          >
+            {"\u2190"}
+          </button>
+          <div style={{
+            width: 32, height: 32, borderRadius: 8, background: emojiBackground(activeCircle?.emoji),
+            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, flexShrink: 0,
+          }}>
+            {activeCircle?.emoji}
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink, lineHeight: 1.2 }}>
+              {activeCircle?.name || "Circle"}
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+              {circleMembers.length} member{circleMembers.length !== 1 ? "s" : ""}
+            </div>
+          </div>
+          <button
+            onClick={() => setScreen("share")}
+            style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+              background: C.seaGreen, color: "#fff", border: "none", borderRadius: 10,
+              padding: "7px 14px", cursor: "pointer", flexShrink: 0, minHeight: 36,
+            }}
+          >
+            + Share
+          </button>
+        </div>
 
         {/* Collapsible members list */}
         <div style={{
-          background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
-          padding: "12px 14px", marginBottom: 12,
+          background: C.white, borderRadius: 12, boxShadow: SHADOW,
+          padding: "12px 14px", marginBottom: 14,
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <button
@@ -626,7 +740,7 @@ export default function CirclesTab({
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <span style={{
-                        fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                        fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                         color: m.role === "owner" ? C.seaGreen : C.muted,
                         textTransform: "uppercase",
                       }}>
@@ -682,7 +796,7 @@ export default function CirclesTab({
           )}
         </div>
 
-        {/* Feed */}
+        {/* Feed cards */}
         {activeFeed.length === 0 ? (
           <EmptyState icon={"\uD83D\uDCE8"} message="No shared activities yet. Tap '+ Share' to share your first activity with this circle." />
         ) : (
@@ -695,122 +809,129 @@ export default function CirclesTab({
 
             return (
               <div key={item.id} style={{
-                background: C.white, borderRadius: 14,
-                border: `1px solid ${C.border}`, marginBottom: 10,
-                display: "flex", overflow: "hidden",
+                background: C.white, borderRadius: 12, boxShadow: SHADOW,
+                marginBottom: 12, overflow: "hidden",
               }}>
-                {/* Date column */}
-                {dateLabel && (
+                {/* Attribution row */}
+                <div style={{ padding: "12px 14px 0", display: "flex", alignItems: "center", gap: 8 }}>
                   <div style={{
-                    width: 60, minWidth: 60, background: SOFT.seaGreen,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    padding: "10px 4px", flexShrink: 0,
+                    width: 26, height: 26, borderRadius: 8,
+                    background: `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
+                    color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, flexShrink: 0,
                   }}>
-                    <span style={{
-                      fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
-                      color: C.seaGreen, textAlign: "center", lineHeight: 1.3,
-                    }}>
-                      {dateLabel}
+                    {(item.shared_by_name || "?")[0].toUpperCase()}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                      <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
+                      {item.child_name && <> shared <strong style={{ color: C.ink }}>{item.child_name}</strong>'s activity</>}
                     </span>
                   </div>
-                )}
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, flexShrink: 0 }}>
+                    {timeAgo(item.shared_at)}
+                  </span>
+                </div>
 
-                {/* Activity content */}
-                <div style={{ flex: 1, padding: "12px 14px", minWidth: 0 }}>
-                  {/* Header: shared by + time + heart */}
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
-                        Shared by <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
-                        <span style={{ marginLeft: 6, fontSize: 11 }}>{timeAgo(item.shared_at)}</span>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => toggleBookmark(item.id, item)}
-                      style={{
-                        background: "none", border: "none", cursor: "pointer",
-                        padding: 4, flexShrink: 0, lineHeight: 1,
-                      }}
-                      aria-label={isBookmarked ? "Remove from favorites" : "Add to favorites"}
-                    >
-                      <HeartIcon filled={isBookmarked} size={20} />
-                    </button>
-                  </div>
-
-                  {/* Activity name + provider */}
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
+                {/* Activity card (cloud background) */}
+                <div style={{
+                  margin: "10px 14px 0", background: C.cream, borderRadius: 10, padding: "12px 14px",
+                }}>
+                  <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 17, fontWeight: 600, color: C.ink, lineHeight: 1.3 }}>
                     {item.activity_name}
                   </div>
                   {item.provider_name && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 2 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.seaGreen, fontWeight: 600, marginTop: 2 }}>
                       {item.provider_name}
                     </div>
                   )}
 
-                  {/* Child name */}
-                  {item.child_name && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.blue, marginBottom: 2 }}>
-                      {item.child_name}
-                    </div>
-                  )}
-
-                  {/* Location */}
-                  {item.location && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, display: "flex", alignItems: "center", gap: 4, marginBottom: 2 }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                      {item.location}
-                    </div>
-                  )}
-
-                  {/* Schedule + age */}
-                  {(item.schedule_info || item.age_group) && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2 }}>
-                      {[item.schedule_info, item.age_group].filter(Boolean).join(" \u00B7 ")}
-                    </div>
-                  )}
+                  {/* Details with icons */}
+                  <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 4 }}>
+                    {(item.schedule_info || dateLabel) && (
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="3" y="4" width="18" height="18" rx="2" />
+                          <line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        {[item.schedule_info, dateLabel].filter(Boolean).join(" · ")}
+                      </div>
+                    )}
+                    {item.age_group && (
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+                        </svg>
+                        {item.age_group}
+                      </div>
+                    )}
+                    {item.location && (
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
+                        </svg>
+                        {item.location}
+                      </div>
+                    )}
+                  </div>
 
                   {/* Duplicate indicator */}
                   {dupCount > 1 && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.seaGreen, fontWeight: 600, marginTop: 4 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.seaGreen, fontWeight: 600, marginTop: 6 }}>
                       {dupCount} parents shared this program
                     </div>
                   )}
+                </div>
 
-                  {/* Actions row */}
-                  <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-                    {item.registration_url && (
-                      <a
-                        href={item.registration_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          background: SOFT.seaGreen, border: `1px solid ${C.seaGreen}22`,
-                          borderRadius: 8, padding: "5px 10px", fontSize: 11,
-                          fontFamily: "'Barlow', sans-serif", fontWeight: 600,
-                          color: C.seaGreen, textDecoration: "none", cursor: "pointer",
-                        }}
-                      >
-                        Register {"\u2192"}
-                      </a>
-                    )}
-                    <button
-                      onClick={() => {
-                        flagActivity(item.id, "Reported as outdated", activeCircle?.id).then(() => showToast("Flagged!")).catch((e) => showToast(e.message || "Already flagged"));
-                      }}
+                {/* Action buttons */}
+                <div style={{ padding: "10px 14px 12px", display: "flex", alignItems: "center", gap: 8 }}>
+                  <button
+                    onClick={() => toggleBookmark(item.id, item)}
+                    style={{
+                      display: "flex", alignItems: "center", gap: 5,
+                      background: isBookmarked ? `${C.olive}14` : "transparent",
+                      border: `1px solid ${isBookmarked ? C.olive + "30" : C.border}`,
+                      borderRadius: 8, padding: "6px 12px", cursor: "pointer",
+                      fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                      color: isBookmarked ? C.olive : C.muted,
+                    }}
+                    aria-label={isBookmarked ? "Remove from favorites" : "Add to favorites"}
+                  >
+                    <HeartIcon filled={isBookmarked} size={14} />
+                    {isBookmarked ? "Saved" : "Bookmark"}
+                  </button>
+
+                  {item.registration_url && (
+                    <a
+                      href={item.registration_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
-                        background: isFlagged ? "#FEE2E2" : "none",
-                        border: `1px solid ${isFlagged ? "#FECACA" : C.border}`,
-                        borderRadius: 8, padding: "5px 10px", fontSize: 11,
-                        fontFamily: "'Barlow', sans-serif", fontWeight: 600,
-                        color: isFlagged ? "#991B1B" : C.muted, cursor: "pointer", marginLeft: "auto",
+                        display: "flex", alignItems: "center", gap: 4,
+                        background: C.seaGreen, border: "none",
+                        borderRadius: 8, padding: "6px 14px", fontSize: 13,
+                        fontFamily: "'Barlow', sans-serif", fontWeight: 700,
+                        color: "#fff", textDecoration: "none", cursor: "pointer",
                       }}
                     >
-                      {isFlagged ? "Flagged" : "Flag"}
-                    </button>
-                  </div>
+                      Register &rarr;
+                    </a>
+                  )}
+
+                  <button
+                    onClick={() => {
+                      flagActivity(item.id, "Reported as outdated", activeCircle?.id).then(() => showToast("Flagged!")).catch((e) => showToast(e.message || "Already flagged"));
+                    }}
+                    style={{
+                      background: isFlagged ? "#FEE2E2" : "none",
+                      border: `1px solid ${isFlagged ? "#FECACA" : C.border}`,
+                      borderRadius: 8, padding: "6px 10px", fontSize: 12,
+                      fontFamily: "'Barlow', sans-serif", fontWeight: 600,
+                      color: isFlagged ? "#991B1B" : C.muted, cursor: "pointer", marginLeft: "auto",
+                    }}
+                  >
+                    {isFlagged ? "Flagged" : "Flag"}
+                  </button>
                 </div>
               </div>
             );
@@ -839,7 +960,7 @@ export default function CirclesTab({
                 <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink }}>
                   Invite to {activeCircle.name}
                 </div>
-                <button onClick={() => setShowInviteDrawer(false)} style={{ background: "none", border: "none", fontSize: 20, color: C.muted, cursor: "pointer", padding: 4 }}>✕</button>
+                <button onClick={() => setShowInviteDrawer(false)} style={{ background: "none", border: "none", fontSize: 20, color: C.muted, cursor: "pointer", padding: 4 }}>{"\u2715"}</button>
               </div>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 12 }}>
                 Share this invite code with another parent:
@@ -864,93 +985,161 @@ export default function CirclesTab({
     );
   }
 
-  // ─── SCREEN: Share Activity ───
+  /* ═══════════════════════════════════════════════
+     SCREEN 3: Share Sheet (bottom sheet overlay)
+     ═══════════════════════════════════════════════ */
   if (screen === "share") {
     return (
-      <div>
-        <SubHeader title="Share to Circle" onBack={() => setScreen("feed")} />
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
-          Choose which activities to share with <strong style={{ color: C.ink }}>{activeCircle?.name}</strong>.
-          Circle members will see the child's first name and activity details.
-        </p>
+      <>
+        {/* Dark backdrop */}
+        <div
+          onClick={() => setScreen("feed")}
+          style={{
+            position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+            background: "rgba(27,36,50,0.45)", zIndex: 200,
+          }}
+        />
 
-        {shareableActivities.length === 0 ? (
-          <EmptyState icon={"\uD83D\uDCCB"} message="No tracked programs to share. Add programs from the Discover tab first." />
-        ) : (
-          <>
-            {shareableActivities.map((a) => {
-              const isSelected = selectedActivities.has(a.id);
-              return (
-                <div
-                  key={a.id}
-                  onClick={() => {
-                    setSelectedActivities((prev) => {
-                      const n = new Set(prev);
-                      if (n.has(a.id)) n.delete(a.id); else n.add(a.id);
-                      return n;
-                    });
-                  }}
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedActivities((prev) => { const n = new Set(prev); if (n.has(a.id)) n.delete(a.id); else n.add(a.id); return n; }); } }}
-                  role="button"
-                  tabIndex={0}
-                  style={{
-                    background: isSelected ? SOFT.seaGreen : C.white,
-                    borderRadius: 12, padding: "12px 14px", marginBottom: 8,
-                    border: `1px solid ${isSelected ? C.seaGreen : C.border}`,
-                    cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
-                  }}
-                >
-                  <div style={{
-                    width: 22, height: 22, borderRadius: 6,
-                    border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
-                    background: isSelected ? C.seaGreen : "transparent",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 14, color: C.cream, flexShrink: 0,
-                  }}>
-                    {isSelected ? "\u2713" : ""}
-                  </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
-                        {a.activityName}
-                      </span>
-                      {a.status && a.status !== "Enrolled" && (
-                        <Tag
-                          color={a.status === "Waitlist" ? C.olive : C.blue}
-                          bg={a.status === "Waitlist" ? "rgba(231,111,81,0.10)" : "rgba(74,111,165,0.10)"}
-                        >
-                          {a.status === "Waitlist" ? "Waitlist" : "Exploring"}
-                        </Tag>
+        {/* Bottom sheet */}
+        <div style={{
+          position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 201,
+          background: C.white, borderRadius: "20px 20px 0 0",
+          padding: "0 0 env(safe-area-inset-bottom, 16px)",
+          maxWidth: 480, margin: "0 auto", maxHeight: "85vh",
+          boxShadow: "0 -4px 24px rgba(27,36,50,0.18)",
+          animation: "slideUp 0.25s ease-out",
+          display: "flex", flexDirection: "column",
+        }}>
+          <style>{`@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }`}</style>
+
+          {/* Pill handle */}
+          <div style={{ display: "flex", justifyContent: "center", padding: "10px 0 6px" }}>
+            <div style={{ width: 36, height: 4, borderRadius: 2, background: C.border }} />
+          </div>
+
+          {/* Header */}
+          <div style={{ padding: "4px 20px 12px" }}>
+            <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, fontWeight: 700, color: C.ink, margin: "0 0 4px" }}>
+              Share to Circle
+            </h3>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: 0 }}>
+              Sharing to <strong style={{ color: C.ink }}>{activeCircle?.name}</strong>
+            </p>
+          </div>
+
+          {/* Activity list (scrollable) */}
+          <div style={{ flex: 1, overflowY: "auto", padding: "0 20px", WebkitOverflowScrolling: "touch" }}>
+            {shareableActivities.length === 0 ? (
+              <EmptyState icon={"\uD83D\uDCCB"} message="No tracked programs to share. Add programs from the Discover tab first." />
+            ) : (
+              shareableActivities.map((a) => {
+                const isSelected = selectedActivities.has(a.id);
+                const isAlreadyShared = alreadySharedIds.has(a.id) || alreadySharedIds.has(a.activityName);
+
+                return (
+                  <div
+                    key={a.id}
+                    onClick={() => {
+                      if (isAlreadyShared) return;
+                      setSelectedActivities((prev) => {
+                        const n = new Set(prev);
+                        if (n.has(a.id)) n.delete(a.id); else n.add(a.id);
+                        return n;
+                      });
+                    }}
+                    onKeyDown={(e) => {
+                      if (isAlreadyShared) return;
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setSelectedActivities((prev) => { const n = new Set(prev); if (n.has(a.id)) n.delete(a.id); else n.add(a.id); return n; });
+                      }
+                    }}
+                    role="button"
+                    tabIndex={isAlreadyShared ? -1 : 0}
+                    style={{
+                      background: isAlreadyShared ? `${C.border}40` : isSelected ? SOFT.seaGreen : C.white,
+                      borderRadius: 12, padding: "12px 14px", marginBottom: 8,
+                      border: `2px solid ${isAlreadyShared ? C.border : isSelected ? C.seaGreen : "transparent"}`,
+                      boxShadow: isSelected ? `0 0 0 2px ${C.seaGreen}30` : SHADOW,
+                      cursor: isAlreadyShared ? "default" : "pointer",
+                      display: "flex", alignItems: "center", gap: 12,
+                      opacity: isAlreadyShared ? 0.6 : 1,
+                    }}
+                  >
+                    {/* Selection ring / checkbox */}
+                    <div style={{
+                      width: 22, height: 22, borderRadius: "50%",
+                      border: `2px solid ${isAlreadyShared ? C.border : isSelected ? C.seaGreen : C.border}`,
+                      background: isSelected && !isAlreadyShared ? C.seaGreen : "transparent",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: 13, color: "#fff", flexShrink: 0,
+                      transition: "all 0.15s",
+                    }}>
+                      {isSelected && !isAlreadyShared ? "\u2713" : ""}
+                    </div>
+
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: isAlreadyShared ? C.muted : C.ink }}>
+                          {a.activityName}
+                        </span>
+                        {isAlreadyShared && (
+                          <span style={{
+                            fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                            color: C.muted, background: `${C.border}60`, padding: "1px 8px",
+                            borderRadius: 20, textTransform: "uppercase",
+                          }}>
+                            Shared
+                          </span>
+                        )}
+                        {!isAlreadyShared && a.status && a.status !== "Enrolled" && (
+                          <span style={{
+                            fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+                            color: a.status === "Waitlist" ? C.olive : C.blue,
+                            background: a.status === "Waitlist" ? "rgba(231,111,81,0.10)" : "rgba(74,111,165,0.10)",
+                            padding: "2px 8px", borderRadius: 20, textTransform: "uppercase",
+                            letterSpacing: 0.3, whiteSpace: "nowrap",
+                          }}>
+                            {a.status === "Waitlist" ? "Waitlist" : "Exploring"}
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                        {a.providerName}{a.childName ? ` · ${a.childName}` : ""}
+                      </div>
+                      {a.scheduleInfo && (
+                        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                          {a.scheduleInfo}
+                        </div>
                       )}
                     </div>
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                      {a.providerName}{a.childName ? ` · ${a.childName}` : ""}
-                    </div>
-                    {a.scheduleInfo && (
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                        {a.scheduleInfo}
-                      </div>
-                    )}
                   </div>
-                </div>
-              );
-            })}
-            <button
-              style={{
-                ...s.primaryBtn, width: "100%", marginTop: 12,
-                opacity: selectedActivities.size === 0 || actionLoading ? 0.5 : 1,
-              }}
-              onClick={handleShare}
-              disabled={selectedActivities.size === 0 || actionLoading}
-            >
-              {actionLoading
-                ? "Sharing..."
-                : `Share ${selectedActivities.size} Activit${selectedActivities.size === 1 ? "y" : "ies"}`
-              }
-            </button>
-          </>
-        )}
-      </div>
+                );
+              })
+            )}
+          </div>
+
+          {/* Share button */}
+          {shareableActivities.length > 0 && (
+            <div style={{ padding: "12px 20px 8px", borderTop: `1px solid ${C.border}` }}>
+              <button
+                style={{
+                  ...s.primaryBtn, width: "100%",
+                  opacity: selectedActivities.size === 0 || actionLoading ? 0.5 : 1,
+                  fontSize: 16, borderRadius: 12, padding: "14px 24px",
+                }}
+                onClick={handleShare}
+                disabled={selectedActivities.size === 0 || actionLoading}
+              >
+                {actionLoading
+                  ? "Sharing..."
+                  : `${selectedActivities.size} Activit${selectedActivities.size === 1 ? "y" : "ies"}`
+                }
+              </button>
+            </div>
+          )}
+        </div>
+      </>
     );
   }
 
