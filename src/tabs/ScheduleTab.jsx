@@ -108,8 +108,38 @@ function buildBookingMap(programs, kids, year, month) {
 
 /* ─── Mini Calendar ─── */
 function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
-  const year = currentMonday.getFullYear();
-  const month = currentMonday.getMonth();
+  // Independent month navigation state — starts at the week view's month
+  const [calMonth, setCalMonth] = useState(() => ({
+    year: currentMonday.getFullYear(),
+    month: currentMonday.getMonth(),
+  }));
+
+  // Sync when currentMonday's month changes (e.g. user taps "Today" button)
+  useEffect(() => {
+    const m = currentMonday.getMonth();
+    const y = currentMonday.getFullYear();
+    setCalMonth((prev) => {
+      if (prev.month === m && prev.year === y) return prev;
+      return { year: y, month: m };
+    });
+  }, [currentMonday.getMonth(), currentMonday.getFullYear()]);
+
+  const { year, month } = calMonth;
+
+  const goToPrevMonth = () => {
+    setCalMonth((prev) => {
+      const m = prev.month - 1;
+      return m < 0 ? { year: prev.year - 1, month: 11 } : { year: prev.year, month: m };
+    });
+  };
+
+  const goToNextMonth = () => {
+    setCalMonth((prev) => {
+      const m = prev.month + 1;
+      return m > 11 ? { year: prev.year + 1, month: 0 } : { year: prev.year, month: m };
+    });
+  };
+
   const monthStart = new Date(year, month, 1);
   const monthEnd = new Date(year, month + 1, 0);
   const firstDay = monthStart.getDay();
@@ -136,6 +166,11 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
     [programs, kids, year, month]
   );
 
+  const monthLabel = new Date(year, month, 1).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <div
       style={{
@@ -148,20 +183,61 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
     >
       <div
         style={{
-          fontFamily: "'Barlow', sans-serif",
-          fontSize: 12,
-          fontWeight: 700,
-          color: C.ink,
-          textTransform: "uppercase",
-          letterSpacing: 0.5,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
           marginBottom: 8,
-          textAlign: "center",
         }}
       >
-        {currentMonday.toLocaleDateString("en-US", {
-          month: "long",
-          year: "numeric",
-        })}
+        <button
+          onClick={goToPrevMonth}
+          aria-label="Previous month"
+          style={{
+            ...s.secondaryBtn,
+            flex: "none",
+            width: 44,
+            height: 44,
+            padding: 0,
+            fontSize: 20,
+            borderRadius: 10,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          ‹
+        </button>
+        <div
+          style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 12,
+            fontWeight: 700,
+            color: C.ink,
+            textTransform: "uppercase",
+            letterSpacing: 0.5,
+            textAlign: "center",
+          }}
+        >
+          {monthLabel}
+        </div>
+        <button
+          onClick={goToNextMonth}
+          aria-label="Next month"
+          style={{
+            ...s.secondaryBtn,
+            flex: "none",
+            width: 44,
+            height: 44,
+            padding: 0,
+            fontSize: 20,
+            borderRadius: 10,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          ›
+        </button>
       </div>
 
       {/* Legend — show enrollment status color dots */}
