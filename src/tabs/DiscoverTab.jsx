@@ -868,7 +868,7 @@ export default function DiscoverTab({
   return (
     <div>
       {/* Header */}
-      <div style={{ marginBottom: 6 }}>
+      <div style={{ marginBottom: 5 }}>
         {!isDesktop && <h2 style={s.pageTitle}>Search</h2>}
         {!isDesktop && (
           <>
