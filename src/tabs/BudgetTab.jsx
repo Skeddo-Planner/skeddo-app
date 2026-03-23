@@ -504,6 +504,22 @@ export default function BudgetTab({
               </div>
             );
           })}
+          {/* Show unassigned programs note if any exist */}
+          {(() => {
+            const unassigned = programs.filter((p) => !p.kidIds || p.kidIds.length === 0);
+            if (unassigned.length === 0) return null;
+            const uCost = unassigned.reduce((a, p) => a + Number(p.cost || 0), 0);
+            return (
+              <div style={{ ...s.budgetCard, padding: "12px 16px", marginBottom: 10, borderLeft: `3px dashed ${C.muted}` }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
+                  <strong>{unassigned.length} program{unassigned.length !== 1 ? "s" : ""}</strong> not assigned to a kid ({fmt$(uCost)})
+                </div>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2 }}>
+                  Assign kids in the Programs tab to see accurate per-kid totals
+                </div>
+              </div>
+            );
+          })()}
         </>
       )}
 
