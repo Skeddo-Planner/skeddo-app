@@ -932,10 +932,6 @@ export default function DiscoverTab({
         )}
       </div>
 
-      {showDiscoverBanner && !isPaid && (
-        <PromoBanner type="upgrade-discover" onDismiss={() => setShowDiscoverBanner(false)} />
-      )}
-
       {/* Search bar — enhanced layout on desktop */}
       <div style={{
         ...(isDesktop ? { display: "flex", alignItems: "center", gap: 16, marginBottom: 12 } : { position: "relative", marginBottom: 12 }),
@@ -1088,9 +1084,9 @@ export default function DiscoverTab({
           <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
         )}
         <FilterChip label="Category" count={selectedCats.size + selectedActivityTypes.size} active={selectedCats.size > 0 || selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("category")} />
-        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} />
+        <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} />
+        <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} />
         <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
         <FilterChip label="Length" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
       </div>
@@ -1396,28 +1392,17 @@ export default function DiscoverTab({
       {/* Cost Drawer */}
       <FilterDrawer open={activeDrawer === "cost"} onClose={() => setActiveDrawer(null)} title="Cost"
         onClear={() => { setSelectedCosts(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-        {!canUseAdvancedFilters ? (
-          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
-            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for cost filters</p>
-          </div>
-        ) : (
-          <FilterOptions
-            options={COST_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
-            selected={selectedCosts}
-            onToggle={(id) => toggleInSet(setSelectedCosts, id)}
-          />
-        )}
+        <FilterOptions
+          options={COST_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
+          selected={selectedCosts}
+          onToggle={(id) => toggleInSet(setSelectedCosts, id)}
+        />
       </FilterDrawer>
 
       {/* Neighbourhood Drawer */}
       <FilterDrawer open={activeDrawer === "neighbourhood"} onClose={() => setActiveDrawer(null)} title="Neighbourhoods"
         onClear={() => { setSelectedHoods(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-        {!canUseAdvancedFilters ? (
-          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
-            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for neighbourhood filters</p>
-          </div>
-        ) : (
-          <div style={{ background: C.cream, borderRadius: 10, border: `1px solid ${C.border}`, overflow: "hidden" }}>
+        <div style={{ background: C.cream, borderRadius: 10, border: `1px solid ${C.border}`, overflow: "hidden" }}>
             {CITY_NEIGHBOURHOODS.map((cityObj) => {
               const isExpanded = expandedCities.has(cityObj.city);
               const selectedInCity = cityObj.neighbourhoods.filter((n) => selectedHoods.has(n)).length;
@@ -1482,7 +1467,6 @@ export default function DiscoverTab({
               );
             })}
           </div>
-        )}
       </FilterDrawer>
 
       {/* Season Drawer */}
@@ -1528,11 +1512,7 @@ export default function DiscoverTab({
       {/* Activity Type Drawer */}
       <FilterDrawer open={activeDrawer === "activityType"} onClose={() => setActiveDrawer(null)} title="Activity Type"
         onClear={() => { setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-        {!canUseAdvancedFilters ? (
-          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
-            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for activity type filters</p>
-          </div>
-        ) : availableActivityTypes.length === 0 ? (
+        {availableActivityTypes.length === 0 ? (
           <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted, fontSize: 14 }}>
             No activity types available for current category selection
           </div>
@@ -1555,13 +1535,8 @@ export default function DiscoverTab({
       {/* Provider Drawer */}
       <FilterDrawer open={activeDrawer === "provider"} onClose={() => setActiveDrawer(null)} title="Provider"
         onClear={() => { setSelectedProviders(new Set()); setProviderSearch(""); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-        {!canUseAdvancedFilters ? (
-          <div style={{ textAlign: "center", padding: 20, fontFamily: "'Barlow', sans-serif", color: C.muted }}>
-            <p style={{ fontSize: 14, marginBottom: 8 }}>Upgrade to Skeddo Plus for provider filters</p>
-          </div>
-        ) : (
-          <>
-            {/* Selected providers as removable chips */}
+        <>
+          {/* Selected providers as removable chips */}
             {selectedProviders.size > 0 && (
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
                 {[...selectedProviders].sort().map((prov) => (
@@ -1623,8 +1598,7 @@ export default function DiscoverTab({
                 </div>
               )}
             </div>
-          </>
-        )}
+        </>
       </FilterDrawer>
 
       {/* Eligible for drawer */}

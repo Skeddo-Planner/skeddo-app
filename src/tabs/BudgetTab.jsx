@@ -74,7 +74,6 @@ export default function BudgetTab({
   return (
     <div>
       <h2 style={s.pageTitle}>Budget</h2>
-      {showBanner && !isPaid && <PromoBanner type="upgrade-budget" onDismiss={() => setShowBanner(false)} />}
 
       <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16 }}>
         {selectedKid ? (
@@ -100,7 +99,6 @@ export default function BudgetTab({
           <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, marginTop: 4 }}>
             <button
               onClick={() => {
-                if (!isPaid) { showBudgetToast("Upgrade to Skeddo Plus for budget tracking"); return; }
                 if (selectedKid) {
                   setEditingBudget(selectedKid.id);
                   setBudgetInput(String(selectedKid.budgetGoal || ""));
@@ -127,9 +125,9 @@ export default function BudgetTab({
               Set Budget
             </button>
               <button
-                onClick={() => { if (!isPaid) { showBudgetToast("Upgrade to Skeddo Plus for budget tracking"); return; } onAddCost(); }}
+                onClick={() => { onAddCost(); }}
                 style={{
-                  background: isPaid ? C.seaGreen : "#9CA3AF", color: "#fff", border: "none",
+                  background: C.seaGreen, color: "#fff", border: "none",
                   borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
                   fontFamily: "'Barlow', sans-serif", cursor: "pointer", whiteSpace: "nowrap",
                 }}
@@ -141,31 +139,8 @@ export default function BudgetTab({
 
       </div>
 
-      {/* ─── Gated content: blur overlay for free users ─── */}
       <div style={{ position: "relative" }}>
-      {!isPaid && (
-        <div style={{
-          position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 10,
-          background: "linear-gradient(to bottom, transparent 0%, rgba(250,248,243,0.95) 60%)",
-          display: "flex", alignItems: "center", justifyContent: "center", padding: 20,
-          borderRadius: 14,
-        }}>
-          <div style={{
-            background: C.white, borderRadius: 16, padding: "28px 24px",
-            boxShadow: "0 8px 32px rgba(26,46,38,0.12)", textAlign: "center", maxWidth: 320,
-            border: `1.5px solid ${C.border}`,
-          }}>
-            <div style={{ fontSize: 32, marginBottom: 12 }}>&#128274;</div>
-            <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, marginBottom: 8 }}>
-              Unlock Budget Tracking
-            </h3>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, lineHeight: 1.6, margin: 0 }}>
-              See spending per kid, track expenses, and stay on top of your budget with Skeddo Plus.
-            </p>
-          </div>
-        </div>
-      )}
-      <div style={!isPaid ? { filter: "blur(6px)", pointerEvents: "none", opacity: 0.7 } : undefined}>
+      <div>
 
       {/* ─── Set Budget per Kid (inline editor) ─── */}
       {editingBudget && (

@@ -308,16 +308,6 @@ export default function HomeTab({
         )}
       </div>
 
-      {/* Kids upgrade banner */}
-      {showKidsBanner && (
-        <PromoBanner type="upgrade-kids" onDismiss={() => dismissBanner("upgrade-kids")} />
-      )}
-
-      {/* Program limit banner */}
-      {(programs || allPrograms).length >= planAccess.maxPrograms && !isPaid && !dismissedBanners.has("upgrade-programs") && (
-        <PromoBanner type="upgrade-programs" onDismiss={() => dismissBanner("upgrade-programs")} />
-      )}
-
       {/* ══ 2. Compact Stat Strip ══ */}
       <div style={{
         display: "flex", margin: "0 0 16px", padding: "10px 0",

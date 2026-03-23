@@ -267,21 +267,20 @@ export default function CirclesTab({
           </div>
           <div style={{ display: "flex", gap: 6 }}>
             <button
-              onClick={() => planAccess.canUseCircles ? setScreen("join") : showToast("Upgrade to Skeddo Plus to use Circles")}
-              style={{ ...s.secondaryBtn, fontSize: 12, padding: "8px 12px", opacity: planAccess.canUseCircles ? 1 : 0.5 }}
+              onClick={() => setScreen("join")}
+              style={{ ...s.secondaryBtn, fontSize: 12, padding: "8px 12px" }}
             >
               Join
             </button>
             <button
-              onClick={() => planAccess.canUseCircles ? setScreen("create") : showToast("Upgrade to Skeddo Plus to use Circles")}
-              style={{ ...s.addButton, fontSize: 12, padding: "8px 12px", opacity: planAccess.canUseCircles ? 1 : 0.5 }}
+              onClick={() => setScreen("create")}
+              style={{ ...s.addButton, fontSize: 12, padding: "8px 12px" }}
             >
               + Create
             </button>
           </div>
         </div>
 
-        {showSharingBanner && !planAccess.canUseCircles && <PromoBanner type="upgrade-sharing" onDismiss={() => setShowSharingBanner(false)} />}
 
         {/* Pending requests */}
         {pendingRequests.length > 0 && (
@@ -400,29 +399,6 @@ export default function CirclesTab({
             </svg>
           </div>
         )}
-
-        {/* Referral banner */}
-        <div
-          onClick={() => setScreen("invite")}
-          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setScreen("invite"); } }}
-          role="button"
-          tabIndex={0}
-          style={{
-            marginTop: 20, borderRadius: 14, padding: "16px 18px",
-            background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
-            cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
-          }}
-        >
-          <span style={{ fontSize: 28 }}>{"\uD83C\uDF81"}</span>
-          <div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.cream }}>
-              Invite a friend, get a free month
-            </div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: "#B0C4B6" }}>
-              Share your referral link with other parents
-            </div>
-          </div>
-        </div>
 
         {/* Bookmarked activities */}
         {bookmarkedActivities.length > 0 && (
@@ -579,8 +555,8 @@ export default function CirclesTab({
           titleBold
           right={
             <button
-              onClick={() => planAccess.canUseCircles ? setScreen("share") : showToast("Upgrade to Skeddo Plus to use Circles")}
-              style={{ ...s.addButton, fontSize: 11, padding: "6px 12px", opacity: planAccess.canUseCircles ? 1 : 0.5 }}
+              onClick={() => setScreen("share")}
+              style={{ ...s.addButton, fontSize: 11, padding: "6px 12px" }}
             >
               + Share
             </button>
@@ -974,88 +950,6 @@ export default function CirclesTab({
             </button>
           </>
         )}
-      </div>
-    );
-  }
-
-  // ─── SCREEN: Invite & Referrals ───
-  if (screen === "invite") {
-    const shareUrl = referralUrl || "Loading...";
-    const shareText = "I use Skeddo to plan my kids' camps and activities. Join with my link and we both get a free month!";
-
-    return (
-      <div>
-        <SubHeader title="Invite Friends" onBack={() => setScreen("home")} />
-
-        {/* Stats card */}
-        <div style={{
-          borderRadius: 14, padding: "18px 20px",
-          background: `linear-gradient(135deg, ${C.ink} 0%, #2E4A3C 100%)`,
-          marginBottom: 16,
-        }}>
-          <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.cream, marginBottom: 12 }}>
-            Give a month, get a month
-          </div>
-          <div style={{ display: "flex", gap: 24, justifyContent: "center" }}>
-            {[
-              { num: membersRecruited, label: "Recruited" },
-              { num: freeMonthsEarned, label: "Free Months" },
-            ].map((stat) => (
-              <div key={stat.label} style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Referral link */}
-        <div style={{
-          background: C.white, borderRadius: 14, padding: "16px 18px",
-          border: `1px solid ${C.border}`, marginBottom: 12,
-        }}>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
-            Your Referral Link
-          </div>
-          <div style={{
-            background: "#F2F0EC", borderRadius: 10, padding: "10px 12px",
-            fontFamily: "monospace", fontSize: 12, color: C.ink, wordBreak: "break-all",
-            border: `1px solid ${C.border}`,
-          }}>
-            {shareUrl}
-          </div>
-        </div>
-
-        {/* Share icons */}
-        <div style={{ marginBottom: 20 }}>
-          <ShareIcons
-            shareText={shareText}
-            shareUrl={shareUrl}
-            onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(shareUrl) : Promise.reject()).catch(() => {}); showToast("Link copied!"); }}
-            subject="Join me on Skeddo!"
-          />
-        </div>
-
-        {/* How referrals work */}
-        <div style={{ background: C.white, borderRadius: 12, padding: "16px 18px", boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)", marginBottom: 16 }}>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: 0.5 }}>
-            How referrals work
-          </div>
-          {[
-            { num: "1", text: "Share your referral link with another parent" },
-            { num: "2", text: "They sign up for Skeddo Plus" },
-            { num: "3", text: "You both get a free month!" },
-          ].map((step) => (
-            <div key={step.num} style={{ display: "flex", gap: 10, marginBottom: 8, alignItems: "flex-start" }}>
-              <div style={{
-                width: 22, height: 22, borderRadius: "50%", background: C.seaGreen,
-                color: C.cream, display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif", flexShrink: 0,
-              }}>{step.num}</div>
-              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, lineHeight: 1.4 }}>{step.text}</span>
-            </div>
-          ))}
-        </div>
       </div>
     );
   }

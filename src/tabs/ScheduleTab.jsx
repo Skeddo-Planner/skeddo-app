@@ -683,15 +683,14 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           {/* Export */}
           <button
             onClick={() => {
-              if (!canExport) { showSchedToast("Upgrade to Skeddo Plus to export your calendar"); return; }
               openExportModal();
             }}
             style={{
-              background: canExport ? C.blue : "#9CA3AF", color: "#fff", border: "none",
+              background: C.blue, color: "#fff", border: "none",
               borderRadius: 10, padding: "8px 14px", fontSize: 14, fontWeight: 700,
               fontFamily: "'Barlow', sans-serif", cursor: "pointer",
               display: "flex", alignItems: "center", gap: 6,
-              opacity: canExport ? 1 : 0.6,
+              opacity: 1,
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -33,19 +33,20 @@ import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 
-/* Bypass Coming Soon page if: ?preview=true, ?beta=true, app.skeddo.ca subdomain, auth callback, or past launch date */
+// Check if this is an invite URL
+const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
+const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
+
+/* Bypass Coming Soon page if: ?preview=true, ?beta=true, app.skeddo.ca subdomain, auth callback, invite URL, or past launch date */
 const params = new URLSearchParams(window.location.search);
 const hasAuthCallback = window.location.hash.includes("access_token") || window.location.hash.includes("type=signup");
 const isPreview =
   params.get("preview") === "true" ||
   params.get("beta") === "true" ||
   hasAuthCallback ||
+  !!pendingInviteCode ||
   window.location.hostname === "app.skeddo.ca" ||
   new Date() >= new Date("2026-04-01T00:00:00-07:00");
-
-// Check if this is an invite URL
-const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
-const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
 
 export default function Skeddo() {
   const { user, session, loading: authLoading, signOut } = useAuth();
@@ -304,10 +305,6 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const openAddKid = () => {
-    if (kids.length >= planAccess.maxKids) {
-      showToast("Upgrade to Skeddo Plus to add more kids");
-      return;
-    }
     setForm({ name: "", age: "", notes: "" });
     setModal({ type: "kidForm", isEdit: false });
   };
@@ -349,10 +346,6 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const handleInviteCoParent = () => {
-    if (!planAccess.canUseCoParent) {
-      showToast("Upgrade to Skeddo Plus to invite a co-parent");
-      return;
-    }
     if (kids.length === 0) return;
     if (kids.length === 1) {
       openInviteModal(kids[0]);
@@ -371,12 +364,6 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       return;
     }
     const isNew = !form.id;
-    // Gate: free plan program limit
-    if (isNew && !planAccess.checkProgramLimit(programs.length).allowed) {
-      showToast("Upgrade to Skeddo Plus to add more than 3 programs");
-      setModal(null);
-      return;
-    }
     saveProgram({
       ...form,
       name: form.name.trim(),
@@ -430,12 +417,6 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const handleSaveKid = () => {
     if (!form.name?.trim()) return;
     // Gate: free plan kid limit (only for new kids, not edits)
-    const isNewKid = !form.id;
-    if (isNewKid && kids.length >= planAccess.maxKids) {
-      showToast("Upgrade to Skeddo Plus to add more kids");
-      setModal(null);
-      return;
-    }
     saveKid({ ...form, name: form.name.trim(), id: form.id || uid() });
     setModal(null);
     showToast(form.id ? "Kid updated" : "Kid added");
@@ -453,12 +434,6 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     // Gate: must assign to at least one kid
     if (kids.length > 0 && (!dirProgram.kidIds || dirProgram.kidIds.length === 0)) {
       showToast("Please assign this program to at least one child");
-      return;
-    }
-    // Gate: free plan program limit
-    if (!planAccess.checkProgramLimit(programs.length).allowed) {
-      showToast("Upgrade to Skeddo Plus to add more than 3 programs");
-      setModal(null);
       return;
     }
     saveProgram({
