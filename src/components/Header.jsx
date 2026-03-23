@@ -15,7 +15,7 @@ const MENU_ITEMS = [
 
 /* Desktop navigation tab definitions with SVG path data */
 const NAV_TABS = [
-  { id: "discover", label: "Discover", paths: ["M11 11m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", "M16.5 16.5L21 21"] },
+  { id: "discover", label: "Search", paths: ["M11 11m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", "M16.5 16.5L21 21"] },
   { id: "schedule", label: "Schedule", paths: ["M3 4h18v18H3V4z", "M16 2v4", "M8 2v4", "M3 10h18"], rect: { x: 3, y: 4, w: 18, h: 18, rx: 2 } },
   { id: "programs", label: "Programs", paths: ["M3 3h18v18H3V3z", "M7 8h10", "M7 12h10", "M7 16h6"], rect: { x: 3, y: 3, w: 18, h: 18, rx: 2 } },
   { id: "circles", label: "Circles", paths: ["M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0", "M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0", "M6.5 18.5C7.5 15.5 9.5 14 12 14s4.5 1.5 5.5 4.5"] },
