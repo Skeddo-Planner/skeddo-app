@@ -125,7 +125,7 @@ function FilterChip({ label, icon, count, active, onClick, locked, onLocked }) {
       border: active ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
       background: active ? C.ink : "#FFFFFF",
       color: active ? "#FFFFFF" : C.ink,
-      fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: active ? 600 : 500,
+      fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: active ? 600 : 500,
       cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
       boxShadow: active ? "none" : "0 1px 3px rgba(27,36,50,0.04)",
       minHeight: 36,
@@ -209,7 +209,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
       {/* Category header */}
       <div style={{
         fontFamily: "'Barlow', sans-serif",
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 700,
         color: accent,
         textTransform: "uppercase",
@@ -223,7 +223,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
       <div style={{ paddingRight: 28 }}>
         <div style={{
           fontFamily: "'Barlow', sans-serif",
-          fontSize: 15,
+          fontSize: 16,
           fontWeight: 700,
           color: C.ink,
           lineHeight: 1.3,
@@ -231,7 +231,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         }}>{program.name}</div>
         <div style={{
           fontFamily: "'Barlow', sans-serif",
-          fontSize: 12,
+          fontSize: 14,
           color: C.muted,
           marginBottom: 4,
           display: "flex",
@@ -274,7 +274,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
 
       {/* Meta row: dates, days, times */}
       <div style={{
-        fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 6,
+        fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 6,
       }}>
         {program.startDate && (
           <span style={program.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : undefined}>
@@ -400,7 +400,7 @@ function CategoryBrowseRow({ category, programs, onTap, isFavorite, toggleFavori
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span style={{ fontSize: 22 }}>{emoji}</span>
           <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink, margin: 0 }}>{category}</h3>
-          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, fontWeight: 500 }}>
+          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, fontWeight: 500 }}>
             {programs.length} program{programs.length !== 1 ? "s" : ""}
           </span>
         </div>
@@ -456,23 +456,23 @@ function CategoryBrowseRow({ category, programs, onTap, isFavorite, toggleFavori
             >
               {/* Category */}
               <div style={{
-                fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                 color: accent, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 4,
               }}>
                 {emoji} {category}
               </div>
               {/* Name */}
               <div style={{
-                fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 700,
                 color: C.ink, lineHeight: 1.3, marginBottom: 2,
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
               }}>{p.name}</div>
               {/* Provider */}
               <div style={{
-                fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 6,
+                fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 6,
               }}>{p.provider}</div>
               {/* Date + time */}
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 6 }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 6 }}>
                 {p.startDate && (() => {
                   const sd = new Date(p.startDate + "T00:00:00");
                   const ed = p.endDate ? new Date(p.endDate + "T00:00:00") : null;
@@ -600,7 +600,7 @@ export default function DiscoverTab({
   const [activeDrawer, setActiveDrawer] = useState(null);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [sortBy, setSortBy] = useState("relevance");
-  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "opening-soon"])); // default: show programs users can register for now or very soon
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "coming-soon", "upcoming", "likely-coming-soon"])); // default: show active/upcoming programs, hide Full/In Progress/Completed
   const [selectedProviders, setSelectedProviders] = useState(new Set());
   const [providerSearch, setProviderSearch] = useState("");
   const [showProviderDropdown, setShowProviderDropdown] = useState(false);
@@ -701,7 +701,7 @@ export default function DiscoverTab({
     setSelectedCosts(new Set());
     setShowFavoritesOnly(false);
     setSortBy("relevance");
-    setSelectedRegStatuses(new Set(["open", "opening-soon", "likely-coming-soon"]));
+    setSelectedRegStatuses(new Set(["open", "coming-soon", "upcoming", "likely-coming-soon"]));
     setSelectedProviders(new Set());
     setSelectedActivityTypes(new Set());
     setSelectedLengths(new Set());
@@ -718,7 +718,7 @@ export default function DiscoverTab({
     if (selectedCosts.size > 0) count++;
     if (selectedHoods.size > 0) count++;
     if (selectedSeasons.size > 0) count++;
-    if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 2 && selectedRegStatuses.has("open") && selectedRegStatuses.has("opening-soon"))) count++;
+    if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) count++;
     if (selectedLengths.size > 0) count++;
     if (selectedDayLengths.size > 0) count++;
     if (selectedActivityTypes.size > 0) count++;
@@ -875,7 +875,7 @@ export default function DiscoverTab({
             <p
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 13,
+                fontSize: 14,
                 color: C.muted,
                 marginTop: 2,
               }}
@@ -973,7 +973,7 @@ export default function DiscoverTab({
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink }}>
                 Browse <strong style={{ color: C.seaGreen }}>{allDirectoryPrograms.length.toLocaleString()}</strong> programs in the Lower Mainland
               </span>
-              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                 Updated {dataVersion}
               </span>
             </div>
@@ -985,7 +985,7 @@ export default function DiscoverTab({
                   border: sortBy !== "relevance" ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
                   background: sortBy !== "relevance" ? C.ink : "#FFF",
                   color: sortBy !== "relevance" ? "#FFF" : C.ink,
-                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: sortBy !== "relevance" ? 600 : 500,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: sortBy !== "relevance" ? 600 : 500,
                   cursor: "pointer",
                 }}
               >
@@ -998,7 +998,7 @@ export default function DiscoverTab({
                   border: showFavoritesOnly ? `1.5px solid ${C.olive}` : "1.5px solid rgba(27,36,50,0.15)",
                   background: showFavoritesOnly ? C.olive + "14" : "#FFF",
                   color: showFavoritesOnly ? C.olive : C.ink,
-                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: showFavoritesOnly ? 600 : 500,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: showFavoritesOnly ? 600 : 500,
                   cursor: "pointer",
                 }}
               >
@@ -1045,7 +1045,7 @@ export default function DiscoverTab({
           <span
             style={{
               fontFamily: "'Barlow', sans-serif",
-              fontSize: 12,
+              fontSize: 14,
               color: C.muted,
             }}
           >
@@ -1064,7 +1064,7 @@ export default function DiscoverTab({
             border: totalActiveFilters === 0 ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
             background: totalActiveFilters === 0 ? C.ink : "#FFF",
             color: totalActiveFilters === 0 ? "#FFF" : C.ink,
-            fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: totalActiveFilters === 0 ? 600 : 500,
+            fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: totalActiveFilters === 0 ? 600 : 500,
             cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
             boxShadow: totalActiveFilters === 0 ? "none" : "0 1px 3px rgba(27,36,50,0.04)",
           }}
@@ -1094,10 +1094,10 @@ export default function DiscoverTab({
       {/* Active filter summary */}
       {totalActiveFilters > 0 && (
         <div style={{ padding: "6px 0 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: 13, color: C.muted, fontFamily: "'Barlow', sans-serif" }}>
+          <span style={{ fontSize: 14, color: C.muted, fontFamily: "'Barlow', sans-serif" }}>
             {totalActiveFilters} filter{totalActiveFilters !== 1 ? "s" : ""} · {eligibilityFiltered.length} results
           </span>
-          <button onClick={clearAllFilters} style={{ background: "none", border: "none", color: C.danger, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+          <button onClick={clearAllFilters} style={{ background: "none", border: "none", color: C.danger, fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
             Clear all
           </button>
         </div>
@@ -1115,7 +1115,7 @@ export default function DiscoverTab({
       >
         <span style={{
           fontFamily: "'Barlow', sans-serif",
-          fontSize: 12,
+          fontSize: 14,
           fontWeight: 600,
           color: C.muted,
         }}>
@@ -1371,7 +1371,7 @@ export default function DiscoverTab({
             onChange={(e) => { setAgeMax(e.target.value); setVisibleCount(PAGE_SIZE); }}
           />
         </div>
-        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.muted, marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>
           Quick presets
         </div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -1421,7 +1421,7 @@ export default function DiscoverTab({
                     aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}
                   >
                     <span style={{ fontSize: 10, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"▶"}</span>
-                    <span style={{ flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
+                    <span style={{ flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
                       {cityObj.city}
                       {someInCitySelected && <span style={{ color: C.muted, fontWeight: 400 }}> ({selectedInCity}/{cityObj.neighbourhoods.length})</span>}
                     </span>
@@ -1445,7 +1445,7 @@ export default function DiscoverTab({
                         return (
                           <label key={hood} style={{
                             display: "flex", alignItems: "center", gap: 8, padding: "6px 0", cursor: "pointer",
-                            fontFamily: "'Barlow', sans-serif", fontSize: 13,
+                            fontFamily: "'Barlow', sans-serif", fontSize: 14,
                             color: isSelected ? C.ink : C.muted, fontWeight: isSelected ? 600 : 400,
                           }}>
                             <span style={{
@@ -1519,7 +1519,7 @@ export default function DiscoverTab({
         ) : (
           <>
             {selectedCats.size > 0 && (
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 12 }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 12 }}>
                 Showing activity types for selected categories
               </div>
             )}
@@ -1542,7 +1542,7 @@ export default function DiscoverTab({
                 {[...selectedProviders].sort().map((prov) => (
                   <button key={prov} onClick={() => toggleInSet(setSelectedProviders, prov)}
                     style={{
-                      fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                      fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600,
                       background: C.ink, color: "#fff", border: "none", borderRadius: 20,
                       padding: "6px 12px", cursor: "pointer", display: "flex", alignItems: "center", gap: 4,
                     }}>
@@ -1554,7 +1554,7 @@ export default function DiscoverTab({
             {/* Provider search */}
             <div style={{ position: "relative", marginBottom: 12 }}>
               <input
-                style={{ ...s.input, fontSize: 13, paddingLeft: 32 }}
+                style={{ ...s.input, fontSize: 14, paddingLeft: 32 }}
                 placeholder="Search providers..."
                 value={providerSearch}
                 onChange={(e) => setProviderSearch(e.target.value)}
@@ -1593,7 +1593,7 @@ export default function DiscoverTab({
                   );
                 })}
               {allProviders.filter((prov) => prov.toLowerCase().includes(providerSearch.toLowerCase().trim())).length === 0 && (
-                <div style={{ padding: 12, fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, textAlign: "center" }}>
+                <div style={{ padding: 12, fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, textAlign: "center" }}>
                   No providers found
                 </div>
               )}
@@ -1648,7 +1648,7 @@ export default function DiscoverTab({
               </span>
               <div>
                 <div>All Kids Together</div>
-                <div style={{ fontSize: 12, color: C.muted, fontWeight: 400 }}>Programs all your kids can attend</div>
+                <div style={{ fontSize: 14, color: C.muted, fontWeight: 400 }}>Programs all your kids can attend</div>
               </div>
             </button>
           )}
@@ -1680,11 +1680,11 @@ export default function DiscoverTab({
                 <div>
                   <div>{kid.name}</div>
                   {hasBirth ? (
-                    <div style={{ fontSize: 12, color: C.muted, fontWeight: 400 }}>
+                    <div style={{ fontSize: 14, color: C.muted, fontWeight: 400 }}>
                       Age-appropriate programs for {kid.name}
                     </div>
                   ) : (
-                    <div style={{ fontSize: 12, color: C.olive, fontWeight: 400 }}>
+                    <div style={{ fontSize: 14, color: C.olive, fontWeight: 400 }}>
                       Add birth month to enable age filtering
                     </div>
                   )}

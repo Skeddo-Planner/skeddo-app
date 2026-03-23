@@ -642,7 +642,7 @@ export default function CirclesTab({
         {/* Sticky header */}
         <div style={{
           position: "sticky", top: 0, background: C.cream, zIndex: 10,
-          padding: "12px 0 10px", display: "flex", alignItems: "center", gap: 10,
+          padding: "8px 0 4px", display: "flex", alignItems: "center", gap: 10,
         }}>
           <button
             onClick={() => { setScreen("home"); setActiveCircle(null); }}
@@ -680,7 +680,7 @@ export default function CirclesTab({
         {/* Collapsible members list */}
         <div style={{
           background: C.white, borderRadius: 12, boxShadow: SHADOW,
-          padding: "12px 14px", marginBottom: 14,
+          padding: "10px 14px", marginBottom: 10,
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <button
