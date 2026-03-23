@@ -193,7 +193,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
               }} />
               <span style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 9,
+                fontSize: 11,
                 fontWeight: 600,
                 color: C.muted,
               }}>
@@ -216,7 +216,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             key={d}
             style={{
               fontFamily: "'Barlow', sans-serif",
-              fontSize: 9,
+              fontSize: 11,
               fontWeight: 700,
               color: C.muted,
               textAlign: "center",
@@ -520,7 +520,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                 background: "#E76F51", color: "#fff",
                 borderRadius: 8, minWidth: 16, height: 16,
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                 padding: "0 4px",
               }}>
                 {hiddenPrograms.size}
@@ -569,7 +569,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
               <button
                 onClick={showAllPrograms}
                 style={{
-                  fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
                   color: C.seaGreen, background: "none", border: "none", cursor: "pointer",
                 }}
               >
@@ -578,7 +578,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
               <button
                 onClick={hideAllPrograms}
                 style={{
-                  fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
                   color: C.muted, background: "none", border: "none", cursor: "pointer",
                 }}
               >
@@ -614,7 +614,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       {p.name}
                     </div>
                     <span style={{
-                      fontFamily: "'Barlow', sans-serif", fontSize: 9, fontWeight: 700,
+                      fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                       color: st.color, textTransform: "uppercase", flexShrink: 0,
                     }}>
                       {p.status}
@@ -643,7 +643,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             })
           )}
           <div style={{
-            fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted,
+            fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted,
             marginTop: 8, textAlign: "center",
           }}>
             {hiddenPrograms.size > 0
@@ -668,7 +668,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             </div>
           ))}
           {conflicts.filter((c) => c.type === "conflict").length > 5 && (
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#991B1B", marginTop: 4 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: "#991B1B", marginTop: 4 }}>
               +{conflicts.filter((c) => c.type === "conflict").length - 5} more
             </div>
           )}
@@ -690,7 +690,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             </div>
           ))}
           {conflicts.filter((c) => c.type === "logistics").length > 5 && (
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#92400E", marginTop: 4 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: "#92400E", marginTop: 4 }}>
               +{conflicts.filter((c) => c.type === "logistics").length - 5} more
             </div>
           )}
@@ -783,7 +783,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           >
             {formatDateShort(weekStart)} – {formatDateShort(weekEnd)}, {weekEnd.getFullYear()}
           </div>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 2 }}>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 2 }}>
             {totalThisWeek} program{totalThisWeek !== 1 ? "s" : ""} this week
           </div>
         </div>
@@ -813,7 +813,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           aria-label="Jump to this week"
           style={{
             fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
+            fontSize: 13,
             fontWeight: 700,
             color: C.seaGreen,
             background: "none",
@@ -863,7 +863,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                   <span
                     style={{
                       fontFamily: "'Barlow', sans-serif",
-                      fontSize: 11,
+                      fontSize: 13,
                       fontWeight: 700,
                       color: isToday ? C.seaGreen : C.muted,
                       textTransform: "uppercase",
@@ -886,7 +886,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                     <span
                       style={{
                         fontFamily: "'Barlow', sans-serif",
-                        fontSize: 9,
+                        fontSize: 11,
                         fontWeight: 700,
                         color: C.cream,
                         background: C.seaGreen,
@@ -903,7 +903,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                   <span
                     style={{
                       fontFamily: "'Barlow', sans-serif",
-                      fontSize: 12,
+                      fontSize: 14,
                       color: isWeekend ? C.muted : C.border,
                       fontWeight: 500,
                     }}
@@ -971,7 +971,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                         <span
                           style={{
                             fontFamily: "'Barlow', sans-serif",
-                            fontSize: 11,
+                            fontSize: 13,
                             color: C.muted,
                           }}
                         >
@@ -979,7 +979,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                         </span>
                         {assignedKids.length > 0 && (
                           <>
-                            <span style={{ color: C.border, fontSize: 11 }}>·</span>
+                            <span style={{ color: C.border, fontSize: 13 }}>·</span>
                             {assignedKids.map((k) => {
                               const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
                               const kidColor = k.color || KID_COLORS_FALLBACK[kidIdx >= 0 ? kidIdx % KID_COLORS_FALLBACK.length : 0];
@@ -998,7 +998,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                                   alignItems: "center",
                                   justifyContent: "center",
                                   fontFamily: "'Poppins', sans-serif",
-                                  fontSize: 10,
+                                  fontSize: 11,
                                   fontWeight: 700,
                                   lineHeight: 1,
                                   flexShrink: 0,
@@ -1015,7 +1015,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                     <span
                       style={{
                         fontFamily: "'Barlow', sans-serif",
-                        fontSize: 9,
+                        fontSize: 11,
                         fontWeight: 700,
                         color: st.color,
                         textTransform: "uppercase",
@@ -1035,7 +1035,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         <div style={{ ...s.emptyState, marginTop: 16 }}>
           <span style={{ fontSize: 28 }}>📅</span>
           <p style={{ marginTop: 8 }}>No programs scheduled this week.</p>
-          <p style={{ fontSize: 12, color: C.muted }}>Try navigating to a different week, or add programs from the Discover tab.</p>
+          <p style={{ fontSize: 14, color: C.muted }}>Try navigating to a different week, or add programs from the Discover tab.</p>
           {onNavigateToDiscover && (
             <button
               onClick={onNavigateToDiscover}
@@ -1083,14 +1083,14 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
               {/* Kid filter */}
               <div style={{ marginTop: 12 }}>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
                   Export for
                 </div>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   <button
                     onClick={() => { setExportKidFilter("all"); setExportSelected(new Set()); }}
                     style={{
-                      padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                      padding: "6px 12px", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer",
                       fontFamily: "'Barlow', sans-serif", border: `1px solid ${exportKidFilter === "all" ? C.seaGreen : C.border}`,
                       background: exportKidFilter === "all" ? C.seaGreen + "18" : "transparent",
                       color: exportKidFilter === "all" ? C.seaGreen : C.muted,
@@ -1103,7 +1103,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       key={k.id}
                       onClick={() => { setExportKidFilter(k.id); setExportSelected(new Set()); }}
                       style={{
-                        padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                        padding: "6px 12px", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer",
                         fontFamily: "'Barlow', sans-serif", border: `1px solid ${exportKidFilter === k.id ? C.seaGreen : C.border}`,
                         background: exportKidFilter === k.id ? C.seaGreen + "18" : "transparent",
                         color: exportKidFilter === k.id ? C.seaGreen : C.muted,
@@ -1117,7 +1117,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
               {/* Date range filter */}
               <div style={{ marginTop: 12 }}>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
                   Date Range
                 </div>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
@@ -1131,7 +1131,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       key={opt.key}
                       onClick={() => { setExportDateMode(opt.key); setExportSelected(new Set()); }}
                       style={{
-                        padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                        padding: "6px 12px", borderRadius: 8, fontSize: 13, fontWeight: 600, cursor: "pointer",
                         fontFamily: "'Barlow', sans-serif", border: `1px solid ${exportDateMode === opt.key ? C.blue : C.border}`,
                         background: exportDateMode === opt.key ? C.blue + "18" : "transparent",
                         color: exportDateMode === opt.key ? C.blue : C.muted,
@@ -1146,7 +1146,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       value={exportMonth}
                       onChange={(e) => { setExportMonth(e.target.value); setExportSelected(new Set()); }}
                       style={{
-                        fontFamily: "'Barlow', sans-serif", fontSize: 12, padding: "5px 8px",
+                        fontFamily: "'Barlow', sans-serif", fontSize: 13, padding: "5px 8px",
                         borderRadius: 8, border: `1px solid ${C.border}`, color: C.ink,
                       }}
                     />
@@ -1183,10 +1183,10 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                   {exportablePrograms.length} program{exportablePrograms.length !== 1 ? "s" : ""} · {exportSelected.size} selected
                 </div>
                 <div style={{ display: "flex", gap: 8 }}>
-                  <button onClick={selectAllExport} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.seaGreen, fontWeight: 700, background: "none", border: "none", cursor: "pointer" }}>
+                  <button onClick={selectAllExport} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.seaGreen, fontWeight: 700, background: "none", border: "none", cursor: "pointer" }}>
                     Select All
                   </button>
-                  <button onClick={selectNoneExport} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontWeight: 600, background: "none", border: "none", cursor: "pointer" }}>
+                  <button onClick={selectNoneExport} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, fontWeight: 600, background: "none", border: "none", cursor: "pointer" }}>
                     Clear
                   </button>
                 </div>
@@ -1226,11 +1226,11 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                         <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                           {p.name}
                         </div>
-                        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
                           {[p.days, p.times, pKids.length > 0 ? pKids.join(", ") : null].filter(Boolean).join(" · ")}
                         </div>
                         {p.startDate && (
-                          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
                             {p.startDate}{p.endDate && p.endDate !== p.startDate ? ` – ${p.endDate}` : ""}
                           </div>
                         )}
@@ -1264,7 +1264,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                 </svg>
                 Download .ics ({exportSelected.size})
               </button>
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, textAlign: "center", lineHeight: 1.4 }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, textAlign: "center", lineHeight: 1.4 }}>
                 Works with Apple Calendar, Google Calendar, and Outlook
               </div>
             </div>
