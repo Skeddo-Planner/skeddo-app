@@ -21,7 +21,7 @@ import ManualCostForm from "./modals/ManualCostForm";
 import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import InfoPage from "./pages/InfoPages";
-import { trackEvent } from "./utils/analytics";
+import { trackEvent, trackPageView } from "./utils/analytics";
 import { usePushNotifications } from "./hooks/usePushNotifications";
 import { useChildAccess } from "./hooks/useChildAccess";
 import { useCircles } from "./hooks/useCircles";
@@ -57,6 +57,19 @@ export default function Skeddo() {
     if (user) setAuthPage("app");
     else setAuthPage("landing");
   }, [user]);
+
+  /* ── Track auth page views for GA4 ── */
+  useEffect(() => {
+    if (!isPreview) {
+      trackPageView("/coming-soon", "Skeddo - Coming Soon");
+    } else if (authPage === "landing") {
+      trackPageView("/landing", "Skeddo - Welcome");
+    } else if (authPage === "signin") {
+      trackPageView("/signin", "Skeddo - Sign In");
+    } else if (authPage === "signup") {
+      trackPageView("/signup", "Skeddo - Sign Up");
+    }
+  }, [authPage]);
 
   /* ── Coming Soon page for public visitors ── */
   if (!isPreview) {
@@ -278,6 +291,11 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [tab]);
 
+  /* ── Send initial page_view on app load for GA4 ── */
+  useEffect(() => {
+    trackPageView("/home", "Skeddo - Home");
+  }, []);
+
   /* ── Modal openers ── */
   const openAddProgram = () => {
     setForm({
@@ -467,6 +485,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     if (statusFilterVal) setStatusFilter(statusFilterVal);
     else { setStatusFilter("All"); setCatFilter("All"); }
     setKidFilter(kidId || null);
+    // Send virtual page_view to GA4 so SPA tab changes appear in Pages and Screens
+    trackPageView(`/${tabId}`, `Skeddo - ${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`);
   };
 
   const handleOnboardingComplete = (onboardedKids, profileData) => {

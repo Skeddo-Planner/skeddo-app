@@ -7,3 +7,16 @@ export function trackEvent(eventName, params = {}) {
     window.gtag("event", eventName, params);
   }
 }
+
+/**
+ * Send a virtual page_view to GA4 for SPA navigation.
+ * Call this on tab changes so GA4 "Pages and Screens" report shows activity.
+ */
+export function trackPageView(pagePath, pageTitle) {
+  if (window.gtag) {
+    window.gtag("config", "G-DECM7CCHLC", {
+      page_path: pagePath,
+      page_title: pageTitle,
+    });
+  }
+}
