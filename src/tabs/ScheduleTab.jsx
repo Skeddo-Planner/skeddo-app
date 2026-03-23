@@ -4,6 +4,7 @@ import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
 import { downloadAllICS, detectConflicts } from "../utils/helpers";
 import { trackEvent } from "../utils/analytics";
+import useIsDesktop from "../hooks/useIsDesktop";
 
 /* ─── Constants ─── */
 const DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -788,6 +789,7 @@ function AnimStyles() {
    MAIN SCHEDULE TAB
    ═══════════════════════════════════════════════════════════════ */
 export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover, onOpenAddProgram, planAccess }) {
+  const isDesktop = useIsDesktop();
   /* ─── Mode & page state ─── */
   const [mode, setMode] = useState("calendar"); // "calendar" | "planner"
   const [page, setPage] = useState("main"); // "main" | "setup"
@@ -1174,6 +1176,229 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       )}
     </div>
   );
+
+  /* ═══════════════════════════════════════
+     DESKTOP WEEKLY GRID VIEW
+     ═══════════════════════════════════════ */
+  if (isDesktop) {
+    const HOURS = [];
+    // Determine hour range from events
+    let minHour = 8, maxHour = 17;
+    scheduledByDay.forEach((day) => {
+      day.forEach((ev) => {
+        if (ev.timeRange.start < minHour) minHour = Math.floor(ev.timeRange.start);
+        if (ev.timeRange.end > maxHour) maxHour = Math.ceil(ev.timeRange.end);
+      });
+    });
+    minHour = Math.max(minHour - 1, 6);
+    maxHour = Math.min(maxHour + 1, 21);
+    for (let h = minHour; h <= maxHour; h++) HOURS.push(h);
+
+    const hourHeight = 48;
+    const totalGridHeight = HOURS.length * hourHeight;
+    const todayStr = dk(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+    // Kid colors for event blocks
+    const kidColorMap = {};
+    kids.forEach((k, i) => {
+      kidColorMap[k.id] = k.color || KID_COLORS[i % KID_COLORS.length]?.hex || C.muted;
+    });
+
+    return (
+      <div>
+        {/* Panel header with week navigation */}
+        <div className="skeddo-panel-header" style={{ marginBottom: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <button
+              onClick={() => setWeekStart((prev) => addDays(prev, -7))}
+              style={{
+                width: 32, height: 32, borderRadius: "50%",
+                border: `1px solid rgba(27,36,50,0.15)`, background: C.white,
+                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                fontFamily: F.sans, fontSize: 16, color: C.muted,
+              }}
+              aria-label="Previous week"
+            >
+              {"\u2039"}
+            </button>
+            <div>
+              <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
+                {formatDateShort(weekDates[0])} \u2013 {formatDateShort(weekDates[4])}
+              </h2>
+              <p style={{ fontFamily: F.sans, fontSize: 13, color: C.muted, margin: 0 }}>
+                {totalThisWeek} event{totalThisWeek !== 1 ? "s" : ""} this week
+              </p>
+            </div>
+            <button
+              onClick={() => setWeekStart((prev) => addDays(prev, 7))}
+              style={{
+                width: 32, height: 32, borderRadius: "50%",
+                border: `1px solid rgba(27,36,50,0.15)`, background: C.white,
+                cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                fontFamily: F.sans, fontSize: 16, color: C.muted,
+              }}
+              aria-label="Next week"
+            >
+              {"\u203A"}
+            </button>
+            {!isThisWeek && (
+              <button
+                onClick={() => setWeekStart(getMonday(new Date()))}
+                style={{
+                  padding: "4px 12px", borderRadius: 6,
+                  background: "none", border: `1px solid rgba(27,36,50,0.15)`,
+                  fontFamily: F.sans, fontSize: 12, color: C.muted, cursor: "pointer",
+                }}
+              >
+                Today
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Weekly grid */}
+        <div style={{
+          borderRadius: 12, overflow: "hidden",
+          background: "rgba(27,36,50,0.08)",
+          border: `0.5px solid rgba(27,36,50,0.08)`,
+        }}>
+          {/* Column headers: time + Mon-Fri */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "60px repeat(5, 1fr)",
+            gap: 1,
+          }}>
+            {/* Empty time column header */}
+            <div style={{ background: C.cream, height: 44 }} />
+            {/* Day headers */}
+            {weekDates.slice(0, 5).map((date, i) => {
+              const dateStr = dk(date.getFullYear(), date.getMonth(), date.getDate());
+              const isToday = dateStr === todayStr;
+              return (
+                <div key={i} style={{
+                  background: isToday ? "rgba(45,159,111,0.06)" : C.cream,
+                  height: 44, display: "flex", flexDirection: "column",
+                  alignItems: "center", justifyContent: "center",
+                }}>
+                  <div style={{
+                    fontFamily: F.sans, fontSize: 12, fontWeight: 500,
+                    color: isToday ? C.seaGreen : C.ink,
+                  }}>
+                    {DAY_NAMES[i]}
+                  </div>
+                  <div style={{
+                    fontFamily: F.sans, fontSize: 11, color: isToday ? C.seaGreen : C.muted,
+                  }}>
+                    {date.getDate()}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Time grid rows */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "60px repeat(5, 1fr)",
+            gap: 1,
+          }}>
+            {HOURS.map((hour) => (
+              <div key={`row-${hour}`} style={{ display: "contents" }}>
+                {/* Time label */}
+                <div style={{
+                  background: C.white,
+                  minHeight: hourHeight,
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "flex-end",
+                  paddingRight: 8,
+                  paddingTop: 2,
+                }}>
+                  <span style={{ fontFamily: F.sans, fontSize: 11, color: C.muted }}>
+                    {hour === 0 ? "12 AM" : hour <= 12 ? `${hour} ${hour < 12 ? "AM" : "PM"}` : `${hour - 12} PM`}
+                  </span>
+                </div>
+
+                {/* Day cells */}
+                {weekDates.slice(0, 5).map((date, dayIdx) => {
+                  const dateStr = dk(date.getFullYear(), date.getMonth(), date.getDate());
+                  const isToday = dateStr === todayStr;
+                  // Find events that start in this hour
+                  const dayEvents = scheduledByDay[dayIdx] || [];
+                  const eventsInHour = dayEvents.filter((ev) => {
+                    return Math.floor(ev.timeRange.start) === hour;
+                  });
+
+                  return (
+                    <div key={`${hour}-${dayIdx}`} style={{
+                      background: isToday ? "rgba(45,159,111,0.02)" : C.white,
+                      minHeight: hourHeight,
+                      position: "relative",
+                      padding: 2,
+                      borderTop: hour > minHour ? "1px solid rgba(27,36,50,0.04)" : "none",
+                    }}>
+                      {eventsInHour.map((ev, evIdx) => {
+                        const durationHours = ev.timeRange.end - ev.timeRange.start;
+                        const blockHeight = Math.max(durationHours * hourHeight - 4, 20);
+                        // Determine kid color from first kid
+                        const kidId = ev.kidIds?.[0];
+                        const color = kidId ? (kidColorMap[kidId] || C.seaGreen) : C.seaGreen;
+                        const kidName = kidId ? kids.find((k) => k.id === kidId)?.name : null;
+                        // Handle overlapping events
+                        const overlaps = eventsInHour.length;
+                        const width = overlaps > 1 ? `calc(${100 / overlaps}% - 2px)` : "calc(100% - 4px)";
+                        const left = overlaps > 1 ? `calc(${(evIdx * 100) / overlaps}% + 1px)` : "2px";
+
+                        return (
+                          <div
+                            key={ev.id}
+                            onClick={() => onOpenDetail(ev)}
+                            style={{
+                              position: "absolute",
+                              top: 2,
+                              left: left,
+                              width: width,
+                              height: blockHeight,
+                              borderRadius: 6,
+                              padding: "4px 6px",
+                              background: `${color}14`,
+                              borderLeft: `2px solid ${color}`,
+                              cursor: "pointer",
+                              overflow: "hidden",
+                              transition: "box-shadow 0.15s",
+                              zIndex: 1,
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.boxShadow = "0 2px 6px rgba(27,36,50,0.1)"}
+                            onMouseLeave={(e) => e.currentTarget.style.boxShadow = "none"}
+                          >
+                            <div style={{
+                              fontFamily: F.sans, fontSize: 10, fontWeight: 500,
+                              color: color, lineHeight: 1.2,
+                              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                            }}>
+                              {ev.name}
+                            </div>
+                            {kidName && durationHours >= 1.5 && (
+                              <div style={{
+                                fontFamily: F.sans, fontSize: 9, color: color,
+                                opacity: 0.7, marginTop: 1,
+                              }}>
+                                {kidName}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   /* ═══════════════════════════════════════
      MAIN PAGE

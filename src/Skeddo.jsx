@@ -7,6 +7,8 @@ import { useAuth } from "./hooks/useAuth";
 
 import Header from "./components/Header";
 import TabBar from "./components/TabBar";
+import DesktopSidebar from "./components/DesktopSidebar";
+import useIsDesktop from "./hooks/useIsDesktop";
 import HomeTab from "./tabs/HomeTab";
 import DiscoverTab from "./tabs/DiscoverTab";
 import ScheduleTab from "./tabs/ScheduleTab";
@@ -192,6 +194,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const childAccess = useChildAccess(userId, session);
   const circlesHook = useCircles(userId, session);
   const planAccess = usePlanAccess(profile.plan || "free", profile.isBetaUser);
+  const isDesktop = useIsDesktop();
 
   // Merge shared kids into the kids list
   const allKids = [...kids, ...childAccess.sharedKids.filter((sk) => !kids.some((k) => k.id === sk.id))];
@@ -570,117 +573,249 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         <InfoPage pageId={infoPage} onBack={() => setInfoPage(null)} />
       )}
 
-      {!infoPage && <main style={s.main} className="skeddo-main">
-        {tab === "home" && (
-          <HomeTab
-            enrolledPrograms={enrolledPrograms}
-            waitlistPrograms={waitlistPrograms}
-            exploringPrograms={exploringPrograms}
-            totalCostEnrolled={totalCostEnrolled}
-            kids={kids}
-            onOpenDetail={openDetail}
-            onCycleStatus={cycleStatus}
-            onNavigateToTab={handleNavigateToTab}
-            onOpenAddProgram={openAddProgram}
-            onOpenAddKid={openAddKid}
-            onEditKid={openEditKid}
-            installPrompt={installPrompt}
-            showInstallBanner={showInstallBanner}
-            onInstallClick={handleInstallClick}
-            onDismissInstall={() => setShowInstallBanner(false)}
-            activityLog={childAccess.activityLog}
-            planAccess={planAccess}
-            programs={programs}
-            onInviteCoParent={handleInviteCoParent}
-            profile={profile}
-            circlesHook={circlesHook}
-          />
-        )}
+      {!infoPage && isDesktop ? (
+        /* ─── Desktop: sidebar + main content shell ─── */
+        <div className="skeddo-desktop-shell">
+          <aside className="skeddo-sidebar" role="navigation" aria-label="Sidebar">
+            <DesktopSidebar
+              tab={tab}
+              programs={programs}
+              kids={kids}
+              kidFilter={kidFilter}
+              onKidFilter={setKidFilter}
+              statusFilter={statusFilter}
+              onStatusFilter={setStatusFilter}
+              onOpenAddProgram={openAddProgram}
+              budgetGoal={Number(profile.budgetGoal) || 0}
+              committedCost={totalCostEnrolled}
+              circlesHook={circlesHook}
+            />
+          </aside>
+          <main className="skeddo-desktop-main skeddo-main">
+            {tab === "home" && (
+              <HomeTab
+                enrolledPrograms={enrolledPrograms}
+                waitlistPrograms={waitlistPrograms}
+                exploringPrograms={exploringPrograms}
+                totalCostEnrolled={totalCostEnrolled}
+                kids={kids}
+                onOpenDetail={openDetail}
+                onCycleStatus={cycleStatus}
+                onNavigateToTab={handleNavigateToTab}
+                onOpenAddProgram={openAddProgram}
+                onOpenAddKid={openAddKid}
+                onEditKid={openEditKid}
+                installPrompt={installPrompt}
+                showInstallBanner={showInstallBanner}
+                onInstallClick={handleInstallClick}
+                onDismissInstall={() => setShowInstallBanner(false)}
+                activityLog={childAccess.activityLog}
+                planAccess={planAccess}
+                programs={programs}
+                onInviteCoParent={handleInviteCoParent}
+                profile={profile}
+                circlesHook={circlesHook}
+              />
+            )}
 
-        {tab === "discover" && (
-          <DiscoverTab
-            programs={programs}
-            kids={kids}
-            favorites={favorites}
-            toggleFavorite={toggleFavorite}
-            isFavorite={isFavorite}
-            onAddToSchedule={handleAddToSchedule}
-            onOpenDirectoryDetail={openDirectoryDetail}
-            planAccess={planAccess}
-            kidFilter={kidFilter}
-            onKidFilter={setKidFilter}
-            onOpenAddProgram={openAddProgram}
-          />
-        )}
+            {tab === "discover" && (
+              <DiscoverTab
+                programs={programs}
+                kids={kids}
+                favorites={favorites}
+                toggleFavorite={toggleFavorite}
+                isFavorite={isFavorite}
+                onAddToSchedule={handleAddToSchedule}
+                onOpenDirectoryDetail={openDirectoryDetail}
+                planAccess={planAccess}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                onOpenAddProgram={openAddProgram}
+              />
+            )}
 
-        {tab === "schedule" && (
-          <ScheduleTab
-            programs={programs}
-            kids={kids}
-            kidFilter={kidFilter}
-            onKidFilter={setKidFilter}
-            onOpenDetail={openDetail}
-            onNavigateToDiscover={() => handleNavigateToTab("discover")}
-            onOpenAddProgram={openAddProgram}
-            planAccess={planAccess}
-          />
-        )}
+            {tab === "schedule" && (
+              <ScheduleTab
+                programs={programs}
+                kids={kids}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                onOpenDetail={openDetail}
+                onNavigateToDiscover={() => handleNavigateToTab("discover")}
+                onOpenAddProgram={openAddProgram}
+                planAccess={planAccess}
+              />
+            )}
 
-        {tab === "programs" && (
-          <ProgramsTab
-            filteredPrograms={filteredPrograms}
-            statusFilter={statusFilter}
-            catFilter={catFilter}
-            kids={kids}
-            kidFilter={kidFilter}
-            onKidFilter={setKidFilter}
-            onStatusFilter={setStatusFilter}
-            onCatFilter={setCatFilter}
-            onOpenDetail={openDetail}
-            onCycleStatus={cycleStatus}
-            onOpenAddProgram={openAddProgram}
-            searchQuery={searchQuery}
-            onSearchQuery={setSearchQuery}
-          />
-        )}
+            {tab === "programs" && (
+              <ProgramsTab
+                filteredPrograms={filteredPrograms}
+                statusFilter={statusFilter}
+                catFilter={catFilter}
+                kids={kids}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                onStatusFilter={setStatusFilter}
+                onCatFilter={setCatFilter}
+                onOpenDetail={openDetail}
+                onCycleStatus={cycleStatus}
+                onOpenAddProgram={openAddProgram}
+                searchQuery={searchQuery}
+                onSearchQuery={setSearchQuery}
+              />
+            )}
 
-        {tab === "circles" && (
-          <CirclesTab
-            programs={programs}
-            kids={kids}
-            profile={profile}
-            showToast={showToast}
-            userId={userId}
-            circlesHook={circlesHook}
-            planAccess={planAccess}
-            onInviteCoParent={handleInviteCoParent}
-          />
-        )}
+            {tab === "circles" && (
+              <CirclesTab
+                programs={programs}
+                kids={kids}
+                profile={profile}
+                showToast={showToast}
+                userId={userId}
+                circlesHook={circlesHook}
+                planAccess={planAccess}
+                onInviteCoParent={handleInviteCoParent}
+              />
+            )}
 
-        {tab === "budget" && (
-          <BudgetTab
-            programs={programs}
-            kids={kids}
-            kidFilter={kidFilter}
-            onKidFilter={setKidFilter}
-            enrolledPrograms={enrolledPrograms}
-            waitlistPrograms={waitlistPrograms}
-            exploringPrograms={exploringPrograms}
-            totalCostEnrolled={totalCostEnrolled}
-            totalCostAll={totalCostAll}
-            budgetGoal={Number(profile.budgetGoal) || 0}
-            manualCosts={manualCosts}
-            onAddCost={openAddCost}
-            onEditCost={openEditCost}
-            userId={userId}
-            planAccess={planAccess}
-            onSaveKid={saveKid}
-            onOpenDetail={openDetail}
-          />
-        )}
-      </main>}
+            {tab === "budget" && (
+              <BudgetTab
+                programs={programs}
+                kids={kids}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                enrolledPrograms={enrolledPrograms}
+                waitlistPrograms={waitlistPrograms}
+                exploringPrograms={exploringPrograms}
+                totalCostEnrolled={totalCostEnrolled}
+                totalCostAll={totalCostAll}
+                budgetGoal={Number(profile.budgetGoal) || 0}
+                manualCosts={manualCosts}
+                onAddCost={openAddCost}
+                onEditCost={openEditCost}
+                userId={userId}
+                planAccess={planAccess}
+                onSaveKid={saveKid}
+                onOpenDetail={openDetail}
+              />
+            )}
+          </main>
+        </div>
+      ) : !infoPage ? (
+        /* ─── Mobile: original layout ─── */
+        <>
+          <main style={s.main} className="skeddo-main">
+            {tab === "home" && (
+              <HomeTab
+                enrolledPrograms={enrolledPrograms}
+                waitlistPrograms={waitlistPrograms}
+                exploringPrograms={exploringPrograms}
+                totalCostEnrolled={totalCostEnrolled}
+                kids={kids}
+                onOpenDetail={openDetail}
+                onCycleStatus={cycleStatus}
+                onNavigateToTab={handleNavigateToTab}
+                onOpenAddProgram={openAddProgram}
+                onOpenAddKid={openAddKid}
+                onEditKid={openEditKid}
+                installPrompt={installPrompt}
+                showInstallBanner={showInstallBanner}
+                onInstallClick={handleInstallClick}
+                onDismissInstall={() => setShowInstallBanner(false)}
+                activityLog={childAccess.activityLog}
+                planAccess={planAccess}
+                programs={programs}
+                onInviteCoParent={handleInviteCoParent}
+                profile={profile}
+                circlesHook={circlesHook}
+              />
+            )}
 
-      {!infoPage && <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} badges={{ circles: circlesHook.pendingCount }} />}
+            {tab === "discover" && (
+              <DiscoverTab
+                programs={programs}
+                kids={kids}
+                favorites={favorites}
+                toggleFavorite={toggleFavorite}
+                isFavorite={isFavorite}
+                onAddToSchedule={handleAddToSchedule}
+                onOpenDirectoryDetail={openDirectoryDetail}
+                planAccess={planAccess}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                onOpenAddProgram={openAddProgram}
+              />
+            )}
+
+            {tab === "schedule" && (
+              <ScheduleTab
+                programs={programs}
+                kids={kids}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                onOpenDetail={openDetail}
+                onNavigateToDiscover={() => handleNavigateToTab("discover")}
+                onOpenAddProgram={openAddProgram}
+                planAccess={planAccess}
+              />
+            )}
+
+            {tab === "programs" && (
+              <ProgramsTab
+                filteredPrograms={filteredPrograms}
+                statusFilter={statusFilter}
+                catFilter={catFilter}
+                kids={kids}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                onStatusFilter={setStatusFilter}
+                onCatFilter={setCatFilter}
+                onOpenDetail={openDetail}
+                onCycleStatus={cycleStatus}
+                onOpenAddProgram={openAddProgram}
+                searchQuery={searchQuery}
+                onSearchQuery={setSearchQuery}
+              />
+            )}
+
+            {tab === "circles" && (
+              <CirclesTab
+                programs={programs}
+                kids={kids}
+                profile={profile}
+                showToast={showToast}
+                userId={userId}
+                circlesHook={circlesHook}
+                planAccess={planAccess}
+                onInviteCoParent={handleInviteCoParent}
+              />
+            )}
+
+            {tab === "budget" && (
+              <BudgetTab
+                programs={programs}
+                kids={kids}
+                kidFilter={kidFilter}
+                onKidFilter={setKidFilter}
+                enrolledPrograms={enrolledPrograms}
+                waitlistPrograms={waitlistPrograms}
+                exploringPrograms={exploringPrograms}
+                totalCostEnrolled={totalCostEnrolled}
+                totalCostAll={totalCostAll}
+                budgetGoal={Number(profile.budgetGoal) || 0}
+                manualCosts={manualCosts}
+                onAddCost={openAddCost}
+                onEditCost={openEditCost}
+                userId={userId}
+                planAccess={planAccess}
+                onSaveKid={saveKid}
+                onOpenDetail={openDetail}
+              />
+            )}
+          </main>
+          <TabBar tab={tab} setTab={(t) => handleNavigateToTab(t)} badges={{ circles: circlesHook.pendingCount }} />
+        </>
+      ) : null}
 
       {/* ─── MODALS ─── */}
       {modal?.type === "programDetail" && (() => {

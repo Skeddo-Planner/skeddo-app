@@ -4,6 +4,9 @@ import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
 import { fmt$, calcCostPerHour, costPerHourColor, fmtShortDate } from "../utils/helpers";
 import { trackEvent } from "../utils/analytics";
+import useIsDesktop from "../hooks/useIsDesktop";
+
+const KID_COLORS_CHART = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
 
 /* ─── Break period definitions ─── */
 const BREAK_PERIODS = [
@@ -71,6 +74,7 @@ export default function BudgetTab({
   onOpenDetail,
 }) {
   const isPaid = planAccess.canUseBudgetTracking;
+  const isDesktop = useIsDesktop();
   const [sortBy, setSortBy] = useState("cost"); // cost | costPerHour | alpha | status
   const [editingBudget, setEditingBudget] = useState(null); // kid id
   const [budgetInput, setBudgetInput] = useState("");
@@ -240,6 +244,13 @@ export default function BudgetTab({
     setTimeout(() => { setExportDone(false); setShowExport(false); }, 1500);
   }
 
+  /* ─── Average cost per hour ─── */
+  const avgCPH = useMemo(() => {
+    const cphs = programsWithCPH.filter((p) => p.cph != null).map((p) => p.cph);
+    if (cphs.length === 0) return null;
+    return cphs.reduce((a, b) => a + b, 0) / cphs.length;
+  }, [programsWithCPH]);
+
   /* ─── Shared styles ─── */
   const cardStyle = {
     background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
@@ -248,6 +259,225 @@ export default function BudgetTab({
     fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted,
     textTransform: "uppercase", letterSpacing: 0.5,
   };
+
+  /* ═══════════════════════════════════════
+     DESKTOP DASHBOARD VIEW
+     ═══════════════════════════════════════ */
+  if (isDesktop) {
+    const statCards = [
+      { label: "Committed", value: `$${committedCost.toLocaleString()}`, color: C.seaGreen },
+      { label: "Potential", value: `$${potentialCost.toLocaleString()}`, color: C.lilac },
+      { label: "Remaining", value: `$${Math.abs(remaining).toLocaleString()}`, color: remaining >= 0 ? C.ink : C.olive },
+      { label: "Avg cost/hr", value: avgCPH != null ? `$${avgCPH.toFixed(2)}` : "\u2014", color: C.muted },
+    ];
+
+    return (
+      <div>
+        {/* Panel header */}
+        <div className="skeddo-panel-header">
+          <div>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
+              Budget
+            </h2>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 2 }}>
+              {effectiveBudget > 0 ? `$${effectiveBudget.toLocaleString()} goal` : "No budget set"}
+            </p>
+          </div>
+        </div>
+
+        {/* Row 1: Stat cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10, marginBottom: 16 }}>
+          {statCards.map((card) => (
+            <div key={card.label} className="skeddo-stat-card">
+              <div className="skeddo-stat-card-label">{card.label}</div>
+              <div className="skeddo-stat-card-value" style={{ color: card.color }}>
+                {card.value}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2: Budget progress bar */}
+        {effectiveBudget > 0 && (
+          <div style={{ marginBottom: 20 }}>
+            <div style={{
+              height: 28, borderRadius: 8, background: C.cream,
+              overflow: "hidden", display: "flex",
+            }}>
+              {pctUsed > 0 && (
+                <div style={{
+                  width: `${pctUsed}%`, background: C.seaGreen,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 500,
+                  minWidth: pctUsed > 8 ? "auto" : 0,
+                  overflow: "hidden", whiteSpace: "nowrap",
+                }}>
+                  {pctUsed > 8 && `$${committedCost.toLocaleString()}`}
+                </div>
+              )}
+              {pctPotential > 0 && (
+                <div style={{
+                  width: `${pctPotential}%`, background: C.lilac,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 500,
+                  minWidth: pctPotential > 8 ? "auto" : 0,
+                  overflow: "hidden", whiteSpace: "nowrap",
+                }}>
+                  {pctPotential > 8 && `$${potentialCost.toLocaleString()}`}
+                </div>
+              )}
+            </div>
+            <div style={{
+              display: "flex", justifyContent: "space-between", marginTop: 6,
+              fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted,
+            }}>
+              <span>{Math.round(pctUsed)}% committed</span>
+              <span>{Math.round(pctPotential)}% potential</span>
+              <span>{Math.round(100 - pctUsed - pctPotential)}% remaining</span>
+            </div>
+          </div>
+        )}
+
+        {/* Row 3: Two-up — Spend by kid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
+          {/* Chart A: Spend by kid */}
+          <div style={{
+            background: C.white, borderRadius: 12,
+            border: `0.5px solid rgba(27,36,50,0.08)`,
+            padding: 14,
+          }}>
+            <div style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 500,
+              color: C.ink, marginBottom: 12,
+            }}>
+              Spend by kid
+            </div>
+            {kidTotals.map((kt) => {
+              const kidColor = kt.color || KID_COLORS_CHART[kids.indexOf(kt) % KID_COLORS_CHART.length] || C.seaGreen;
+              const barPct = effectiveBudget > 0
+                ? Math.min((kt.committed / effectiveBudget) * 100, 100)
+                : (kt.committed / Math.max(grandTotal, 1)) * 100;
+
+              return (
+                <div key={kt.id} style={{ marginBottom: 12 }}>
+                  <div style={{
+                    display: "flex", justifyContent: "space-between",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.ink,
+                    marginBottom: 4,
+                  }}>
+                    <span>{kt.name}</span>
+                    <span>${kt.committed.toLocaleString()}</span>
+                  </div>
+                  <div style={{ height: 8, borderRadius: 4, background: C.cream, overflow: "hidden" }}>
+                    <div style={{ width: `${barPct}%`, height: "100%", background: kidColor, borderRadius: 4 }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Chart B: Spend by status */}
+          <div style={{
+            background: C.white, borderRadius: 12,
+            border: `0.5px solid rgba(27,36,50,0.08)`,
+            padding: 14,
+          }}>
+            <div style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 500,
+              color: C.ink, marginBottom: 12,
+            }}>
+              Spend by status
+            </div>
+            {[
+              { label: "Enrolled", cost: enrolledCost, color: C.seaGreen },
+              { label: "Waitlist", cost: waitlistCost, color: C.olive },
+              { label: "Exploring", cost: exploringCost, color: C.blue },
+              { label: "Other expenses", cost: manualCostTotal, color: C.lilac },
+            ].filter((s) => s.cost > 0).map((st) => {
+              const barPct = (st.cost / Math.max(grandTotal, 1)) * 100;
+              return (
+                <div key={st.label} style={{ marginBottom: 12 }}>
+                  <div style={{
+                    display: "flex", justifyContent: "space-between",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.ink,
+                    marginBottom: 4,
+                  }}>
+                    <span>{st.label}</span>
+                    <span>${st.cost.toLocaleString()}</span>
+                  </div>
+                  <div style={{ height: 8, borderRadius: 4, background: C.cream, overflow: "hidden" }}>
+                    <div style={{ width: `${barPct}%`, height: "100%", background: st.color, borderRadius: 4 }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Row 4: Cost table */}
+        {filteredPrograms.length > 0 && (
+          <div style={{ borderRadius: 12, overflow: "hidden", border: `0.5px solid rgba(27,36,50,0.08)` }}>
+            <table className="skeddo-data-table" style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "left" }} onClick={() => setSortBy("alpha")}>Program</th>
+                  <th style={{ width: 80, textAlign: "left" }}>Kid</th>
+                  <th style={{ width: 100, textAlign: "left" }} onClick={() => setSortBy("status")}>Status</th>
+                  <th style={{ width: 80, textAlign: "right" }} onClick={() => setSortBy("cost")}>Cost</th>
+                  <th style={{ width: 70, textAlign: "right" }} onClick={() => setSortBy("costPerHour")}>$/hr</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredPrograms.map((p) => {
+                  const kidNames = (p.kidIds || []).map((id) => kids.find((k) => k.id === id)?.name || "").filter(Boolean).join(", ");
+                  const cphColor = perHrColor(p.cph);
+                  return (
+                    <tr key={p.id} onClick={() => onOpenDetail && onOpenDetail(p)}>
+                      <td>
+                        <div style={{ fontWeight: 500, fontSize: 14 }}>{p.name}</div>
+                        {p.provider && <div style={{ fontSize: 11, color: C.muted }}>{p.provider}</div>}
+                      </td>
+                      <td style={{ fontSize: 12 }}>{kidNames || "\u2014"}</td>
+                      <td>
+                        <span style={{
+                          fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600,
+                          padding: "3px 8px", borderRadius: 6,
+                          color: STATUS_MAP[p.status]?.color || C.muted,
+                          background: STATUS_MAP[p.status]?.bg || C.cream,
+                        }}>
+                          {p.status}
+                        </span>
+                      </td>
+                      <td style={{ textAlign: "right", fontWeight: 500 }}>
+                        ${Number(p.cost || 0).toLocaleString()}
+                      </td>
+                      <td style={{ textAlign: "right", fontSize: 12, color: cphColor }}>
+                        {p.cph != null ? `$${p.cph.toFixed(2)}` : "\u2014"}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* Add cost button */}
+        <button
+          onClick={onAddCost}
+          style={{
+            width: "100%", padding: "12px", marginTop: 16,
+            background: "none", border: `1.5px dashed ${C.border}`,
+            borderRadius: 8, fontFamily: "'Barlow', sans-serif",
+            fontSize: 13, fontWeight: 500, color: C.muted,
+            cursor: "pointer",
+          }}
+        >
+          + Add an expense
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div>

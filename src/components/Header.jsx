@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import useIsDesktop from "../hooks/useIsDesktop";
@@ -13,32 +13,23 @@ const MENU_ITEMS = [
   { id: "signout", label: "Sign Out", icon: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4|M16 17l5-5-5-5|M21 12H9" },
 ];
 
-/* Desktop navigation tab definitions with SVG path data */
-const NAV_TABS = [
-  { id: "discover", label: "Search", paths: ["M11 11m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", "M16.5 16.5L21 21"] },
-  { id: "schedule", label: "Schedule", paths: ["M3 4h18v18H3V4z", "M16 2v4", "M8 2v4", "M3 10h18"], rect: { x: 3, y: 4, w: 18, h: 18, rx: 2 } },
-  { id: "programs", label: "Programs", paths: ["M3 3h18v18H3V3z", "M7 8h10", "M7 12h10", "M7 16h6"], rect: { x: 3, y: 3, w: 18, h: 18, rx: 2 } },
-  { id: "circles", label: "Circles", paths: ["M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0", "M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0", "M6.5 18.5C7.5 15.5 9.5 14 12 14s4.5 1.5 5.5 4.5"] },
-  { id: "budget", label: "Budget", paths: ["M12 1v22", "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"] },
+/* Desktop user dropdown items */
+const USER_DROPDOWN = [
+  { id: "profile", label: "Settings" },
+  { id: "about", label: "About Skeddo" },
+  { id: "legal", label: "Privacy & Terms" },
+  { id: "help", label: "Help & Contact" },
+  { id: "signout", label: "Sign Out" },
 ];
 
-function NavTabIcon({ id, color, size = 16 }) {
-  const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
-  switch (id) {
-    case "discover":
-      return (<svg {...props}><circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" /></svg>);
-    case "schedule":
-      return (<svg {...props}><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>);
-    case "programs":
-      return (<svg {...props}><rect x="3" y="3" width="18" height="18" rx="2" /><line x1="7" y1="8" x2="17" y2="8" /><line x1="7" y1="12" x2="17" y2="12" /><line x1="7" y1="16" x2="13" y2="16" /></svg>);
-    case "circles":
-      return (<svg {...props}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="10" r="3" /><path d="M6.5 18.5C7.5 15.5 9.5 14 12 14s4.5 1.5 5.5 4.5" /></svg>);
-    case "budget":
-      return (<svg {...props}><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>);
-    default:
-      return null;
-  }
-}
+/* Desktop navigation tab definitions */
+const NAV_TABS = [
+  { id: "discover", label: "Search" },
+  { id: "schedule", label: "Schedule" },
+  { id: "programs", label: "Programs" },
+  { id: "circles", label: "Circles" },
+  { id: "budget", label: "Budget" },
+];
 
 function MenuIcon({ pathData, circle, color, size = 18 }) {
   const paths = pathData.split("|");
@@ -52,10 +43,25 @@ function MenuIcon({ pathData, circle, color, size = 18 }) {
 
 export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onInviteCoParent, tab, setTab, badges }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const isDesktop = useIsDesktop();
+
+  /* Close dropdown on outside click */
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const handler = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [dropdownOpen]);
 
   const handleItemClick = (id) => {
     setMenuOpen(false);
+    setDropdownOpen(false);
     const item = MENU_ITEMS.find((m) => m.id === id);
     if (item?.mailto) {
       window.open(`mailto:${item.mailto}?subject=${encodeURIComponent(item.subject || "")}`, "_blank");
@@ -70,74 +76,99 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
     }
   };
 
+  const initials = displayName
+    ? displayName.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2)
+    : "?";
+
   return (
     <>
       <header style={{
-        ...s.header,
         ...(isDesktop ? {
           position: "sticky",
           top: 0,
           zIndex: 100,
-          padding: "0 32px",
+          padding: "0 20px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: 60,
-        } : {}),
+          height: 52,
+          background: C.white,
+          borderBottom: `0.5px solid rgba(27,36,50,0.08)`,
+        } : s.header),
       }}>
         {isDesktop ? (
-          /* ─── Desktop header with inline navigation ─── */
+          /* ─── Desktop header: white bg, pill tabs, user dropdown ─── */
           <>
-            {/* Logo on left */}
+            {/* Logo on left — Poppins wordmark */}
             <div
-              style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", flexShrink: 0 }}
+              style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", flexShrink: 0 }}
               onClick={onLogoClick}
               role="button"
               tabIndex={0}
               aria-label="Go to homepage"
             >
-              <img
-                src="/skeddo-logo-dark.png"
-                alt="Skeddo"
-                style={{ height: 40, width: "auto", borderRadius: 8 }}
-              />
+              <span style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontSize: 18,
+                fontWeight: 700,
+                color: C.ink,
+                letterSpacing: -0.3,
+                lineHeight: 1,
+              }}>
+                sked<span style={{ color: C.olive, fontStyle: "italic" }}>do</span>
+              </span>
             </div>
 
-            {/* Center navigation tabs */}
-            <nav style={{ display: "flex", gap: 2, alignItems: "center" }}>
+            {/* Center: pill-style tab switcher */}
+            <nav
+              role="tablist"
+              style={{
+                display: "flex",
+                gap: 2,
+                alignItems: "center",
+                background: C.cream,
+                borderRadius: 8,
+                padding: 3,
+              }}
+            >
               {NAV_TABS.map((n) => {
                 const active = tab === n.id;
                 return (
                   <button
                     key={n.id}
+                    role="tab"
+                    aria-selected={active}
                     onClick={() => setTab && setTab(n.id)}
                     style={{
-                      background: active ? "rgba(58,158,106,0.15)" : "transparent",
+                      background: active ? C.white : "transparent",
+                      boxShadow: active ? "0 1px 3px rgba(0,0,0,0.06)" : "none",
                       border: "none",
-                      borderRadius: 8,
-                      padding: "8px 14px",
-                      color: active ? C.seaGreen : "rgba(248,249,250,0.55)",
+                      borderRadius: 6,
+                      padding: "7px 16px",
+                      color: active ? C.ink : C.muted,
                       fontFamily: "'Barlow', sans-serif",
                       fontSize: 13,
-                      fontWeight: active ? 700 : 500,
+                      fontWeight: active ? 500 : 400,
                       cursor: "pointer",
-                      transition: "all 0.15s",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
+                      transition: "background 0.15s, color 0.15s",
                       position: "relative",
-                      letterSpacing: 0.3,
+                      letterSpacing: 0.2,
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!active) e.currentTarget.style.color = C.ink;
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!active) e.currentTarget.style.color = C.muted;
                     }}
                   >
-                    <NavTabIcon id={n.id} color={active ? C.seaGreen : "rgba(248,249,250,0.55)"} size={16} />
                     {n.label}
                     {badges?.[n.id] > 0 && (
                       <span style={{
                         width: 14, height: 14, borderRadius: "50%",
                         background: "#E74C3C", color: "#fff",
                         fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        marginLeft: 2,
+                        display: "inline-flex", alignItems: "center", justifyContent: "center",
+                        marginLeft: 4, verticalAlign: "middle",
                       }}>
                         {badges[n.id] > 9 ? "9+" : badges[n.id]}
                       </span>
@@ -147,34 +178,25 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               })}
             </nav>
 
-            {/* Right side: tagline + profile/menu */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
-              <span style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 10,
-                color: "rgba(255,255,255,0.45)",
-                letterSpacing: 0.5,
-                textTransform: "uppercase",
-              }}>
-                The planner for busy families
-              </span>
+            {/* Right: user name + avatar + dropdown */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0, position: "relative" }} ref={dropdownRef}>
               {unreadCount > 0 && (
                 <button
                   onClick={onOpenActivity}
                   style={{
-                    width: 36, height: 36, borderRadius: 8,
+                    width: 32, height: 32, borderRadius: 8,
                     background: "transparent", border: "none",
                     cursor: "pointer", display: "flex", alignItems: "center",
                     justifyContent: "center", position: "relative", flexShrink: 0,
                   }}
                   aria-label={`${unreadCount} new activity updates`}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
                     <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                   </svg>
                   <span style={{
-                    position: "absolute", top: 2, right: 2, width: 14, height: 14,
+                    position: "absolute", top: 0, right: 0, width: 14, height: 14,
                     borderRadius: "50%", background: "#E74C3C", color: "#fff",
                     fontSize: 8, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
                     display: "flex", alignItems: "center", justifyContent: "center",
@@ -184,21 +206,80 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 </button>
               )}
               <button
-                onClick={() => setMenuOpen(true)}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
                 style={{
-                  width: 36, height: 36, borderRadius: 8,
-                  background: "transparent", border: "none",
-                  cursor: "pointer", display: "flex", alignItems: "center",
-                  justifyContent: "center", flexShrink: 0,
+                  display: "flex", alignItems: "center", gap: 10,
+                  background: "none", border: "none", cursor: "pointer",
+                  padding: "4px 0",
                 }}
-                aria-label="Open menu"
+                aria-label="User menu"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round">
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
+                <span style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 13,
+                  color: C.muted,
+                }}>
+                  {displayName || "Account"}
+                </span>
+                <div style={{
+                  width: 30, height: 30, borderRadius: "50%",
+                  background: C.seaGreen, color: C.white,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 12, fontWeight: 500,
+                }}>
+                  {initials}
+                </div>
               </button>
+
+              {/* Dropdown menu */}
+              {dropdownOpen && (
+                <div style={{
+                  position: "absolute",
+                  top: "100%",
+                  right: 0,
+                  marginTop: 6,
+                  background: C.white,
+                  borderRadius: 10,
+                  boxShadow: "0 4px 20px rgba(27,36,50,0.12), 0 1px 4px rgba(27,36,50,0.06)",
+                  border: `0.5px solid rgba(27,36,50,0.08)`,
+                  minWidth: 180,
+                  padding: "6px 0",
+                  zIndex: 200,
+                }}>
+                  {USER_DROPDOWN.map((item) => (
+                    <div key={item.id}>
+                      {item.id === "signout" && (
+                        <div style={{ margin: "4px 12px", borderTop: `1px solid ${C.border}` }} />
+                      )}
+                      <button
+                        onClick={() => handleItemClick(item.id)}
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          padding: "10px 16px",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          fontFamily: "'Barlow', sans-serif",
+                          fontSize: 13,
+                          fontWeight: 500,
+                          color: item.id === "signout" ? "#C0392B" : C.ink,
+                          textAlign: "left",
+                          transition: "background 0.1s",
+                          borderRadius: 0,
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = C.cream}
+                        onMouseLeave={(e) => e.currentTarget.style.background = "none"}
+                      >
+                        {item.label}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </>
         ) : (
@@ -266,7 +347,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
         )}
       </header>
 
-      {/* Slide-out menu */}
+      {/* Slide-out menu (mobile only, but works on both) */}
       {menuOpen && (
         <div
           style={{
