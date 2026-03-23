@@ -1048,6 +1048,17 @@ export default function DiscoverTab({
         <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
         <FilterChip label="Activity" count={selectedActivityTypes.size} active={selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("activityType")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        {totalActiveFilters > 0 && (
+          <>
+            <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
+            <button onClick={clearAllFilters} style={{
+              background: "none", border: "1.5px solid rgba(231,111,81,0.3)",
+              borderRadius: 20, padding: "6px 14px",
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+              color: C.danger, cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+            }}>Clear all</button>
+          </>
+        )}
       </div>
 
       {/* Active filter summary */}
