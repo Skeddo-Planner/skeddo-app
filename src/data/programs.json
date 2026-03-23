@@ -11801,7 +11801,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 478,
@@ -11817,7 +11818,7 @@
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
-    "cost": 445,
+    "cost": 410,
     "indoorOutdoor": "Outdoor",
     "neighbourhood": "Kitsilano",
     "address": "302-2525 Carnarvon Street, Vancouver, BC",
@@ -11836,7 +11837,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 479,
@@ -11871,7 +11873,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 480,
@@ -59597,7 +59600,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2030,
@@ -59633,7 +59637,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2031,
@@ -59669,7 +59674,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2032,
@@ -59705,7 +59711,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2033,
@@ -59740,7 +59747,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2034,
@@ -59776,7 +59784,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2035,
@@ -59813,7 +59822,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2036,
@@ -59849,7 +59859,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2037,
@@ -59885,7 +59896,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2038,
@@ -71763,7 +71775,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71796,7 +71809,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71829,7 +71843,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71862,7 +71877,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71895,7 +71911,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71928,7 +71945,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71961,7 +71979,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -71994,7 +72013,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72027,7 +72047,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72060,7 +72081,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72093,7 +72115,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72126,7 +72149,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72159,7 +72183,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72192,7 +72217,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72225,7 +72251,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72258,7 +72285,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72291,7 +72319,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72324,7 +72353,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72357,7 +72387,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72390,7 +72421,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72423,7 +72455,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72456,7 +72489,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72489,7 +72523,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72522,7 +72557,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72555,7 +72591,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72588,7 +72625,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72621,7 +72659,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "provider": "Science AL!VE",
@@ -72654,7 +72693,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2476,
@@ -73407,7 +73447,8 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2500,
@@ -73443,7 +73484,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": 2501,
@@ -75159,7 +75201,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": "camp-virgule-1",
@@ -75192,7 +75235,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costPer": "week"
   },
   {
     "id": "sfm-french-1",

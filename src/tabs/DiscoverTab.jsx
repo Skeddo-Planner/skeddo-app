@@ -371,7 +371,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         }}>
           {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date()
             ? <><span>${Number(program.earlyBirdCost).toLocaleString()}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${Number(program.cost).toLocaleString()}</span></>
-            : program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() : "Free"
+            : program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() + (program.costPer === "week" ? "/wk" : "") : "Free"
           }
         </div>
       </div>
@@ -497,7 +497,7 @@ function CategoryBrowseRow({ category, programs, onTap, isFavorite, toggleFavori
                   )}
                 </div>
                 <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink }}>
-                  {p.cost === "TBD" ? "TBD" : p.cost ? "$" + Number(p.cost).toLocaleString() : "Free"}
+                  {p.cost === "TBD" ? "TBD" : p.cost ? "$" + Number(p.cost).toLocaleString() + (p.costPer === "week" ? "/wk" : "") : "Free"}
                 </span>
               </div>
             </div>
@@ -1079,11 +1079,11 @@ export default function DiscoverTab({
           <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
         )}
         <FilterChip label="Category" count={selectedCats.size + selectedActivityTypes.size} active={selectedCats.size > 0 || selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("category")} />
+        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
         <FilterChip label="Length" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
-        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
       </div>
 
       {/* Active filter summary */}
