@@ -277,8 +277,12 @@ export default function HomeTab({
 
   return (
     <div>
-      {/* Visually hidden h2 for heading hierarchy */}
-      <h2 style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>Home Dashboard</h2>
+      <h2 style={s.pageTitle}>Home</h2>
+      <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16 }}>
+        {kids.length > 0
+          ? <>Your family's summer planning at a glance</>
+          : <>Welcome! Add a kid to get started</>}
+      </p>
 
       {/* ══ 1. Kid Pills ══ */}
       <div style={{ display: "flex", gap: 10, marginBottom: 12, overflowX: "auto", paddingBottom: 4 }}>

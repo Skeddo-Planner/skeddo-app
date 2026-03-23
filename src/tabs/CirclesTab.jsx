@@ -261,8 +261,8 @@ export default function CirclesTab({
     return (
       <div>
         {/* Header row */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, fontWeight: 700, color: C.ink, margin: 0, lineHeight: 1.2 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
+          <h2 style={s.pageTitle}>
             Circles
           </h2>
           <button
@@ -278,7 +278,7 @@ export default function CirclesTab({
         </div>
 
         {/* Subtitle */}
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "0 0 20px", lineHeight: 1.4 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
           {circles.length} group{circles.length !== 1 ? "s" : ""}
           {newThisWeek > 0 && <> &middot; <span style={{ color: C.olive, fontWeight: 600 }}>{newThisWeek} new activit{newThisWeek === 1 ? "y" : "ies"} this week</span></>}
         </p>

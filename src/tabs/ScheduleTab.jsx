@@ -632,7 +632,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
         <h2 style={s.pageTitle}>Schedule</h2>
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {/* Show/hide programs filter */}
@@ -687,6 +687,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           </button>
         </div>
       </div>
+      <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
+        Your week at a glance
+      </p>
 
       {/* ── Calendar Visibility Panel ── */}
       {showVisibilityPanel && (

@@ -22,6 +22,9 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   );
 
   const [showAddForm, setShowAddForm] = useState(false);
+  const [justAdded, setJustAdded] = useState(false);
+  const [addedKidNames, setAddedKidNames] = useState([]);
+  const [copied, setCopied] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("Exploring");
   const [selectedKidIds, setSelectedKidIds] = useState([]);
   const [kidError, setKidError] = useState(false);
@@ -48,12 +51,28 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       return;
     }
     setKidError(false);
+    const kidNames = selectedKidIds.map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
+    setAddedKidNames(kidNames);
     onAddToSchedule({
       ...p,
       cost: customCost !== "" ? Number(customCost) : (p.cost === "TBD" ? 0 : Number(p.cost) || 0),
       status: selectedStatus,
       kidIds: selectedKidIds,
     });
+    setShowAddForm(false);
+    setJustAdded(true);
+  };
+
+  const shareText = addedKidNames.length > 0
+    ? `${addedKidNames.join(" & ")} ${addedKidNames.length > 1 ? "are" : "is"} signed up for ${p.name}! Check it out on Skeddo`
+    : `Just added ${p.name} to our summer plan! Check it out on Skeddo`;
+  const shareUrl = "https://skeddo.ca";
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareText + "\n" + shareUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {});
   };
 
   return (
@@ -562,6 +581,101 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             </button>
             <button style={s.primaryBtn} onClick={handleConfirmAdd}>
               Confirm
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Share buttons after adding */}
+      {justAdded && (
+        <div style={{
+          marginTop: 20, padding: 16, background: "#ECFDF5",
+          borderRadius: 12, border: `1px solid ${C.seaGreen}30`, textAlign: "center",
+        }}>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 700,
+            color: C.seaGreen, marginBottom: 12,
+          }}>
+            Added! Share with friends?
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
+            {/* WhatsApp */}
+            <button onClick={() => {
+              trackEvent("share_program", { method: "whatsapp", program_name: p.name });
+              window.open(`https://wa.me/?text=${encodeURIComponent(shareText + "\n" + shareUrl)}`, "_blank");
+            }} style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+              background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
+            }}>
+              <div style={{
+                width: 42, height: 42, borderRadius: 12,
+                background: "#25D36614", border: "1.5px solid #25D36630",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#25D366" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>WhatsApp</span>
+            </button>
+            {/* Copy Link */}
+            <button onClick={() => {
+              trackEvent("share_program", { method: "copy", program_name: p.name });
+              handleCopyLink();
+            }} style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+              background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
+            }}>
+              <div style={{
+                width: 42, height: 42, borderRadius: 12,
+                background: C.olive + "14", border: `1.5px solid ${C.olive}30`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.olive} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>
+                {copied ? "Copied!" : "Copy"}
+              </span>
+            </button>
+            {/* Text */}
+            <button onClick={() => {
+              trackEvent("share_program", { method: "text", program_name: p.name });
+              window.open(`sms:?body=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank");
+            }} style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+              background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
+            }}>
+              <div style={{
+                width: 42, height: 42, borderRadius: 12,
+                background: C.blue + "14", border: `1.5px solid ${C.blue}30`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>Text</span>
+            </button>
+            {/* Email */}
+            <button onClick={() => {
+              trackEvent("share_program", { method: "email", program_name: p.name });
+              window.open(`mailto:?subject=${encodeURIComponent("Check out " + p.name + " on Skeddo")}&body=${encodeURIComponent(shareText + "\n\n" + shareUrl)}`, "_blank");
+            }} style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 4,
+              background: "none", border: "none", cursor: "pointer", padding: "6px 4px",
+            }}>
+              <div style={{
+                width: 42, height: 42, borderRadius: 12,
+                background: C.lilac + "14", border: `1.5px solid ${C.lilac}30`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.lilac} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 7L2 7" />
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>Email</span>
             </button>
           </div>
         </div>

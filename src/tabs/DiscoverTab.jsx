@@ -875,9 +875,10 @@ export default function DiscoverTab({
             <p
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 14,
+                fontSize: 16,
                 color: C.muted,
-                marginTop: 2,
+                marginBottom: 16,
+                marginTop: 0,
               }}
             >
               {isLoadingPrograms

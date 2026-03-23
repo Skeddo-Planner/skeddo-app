@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { C, CATEGORIES, CAT_EMOJI } from "../constants/brand";
+import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import ProgramCard from "../components/ProgramCard";
 import EmptyState from "../components/EmptyState";
@@ -46,7 +46,7 @@ export default function ProgramsTab({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 12,
+          marginBottom: 0,
         }}
       >
         <h2 style={s.pageTitle}>My Programs</h2>
@@ -59,6 +59,9 @@ export default function ProgramsTab({
           + Add
         </button>
       </div>
+      <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
+        {filteredPrograms.length} program{filteredPrograms.length !== 1 ? "s" : ""} tracked
+      </p>
 
       {/* Kid filter */}
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
