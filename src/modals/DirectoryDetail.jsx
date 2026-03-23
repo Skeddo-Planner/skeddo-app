@@ -24,6 +24,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const [showAddForm, setShowAddForm] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("Exploring");
   const [selectedKidIds, setSelectedKidIds] = useState([]);
+  const [kidError, setKidError] = useState(false);
   const [customCost, setCustomCost] = useState(
     p.cost === "TBD" ? "" : (typeof p.cost === "number" ? String(p.cost) : "")
   );
@@ -35,12 +36,18 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const earlyBirdActive = hasEarlyBird && new Date(p.earlyBirdDeadline) >= new Date();
 
   const toggleKid = (kidId) => {
+    setKidError(false);
     setSelectedKidIds((prev) =>
       prev.includes(kidId) ? prev.filter((id) => id !== kidId) : [...prev, kidId]
     );
   };
 
   const handleConfirmAdd = () => {
+    if (kids && kids.length > 0 && selectedKidIds.length === 0) {
+      setKidError(true);
+      return;
+    }
+    setKidError(false);
     onAddToSchedule({
       ...p,
       cost: customCost !== "" ? Number(customCost) : (p.cost === "TBD" ? 0 : Number(p.cost) || 0),
@@ -540,6 +547,11 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
               marginBottom: 14, lineHeight: 1.5,
             }}>
               No kids added yet. Add a kid from the Home tab to assign programs.
+            </div>
+          )}
+          {kidError && (
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.danger, marginBottom: 10 }}>
+              Please assign this program to at least one child
             </div>
           )}
 

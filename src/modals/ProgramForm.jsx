@@ -31,6 +31,11 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
       e.endDate = "End must be after start";
     }
 
+    // Must assign to at least one kid (if kids exist)
+    if (kids && kids.length > 0 && (!form.kidIds || form.kidIds.length === 0)) {
+      e.kidIds = "Please assign this program to at least one child";
+    }
+
     setErrors(e);
     return Object.keys(e).length === 0;
   }
@@ -99,6 +104,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
               );
             })}
           </div>
+          {errors.kidIds && <div style={errorStyle}>{errors.kidIds}</div>}
         </>
       )}
 
