@@ -51,7 +51,7 @@ function ShareIcons({ shareText, shareUrl, onCopy, subject }) {
           }}>
             <ShareIcon type={a.type} color={a.color} />
           </div>
-          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 9, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>
+          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>
             {a.label}
           </span>
         </button>
@@ -79,7 +79,7 @@ function SubHeader({ title, onBack, right }) {
 function Tag({ children, color, bg }) {
   return (
     <span style={{
-      fontSize: 10, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+      fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
       color, background: bg, padding: "2px 8px", borderRadius: 20,
       textTransform: "uppercase", letterSpacing: 0.3, whiteSpace: "nowrap",
     }}>{children}</span>
@@ -221,12 +221,12 @@ export default function CirclesTab({
             <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
               Circles
               {circles.length > 0 && (
-                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.olive, fontStyle: "italic", marginLeft: 8 }}>
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.olive, fontStyle: "italic", marginLeft: 8 }}>
                   {circles.length} circle{circles.length !== 1 ? "s" : ""}
                 </span>
               )}
             </h2>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, margin: "2px 0 0" }}>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "2px 0 0" }}>
               Share schedules with your parent groups
             </p>
           </div>
@@ -257,10 +257,10 @@ export default function CirclesTab({
             {pendingRequests.map((req) => (
               <div key={req.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 0", borderBottom: `1px solid ${C.lilac}18` }}>
                 <div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, color: C.ink }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
                     {req.displayName || "Someone"}
                   </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                     wants to join {req.circleName || "your circle"}
                   </div>
                 </div>
@@ -312,10 +312,10 @@ export default function CirclesTab({
                   {c.emoji}
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 700, color: C.ink }}>
                     {c.name}
                   </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                     {c.memberCount} member{c.memberCount !== 1 ? "s" : ""}
                   </div>
                 </div>
@@ -356,7 +356,7 @@ export default function CirclesTab({
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
                 Invite a co-parent
               </div>
-              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                 Let a partner or caregiver help manage schedules
               </div>
             </div>
@@ -383,7 +383,7 @@ export default function CirclesTab({
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.cream }}>
               Invite a friend, get a free month
             </div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6" }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: "#B0C4B6" }}>
               Share your referral link with other parents
             </div>
           </div>
@@ -407,15 +407,15 @@ export default function CirclesTab({
                       {a.activity_name}
                     </div>
                     {a.provider_name && (
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2 }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 2 }}>
                         {a.provider_name}
                       </div>
                     )}
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 2 }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 2 }}>
                       {[a.child_name, a.schedule_info, a.age_group].filter(Boolean).join(" · ")}
                     </div>
                     {a.shared_by_name && (
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.olive, marginTop: 4 }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.olive, marginTop: 4 }}>
                         Shared by {a.shared_by_name} · {timeAgo(a.shared_at)}
                       </div>
                     )}
@@ -458,7 +458,7 @@ export default function CirclesTab({
     return (
       <div>
         <SubHeader title="Create a Circle" onBack={() => setScreen("home")} />
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
           Create a private group to share your kids' activity schedules with other parents.
         </p>
         <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
@@ -506,7 +506,7 @@ export default function CirclesTab({
     return (
       <div>
         <SubHeader title="Join a Circle" onBack={() => setScreen("home")} />
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
           Enter the invite code from another parent to request to join their circle.
         </p>
         <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
@@ -519,7 +519,7 @@ export default function CirclesTab({
           placeholder="Paste invite code here"
           autoFocus
         />
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 4, marginBottom: 16 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 4, marginBottom: 16 }}>
           The circle owner will need to approve your request.
         </p>
         <button
@@ -561,6 +561,8 @@ export default function CirclesTab({
           {circleMembers.map((m) => {
             const isMe = m.userId === userId;
             const isOwner = activeCircle?.role === "owner";
+            // For the current user, prefer the locally-available profile name (always up to date)
+            const memberName = isMe ? (profile?.displayName || m.displayName) : m.displayName;
             return (
               <div key={m.userId} style={{
                 display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -573,10 +575,10 @@ export default function CirclesTab({
                     color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
                     fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
                   }}>
-                    {m.displayName?.[0]?.toUpperCase() || "?"}
+                    {memberName?.[0]?.toUpperCase() || "?"}
                   </div>
                   <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
-                    {m.displayName}{isMe ? " (you)" : ""}
+                    {memberName}{isMe ? " (you)" : ""}
                   </span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -635,30 +637,6 @@ export default function CirclesTab({
           </button>
         </div>
 
-        {/* Invite code + share icons */}
-        {activeCircle?.inviteCode && (
-          <div style={{
-            background: SOFT.blue, borderRadius: 12, padding: "14px 16px", marginBottom: 16,
-            border: `1px solid ${C.blue}18`,
-          }}>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: C.blue, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>
-              Invite Code
-            </div>
-            <div style={{
-              background: C.white, borderRadius: 8, padding: "8px 12px", marginBottom: 12,
-              fontFamily: "monospace", fontSize: 13, color: C.ink, border: `1px solid ${C.border}`,
-            }}>
-              {activeCircle.inviteCode}
-            </div>
-            <ShareIcons
-              shareText={`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}`}
-              shareUrl="https://skeddo.ca"
-              onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(activeCircle.inviteCode) : Promise.reject()).catch(() => {}); showToast("Invite code copied!"); }}
-              subject={`Join my Skeddo circle: ${activeCircle.name}`}
-            />
-          </div>
-        )}
-
         {/* Feed */}
         {activeFeed.length === 0 ? (
           <EmptyState icon={"\uD83D\uDCE8"} message="No shared activities yet. Tap '+ Share' to share your first activity with this circle." />
@@ -676,11 +654,11 @@ export default function CirclesTab({
               }}>
                 {/* Attribution */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                     <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
                     {item.child_name && <> shared {item.child_name}'s activity</>}
                   </div>
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
                     {timeAgo(item.shared_at)}
                   </span>
                 </div>
@@ -690,16 +668,16 @@ export default function CirclesTab({
                   <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
                     {item.activity_name}
                   </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 6 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 6 }}>
                     {item.provider_name}
                   </div>
                   {item.schedule_info && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                       {item.schedule_info}
                     </div>
                   )}
                   {item.age_group && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                       {item.age_group}
                     </div>
                   )}
@@ -707,7 +685,7 @@ export default function CirclesTab({
 
                 {/* Duplicate indicator */}
                 {dupCount > 1 && (
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.seaGreen, fontWeight: 600, marginBottom: 6 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.seaGreen, fontWeight: 600, marginBottom: 6 }}>
                     {dupCount} parents shared this program
                   </div>
                 )}
@@ -760,6 +738,30 @@ export default function CirclesTab({
             );
           })
         )}
+
+        {/* Invite code + share icons — below shared activities */}
+        {activeCircle?.inviteCode && (
+          <div style={{
+            background: SOFT.blue, borderRadius: 12, padding: "14px 16px", marginTop: 16,
+            border: `1px solid ${C.blue}18`,
+          }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.blue, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>
+              Invite someone
+            </div>
+            <div style={{
+              background: C.white, borderRadius: 8, padding: "8px 12px", marginBottom: 12,
+              fontFamily: "monospace", fontSize: 14, color: C.ink, border: `1px solid ${C.border}`,
+            }}>
+              {activeCircle.inviteCode}
+            </div>
+            <ShareIcons
+              shareText={`Join my circle "${activeCircle.name}" on Skeddo! Use invite code: ${activeCircle.inviteCode}`}
+              shareUrl="https://skeddo.ca"
+              onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(activeCircle.inviteCode) : Promise.reject()).catch(() => {}); showToast("Invite code copied!"); }}
+              subject={`Join my Skeddo circle: ${activeCircle.name}`}
+            />
+          </div>
+        )}
       </div>
     );
   }
@@ -769,7 +771,7 @@ export default function CirclesTab({
     return (
       <div>
         <SubHeader title="Share to Circle" onBack={() => setScreen("feed")} />
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
           Choose which activities to share with <strong style={{ color: C.ink }}>{activeCircle?.name}</strong>.
           Circle members will see the child's first name and activity details.
         </p>
@@ -811,7 +813,7 @@ export default function CirclesTab({
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink }}>
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
                         {a.activityName}
                       </span>
                       {a.status && a.status !== "Enrolled" && (
@@ -823,11 +825,11 @@ export default function CirclesTab({
                         </Tag>
                       )}
                     </div>
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                       {a.providerName}{a.childName ? ` · ${a.childName}` : ""}
                     </div>
                     {a.scheduleInfo && (
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: C.muted }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
                         {a.scheduleInfo}
                       </div>
                     )}
@@ -879,7 +881,7 @@ export default function CirclesTab({
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, color: C.cream }}>{stat.num}</div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "#B0C4B6", fontWeight: 700, textTransform: "uppercase" }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -928,7 +930,7 @@ export default function CirclesTab({
                 color: C.cream, display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 11, fontWeight: 700, fontFamily: "'Barlow', sans-serif", flexShrink: 0,
               }}>{step.num}</div>
-              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, lineHeight: 1.4 }}>{step.text}</span>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, lineHeight: 1.4 }}>{step.text}</span>
             </div>
           ))}
         </div>

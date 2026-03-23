@@ -13,15 +13,22 @@ export default async function handler(req, res) {
 
   const sb = getSupabaseClient(user._token);
 
-  // Verify user has access to this child
-  const { data: access } = await sb
+  // Verify user has access to this child — check both kids table (owner) and child_access table (co-parent)
+  const { data: ownedKid } = await sb
+    .from("kids")
+    .select("id")
+    .eq("id", childId)
+    .eq("user_id", user.id)
+    .single();
+
+  const { data: accessRow } = await sb
     .from("child_access")
     .select("role")
     .eq("child_id", childId)
     .eq("user_id", user.id)
     .single();
 
-  if (!access) return res.status(403).json({ error: "No access to this child" });
+  if (!ownedKid && !accessRow) return res.status(403).json({ error: "No access to this child" });
 
   // Check max 2 adults per child
   const { count } = await sb
