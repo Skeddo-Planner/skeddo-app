@@ -635,21 +635,6 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
         <h2 style={s.pageTitle}>Schedule</h2>
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          {/* Add custom activity */}
-          {onOpenAddProgram && (
-            <button
-              onClick={onOpenAddProgram}
-              aria-label="Add custom activity"
-              style={{
-                background: C.seaGreen, color: "#fff", border: "none",
-                borderRadius: 10, width: 38, height: 38, fontSize: 20, fontWeight: 700,
-                fontFamily: "'Barlow', sans-serif", cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}
-            >
-              +
-            </button>
-          )}
           {/* Show/hide programs filter */}
           <button
             onClick={() => setShowVisibilityPanel((v) => !v)}
