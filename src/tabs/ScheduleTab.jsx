@@ -327,6 +327,8 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   /* Local toast for upgrade prompts */
   const [schedToast, setSchedToast] = useState(null);
   const showSchedToast = (msg) => { setSchedToast(msg); setTimeout(() => setSchedToast(null), 2500); };
+  const [dismissedConflicts, setDismissedConflicts] = useState(false);
+  const [dismissedLogistics, setDismissedLogistics] = useState(false);
   const canExport = planAccess?.canExportCalendar ?? true;
 
   /* ─── Status visibility filter ─── */
@@ -654,17 +656,21 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       )}
 
       {/* Conflict warnings — true conflicts (same kid) */}
-      {conflicts.filter((c) => c.type === "conflict").length > 0 && (
+      {!dismissedConflicts && conflicts.filter((c) => c.type === "conflict").length > 0 && (
         <div style={{
           background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 12,
-          padding: "12px 16px", marginBottom: 12,
+          padding: "12px 16px", marginBottom: 12, position: "relative",
         }}>
+          <button onClick={() => setDismissedConflicts(true)} aria-label="Dismiss conflicts" style={{
+            position: "absolute", top: 8, right: 10, background: "none", border: "none",
+            color: "#991B1B", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1,
+          }}>{"\u00D7"}</button>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#991B1B", marginBottom: 6 }}>
-            {"\u26A0\uFE0F"} Schedule Conflicts ({conflicts.filter((c) => c.type === "conflict").length})
+            {"\u26A0\uFE0F"} Scheduling Heads Up
           </div>
           {conflicts.filter((c) => c.type === "conflict").slice(0, 5).map((c, i) => (
             <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#7F1D1D", lineHeight: 1.5, marginBottom: 4 }}>
-              <strong>{c.day}:</strong> {c.program1} and {c.program2} overlap
+              {c.day}: {c.program1} and {c.program2} overlap
             </div>
           ))}
           {conflicts.filter((c) => c.type === "conflict").length > 5 && (
@@ -676,17 +682,21 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       )}
 
       {/* Logistics alerts — different kids at the same time */}
-      {conflicts.filter((c) => c.type === "logistics").length > 0 && (
+      {!dismissedLogistics && conflicts.filter((c) => c.type === "logistics").length > 0 && (
         <div style={{
           background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 12,
-          padding: "12px 16px", marginBottom: 12,
+          padding: "12px 16px", marginBottom: 12, position: "relative",
         }}>
+          <button onClick={() => setDismissedLogistics(true)} aria-label="Dismiss logistics alerts" style={{
+            position: "absolute", top: 8, right: 10, background: "none", border: "none",
+            color: "#92400E", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1,
+          }}>{"\u00D7"}</button>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 6 }}>
-            {"\uD83D\uDCCB"} Logistics Heads-Up ({conflicts.filter((c) => c.type === "logistics").length})
+            {"\uD83D\uDCCB"} Logistics Heads-Up
           </div>
           {conflicts.filter((c) => c.type === "logistics").slice(0, 5).map((c, i) => (
             <div key={i} style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: "#78350F", lineHeight: 1.5, marginBottom: 4 }}>
-              <strong>{c.day}:</strong> {c.program1} and {c.program2} run at the same time for different kids
+              {c.day}: {c.program1} and {c.program2} overlap
             </div>
           ))}
           {conflicts.filter((c) => c.type === "logistics").length > 5 && (
@@ -932,6 +942,11 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       padding: "6px 8px",
                       borderRadius: 8,
                       background: st.bg,
+                      border: prog.status === "Exploring"
+                        ? `1.5px dashed ${C.blue}50`
+                        : prog.status === "Waitlist"
+                          ? `1.5px solid ${C.olive}30`
+                          : "1.5px solid transparent",
                       marginBottom: i < dayPrograms.length - 1 ? 4 : 0,
                       cursor: "pointer",
                       transition: "transform 0.1s",

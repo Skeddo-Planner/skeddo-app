@@ -131,8 +131,8 @@ export default function CirclesTab({
     }
   }, [screen, referralCode]);
 
-  // Build shareable activities from user's ENROLLED programs only
-  const shareableActivities = (programs || []).filter((p) => p.status === "Enrolled").map((p) => {
+  // Build shareable activities from ALL tracked programs (enrolled, waitlisted, and exploring)
+  const shareableActivities = (programs || []).filter((p) => ["Enrolled", "Waitlist", "Exploring"].includes(p.status)).map((p) => {
     const kidNames = (p.kidIds || [])
       .map((id) => (kids || []).find((k) => k.id === id)?.name)
       .filter(Boolean);
@@ -145,6 +145,7 @@ export default function CirclesTab({
       ageGroup: p.ageMin && p.ageMax ? `Ages ${p.ageMin}-${p.ageMax}` : "",
       registrationUrl: p.registrationUrl || "",
       programId: p.id,
+      status: p.status || "Exploring",
     };
   });
 
@@ -772,7 +773,7 @@ export default function CirclesTab({
         </p>
 
         {shareableActivities.length === 0 ? (
-          <EmptyState icon={"\uD83D\uDCCB"} message="No enrolled programs to share. Add programs from the Discover tab first." />
+          <EmptyState icon={"\uD83D\uDCCB"} message="No tracked programs to share. Add programs from the Discover tab first." />
         ) : (
           <>
             {shareableActivities.map((a) => {
@@ -807,8 +808,18 @@ export default function CirclesTab({
                     {isSelected ? "\u2713" : ""}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink }}>
-                      {a.activityName}
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink }}>
+                        {a.activityName}
+                      </span>
+                      {a.status && a.status !== "Enrolled" && (
+                        <Tag
+                          color={a.status === "Waitlist" ? C.olive : C.blue}
+                          bg={a.status === "Waitlist" ? "rgba(231,111,81,0.10)" : "rgba(74,111,165,0.10)"}
+                        >
+                          {a.status === "Waitlist" ? "Waitlist" : "Exploring"}
+                        </Tag>
+                      )}
                     </div>
                     <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
                       {a.providerName}{a.childName ? ` · ${a.childName}` : ""}

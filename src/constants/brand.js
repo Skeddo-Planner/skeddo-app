@@ -53,14 +53,14 @@ export const CAT_EMOJI = {
 
 /* ─── Kid color palette — auto-assigned, user-editable ─── */
 export const KID_COLORS = [
-  { hex: "#2D9F6F", name: "Jade Green" },
   { hex: "#4A6FA5", name: "Slate Blue" },
-  { hex: "#F4A261", name: "Peach" },
-  { hex: "#E76F51", name: "Terracotta" },
-  { hex: "#E06C50", name: "Coral" },
-  { hex: "#5BB5A2", name: "Teal" },
   { hex: "#7B68AE", name: "Purple" },
   { hex: "#E8913A", name: "Orange" },
+  { hex: "#E06C50", name: "Coral" },
+  { hex: "#5BB5A2", name: "Teal" },
+  { hex: "#F4A261", name: "Peach" },
+  { hex: "#E76F51", name: "Terracotta" },
+  { hex: "#2D9F6F", name: "Jade Green" },
 ];
 
 export const DAY_LENGTHS = ["Full Day", "Half Day", "Single Day"];

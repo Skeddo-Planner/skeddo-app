@@ -1,12 +1,73 @@
+import { useState, useEffect } from "react";
 import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
 import { fmtDate, fmt$, downloadICS } from "../utils/helpers";
 
-export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose, activityLog }) {
+/* ─── Star Rating Component ─── */
+function StarRating({ value, onChange }) {
+  const [hovered, setHovered] = useState(0);
+  return (
+    <div style={{ display: "flex", gap: 4 }}>
+      {[1, 2, 3, 4, 5].map((star) => {
+        const filled = star <= (hovered || value || 0);
+        return (
+          <button
+            key={star}
+            type="button"
+            onClick={() => onChange(star === value ? 0 : star)}
+            onMouseEnter={() => setHovered(star)}
+            onMouseLeave={() => setHovered(0)}
+            aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 2,
+              fontSize: 24,
+              lineHeight: 1,
+              color: filled ? "#E8913A" : C.border,
+              transition: "color 0.15s, transform 0.15s",
+              transform: hovered === star ? "scale(1.2)" : "scale(1)",
+            }}
+          >
+            {filled ? "\u2605" : "\u2606"}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose, onSave, activityLog }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const assignedKids = (kids || []).filter((k) => (p.kidIds || []).includes(k.id));
+
+  /* ─── Rating & Review state ─── */
+  const [rating, setRating] = useState(p.rating || 0);
+  const [review, setReview] = useState(p.review || "");
+
+  // Sync if program prop changes (e.g., after status cycle)
+  useEffect(() => { setRating(p.rating || 0); setReview(p.review || ""); }, [p.id, p.rating, p.review]);
+
+  // Determine if rating section should show:
+  // Only for Enrolled programs where startDate is today or in the past (on-going or completed)
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const startParsed = p.startDate ? new Date(p.startDate + "T00:00:00") : null;
+  const showRating = p.status === "Enrolled" && startParsed && startParsed <= today;
+
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+    if (onSave) onSave({ ...p, rating: newRating, review });
+  };
+
+  const handleReviewBlur = () => {
+    if (review !== (p.review || "") && onSave) {
+      onSave({ ...p, rating, review });
+    }
+  };
 
   return (
     <Modal onClose={onClose}>
@@ -149,6 +210,62 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
           }}
         >
           {p.notes}
+        </div>
+      )}
+
+      {/* Rating & Review — only for enrolled, on-going or completed programs */}
+      {showRating && (
+        <div style={{
+          marginTop: 16,
+          padding: 14,
+          background: C.cream,
+          borderRadius: 10,
+          border: `1px solid ${C.border}`,
+        }}>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            fontWeight: 700,
+            color: C.muted,
+            textTransform: "uppercase",
+            letterSpacing: 0.8,
+            marginBottom: 8,
+          }}>
+            Your Rating
+          </div>
+          <StarRating value={rating} onChange={handleRatingChange} />
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            fontWeight: 700,
+            color: C.muted,
+            textTransform: "uppercase",
+            letterSpacing: 0.8,
+            marginTop: 12,
+            marginBottom: 6,
+          }}>
+            How was the experience?
+          </div>
+          <textarea
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+            onBlur={handleReviewBlur}
+            placeholder="Share your thoughts for future reference..."
+            rows={3}
+            style={{
+              width: "100%",
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 14,
+              color: C.ink,
+              background: C.white,
+              border: `1px solid ${C.border}`,
+              borderRadius: 8,
+              padding: "10px 12px",
+              lineHeight: 1.6,
+              resize: "vertical",
+              boxSizing: "border-box",
+            }}
+          />
         </div>
       )}
 

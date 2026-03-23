@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { C } from "../constants/brand";
 
 /**
  * Shows alerts for programs starting within `daysThreshold` days.
  * Each banner shows the program name, which kid it's for, and how soon it starts.
+ * Users can dismiss individual alerts for the session.
  */
 export default function DeadlineAlert({ programs = [], kids = [], daysThreshold = 5, onOpenDetail }) {
   const now = new Date();
   now.setHours(0, 0, 0, 0);
+  const [dismissedIds, setDismissedIds] = useState(new Set());
 
   const upcoming = programs
     .filter((p) => {
@@ -26,7 +29,8 @@ export default function DeadlineAlert({ programs = [], kids = [], daysThreshold 
         .map((k) => k.name);
       return { ...p, _daysLeft: daysLeft, _kidNames: kidNames };
     })
-    .sort((a, b) => a._daysLeft - b._daysLeft);
+    .sort((a, b) => a._daysLeft - b._daysLeft)
+    .filter((p) => !dismissedIds.has(p.id));
 
   if (upcoming.length === 0) return null;
 
@@ -47,33 +51,53 @@ export default function DeadlineAlert({ programs = [], kids = [], daysThreshold 
         return (
           <div
             key={p.id}
-            role="button"
-            tabIndex={0}
-            onClick={() => onOpenDetail && onOpenDetail(p)}
             style={{
               background: "#FBF6E6",
               border: `1px solid ${C.olive}33`,
               borderRadius: 12,
               padding: "10px 14px",
               marginBottom: 6,
-              cursor: "pointer",
               display: "flex",
               alignItems: "center",
               gap: 8,
+              position: "relative",
             }}
           >
-            <span style={{ fontSize: 15, flexShrink: 0 }}>{"\u26A1"}</span>
             <span
+              role="button"
+              tabIndex={0}
+              onClick={() => onOpenDetail && onOpenDetail(p)}
+              style={{ display: "flex", alignItems: "center", gap: 8, flex: 1, cursor: "pointer" }}
+            >
+              <span style={{ fontSize: 15, flexShrink: 0 }}>{"\u26A1"}</span>
+              <span
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: C.ink,
+                  lineHeight: 1.3,
+                }}
+              >
+                <strong>{p.name}</strong>{kidLabel} {timeLabel}
+              </span>
+            </span>
+            <button
+              onClick={(e) => { e.stopPropagation(); setDismissedIds((prev) => new Set(prev).add(p.id)); }}
+              aria-label={`Dismiss alert for ${p.name}`}
               style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 14,
-                fontWeight: 600,
-                color: C.ink,
-                lineHeight: 1.3,
+                background: "none",
+                border: "none",
+                color: C.muted,
+                fontSize: 18,
+                cursor: "pointer",
+                padding: "0 4px",
+                lineHeight: 1,
+                flexShrink: 0,
               }}
             >
-              <strong>{p.name}</strong>{kidLabel} {timeLabel}
-            </span>
+              {"\u00D7"}
+            </button>
           </div>
         );
       })}

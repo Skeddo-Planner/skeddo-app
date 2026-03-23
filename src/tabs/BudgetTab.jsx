@@ -10,10 +10,11 @@ export default function BudgetTab({
   enrolledPrograms, waitlistPrograms, exploringPrograms,
   totalCostEnrolled, totalCostAll, budgetGoal,
   manualCosts, onAddCost, onEditCost, userId, planAccess, onSaveKid,
+  onOpenDetail,
 }) {
   const isPaid = planAccess.canUseBudgetTracking;
   const [showBanner, setShowBanner] = useState(true);
-  const [sortBy, setSortBy] = useState("cost"); // cost | costPerHour | alpha
+  const [sortBy, setSortBy] = useState("cost"); // cost | costPerHour | alpha | status
   const [editingBudget, setEditingBudget] = useState(null); // kid id or "overall"
   const [budgetInput, setBudgetInput] = useState("");
 
@@ -50,7 +51,7 @@ export default function BudgetTab({
 
   // Budget goal progress colour
   const budgetPct = effectiveBudget > 0 ? (spentCost / effectiveBudget) * 100 : 0;
-  const budgetBarColor = budgetPct > 90 ? "#E76F51" : budgetPct > 75 ? "#F4A261" : "#2D9F6F";
+  const budgetBarColor = budgetPct > 90 ? C.olive : budgetPct > 75 ? C.lilac : C.seaGreen;
 
   // Program list with cost-per-hour
   const programsWithCPH = useMemo(() =>
@@ -61,9 +62,11 @@ export default function BudgetTab({
   // Sort
   const sortedPrograms = useMemo(() => {
     const list = [...programsWithCPH];
+    const STATUS_ORDER = { Enrolled: 0, Waitlist: 1, Exploring: 2 };
     if (sortBy === "cost") list.sort((a, b) => Number(b.cost || 0) - Number(a.cost || 0));
     else if (sortBy === "costPerHour") list.sort((a, b) => (a.cph || Infinity) - (b.cph || Infinity));
     else if (sortBy === "alpha") list.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+    else if (sortBy === "status") list.sort((a, b) => (STATUS_ORDER[a.status] ?? 3) - (STATUS_ORDER[b.status] ?? 3) || Number(b.cost || 0) - Number(a.cost || 0));
     return list;
   }, [programsWithCPH, sortBy]);
 
@@ -237,16 +240,15 @@ export default function BudgetTab({
         </div>
       )}
 
-      {/* ─── Budget Bar Chart (stacked segments) ─── */}
+      {/* ─── Budget Bar Chart (stacked segments by status) ─── */}
       {(() => {
-        const total = effectiveBudget > 0 ? effectiveBudget : (spentCost + potentialCost) || 1;
-        const spentPct = (spentCost / total) * 100;
-        const potentialPct = (potentialCost / total) * 100;
-        const totalSpend = spentCost + potentialCost;
+        const totalSpend = enrolledCost + manualCostTotal + waitlistCost + exploringCost;
+        const total = effectiveBudget > 0 ? effectiveBudget : totalSpend || 1;
+        const enrolledPct = (enrolledCost + manualCostTotal) / total * 100;
+        const waitlistPct = waitlistCost / total * 100;
+        const exploringPct = exploringCost / total * 100;
         const overBudget = effectiveBudget > 0 && totalSpend > effectiveBudget;
         const underBudgetAmt = effectiveBudget > 0 ? effectiveBudget - totalSpend : 0;
-        const remainingAmt = effectiveBudget > 0 ? Math.max(underBudgetAmt, 0) : 0;
-        const remainingPct = effectiveBudget > 0 ? (remainingAmt / total) * 100 : 0;
         const overflowAmt = overBudget ? totalSpend - effectiveBudget : 0;
 
         return (
@@ -258,72 +260,95 @@ export default function BudgetTab({
                 </span>
               </div>
             )}
-            {/* Stacked bar */}
+            {/* Stacked bar — enrolled (green) | waitlist (terracotta) | exploring (blue) */}
             <div style={{ height: 28, borderRadius: 8, background: "#E5E7EB", overflow: "hidden", display: "flex", position: "relative" }}>
-              {spentCost > 0 && (
+              {(enrolledCost + manualCostTotal) > 0 && (
                 <div
                   className="progress-bar"
-                  onClick={undefined}
                   style={{
-                    width: `${Math.min(spentPct, 100)}%`, height: "100%",
-                    background: "#2D9F6F", cursor: "pointer",
+                    width: `${Math.min(enrolledPct, 100)}%`, height: "100%",
+                    background: C.seaGreen,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
                   }}
                 >
-                  {spentPct > 15 && (
+                  {enrolledPct > 15 && (
                     <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>
-                      {fmt$(spentCost)} · {Math.round(spentPct)}%
+                      {fmt$(enrolledCost + manualCostTotal)}
                     </span>
                   )}
                 </div>
               )}
-              {potentialCost > 0 && (
+              {waitlistCost > 0 && (
                 <div
                   className="progress-bar"
                   style={{
-                    width: `${Math.min(potentialPct, overBudget ? 100 - spentPct : potentialPct)}%`, height: "100%",
-                    background: "repeating-linear-gradient(45deg, #F4A261, #F4A261 4px, #E8893A 4px, #E8893A 8px)",
-                    opacity: 0.8, cursor: "pointer",
+                    width: `${Math.min(waitlistPct, 100 - enrolledPct)}%`, height: "100%",
+                    background: C.olive, opacity: 0.85,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
                   }}
                 >
-                  {potentialPct > 15 && (
-                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#1B2432", whiteSpace: "nowrap" }}>
-                      {fmt$(potentialCost)} · {Math.round(potentialPct)}%
+                  {waitlistPct > 15 && (
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>
+                      {fmt$(waitlistCost)}
+                    </span>
+                  )}
+                </div>
+              )}
+              {exploringCost > 0 && (
+                <div
+                  className="progress-bar"
+                  style={{
+                    width: `${Math.min(exploringPct, 100 - enrolledPct - waitlistPct)}%`, height: "100%",
+                    background: C.blue, opacity: 0.7,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
+                  }}
+                >
+                  {exploringPct > 15 && (
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>
+                      {fmt$(exploringCost)}
                     </span>
                   )}
                 </div>
               )}
             </div>
 
-            {/* Labels below bar */}
+            {/* Labels below bar — one per status */}
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, flexWrap: "wrap", gap: 4 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                <div style={{ width: 10, height: 10, borderRadius: 3, background: "#2D9F6F" }} />
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: C.seaGreen }} />
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.ink }}>
-                  {fmt$(spentCost)} spent
+                  {fmt$(enrolledCost + manualCostTotal)} enrolled
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                <div style={{ width: 10, height: 10, borderRadius: 3, background: "#F4A261" }} />
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: C.olive }} />
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
-                  {fmt$(potentialCost)} potential
+                  {fmt$(waitlistCost)} waitlist
                 </span>
               </div>
-              {effectiveBudget > 0 && (
-                overBudget ? (
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#E76F51" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: C.blue }} />
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
+                  {fmt$(exploringCost)} exploring
+                </span>
+              </div>
+            </div>
+            {effectiveBudget > 0 && (
+              <div style={{ marginTop: 6 }}>
+                {overBudget ? (
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.olive }}>
                     {fmt$(overflowAmt)} over budget
                   </span>
                 ) : (
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: "#2D9F6F" }}>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.seaGreen }}>
                     {fmt$(underBudgetAmt)} under budget
                   </span>
-                )
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             {!effectiveBudget && (
               <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 8, margin: "8px 0 0" }}>
@@ -336,7 +361,7 @@ export default function BudgetTab({
 
       {/* ─── Spent vs Potential ─── */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 20 }}>
-        <div style={{ ...s.budgetCard, borderLeft: `3px solid #2D9F6F`, padding: "14px 16px" }}>
+        <div style={{ ...s.budgetCard, borderLeft: `3px solid ${C.seaGreen}`, padding: "14px 16px" }}>
           <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink }}>
             {fmt$(spentCost)}
           </div>
@@ -414,7 +439,7 @@ export default function BudgetTab({
                   {kSpent > 0 && (
                     <div style={{
                       width: `${Math.min(kCommPct, 100)}%`, height: "100%",
-                      background: kOver ? "#E76F51" : "#2D9F6F",
+                      background: kOver ? C.olive : C.seaGreen,
                       transition: "width 0.4s ease",
                     }} />
                   )}
@@ -428,7 +453,7 @@ export default function BudgetTab({
                   )}
                 </div>
                 {kBudget > 0 && (
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? "#E76F51" : "#2D9F6F", marginTop: 4 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? C.olive : C.seaGreen, marginTop: 4 }}>
                     {kOver
                       ? `${fmt$((kSpent + kPotential) - kBudget)} over budget`
                       : `${fmt$(kBudget - kSpent - kPotential)} remaining`
@@ -458,6 +483,7 @@ export default function BudgetTab({
           <option value="cost">Highest Cost</option>
           <option value="costPerHour">Best Value ($/hr)</option>
           <option value="alpha">A-Z</option>
+          <option value="status">By Status</option>
         </select>
       </div>
 
@@ -465,7 +491,14 @@ export default function BudgetTab({
         const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
         const cphColor = costPerHourColor(p.cph);
         return (
-          <div key={p.id} style={{ ...s.budgetRow, alignItems: "flex-start" }}>
+          <div
+            key={p.id}
+            style={{ ...s.budgetRow, alignItems: "flex-start", cursor: "pointer", borderLeft: `3px solid ${st.color}`, paddingLeft: 12 }}
+            onClick={() => onOpenDetail && onOpenDetail(p)}
+            role="button"
+            tabIndex={0}
+            className="skeddo-card"
+          >
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: 16, color: C.ink }}>
                 {p.name}
@@ -520,7 +553,7 @@ export default function BudgetTab({
                 </div>
                 <div style={{
                   fontFamily: "'Poppins', sans-serif", fontSize: 17,
-                  color: isNegative ? "#2D9F6F" : C.ink,
+                  color: isNegative ? C.seaGreen : C.ink,
                 }}>
                   {isNegative ? `-${fmt$(Math.abs(c.amount))}` : fmt$(c.amount)}
                 </div>

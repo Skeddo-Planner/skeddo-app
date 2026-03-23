@@ -682,6 +682,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             userId={userId}
             planAccess={planAccess}
             onSaveKid={saveKid}
+            onOpenDetail={openDetail}
           />
         )}
       </main>}
@@ -702,6 +703,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             onEdit={() => openEditProgram(currentProgram)}
             onDelete={() => handleDeleteProgram(currentProgram.id)}
             onClose={() => setModal(null)}
+            onSave={saveProgram}
           />
         );
       })()}
