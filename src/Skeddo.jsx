@@ -365,6 +365,11 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   /* ── Modal actions ── */
   const handleSaveProgram = () => {
     if (!form.name?.trim()) return;
+    // Gate: must assign to at least one kid
+    if (kids.length > 0 && (!form.kidIds || form.kidIds.length === 0)) {
+      showToast("Please assign this program to at least one child");
+      return;
+    }
     const isNew = !form.id;
     // Gate: free plan program limit
     if (isNew && !planAccess.checkProgramLimit(programs.length).allowed) {
@@ -445,6 +450,11 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const handleAddToSchedule = (dirProgram) => {
+    // Gate: must assign to at least one kid
+    if (kids.length > 0 && (!dirProgram.kidIds || dirProgram.kidIds.length === 0)) {
+      showToast("Please assign this program to at least one child");
+      return;
+    }
     // Gate: free plan program limit
     if (!planAccess.checkProgramLimit(programs.length).allowed) {
       showToast("Upgrade to Skeddo Plus to add more than 3 programs");
