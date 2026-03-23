@@ -404,33 +404,29 @@ export default function HomeTab({
         </div>
       )}
 
-      {/* ══ 5. This Week ══ */}
-      <div style={{ marginBottom: 20 }}>
-        <SectionHeader label="This week" action="Full schedule" onAction={() => onNavigateToTab("schedule")} />
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {thisWeekPrograms.length > 0 ? thisWeekPrograms.slice(0, 5).map((p) => (
-            <ProgramRow key={p.id} p={p} kids={kids} onTap={() => onOpenDetail(p)} />
-          )) : (
-            <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)", padding: "20px 16px", textAlign: "center", fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-              No programs this week
-            </div>
-          )}
+      {/* ══ 5. This Week (hidden if empty) ══ */}
+      {thisWeekPrograms.length > 0 && (
+        <div style={{ marginBottom: 20 }}>
+          <SectionHeader label="This week" action="Full schedule" onAction={() => onNavigateToTab("schedule")} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {thisWeekPrograms.slice(0, 5).map((p) => (
+              <ProgramRow key={p.id} p={p} kids={kids} onTap={() => onOpenDetail(p)} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* ══ 6. Starting Next Week ══ */}
-      <div style={{ marginBottom: 20 }}>
-        <SectionHeader label="Starting next week" />
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {nextWeekPrograms.length > 0 ? nextWeekPrograms.slice(0, 5).map((p) => (
-            <ProgramRow key={p.id} p={p} kids={kids} onTap={() => onOpenDetail(p)} />
-          )) : (
-            <div style={{ background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)", padding: "20px 16px", textAlign: "center", fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-              Nothing new starting next week
-            </div>
-          )}
+      {/* ══ 6. Starting Next Week (hidden if empty) ══ */}
+      {nextWeekPrograms.length > 0 && (
+        <div style={{ marginBottom: 20 }}>
+          <SectionHeader label="Starting next week" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {nextWeekPrograms.slice(0, 5).map((p) => (
+              <ProgramRow key={p.id} p={p} kids={kids} onTap={() => onOpenDetail(p)} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ══ 7. Budget Snapshot ══ */}
       <div style={{ marginBottom: 20 }}>
@@ -445,23 +441,23 @@ export default function HomeTab({
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>of {fmt$(budgetGoal)}</span>
             )}
           </div>
-          {/* Progress bar */}
-          {budgetGoal > 0 && (
-            <div style={{ background: "rgba(27,36,50,0.06)", borderRadius: 6, height: 10, overflow: "hidden", marginBottom: 14 }}>
-              <div style={{
-                height: "100%", borderRadius: 6,
-                background: `${C.lilac}30`,
-                width: `${Math.min(((filteredSpent + filteredPending) / budgetGoal) * 100, 100)}%`,
-                position: "relative",
-              }}>
-                <div style={{
-                  position: "absolute", left: 0, top: 0, bottom: 0,
-                  width: (filteredSpent + filteredPending) > 0 ? `${(filteredSpent / (filteredSpent + filteredPending)) * 100}%` : "0%",
-                  background: C.seaGreen, borderRadius: 6,
-                }} />
+          {/* Stacked progress bar */}
+          {(() => {
+            const total = budgetGoal > 0 ? budgetGoal : (filteredSpent + filteredPending);
+            if (total <= 0) return null;
+            const enrolledPct = Math.min((filteredSpent / total) * 100, 100);
+            const pendingPct = Math.min((filteredPending / total) * 100, 100 - enrolledPct);
+            return (
+              <div style={{ background: "rgba(27,36,50,0.06)", borderRadius: 6, height: 10, overflow: "hidden", marginBottom: 14, display: "flex" }}>
+                {enrolledPct > 0 && (
+                  <div style={{ height: "100%", width: `${enrolledPct}%`, background: C.seaGreen, borderRadius: enrolledPct >= 100 ? 6 : "6px 0 0 6px" }} />
+                )}
+                {pendingPct > 0 && (
+                  <div style={{ height: "100%", width: `${pendingPct}%`, background: `${C.lilac}80`, borderRadius: (enrolledPct <= 0 && pendingPct >= 100) ? 6 : enrolledPct <= 0 ? "6px 0 0 6px" : pendingPct + enrolledPct >= 100 ? "0 6px 6px 0" : 0 }} />
+                )}
               </div>
-            </div>
-          )}
+            );
+          })()}
           {/* Legend */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             {[
@@ -486,10 +482,22 @@ export default function HomeTab({
         <SectionHeader label="Quick actions" />
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           {[
-            { icon: "\u2795", label: "Add a program", color: C.seaGreen, action: onOpenAddProgram },
-            { icon: "\uD83D\uDC76", label: "Add a kid", color: C.blue, action: onOpenAddKid },
-            { icon: "\uD83D\uDC65", label: "Add a co-parent", color: C.muted, action: onInviteCoParent },
-            { icon: "\u2B55", label: "Create a circle", color: C.muted, action: () => onNavigateToTab("circles") },
+            {
+              label: "Add a program", bgColor: C.seaGreen, action: onOpenAddProgram,
+              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>,
+            },
+            {
+              label: "Add a kid", bgColor: C.blue, action: onOpenAddKid,
+              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>,
+            },
+            {
+              label: "Add a co-parent", bgColor: C.olive, action: onInviteCoParent,
+              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+            },
+            {
+              label: "Create a circle", bgColor: C.lilac, action: () => onNavigateToTab("circles"),
+              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/></svg>,
+            },
           ].map((a, i) => (
             <button key={i} onClick={a.action} style={{
               background: C.white, border: "none", borderRadius: 12,
@@ -501,10 +509,10 @@ export default function HomeTab({
               color: C.ink, textAlign: "left",
             }}>
               <span style={{
-                width: 36, height: 36, borderRadius: 10, background: `${a.color}12`,
+                width: 36, height: 36, borderRadius: 10, background: a.bgColor,
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 18, flexShrink: 0,
-              }}>{a.icon}</span>
+                flexShrink: 0,
+              }}>{a.svg}</span>
               {a.label}
             </button>
           ))}
