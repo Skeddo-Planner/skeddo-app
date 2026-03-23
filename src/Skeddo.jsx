@@ -569,6 +569,9 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         unreadCount={childAccess.unreadCount}
         onOpenActivity={() => { childAccess.markActivityViewed(); setTab("home"); }}
         onInviteCoParent={handleInviteCoParent}
+        tab={tab}
+        setTab={(t) => handleNavigateToTab(t)}
+        badges={{ circles: circlesHook.pendingCount }}
       />
 
       {/* Info pages (About, Privacy, etc.) */}

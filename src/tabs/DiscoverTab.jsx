@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES, DAY_LENGTHS } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
@@ -8,6 +8,7 @@ import KidFilterBar from "../components/KidFilterBar";
 import FilterDrawer from "../components/FilterDrawer";
 import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
+import useIsDesktop from "../hooks/useIsDesktop";
 import { supabase } from "../lib/supabase";
 import fallbackPrograms from "../data/programs.json";
 import {
@@ -378,6 +379,135 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
   );
 }
 
+/* ─── Desktop category browse row — horizontal scrollable cards per category ─── */
+function CategoryBrowseRow({ category, programs, onTap, isFavorite, toggleFavorite, addedNames }) {
+  const scrollRef = useRef(null);
+  const scroll = (dir) => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: dir * 330, behavior: "smooth" });
+  };
+  if (programs.length === 0) return null;
+  const emoji = CAT_EMOJI[category] || "";
+  const catColors = {
+    "Sports": C.seaGreen, "Arts": C.lilac, "STEM": C.blue, "Nature": "#2D9F6F",
+    "Music": "#9B59B6", "Academic": "#3498DB", "Cooking": C.olive, "Outdoor": "#2D9F6F",
+  };
+  const accent = catColors[category] || C.seaGreen;
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ fontSize: 22 }}>{emoji}</span>
+          <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700, color: C.ink, margin: 0 }}>{category}</h3>
+          <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, fontWeight: 500 }}>
+            {programs.length} program{programs.length !== 1 ? "s" : ""}
+          </span>
+        </div>
+        <div style={{ display: "flex", gap: 6 }}>
+          <button onClick={() => scroll(-1)} aria-label={`Scroll ${category} left`} style={{
+            width: 32, height: 32, borderRadius: 16, border: "1.5px solid rgba(27,36,50,0.15)",
+            background: "#FFF", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button onClick={() => scroll(1)} aria-label={`Scroll ${category} right`} style={{
+            width: 32, height: 32, borderRadius: 16, border: "1.5px solid rgba(27,36,50,0.15)",
+            background: "#FFF", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        ref={scrollRef}
+        className="desktop-category-scroll"
+        style={{
+          display: "flex", gap: 14, overflowX: "auto", paddingBottom: 4,
+          scrollbarWidth: "none", msOverflowStyle: "none",
+        }}
+      >
+        {programs.slice(0, 20).map((p) => {
+          const favorited = isFavorite(p.id);
+          return (
+            <div
+              key={p.id}
+              className="skeddo-card desktop-browse-card"
+              style={{
+                background: C.white,
+                borderRadius: 14,
+                padding: "14px 16px",
+                border: `1px solid ${C.border}`,
+                borderLeft: `3px solid ${accent}`,
+                cursor: "pointer",
+                width: 300,
+                minWidth: 300,
+                flexShrink: 0,
+                transition: "box-shadow 0.2s, transform 0.15s",
+              }}
+              onClick={() => onTap(p)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details for ${p.name}`}
+            >
+              {/* Category */}
+              <div style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                color: accent, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 4,
+              }}>
+                {emoji} {category}
+              </div>
+              {/* Name */}
+              <div style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700,
+                color: C.ink, lineHeight: 1.3, marginBottom: 2,
+                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              }}>{p.name}</div>
+              {/* Provider */}
+              <div style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 6,
+              }}>{p.provider}</div>
+              {/* Date + time */}
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginBottom: 6 }}>
+                {p.startDate && (() => {
+                  const sd = new Date(p.startDate + "T00:00:00");
+                  const ed = p.endDate ? new Date(p.endDate + "T00:00:00") : null;
+                  const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                  if (!ed) return `${mo[sd.getMonth()]} ${sd.getDate()}`;
+                  if (sd.getMonth() === ed.getMonth()) return `${mo[sd.getMonth()]} ${sd.getDate()}\u2013${ed.getDate()}`;
+                  return `${mo[sd.getMonth()]} ${sd.getDate()} \u2013 ${mo[ed.getMonth()]} ${ed.getDate()}`;
+                })()}
+                {p.startTime && p.endTime && ` \u00B7 ${p.startTime}-${p.endTime}`}
+              </div>
+              {/* Bottom row: badges + price */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {(p.ageMin != null || p.ageMax != null) && (
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: C.blue + "14", color: C.blue, padding: "2px 8px", borderRadius: 10 }}>
+                      {p.ageMin != null && p.ageMax != null ? `Ages ${p.ageMin}-${p.ageMax}` : p.ageMin != null ? `Ages ${p.ageMin}+` : `Up to ${p.ageMax}`}
+                    </span>
+                  )}
+                  {p.neighbourhood && (
+                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, background: C.lilac + "18", color: C.lilac, padding: "2px 8px", borderRadius: 10 }}>
+                      {p.neighbourhood}
+                    </span>
+                  )}
+                </div>
+                <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink }}>
+                  {p.cost === "TBD" ? "TBD" : p.cost ? "$" + Number(p.cost).toLocaleString() : "Free"}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function DiscoverTab({
   programs,
   kids,
@@ -397,6 +527,7 @@ export default function DiscoverTab({
   const [showDiscoverBanner, setShowDiscoverBanner] = useState(true);
   const isPaid = planAccess.isPaid;
   const canUseAdvancedFilters = planAccess.canUseAdvancedFilters;
+  const isDesktop = useIsDesktop();
 
   /* Local toast for upgrade prompts */
   const [filterToast, setFilterToast] = useState(null);
@@ -709,50 +840,96 @@ export default function DiscoverTab({
     <div>
       {/* Header */}
       <div style={{ marginBottom: 12 }}>
-        <h2 style={s.pageTitle}>Discover</h2>
-        <p
-          style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 13,
-            color: C.muted,
-            marginTop: 2,
-          }}
-        >
-          {isLoadingPrograms
-            ? "Loading programs..."
-            : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in Vancouver`}
-        </p>
+        {!isDesktop && <h2 style={s.pageTitle}>Discover</h2>}
+        {!isDesktop && (
+          <p
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              color: C.muted,
+              marginTop: 2,
+            }}
+          >
+            {isLoadingPrograms
+              ? "Loading programs..."
+              : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in Vancouver`}
+          </p>
+        )}
       </div>
 
       {showDiscoverBanner && !isPaid && (
         <PromoBanner type="upgrade-discover" onDismiss={() => setShowDiscoverBanner(false)} />
       )}
 
-      {/* Search bar */}
-      <div style={{ position: "relative", marginBottom: 12 }}>
-        <span
-          style={{
-            position: "absolute",
-            left: 12,
-            top: "50%",
-            transform: "translateY(-50%)",
-            fontSize: 16,
-            color: C.muted,
-            pointerEvents: "none",
-          }}
-        >
-          &#x1F50D;
-        </span>
-        <input
-          style={s.searchBox}
-          type="text"
-          placeholder="Search programs, providers..."
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-            setVisibleCount(PAGE_SIZE);
-          }}
-        />
+      {/* Search bar — enhanced layout on desktop */}
+      <div style={{
+        ...(isDesktop ? { display: "flex", alignItems: "center", gap: 16, marginBottom: 12 } : { position: "relative", marginBottom: 12 }),
+      }}>
+        <div style={isDesktop ? { flex: 1, maxWidth: 440, position: "relative" } : { position: "relative" }}>
+          <span
+            style={{
+              position: "absolute",
+              left: 12,
+              top: "50%",
+              transform: "translateY(-50%)",
+              fontSize: 16,
+              color: C.muted,
+              pointerEvents: "none",
+            }}
+          >
+            &#x1F50D;
+          </span>
+          <input
+            style={s.searchBox}
+            type="text"
+            placeholder="Search programs, providers..."
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setVisibleCount(PAGE_SIZE);
+            }}
+          />
+        </div>
+        {isDesktop && (
+          <>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink }}>
+                Browse <strong style={{ color: C.seaGreen }}>{allDirectoryPrograms.length.toLocaleString()}</strong> programs
+              </span>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                {"\u21BB"} Updated {dataVersion}
+              </span>
+            </div>
+            <div style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
+              <button
+                onClick={() => setActiveDrawer("sort")}
+                style={{
+                  display: "flex", alignItems: "center", gap: 5, padding: "6px 14px", borderRadius: 20,
+                  border: sortBy !== "relevance" ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
+                  background: sortBy !== "relevance" ? C.ink : "#FFF",
+                  color: sortBy !== "relevance" ? "#FFF" : C.ink,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: sortBy !== "relevance" ? 600 : 500,
+                  cursor: "pointer",
+                }}
+              >
+                Sort
+              </button>
+              <button
+                onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setVisibleCount(PAGE_SIZE); }}
+                style={{
+                  display: "flex", alignItems: "center", gap: 5, padding: "6px 14px", borderRadius: 20,
+                  border: showFavoritesOnly ? `1.5px solid ${C.olive}` : "1.5px solid rgba(27,36,50,0.15)",
+                  background: showFavoritesOnly ? C.olive + "14" : "#FFF",
+                  color: showFavoritesOnly ? C.olive : C.ink,
+                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: showFavoritesOnly ? 600 : 500,
+                  cursor: "pointer",
+                }}
+              >
+                {showFavoritesOnly ? "\u2764\uFE0F" : "\u2661"} Favorites ({favorites.length})
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Kid filter bar for age eligibility */}
@@ -803,14 +980,14 @@ export default function DiscoverTab({
         </div>
       )}
 
-      {/* Data freshness banner */}
+      {/* Data freshness banner — hidden on desktop (shown in search bar instead) */}
       <div
         onClick={!isChecking ? checkForUpdates : undefined}
         role="button"
         tabIndex={0}
         aria-label={isChecking ? "Checking for updates" : "Check for program data updates"}
         style={{
-          display: "flex",
+          display: isDesktop ? "none" : "flex",
           alignItems: "center",
           gap: 6,
           marginBottom: 12,
@@ -856,19 +1033,24 @@ export default function DiscoverTab({
 
       {/* Horizontal filter chip bar */}
       <div style={{ padding: "10px 0 0", overflowX: "auto", display: "flex", gap: 6, paddingLeft: 0, paddingRight: 0, alignItems: "center", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
-        <FilterChip label="Sort" icon="\u2195" active={sortBy !== "relevance"} onClick={() => setActiveDrawer("sort")} />
-        <FilterChip label={`\u2661 ${favorites.length}`} active={showFavoritesOnly} onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setVisibleCount(PAGE_SIZE); }} />
-        <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
-        <FilterChip label="Category" icon="\uD83C\uDFF7" count={selectedCats.size} active={selectedCats.size > 0} onClick={() => setActiveDrawer("category")} />
-        <FilterChip label="Age" icon="\uD83D\uDC76" count={ageMin || ageMax ? 1 : 0} active={!!(ageMin || ageMax)} onClick={() => setActiveDrawer("age")} />
-        <FilterChip label="Cost" icon="$" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        <FilterChip label="Area" icon="\uD83D\uDCCD" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        <FilterChip label="Season" icon="\u2600\uFE0F" count={selectedSeasons.size} active={selectedSeasons.size > 0} onClick={() => setActiveDrawer("season")} />
-        <FilterChip label="Status" icon="\u2713" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
-        <FilterChip label="Length" icon="\uD83D\uDCD0" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
-        <FilterChip label="Day" icon="\uD83D\uDD50" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
-        <FilterChip label="Activity" icon="\u26A1" count={selectedActivityTypes.size} active={selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("activityType")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        <FilterChip label="Provider" icon="\uD83C\uDFE2" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        {/* Sort + Favorites chips — only on mobile (desktop has them in search row) */}
+        {!isDesktop && (
+          <>
+            <FilterChip label="Sort" active={sortBy !== "relevance"} onClick={() => setActiveDrawer("sort")} />
+            <FilterChip label={`♡ ${favorites.length}`} active={showFavoritesOnly} onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setVisibleCount(PAGE_SIZE); }} />
+            <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
+          </>
+        )}
+        <FilterChip label="Category" count={selectedCats.size} active={selectedCats.size > 0} onClick={() => setActiveDrawer("category")} />
+        <FilterChip label="Age" count={ageMin || ageMax ? 1 : 0} active={!!(ageMin || ageMax)} onClick={() => setActiveDrawer("age")} />
+        <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Season" count={selectedSeasons.size} active={selectedSeasons.size > 0} onClick={() => setActiveDrawer("season")} />
+        <FilterChip label="Status" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
+        <FilterChip label="Length" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
+        <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
+        <FilterChip label="Activity" count={selectedActivityTypes.size} active={selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("activityType")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
       </div>
 
       {/* Active filter summary */}
@@ -916,7 +1098,34 @@ export default function DiscoverTab({
         )}
       </div>
 
-      {/* Program cards */}
+      {/* ─── Desktop category browse view ─── */}
+      {isDesktop && !isLoadingPrograms && !search && totalActiveFilters === 0 && !showFavoritesOnly && (() => {
+        // Group programs by category for browse view
+        const categoryGroups = CATEGORIES.map((cat) => ({
+          category: cat,
+          programs: allDirectoryPrograms.filter((p) => p.category === cat),
+        })).filter((g) => g.programs.length > 0);
+
+        return (
+          <div style={{ marginTop: 16 }}>
+            {categoryGroups.map((g) => (
+              <CategoryBrowseRow
+                key={g.category}
+                category={g.category}
+                programs={g.programs}
+                onTap={onOpenDirectoryDetail}
+                isFavorite={isFavorite}
+                toggleFavorite={toggleFavorite}
+                addedNames={addedNames}
+              />
+            ))}
+          </div>
+        );
+      })()}
+
+      {/* Program cards — hide the standard grid on desktop when showing category browse */}
+      {(isDesktop && !search && totalActiveFilters === 0 && !showFavoritesOnly) ? null : (
+        <>
       {isLoadingPrograms && <SkeletonList count={6} />}
       {!isLoadingPrograms && filtered.length === 0 && (
         <>
@@ -993,6 +1202,8 @@ export default function DiscoverTab({
         >
           Load more ({eligibilityFiltered.length - visibleCount} remaining)
         </button>
+      )}
+        </>
       )}
 
       {/* ─── Filter Drawers ─── */}

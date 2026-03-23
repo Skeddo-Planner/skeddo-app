@@ -30,6 +30,16 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
 @media (min-width: 1024px) {
   .skeddo-app-container { max-width: 960px !important; }
   .skeddo-main { padding: 24px 32px 0 !important; }
+
+  /* Hide bottom TabBar on desktop — navigation is in the header */
+  .skeddo-tabbar {
+    display: none !important;
+  }
+
+  /* Remove bottom padding since there's no tab bar */
+  .skeddo-app-container {
+    padding-bottom: 0 !important;
+  }
 }
 
 /* ─── Responsive tab bar ─── */
@@ -90,4 +100,26 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
   .home-programs-grid > * {
     margin-bottom: 0 !important;
   }
+}
+
+/* ─── Desktop: program card hover effects ─── */
+@media (min-width: 1024px) {
+  .skeddo-card {
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+  .skeddo-card:hover {
+    box-shadow: 0 6px 20px rgba(27, 36, 50, 0.12), 0 2px 6px rgba(27, 36, 50, 0.06) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Desktop browse card hover */
+  .desktop-browse-card:hover {
+    box-shadow: 0 6px 20px rgba(27, 36, 50, 0.12), 0 2px 6px rgba(27, 36, 50, 0.06) !important;
+    transform: translateY(-2px);
+  }
+}
+
+/* ─── Desktop: hide scrollbar for category browse rows ─── */
+.desktop-category-scroll::-webkit-scrollbar {
+  display: none;
 }
