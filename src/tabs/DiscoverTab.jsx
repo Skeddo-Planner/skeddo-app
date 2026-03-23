@@ -878,7 +878,18 @@ export default function DiscoverTab({
           >
             {isLoadingPrograms
               ? "Loading programs..."
-              : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in Vancouver`}
+              : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in the Lower Mainland`}
+          </p>
+          <p
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 11,
+              color: C.muted,
+              marginTop: 2,
+              opacity: 0.7,
+            }}
+          >
+            Data updated {dataVersion || "recently"}
           </p>
         )}
       </div>
@@ -920,7 +931,7 @@ export default function DiscoverTab({
           <>
             <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink }}>
-                Browse <strong style={{ color: C.seaGreen }}>{allDirectoryPrograms.length.toLocaleString()}</strong> programs
+                Browse <strong style={{ color: C.seaGreen }}>{allDirectoryPrograms.length.toLocaleString()}</strong> programs in the Lower Mainland
               </span>
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
                 Updated {dataVersion}
