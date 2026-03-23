@@ -1016,57 +1016,6 @@ export default function DiscoverTab({
         </div>
       )}
 
-      {/* Data freshness banner — hidden on desktop (shown in search bar instead) */}
-      <div
-        onClick={!isChecking ? checkForUpdates : undefined}
-        role="button"
-        tabIndex={0}
-        aria-label={isChecking ? "Checking for updates" : "Check for program data updates"}
-        style={{
-          display: isDesktop ? "none" : "flex",
-          alignItems: "center",
-          gap: 6,
-          marginBottom: 12,
-          padding: "6px 12px",
-          borderRadius: 8,
-          background: isStale ? C.olive + "12" : C.seaGreen + "0A",
-          cursor: isChecking ? "default" : "pointer",
-          transition: "all 0.2s",
-        }}
-      >
-        <span
-          style={{
-            fontSize: 13,
-            color: isStale ? C.olive : C.muted,
-            lineHeight: 1,
-            display: "inline-block",
-            animation: isChecking ? "skeddo-spin 1s linear infinite" : "none",
-          }}
-        >
-          ⟳
-        </span>
-        <span
-          style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 11,
-            fontWeight: 600,
-            color: isStale ? C.olive : C.muted,
-          }}
-        >
-          {isChecking
-            ? "Checking for updates..."
-            : isStale
-              ? `Data updated: ${dataVersion} · Tap to check for updates`
-              : `Data updated: ${dataVersion} · Checked ${lastCheckedLabel}`}
-        </span>
-      </div>
-      <style>{`
-        @keyframes skeddo-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-
       {/* Row 1: All Programs, Sort, Favorites */}
       <div style={{ padding: "10px 0 0", display: "flex", gap: 6, alignItems: "center" }}>
         <button

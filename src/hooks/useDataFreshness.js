@@ -16,7 +16,8 @@ const CHECK_THRESHOLD = 24 * 60 * 60 * 1000;     // 24 hours — auto-stale dete
 
 /* ─── HOOK ─── */
 export function useDataFreshness() {
-  const dataVersion = "March 22, 2026";
+  // Auto-set to build date so it updates whenever code is deployed
+  const dataVersion = new Date(__BUILD_DATE__).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
   const [lastChecked, setLastChecked] = useState(() => {
     try {
