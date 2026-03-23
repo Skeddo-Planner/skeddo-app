@@ -83,12 +83,13 @@ function isDateInRange(date, startDate, endDate) {
 /* ─── Fallback kid colors if kid.color is not set ─── */
 const KID_COLORS_FALLBACK = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
 
-/* ─── Build a map of date → [kidId, …] for the visible month ─── */
+/* ─── Build a map of date → [statusColor, …] for the visible month ─── */
 function buildBookingMap(programs, kids, year, month) {
-  const map = {}; // "YYYY-MM-DD" → Set<kidId|"__all__">
+  const map = {}; // "YYYY-MM-DD" → Set<statusColor>
   programs.forEach((p) => {
     const dayIndices = parseDays(p.days);
     if (dayIndices.length === 0) return;
+    const statusColor = (STATUS_MAP[p.status] || STATUS_MAP.Exploring).color;
     // Iterate every day of the month
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     for (let d = 1; d <= daysInMonth; d++) {
@@ -99,12 +100,7 @@ function buildBookingMap(programs, kids, year, month) {
       if (!isDateInRange(date, p.startDate, p.endDate)) continue;
       const key = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
       if (!map[key]) map[key] = new Set();
-      const kidIds = p.kidIds || [];
-      if (kidIds.length === 0) {
-        map[key].add("__all__");
-      } else {
-        kidIds.forEach((kid) => map[key].add(kid));
-      }
+      map[key].add(statusColor);
     }
   });
   return map;
@@ -134,13 +130,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Build kid → color map (use kid's saved color, fall back to palette)
-  const kidColorMap = {};
-  (kids || []).forEach((k, i) => {
-    kidColorMap[k.id] = k.color || KID_COLORS_FALLBACK[i % KID_COLORS_FALLBACK.length];
-  });
-
-  // Build booking map for this month
+  // Build booking map for this month — tracks status colors per date
   const bookingMap = useMemo(
     () => buildBookingMap(programs || [], kids || [], year, month),
     [programs, kids, year, month]
@@ -174,36 +164,34 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
         })}
       </div>
 
-      {/* Legend — show kid color dots if kids exist */}
-      {kids && kids.length > 0 && (
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 10,
-          marginBottom: 6,
-          flexWrap: "wrap",
-        }}>
-          {kids.map((k, i) => (
-            <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 3 }}>
-              <div style={{
-                width: 6,
-                height: 6,
-                borderRadius: 3,
-                background: k.color || KID_COLORS_FALLBACK[i % KID_COLORS_FALLBACK.length],
-                flexShrink: 0,
-              }} />
-              <span style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
-                fontWeight: 600,
-                color: C.muted,
+      {/* Legend — show enrollment status color dots */}
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        gap: 10,
+        marginBottom: 6,
+        flexWrap: "wrap",
+      }}>
+        {Object.entries(STATUS_MAP).map(([label, st]) => (
+          <div key={label} style={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <div style={{
+              width: 6,
+              height: 6,
+              borderRadius: 3,
+              background: st.color,
+              flexShrink: 0,
+            }} />
+            <span style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 11,
+              fontWeight: 600,
+              color: C.muted,
               }}>
-                {k.name}
+                {label}
               </span>
             </div>
           ))}
         </div>
-      )}
 
       <div
         style={{
@@ -238,27 +226,12 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             date < addDays(currentMonday, 7);
           const isToday = date && date.getTime() === today.getTime();
 
-          // Get booking dots for this date
+          // Get booking dots for this date — colored by enrollment status
           const dateKey = inMonth
             ? `${year}-${String(month + 1).padStart(2, "0")}-${String(dn).padStart(2, "0")}`
             : null;
-          const bookedKids = dateKey ? bookingMap[dateKey] : null;
-          const dots = [];
-          if (bookedKids) {
-            if (bookedKids.has("__all__") && (!kids || kids.length === 0)) {
-              dots.push(C.seaGreen);
-            } else {
-              (kids || []).forEach((k, ki) => {
-                if (bookedKids.has(k.id) || bookedKids.has("__all__")) {
-                  dots.push(k.color || KID_COLORS_FALLBACK[ki % KID_COLORS_FALLBACK.length]);
-                }
-              });
-            }
-            // If no kids added but programs exist, show a single dot
-            if (dots.length === 0 && bookedKids.size > 0) {
-              dots.push(C.seaGreen);
-            }
-          }
+          const statusColors = dateKey ? bookingMap[dateKey] : null;
+          const dots = statusColors ? [...statusColors] : [];
 
           return (
             <button
