@@ -458,6 +458,20 @@ export default function HomeTab({
               </div>
             );
           })()}
+          {/* Budget status text */}
+          {budgetGoal > 0 && (
+            <div style={{ marginBottom: 10 }}>
+              {filteredSpent + filteredPending > budgetGoal ? (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.danger }}>
+                  {fmt$(filteredSpent + filteredPending - budgetGoal)} over budget
+                </span>
+              ) : (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.seaGreen }}>
+                  {fmt$(budgetGoal - filteredSpent - filteredPending)} remaining
+                </span>
+              )}
+            </div>
+          )}
           {/* Legend */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             {[
@@ -492,7 +506,7 @@ export default function HomeTab({
             },
             {
               label: "Add a co-parent", bgColor: C.olive, action: onInviteCoParent,
-              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+              svg: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="7" r="3.5"/><path d="M1 21v-2a3.5 3.5 0 0 1 3.5-3.5h7A3.5 3.5 0 0 1 15 19v2"/><circle cx="17" cy="7" r="3.5"/><path d="M23 21v-2a3.5 3.5 0 0 0-3.5-3.5H17"/></svg>,
             },
             {
               label: "Create a circle", bgColor: C.lilac, action: () => onNavigateToTab("circles"),
