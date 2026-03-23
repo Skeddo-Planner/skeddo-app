@@ -868,29 +868,31 @@ export default function DiscoverTab({
       <div style={{ marginBottom: 12 }}>
         {!isDesktop && <h2 style={s.pageTitle}>Discover</h2>}
         {!isDesktop && (
-          <p
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 13,
-              color: C.muted,
-              marginTop: 2,
-            }}
-          >
-            {isLoadingPrograms
-              ? "Loading programs..."
-              : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in the Lower Mainland`}
-          </p>
-          <p
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
-              color: C.muted,
-              marginTop: 2,
-              opacity: 0.7,
-            }}
-          >
-            Data updated {dataVersion || "recently"}
-          </p>
+          <>
+            <p
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 13,
+                color: C.muted,
+                marginTop: 2,
+              }}
+            >
+              {isLoadingPrograms
+                ? "Loading programs..."
+                : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in the Lower Mainland`}
+            </p>
+            <p
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 11,
+                color: C.muted,
+                marginTop: 1,
+                opacity: 0.7,
+              }}
+            >
+              Data updated {dataVersion || "recently"}
+            </p>
+          </>
         )}
       </div>
 
