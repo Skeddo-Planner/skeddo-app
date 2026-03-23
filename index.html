@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
 
     <!-- SEO: Title & Description -->
-    <title>Skeddo — The Planner for Busy Families</title>
-    <meta name="description" content="Browse 2,000+ kids programs in Vancouver. Track registrations, waitlists, and budgets in one app. Free for parents." />
+    <title>Skeddo — Kids Activities &amp; Summer Camp Planner | Vancouver &amp; Lower Mainland</title>
+    <meta name="description" content="Plan your kids' summer camps and activities across Vancouver and the Lower Mainland. Browse 2,000+ programs, track registrations and waitlists, and budget across all your kids — free for families." />
+    <meta name="keywords" content="kids activities, Vancouver camps, summer programs, family planner, Lower Mainland, kids camps, summer camp planner, children activities Vancouver, camp registration tracker" />
     <link rel="canonical" href="https://skeddo.ca/" />
 
     <!-- SEO: Geo targeting -->
@@ -17,8 +18,8 @@
     <link rel="alternate" hreflang="en-CA" href="https://skeddo.ca/" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Skeddo — Plan, Track & Budget Kids' Camps & Classes" />
-    <meta property="og:description" content="Browse 2,000+ kids programs in Vancouver. Track registrations, waitlists, and budgets in one app. Free for parents." />
+    <meta property="og:title" content="Skeddo — Kids Activities &amp; Summer Camp Planner for Vancouver Families" />
+    <meta property="og:description" content="Browse 2,000+ kids camps and programs across Vancouver &amp; the Lower Mainland. Track registrations, waitlists, and budgets in one free app." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://skeddo.ca/" />
     <meta property="og:site_name" content="Skeddo" />
@@ -26,12 +27,14 @@
     <meta property="og:image" content="https://skeddo.ca/skeddo-logo-dark.png" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Skeddo app logo — a tent icon on a green background" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Skeddo — The Planner for Busy Families" />
-    <meta name="twitter:description" content="Browse 2,000+ kids programs in Vancouver. Track registrations, waitlists, and budgets in one app." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Skeddo — Kids Activities &amp; Summer Camp Planner" />
+    <meta name="twitter:description" content="Browse 2,000+ kids camps and programs across Vancouver &amp; the Lower Mainland. Track registrations, waitlists, and budgets — free for families." />
     <meta name="twitter:image" content="https://skeddo.ca/skeddo-logo-dark.png" />
+    <meta name="twitter:image:alt" content="Skeddo app logo — a tent icon on a green background" />
 
     <!-- Icons & PWA -->
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -49,34 +52,108 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-    <!-- Google Fonts: loaded in <head> to avoid render-blocking @import in JS -->
+    <!-- Critical CSS: inline above-fold styles to prevent CLS and improve FCP -->
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+      #root { min-height: 100vh; min-height: 100dvh; }
+      #splash { display: flex; align-items: center; justify-content: center; min-height: 100vh; min-height: 100dvh; background: #1B2432; }
+    </style>
+
+    <!-- Google Fonts: loaded in <head> with display=swap for font-display optimization -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700;800&display=swap" />
 
-    <!-- Structured Data: Organization + SoftwareApplication -->
+    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Skeddo",
       "applicationCategory": "LifestyleApplication",
-      "operatingSystem": "Web",
+      "applicationSubCategory": "Family & Kids",
+      "operatingSystem": "Web, iOS (PWA), Android (PWA)",
       "url": "https://skeddo.ca",
-      "description": "Plan, track, and budget kids' camps and classes. Browse 2,000+ programs in Vancouver.",
+      "description": "Plan, track, and budget kids' summer camps, classes, and activities across Vancouver and the Lower Mainland. Browse 2,000+ programs from 150+ providers.",
+      "screenshot": "https://skeddo.ca/skeddo-logo-dark.png",
+      "featureList": "Browse 2000+ programs, Track registrations and waitlists, Budget per kid, Weekly calendar view, Favorites and bookmarks",
+      "softwareVersion": "1.0",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "CAD"
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock"
       },
       "author": {
         "@type": "Organization",
         "name": "Mended with Gold Inc.",
-        "url": "https://skeddo.ca",
-        "logo": "https://skeddo.ca/skeddo-logo-dark.png",
-        "areaServed": {
+        "url": "https://skeddo.ca"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Skeddo",
+      "legalName": "Mended with Gold Inc.",
+      "url": "https://skeddo.ca",
+      "logo": "https://skeddo.ca/skeddo-logo-dark.png",
+      "image": "https://skeddo.ca/skeddo-logo-dark.png",
+      "description": "Skeddo helps parents plan, track, and budget their kids' summer camps, classes, and activities across Vancouver and the Lower Mainland.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "areaServed": [
+        {
           "@type": "City",
-          "name": "Vancouver",
-          "addressRegion": "BC",
-          "addressCountry": "CA"
+          "name": "Vancouver"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Lower Mainland, British Columbia"
+        }
+      ],
+      "priceRange": "Free",
+      "sameAs": []
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://skeddo.ca/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebApplication (additional for rich results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Skeddo",
+      "url": "https://skeddo.ca",
+      "description": "Kids activities and summer camp planner for Vancouver and Lower Mainland families",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mended with Gold Inc.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://skeddo.ca/skeddo-logo-dark.png"
         }
       }
     }
@@ -93,12 +170,22 @@
   </head>
   <body>
     <div id="root">
-      <!-- Pre-hydration loading state: prevents white flash before React mounts -->
+      <!-- Pre-hydration loading state: prevents white flash and CLS before React mounts -->
       <div id="splash" style="display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100dvh;background:#1B2432;font-family:'Barlow',sans-serif;">
-        <img src="/skeddo-logo-dark.png" alt="Skeddo" width="72" height="72" style="border-radius:14px;opacity:0.85;" />
+        <img src="/skeddo-logo-dark.png" alt="Skeddo — kids activity planner" width="72" height="72" fetchpriority="high" style="border-radius:14px;opacity:0.85;" />
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- SEO: noscript fallback for search engine crawlers that don't execute JS -->
+    <noscript>
+      <div style="font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; text-align: center;">
+        <h1>Skeddo — Kids Activities &amp; Summer Camp Planner</h1>
+        <p>Plan your kids' summer camps and activities across Vancouver and the Lower Mainland. Browse 2,000+ programs from 150+ providers, track registrations and waitlists, and budget across all your kids.</p>
+        <p>Skeddo is a free web app for busy families. Visit <a href="https://skeddo.ca">skeddo.ca</a> with JavaScript enabled to get started.</p>
+        <p>Features: Browse 2,000+ kids programs | Track registrations &amp; waitlists | Budget per kid | Weekly calendar view | Favorites &amp; bookmarks</p>
+      </div>
+    </noscript>
     <script>
       // Register service worker early for PWA install eligibility
       if ('serviceWorker' in navigator) {

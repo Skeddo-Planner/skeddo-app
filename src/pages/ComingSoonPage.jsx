@@ -67,7 +67,9 @@ export default function ComingSoonPage() {
         {/* Logo */}
         <img
           src="/skeddo-logo-dark.png"
-          alt="Skeddo"
+          alt="Skeddo — kids activity and summer camp planner for Vancouver families"
+          width={88}
+          height={88}
           style={{
             height: 88,
             width: "auto",
@@ -97,7 +99,7 @@ export default function ComingSoonPage() {
             marginBottom: 40,
           }}
         >
-          The planner for busy families — launching <time dateTime="2026-04-01T00:00:00-07:00">April 1, 2026</time>
+          The kids activities planner for busy families in Vancouver &amp; the Lower Mainland — launching <time dateTime="2026-04-01T00:00:00-07:00">April 1, 2026</time>
         </p>
 
         {/* Countdown */}
@@ -161,9 +163,9 @@ export default function ComingSoonPage() {
               color: "rgba(250,248,243,0.8)",
             }}
           >
-            Browse <strong style={{ color: C.seaGreen }}>{(Math.floor(directoryPrograms.length / 100) * 100).toLocaleString()}+ camps & programs</strong> across Vancouver
+            Browse <strong style={{ color: C.seaGreen }}>{(Math.floor(directoryPrograms.length / 100) * 100).toLocaleString()}+ kids camps &amp; summer programs</strong> across Vancouver &amp; the Lower Mainland
             <br />
-            Track waitlists · Manage budgets · Coordinate schedules
+            Track waitlists · Manage budgets · Coordinate family schedules
           </p>
         </div>
 

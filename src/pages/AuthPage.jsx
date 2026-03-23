@@ -246,6 +246,7 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         {/* Back button */}
         <button
           onClick={() => onNavigate("landing")}
+          aria-label="Back to Skeddo home page"
           style={{
             background: "none",
             border: "none",
@@ -258,14 +259,16 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
             padding: 0,
           }}
         >
-          &larr; Back
+          &larr; Back to Home
         </button>
 
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 24 }}>
           <img
             src="/skeddo-logo-dark.png"
-            alt="Skeddo"
+            alt="Skeddo — kids activity planner"
+            width={48}
+            height={48}
             style={{ height: 48, width: "auto", borderRadius: 10 }}
           />
         </div>
@@ -297,26 +300,30 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
         {/* Form */}
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: 14 }}>
-            <label style={labelStyle}>EMAIL</label>
+            <label htmlFor="auth-email" style={labelStyle}>EMAIL</label>
             <input
+              id="auth-email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
+              autoComplete="email"
               style={s.input}
             />
           </div>
 
           <div style={{ marginBottom: 20 }}>
-            <label style={labelStyle}>PASSWORD</label>
+            <label htmlFor="auth-password" style={labelStyle}>PASSWORD</label>
             <input
+              id="auth-password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder={isSignUp ? "At least 6 characters" : "Your password"}
               required
               minLength={6}
+              autoComplete={isSignUp ? "new-password" : "current-password"}
               style={s.input}
             />
             {!isSignUp && (

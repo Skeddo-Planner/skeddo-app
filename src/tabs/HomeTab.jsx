@@ -83,6 +83,8 @@ export default function HomeTab({
 
   return (
     <div>
+      {/* Visually hidden h2 for heading hierarchy — SEO and accessibility */}
+      <h2 style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>Home Dashboard</h2>
       {/* Deadline alerts — programs starting soon, at the very top */}
       <DeadlineAlert
         programs={allPrograms}

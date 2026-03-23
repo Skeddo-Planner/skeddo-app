@@ -5,7 +5,7 @@ const features = [
   {
     icon: "\uD83D\uDD0D",
     title: "Browse 2,000+ Programs",
-    desc: "Search and filter kids camps, classes, and activities across Vancouver. Filter by age, neighbourhood, price, and activity type.",
+    desc: "Search and filter kids camps, classes, and summer programs across Vancouver and the Lower Mainland. Filter by age, neighbourhood, price, and activity type.",
   },
   {
     icon: "\uD83D\uDCCB",
@@ -26,7 +26,8 @@ const features = [
 
 export default function LandingPage({ onNavigate }) {
   return (
-    <div
+    <main
+      role="main"
       style={{
         fontFamily: "'Barlow', sans-serif",
         background: C.cream,
@@ -69,7 +70,7 @@ export default function LandingPage({ onNavigate }) {
         </h1>
 
         <p style={{ fontSize: 16, color: C.muted, lineHeight: 1.6, marginBottom: 24, maxWidth: 340, margin: "0 auto 24px" }}>
-          The planner for busy families in Vancouver. Browse programs, track registrations, and stay on budget.
+          The family planner for busy parents in Vancouver &amp; the Lower Mainland. Browse kids activities, track registrations, and stay on budget.
         </p>
 
         {/* CTA */}
@@ -146,12 +147,12 @@ export default function LandingPage({ onNavigate }) {
           fontFamily: "'Poppins', sans-serif",
           fontSize: 20, color: C.ink, marginBottom: 8,
         }}>
-          Built for Vancouver Families
+          Built for Vancouver &amp; Lower Mainland Families
         </h2>
         <p style={{ fontSize: 14, color: C.muted, lineHeight: 1.7 }}>
-          Skeddo covers programs from 150+ providers including City of Vancouver community centres,
+          Skeddo covers kids activities and summer programs from 150+ providers including City of Vancouver community centres,
           Pedalheads, Science World, and dozens of local camps across Riley Park, Mount Pleasant,
-          Kensington, Grandview-Woodland, and more.
+          Kensington, Grandview-Woodland, Burnaby, North Vancouver, and more across the Lower Mainland.
         </p>
       </div>
 
@@ -167,11 +168,11 @@ export default function LandingPage({ onNavigate }) {
         <span>Free</span>
       </div>
 
-      <p style={{
+      <footer style={{
         textAlign: "center", fontSize: 12, color: C.muted, marginTop: 24,
       }}>
-        Made by Mended with Gold Inc. · Vancouver, BC
-      </p>
-    </div>
+        <p>Made by Mended with Gold Inc. · Vancouver, BC</p>
+      </footer>
+    </main>
   );
 }
