@@ -52,7 +52,7 @@ export default function BudgetTab({
 
   // Budget goal progress colour
   const budgetPct = effectiveBudget > 0 ? (spentCost / effectiveBudget) * 100 : 0;
-  const budgetBarColor = budgetPct > 90 ? C.olive : budgetPct > 75 ? C.lilac : C.seaGreen;
+  const budgetBarColor = budgetPct > 90 ? STATUS_MAP.Waitlist.color : budgetPct > 75 ? C.lilac : STATUS_MAP.Enrolled.color;
 
   // Program list with cost-per-hour
   const programsWithCPH = useMemo(() =>
@@ -270,7 +270,7 @@ export default function BudgetTab({
                   className="progress-bar"
                   style={{
                     width: `${Math.min(enrolledPct, 100)}%`, height: "100%",
-                    background: C.seaGreen,
+                    background: STATUS_MAP.Enrolled.color,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
                   }}
@@ -287,7 +287,7 @@ export default function BudgetTab({
                   className="progress-bar"
                   style={{
                     width: `${Math.min(waitlistPct, 100 - enrolledPct)}%`, height: "100%",
-                    background: C.olive, opacity: 0.85,
+                    background: STATUS_MAP.Waitlist.color, opacity: 0.85,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
                   }}
@@ -304,7 +304,7 @@ export default function BudgetTab({
                   className="progress-bar"
                   style={{
                     width: `${Math.min(exploringPct, 100 - enrolledPct - waitlistPct)}%`, height: "100%",
-                    background: C.blue, opacity: 0.7,
+                    background: STATUS_MAP.Exploring.color, opacity: 0.7,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     transition: "width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)",
                   }}
@@ -321,19 +321,19 @@ export default function BudgetTab({
             {/* Labels below bar — one per status */}
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, flexWrap: "wrap", gap: 4 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                <div style={{ width: 10, height: 10, borderRadius: 3, background: C.seaGreen }} />
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: STATUS_MAP.Enrolled.color }} />
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.ink }}>
                   {fmt$(enrolledCost + manualCostTotal)} enrolled
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                <div style={{ width: 10, height: 10, borderRadius: 3, background: C.olive }} />
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: STATUS_MAP.Waitlist.color }} />
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
                   {fmt$(waitlistCost)} waitlist
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                <div style={{ width: 10, height: 10, borderRadius: 3, background: C.blue }} />
+                <div style={{ width: 10, height: 10, borderRadius: 3, background: STATUS_MAP.Exploring.color }} />
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
                   {fmt$(exploringCost)} exploring
                 </span>
@@ -342,11 +342,11 @@ export default function BudgetTab({
             {effectiveBudget > 0 && (
               <div style={{ marginTop: 6 }}>
                 {overBudget ? (
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.olive }}>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: STATUS_MAP.Waitlist.color }}>
                     {fmt$(overflowAmt)} over budget
                   </span>
                 ) : (
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.seaGreen }}>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: STATUS_MAP.Enrolled.color }}>
                     {fmt$(underBudgetAmt)} under budget
                   </span>
                 )}
@@ -355,7 +355,7 @@ export default function BudgetTab({
 
             {!effectiveBudget && (
               <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 8, margin: "8px 0 0" }}>
-                Set a budget in your profile to see how much room you have left.
+                Set a budget per kid to see how much room you have left.
               </p>
             )}
           </div>
@@ -364,7 +364,7 @@ export default function BudgetTab({
 
       {/* ─── Spent vs Potential ─── */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 20 }}>
-        <div style={{ ...s.budgetCard, borderLeft: `3px solid ${C.seaGreen}`, padding: "14px 16px" }}>
+        <div style={{ ...s.budgetCard, borderLeft: `3px solid ${STATUS_MAP.Enrolled.color}`, padding: "14px 16px" }}>
           <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink }}>
             {fmt$(spentCost)}
           </div>
@@ -395,14 +395,17 @@ export default function BudgetTab({
           </div>
           {kids.map((k) => {
             const kPrograms = programs.filter((p) => (p.kidIds || []).includes(k.id));
-            const kEnrolled = kPrograms.filter((p) => p.status === "Enrolled").reduce((a, p) => a + Number(p.cost || 0), 0);
-            const kPotential = kPrograms.filter((p) => p.status !== "Enrolled").reduce((a, p) => a + Number(p.cost || 0), 0);
+            const kEnrolledCost = kPrograms.filter((p) => p.status === "Enrolled").reduce((a, p) => a + Number(p.cost || 0), 0);
+            const kWaitlistCost = kPrograms.filter((p) => p.status === "Waitlist").reduce((a, p) => a + Number(p.cost || 0), 0);
+            const kExploringCost = kPrograms.filter((p) => p.status === "Exploring").reduce((a, p) => a + Number(p.cost || 0), 0);
             const kManual = (manualCosts || []).filter((c) => c.kidId === k.id).reduce((a, c) => a + Number(c.amount || 0), 0);
-            const kSpent = kEnrolled + kManual;
+            const kSpent = kEnrolledCost + kManual;
+            const kPotential = kWaitlistCost + kExploringCost;
             const kBudget = Number(k.budgetGoal) || 0;
             const kTotal = kBudget || (kSpent + kPotential) || 1;
-            const kCommPct = (kSpent / kTotal) * 100;
-            const kPotPct = (kPotential / kTotal) * 100;
+            const kSpentPct = (kSpent / kTotal) * 100;
+            const kWaitlistPct = (kWaitlistCost / kTotal) * 100;
+            const kExploringPct = (kExploringCost / kTotal) * 100;
             const kOver = kBudget > 0 && (kSpent + kPotential) > kBudget;
             return (
               <div
@@ -437,26 +440,61 @@ export default function BudgetTab({
                     )}
                   </div>
                 </div>
-                {/* Mini bar chart */}
+                {/* Mini bar chart — enrolled (green) | waitlist (terracotta) | exploring (blue) */}
                 <div style={{ height: 8, borderRadius: 4, background: "#E5E7EB", overflow: "hidden", display: "flex" }}>
                   {kSpent > 0 && (
                     <div style={{
-                      width: `${Math.min(kCommPct, 100)}%`, height: "100%",
-                      background: kOver ? C.olive : C.seaGreen,
+                      width: `${Math.min(kSpentPct, 100)}%`, height: "100%",
+                      background: STATUS_MAP.Enrolled.color,
                       transition: "width 0.4s ease",
                     }} />
                   )}
-                  {kPotential > 0 && (
+                  {kWaitlistCost > 0 && (
                     <div style={{
-                      width: `${Math.min(kPotPct, 100 - Math.min(kCommPct, 100))}%`, height: "100%",
-                      background: "repeating-linear-gradient(45deg, #F4A261, #F4A261 3px, #E8893A 3px, #E8893A 6px)",
+                      width: `${Math.min(kWaitlistPct, 100 - Math.min(kSpentPct, 100))}%`, height: "100%",
+                      background: STATUS_MAP.Waitlist.color,
+                      opacity: 0.85,
+                      transition: "width 0.4s ease",
+                    }} />
+                  )}
+                  {kExploringCost > 0 && (
+                    <div style={{
+                      width: `${Math.min(kExploringPct, 100 - Math.min(kSpentPct, 100) - Math.min(kWaitlistPct, 100))}%`, height: "100%",
+                      background: STATUS_MAP.Exploring.color,
                       opacity: 0.7,
                       transition: "width 0.4s ease",
                     }} />
                   )}
                 </div>
+                {/* Per-kid status labels */}
+                <div style={{ display: "flex", gap: 10, marginTop: 6, flexWrap: "wrap" }}>
+                  {kEnrolledCost > 0 && (
+                    <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                      <div style={{ width: 7, height: 7, borderRadius: 2, background: STATUS_MAP.Enrolled.color }} />
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.ink }}>
+                        {fmt$(kEnrolledCost)} enrolled
+                      </span>
+                    </div>
+                  )}
+                  {kWaitlistCost > 0 && (
+                    <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                      <div style={{ width: 7, height: 7, borderRadius: 2, background: STATUS_MAP.Waitlist.color }} />
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
+                        {fmt$(kWaitlistCost)} waitlist
+                      </span>
+                    </div>
+                  )}
+                  {kExploringCost > 0 && (
+                    <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                      <div style={{ width: 7, height: 7, borderRadius: 2, background: STATUS_MAP.Exploring.color }} />
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted }}>
+                        {fmt$(kExploringCost)} exploring
+                      </span>
+                    </div>
+                  )}
+                </div>
                 {kBudget > 0 && (
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? C.olive : C.seaGreen, marginTop: 4 }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: kOver ? STATUS_MAP.Waitlist.color : STATUS_MAP.Enrolled.color, marginTop: 4 }}>
                     {kOver
                       ? `${fmt$((kSpent + kPotential) - kBudget)} over budget`
                       : `${fmt$(kBudget - kSpent - kPotential)} remaining`

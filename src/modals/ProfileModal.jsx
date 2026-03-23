@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import Label from "../components/Label";
@@ -111,34 +111,6 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         </div>
       )}
 
-      {/* ─── Budget Section ─── */}
-      <SectionLabel>Budget</SectionLabel>
-
-      <Label>Seasonal Budget Goal</Label>
-      <div style={{ position: "relative" }}>
-        <span style={{
-          position: "absolute",
-          left: 14,
-          top: "50%",
-          transform: "translateY(-50%)",
-          fontFamily: "'Barlow', sans-serif",
-          fontSize: 14,
-          fontWeight: 600,
-          color: C.muted,
-        }}>$</span>
-        <input
-          style={{ ...s.input, paddingLeft: 28 }}
-          type="number"
-          value={draft.budgetGoal || ""}
-          onChange={(e) => update("budgetGoal", e.target.value)}
-          placeholder="2,000"
-          min={0}
-        />
-      </div>
-      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 4, marginBottom: 8 }}>
-        Set a target to track spending on the Budget tab
-      </div>
-
       {/* ─── Notifications Section ─── */}
       <SectionLabel>Push Notifications</SectionLabel>
 
@@ -203,14 +175,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
             </button>
           )}
           {pushNotifications.permission === "denied" && (
-            <div style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
-              color: C.danger,
-              marginTop: 6,
-            }}>
-              Notifications are blocked. Update your browser settings to allow notifications from this site.
-            </div>
+            <NotificationBlockedGuide />
           )}
         </div>
       ) : (
@@ -593,6 +558,271 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         </span>
       </div>
     </Modal>
+  );
+}
+
+
+/* ─── Notification Blocked Guide ─── */
+function detectBrowser() {
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isMac = /Macintosh|MacIntel/.test(ua) && !isIOS;
+  const isAndroid = /Android/.test(ua);
+  if (/Edg\//.test(ua)) return { name: "Edge", isIOS, isMac, isAndroid };
+  if (/Firefox\//.test(ua)) return { name: "Firefox", isIOS, isMac, isAndroid };
+  if (/CriOS/.test(ua)) return { name: "Chrome", isIOS, isMac, isAndroid };
+  if (/Chrome\//.test(ua) && !/Edg\//.test(ua)) return { name: "Chrome", isIOS, isMac, isAndroid };
+  if (/Safari\//.test(ua) && !/Chrome/.test(ua)) return { name: "Safari", isIOS, isMac, isAndroid };
+  return { name: "your browser", isIOS, isMac, isAndroid };
+}
+
+function getInstructions(browser) {
+  const { name, isIOS, isMac, isAndroid } = browser;
+  if (name === "Safari" && isIOS) {
+    return {
+      icon: "gear",
+      title: "Safari on iPhone / iPad",
+      steps: [
+        "Open the Settings app on your device",
+        "Scroll down and tap Safari",
+        "Tap Notifications",
+        "Find Skeddo and tap Allow",
+      ],
+    };
+  }
+  if (name === "Safari" && isMac) {
+    return {
+      icon: "gear",
+      title: "Safari on Mac",
+      steps: [
+        "In the menu bar, click Safari \u2192 Settings",
+        "Go to the Websites tab",
+        "Select Notifications in the sidebar",
+        "Find skeddo.ca and change to Allow",
+      ],
+    };
+  }
+  if (name === "Chrome" && isAndroid) {
+    return {
+      icon: "dots",
+      title: "Chrome on Android",
+      steps: [
+        "Tap the \u22ee menu (three dots) in the top right",
+        "Tap Settings \u2192 Site settings",
+        "Tap Notifications",
+        "Find skeddo.ca and tap Allow",
+      ],
+    };
+  }
+  if (name === "Chrome") {
+    return {
+      icon: "lock",
+      title: "Chrome on desktop",
+      steps: [
+        "Click the lock or tune icon in the address bar",
+        "Click Site settings",
+        "Find Notifications and change to Allow",
+        "Reload the page",
+      ],
+    };
+  }
+  if (name === "Firefox") {
+    return {
+      icon: "lock",
+      title: "Firefox",
+      steps: [
+        "Click the lock icon in the address bar",
+        "Click Connection secure \u2192 More information",
+        "Go to the Permissions tab",
+        "Find Notifications, uncheck Use Default, and select Allow",
+      ],
+    };
+  }
+  if (name === "Edge") {
+    return {
+      icon: "lock",
+      title: "Edge",
+      steps: [
+        "Click the lock icon in the address bar",
+        "Click Permissions for this site",
+        "Find Notifications and change to Allow",
+        "Reload the page",
+      ],
+    };
+  }
+  return {
+    icon: "lock",
+    title: "Your browser",
+    steps: [
+      "Open your browser's site settings for skeddo.ca",
+      "Find the Notifications permission",
+      "Change it to Allow",
+      "Reload the page",
+    ],
+  };
+}
+
+function NotificationBlockedGuide() {
+  const [expanded, setExpanded] = useState(false);
+  const [retryStatus, setRetryStatus] = useState(null); // null | "prompted" | "still-blocked"
+  const browser = useMemo(() => detectBrowser(), []);
+  const instructions = useMemo(() => getInstructions(browser), [browser]);
+
+  const handleTryAgain = async () => {
+    try {
+      const result = await Notification.requestPermission();
+      if (result === "granted") {
+        setRetryStatus(null);
+        window.location.reload();
+      } else {
+        setRetryStatus("still-blocked");
+      }
+    } catch {
+      setRetryStatus("still-blocked");
+    }
+  };
+
+  const stepIcon = (index) => (
+    <span style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 20,
+      height: 20,
+      borderRadius: 10,
+      background: C.seaGreen,
+      color: C.white,
+      fontFamily: "'Barlow', sans-serif",
+      fontSize: 11,
+      fontWeight: 700,
+      flexShrink: 0,
+      marginRight: 8,
+    }}>
+      {index + 1}
+    </span>
+  );
+
+  return (
+    <div style={{
+      marginTop: 8,
+      background: C.dangerBg,
+      borderRadius: 10,
+      border: `1px solid ${C.danger}20`,
+      overflow: "hidden",
+    }}>
+      {/* Header — always visible */}
+      <div
+        onClick={() => setExpanded(!expanded)}
+        role="button"
+        tabIndex={0}
+        aria-expanded={expanded}
+        aria-label="Show how to enable notifications"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "10px 12px",
+          cursor: "pointer",
+          gap: 8,
+        }}
+      >
+        <span style={{ fontSize: 14 }}>{"\uD83D\uDD14"}</span>
+        <div style={{ flex: 1 }}>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 12,
+            fontWeight: 600,
+            color: C.danger,
+          }}>
+            Notifications are blocked
+          </div>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 11,
+            color: C.muted,
+            marginTop: 1,
+          }}>
+            Tap here to see how to enable them
+          </div>
+        </div>
+        <span style={{
+          fontSize: 12,
+          color: C.muted,
+          transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+          transition: "transform 0.2s ease",
+        }}>
+          {"\u25BC"}
+        </span>
+      </div>
+
+      {/* Expandable instructions */}
+      {expanded && (
+        <div style={{
+          padding: "0 12px 12px 12px",
+          borderTop: `1px solid ${C.danger}15`,
+        }}>
+          <div style={{
+            fontFamily: "'Barlow', sans-serif",
+            fontSize: 12,
+            fontWeight: 700,
+            color: C.ink,
+            marginTop: 10,
+            marginBottom: 8,
+          }}>
+            {instructions.title}
+          </div>
+          {instructions.steps.map((step, i) => (
+            <div key={i} style={{
+              display: "flex",
+              alignItems: "flex-start",
+              marginBottom: 6,
+            }}>
+              {stepIcon(i)}
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 12,
+                color: C.ink,
+                lineHeight: 1.5,
+                paddingTop: 1,
+              }}>
+                {step}
+              </span>
+            </div>
+          ))}
+
+          {/* Try Again button */}
+          <button
+            onClick={handleTryAgain}
+            style={{
+              width: "100%",
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 13,
+              fontWeight: 600,
+              color: C.white,
+              background: C.seaGreen,
+              border: "none",
+              borderRadius: 8,
+              padding: "10px 14px",
+              cursor: "pointer",
+              marginTop: 8,
+            }}
+          >
+            Try Again
+          </button>
+
+          {retryStatus === "still-blocked" && (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 11,
+              color: C.muted,
+              marginTop: 6,
+              lineHeight: 1.4,
+            }}>
+              Still blocked — please follow the steps above to update your browser settings, then try again.
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
