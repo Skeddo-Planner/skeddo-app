@@ -259,12 +259,10 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
         </button>
         <div
           style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 12,
+            fontFamily: "'Poppins', sans-serif",
+            fontSize: 18,
             fontWeight: 700,
             color: C.ink,
-            textTransform: "uppercase",
-            letterSpacing: 0.5,
             textAlign: "center",
           }}
         >
@@ -336,11 +334,11 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             key={d}
             style={{
               fontFamily: "'Barlow', sans-serif",
-              fontSize: 12,
+              fontSize: 13,
               fontWeight: 700,
               color: C.muted,
               textAlign: "center",
-              padding: 2,
+              padding: 3,
             }}
           >
             {d[0]}
@@ -383,8 +381,8 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
               aria-label={inMonth && date ? `Select week of ${formatDateShort(date)}` : undefined}
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 13,
-                fontWeight: isToday ? 800 : 500,
+                fontSize: 14,
+                fontWeight: isToday ? 800 : 600,
                 color: !inMonth
                   ? "transparent"
                   : isToday
@@ -399,13 +397,13 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                   : dayBg,
                 border: "none",
                 borderRadius: 6,
-                padding: "4px 2px 2px",
+                padding: "5px 2px 3px",
                 cursor: inMonth ? "pointer" : "default",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                minHeight: 34,
+                minHeight: 38,
               }}
             >
               <span>{inMonth ? dn : ""}</span>
