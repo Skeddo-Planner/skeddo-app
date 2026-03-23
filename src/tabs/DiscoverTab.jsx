@@ -866,7 +866,7 @@ export default function DiscoverTab({
     <div>
       {/* Header */}
       <div style={{ marginBottom: 12 }}>
-        {!isDesktop && <h2 style={s.pageTitle}>Discover</h2>}
+        {!isDesktop && <h2 style={s.pageTitle}>Search</h2>}
         {!isDesktop && (
           <>
             <p
@@ -1050,16 +1050,18 @@ export default function DiscoverTab({
       )}
 
       {/* Row 1: All Programs, Sort, Favorites */}
-      <div style={{ padding: "10px 0 0", display: "flex", gap: 6, alignItems: "center" }}>
+      <div style={{ padding: "6px 0 0", display: "flex", gap: 6, alignItems: "center" }}>
         <button
           onClick={clearAllFilters}
           style={{
-            padding: "6px 14px", borderRadius: 20,
-            border: totalActiveFilters === 0 ? "none" : "1.5px solid rgba(27,36,50,0.15)",
+            display: "flex", alignItems: "center",
+            padding: "6px 12px", borderRadius: 20, minHeight: 36,
+            border: totalActiveFilters === 0 ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
             background: totalActiveFilters === 0 ? C.ink : "#FFF",
             color: totalActiveFilters === 0 ? "#FFF" : C.ink,
-            fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: totalActiveFilters === 0 ? 700 : 500,
+            fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: totalActiveFilters === 0 ? 600 : 500,
             cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+            boxShadow: totalActiveFilters === 0 ? "none" : "0 1px 3px rgba(27,36,50,0.04)",
           }}
         >All Programs</button>
         {!isDesktop && (
@@ -1071,7 +1073,7 @@ export default function DiscoverTab({
       </div>
 
       {/* Row 2: Filter chips */}
-      <div style={{ padding: "6px 0 0", overflowX: "auto", display: "flex", gap: 6, alignItems: "center", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
+      <div style={{ padding: "4px 0 0", overflowX: "auto", display: "flex", gap: 6, alignItems: "center", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
         <FilterChip label="Status" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
         {kids && kids.length > 0 && (
           <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
