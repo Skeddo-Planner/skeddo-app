@@ -290,95 +290,37 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
         </button>
       </div>
 
-      {/* Legend — kid colors + status shapes */}
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        gap: 8,
-        marginBottom: 6,
-        flexWrap: "wrap",
-      }}>
-        {/* Kid color legend */}
-        {(kids || []).map((k) => {
-          const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
-          const kidColor = k.color || KID_COLORS[kidIdx >= 0 ? kidIdx % KID_COLORS.length : 0]?.hex || C.muted;
-          return (
-            <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 3 }}>
-              <div style={{
-                width: 6,
-                height: 6,
-                borderRadius: 3,
-                background: kidColor,
-                flexShrink: 0,
-              }} />
-              <span style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
-                fontWeight: 600,
-                color: C.muted,
-              }}>
-                {k.name}
-              </span>
-            </div>
-          );
-        })}
-        {/* Separator */}
+      {/* Legend — two rows: kids then statuses */}
+      <div style={{ marginBottom: 8 }}>
+        {/* Kid colors */}
         {(kids || []).length > 0 && (
-          <span style={{ color: C.border, fontSize: 11, lineHeight: "14px" }}>|</span>
+          <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 4 }}>
+            {(kids || []).map((k) => {
+              const kidIdx = (kids || []).findIndex((kk) => kk.id === k.id);
+              const kidColor = k.color || KID_COLORS[kidIdx >= 0 ? kidIdx % KID_COLORS.length : 0]?.hex || C.muted;
+              return (
+                <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <div style={{ width: 8, height: 8, borderRadius: 4, background: kidColor, flexShrink: 0 }} />
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600, color: C.ink }}>{k.name}</span>
+                </div>
+              );
+            })}
+          </div>
         )}
-        {/* Status shape legend */}
-        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-          <div style={{
-            width: 6,
-            height: 6,
-            borderRadius: 3,
-            background: C.ink,
-            flexShrink: 0,
-          }} />
-          <span style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 11,
-            fontWeight: 600,
-            color: C.muted,
-          }}>
-            Enrolled
-          </span>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-          <div style={{
-            width: 6,
-            height: 6,
-            borderRadius: 3,
-            background: "transparent",
-            border: `1.5px solid ${C.ink}`,
-            boxSizing: "border-box",
-            flexShrink: 0,
-          }} />
-          <span style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 11,
-            fontWeight: 600,
-            color: C.muted,
-          }}>
-            Waitlist
-          </span>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-          <div style={{
-            width: 6,
-            height: 6,
-            borderRadius: 0,
-            background: C.ink,
-            flexShrink: 0,
-          }} />
-          <span style={{
-            fontFamily: "'Barlow', sans-serif",
-            fontSize: 11,
-            fontWeight: 600,
-            color: C.muted,
-          }}>
-            Exploring
-          </span>
+        {/* Status shapes */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 12 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <div style={{ width: 8, height: 8, borderRadius: 4, background: C.ink, flexShrink: 0 }} />
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>Enrolled</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <div style={{ width: 8, height: 8, borderRadius: 4, background: "transparent", border: `1.5px solid ${C.ink}`, boxSizing: "border-box", flexShrink: 0 }} />
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>Waitlist</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <div style={{ width: 6, height: 6, borderRadius: 1, background: C.ink, opacity: 0.6, flexShrink: 0 }} />
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>Exploring</span>
+          </div>
         </div>
       </div>
 
@@ -386,7 +328,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(7, 1fr)",
-          gap: 2,
+          gap: 1,
         }}
       >
         {DAY_NAMES.map((d) => (
@@ -394,7 +336,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             key={d}
             style={{
               fontFamily: "'Barlow', sans-serif",
-              fontSize: 11,
+              fontSize: 12,
               fontWeight: 700,
               color: C.muted,
               textAlign: "center",
@@ -421,6 +363,17 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
             : null;
           const dots = dateKey ? (bookingMap[dateKey] || []) : [];
 
+          // Background color based on most important status on this day
+          let dayBg = "transparent";
+          if (dots.length > 0 && inMonth && !isToday) {
+            const hasEnrolled = dots.some((d) => d.status === "Enrolled");
+            const hasWaitlist = dots.some((d) => d.status === "Waitlist");
+            const hasExploring = dots.some((d) => d.status === "Exploring");
+            if (hasEnrolled) dayBg = STATUS_MAP.Enrolled.color + "20";
+            else if (hasWaitlist) dayBg = STATUS_MAP.Waitlist.color + "20";
+            else if (hasExploring) dayBg = STATUS_MAP.Exploring.color + "20";
+          }
+
           return (
             <button
               key={i}
@@ -430,7 +383,7 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
               aria-label={inMonth && date ? `Select week of ${formatDateShort(date)}` : undefined}
               style={{
                 fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
+                fontSize: 13,
                 fontWeight: isToday ? 800 : 500,
                 color: !inMonth
                   ? "transparent"
@@ -443,16 +396,16 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                   ? C.seaGreen
                   : isCurrentWeek
                   ? C.seaGreen + "14"
-                  : "transparent",
+                  : dayBg,
                 border: "none",
                 borderRadius: 6,
-                padding: "3px 2px 1px",
+                padding: "4px 2px 2px",
                 cursor: inMonth ? "pointer" : "default",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                minHeight: 28,
+                minHeight: 34,
               }}
             >
               <span>{inMonth ? dn : ""}</span>
@@ -460,22 +413,23 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                 <span style={{
                   display: "flex",
                   gap: 2,
-                  marginTop: 1,
+                  marginTop: 2,
                   justifyContent: "center",
+                  flexWrap: "wrap",
                 }}>
-                  {dots.slice(0, 4).map((dot, di) => {
+                  {dots.slice(0, 3).map((dot, di) => {
                     const dotColor = isToday ? C.cream : dot.kidColor;
                     if (dot.status === "Waitlist") {
-                      // Dashed border circle (hollow)
+                      // Hollow circle with border
                       return (
                         <span
                           key={di}
                           style={{
-                            width: 4,
-                            height: 4,
-                            borderRadius: 2,
+                            width: 6,
+                            height: 6,
+                            borderRadius: 3,
                             background: "transparent",
-                            border: `1px solid ${dotColor}`,
+                            border: `1.5px solid ${dotColor}`,
                             boxSizing: "border-box",
                             flexShrink: 0,
                           }}
@@ -488,10 +442,11 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                         <span
                           key={di}
                           style={{
-                            width: 4,
-                            height: 4,
-                            borderRadius: 0,
+                            width: 5,
+                            height: 5,
+                            borderRadius: 1,
                             background: dotColor,
+                            opacity: 0.6,
                             flexShrink: 0,
                           }}
                         />
@@ -502,8 +457,8 @@ function MiniCalendar({ currentMonday, onSelectWeek, programs, kids }) {
                       <span
                         key={di}
                         style={{
-                          width: 4,
-                          height: 4,
+                          width: 6,
+                          height: 6,
                           borderRadius: 2,
                           background: dotColor,
                           flexShrink: 0,
