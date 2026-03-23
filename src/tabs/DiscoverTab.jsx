@@ -1054,45 +1054,39 @@ export default function DiscoverTab({
         }
       `}</style>
 
-      {/* Horizontal filter chip bar */}
-      <div style={{ padding: "10px 0 0", overflowX: "auto", display: "flex", gap: 6, paddingLeft: 0, paddingRight: 0, alignItems: "center", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
-        {/* Sort + Favorites chips — only on mobile (desktop has them in search row) */}
+      {/* Row 1: All Programs, Sort, Favorites */}
+      <div style={{ padding: "10px 0 0", display: "flex", gap: 6, alignItems: "center" }}>
+        <button
+          onClick={clearAllFilters}
+          style={{
+            padding: "6px 14px", borderRadius: 20,
+            border: totalActiveFilters === 0 ? "none" : "1.5px solid rgba(27,36,50,0.15)",
+            background: totalActiveFilters === 0 ? C.ink : "#FFF",
+            color: totalActiveFilters === 0 ? "#FFF" : C.ink,
+            fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: totalActiveFilters === 0 ? 700 : 500,
+            cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+          }}
+        >All Programs</button>
         {!isDesktop && (
           <>
             <FilterChip label="Sort" active={sortBy !== "relevance"} onClick={() => setActiveDrawer("sort")} />
             <FilterChip label={`♡ ${favorites.length}`} active={showFavoritesOnly} onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setVisibleCount(PAGE_SIZE); }} />
-            <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
           </>
+        )}
+      </div>
+
+      {/* Row 2: Filter chips */}
+      <div style={{ padding: "6px 0 0", overflowX: "auto", display: "flex", gap: 6, alignItems: "center", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
+        <FilterChip label="Status" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
+        {kids && kids.length > 0 && (
+          <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
         )}
         <FilterChip label="Category" count={selectedCats.size} active={selectedCats.size > 0} onClick={() => setActiveDrawer("category")} />
-        <FilterChip label="Age" count={ageMin || ageMax ? 1 : 0} active={!!(ageMin || ageMax)} onClick={() => setActiveDrawer("age")} />
-        <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        <FilterChip label="Season" count={selectedSeasons.size} active={selectedSeasons.size > 0} onClick={() => setActiveDrawer("season")} />
-        <FilterChip label="Status" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
-        <FilterChip label="Length" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
+        <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
-        <FilterChip label="Activity" count={selectedActivityTypes.size} active={selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("activityType")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        <FilterChip label="Length" count={selectedLengths.size} active={selectedLengths.size > 0} onClick={() => setActiveDrawer("length")} />
         <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
-        {kids && kids.length > 0 && (
-          <FilterChip
-            label="Eligible for"
-            count={kidFilter ? 1 : 0}
-            active={!!kidFilter}
-            onClick={() => setActiveDrawer("eligible")}
-          />
-        )}
-        {totalActiveFilters > 0 && (
-          <>
-            <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
-            <button onClick={clearAllFilters} style={{
-              background: "none", border: "1.5px solid rgba(231,111,81,0.3)",
-              borderRadius: 20, padding: "6px 14px",
-              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
-              color: C.danger, cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
-            }}>Clear all</button>
-          </>
-        )}
       </div>
 
       {/* Active filter summary */}
