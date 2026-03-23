@@ -238,11 +238,11 @@ export function useCircles(userId, session) {
   }, [getAuthHeaders]);
 
   /* ── Share activities to a circle ── */
-  const shareActivities = useCallback(async (circleId, activities) => {
+  const shareActivities = useCallback(async (circleId, activities, displayName) => {
     const res = await fetch("/api/circles-share", {
       method: "POST",
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-      body: JSON.stringify({ circleId, activities }),
+      body: JSON.stringify({ circleId, activities, displayName }),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error);

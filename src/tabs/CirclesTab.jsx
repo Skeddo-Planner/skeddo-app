@@ -61,16 +61,16 @@ function ShareIcons({ shareText, shareUrl, onCopy, subject }) {
 }
 
 /* ─── Sub-header with back arrow ─── */
-function SubHeader({ title, onBack, right }) {
+function SubHeader({ title, onBack, right, noBorder, titleBold }) {
   return (
     <div style={{
       padding: "14px 0", display: "flex", alignItems: "center", gap: 12,
-      borderBottom: `1px solid ${C.border}`, marginBottom: 16,
+      ...(noBorder ? { marginBottom: 4 } : { borderBottom: `1px solid ${C.border}`, marginBottom: 16 }),
     }}>
       <button onClick={onBack} style={{
         background: "none", border: "none", fontSize: 20, cursor: "pointer", color: C.ink, padding: 0,
       }} aria-label="Go back">{"\u2190"}</button>
-      <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, flex: 1 }}>{title}</span>
+      <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, flex: 1, fontWeight: titleBold ? 700 : 400 }}>{title}</span>
       {right}
     </div>
   );
@@ -96,6 +96,36 @@ function timeAgo(dateStr) {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
+/* Format date range for feed cards, e.g. "Jul 6-11" or "Jul 6 - Aug 2" */
+function formatDateRange(startDate, endDate) {
+  if (!startDate) return null;
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  try {
+    const s = new Date(startDate + "T00:00:00");
+    const sMonth = MONTHS[s.getMonth()];
+    const sDay = s.getDate();
+    if (!endDate || endDate === startDate) return `${sMonth} ${sDay}`;
+    const e = new Date(endDate + "T00:00:00");
+    const eMonth = MONTHS[e.getMonth()];
+    const eDay = e.getDate();
+    if (sMonth === eMonth) return `${sMonth} ${sDay}\u2013${eDay}`;
+    return `${sMonth} ${sDay} \u2013 ${eMonth} ${eDay}`;
+  } catch { return null; }
+}
+
+/* Heart SVG icon for bookmark/favorite */
+function HeartIcon({ filled, size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24"
+      fill={filled ? C.olive : "none"}
+      stroke={filled ? C.olive : C.muted}
+      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    >
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  );
+}
+
 export default function CirclesTab({
   programs, kids, profile, showToast, userId, circlesHook, planAccess, onInviteCoParent,
 }) {
@@ -117,6 +147,7 @@ export default function CirclesTab({
   const [showInviteDrawer, setShowInviteDrawer] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const [showSharingBanner, setShowSharingBanner] = useState(true);
+  const [membersExpanded, setMembersExpanded] = useState(false);
 
   // Stable refs to avoid useEffect dependency loops
   const ensureReferralCodeRef = useRef(ensureReferralCode);
@@ -148,6 +179,9 @@ export default function CirclesTab({
       registrationUrl: p.registrationUrl || "",
       programId: p.id,
       status: p.status || "Exploring",
+      location: p.location || "",
+      startDate: p.startDate || "",
+      endDate: p.endDate || "",
     };
   });
 
@@ -202,7 +236,7 @@ export default function CirclesTab({
     setActionLoading(true);
     try {
       const toShare = shareableActivities.filter((a) => selectedActivities.has(a.id));
-      await shareActivities(activeCircle.id, toShare);
+      await shareActivities(activeCircle.id, toShare, profile?.displayName);
       trackEvent("share_activity", { count: toShare.length, circle_name: activeCircle.name });
       setSelectedActivities(new Set());
       setScreen("feed");
@@ -541,6 +575,8 @@ export default function CirclesTab({
         <SubHeader
           title={activeCircle?.name || "Circle"}
           onBack={() => { setScreen("home"); setActiveCircle(null); }}
+          noBorder
+          titleBold
           right={
             <button
               onClick={() => planAccess.canUseCircles ? setScreen("share") : showToast("Upgrade to Skeddo Plus to use Circles")}
@@ -551,15 +587,32 @@ export default function CirclesTab({
           }
         />
 
-        {/* Members list with roles + remove */}
+        {/* Collapsible members list */}
         <div style={{
           background: C.white, borderRadius: 12, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)",
           padding: "12px 14px", marginBottom: 12,
         }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
-              Members ({circleMembers.length})
-            </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <button
+              onClick={() => setMembersExpanded((v) => !v)}
+              style={{
+                background: "none", border: "none", cursor: "pointer", padding: 0,
+                display: "flex", alignItems: "center", gap: 6,
+              }}
+              aria-expanded={membersExpanded}
+              aria-label={membersExpanded ? "Collapse members" : "Expand members"}
+            >
+              <svg
+                width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke={C.muted} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                style={{ transition: "transform 0.2s ease", transform: membersExpanded ? "rotate(90deg)" : "rotate(0deg)" }}
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                Members ({circleMembers.length})
+              </span>
+            </button>
             {activeCircle?.inviteCode && (
               <button
                 onClick={() => setShowInviteDrawer((v) => !v)}
@@ -571,83 +624,86 @@ export default function CirclesTab({
               >+ Invite</button>
             )}
           </div>
-          {circleMembers.map((m) => {
-            const isMe = m.userId === userId;
-            const isOwner = activeCircle?.role === "owner";
-            // For the current user, prefer the locally-available profile name (always up to date)
-            const memberName = isMe ? (profile?.displayName || m.displayName) : m.displayName;
-            return (
-              <div key={m.userId} style={{
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-                padding: "8px 0", borderBottom: `1px solid ${C.border}`,
-              }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <div style={{
-                    width: 28, height: 28, borderRadius: 8,
-                    background: m.role === "owner" ? C.seaGreen : C.blue,
-                    color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
-                    fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+          {membersExpanded && (
+            <>
+              {circleMembers.map((m) => {
+                const isMe = m.userId === userId;
+                const isOwner = activeCircle?.role === "owner";
+                const memberName = isMe ? (profile?.displayName || m.displayName) : m.displayName;
+                return (
+                  <div key={m.userId} style={{
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "8px 0", borderBottom: `1px solid ${C.border}`,
                   }}>
-                    {memberName?.[0]?.toUpperCase() || "?"}
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <div style={{
+                        width: 28, height: 28, borderRadius: 8,
+                        background: m.role === "owner" ? C.seaGreen : C.blue,
+                        color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
+                        fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                      }}>
+                        {memberName?.[0]?.toUpperCase() || "?"}
+                      </div>
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
+                        {memberName}{isMe ? " (you)" : ""}
+                      </span>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{
+                        fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
+                        color: m.role === "owner" ? C.seaGreen : C.muted,
+                        textTransform: "uppercase",
+                      }}>
+                        {m.role}
+                      </span>
+                      {isOwner && !isMe && (
+                        <button
+                          onClick={async () => {
+                            if (!window.confirm(`Remove ${m.displayName} from this circle?`)) return;
+                            try {
+                              await removeMember(activeCircle.id, m.userId);
+                              const updated = await getMembers(activeCircle.id);
+                              setCircleMembers(updated);
+                              showToast("Removed");
+                            } catch (e) { showToast(e.message); }
+                          }}
+                          style={{
+                            background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+                            fontSize: 11, fontWeight: 600, color: C.danger, cursor: "pointer",
+                          }}
+                        >
+                          Remove
+                        </button>
+                      )}
+                    </div>
                   </div>
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
-                    {memberName}{isMe ? " (you)" : ""}
-                  </span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{
-                    fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
-                    color: m.role === "owner" ? C.seaGreen : C.muted,
-                    textTransform: "uppercase",
-                  }}>
-                    {m.role}
-                  </span>
-                  {isOwner && !isMe && (
-                    <button
-                      onClick={async () => {
-                        if (!window.confirm(`Remove ${m.displayName} from this circle?`)) return;
-                        try {
-                          await removeMember(activeCircle.id, m.userId);
-                          const updated = await getMembers(activeCircle.id);
-                          setCircleMembers(updated);
-                          showToast("Removed");
-                        } catch (e) { showToast(e.message); }
-                      }}
-                      style={{
-                        background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
-                        fontSize: 11, fontWeight: 600, color: C.danger, cursor: "pointer",
-                      }}
-                    >
-                      Remove
-                    </button>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-          <button
-            onClick={async () => {
-              if (activeCircle?.role === "owner") {
-                const otherMembers = circleMembers.filter((m) => m.userId !== userId);
-                if (otherMembers.length === 0) {
-                  showToast("You're the only member.");
-                  return;
-                }
-                if (!window.confirm(`Transfer ownership to ${otherMembers[0].displayName} and leave?`)) return;
-                try { await leaveCircle(activeCircle.id, otherMembers[0].userId); setScreen("home"); showToast("Left circle"); } catch (e) { showToast(e.message); }
-              } else {
-                if (!window.confirm("Leave this circle? Your shared activities will become anonymous.")) return;
-                try { await leaveCircle(activeCircle.id); setScreen("home"); showToast("Left circle"); } catch (e) { showToast(e.message); }
-              }
-            }}
-            style={{
-              background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
-              fontSize: 12, fontWeight: 600, color: C.danger, cursor: "pointer",
-              marginTop: 8, padding: 0,
-            }}
-          >
-            Leave this circle
-          </button>
+                );
+              })}
+              <button
+                onClick={async () => {
+                  if (activeCircle?.role === "owner") {
+                    const otherMembers = circleMembers.filter((m) => m.userId !== userId);
+                    if (otherMembers.length === 0) {
+                      showToast("You're the only member.");
+                      return;
+                    }
+                    if (!window.confirm(`Transfer ownership to ${otherMembers[0].displayName} and leave?`)) return;
+                    try { await leaveCircle(activeCircle.id, otherMembers[0].userId); setScreen("home"); showToast("Left circle"); } catch (e) { showToast(e.message); }
+                  } else {
+                    if (!window.confirm("Leave this circle? Your shared activities will become anonymous.")) return;
+                    try { await leaveCircle(activeCircle.id); setScreen("home"); showToast("Left circle"); } catch (e) { showToast(e.message); }
+                  }
+                }}
+                style={{
+                  background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+                  fontSize: 12, fontWeight: 600, color: C.danger, cursor: "pointer",
+                  marginTop: 8, padding: 0,
+                }}
+              >
+                Leave this circle
+              </button>
+            </>
+          )}
         </div>
 
         {/* Feed */}
@@ -659,93 +715,126 @@ export default function CirclesTab({
             const dupCount = duplicateCounts[dupKey] || 1;
             const isBookmarked = bookmarks.has(item.id);
             const isFlagged = item.activity_flags?.length > 0;
+            const dateLabel = formatDateRange(item.start_date, item.end_date);
 
             return (
               <div key={item.id} style={{
-                background: C.white, borderRadius: 14, padding: "14px 16px",
+                background: C.white, borderRadius: 14,
                 border: `1px solid ${C.border}`, marginBottom: 10,
+                display: "flex", overflow: "hidden",
               }}>
-                {/* Attribution */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                    <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
-                    {item.child_name && <> shared {item.child_name}'s activity</>}
-                  </div>
-                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
-                    {timeAgo(item.shared_at)}
-                  </span>
-                </div>
-
-                {/* Activity card */}
-                <div style={{ background: "#F8F9FA", borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
-                    {item.activity_name}
-                  </div>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 6 }}>
-                    {item.provider_name}
-                  </div>
-                  {item.schedule_info && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                      {item.schedule_info}
-                    </div>
-                  )}
-                  {item.age_group && (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-                      {item.age_group}
-                    </div>
-                  )}
-                </div>
-
-                {/* Duplicate indicator */}
-                {dupCount > 1 && (
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.seaGreen, fontWeight: 600, marginBottom: 6 }}>
-                    {dupCount} parents shared this program
+                {/* Date column */}
+                {dateLabel && (
+                  <div style={{
+                    width: 60, minWidth: 60, background: SOFT.seaGreen,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    padding: "10px 4px", flexShrink: 0,
+                  }}>
+                    <span style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                      color: C.seaGreen, textAlign: "center", lineHeight: 1.3,
+                    }}>
+                      {dateLabel}
+                    </span>
                   </div>
                 )}
 
-                {/* Actions */}
-                <div style={{ display: "flex", gap: 8 }}>
-                  <button
-                    onClick={() => toggleBookmark(item.id, item)}
-                    style={{
-                      background: isBookmarked ? SOFT.gold : "none",
-                      border: `1px solid ${isBookmarked ? C.olive : C.border}`,
-                      borderRadius: 8, padding: "6px 12px", fontSize: 12,
-                      fontFamily: "'Barlow', sans-serif", fontWeight: 600,
-                      color: isBookmarked ? C.olive : C.muted, cursor: "pointer",
-                    }}
-                  >
-                    {isBookmarked ? "\uD83D\uDD16 Saved" : "\uD83D\uDD16 Bookmark"}
-                  </button>
-                  {item.registration_url && (
-                    <a
-                      href={item.registration_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                {/* Activity content */}
+                <div style={{ flex: 1, padding: "12px 14px", minWidth: 0 }}>
+                  {/* Header: shared by + time + heart */}
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                        Shared by <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
+                        <span style={{ marginLeft: 6, fontSize: 11 }}>{timeAgo(item.shared_at)}</span>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => toggleBookmark(item.id, item)}
                       style={{
-                        background: SOFT.seaGreen, border: `1px solid ${C.seaGreen}22`,
-                        borderRadius: 8, padding: "6px 12px", fontSize: 12,
+                        background: "none", border: "none", cursor: "pointer",
+                        padding: 4, flexShrink: 0, lineHeight: 1,
+                      }}
+                      aria-label={isBookmarked ? "Remove from favorites" : "Add to favorites"}
+                    >
+                      <HeartIcon filled={isBookmarked} size={20} />
+                    </button>
+                  </div>
+
+                  {/* Activity name + provider */}
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700, color: C.ink, marginBottom: 2 }}>
+                    {item.activity_name}
+                  </div>
+                  {item.provider_name && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 2 }}>
+                      {item.provider_name}
+                    </div>
+                  )}
+
+                  {/* Child name */}
+                  {item.child_name && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.blue, marginBottom: 2 }}>
+                      {item.child_name}
+                    </div>
+                  )}
+
+                  {/* Location */}
+                  {item.location && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, display: "flex", alignItems: "center", gap: 4, marginBottom: 2 }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      {item.location}
+                    </div>
+                  )}
+
+                  {/* Schedule + age */}
+                  {(item.schedule_info || item.age_group) && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2 }}>
+                      {[item.schedule_info, item.age_group].filter(Boolean).join(" \u00B7 ")}
+                    </div>
+                  )}
+
+                  {/* Duplicate indicator */}
+                  {dupCount > 1 && (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.seaGreen, fontWeight: 600, marginTop: 4 }}>
+                      {dupCount} parents shared this program
+                    </div>
+                  )}
+
+                  {/* Actions row */}
+                  <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                    {item.registration_url && (
+                      <a
+                        href={item.registration_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          background: SOFT.seaGreen, border: `1px solid ${C.seaGreen}22`,
+                          borderRadius: 8, padding: "5px 10px", fontSize: 11,
+                          fontFamily: "'Barlow', sans-serif", fontWeight: 600,
+                          color: C.seaGreen, textDecoration: "none", cursor: "pointer",
+                        }}
+                      >
+                        Register {"\u2192"}
+                      </a>
+                    )}
+                    <button
+                      onClick={() => {
+                        flagActivity(item.id, "Reported as outdated", activeCircle?.id).then(() => showToast("Flagged!")).catch((e) => showToast(e.message || "Already flagged"));
+                      }}
+                      style={{
+                        background: isFlagged ? "#FEE2E2" : "none",
+                        border: `1px solid ${isFlagged ? "#FECACA" : C.border}`,
+                        borderRadius: 8, padding: "5px 10px", fontSize: 11,
                         fontFamily: "'Barlow', sans-serif", fontWeight: 600,
-                        color: C.seaGreen, textDecoration: "none", cursor: "pointer",
+                        color: isFlagged ? "#991B1B" : C.muted, cursor: "pointer", marginLeft: "auto",
                       }}
                     >
-                      Register {"\u2192"}
-                    </a>
-                  )}
-                  <button
-                    onClick={() => {
-                      flagActivity(item.id, "Reported as outdated", activeCircle?.id).then(() => showToast("Flagged!")).catch((e) => showToast(e.message || "Already flagged"));
-                    }}
-                    style={{
-                      background: isFlagged ? "#FEE2E2" : "none",
-                      border: `1px solid ${isFlagged ? "#FECACA" : C.border}`,
-                      borderRadius: 8, padding: "6px 10px", fontSize: 12,
-                      fontFamily: "'Barlow', sans-serif", fontWeight: 600,
-                      color: isFlagged ? "#991B1B" : C.muted, cursor: "pointer", marginLeft: "auto",
-                    }}
-                  >
-                    {isFlagged ? "Flagged" : "Flag"}
-                  </button>
+                      {isFlagged ? "Flagged" : "Flag"}
+                    </button>
+                  </div>
                 </div>
               </div>
             );

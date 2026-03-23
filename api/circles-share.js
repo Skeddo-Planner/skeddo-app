@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const user = await verifyUser(req);
   if (!user) return res.status(401).json({ error: "Unauthorized" });
 
-  const { circleId, activities } = req.body;
+  const { circleId, activities, displayName } = req.body;
   if (!circleId || !activities?.length) {
     return res.status(400).json({ error: "circleId and activities array required" });
   }
@@ -33,7 +33,9 @@ export default async function handler(req, res) {
     .eq("id", user.id)
     .single();
 
-  const sharerName = profile?.display_name || "A parent";
+  // Prefer client-provided displayName (always fresh from local state),
+  // fall back to database profile, then generic label
+  const sharerName = displayName || profile?.display_name || "A parent";
 
   // Check for already-shared activities by this user in this circle (dedup)
   const { data: existingShares } = await sb
@@ -62,6 +64,9 @@ export default async function handler(req, res) {
     schedule_info: a.scheduleInfo || "",
     age_group: a.ageGroup || "",
     registration_url: a.registrationUrl || "",
+    location: a.location || "",
+    start_date: a.startDate || null,
+    end_date: a.endDate || null,
   }));
 
   const { data: shared, error } = await sb
