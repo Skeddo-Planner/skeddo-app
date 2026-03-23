@@ -868,7 +868,7 @@ export default function DiscoverTab({
   return (
     <div>
       {/* Header */}
-      <div style={{ marginBottom: 10 }}>
+      <div style={{ marginBottom: 6 }}>
         {!isDesktop && <h2 style={s.pageTitle}>Search</h2>}
         {!isDesktop && (
           <>
@@ -1059,7 +1059,7 @@ export default function DiscoverTab({
       )}
 
       {/* Row 1: All Programs, Sort, Favorites */}
-      <div style={{ padding: "6px 0 0", display: "flex", gap: 6, alignItems: "center" }}>
+      <div style={{ padding: "2px 0 0", display: "flex", gap: 6, alignItems: "center" }}>
         <button
           onClick={clearAllFilters}
           style={{
