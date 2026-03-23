@@ -881,17 +881,50 @@ export default function DiscoverTab({
                 ? "Loading programs..."
                 : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs in the Lower Mainland`}
             </p>
-            <p
+            <div
+              onClick={!isChecking ? checkForUpdates : undefined}
+              role="button"
+              tabIndex={0}
+              aria-label={isChecking ? "Checking for updates" : "Check for program data updates"}
               style={{
-                fontFamily: "'Barlow', sans-serif",
-                fontSize: 11,
-                color: C.muted,
-                marginTop: 1,
-                opacity: 0.7,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                marginTop: 2,
+                cursor: isChecking ? "default" : "pointer",
               }}
             >
-              Data updated {dataVersion || "recently"}
-            </p>
+              <span
+                style={{
+                  fontSize: 11,
+                  color: isStale ? C.olive : C.muted,
+                  lineHeight: 1,
+                  display: "inline-block",
+                  animation: isChecking ? "skeddo-spin 1s linear infinite" : "none",
+                }}
+              >⟳</span>
+              <span
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 11,
+                  fontWeight: 600,
+                  color: isStale ? C.olive : C.muted,
+                  opacity: 0.7,
+                }}
+              >
+                {isChecking
+                  ? "Checking for updates..."
+                  : isStale
+                    ? `Data updated: ${dataVersion} · Tap to refresh`
+                    : `Data updated: ${dataVersion}`}
+              </span>
+            </div>
+            <style>{`
+              @keyframes skeddo-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+              }
+            `}</style>
           </>
         )}
       </div>
