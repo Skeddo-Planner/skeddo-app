@@ -611,13 +611,13 @@ const labelStyle = {
 
 /* Error styles */
 const errorBorder = {
-  borderColor: "#C0392B",
+  borderColor: C.danger,
 };
 
 const errorText = {
   fontFamily: "'Barlow', sans-serif",
   fontSize: 12,
-  color: "#C0392B",
+  color: C.danger,
   fontWeight: 600,
   marginTop: 4,
 };

@@ -106,7 +106,7 @@ export default async function handler(req, res) {
           subject: `Program submission: ${escapeHtml(programName)} (${escapeHtml(provider) || "no provider"})`,
           html: `
             <div style="font-family: 'Barlow', Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 24px;">
-              <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 12px;">
+              <h2 style="font-family: 'Poppins', Arial, sans-serif; color: #1B2432; margin-bottom: 12px;">
                 New program submission
               </h2>
 

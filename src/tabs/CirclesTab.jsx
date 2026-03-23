@@ -945,7 +945,7 @@ export default function CirclesTab({
               onClick={() => setShowInviteDrawer(false)}
               style={{
                 position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
-                background: "rgba(0,0,0,0.4)", zIndex: 100,
+                background: "rgba(27,36,50,0.4)", zIndex: 100,
               }}
             />
             <div style={{

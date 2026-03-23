@@ -17,10 +17,10 @@ const BRAND_LABELS = {
 
 /* ── Card brand icons (simple text fallback) ── */
 const BRAND_ICONS = {
-  visa: "💳",
-  mastercard: "💳",
-  amex: "💳",
-  discover: "💳",
+  visa: "\u25A0",
+  mastercard: "\u25A0",
+  amex: "\u25A0",
+  discover: "\u25A0",
 };
 
 /* ── Stripe CardElement styling to match Skeddo brand ── */
@@ -33,7 +33,7 @@ const CARD_STYLE = {
     "::placeholder": { color: "#4A6FA5" },
   },
   invalid: {
-    color: "#C0392B",
+    color: C.danger,
   },
 };
 
@@ -259,7 +259,7 @@ function PaymentMethodInner() {
             </button>
           </div>
           <div style={styles.secureNote}>
-            🔒 Your card is securely processed by Stripe. We never see your full card number.
+            Your card is securely processed by Stripe. We never see your full card number.
           </div>
         </>
       )}

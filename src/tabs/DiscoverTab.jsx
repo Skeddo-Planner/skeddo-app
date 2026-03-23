@@ -262,7 +262,7 @@ function FilterChip({ label, icon, count, active, onClick, locked, onLocked }) {
     }}>
       {icon && <span style={{ fontSize: 12 }}>{icon}</span>}
       {label}
-      {locked && <span style={{ fontSize: 10 }}>🔒</span>}
+      {locked && <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>}
       {count > 0 && (
         <span style={{
           background: active ? "#FFF" : C.seaGreen, color: active ? C.ink : "#fff",
@@ -490,7 +490,7 @@ function CoverageBar({ coverage, statHolidays, isAway, onDayClick, isDesktop }) 
           >
             {DAY_LABELS[i]}
             {isHoliday && !isAway && (
-              <span style={{ fontSize: 8, marginLeft: 2 }}>🏳</span>
+              <span style={{ fontSize: 11, marginLeft: 2 }}>{"\u25CB"}</span>
             )}
           </div>
         );
@@ -527,7 +527,7 @@ function GapCallout({ gapDays, hasAnyEnrolled, isAway }) {
           width: 28, height: 28, borderRadius: "50%", background: "rgba(74,111,165,0.12)",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 14, color: C.blue, flexShrink: 0,
-        }}>📋</div>
+        }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
         <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.blue }}>
           No programs enrolled yet this week
         </span>
@@ -621,13 +621,13 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           <span>{program.provider}</span>
           {alreadyAdded && (
             <span style={{
-              fontSize: 10, fontWeight: 700,
+              fontSize: 11, fontWeight: 700,
               background: C.seaGreen + "18", color: C.seaGreen,
               padding: "2px 8px", borderRadius: 6,
             }}>Added</span>
           )}
           <span style={{
-            fontSize: 10, fontWeight: 700,
+            fontSize: 11, fontWeight: 700,
             background: statusInfo.color + "18", color: statusInfo.color,
             padding: "2px 8px", borderRadius: 10,
           }}>
@@ -642,7 +642,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         </div>
         {program.confirmed2026 === false && (
           <div style={{
-            fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 600,
+            fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600,
             color: "#B8860B", background: "#B8860B14",
             padding: "3px 8px", borderRadius: 6, marginBottom: 4, display: "inline-block",
           }}>
@@ -689,7 +689,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           )}
           {program.neighbourhood && (
             <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 500, background: "rgba(27,36,50,0.05)", color: C.blue, padding: "2px 8px", borderRadius: 10 }}>
-              📍 {program.neighbourhood}
+              {program.neighbourhood}
             </span>
           )}
           {program.dayLength && (
@@ -1773,7 +1773,7 @@ export default function DiscoverTab({
                     padding: "10px 12px", borderBottom: `1px solid ${C.border}`, cursor: "pointer",
                   }} onClick={() => toggleCityExpand(cityObj.city)} role="button" tabIndex={0}
                     aria-expanded={isExpanded} aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}>
-                    <span style={{ fontSize: 10, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"▶"}</span>
+                    <span style={{ fontSize: 11, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"▶"}</span>
                     <span style={{ flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
                       {cityObj.city}
                       {someInCitySelected && <span style={{ color: C.muted, fontWeight: 400 }}> ({selectedInCity}/{cityObj.neighbourhoods.length})</span>}
@@ -1781,9 +1781,9 @@ export default function DiscoverTab({
                     <button onClick={(e) => { e.stopPropagation(); toggleCity(cityObj); }}
                       aria-label={allInCitySelected ? `Deselect all ${cityObj.city}` : `Select all ${cityObj.city}`}
                       style={{
-                        fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700,
-                        color: allInCitySelected ? "#EF4444" : C.seaGreen,
-                        background: allInCitySelected ? "#FEF2F2" : C.seaGreen + "12",
+                        fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+                        color: allInCitySelected ? C.danger : C.seaGreen,
+                        background: allInCitySelected ? C.dangerBg : C.seaGreen + "12",
                         border: "none", borderRadius: 6, padding: "3px 8px", cursor: "pointer", whiteSpace: "nowrap",
                       }}>
                       {allInCitySelected ? "Deselect All" : "Select All"}

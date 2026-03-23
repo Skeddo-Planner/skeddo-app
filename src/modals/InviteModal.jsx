@@ -125,7 +125,7 @@ export default function InviteModal({ kid, pendingInvites, onCreateInvite, onRev
               <button
                 onClick={() => onRevokeInvite(inv.id)}
                 style={{
-                  background: "none", border: "none", color: "#C0392B",
+                  background: "none", border: "none", color: C.danger,
                   fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                   cursor: "pointer",
                 }}

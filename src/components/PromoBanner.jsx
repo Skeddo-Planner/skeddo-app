@@ -86,32 +86,32 @@ const BANNERS = {
   "upgrade-budget": {
     bg: "linear-gradient(135deg, #2D9F6F 0%, #1E7A52 100%)",
     title: "Wondering where the money's going?",
-    body: "Skeddo Plus tracks spending across all your kids' programs — see totals per kid, per program, and for the whole season. No surprises.",
+    body: "Skeddo tracks spending across all your kids' programs \u2014 see totals per kid, per program, and for the whole season. No surprises.",
     darkText: false,
   },
   "upgrade-kids": {
     bg: "linear-gradient(135deg, #F4A261 0%, #E8893A 100%)",
     title: "Got more than one kid?",
-    body: "Skeddo Plus lets you add unlimited kids and more than 3 programs.",
+    body: "Add all your kids and track every program in one place.",
     label: null,
     darkText: true,
   },
   "upgrade-sharing": {
     bg: "linear-gradient(135deg, #E76F51 0%, #C85A3D 100%)",
     title: "Coordinating with your endless group chats?",
-    body: "Skeddo Plus lets you share programs with friends, coordinate circles, and share schedule management with a co-parent or caregiver.",
+    body: "Share programs with friends, coordinate circles, and share schedule management with a co-parent or caregiver.",
     darkText: false,
   },
   "upgrade-discover": {
     bg: "linear-gradient(135deg, #4A6FA5 0%, #3D5E90 100%)",
     title: "Simplify your search",
-    body: "Skeddo Plus lets you filter by neighbourhood, provider, activity type, cost, and more.",
+    body: "Filter by neighbourhood, provider, activity type, cost, and more to find the perfect fit.",
     darkText: false,
   },
   "upgrade-programs": {
     bg: "linear-gradient(135deg, #E76F51 0%, #C85A3D 100%)",
-    title: "You've hit the free plan limit",
-    body: "Upgrade to Skeddo Plus to save unlimited programs and unlock all features.",
+    title: "Save all the programs you need",
+    body: "Track unlimited programs across all your kids and never lose sight of a registration deadline.",
     darkText: false,
   },
   "tip-wishlist": {

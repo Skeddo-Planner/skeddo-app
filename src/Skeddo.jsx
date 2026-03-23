@@ -86,7 +86,7 @@ export default function Skeddo() {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100dvh",
-        background: "#1B2432",
+        background: C.ink,
       }}>
         <img
           src="/skeddo-logo-dark.png"
@@ -545,12 +545,12 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       {planAccess.isTestMode && (
         <div style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 10000,
-          background: planAccess.effectivePlan === "free" ? "#E76F51" : "#2D9F6F",
-          color: "#fff", textAlign: "center", padding: "4px 0",
+          background: planAccess.effectivePlan === "free" ? C.olive : C.seaGreen,
+          color: C.white, textAlign: "center", padding: "4px 0",
           fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
           letterSpacing: 0.5,
         }}>
-          Testing: {planAccess.effectivePlan === "free" ? "Free Plan" : "Plus Plan"}
+          Testing: {planAccess.effectivePlan === "free" ? "Standard" : "Beta"}
         </div>
       )}
 

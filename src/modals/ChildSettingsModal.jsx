@@ -74,7 +74,7 @@ export default function ChildSettingsModal({ kid, coParents, userId, onRemoveAcc
                   <button
                     onClick={() => handleRemove(person.userId, person.displayName)}
                     style={{
-                      background: "none", border: "none", color: "#C0392B",
+                      background: "none", border: "none", color: C.danger,
                       fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
                       cursor: "pointer",
                     }}

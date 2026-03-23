@@ -141,7 +141,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     onClick={() => setTab && setTab(n.id)}
                     style={{
                       background: active ? C.white : "transparent",
-                      boxShadow: active ? "0 1px 3px rgba(0,0,0,0.06)" : "none",
+                      boxShadow: active ? "0 1px 3px rgba(27,36,50,0.06)" : "none",
                       border: "none",
                       borderRadius: 6,
                       padding: "7px 16px",
@@ -165,7 +165,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     {badges?.[n.id] > 0 && (
                       <span style={{
                         width: 14, height: 14, borderRadius: "50%",
-                        background: "#E74C3C", color: "#fff",
+                        background: C.danger, color: "#fff",
                         fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
                         display: "inline-flex", alignItems: "center", justifyContent: "center",
                         marginLeft: 4, verticalAlign: "middle",
@@ -197,7 +197,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                   </svg>
                   <span style={{
                     position: "absolute", top: 0, right: 0, width: 14, height: 14,
-                    borderRadius: "50%", background: "#E74C3C", color: "#fff",
+                    borderRadius: "50%", background: C.danger, color: "#fff",
                     fontSize: 8, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
                     display: "flex", alignItems: "center", justifyContent: "center",
                   }}>
@@ -266,7 +266,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                           fontFamily: "'Barlow', sans-serif",
                           fontSize: 13,
                           fontWeight: 500,
-                          color: item.id === "signout" ? "#C0392B" : C.ink,
+                          color: item.id === "signout" ? C.danger : C.ink,
                           textAlign: "left",
                           transition: "background 0.1s",
                           borderRadius: 0,
@@ -320,7 +320,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                   </svg>
                   <span style={{
                     position: "absolute", top: 4, right: 4, width: 16, height: 16,
-                    borderRadius: "50%", background: "#E74C3C", color: "#fff",
+                    borderRadius: "50%", background: C.danger, color: "#fff",
                     fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
                     display: "flex", alignItems: "center", justifyContent: "center",
                   }}>
@@ -465,11 +465,11 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     textAlign: "left",
                     transition: "background 0.12s",
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = "#F2F0EC"}
+                  onMouseEnter={(e) => e.currentTarget.style.background = C.cream}
                   onMouseLeave={(e) => e.currentTarget.style.background = "none"}
                 >
-                  <MenuIcon pathData={item.icon} circle={item.circle} color={item.id === "signout" ? "#C0392B" : C.seaGreen} />
-                  <span style={item.id === "signout" ? { color: "#C0392B" } : undefined}>{item.label}</span>
+                  <MenuIcon pathData={item.icon} circle={item.circle} color={item.id === "signout" ? C.danger : C.seaGreen} />
+                  <span style={item.id === "signout" ? { color: C.danger } : undefined}>{item.label}</span>
                 </button>
                 </div>
               ))}

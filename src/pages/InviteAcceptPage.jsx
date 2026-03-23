@@ -76,7 +76,7 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
 
           {error && (
             <div style={{
-              background: "#FEE2E2", color: "#991B1B", borderRadius: 8, padding: "10px 14px",
+              background: C.dangerBg, color: C.danger, borderRadius: 8, padding: "10px 14px",
               fontSize: 13, marginBottom: 16, width: "100%", maxWidth: 320,
             }}>
               {error}

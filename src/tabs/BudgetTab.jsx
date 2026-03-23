@@ -6,7 +6,7 @@ import { fmt$, calcCostPerHour, costPerHourColor, fmtShortDate } from "../utils/
 import { trackEvent } from "../utils/analytics";
 import useIsDesktop from "../hooks/useIsDesktop";
 
-const KID_COLORS_CHART = [C.seaGreen, C.blue, C.lilac, C.olive, "#E06C50", "#5BB5A2"];
+const KID_COLORS_CHART = [C.seaGreen, C.blue, C.lilac, C.olive, C.olive, C.seaGreen];
 
 /* ─── Break period definitions ─── */
 const BREAK_PERIODS = [
@@ -45,9 +45,9 @@ function getWeekLabel(dateStr) {
 
 function perHrColor(rate) {
   if (rate == null) return "#6B7280";
-  if (rate < 10) return C.seaGreen;
-  if (rate <= 20) return C.blue;
-  return C.lilac;
+  if (rate < 10) return "#374151"; // Dark grey — great value
+  if (rate <= 20) return "#6B7280"; // Mid grey — typical
+  return "#9CA3AF"; // Light grey — premium
 }
 
 function perHrLabel(rate) {

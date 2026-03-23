@@ -1480,7 +1480,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                       <span style={{ fontFamily: F.sans, fontSize: 11, fontWeight: 700, color: st.color, textTransform: "uppercase", flexShrink: 0 }}>{p.status}</span>
                     </div>
                     <button onClick={() => toggleHidden(p.id)} aria-label={isVisible ? `Hide ${p.name}` : `Show ${p.name}`} style={{ width: 44, height: 24, borderRadius: 12, border: "none", background: isVisible ? C.seaGreen : "#D1D5DB", cursor: "pointer", position: "relative", flexShrink: 0, transition: "background 0.2s ease" }}>
-                      <span style={{ position: "absolute", top: 2, left: isVisible ? 22 : 2, width: 20, height: 20, borderRadius: 10, background: "#fff", boxShadow: "0 1px 3px rgba(0,0,0,0.2)", transition: "left 0.2s ease" }} />
+                      <span style={{ position: "absolute", top: 2, left: isVisible ? 22 : 2, width: 20, height: 20, borderRadius: 10, background: "#fff", boxShadow: "0 1px 3px rgba(27,36,50,0.2)", transition: "left 0.2s ease" }} />
                     </button>
                   </div>
                 );
@@ -1512,7 +1512,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           {!dismissedConflicts && conflicts.filter((c) => c.type === "conflict").length > 0 && (() => {
             const conflictDates = formatConflictDates(conflicts.filter((c) => c.type === "conflict"));
             return (
-              <div style={{ background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 12, padding: "12px 16px", marginBottom: 12, position: "relative" }}>
+              <div style={{ background: C.dangerBg, borderLeft: `3px solid ${C.danger}`, borderRadius: 12, padding: "12px 16px", marginBottom: 12, position: "relative" }}>
                 <button onClick={() => setDismissedConflicts(true)} aria-label="Dismiss conflicts" style={{ position: "absolute", top: 8, right: 10, background: "none", border: "none", color: "#991B1B", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1 }}>{"\u00D7"}</button>
                 <div style={{ fontFamily: F.sans, fontSize: 14, fontWeight: 700, color: "#991B1B", marginBottom: 6 }}>{"\u26A0\uFE0F"} Scheduling Heads Up</div>
                 <div style={{ fontFamily: F.sans, fontSize: 14, color: "#7F1D1D", lineHeight: 1.5 }}>{conflictDates}</div>
@@ -1523,7 +1523,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
           {!dismissedLogistics && conflicts.filter((c) => c.type === "logistics").length > 0 && (() => {
             const logisticsDates = formatConflictDates(conflicts.filter((c) => c.type === "logistics"));
             return (
-              <div style={{ background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 12, padding: "12px 16px", marginBottom: 12, position: "relative" }}>
+              <div style={{ background: "#FFFBEB", borderLeft: "3px solid #F4A261", borderRadius: 12, padding: "12px 16px", marginBottom: 12, position: "relative" }}>
                 <button onClick={() => setDismissedLogistics(true)} aria-label="Dismiss logistics alerts" style={{ position: "absolute", top: 8, right: 10, background: "none", border: "none", color: "#92400E", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1 }}>{"\u00D7"}</button>
                 <div style={{ fontFamily: F.sans, fontSize: 14, fontWeight: 700, color: "#92400E", marginBottom: 6 }}>{"\uD83D\uDCCB"} Logistics Heads-Up</div>
                 <div style={{ fontFamily: F.sans, fontSize: 14, color: "#78350F", lineHeight: 1.5 }}>{logisticsDates}</div>

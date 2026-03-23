@@ -338,7 +338,7 @@ export default function HomeTab({
             }}
           >
             <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, lineHeight: 1.1 }}>{stat.value}</div>
-            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 10, fontWeight: 700, color: stat.color, letterSpacing: "0.05em", textTransform: "uppercase", marginTop: 2 }}>{stat.label}</div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: stat.color, letterSpacing: "0.05em", textTransform: "uppercase", marginTop: 2 }}>{stat.label}</div>
           </div>
         ))}
       </div>
@@ -364,10 +364,10 @@ export default function HomeTab({
             {pendingRequests.length > 0 && (
               <CircleCard
                 icon={"\uD83D\uDC65"}
-                iconBg="rgba(200,127,160,0.12)"
+                iconBg="rgba(244,162,97,0.12)"
                 title={<><span style={{ fontWeight: 600 }}>{pendingRequests.length} pending request{pendingRequests.length > 1 ? "s" : ""}</span></>}
                 subtitle={pendingRequests[0]?.circleName || "Your circle"}
-                color="#C87FA0"
+                color={C.lilac}
                 onAction={() => onNavigateToTab("circles")}
               />
             )}

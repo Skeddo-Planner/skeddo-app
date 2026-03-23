@@ -59,7 +59,7 @@ export default async function handler(req, res) {
         subject: `New Skeddo sign-up: ${escapeHtml(displayName || email)}`,
         html: `
           <div style="font-family: 'Barlow', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 24px;">
-            <h2 style="font-family: 'Instrument Serif', Georgia, serif; color: #1A2E26; margin-bottom: 16px;">
+            <h2 style="font-family: 'Poppins', Arial, sans-serif; color: #1B2432; margin-bottom: 16px;">
               New user signed up!
             </h2>
             <div style="background: #FAF8F3; border: 1px solid #E4E0D8; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
