@@ -2,6 +2,7 @@ import { useState } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import { uid } from "../constants/sampleData";
+import { trackEvent } from "../utils/analytics";
 
 export default function OnboardingFlow({ onComplete, planAccess }) {
   const maxKids = planAccess?.maxKids ?? Infinity;
@@ -65,6 +66,7 @@ export default function OnboardingFlow({ onComplete, planAccess }) {
   };
 
   const handleComplete = () => {
+    trackEvent("onboarding_complete", { kids_count: kids.length });
     const profileData = {
       displayName: displayName.trim(),
       postalCode: postalCode.trim().toUpperCase(),

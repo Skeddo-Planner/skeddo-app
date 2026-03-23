@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import { STORAGE_KEY, uid } from "../constants/sampleData";
 import { KID_COLORS } from "../constants/brand";
+import { trackEvent } from "../utils/analytics";
 
 /* ─── CURRENCY FORMATTER ─── */
 export const fmt$ = (n) =>
@@ -453,11 +454,11 @@ export function useAppData(userId) {
      FAVORITES
      ══════════════════════════════════════════════ */
   const toggleFavorite = useCallback((programId) => {
-    setFavorites((prev) =>
-      prev.includes(programId)
-        ? prev.filter((id) => id !== programId)
-        : [...prev, programId]
-    );
+    setFavorites((prev) => {
+      const removing = prev.includes(programId);
+      trackEvent("toggle_favorite", { action: removing ? "unfavorite" : "favorite" });
+      return removing ? prev.filter((id) => id !== programId) : [...prev, programId];
+    });
   }, []);
 
   const isFavorite = useCallback(
@@ -523,6 +524,9 @@ export function useAppData(userId) {
 
     setPrograms((prev) => {
       const existing = prev.find((p) => p.id === programId);
+      if (!existing) {
+        trackEvent("add_program", { program_name: program.name, provider: program.provider || "", status: program.status || "Exploring" });
+      }
       if (existing) return prev.map((p) => (p.id === programId ? { ...p, ...program } : p));
       return [...prev, program];
     });
@@ -550,6 +554,7 @@ export function useAppData(userId) {
         if (p.id !== id) return p;
         const idx = order.indexOf(p.status);
         const next = order[(idx + 1) % order.length];
+        trackEvent("change_status", { new_status: next });
         const updated = { ...p, status: next };
         // Save to Supabase
         if (usingSupabase.current && userId) {
@@ -570,6 +575,9 @@ export function useAppData(userId) {
 
     setKids((prev) => {
       const existing = prev.find((k) => k.id === kidId);
+      if (!existing) {
+        trackEvent("add_child", { child_name: kid.name });
+      }
       // Auto-assign color for new kids if not already set
       if (!existing && !kid.color) {
         const usedColors = new Set(prev.map((k) => k.color));

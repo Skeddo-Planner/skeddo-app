@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { trackEvent } from "../utils/analytics";
 
 const F = {
   display: "'Poppins', sans-serif",
@@ -11,6 +12,13 @@ const F = {
  */
 export default function PromoBanner({ type, onDismiss }) {
   const config = BANNERS[type];
+
+  useEffect(() => {
+    if (config && type.startsWith("upgrade")) {
+      trackEvent("upgrade_prompt_shown", { banner_type: type });
+    }
+  }, [type]);
+
   if (!config) return null;
 
   return (

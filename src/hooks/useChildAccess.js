@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../lib/supabase";
+import { trackEvent } from "../utils/analytics";
 
 /**
  * Manages multi-parent child access: shared kids, co-parents, invites, activity log.
@@ -142,6 +143,7 @@ export function useChildAccess(userId, session) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+      trackEvent("invite_coparent");
       // Add to pending invites
       setPendingInvites((prev) => [data.invite, ...prev]);
       return data;

@@ -3,6 +3,7 @@ import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
 import { fmtDate, fmt$, downloadICS } from "../utils/helpers";
+import { trackEvent } from "../utils/analytics";
 
 /* ─── Star Rating Component ─── */
 function StarRating({ value, onChange }) {
@@ -60,6 +61,7 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
 
   const handleRatingChange = (newRating) => {
     setRating(newRating);
+    trackEvent("rate_program", { program_name: p.name, rating: newRating });
     if (onSave) onSave({ ...p, rating: newRating, review });
   };
 

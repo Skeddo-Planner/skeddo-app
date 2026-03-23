@@ -8,6 +8,7 @@ import {
   isMunicipalProvider, downloadICS,
 } from "../utils/helpers";
 import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
+import { trackEvent } from "../utils/analytics";
 
 export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid }) {
   const p = program;
@@ -337,6 +338,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             href={p.registrationUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("click_register", { program_name: p.name, provider: p.provider || "", url: p.registrationUrl })}
             style={{
               fontFamily: "'Barlow', sans-serif",
               fontSize: 13,

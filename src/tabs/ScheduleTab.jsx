@@ -3,6 +3,7 @@ import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
 import { downloadAllICS, detectConflicts } from "../utils/helpers";
+import { trackEvent } from "../utils/analytics";
 
 const DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -1262,6 +1263,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                 onClick={() => {
                   const toExport = exportablePrograms.filter((p) => exportSelected.has(p.id));
                   downloadAllICS(toExport);
+                  trackEvent("export_calendar", { program_count: toExport.length });
                   setShowExport(false);
                 }}
                 disabled={exportSelected.size === 0}

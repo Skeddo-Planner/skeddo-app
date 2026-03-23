@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../lib/supabase";
+import { trackEvent } from "../utils/analytics";
 
 /**
  * Manages all Circles state: circles, memberships, feed, bookmarks, referrals.
@@ -171,6 +172,7 @@ export function useCircles(userId, session) {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error);
+    trackEvent("create_circle", { circle_name: name });
     // Add to local state
     setCircles((prev) => [...prev, {
       id: data.circle.id,

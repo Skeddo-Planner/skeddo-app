@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../lib/supabase";
+import { trackEvent } from "../utils/analytics";
 
 export function useAuth() {
   const [user, setUser] = useState(null);
@@ -44,6 +45,8 @@ export function useAuth() {
       throw new Error("An account with this email already exists. Try signing in instead.");
     }
 
+    trackEvent("sign_up", { method: "email" });
+
     // Notify founders about the new sign-up (fire-and-forget, don't block the user)
     try {
       fetch("/api/notify-signup", {
@@ -71,6 +74,7 @@ export function useAuth() {
       password,
     });
     if (error) throw error;
+    trackEvent("login", { method: "email" });
     return data;
   }, []);
 

@@ -3,6 +3,7 @@ import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
 import PromoBanner from "../components/PromoBanner";
+import { trackEvent } from "../utils/analytics";
 
 /* ─── Soft color variants ─── */
 const SOFT = {
@@ -201,6 +202,7 @@ export default function CirclesTab({
     try {
       const toShare = shareableActivities.filter((a) => selectedActivities.has(a.id));
       await shareActivities(activeCircle.id, toShare);
+      trackEvent("share_activity", { count: toShare.length, circle_name: activeCircle.name });
       setSelectedActivities(new Set());
       setScreen("feed");
       showToast(`Shared ${toShare.length} activit${toShare.length === 1 ? "y" : "ies"}!`);

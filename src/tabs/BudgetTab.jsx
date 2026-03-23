@@ -4,6 +4,7 @@ import { s } from "../styles/shared";
 import KidFilterBar from "../components/KidFilterBar";
 import PromoBanner from "../components/PromoBanner";
 import { fmt$, calcCostPerHour, costPerHourColor } from "../utils/helpers";
+import { trackEvent } from "../utils/analytics";
 
 export default function BudgetTab({
   programs, kids, kidFilter, onKidFilter,
@@ -200,7 +201,9 @@ export default function BudgetTab({
                     <button
                       onClick={() => {
                         if (onSaveKid) {
-                          onSaveKid({ ...k, budgetGoal: Number(budgetInput) || 0 });
+                          const goal = Number(budgetInput) || 0;
+                          trackEvent("set_budget", { kid_name: k.name, budget_goal: goal });
+                          onSaveKid({ ...k, budgetGoal: goal });
                         }
                         setEditingBudget(null);
                       }}

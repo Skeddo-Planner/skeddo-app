@@ -19,6 +19,7 @@ import {
   fmtDate,
   PAGE_SIZE,
 } from "../utils/helpers";
+import { trackEvent } from "../utils/analytics";
 import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
 
 /* ─── City → Neighbourhood groupings ─── */
@@ -586,6 +587,7 @@ export default function DiscoverTab({
     return [...fallbackPrograms, ...newOnes];
   }, [userSubmitted]);
 
+  const searchTrackRef = useRef(null);
   const [search, setSearch] = useState("");
   const [selectedCats, setSelectedCats] = useState(new Set());       // empty = all
   const [selectedSeasons, setSelectedSeasons] = useState(new Set()); // empty = all
@@ -642,6 +644,7 @@ export default function DiscoverTab({
 
   // Generic multi-select toggle helper
   const toggleInSet = (setter, value) => {
+    trackEvent("filter_applied", { filter_type: "toggle", filter_value: String(value) });
     setter((prev) => {
       const next = new Set(prev);
       if (next.has(value)) next.delete(value);
@@ -957,8 +960,14 @@ export default function DiscoverTab({
             placeholder="Search programs, providers..."
             value={search}
             onChange={(e) => {
-              setSearch(e.target.value);
+              const val = e.target.value;
+              setSearch(val);
               setVisibleCount(PAGE_SIZE);
+              // Debounced search tracking (500ms)
+              if (searchTrackRef.current) clearTimeout(searchTrackRef.current);
+              if (val.trim()) {
+                searchTrackRef.current = setTimeout(() => trackEvent("search_programs", { search_term: val.trim() }), 500);
+              }
             }}
           />
         </div>

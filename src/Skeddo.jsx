@@ -21,6 +21,7 @@ import ManualCostForm from "./modals/ManualCostForm";
 import ProfileModal from "./modals/ProfileModal";
 import OnboardingFlow from "./onboarding/OnboardingFlow";
 import InfoPage from "./pages/InfoPages";
+import { trackEvent } from "./utils/analytics";
 import { usePushNotifications } from "./hooks/usePushNotifications";
 import { useChildAccess } from "./hooks/useChildAccess";
 import { useCircles } from "./hooks/useCircles";
@@ -293,10 +294,12 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const openDetail = (p) => {
+    trackEvent("view_program", { program_name: p.name, provider: p.provider || "" });
     setModal({ type: "programDetail", data: p });
   };
 
   const openDirectoryDetail = (p) => {
+    trackEvent("view_program", { program_name: p.name, provider: p.provider || "" });
     setModal({ type: "directoryDetail", data: p });
   };
 
