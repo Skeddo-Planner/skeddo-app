@@ -112,31 +112,6 @@ export default function ProgramsTab({
         ))}
       </div>
 
-      {/* Category filter chips */}
-      <div
-        style={{ display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap" }}
-      >
-        {["All", ...CATEGORIES].map((cat) => (
-          <button
-            key={cat}
-            className="chip-btn"
-            onClick={() => onCatFilter(cat)}
-            aria-label={`Filter by category: ${cat}`}
-            aria-pressed={catFilter === cat}
-            style={{
-              ...s.filterChip,
-              fontSize: 13,
-              background: catFilter === cat ? C.blue : "transparent",
-              color: catFilter === cat ? C.cream : C.muted,
-              borderColor: catFilter === cat ? C.blue : C.border,
-            }}
-          >
-            {cat !== "All" && (CAT_EMOJI[cat] || "") + " "}
-            {cat}
-          </button>
-        ))}
-      </div>
-
       {/* Active programs */}
       {activePrograms.length === 0 && pastPrograms.length === 0 && (
         <EmptyState icon={"\uD83D\uDD0D"} message="No programs match your filters." />
