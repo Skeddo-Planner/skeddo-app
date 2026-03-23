@@ -958,51 +958,6 @@ export default function DiscoverTab({
         )}
       </div>
 
-      {/* Kid filter buttons — auto-filter by age eligibility */}
-      {kids && kids.length > 0 && (
-        <div style={{ display: "flex", gap: 6, padding: "8px 0 4px", overflowX: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }}>
-          <button
-            onClick={() => onKidFilter(null)}
-            style={{
-              padding: "6px 14px", borderRadius: 20, border: "none",
-              background: !kidFilter ? C.ink : "rgba(27,36,50,0.06)",
-              color: !kidFilter ? "#FFF" : C.ink,
-              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: !kidFilter ? 700 : 500,
-              cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
-            }}
-          >All Programs</button>
-          {kids.length > 1 && (
-            <button
-              onClick={() => onKidFilter("all-kids")}
-              style={{
-                padding: "6px 14px", borderRadius: 20, border: "none",
-                background: kidFilter === "all-kids" ? C.seaGreen : "rgba(45,159,111,0.08)",
-                color: kidFilter === "all-kids" ? "#FFF" : C.seaGreen,
-                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: kidFilter === "all-kids" ? 700 : 500,
-                cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
-              }}
-            >All Kids Together</button>
-          )}
-          {kids.map((kid) => {
-            const isActive = kidFilter === kid.id;
-            const kidColor = kid.color || C.seaGreen;
-            return (
-              <button
-                key={kid.id}
-                onClick={() => onKidFilter(kid.id)}
-                style={{
-                  padding: "6px 14px", borderRadius: 20, border: "none",
-                  background: isActive ? kidColor : kidColor + "14",
-                  color: isActive ? "#FFF" : kidColor,
-                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: isActive ? 700 : 500,
-                  cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
-                }}
-              >{kid.name}</button>
-            );
-          })}
-        </div>
-      )}
-
       {/* Show borderline toggle — only when a kid with birth info is selected */}
       {selectedKid && selectedKid.birthMonth && selectedKid.birthYear && (
         <div
@@ -1119,6 +1074,14 @@ export default function DiscoverTab({
         <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
         <FilterChip label="Activity" count={selectedActivityTypes.size} active={selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("activityType")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
         <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} locked={!canUseAdvancedFilters} onLocked={() => showFilterToast("Upgrade to Skeddo Plus for advanced filters")} />
+        {kids && kids.length > 0 && (
+          <FilterChip
+            label="Eligible for"
+            count={kidFilter ? 1 : 0}
+            active={!!kidFilter}
+            onClick={() => setActiveDrawer("eligible")}
+          />
+        )}
         {totalActiveFilters > 0 && (
           <>
             <div style={{ width: 1, height: 20, background: "rgba(27,36,50,0.12)", flexShrink: 0 }} />
@@ -1589,6 +1552,100 @@ export default function DiscoverTab({
             </div>
           </>
         )}
+      </FilterDrawer>
+
+      {/* Eligible for drawer */}
+      <FilterDrawer open={activeDrawer === "eligible"} onClose={() => setActiveDrawer(null)} title="Eligible for"
+        onClear={() => { onKidFilter(null); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <button
+            onClick={() => { onKidFilter(null); setVisibleCount(PAGE_SIZE); }}
+            style={{
+              padding: "14px 16px", fontFamily: "'Barlow', sans-serif", fontSize: 15,
+              color: !kidFilter ? C.ink : C.muted, fontWeight: !kidFilter ? 700 : 400,
+              cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+              borderBottom: `1px solid ${C.border}`, background: !kidFilter ? C.ink + "08" : "transparent",
+              border: "none", borderRadius: 0, textAlign: "left",
+            }}
+          >
+            <span style={{
+              width: 20, height: 20, borderRadius: "50%",
+              border: `2px solid ${!kidFilter ? C.seaGreen : C.border}`,
+              background: !kidFilter ? C.seaGreen : "transparent",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 12, color: C.white, flexShrink: 0,
+            }}>
+              {!kidFilter ? "✓" : ""}
+            </span>
+            All Programs (no age filter)
+          </button>
+          {kids && kids.length > 1 && (
+            <button
+              onClick={() => { onKidFilter("all-kids"); setVisibleCount(PAGE_SIZE); }}
+              style={{
+                padding: "14px 16px", fontFamily: "'Barlow', sans-serif", fontSize: 15,
+                color: kidFilter === "all-kids" ? C.ink : C.muted, fontWeight: kidFilter === "all-kids" ? 700 : 400,
+                cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+                borderBottom: `1px solid ${C.border}`, background: kidFilter === "all-kids" ? C.seaGreen + "10" : "transparent",
+                border: "none", borderRadius: 0, textAlign: "left",
+              }}
+            >
+              <span style={{
+                width: 20, height: 20, borderRadius: "50%",
+                border: `2px solid ${kidFilter === "all-kids" ? C.seaGreen : C.border}`,
+                background: kidFilter === "all-kids" ? C.seaGreen : "transparent",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 12, color: C.white, flexShrink: 0,
+              }}>
+                {kidFilter === "all-kids" ? "✓" : ""}
+              </span>
+              <div>
+                <div>All Kids Together</div>
+                <div style={{ fontSize: 12, color: C.muted, fontWeight: 400 }}>Programs all your kids can attend</div>
+              </div>
+            </button>
+          )}
+          {(kids || []).map((kid) => {
+            const isActive = kidFilter === kid.id;
+            const kidColor = kid.color || C.seaGreen;
+            const hasBirth = kid.birthMonth && kid.birthYear;
+            return (
+              <button
+                key={kid.id}
+                onClick={() => { onKidFilter(kid.id); setVisibleCount(PAGE_SIZE); }}
+                style={{
+                  padding: "14px 16px", fontFamily: "'Barlow', sans-serif", fontSize: 15,
+                  color: isActive ? C.ink : C.muted, fontWeight: isActive ? 700 : 400,
+                  cursor: "pointer", display: "flex", alignItems: "center", gap: 12,
+                  borderBottom: `1px solid ${C.border}`, background: isActive ? kidColor + "10" : "transparent",
+                  border: "none", borderRadius: 0, textAlign: "left",
+                }}
+              >
+                <span style={{
+                  width: 20, height: 20, borderRadius: "50%",
+                  border: `2px solid ${isActive ? kidColor : C.border}`,
+                  background: isActive ? kidColor : "transparent",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 12, color: C.white, flexShrink: 0,
+                }}>
+                  {isActive ? "✓" : ""}
+                </span>
+                <div>
+                  <div>{kid.name}</div>
+                  {hasBirth ? (
+                    <div style={{ fontSize: 12, color: C.muted, fontWeight: 400 }}>
+                      Age-appropriate programs for {kid.name}
+                    </div>
+                  ) : (
+                    <div style={{ fontSize: 12, color: C.olive, fontWeight: 400 }}>
+                      Add birth month to enable age filtering
+                    </div>
+                  )}
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </FilterDrawer>
 
       {/* Filter upgrade toast */}
