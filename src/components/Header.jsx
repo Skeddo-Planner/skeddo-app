@@ -163,7 +163,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                   onClick={onOpenActivity}
                   style={{
                     width: 36, height: 36, borderRadius: 8,
-                    background: "rgba(255,255,255,0.12)", border: "none",
+                    background: "transparent", border: "none",
                     cursor: "pointer", display: "flex", alignItems: "center",
                     justifyContent: "center", position: "relative", flexShrink: 0,
                   }}
@@ -187,7 +187,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 onClick={() => setMenuOpen(true)}
                 style={{
                   width: 36, height: 36, borderRadius: 8,
-                  background: "rgba(255,255,255,0.12)", border: "none",
+                  background: "transparent", border: "none",
                   cursor: "pointer", display: "flex", alignItems: "center",
                   justifyContent: "center", flexShrink: 0,
                 }}
