@@ -969,9 +969,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
     const mappedHoliday = mapProgramsToWeeks(holidayWeeks, programs, kids);
 
     return [
-      { id: "summer", label: "Summer", emoji: "\u2600\uFE0F", dates: dist?.summerStart ? `${fmtS(dist.summerStart)} \u2013 ${fmtS(dist.summerEnd)}` : "Jun 29 \u2013 Sep 4", weeks: mappedSummer, color: C.lilac },
-      { id: "spring", label: "Spring Break", emoji: "\uD83C\uDF38", dates: springBreak ? `${fmtS(springBreak.start)} \u2013 ${fmtS(springBreak.end)}` : "Mar 16 \u2013 27", weeks: mappedSpring, color: C.blue },
-      { id: "holiday", label: "Holiday Break", emoji: "\uD83C\uDF84", dates: winterBreak ? `${fmtS(winterBreak.start)} \u2013 ${fmtS(winterBreak.end)}` : "Dec 22 \u2013 Jan 2", weeks: mappedHoliday, color: C.seaGreen },
+      { id: "summer", label: "Summer", dates: dist?.summerStart ? `${fmtS(dist.summerStart)} \u2013 ${fmtS(dist.summerEnd)}` : "Jun 29 \u2013 Sep 4", weeks: mappedSummer, color: C.lilac },
+      { id: "spring", label: "Spring Break", dates: springBreak ? `${fmtS(springBreak.start)} \u2013 ${fmtS(springBreak.end)}` : "Mar 16 \u2013 27", weeks: mappedSpring, color: C.blue },
+      { id: "holiday", label: "Holiday Break", dates: winterBreak ? `${fmtS(winterBreak.start)} \u2013 ${fmtS(winterBreak.end)}` : "Dec 22 \u2013 Jan 2", weeks: mappedHoliday, color: C.seaGreen },
     ];
   }, [dist, programs, kids]);
 
@@ -1184,63 +1184,32 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
       {/* Header with Calendar/Planner toggle */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
-        <h2 style={s.pageTitle}>Schedule</h2>
+        <div>
+          <h2 style={s.pageTitle}>Schedule</h2>
+          <p style={{ fontFamily: F.sans, fontSize: 14, color: C.muted, margin: "2px 0 0" }}>
+            {mode === "calendar" ? "Your week at a glance" : "Break coverage planner"}
+          </p>
+        </div>
         <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
-          {/* Calendar/Planner toggle */}
+          {/* Calendar/Planner toggle — no emojis */}
           <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3 }}>
-            {[{ id: "calendar", l: "\uD83D\uDCC5 Calendar" }, { id: "planner", l: "\uD83D\uDDD3\uFE0F Planner" }].map((m) => (
+            {[{ id: "calendar", l: "Calendar" }, { id: "planner", l: "Planner" }].map((m) => (
               <button key={m.id} onClick={() => setMode(m.id)} style={{
                 padding: "7px 14px", borderRadius: 8, border: "none",
                 background: mode === m.id ? C.seaGreen + "18" : "transparent",
                 color: mode === m.id ? C.seaGreen : C.muted,
-                fontFamily: F.sans, fontSize: 12, fontWeight: 600, cursor: "pointer",
+                fontFamily: F.sans, fontSize: 13, fontWeight: 600, cursor: "pointer",
               }}>{m.l}</button>
             ))}
           </div>
 
-          {mode === "calendar" && (
-            <>
-              {/* Visibility filter */}
-              <button onClick={() => setShowVisibilityPanel((v) => !v)} aria-label="Show or hide programs on calendar" style={{
-                background: showVisibilityPanel ? C.seaGreen : C.white,
-                color: showVisibilityPanel ? "#fff" : C.ink,
-                border: `1.5px solid ${showVisibilityPanel ? C.seaGreen : C.border}`,
-                borderRadius: 10, width: 38, height: 38, fontSize: 16, cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center", position: "relative",
-              }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-                </svg>
-                {hiddenPrograms.size > 0 && (
-                  <span style={{ position: "absolute", top: -5, right: -5, background: C.olive, color: "#fff", borderRadius: 8, minWidth: 16, height: 16, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.sans, fontSize: 11, fontWeight: 700, padding: "0 4px" }}>
-                    {hiddenPrograms.size}
-                  </span>
-                )}
-              </button>
-
-              {/* Export */}
-              <button onClick={openExportModal} style={{
-                background: C.blue, color: "#fff", border: "none", borderRadius: 10,
-                padding: "8px 14px", fontSize: 14, fontWeight: 700, fontFamily: F.sans,
-                cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
-              }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Export
-              </button>
-            </>
-          )}
-
           {/* School calendar setup button */}
           <button onClick={() => setPage("setup")} style={{
-            padding: "5px 8px", borderRadius: 6, border: `1px solid ${C.border}`,
-            background: "transparent", fontFamily: F.sans, fontSize: 11,
-            color: C.muted, cursor: "pointer",
+            padding: "7px 10px", borderRadius: 8, border: `1px solid ${C.border}`,
+            background: "transparent", fontFamily: F.sans, fontSize: 12,
+            color: C.muted, cursor: "pointer", fontWeight: 600,
           }}>
-            {"\uD83C\uDFEB"} {setupDone ? "Edit" : "Setup"}
+            {setupDone ? "Edit" : "Setup"}
           </button>
         </div>
       </div>
@@ -1337,8 +1306,28 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             );
           })()}
 
-          {/* Kid filter */}
-          <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
+          {/* Kid filter + visibility filter button */}
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 12 }}>
+            <div style={{ flex: 1, overflow: "hidden" }}>
+              <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
+            </div>
+            <button onClick={() => setShowVisibilityPanel((v) => !v)} aria-label="Show or hide programs on calendar" style={{
+              background: showVisibilityPanel ? C.seaGreen : C.white,
+              color: showVisibilityPanel ? "#fff" : C.ink,
+              border: `1.5px solid ${showVisibilityPanel ? C.seaGreen : C.border}`,
+              borderRadius: 10, width: 38, height: 38, fontSize: 16, cursor: "pointer", flexShrink: 0,
+              display: "flex", alignItems: "center", justifyContent: "center", position: "relative",
+            }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+              </svg>
+              {hiddenPrograms.size > 0 && (
+                <span style={{ position: "absolute", top: -5, right: -5, background: C.olive, color: "#fff", borderRadius: 8, minWidth: 16, height: 16, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.sans, fontSize: 11, fontWeight: 700, padding: "0 4px" }}>
+                  {hiddenPrograms.size}
+                </span>
+              )}
+            </button>
+          </div>
 
           {/* Status filter chips */}
           <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
@@ -1486,6 +1475,22 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
               )}
             </div>
           )}
+
+          {/* Export button — below week view */}
+          <button onClick={openExportModal} style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+            width: "100%", padding: "12px", marginTop: 16,
+            background: C.white, border: `1.5px solid ${C.border}`, borderRadius: 10,
+            fontFamily: F.sans, fontSize: 14, fontWeight: 600, color: C.blue,
+            cursor: "pointer",
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Export Calendar
+          </button>
         </div>
       )}
 
@@ -1513,7 +1518,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                   cursor: "pointer", flexShrink: 0, textAlign: "left",
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
-                    <span style={{ fontSize: 14 }}>{sec.emoji}</span>
+                    <span style={{ width: 10, height: 10, borderRadius: 5, background: sec.color, flexShrink: 0 }} />
                     <span style={{ fontFamily: F.sans, fontSize: 14, fontWeight: 600, color: active ? C.ink : C.muted }}>{sec.label}</span>
                   </div>
                   <div style={{ fontFamily: F.sans, fontSize: 11, color: C.muted }}>
