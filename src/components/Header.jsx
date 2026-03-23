@@ -251,7 +251,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 onClick={() => setMenuOpen(true)}
                 style={{
                   width: 40, height: 40, borderRadius: 10,
-                  background: "rgba(255,255,255,0.12)", border: "none",
+                  background: "transparent", border: "none",
                   cursor: "pointer", display: "flex", flexDirection: "column",
                   alignItems: "center", justifyContent: "center", gap: 4, flexShrink: 0,
                 }}

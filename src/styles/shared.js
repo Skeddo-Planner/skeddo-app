@@ -2,7 +2,7 @@ import { C } from "../constants/brand";
 
 export const s = {
   app: { fontFamily: "'Barlow', sans-serif", background: C.cream, minHeight: "100dvh", paddingBottom: 72, maxWidth: "100%", margin: "0 auto", position: "relative" },
-  header: { background: C.ink, padding: "10px 16px 8px", borderBottom: `3px solid ${C.seaGreen}` },
+  header: { background: C.ink, padding: "6px 16px 5px", borderBottom: `3px solid ${C.seaGreen}` },
   headerRow: { display: "flex", justifyContent: "space-between", alignItems: "center" },
   logoMark: { fontFamily: "'Poppins', sans-serif", fontSize: 26, color: "#FFFFFF", letterSpacing: -0.5, lineHeight: 1 },
   tagline: { fontFamily: "'Barlow', sans-serif", fontSize: 11, color: "rgba(255,255,255,0.7)", fontWeight: 600, letterSpacing: 0.5, marginTop: 2, textTransform: "uppercase" },
