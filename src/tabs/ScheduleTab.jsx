@@ -1195,7 +1195,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
     maxHour = Math.min(maxHour + 1, 21);
     for (let h = minHour; h <= maxHour; h++) HOURS.push(h);
 
-    const hourHeight = 48;
+    const hourHeight = 56;
     const totalGridHeight = HOURS.length * hourHeight;
     const todayStr = dk(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 
@@ -1224,7 +1224,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             </button>
             <div>
               <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
-                {formatDateShort(weekDates[0])} \u2013 {formatDateShort(weekDates[4])}
+                {formatDateShort(weekDates[0])} – {formatDateShort(weekDates[4])}
               </h2>
               <p style={{ fontFamily: F.sans, fontSize: 13, color: C.muted, margin: 0 }}>
                 {totalThisWeek} event{totalThisWeek !== 1 ? "s" : ""} this week
@@ -1373,18 +1373,27 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
                             onMouseLeave={(e) => e.currentTarget.style.boxShadow = "none"}
                           >
                             <div style={{
-                              fontFamily: F.sans, fontSize: 10, fontWeight: 500,
-                              color: color, lineHeight: 1.2,
-                              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                              fontFamily: F.sans, fontSize: 11, fontWeight: 600,
+                              color: color, lineHeight: 1.3,
+                              overflow: "hidden", textOverflow: "ellipsis",
+                              whiteSpace: durationHours >= 2 ? "normal" : "nowrap",
                             }}>
                               {ev.name}
                             </div>
-                            {kidName && durationHours >= 1.5 && (
+                            {kidName && durationHours >= 1 && (
                               <div style={{
-                                fontFamily: F.sans, fontSize: 9, color: color,
-                                opacity: 0.7, marginTop: 1,
+                                fontFamily: F.sans, fontSize: 11, color: color,
+                                opacity: 0.7, marginTop: 2,
                               }}>
                                 {kidName}
+                              </div>
+                            )}
+                            {durationHours >= 2 && ev.times && (
+                              <div style={{
+                                fontFamily: F.sans, fontSize: 11, color: color,
+                                opacity: 0.5, marginTop: 1,
+                              }}>
+                                {ev.times}
                               </div>
                             )}
                           </div>
