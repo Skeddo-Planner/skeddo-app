@@ -1,6 +1,6 @@
 /**
  * GA4 Custom Event Tracking
- * Uses the global gtag function loaded via index.html (G-DECM7CCHLC).
+ * Uses the global gtag function loaded via index.html (G-ZNPPSC16XH).
  */
 export function trackEvent(eventName, params = {}) {
   if (window.gtag) {
@@ -14,7 +14,7 @@ export function trackEvent(eventName, params = {}) {
  */
 export function trackPageView(pagePath, pageTitle) {
   if (window.gtag) {
-    window.gtag("config", "G-DECM7CCHLC", {
+    window.gtag("config", "G-ZNPPSC16XH", {
       page_path: pagePath,
       page_title: pageTitle,
     });
