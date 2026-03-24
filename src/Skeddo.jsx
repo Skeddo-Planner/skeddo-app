@@ -1083,33 +1083,32 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 >Copy</button>
               </div>
             </div>
-            {/* Share buttons */}
-            <div style={{ display: "flex", gap: 8, justifyContent: "center", marginBottom: 14 }}>
-              <button
-                onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank")}
-                style={{
-                  padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
-                  background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
-                  fontWeight: 600, color: C.ink, cursor: "pointer",
-                }}
-              >WhatsApp</button>
-              <button
-                onClick={() => window.open(`sms:?body=${encodeURIComponent(shareText)}`)}
-                style={{
-                  padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
-                  background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
-                  fontWeight: 600, color: C.ink, cursor: "pointer",
-                }}
-                >Text</button>
-              <button
-                onClick={() => window.open(`mailto:?subject=${encodeURIComponent("Join me on Skeddo")}&body=${encodeURIComponent(shareText)}`)}
-                style={{
-                  padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
-                  background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
-                  fontWeight: 600, color: C.ink, cursor: "pointer",
-                }}
-              >Email</button>
-            </div>
+            {/* Share button — uses native share sheet or falls back to copy */}
+            <button
+              onClick={async () => {
+                if (navigator.share) {
+                  try {
+                    await navigator.share({ title: "Join me on Skeddo", text: shareText, url });
+                  } catch (e) { /* user cancelled */ }
+                } else {
+                  if (navigator.clipboard) navigator.clipboard.writeText(url);
+                  showToast("Link copied!");
+                }
+              }}
+              style={{
+                width: "100%", padding: "12px", borderRadius: 10,
+                border: `1.5px solid ${C.blue}`, background: C.white,
+                fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                color: C.blue, cursor: "pointer", minHeight: 44, marginBottom: 14,
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Share Invite
+            </button>
             <button
               onClick={() => setModal(null)}
               style={{
