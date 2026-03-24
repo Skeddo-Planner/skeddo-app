@@ -25,55 +25,69 @@ const CITY_NEIGHBOURHOODS = [
   {
     city: "Vancouver",
     neighbourhoods: [
-      "Cambie", "Coal Harbour", "Commercial Drive", "Downtown",
-      "Dunbar-Southlands", "Fairview", "Grandview-Woodland", "Hastings-Sunrise",
-      "Kensington-Cedar Cottage", "Kerrisdale", "Killarney", "Kitsilano",
-      "Main Street", "Marpole", "Mount Pleasant", "Point Grey",
-      "Renfrew-Collingwood", "Riley Park", "Shaughnessy", "Strathcona",
-      "Sunset", "University Endowment Lands", "West End", "West Point Grey",
-      "Yaletown",
+      "Arbutus Ridge", "Cambie", "Chinatown", "Coal Harbour", "Commercial Drive",
+      "Downtown", "Dunbar", "Dunbar-Southlands", "East Vancouver", "Fairview",
+      "Fraserview", "Grandview-Woodland", "Granville Island", "Hastings Park",
+      "Hastings-Sunrise", "Kensington-Cedar Cottage", "Kerrisdale", "Killarney",
+      "Kitsilano", "Main Street", "Marpole", "Mount Pleasant", "Oakridge",
+      "Point Grey", "Renfrew-Collingwood", "Riley Park", "Shaughnessy",
+      "South Cambie", "South Vancouver", "Stanley Park", "Strathcona", "Sunset",
+      "UBC", "University Endowment Lands", "Victoria-Fraserview",
+      "West End", "West Point Grey", "Yaletown",
     ],
   },
   {
     city: "Burnaby",
     neighbourhoods: [
-      "Burnaby Heights", "Capitol Hill", "Cariboo", "Central Park",
-      "Deer Lake", "Edmonds", "Metrotown", "SFU / UniverCity",
-      "South Slope", "Sperling-Duthie",
+      "Burnaby Heights", "Burnaby Mountain", "Capitol Hill", "Cariboo",
+      "Central Park", "Deer Lake", "Edmonds", "Metrotown", "North Burnaby",
+      "SFU / UniverCity", "South Slope", "Sperling-Duthie",
     ],
   },
   {
     city: "North Vancouver",
     neighbourhoods: [
-      "Central Lonsdale", "Deep Cove", "Delbrook", "Lower Capilano",
-      "Lower Lonsdale", "Lynn Creek", "Lynn Valley", "Maplewood", "Seymour",
+      "Central Lonsdale", "Deep Cove", "Delbrook", "Dollarton", "Heights",
+      "Lower Capilano", "Lower Lonsdale", "Lynn Creek", "Lynn Valley",
+      "Maplewood", "Mount Seymour", "Seymour", "Upper Lonsdale",
     ],
   },
   {
     city: "West Vancouver",
-    neighbourhoods: ["Ambleside", "British Properties", "Gleneagles"],
+    neighbourhoods: ["Ambleside", "British Properties", "Gleneagles", "West Vancouver"],
   },
   {
     city: "Richmond",
     neighbourhoods: [
-      "Broadmoor", "City Centre", "East Cambie", "Ironwood",
-      "Sea Island", "South Arm", "Steveston", "Thompson",
+      "Aberdeen", "Bridgeport", "Broadmoor", "City Centre", "East Cambie",
+      "East Richmond", "Ironwood", "Sea Island", "South Arm", "Steveston",
+      "Thompson",
     ],
   },
   {
     city: "New Westminster",
-    neighbourhoods: ["Downtown New West", "Moody Park", "Queens Park", "Queensborough"],
+    neighbourhoods: [
+      "Downtown New West", "Downtown New Westminster", "Moody Park",
+      "Queens Park", "Queensborough",
+    ],
   },
-  { city: "Surrey", neighbourhoods: ["South Surrey"] },
+  {
+    city: "Surrey",
+    neighbourhoods: ["Cloverdale", "South Surrey", "Surrey City Centre", "Whalley"],
+  },
   {
     city: "Coquitlam",
     neighbourhoods: ["Burquitlam", "Central Coquitlam", "Maillardville"],
   },
   { city: "Port Coquitlam", neighbourhoods: ["Central Port Coquitlam"] },
-  { city: "Maple Ridge", neighbourhoods: ["Town Centre"] },
+  { city: "Port Moody", neighbourhoods: ["Port Moody"] },
+  { city: "Maple Ridge", neighbourhoods: ["Maple Ridge", "Town Centre"] },
   { city: "Pitt Meadows", neighbourhoods: ["Central Pitt Meadows"] },
+  { city: "Delta", neighbourhoods: ["Delta"] },
+  { city: "White Rock", neighbourhoods: ["White Rock"] },
   { city: "Squamish", neighbourhoods: ["Squamish"] },
   { city: "Bowen Island", neighbourhoods: ["Bowen Island"] },
+  { city: "Sunshine Coast", neighbourhoods: ["Sunshine Coast"] },
 ];
 
 const COST_RANGES = [
