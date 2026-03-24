@@ -642,7 +642,7 @@ export default function CirclesTab({
         {/* Sticky header */}
         <div style={{
           position: "sticky", top: 0, background: C.cream, zIndex: 10,
-          padding: "8px 0 4px", display: "flex", alignItems: "center", gap: 10,
+          padding: "8px 0 6px", display: "flex", alignItems: "center", gap: 10,
         }}>
           <button
             onClick={() => { setScreen("home"); setActiveCircle(null); }}
