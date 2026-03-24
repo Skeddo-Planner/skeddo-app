@@ -45,12 +45,9 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
     );
   };
 
-  const handleConfirmAdd = () => {
-    if (kids && kids.length > 0 && selectedKidIds.length === 0) {
-      setKidError(true);
-      return;
-    }
-    setKidError(false);
+  const [ageWarning, setAgeWarning] = useState(null);
+
+  const doAdd = () => {
     const kidNames = selectedKidIds.map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
     setAddedKidNames(kidNames);
     onAddToSchedule({
@@ -61,6 +58,35 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
     });
     setShowAddForm(false);
     setJustAdded(true);
+    setAgeWarning(null);
+  };
+
+  const handleConfirmAdd = () => {
+    if (kids && kids.length > 0 && selectedKidIds.length === 0) {
+      setKidError(true);
+      return;
+    }
+    setKidError(false);
+
+    // Check age eligibility for each selected kid
+    if (p.ageMin != null || p.ageMax != null) {
+      const startDate = p.startDate || new Date().toISOString().split("T")[0];
+      const ineligibleKids = [];
+      selectedKidIds.forEach((kidId) => {
+        const kid = (kids || []).find((k) => k.id === kidId);
+        if (kid && kid.birthMonth && kid.birthYear) {
+          const result = computeEligibility(kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate);
+          if (result.eligibilityTier === "ineligible" || result.eligibilityTier === "borderline") {
+            ineligibleKids.push(kid.name);
+          }
+        }
+      });
+      if (ineligibleKids.length > 0) {
+        setAgeWarning(ineligibleKids);
+        return;
+      }
+    }
+    doAdd();
   };
 
   const shareText = addedKidNames.length > 0
@@ -598,15 +624,42 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             </div>
           )}
 
+          {/* Age eligibility warning */}
+          {ageWarning && (
+            <div style={{
+              background: C.dangerBg, borderLeft: `3px solid ${C.danger}`, borderRadius: 8,
+              padding: "12px 14px", marginBottom: 12,
+            }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.danger, marginBottom: 6 }}>
+                {ageWarning.join(" and ")} may not meet the age requirements for this program at the time of the camp.
+              </div>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink, marginBottom: 10 }}>
+                Are you sure you want to add this program?
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={() => setAgeWarning(null)}
+                  style={{ ...s.secondaryBtn, flex: 1 }}
+                >Go Back</button>
+                <button
+                  onClick={doAdd}
+                  style={{ ...s.primaryBtn, flex: 1, background: C.olive }}
+                >Add Anyway</button>
+              </div>
+            </div>
+          )}
+
           {/* Confirm / Cancel */}
-          <div style={{ display: "flex", gap: 8 }}>
-            <button style={s.secondaryBtn} onClick={() => setShowAddForm(false)}>
-              Cancel
-            </button>
-            <button style={s.primaryBtn} onClick={handleConfirmAdd}>
-              Confirm
-            </button>
-          </div>
+          {!ageWarning && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <button style={s.secondaryBtn} onClick={() => setShowAddForm(false)}>
+                Cancel
+              </button>
+              <button style={s.primaryBtn} onClick={handleConfirmAdd}>
+                Confirm
+              </button>
+            </div>
+          )}
         </div>
       )}
 
