@@ -900,18 +900,16 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         const handleGenerate = async () => {
           const selectedKids = kids.filter((k) => selected.has(k.id));
           if (selectedKids.length === 0) return;
-          // Generate invites for ALL selected kids, then show results
-          const results = [];
-          for (const kid of selectedKids) {
-            try {
-              const invite = await childAccess.createInvite(kid.id);
-              results.push({ kid, code: invite?.code || invite?.invite_code || "pending" });
-            } catch (e) {
-              results.push({ kid, error: true });
-            }
+          try {
+            // ONE API call creates ONE invite code for ALL selected kids
+            const data = await childAccess.createInvite(selectedKids.map((k) => k.id));
+            setModal({
+              type: "coparentInviteResults",
+              results: [{ kids: selectedKids, code: data.code || data.inviteUrl?.split("/").pop() }],
+            });
+          } catch (e) {
+            showToast(e.message || "Failed to generate invite");
           }
-          // Show results modal with all invite links
-          setModal({ type: "coparentInviteResults", results });
         };
         return (
         <div className="modal-bg" style={{
@@ -1023,7 +1021,14 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         );
       })()}
 
-      {modal?.type === "coparentInviteResults" && (
+      {modal?.type === "coparentInviteResults" && (() => {
+        const r = modal.results[0] || {};
+        const inviteKids = r.kids || [];
+        const code = r.code || "";
+        const url = `${window.location.origin}/invite/${code}`;
+        const kidNames = inviteKids.map((k) => k.name).join(" & ");
+        const shareText = `Join me on Skeddo to help manage ${kidNames}'s schedule!\n\n${url}`;
+        return (
         <div style={{
           position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
           background: "rgba(26,46,38,0.5)", zIndex: 1000,
@@ -1032,107 +1037,83 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           <div onClick={(e) => e.stopPropagation()} style={{
             background: C.cream, borderRadius: 16, padding: "24px 20px",
             maxWidth: 400, width: "100%", boxShadow: "0 12px 40px rgba(26,46,38,0.18)",
-            maxHeight: "80vh", overflowY: "auto",
           }}>
             <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, marginBottom: 4 }}>
-              Invite{modal.results.length > 1 ? "s" : ""} Generated
+              Invite Generated
             </h3>
-            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
-              Share {modal.results.length === 1 ? "this link" : "these links"} with your co-parent:
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 12, lineHeight: 1.5 }}>
+              Share this link with your co-parent. They'll get access to {kidNames}'s schedule{inviteKids.length > 1 ? "s" : ""}.
             </p>
-            {modal.results.map(({ kid, code, error }, i) => {
-              const url = `${window.location.origin}/invite/${code}`;
-              return (
-                <div key={i} style={{
-                  background: C.white, borderRadius: 12, padding: "12px 14px",
-                  marginBottom: 10, border: `1.5px solid ${error ? C.danger : C.border}`,
-                }}>
-                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 6 }}>
-                    {kid.name}
-                  </div>
-                  {error ? (
-                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.danger }}>
-                      Failed to generate invite — try again
-                    </div>
-                  ) : (
-                    <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                      <input
-                        readOnly
-                        value={url}
-                        style={{
-                          flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13,
-                          border: `1px solid ${C.border}`, borderRadius: 8,
-                          padding: "8px 10px", color: C.ink, background: C.cream,
-                        }}
-                        onFocus={(e) => e.target.select()}
-                      />
-                      <button
-                        onClick={() => {
-                          if (navigator.clipboard) navigator.clipboard.writeText(url);
-                          showToast("Link copied!");
-                        }}
-                        style={{
-                          padding: "8px 12px", borderRadius: 8, border: "none",
-                          background: C.seaGreen, color: "#fff",
-                          fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
-                          cursor: "pointer", whiteSpace: "nowrap",
-                        }}
-                      >Copy</button>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-            {/* Share all via text/WhatsApp */}
-            {modal.results.filter(r => !r.error).length > 0 && (
-              <div style={{ display: "flex", gap: 8, marginTop: 12, justifyContent: "center" }}>
+            {/* Kid chips */}
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+              {inviteKids.map((k) => (
+                <span key={k.id} style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                  background: (k.color || C.seaGreen) + "18", color: k.color || C.seaGreen,
+                  padding: "4px 10px", borderRadius: 8,
+                }}>{k.name}</span>
+              ))}
+            </div>
+            {/* Invite link */}
+            <div style={{
+              background: C.white, borderRadius: 12, padding: "12px 14px",
+              marginBottom: 14, border: `1.5px solid ${C.border}`,
+            }}>
+              <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                <input
+                  readOnly value={url}
+                  style={{
+                    flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13,
+                    border: `1px solid ${C.border}`, borderRadius: 8,
+                    padding: "8px 10px", color: C.ink, background: C.cream,
+                  }}
+                  onFocus={(e) => e.target.select()}
+                />
                 <button
                   onClick={() => {
-                    const links = modal.results.filter(r => !r.error).map(r =>
-                      `${r.kid.name}: ${window.location.origin}/invite/${r.code}`
-                    ).join("\n");
-                    const text = `Join me on Skeddo to manage our kids' schedules!\n\n${links}`;
-                    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+                    if (navigator.clipboard) navigator.clipboard.writeText(url);
+                    showToast("Link copied!");
                   }}
                   style={{
-                    padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
-                    background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
-                    fontWeight: 600, color: C.ink, cursor: "pointer",
+                    padding: "8px 12px", borderRadius: 8, border: "none",
+                    background: C.seaGreen, color: "#fff",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+                    cursor: "pointer", whiteSpace: "nowrap",
                   }}
-                >WhatsApp</button>
-                <button
-                  onClick={() => {
-                    const links = modal.results.filter(r => !r.error).map(r =>
-                      `${r.kid.name}: ${window.location.origin}/invite/${r.code}`
-                    ).join("\n");
-                    const text = `Join me on Skeddo to manage our kids' schedules!\n\n${links}`;
-                    window.open(`sms:?body=${encodeURIComponent(text)}`);
-                  }}
-                  style={{
-                    padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
-                    background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
-                    fontWeight: 600, color: C.ink, cursor: "pointer",
-                  }}
-                >Text</button>
-                <button
-                  onClick={() => {
-                    const links = modal.results.filter(r => !r.error).map(r =>
-                      `${r.kid.name}: ${window.location.origin}/invite/${r.code}`
-                    ).join("\n");
-                    window.open(`mailto:?subject=${encodeURIComponent("Join me on Skeddo")}&body=${encodeURIComponent(`Help me manage our kids' schedules on Skeddo!\n\n${links}`)}`);
-                  }}
-                  style={{
-                    padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
-                    background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
-                    fontWeight: 600, color: C.ink, cursor: "pointer",
-                  }}
-                >Email</button>
+                >Copy</button>
               </div>
-            )}
+            </div>
+            {/* Share buttons */}
+            <div style={{ display: "flex", gap: 8, justifyContent: "center", marginBottom: 14 }}>
+              <button
+                onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank")}
+                style={{
+                  padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
+                  background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                  fontWeight: 600, color: C.ink, cursor: "pointer",
+                }}
+              >WhatsApp</button>
+              <button
+                onClick={() => window.open(`sms:?body=${encodeURIComponent(shareText)}`)}
+                style={{
+                  padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
+                  background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                  fontWeight: 600, color: C.ink, cursor: "pointer",
+                }}
+                >Text</button>
+              <button
+                onClick={() => window.open(`mailto:?subject=${encodeURIComponent("Join me on Skeddo")}&body=${encodeURIComponent(shareText)}`)}
+                style={{
+                  padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
+                  background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                  fontWeight: 600, color: C.ink, cursor: "pointer",
+                }}
+              >Email</button>
+            </div>
             <button
               onClick={() => setModal(null)}
               style={{
-                marginTop: 16, width: "100%", padding: "12px",
+                width: "100%", padding: "12px",
                 background: C.seaGreen, border: "none", borderRadius: 10,
                 fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
                 color: "#fff", cursor: "pointer",
@@ -1140,7 +1121,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             >Done</button>
           </div>
         </div>
-      )}
+        );
+      })()}
 
       {modal?.type === "invite" && (
         <InviteModal

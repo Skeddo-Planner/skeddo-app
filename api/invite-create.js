@@ -8,58 +8,62 @@ export default async function handler(req, res) {
   const user = await verifyUser(req);
   if (!user) return res.status(401).json({ error: "Unauthorized" });
 
-  const { childId } = req.body;
-  if (!childId) return res.status(400).json({ error: "childId is required" });
+  // Support both single childId and array of childIds
+  const { childId, childIds } = req.body || {};
+  const ids = childIds || (childId ? [childId] : []);
+  if (ids.length === 0) return res.status(400).json({ error: "childId or childIds required" });
 
   const sb = getSupabaseClient(user._token);
 
-  // Verify user has access to this child — check both kids table (owner) and child_access table (co-parent)
-  const { data: ownedKid } = await sb
-    .from("kids")
-    .select("id")
-    .eq("id", childId)
-    .eq("user_id", user.id)
-    .single();
+  // Verify user has access to ALL children
+  for (const cid of ids) {
+    const { data: ownedKid } = await sb
+      .from("kids")
+      .select("id")
+      .eq("id", cid)
+      .eq("user_id", user.id)
+      .single();
 
-  const { data: accessRow } = await sb
-    .from("child_access")
-    .select("role")
-    .eq("child_id", childId)
-    .eq("user_id", user.id)
-    .single();
+    const { data: accessRow } = await sb
+      .from("child_access")
+      .select("role")
+      .eq("child_id", cid)
+      .eq("user_id", user.id)
+      .single();
 
-  if (!ownedKid && !accessRow) return res.status(403).json({ error: "No access to this child" });
+    if (!ownedKid && !accessRow) return res.status(403).json({ error: `No access to child ${cid}` });
 
-  // Check max 2 adults per child
-  const { count } = await sb
-    .from("child_access")
-    .select("*", { count: "exact", head: true })
-    .eq("child_id", childId);
+    // Check max 2 adults per child
+    const { count } = await sb
+      .from("child_access")
+      .select("*", { count: "exact", head: true })
+      .eq("child_id", cid);
 
-  if (count >= 2) {
-    return res.status(400).json({ error: "Maximum 2 adults per child reached" });
+    if (count >= 2) {
+      return res.status(400).json({ error: "Maximum 2 adults per child reached" });
+    }
   }
 
-  // Generate unique invite code (URL-safe, 12 chars)
+  // Generate ONE invite code for all selected children
   const inviteCode = randomBytes(9).toString("base64url").slice(0, 12);
-
-  // Create invite with 7-day expiry
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
 
-  const { data: invite, error } = await sb
+  // Create one invite row per child, all sharing the same invite code
+  const rows = ids.map((cid) => ({
+    child_id: cid,
+    created_by: user.id,
+    invite_code: inviteCode,
+    expires_at: expiresAt,
+  }));
+
+  const { data: invites, error } = await sb
     .from("child_invite")
-    .insert({
-      child_id: childId,
-      created_by: user.id,
-      invite_code: inviteCode,
-      expires_at: expiresAt,
-    })
-    .select()
-    .single();
+    .insert(rows)
+    .select();
 
   if (error) return res.status(500).json({ error: error.message });
 
   const inviteUrl = `https://skeddo.ca/invite/${inviteCode}`;
 
-  return res.status(200).json({ invite, inviteUrl });
+  return res.status(200).json({ invites, inviteUrl, code: inviteCode });
 }

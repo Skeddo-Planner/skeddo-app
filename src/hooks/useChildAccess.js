@@ -135,17 +135,25 @@ export function useChildAccess(userId, session) {
 
   /* ── Create invite link ── */
   const createInvite = useCallback(
-    async (childId) => {
+    async (childIdOrIds) => {
+      // Support both single childId and array of childIds
+      const body = Array.isArray(childIdOrIds)
+        ? { childIds: childIdOrIds }
+        : { childId: childIdOrIds };
       const res = await fetch("/api/invite-create", {
         method: "POST",
         headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ childId }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       trackEvent("invite_coparent");
       // Add to pending invites
-      setPendingInvites((prev) => [data.invite, ...prev]);
+      if (data.invites) {
+        setPendingInvites((prev) => [...data.invites, ...prev]);
+      } else if (data.invite) {
+        setPendingInvites((prev) => [data.invite, ...prev]);
+      }
       return data;
     },
     [getAuthHeaders]
