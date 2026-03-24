@@ -441,7 +441,7 @@ export default function CirclesTab({
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
-                Invite someone to manage {kids[0]?.name ? `${kids[0].name}'s` : "your kid's"} schedule
+                Invite someone to manage your {kids.length === 1 ? "child's" : "children's"} schedule
               </div>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 2 }}>
                 Share access with another parent or caregiver
@@ -642,7 +642,7 @@ export default function CirclesTab({
         {/* Sticky header */}
         <div style={{
           position: "sticky", top: 0, background: C.cream, zIndex: 10,
-          padding: "8px 0 6px", display: "flex", alignItems: "center", gap: 10,
+          padding: "8px 0 8px", display: "flex", alignItems: "center", gap: 10,
         }}>
           <button
             onClick={() => { setScreen("home"); setActiveCircle(null); }}
