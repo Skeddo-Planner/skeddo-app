@@ -801,6 +801,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   /* ─── Conflicts ─── */
   const [dismissedConflicts, setDismissedConflicts] = useState(false);
   const [dismissedLogistics, setDismissedLogistics] = useState(false);
+  const [dismissedSetupBanner, setDismissedSetupBanner] = useState(false);
   const canExport = planAccess?.canExportCalendar ?? true;
 
   /* ─── Status visibility ─── */
@@ -1428,30 +1429,19 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             ))}
           </div>
 
-          {/* School calendar setup button */}
-          <button onClick={() => setPage("setup")} style={{
-            padding: "7px 10px", borderRadius: 8, border: `1px solid ${C.border}`,
-            background: "transparent", fontFamily: F.sans, fontSize: 12,
-            color: C.muted, cursor: "pointer", fontWeight: 600,
-          }}>
-            {setupDone ? "Edit" : "Setup"}
-          </button>
         </div>
       </div>
 
-      <p style={{ fontFamily: F.sans, fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
-        {mode === "calendar" ? "Your week at a glance" : "Break coverage tracker"}
-      </p>
-
-      {/* Setup prompt banner */}
-      {!setupDone && mode === "calendar" && (
-        <div onClick={() => setPage("setup")} style={{ marginBottom: 12, padding: "14px", borderRadius: 12, background: C.white, boxShadow: shadow, cursor: "pointer", border: `1.5px dashed ${C.seaGreen}40`, display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{ width: 40, height: 40, borderRadius: 10, background: C.seaGreen + "14", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>{"\uD83C\uDFEB"}</div>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: F.sans, fontSize: 14, fontWeight: 600, color: C.ink }}>Set up your school calendar</div>
-            <div style={{ fontFamily: F.sans, fontSize: 11, color: C.muted }}>Auto-fill pro-D days, breaks & holidays in 30 seconds</div>
+      {/* Setup prompt banner — dismissible, full-width, no emoji */}
+      {!setupDone && !dismissedSetupBanner && mode === "calendar" && (
+        <div style={{ marginBottom: 12, padding: "12px 16px", borderRadius: 10, background: C.seaGreen + "12", display: "flex", alignItems: "center", gap: 10 }}>
+          <div onClick={() => setPage("setup")} style={{ flex: 1, cursor: "pointer", fontFamily: F.sans, fontSize: 14, fontWeight: 500, color: C.ink }}>
+            Set up your school calendar to see Pro-D days and breaks
           </div>
-          <span style={{ color: C.seaGreen, fontSize: 16 }}>{"\u203A"}</span>
+          <button onClick={(e) => { e.stopPropagation(); setDismissedSetupBanner(true); }} style={{
+            background: "none", border: "none", cursor: "pointer", padding: "2px 6px",
+            fontFamily: F.sans, fontSize: 16, color: C.muted, lineHeight: 1,
+          }}>{"\u2715"}</button>
         </div>
       )}
 
