@@ -486,24 +486,17 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   /* ── Loading state ── */
   if (!loaded) return (
     <div style={{
-      ...s.app,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       minHeight: "100dvh",
-      paddingBottom: 0,
+      background: "#1B2432",
     }}>
-      <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
-      <div style={{ textAlign: "center", animation: "pulse 1.8s ease-in-out infinite" }}>
-        <img
-          src="/skeddo-logo-dark.png"
-          alt="Skeddo"
-          style={{ height: 64, width: "auto", borderRadius: 14, marginBottom: 16 }}
-        />
-        <div style={{ color: C.muted, fontSize: 13, fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>
-          Loading your planner...
-        </div>
-      </div>
+      <img
+        src="/skeddo-logo-dark.png"
+        alt="Skeddo"
+        style={{ height: 140, width: "auto", borderRadius: 20 }}
+      />
     </div>
   );
 
@@ -889,7 +882,38 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         />
       )}
 
-      {modal?.type === "coparentKidPicker" && (
+      {modal?.type === "coparentKidPicker" && (() => {
+        const selected = modal.selectedKids || new Set();
+        const allSelected = kids.length > 0 && selected.size === kids.length;
+        const toggleKid = (kidId) => {
+          const next = new Set(selected);
+          if (next.has(kidId)) next.delete(kidId); else next.add(kidId);
+          setModal({ ...modal, selectedKids: next });
+        };
+        const toggleAll = () => {
+          if (allSelected) {
+            setModal({ ...modal, selectedKids: new Set() });
+          } else {
+            setModal({ ...modal, selectedKids: new Set(kids.map((k) => k.id)) });
+          }
+        };
+        const handleGenerate = async () => {
+          const selectedKids = kids.filter((k) => selected.has(k.id));
+          if (selectedKids.length === 0) return;
+          // Generate invites for ALL selected kids, then show results
+          const results = [];
+          for (const kid of selectedKids) {
+            try {
+              const invite = await childAccess.createInvite(kid.id);
+              results.push({ kid, code: invite?.code || invite?.invite_code || "pending" });
+            } catch (e) {
+              results.push({ kid, error: true });
+            }
+          }
+          // Show results modal with all invite links
+          setModal({ type: "coparentInviteResults", results });
+        };
+        return (
         <div className="modal-bg" style={{
           position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
           background: "rgba(26,46,38,0.5)", zIndex: 1000,
@@ -907,22 +931,55 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
               fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted,
               marginBottom: 16, lineHeight: 1.5,
             }}>
-              Which kid's schedule do you want to share?
+              Select which kids' schedules to share:
             </p>
+            {/* Select all */}
+            <button
+              onClick={toggleAll}
+              style={{
+                display: "flex", alignItems: "center", gap: 10,
+                background: "none", border: "none", cursor: "pointer", width: "100%",
+                padding: "8px 0", marginBottom: 4,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                color: C.muted, textAlign: "left",
+              }}
+            >
+              <div style={{
+                width: 20, height: 20, borderRadius: 5, flexShrink: 0,
+                border: `2px solid ${allSelected ? C.seaGreen : C.border}`,
+                background: allSelected ? C.seaGreen : "transparent",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                color: "#fff", fontSize: 13, fontWeight: 700,
+              }}>
+                {allSelected ? "\u2713" : ""}
+              </div>
+              Select all
+            </button>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {kids.map((k) => (
+              {kids.map((k) => {
+                const isChecked = selected.has(k.id);
+                return (
                 <button
                   key={k.id}
-                  onClick={() => { setModal(null); setTimeout(() => openInviteModal(k), 100); }}
+                  onClick={() => toggleKid(k.id)}
                   className="skeddo-card"
                   style={{
                     display: "flex", alignItems: "center", gap: 10,
-                    background: C.white, border: `1.5px solid ${C.border}`, borderRadius: 12,
+                    background: C.white, border: `1.5px solid ${isChecked ? C.seaGreen : C.border}`, borderRadius: 12,
                     padding: "12px 14px", cursor: "pointer", width: "100%",
                     fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600,
                     color: C.ink, textAlign: "left",
                   }}
                 >
+                  <div style={{
+                    width: 20, height: 20, borderRadius: 5, flexShrink: 0,
+                    border: `2px solid ${isChecked ? C.seaGreen : C.border}`,
+                    background: isChecked ? C.seaGreen : "transparent",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    color: "#fff", fontSize: 13, fontWeight: 700,
+                  }}>
+                    {isChecked ? "\u2713" : ""}
+                  </div>
                   <div style={{
                     width: 32, height: 32, borderRadius: 8,
                     background: k.color || `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
@@ -933,12 +990,27 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                   </div>
                   {k.name}
                 </button>
-              ))}
+                );
+              })}
             </div>
+            <button
+              onClick={handleGenerate}
+              disabled={selected.size === 0}
+              style={{
+                marginTop: 16, width: "100%", padding: "12px",
+                background: selected.size === 0 ? C.muted : C.seaGreen,
+                border: "none", borderRadius: 10,
+                fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                color: "#fff", cursor: selected.size === 0 ? "default" : "pointer",
+                opacity: selected.size === 0 ? 0.5 : 1,
+              }}
+            >
+              Generate Invite{selected.size > 1 ? "s" : ""}
+            </button>
             <button
               onClick={() => setModal(null)}
               style={{
-                marginTop: 16, width: "100%", padding: "10px",
+                marginTop: 8, width: "100%", padding: "10px",
                 background: "none", border: `1.5px solid ${C.border}`, borderRadius: 10,
                 fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
                 color: C.muted, cursor: "pointer",
@@ -946,6 +1018,126 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             >
               Cancel
             </button>
+          </div>
+        </div>
+        );
+      })()}
+
+      {modal?.type === "coparentInviteResults" && (
+        <div style={{
+          position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+          background: "rgba(26,46,38,0.5)", zIndex: 1000,
+          display: "flex", alignItems: "center", justifyContent: "center", padding: 20,
+        }} onClick={() => setModal(null)}>
+          <div onClick={(e) => e.stopPropagation()} style={{
+            background: C.cream, borderRadius: 16, padding: "24px 20px",
+            maxWidth: 400, width: "100%", boxShadow: "0 12px 40px rgba(26,46,38,0.18)",
+            maxHeight: "80vh", overflowY: "auto",
+          }}>
+            <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, marginBottom: 4 }}>
+              Invite{modal.results.length > 1 ? "s" : ""} Generated
+            </h3>
+            <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+              Share {modal.results.length === 1 ? "this link" : "these links"} with your co-parent:
+            </p>
+            {modal.results.map(({ kid, code, error }, i) => {
+              const url = `${window.location.origin}/invite/${code}`;
+              return (
+                <div key={i} style={{
+                  background: C.white, borderRadius: 12, padding: "12px 14px",
+                  marginBottom: 10, border: `1.5px solid ${error ? C.danger : C.border}`,
+                }}>
+                  <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 6 }}>
+                    {kid.name}
+                  </div>
+                  {error ? (
+                    <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.danger }}>
+                      Failed to generate invite — try again
+                    </div>
+                  ) : (
+                    <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                      <input
+                        readOnly
+                        value={url}
+                        style={{
+                          flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13,
+                          border: `1px solid ${C.border}`, borderRadius: 8,
+                          padding: "8px 10px", color: C.ink, background: C.cream,
+                        }}
+                        onFocus={(e) => e.target.select()}
+                      />
+                      <button
+                        onClick={() => {
+                          if (navigator.clipboard) navigator.clipboard.writeText(url);
+                          showToast("Link copied!");
+                        }}
+                        style={{
+                          padding: "8px 12px", borderRadius: 8, border: "none",
+                          background: C.seaGreen, color: "#fff",
+                          fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+                          cursor: "pointer", whiteSpace: "nowrap",
+                        }}
+                      >Copy</button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            {/* Share all via text/WhatsApp */}
+            {modal.results.filter(r => !r.error).length > 0 && (
+              <div style={{ display: "flex", gap: 8, marginTop: 12, justifyContent: "center" }}>
+                <button
+                  onClick={() => {
+                    const links = modal.results.filter(r => !r.error).map(r =>
+                      `${r.kid.name}: ${window.location.origin}/invite/${r.code}`
+                    ).join("\n");
+                    const text = `Join me on Skeddo to manage our kids' schedules!\n\n${links}`;
+                    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+                  }}
+                  style={{
+                    padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
+                    background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                    fontWeight: 600, color: C.ink, cursor: "pointer",
+                  }}
+                >WhatsApp</button>
+                <button
+                  onClick={() => {
+                    const links = modal.results.filter(r => !r.error).map(r =>
+                      `${r.kid.name}: ${window.location.origin}/invite/${r.code}`
+                    ).join("\n");
+                    const text = `Join me on Skeddo to manage our kids' schedules!\n\n${links}`;
+                    window.open(`sms:?body=${encodeURIComponent(text)}`);
+                  }}
+                  style={{
+                    padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
+                    background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                    fontWeight: 600, color: C.ink, cursor: "pointer",
+                  }}
+                >Text</button>
+                <button
+                  onClick={() => {
+                    const links = modal.results.filter(r => !r.error).map(r =>
+                      `${r.kid.name}: ${window.location.origin}/invite/${r.code}`
+                    ).join("\n");
+                    window.open(`mailto:?subject=${encodeURIComponent("Join me on Skeddo")}&body=${encodeURIComponent(`Help me manage our kids' schedules on Skeddo!\n\n${links}`)}`);
+                  }}
+                  style={{
+                    padding: "10px 16px", borderRadius: 10, border: `1.5px solid ${C.border}`,
+                    background: C.white, fontFamily: "'Barlow', sans-serif", fontSize: 14,
+                    fontWeight: 600, color: C.ink, cursor: "pointer",
+                  }}
+                >Email</button>
+              </div>
+            )}
+            <button
+              onClick={() => setModal(null)}
+              style={{
+                marginTop: 16, width: "100%", padding: "12px",
+                background: C.seaGreen, border: "none", borderRadius: 10,
+                fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                color: "#fff", cursor: "pointer",
+              }}
+            >Done</button>
           </div>
         </div>
       )}
