@@ -576,6 +576,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       {!infoPage && isDesktop ? (
         /* ─── Desktop: sidebar + main content shell ─── */
         <div className="skeddo-desktop-shell">
+          {tab !== "discover" && tab !== "home" && (
           <aside className="skeddo-sidebar" role="navigation" aria-label="Sidebar">
             <DesktopSidebar
               tab={tab}
@@ -591,6 +592,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
               circlesHook={circlesHook}
             />
           </aside>
+          )}
           <main className="skeddo-desktop-main skeddo-main">
             {tab === "home" && (
               <HomeTab

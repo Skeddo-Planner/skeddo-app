@@ -300,9 +300,9 @@ export default function DesktopSidebar({ tab, programs, kids, kidFilter, onKidFi
     case "circles":
       return <CirclesSidebar circlesHook={circlesHook} />;
     case "discover":
-      return <DiscoverSidebar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />;
+      return null; // Week sidebar is built into DiscoverTab itself
     case "home":
-      return <HomeSidebar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />;
+      return null; // Home doesn't need a sidebar
     default:
       return null;
   }

@@ -1537,7 +1537,7 @@ export default function DiscoverTab({
               {summerOverview.planned} of {summerOverview.total} weeks planned
             </div>
             {/* Mini progress bar */}
-            <div style={{ display: "flex", gap: 2 }}>
+            <div style={{ display: "flex", gap: 2, marginBottom: 8 }}>
               {summerWeeks.map((w) => {
                 const isAway = awayWeeks.has(w.id);
                 const count = weekProgramCounts[w.id] || 0;
@@ -1556,6 +1556,21 @@ export default function DiscoverTab({
                   }} />
                 );
               })}
+            </div>
+            {/* Legend for dots */}
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div style={{ width: 6, height: 6, borderRadius: 3, background: C.seaGreen }} />
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>Covered</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div style={{ width: 6, height: 6, borderRadius: 3, background: C.lilac }} />
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>Partial</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <div style={{ width: 6, height: 6, borderRadius: 3, background: "transparent", border: `1px solid ${C.muted}` }} />
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>Open</span>
+              </div>
             </div>
           </div>
 
