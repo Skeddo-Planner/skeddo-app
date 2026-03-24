@@ -4,10 +4,11 @@ export default async function handler(req, res) {
   if (handleCors(req, res)) return;
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
+  try {
   const user = await verifyUser(req);
   if (!user) return res.status(401).json({ error: "Unauthorized" });
 
-  const { circleId, activities, displayName } = req.body;
+  const { circleId, activities, displayName } = req.body || {};
   if (!circleId || !activities?.length) {
     return res.status(400).json({ error: "circleId and activities array required" });
   }
@@ -77,4 +78,8 @@ export default async function handler(req, res) {
   if (error) return res.status(500).json({ error: error.message });
 
   return res.status(200).json({ success: true, shared, skipped: activities.length - newActivities.length });
+  } catch (err) {
+    console.error("circles-share error:", err);
+    return res.status(500).json({ error: err.message || "Failed to share activities" });
+  }
 }

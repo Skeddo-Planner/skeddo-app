@@ -170,8 +170,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ name, emoji }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to create circle");
     trackEvent("create_circle", { circle_name: name });
     // Add to local state
     setCircles((prev) => [...prev, {
@@ -194,8 +195,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ inviteCode }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to join circle");
     return data;
   }, [getAuthHeaders]);
 
@@ -206,8 +208,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ membershipId, action }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to process request");
     setPendingRequests((prev) => prev.filter((r) => r.id !== membershipId));
     return data;
   }, [getAuthHeaders]);
@@ -219,8 +222,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ circleId, newOwnerId }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to leave circle");
     setCircles((prev) => prev.filter((c) => c.id !== circleId));
     return data;
   }, [getAuthHeaders]);
@@ -232,8 +236,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ circleId, targetUserId }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to remove member");
     return data;
   }, [getAuthHeaders]);
 
@@ -244,8 +249,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ circleId, activities, displayName }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to share activities");
     // Refresh feed
     await loadFeed(circleId);
     return data;
@@ -301,8 +307,9 @@ export function useCircles(userId, session) {
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
       body: JSON.stringify({ sharedActivityId, reason }),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to flag activity");
     // Refresh feed to show flagged state
     if (circleId) await loadFeed(circleId);
     return data;
@@ -315,8 +322,9 @@ export function useCircles(userId, session) {
       method: "POST",
       headers: { "Content-Type": "application/json", ...getAuthHeaders() },
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to create referral code");
     setReferralCode(data.referralCode);
     setReferralUrl(data.referralUrl);
     return data;

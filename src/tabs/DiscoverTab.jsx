@@ -109,7 +109,6 @@ const CAT_ACCENT = {
   "Language": C.blue,
   "Faith-Based": C.lilac,
   "Social": C.seaGreen,
-  "Childcare": C.seaGreen,
 };
 
 /* ────────────────────────────────────────────────────────────
@@ -1594,7 +1593,7 @@ export default function DiscoverTab({
     <div>
       {/* Header */}
       <div style={{ marginBottom: 5 }}>
-        <h2 style={s.pageTitle}>Discover</h2>
+        <h2 style={s.pageTitle}>Search</h2>
         <p style={{
           fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted,
           marginBottom: 8, marginTop: 0,
