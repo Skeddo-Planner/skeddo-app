@@ -696,6 +696,11 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
               {program.dayLength}
             </span>
           )}
+          {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date() && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: C.olive + "18", color: C.olive, padding: "2px 8px", borderRadius: 10 }}>
+              Early Bird until {new Date(program.earlyBirdDeadline + "T00:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" })}
+            </span>
+          )}
           {eligibility && eligibility.eligibilityTier === "borderline" && (
             <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: "rgba(244, 162, 97, 0.10)", color: "#F4A261", padding: "2px 8px", borderRadius: 10 }}>
               {eligibility.label}
