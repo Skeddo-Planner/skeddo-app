@@ -2,6 +2,43 @@ import { verifyUser, getSupabaseClient, handleCors } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
+
+  // GET = look up invite details (inviter name, child name) without accepting
+  if (req.method === "GET") {
+    const inviteCode = req.query.code;
+    if (!inviteCode) return res.status(400).json({ error: "code query param is required" });
+
+    // Use service-role client to bypass RLS — the accepting user isn't the invite creator
+    const sb = getSupabaseClient();
+
+    const { data: invite, error: invErr } = await sb
+      .from("child_invite")
+      .select("*, kids(id, name, age)")
+      .eq("invite_code", inviteCode)
+      .single();
+
+    if (invErr || !invite) {
+      return res.status(404).json({ error: "Invite not found" });
+    }
+
+    // Get the inviter's display name
+    const { data: creator } = await sb
+      .from("profiles")
+      .select("display_name")
+      .eq("id", invite.created_by)
+      .single();
+
+    // Check if expired
+    const expired = new Date(invite.expires_at) < new Date();
+
+    return res.status(200).json({
+      inviterName: creator?.display_name || null,
+      childName: invite.kids?.name || null,
+      status: expired ? "expired" : invite.status,
+    });
+  }
+
+  // POST = accept the invite
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   const user = await verifyUser(req);
@@ -10,7 +47,9 @@ export default async function handler(req, res) {
   const { inviteCode } = req.body;
   if (!inviteCode) return res.status(400).json({ error: "inviteCode is required" });
 
-  const sb = getSupabaseClient(user._token);
+  // Use service-role client to bypass RLS — the accepting user can't see invites
+  // they didn't create under user-scoped RLS
+  const sb = getSupabaseClient();
 
   // Look up the invite
   const { data: invite, error: invErr } = await sb

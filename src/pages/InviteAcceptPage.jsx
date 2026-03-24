@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 
@@ -6,6 +6,30 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [inviteDetails, setInviteDetails] = useState(null);
+  const [detailsLoading, setDetailsLoading] = useState(true);
+
+  // Fetch invite details on mount so we can show inviter name and child name
+  useEffect(() => {
+    if (!inviteCode) return;
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const res = await fetch(`/api/invite-accept?code=${encodeURIComponent(inviteCode)}`);
+        if (!cancelled && res.ok) {
+          const data = await res.json();
+          setInviteDetails(data);
+        }
+      } catch {
+        // Silently fail — we'll fall back to generic text
+      } finally {
+        if (!cancelled) setDetailsLoading(false);
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [inviteCode]);
 
   const handleAccept = async () => {
     setLoading(true);
@@ -18,6 +42,31 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
     } finally {
       setLoading(false);
     }
+  };
+
+  // Build personalized invite message
+  const inviterName = inviteDetails?.inviterName;
+  const childName = inviteDetails?.childName;
+  let inviteMessage;
+  if (inviterName && childName) {
+    inviteMessage = `${inviterName} invited you to help manage ${childName}'s schedule on Skeddo.`;
+  } else if (inviterName) {
+    inviteMessage = `${inviterName} invited you to help manage a child's schedule on Skeddo.`;
+  } else if (childName) {
+    inviteMessage = `You've been invited to help manage ${childName}'s schedule on Skeddo.`;
+  } else {
+    inviteMessage = "You've been invited to help manage a child's schedule on Skeddo.";
+  }
+
+  // Pill button style — auto width, not stretched
+  const pillBtn = {
+    ...s.primaryBtn,
+    flex: "none",
+    width: "auto",
+    maxWidth: 280,
+    padding: "12px 32px",
+    fontSize: 15,
+    borderRadius: 24,
   };
 
   return (
@@ -52,10 +101,12 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
             You're connected!
           </h1>
           <p style={{ fontSize: 14, color: C.muted, lineHeight: 1.6, marginBottom: 24 }}>
-            You now have access to their schedule. Head to the app to start managing activities together.
+            {childName
+              ? `You now have access to ${childName}'s schedule. Head to the app to start managing activities together.`
+              : "You now have access to their schedule. Head to the app to start managing activities together."}
           </p>
           <button
-            style={{ ...s.primaryBtn, padding: "12px 32px", fontSize: 15 }}
+            style={pillBtn}
             onClick={() => window.location.href = "/"}
           >
             Open Skeddo
@@ -71,7 +122,7 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
             You've been invited
           </h1>
           <p style={{ fontSize: 14, color: C.muted, lineHeight: 1.6, marginBottom: 24, maxWidth: 320 }}>
-            Someone invited you to help manage a child's schedule on Skeddo. Tap below to accept.
+            {detailsLoading ? "Loading invite details..." : `${inviteMessage} Tap below to accept.`}
           </p>
 
           {error && (
@@ -84,7 +135,7 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
           )}
 
           <button
-            style={{ ...s.primaryBtn, padding: "12px 32px", fontSize: 15, opacity: loading ? 0.6 : 1 }}
+            style={{ ...pillBtn, opacity: loading ? 0.6 : 1 }}
             onClick={handleAccept}
             disabled={loading}
           >
@@ -101,17 +152,19 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
             You've been invited
           </h1>
           <p style={{ fontSize: 14, color: C.muted, lineHeight: 1.6, marginBottom: 24, maxWidth: 320 }}>
-            Someone invited you to help manage a child's schedule on Skeddo. Sign in or create an account to accept.
+            {detailsLoading
+              ? "Loading invite details..."
+              : `${inviteMessage} Sign in or create an account to accept.`}
           </p>
-          <div style={{ display: "flex", gap: 10, flexDirection: "column", width: "100%", maxWidth: 280 }}>
+          <div style={{ display: "flex", gap: 10, flexDirection: "column", alignItems: "center", width: "100%", maxWidth: 280 }}>
             <button
-              style={{ ...s.primaryBtn, padding: "12px 24px", fontSize: 15 }}
+              style={pillBtn}
               onClick={onSignUp}
             >
               Get Started
             </button>
             <button
-              style={{ ...s.secondaryBtn, padding: "12px 24px", fontSize: 14 }}
+              style={{ ...s.secondaryBtn, flex: "none", width: "auto", maxWidth: 280, padding: "12px 24px", fontSize: 14, borderRadius: 24 }}
               onClick={onSignIn}
             >
               I already have an account
