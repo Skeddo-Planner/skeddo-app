@@ -141,6 +141,7 @@ export default function CirclesTab({
   const [createName, setCreateName] = useState("");
   const [createEmoji, setCreateEmoji] = useState("👨‍👩‍👧‍👦");
   const [joinCode, setJoinCode] = useState("");
+  const [showJoinModal, setShowJoinModal] = useState(false);
   const [selectedActivities, setSelectedActivities] = useState(new Set());
   const [circleMembers, setCircleMembers] = useState([]);
   const [showInviteDrawer, setShowInviteDrawer] = useState(false);
@@ -260,28 +261,36 @@ export default function CirclesTab({
   if (screen === "home") {
     return (
       <div>
-        {/* Header row */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
-          <h2 style={s.pageTitle}>
-            Circles
-          </h2>
-          <button
-            onClick={() => setScreen("create")}
-            style={{
-              fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
-              background: C.seaGreen, color: "#fff", border: "none", borderRadius: 10,
-              padding: "8px 16px", cursor: "pointer", minHeight: 38,
-            }}
-          >
-            + New
-          </button>
-        </div>
-
-        {/* Subtitle */}
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
+        {/* Header */}
+        <h2 style={s.pageTitle}>Circles</h2>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 12, marginTop: 0 }}>
           {circles.length} group{circles.length !== 1 ? "s" : ""}
           {newThisWeek > 0 && <> &middot; <span style={{ color: C.olive, fontWeight: 600 }}>{newThisWeek} new activit{newThisWeek === 1 ? "y" : "ies"} this week</span></>}
         </p>
+
+        {/* Create / Join buttons */}
+        <div style={{ display: "flex", gap: 10, marginBottom: 20 }}>
+          <button
+            onClick={() => setScreen("create")}
+            style={{
+              flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+              background: C.seaGreen, color: "#fff", border: "none", borderRadius: 10,
+              padding: "12px 16px", cursor: "pointer", minHeight: 44,
+            }}
+          >
+            Create a Circle
+          </button>
+          <button
+            onClick={() => setShowJoinModal(true)}
+            style={{
+              flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+              background: C.white, color: C.blue, border: `1.5px solid ${C.blue}`, borderRadius: 10,
+              padding: "12px 16px", cursor: "pointer", minHeight: 44,
+            }}
+          >
+            Join a Circle
+          </button>
+        </div>
 
         {/* Circle cards */}
         {circles.length === 0 && !loading ? (
@@ -453,32 +462,54 @@ export default function CirclesTab({
           </div>
         )}
 
-        {/* Join circle section */}
-        <div style={{ marginTop: 24 }}>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8 }}>
-            Join a Circle
+        {/* Join circle modal */}
+        {showJoinModal && (
+          <div style={{
+            position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+            background: "rgba(26,46,38,0.5)", zIndex: 1000,
+            display: "flex", alignItems: "center", justifyContent: "center", padding: 20,
+          }} onClick={() => setShowJoinModal(false)}>
+            <div onClick={(e) => e.stopPropagation()} style={{
+              background: C.cream, borderRadius: 16, padding: "24px 20px",
+              maxWidth: 360, width: "100%", boxShadow: "0 12px 40px rgba(26,46,38,0.18)",
+            }}>
+              <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 18, color: C.ink, marginBottom: 4 }}>
+                Join a Circle
+              </h3>
+              <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16, lineHeight: 1.5 }}>
+                Enter the invite code you received from a friend or family member.
+              </p>
+              <input
+                style={{ ...s.input, fontSize: 16, marginBottom: 14 }}
+                value={joinCode}
+                onChange={(e) => setJoinCode(e.target.value)}
+                placeholder="Paste invite code"
+                autoFocus
+              />
+              <button
+                onClick={() => { handleJoin(); setShowJoinModal(false); }}
+                disabled={!joinCode.trim() || actionLoading}
+                style={{
+                  width: "100%", fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                  background: !joinCode.trim() ? C.muted : C.blue, color: "#fff",
+                  border: "none", borderRadius: 10, padding: "12px",
+                  cursor: !joinCode.trim() ? "default" : "pointer", minHeight: 44,
+                  opacity: !joinCode.trim() ? 0.5 : 1, marginBottom: 8,
+                }}
+              >
+                {actionLoading ? "Joining..." : "Join Circle"}
+              </button>
+              <button
+                onClick={() => setShowJoinModal(false)}
+                style={{
+                  width: "100%", fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600,
+                  background: "none", color: C.muted, border: `1.5px solid ${C.border}`,
+                  borderRadius: 10, padding: "10px", cursor: "pointer",
+                }}
+              >Cancel</button>
+            </div>
           </div>
-          <div style={{ display: "flex", gap: 8 }}>
-            <input
-              style={{ ...s.input, flex: 1, fontSize: 14 }}
-              value={joinCode}
-              onChange={(e) => setJoinCode(e.target.value)}
-              placeholder="Enter invite code"
-            />
-            <button
-              onClick={handleJoin}
-              disabled={!joinCode.trim() || actionLoading}
-              style={{
-                fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
-                background: C.blue, color: "#fff", border: "none", borderRadius: 8,
-                padding: "10px 18px", cursor: "pointer", minHeight: 44,
-                opacity: !joinCode.trim() || actionLoading ? 0.5 : 1,
-              }}
-            >
-              {actionLoading ? "..." : "Join"}
-            </button>
-          </div>
-        </div>
+        )}
 
         {/* Bookmarked activities */}
         {bookmarkedActivities.length > 0 && (
