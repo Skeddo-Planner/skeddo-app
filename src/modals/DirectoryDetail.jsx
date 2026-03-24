@@ -231,6 +231,30 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         </div>
       )}
 
+      {/* Before/After care */}
+      {(p.beforeCare?.available || p.afterCare?.available) && (
+        <div style={{
+          background: C.blue + "0A", borderRadius: 10, padding: "10px 14px", marginBottom: 12,
+          fontFamily: "'Barlow', sans-serif",
+        }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 6 }}>
+            Extended Care Available
+          </div>
+          {p.beforeCare?.available && (
+            <div style={{ fontSize: 14, color: C.ink, marginBottom: 4 }}>
+              Before care: {p.beforeCare.time} — ${p.beforeCare.cost}/wk
+              {p.beforeCare.costFourDay != null && <span style={{ color: C.muted }}> (${p.beforeCare.costFourDay}/4-day wk)</span>}
+            </div>
+          )}
+          {p.afterCare?.available && (
+            <div style={{ fontSize: 14, color: C.ink }}>
+              After care: {p.afterCare.time} — ${p.afterCare.cost}/wk
+              {p.afterCare.costFourDay != null && <span style={{ color: C.muted }}> (${p.afterCare.costFourDay}/4-day wk)</span>}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Key info highlights */}
       <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16, alignItems: "center" }}>
         {p.cost != null && (

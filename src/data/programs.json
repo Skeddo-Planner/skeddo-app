@@ -72320,7 +72320,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72354,7 +72366,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72388,7 +72412,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72422,7 +72458,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72456,7 +72504,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72490,7 +72550,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72524,7 +72596,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72558,7 +72642,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72592,7 +72688,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72626,7 +72734,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72660,7 +72780,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "provider": "Science AL!VE",
@@ -72694,7 +72826,19 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "2:00 PM - 4:00 PM",
+      "cost": 75,
+      "costFourDay": 60
+    }
   },
   {
     "id": 2476,

@@ -696,6 +696,11 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
               {program.dayLength}
             </span>
           )}
+          {(program.beforeCare?.available || program.afterCare?.available) && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: C.blue + "14", color: C.blue, padding: "2px 8px", borderRadius: 10 }}>
+              {program.beforeCare?.available && program.afterCare?.available ? "Before + After Care" : program.beforeCare?.available ? "Before Care" : "After Care"}
+            </span>
+          )}
           {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date() && (
             <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: C.olive + "18", color: C.olive, padding: "2px 8px", borderRadius: 10 }}>
               Early Bird until {new Date(program.earlyBirdDeadline + "T00:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" })}
