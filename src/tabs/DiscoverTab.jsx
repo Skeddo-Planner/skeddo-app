@@ -677,6 +677,8 @@ export default function DiscoverTab({
   const [providerSearch, setProviderSearch] = useState("");
   const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
   const [selectedDayLengths, setSelectedDayLengths] = useState(new Set());
+  const [durationMin, setDurationMin] = useState(0);
+  const [durationMax, setDurationMax] = useState(10);
   const [showBorderline, setShowBorderline] = useState(true);
 
   /* Week filter state — NO week selected by default */
@@ -763,6 +765,8 @@ export default function DiscoverTab({
     setSelectedProviders(new Set());
     setSelectedActivityTypes(new Set());
     setSelectedDayLengths(new Set());
+    setDurationMin(0);
+    setDurationMax(10);
     setProviderSearch("");
     setSelectedWeeks(new Set());
     setVisibleCount(PAGE_SIZE);
@@ -794,6 +798,7 @@ export default function DiscoverTab({
     if (selectedHoods.size > 0) count++;
     if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) count++;
     if (selectedDayLengths.size > 0) count++;
+    if (durationMin > 0 || durationMax < 10) count++;
     if (selectedActivityTypes.size > 0) count++;
     if (selectedProviders.size > 0) count++;
     if (showFavoritesOnly) count++;
@@ -860,6 +865,11 @@ export default function DiscoverTab({
         })) return false;
       }
       if (selectedDayLengths.size > 0 && (!p.dayLength || !selectedDayLengths.has(p.dayLength))) return false;
+      if (durationMin > 0 || durationMax < 10) {
+        const dur = p.durationPerDay;
+        if (dur == null) return durationMin === 0; // no duration data — show only if min is 0
+        if (dur < durationMin || dur > durationMax) return false;
+      }
       return true;
     });
   }, [allDirectoryPrograms, search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks]);
@@ -1048,7 +1058,7 @@ export default function DiscoverTab({
         )}
         <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} />
         <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} />
-        <FilterChip label="Day" count={selectedDayLengths.size} active={selectedDayLengths.size > 0} onClick={() => setActiveDrawer("dayLength")} />
+        <FilterChip label="Duration" count={durationMin > 0 || durationMax < 10 ? 1 : 0} active={durationMin > 0 || durationMax < 10} onClick={() => setActiveDrawer("duration")} />
         <FilterChip label="Status" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
         <FilterChip label="Sort" active={sortBy !== "relevance"} onClick={() => setActiveDrawer("sort")} />
         {totalActiveFilters > 0 && (
@@ -1479,14 +1489,30 @@ export default function DiscoverTab({
           />
         </FilterDrawer>
 
-        {/* Day Length Drawer */}
-        <FilterDrawer open={activeDrawer === "dayLength"} onClose={() => setActiveDrawer(null)} title="Day Length"
-          onClear={() => { setSelectedDayLengths(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-          <FilterOptions
-            options={DAY_LENGTHS.map((dl) => ({ id: dl, label: dl }))}
-            selected={selectedDayLengths}
-            onToggle={(id) => toggleInSet(setSelectedDayLengths, id)}
-          />
+        {/* Duration Drawer */}
+        <FilterDrawer open={activeDrawer === "duration"} onClose={() => setActiveDrawer(null)} title="Duration (hours per day)"
+          onClear={() => { setDurationMin(0); setDurationMax(10); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+          <div style={{ padding: "8px 0 16px" }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.ink, fontWeight: 700, textAlign: "center", marginBottom: 16 }}>
+              {durationMin === 0 && durationMax === 10 ? "Any duration" : `${durationMin}h – ${durationMax}h per day`}
+            </div>
+            <div style={{ padding: "0 4px" }}>
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 6 }}>Minimum: {durationMin}h</div>
+              <input type="range" min="0" max="10" step="0.5" value={durationMin}
+                onChange={(e) => { const v = parseFloat(e.target.value); setDurationMin(Math.min(v, durationMax)); setVisibleCount(PAGE_SIZE); }}
+                style={{ width: "100%", accentColor: C.seaGreen }} />
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 6, marginTop: 14 }}>Maximum: {durationMax}h</div>
+              <input type="range" min="0" max="10" step="0.5" value={durationMax}
+                onChange={(e) => { const v = parseFloat(e.target.value); setDurationMax(Math.max(v, durationMin)); setVisibleCount(PAGE_SIZE); }}
+                style={{ width: "100%", accentColor: C.seaGreen }} />
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 4, padding: "0 2px" }}>
+              <span>0h</span><span>2h</span><span>4h</span><span>6h</span><span>8h</span><span>10h</span>
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 16, lineHeight: 1.5 }}>
+              Duration includes before-care and after-care hours when available. Programs without time data are shown when minimum is 0.
+            </div>
+          </div>
         </FilterDrawer>
 
         {/* Provider Drawer */}
