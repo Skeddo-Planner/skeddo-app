@@ -86,5 +86,23 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - All browsers: Chrome, Safari, Firefox, Edge
 - Test mobile-first, verify desktop
 
+## Rule 14: Prior-Year Data = "Likely Coming Soon" (HARD RULE)
+**Why:** Programs showing "Open for Registration" with 2025 pricing misleads parents into thinking they have current info.
+- If ANY field (cost, dates, times, ages) uses data from a previous year (2025 or earlier):
+  - `enrollmentStatus` MUST be "Likely Coming Soon"
+  - `confirmed2026` MUST be `false`
+  - `priceVerified` MUST be `false`
+  - Description MUST note "Based on prior year — check provider for 2026 details"
+- A program CANNOT show "Open" or "Coming Soon" if we're using estimated data
+- This is NON-NEGOTIABLE
+
+## Rule 15: No False "Free" Listings (HARD RULE)
+**Why:** 847 programs were showing as "$0 / Free" because the cost field was null/empty. Parents filtered by "Free" and got misleading results.
+- `cost: 0` is ONLY for programs confirmed free on the provider's website
+- If cost is unknown: set `cost: null` and add `costNote: "Inquire for pricing"`
+- If cost is estimated from prior year: set the estimated cost with `priceVerified: false`
+- A program must NEVER display as "Free" unless it is genuinely free
+- When displaying costs in the UI: null cost should show "Inquire for pricing", NOT "$0" or "Free"
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
