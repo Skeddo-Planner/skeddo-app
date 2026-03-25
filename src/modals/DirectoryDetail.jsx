@@ -33,7 +33,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   );
 
   // Price is approximate if explicitly flagged or if provider is not verified
-  const isApproxPrice = (p.priceVerified === false || !isMunicipalProvider(p.provider)) && typeof p.cost === "number" && p.cost > 0;
+  const isApproxPrice = p.priceVerified === false && typeof p.cost === "number" && p.cost > 0;
 
   const hasEarlyBird = p.earlyBirdCost != null && p.earlyBirdDeadline;
   const earlyBirdActive = hasEarlyBird && new Date(p.earlyBirdDeadline) >= new Date();

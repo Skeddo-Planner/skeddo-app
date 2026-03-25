@@ -418,7 +418,7 @@ function WeekBrowseRow({ week, programs, onTap, isFavorite, toggleFavorite, adde
 /* ─── Directory Card — program card ─── */
 function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus, eligibility, weekScheduleLabel, accentOverride }) {
   const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
-  const isApprox = !isMunicipalProvider(program.provider) && typeof program.cost === "number" && program.cost > 0;
+  const isApprox = program.priceVerified === false && typeof program.cost === "number" && program.cost > 0;
   const accent = accentOverride || CAT_ACCENT[program.category] || C.seaGreen;
 
   return (
