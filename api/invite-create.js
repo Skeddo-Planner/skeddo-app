@@ -13,7 +13,8 @@ export default async function handler(req, res) {
   const ids = childIds || (childId ? [childId] : []);
   if (ids.length === 0) return res.status(400).json({ error: "childId or childIds required" });
 
-  const sb = getSupabaseClient(user._token);
+  // Use service-role client to bypass RLS — we verify ownership manually below
+  const sb = getSupabaseClient();
 
   // Verify user has access to ALL children
   for (const cid of ids) {
@@ -61,7 +62,14 @@ export default async function handler(req, res) {
     .insert(rows)
     .select();
 
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error("invite-create insert error:", error);
+    return res.status(500).json({ error: error.message });
+  }
+  if (!invites || invites.length === 0) {
+    console.error("invite-create: insert returned no rows");
+    return res.status(500).json({ error: "Failed to create invite" });
+  }
 
   const inviteUrl = `https://skeddo.ca/invite/${inviteCode}`;
 
