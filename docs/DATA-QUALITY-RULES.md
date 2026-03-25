@@ -86,6 +86,13 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - All browsers: Chrome, Safari, Firefox, Edge
 - Test mobile-first, verify desktop
 
+## Rule 16: Changes Apply to Both Platforms by Default
+**Why:** Changes were frequently applied to only mobile or only desktop, requiring follow-up fixes.
+- When a change is requested WITHOUT specifying a platform, apply to BOTH mobile and desktop
+- Only scope to one platform if explicitly told: "for the phone version" or "for the desktop version"
+- Before committing any UI change, verify it renders correctly at both 375px (mobile) and 1400px (desktop)
+- Use `useIsDesktop` hook or CSS media queries where layouts differ between platforms
+
 ## Rule 14: Prior-Year Data = "Likely Coming Soon" (HARD RULE)
 **Why:** Programs showing "Open for Registration" with 2025 pricing misleads parents into thinking they have current info.
 - If ANY field (cost, dates, times, ages) uses data from a previous year (2025 or earlier):
