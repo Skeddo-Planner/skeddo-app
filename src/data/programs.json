@@ -870,7 +870,7 @@
       "contemporary"
     ],
     "activityType": "Dance",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true,
     "earlyBirdCost": 300,
     "earlyBirdDeadline": "2026-05-15",
@@ -907,7 +907,7 @@
       "contemporary"
     ],
     "activityType": "Dance",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true,
     "earlyBirdCost": 300,
     "earlyBirdDeadline": "2026-05-15",
@@ -944,7 +944,7 @@
       "contemporary"
     ],
     "activityType": "Dance",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true,
     "earlyBirdCost": 300,
     "earlyBirdDeadline": "2026-05-15",
@@ -981,7 +981,7 @@
       "contemporary"
     ],
     "activityType": "Dance",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true,
     "earlyBirdCost": 300,
     "earlyBirdDeadline": "2026-05-15",
@@ -6087,7 +6087,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6124,7 +6124,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6161,7 +6161,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6198,7 +6198,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6235,7 +6235,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6272,7 +6272,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6309,7 +6309,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -6346,7 +6346,7 @@
     "activityType": "Soccer",
     "priceVerified": true,
     "confirmed2026": true,
-    "earlyBirdCost": 269,
+    "earlyBirdCost": 259,
     "earlyBirdDeadline": "2026-03-31",
     "dayLength": "Full Day",
     "season": "Summer 2026",
@@ -37399,7 +37399,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1205,
@@ -37436,7 +37438,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1206,
@@ -37473,7 +37477,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1207,
@@ -37510,7 +37516,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1208,
@@ -37547,7 +37555,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1209,
@@ -37584,7 +37594,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1210,
@@ -37621,7 +37633,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1211,
@@ -37658,7 +37672,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1212,
@@ -37695,7 +37711,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1213,
@@ -37732,7 +37750,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1214,
@@ -37769,7 +37789,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1215,
@@ -37806,7 +37828,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1216,
@@ -37843,7 +37867,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1217,
@@ -37880,7 +37906,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1218,
@@ -37917,7 +37945,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1219,
@@ -37954,7 +37984,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1220,
@@ -37991,7 +38023,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1221,
@@ -38028,7 +38062,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1222,
@@ -38065,7 +38101,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1223,
@@ -38102,7 +38140,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1224,
@@ -38139,7 +38179,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1225,
@@ -38176,7 +38218,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1226,
@@ -38213,7 +38257,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1227,
@@ -38250,7 +38296,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "registrationDate": "2026-03-15",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": 1273,
@@ -39941,80 +39989,6 @@
     "season": "Summer 2026",
     "costNote": "Based on 2024 pricing — check provider for 2026 rates",
     "durationPerDay": 7
-  },
-  {
-    "name": "Thimbleberry Camp",
-    "description": "NOT RUNNING IN 2026. Muddy Boot Prints will not be hosting summer programs this year. The Vancouver chapter (Marina Stamboulieh) continues running the Flicker Program in East Van year-round.",
-    "startDate": "2026-07-06",
-    "endDate": "2026-07-10",
-    "provider": "Muddy Boot Prints",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Half Day (AM)",
-    "ageMin": 3,
-    "ageMax": 6,
-    "days": "Mon-Fri",
-    "startTime": "9:15 AM",
-    "endTime": "1:15 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Kensington-Cedar Cottage",
-    "address": "Trout Lake Park, 3350 Victoria Dr, Vancouver, BC",
-    "lat": 49.2565,
-    "lng": -123.0651,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://muddybootprints.ca/programs/summer-camps/",
-    "tags": [
-      "nature",
-      "outdoor",
-      "art",
-      "crafts",
-      "preschool"
-    ],
-    "activityType": "Outdoor",
-    "id": 1391,
-    "priceVerified": true,
-    "confirmed2026": true,
-    "dayLength": "Half Day",
-    "season": "Summer 2026",
-    "durationPerDay": 4
-  },
-  {
-    "name": "Salmonberry Camp",
-    "description": "NOT RUNNING IN 2026. Muddy Boot Prints will not be hosting summer programs this year. The Vancouver chapter (Marina Stamboulieh) continues running the Flicker Program in East Van year-round.",
-    "startDate": "2026-07-13",
-    "endDate": "2026-07-17",
-    "provider": "Muddy Boot Prints",
-    "category": "Outdoor",
-    "campType": "Summer Camp",
-    "scheduleType": "Half Day (AM)",
-    "ageMin": 3,
-    "ageMax": 6,
-    "days": "Mon-Fri",
-    "startTime": "9:15 AM",
-    "endTime": "1:15 PM",
-    "cost": 350,
-    "indoorOutdoor": "Outdoor",
-    "neighbourhood": "Kensington-Cedar Cottage",
-    "address": "Trout Lake Park, 3350 Victoria Dr, Vancouver, BC",
-    "lat": 49.2565,
-    "lng": -123.0651,
-    "enrollmentStatus": "Open",
-    "registrationUrl": "https://muddybootprints.ca/programs/summer-camps/",
-    "tags": [
-      "nature",
-      "outdoor",
-      "art",
-      "crafts",
-      "preschool"
-    ],
-    "activityType": "Outdoor",
-    "id": 1392,
-    "priceVerified": true,
-    "confirmed2026": true,
-    "dayLength": "Half Day",
-    "season": "Summer 2026",
-    "durationPerDay": 4
   },
   {
     "id": 1393,
@@ -62604,7 +62578,7 @@
       "hip hop"
     ],
     "activityType": "Dance",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true,
     "earlyBirdCost": 600,
     "earlyBirdDeadline": "2026-05-15",
@@ -62643,7 +62617,7 @@
       "hip hop"
     ],
     "activityType": "Dance",
-    "priceVerified": false,
+    "priceVerified": true,
     "confirmed2026": true,
     "earlyBirdCost": 600,
     "earlyBirdDeadline": "2026-05-15",
@@ -77554,7 +77528,7 @@
     "season": "Summer 2026",
     "durationPerDay": 4,
     "earlyBirdCost": 40,
-    "earlyBirdDeadline": "2026-06-01"
+    "earlyBirdDeadline": "2026-05-01"
   },
   {
     "id": "camp-squeah-1",
@@ -112098,7 +112072,9 @@
     "priceVerified": false,
     "dayLength": "Single Day",
     "season": "Spring 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": "proday-jump-richmond-1",
@@ -112134,7 +112110,9 @@
     "priceVerified": false,
     "dayLength": "Single Day",
     "season": "Spring 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": "proday-jump-northvan-1",
@@ -112170,7 +112148,9 @@
     "priceVerified": false,
     "dayLength": "Single Day",
     "season": "Spring 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "earlyBirdCost": 419.99,
+    "earlyBirdDeadline": "2026-04-14"
   },
   {
     "id": "proday-peartree-kits-1",
@@ -112710,7 +112690,6 @@
     "startTime": null,
     "endTime": null,
     "cost": 6432,
-    "earlyBirdPrice": 6126,
     "earlyBirdDeadline": "2025-10-31",
     "indoorOutdoor": "Both",
     "neighbourhood": "Kelowna Area",
@@ -112730,7 +112709,8 @@
     "priceVerified": true,
     "dayLength": "Multi-Week",
     "season": "Summer 2026",
-    "id": 2509
+    "id": 2509,
+    "earlyBirdCost": 6126
   },
   {
     "name": "Camp Hatikvah — 2nd Session (Grades 3-8)",
@@ -112746,7 +112726,6 @@
     "startTime": null,
     "endTime": null,
     "cost": 3500,
-    "earlyBirdPrice": 3334,
     "earlyBirdDeadline": "2025-10-31",
     "indoorOutdoor": "Both",
     "neighbourhood": "Kelowna Area",
@@ -112766,7 +112745,8 @@
     "priceVerified": true,
     "dayLength": "Multi-Week",
     "season": "Summer 2026",
-    "id": 2510
+    "id": 2510,
+    "earlyBirdCost": 3334
   },
   {
     "name": "Camp Hatikvah — Giborim (Grade 2)",
@@ -112782,7 +112762,6 @@
     "startTime": null,
     "endTime": null,
     "cost": 1470,
-    "earlyBirdPrice": 1400,
     "earlyBirdDeadline": "2025-10-31",
     "indoorOutdoor": "Both",
     "neighbourhood": "Kelowna Area",
@@ -112803,7 +112782,8 @@
     "priceVerified": true,
     "dayLength": "Full Week",
     "season": "Summer 2026",
-    "id": 2511
+    "id": 2511,
+    "earlyBirdCost": 1400
   },
   {
     "name": "Camp Hatikvah — K'tanim (Grade 1)",
@@ -112819,7 +112799,6 @@
     "startTime": null,
     "endTime": null,
     "cost": 630,
-    "earlyBirdPrice": 600,
     "earlyBirdDeadline": "2025-10-31",
     "indoorOutdoor": "Both",
     "neighbourhood": "Kelowna Area",
@@ -112840,7 +112819,8 @@
     "priceVerified": true,
     "dayLength": "Partial Week",
     "season": "Summer 2026",
-    "id": 2512
+    "id": 2512,
+    "earlyBirdCost": 600
   },
   {
     "name": "WCSYA Sikh Youth Summer Camp",
@@ -112856,7 +112836,6 @@
     "startTime": null,
     "endTime": null,
     "cost": 375,
-    "earlyBirdPrice": 300,
     "earlyBirdDeadline": "2026-04-30",
     "indoorOutdoor": "Both",
     "neighbourhood": "Mission",
@@ -112878,7 +112857,8 @@
     "priceVerified": true,
     "dayLength": "Full Week",
     "season": "Summer 2026",
-    "id": 2513
+    "id": 2513,
+    "earlyBirdCost": 300
   },
   {
     "name": "Mandarin Immersion Summer Camp — Half Day AM (W1 & W2)",
