@@ -886,7 +886,7 @@ export default function DiscoverTab({
       }
       return true;
     });
-  }, [allDirectoryPrograms, search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks]);
+  }, [allDirectoryPrograms, search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks, durationMin, durationMax]);
 
   /* ─── Sort ─── */
   const sortedPrograms = useMemo(() => {
@@ -1556,10 +1556,9 @@ export default function DiscoverTab({
                 &#x1F50D;
               </span>
             </div>
-            <div style={{ maxHeight: 300, overflowY: "auto" }}>
+            <div style={{ maxHeight: 400, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
               {allProviders
                 .filter((prov) => prov.toLowerCase().includes(providerSearch.toLowerCase().trim()))
-                .slice(0, 50)
                 .map((prov) => {
                   const isSelected = selectedProviders.has(prov);
                   return (
