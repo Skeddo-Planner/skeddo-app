@@ -2237,7 +2237,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "urlVerified": true,
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:00 PM - 5:00 PM"
+    }
   },
   {
     "id": 144,
@@ -2274,7 +2282,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "urlVerified": true,
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:00 PM - 5:00 PM"
+    }
   },
   {
     "id": 145,
@@ -2311,7 +2327,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "urlVerified": true,
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:00 PM - 5:00 PM"
+    }
   },
   {
     "id": 146,
@@ -2348,7 +2372,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "urlVerified": true,
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:00 PM - 5:00 PM"
+    }
   },
   {
     "id": 147,
@@ -2385,7 +2417,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "urlVerified": true,
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:00 PM - 5:00 PM"
+    }
   },
   {
     "id": 148,
@@ -2422,7 +2462,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "urlVerified": true,
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:00 PM - 5:00 PM"
+    }
   },
   {
     "id": 149,
@@ -2458,7 +2506,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 150,
@@ -2494,7 +2548,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 151,
@@ -2530,7 +2590,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 152,
@@ -2566,7 +2632,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 153,
@@ -2602,7 +2674,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 154,
@@ -2638,7 +2716,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 155,
@@ -7295,7 +7379,19 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 8:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:30 PM - 5:00 PM",
+      "cost": 50,
+      "costFourDay": 40
+    }
   },
   {
     "id": 326,
@@ -7330,7 +7426,19 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 8:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:30 PM - 5:00 PM",
+      "cost": 50,
+      "costFourDay": 40
+    }
   },
   {
     "id": 327,
@@ -7365,7 +7473,19 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 8:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:30 PM - 5:00 PM",
+      "cost": 50,
+      "costFourDay": 40
+    }
   },
   {
     "id": 328,
@@ -7400,7 +7520,19 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 8:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:30 PM - 5:00 PM",
+      "cost": 50,
+      "costFourDay": 40
+    }
   },
   {
     "id": 329,
@@ -7435,7 +7567,19 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 8:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:30 PM - 5:00 PM",
+      "cost": 50,
+      "costFourDay": 40
+    }
   },
   {
     "id": 330,
@@ -7470,7 +7614,19 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 8:30 AM",
+      "cost": 50,
+      "costFourDay": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:30 PM - 5:00 PM",
+      "cost": 50,
+      "costFourDay": 40
+    }
   },
   {
     "id": 331,
@@ -10864,7 +11020,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 436,
@@ -10900,7 +11062,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 437,
@@ -10936,7 +11104,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 438,
@@ -10972,7 +11146,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 439,
@@ -11008,7 +11188,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 440,
@@ -11044,7 +11230,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 441,
@@ -14362,7 +14554,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 552,
@@ -14399,7 +14601,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 553,
@@ -14436,7 +14648,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 554,
@@ -14473,7 +14695,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 555,
@@ -14510,7 +14742,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 556,
@@ -14547,7 +14789,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 557,
@@ -14584,7 +14836,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 558,
@@ -14621,7 +14883,17 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7
+    "durationPerDay": 7,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM",
+      "cost": 10
+    }
   },
   {
     "id": 559,
@@ -14695,7 +14967,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7.5
+    "durationPerDay": 7.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 566,
@@ -14731,7 +15009,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7.5
+    "durationPerDay": 7.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 567,
@@ -14767,7 +15051,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7.5
+    "durationPerDay": 7.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 568,
@@ -14803,7 +15093,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7.5
+    "durationPerDay": 7.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 569,
@@ -14839,7 +15135,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7.5
+    "durationPerDay": 7.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 570,
@@ -14875,7 +15177,13 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 7.5
+    "durationPerDay": 7.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": 571,
@@ -15343,7 +15651,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "costNote": "Price may vary — verify with provider",
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": 584,
@@ -15379,7 +15695,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "costNote": "Price may vary — verify with provider",
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": 585,
@@ -15415,7 +15739,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "costNote": "Price may vary — verify with provider",
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": 586,
@@ -15451,7 +15783,15 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "costNote": "Price may vary — verify with provider",
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": 587,
@@ -18733,7 +19073,7 @@
     "address": "4196 West 4th Avenue, Vancouver, BC",
     "lat": 49.2685,
     "lng": -123.207,
-    "enrollmentStatus": "Completed",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://pedalheads.com/en/camp",
     "description": "Spring break bike riding camp. Prices vary by program level and location — check website for current rates.",
     "tags": [
@@ -50287,7 +50627,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1713,
@@ -50323,7 +50671,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1714,
@@ -50358,7 +50714,15 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1715,
@@ -50394,7 +50758,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1716,
@@ -50431,7 +50803,15 @@
     "dayLength": "Single Day",
     "season": "Summer 2026",
     "costNote": "Free program",
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1717,
@@ -50467,7 +50847,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1718,
@@ -50503,7 +50891,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1719,
@@ -50539,7 +50935,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1720,
@@ -50575,7 +50979,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1721,
@@ -50611,7 +51023,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1722,
@@ -50647,7 +51067,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1723,
@@ -50683,7 +51111,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1724,
@@ -50719,7 +51155,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 5.5
+    "durationPerDay": 5.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1725,
@@ -50755,7 +51199,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1726,
@@ -50791,7 +51243,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1.5
+    "durationPerDay": 1.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1728,
@@ -50827,7 +51287,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1.5
+    "durationPerDay": 1.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1730,
@@ -50863,7 +51331,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1731,
@@ -50899,7 +51375,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1732,
@@ -50935,7 +51419,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1733,
@@ -50971,7 +51463,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1734,
@@ -51007,7 +51507,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1735,
@@ -51043,7 +51551,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1736,
@@ -51079,7 +51595,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1737,
@@ -51115,7 +51639,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1738,
@@ -51151,7 +51683,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 0.5
+    "durationPerDay": 0.5,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1739,
@@ -51187,7 +51727,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1740,
@@ -51223,7 +51771,15 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1741,
@@ -51259,7 +51815,15 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM"
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 6:00 PM"
+    }
   },
   {
     "id": 1742,
@@ -79121,7 +79685,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 2.5
+    "durationPerDay": 2.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0130",
@@ -79187,7 +79757,7 @@
     "postalCode": "V6R 4H2",
     "lat": 49.259314,
     "lng": -123.192886,
-    "enrollmentStatus": "Closed",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.activekids.com/vancouver-bc/water-sports/swimming-classes/bronze-group-swim-practices-spring-break-2026",
     "description": "Bronze Group Swim Practices - Spring Break",
     "tags": [
@@ -86347,7 +86917,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0354",
@@ -86393,7 +86969,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0355",
@@ -86988,7 +87570,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0369",
@@ -87688,7 +88276,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 4
+    "durationPerDay": 4,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0386",
@@ -87771,7 +88367,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0388",
@@ -87818,7 +88422,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0389",
@@ -88002,7 +88612,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0393",
@@ -88129,7 +88745,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0396",
@@ -88220,7 +88844,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0398",
@@ -88266,7 +88898,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0399",
@@ -88311,7 +88951,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0400",
@@ -88475,7 +89123,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0406",
@@ -88521,7 +89177,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0407",
@@ -88603,7 +89267,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0409",
@@ -88833,7 +89503,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0414",
@@ -88878,7 +89556,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0415",
@@ -88924,7 +89610,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0416",
@@ -89004,7 +89696,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0418",
@@ -89049,7 +89749,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0419",
@@ -89094,7 +89802,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0420",
@@ -89140,7 +89856,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0421",
@@ -89398,7 +90122,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0428",
@@ -89444,7 +90176,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0429",
@@ -89490,7 +90230,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0430",
@@ -89573,7 +90321,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0432",
@@ -89618,7 +90374,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0433",
@@ -89663,7 +90427,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0434",
@@ -89707,7 +90479,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0435",
@@ -89752,7 +90532,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0436",
@@ -89796,7 +90584,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0437",
@@ -89842,7 +90638,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0438",
@@ -89887,7 +90691,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0439",
@@ -89977,7 +90789,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0441",
@@ -90059,7 +90879,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0443",
@@ -90417,7 +91245,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0453",
@@ -90499,7 +91335,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0455",
@@ -90580,7 +91424,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0457",
@@ -90865,7 +91717,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0464",
@@ -91178,7 +92038,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0471",
@@ -91223,7 +92091,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0473",
@@ -91269,7 +92145,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0474",
@@ -91314,7 +92196,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0475",
@@ -91406,7 +92296,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0477",
@@ -91542,7 +92438,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 4
+    "durationPerDay": 4,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0480",
@@ -91622,7 +92526,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0482",
@@ -91712,7 +92624,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0484",
@@ -91758,7 +92678,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0485",
@@ -91886,7 +92812,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0488",
@@ -92098,7 +93032,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0494",
@@ -92143,7 +93085,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0495",
@@ -92189,7 +93139,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0496",
@@ -92272,7 +93230,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0498",
@@ -92318,7 +93284,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0499",
@@ -92364,7 +93338,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0500",
@@ -92409,7 +93391,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0501",
@@ -92454,7 +93444,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0502",
@@ -92500,7 +93498,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0503",
@@ -92544,7 +93550,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0504",
@@ -92589,7 +93603,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0505",
@@ -92635,7 +93657,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0507",
@@ -92717,7 +93747,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0509",
@@ -92762,7 +93800,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0510",
@@ -92844,7 +93890,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 4
+    "durationPerDay": 4,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0512",
@@ -93096,7 +94150,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0518",
@@ -93142,7 +94202,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0519",
@@ -93279,7 +94345,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0522",
@@ -93324,7 +94398,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 4
+    "durationPerDay": 4,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0523",
@@ -93368,7 +94450,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0524",
@@ -93626,7 +94716,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0531",
@@ -93708,7 +94806,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0533",
@@ -93836,7 +94942,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0537",
@@ -93881,7 +94995,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0538",
@@ -93926,7 +95048,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0539",
@@ -93972,7 +95102,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0540",
@@ -94219,7 +95355,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0548",
@@ -94424,7 +95568,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0557",
@@ -94470,7 +95622,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0558",
@@ -94514,7 +95674,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0559",
@@ -94560,7 +95728,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0560",
@@ -94606,7 +95782,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0561",
@@ -94690,7 +95874,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0563",
@@ -94735,7 +95927,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0564",
@@ -94780,7 +95980,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0565",
@@ -94826,7 +96034,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0567",
@@ -94871,7 +96087,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0568",
@@ -94953,7 +96177,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0570",
@@ -95072,7 +96304,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "timeNote": "Full day — check registration for times"
+    "timeNote": "Full day — check registration for times",
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0575",
@@ -95153,7 +96393,15 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0577",
@@ -95495,7 +96743,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0585",
@@ -95541,7 +96797,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0586",
@@ -95633,7 +96897,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0588",
@@ -95715,7 +96987,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0590",
@@ -95945,7 +97223,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 4
+    "durationPerDay": 4,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0595",
@@ -96063,7 +97349,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0599",
@@ -96369,7 +97663,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0607",
@@ -96491,7 +97791,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0610",
@@ -96536,7 +97844,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0611",
@@ -96581,7 +97897,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0612",
@@ -96626,7 +97950,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0613",
@@ -96673,7 +98005,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0614",
@@ -96850,7 +98188,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 6.5
+    "durationPerDay": 6.5,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0618",
@@ -96894,7 +98240,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0619",
@@ -97208,7 +98562,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0630",
@@ -97254,7 +98616,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0631",
@@ -97300,7 +98670,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0632",
@@ -97346,7 +98724,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0633",
@@ -97392,7 +98778,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0634",
@@ -97437,7 +98831,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0635",
@@ -97482,7 +98884,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0637",
@@ -97528,7 +98938,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0638",
@@ -97611,7 +99029,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 3
+    "durationPerDay": 3,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0641",
@@ -97656,7 +99082,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0642",
@@ -97701,7 +99135,15 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": 1
+    "durationPerDay": 1,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": true,
+      "time": "3:30 PM - 4:30 PM",
+      "cost": 20
+    }
   },
   {
     "id": "ACT-0643",
@@ -98071,7 +99513,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0653",
@@ -98458,7 +99906,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0665",
@@ -98596,7 +100050,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0668",
@@ -98945,7 +100405,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0676",
@@ -99308,7 +100774,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0695",
@@ -99621,7 +101093,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0702",
@@ -99759,7 +101237,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0705",
@@ -100896,7 +102380,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0737",
@@ -101154,7 +102644,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0743",
@@ -101384,7 +102880,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0748",
@@ -101568,7 +103070,13 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": 6
+    "durationPerDay": 6,
+    "beforeCare": {
+      "available": false
+    },
+    "afterCare": {
+      "available": false
+    }
   },
   {
     "id": "ACT-0752",
@@ -102625,7 +104133,7 @@
     "postalCode": "V6H 3R8",
     "lat": 49.269005,
     "lng": -123.134604,
-    "enrollmentStatus": "Closed",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.activekids.com/vancouver-bc/boating/canoeing-camps/youth-canoe-kayak-sprint-into-september-program-sept-2026",
     "description": "Youth Canoe/Kayak - Sprint into September Program (Sept)",
     "tags": [
@@ -102666,7 +104174,7 @@
     "postalCode": "V6H 3R8",
     "lat": 49.269005,
     "lng": -123.134604,
-    "enrollmentStatus": "Closed",
+    "enrollmentStatus": "Coming Soon",
     "registrationUrl": "https://www.activekids.com/vancouver-bc/boating/canoeing-camps/youth-canoe-kayak-after-school-introduction-to-paddling-september-2026",
     "description": "Youth Canoe/Kayak - After School Introduction to Paddling - September",
     "tags": [
@@ -109979,7 +111487,7 @@
     "address": "3350 Maquinna Dr, Vancouver, BC",
     "neighbourhood": "Victoria-Fraserview",
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110008,7 +111516,7 @@
     "address": "6810 Main St, Vancouver, BC",
     "neighbourhood": "Sunset",
     "registrationUrl": "https://mysunset.net/summer-day-camps-2026/",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110125,7 +111633,7 @@
     "address": "2929 East 22nd Ave, Vancouver, BC",
     "neighbourhood": "Renfrew-Collingwood",
     "registrationUrl": "https://renfrewcc.com",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110183,7 +111691,7 @@
     "address": "2311 Cassiar St, Vancouver, BC",
     "neighbourhood": "Renfrew-Collingwood",
     "registrationUrl": "https://thunderbirdcc.ca",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110270,7 +111778,7 @@
     "address": "990 W 59th Ave, Vancouver, BC",
     "neighbourhood": "Oakridge",
     "registrationUrl": "https://marpoleoakridge.org",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110299,7 +111807,7 @@
     "address": "4575 Clancy Loranger Way, Vancouver, BC",
     "neighbourhood": "South Cambie",
     "registrationUrl": "https://hillcrestcommunitycentre.com",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110328,7 +111836,7 @@
     "address": "4585 West 8th Ave, Vancouver, BC",
     "neighbourhood": "Arbutus Ridge",
     "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -110357,7 +111865,7 @@
     "address": "3360 Victoria Dr, Vancouver, BC",
     "neighbourhood": "Grandview-Woodland",
     "registrationUrl": "https://troutlakecc.com",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Coming Soon",
     "registrationDate": "2026-04-08",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -111805,7 +113313,7 @@
     "address": "7700 Minoru Gate, Richmond, BC",
     "neighbourhood": "City Centre",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
-    "enrollmentStatus": "Upcoming",
+    "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "description": "At Richmond Cultural Centre. Registration link coming soon.",
@@ -111836,7 +113344,7 @@
     "address": "7700 Minoru Gate, Richmond, BC",
     "neighbourhood": "City Centre",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
-    "enrollmentStatus": "Upcoming",
+    "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "campType": "Summer Camp",
@@ -111866,7 +113374,7 @@
     "address": "7700 Minoru Gate, Richmond, BC",
     "neighbourhood": "City Centre",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
-    "enrollmentStatus": "Upcoming",
+    "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "campType": "Summer Camp",
@@ -111896,7 +113404,7 @@
     "address": "7700 Minoru Gate, Richmond, BC",
     "neighbourhood": "City Centre",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
-    "enrollmentStatus": "Upcoming",
+    "enrollmentStatus": "Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "campType": "Summer Camp",
@@ -113266,7 +114774,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2524
+    "id": 2524,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 2",
@@ -113304,7 +114822,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2525
+    "id": 2525,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 3",
@@ -113342,7 +114870,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2526
+    "id": 2526,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 4",
@@ -113380,7 +114918,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2527
+    "id": 2527,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 5",
@@ -113418,7 +114966,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2528
+    "id": 2528,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 6",
@@ -113456,7 +115014,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2529
+    "id": 2529,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 7",
@@ -113494,7 +115062,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2530
+    "id": 2530,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Camp Virgule French Day Camp — Week 8",
@@ -113532,7 +115110,17 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "durationPerDay": 7,
-    "id": 2531
+    "id": 2531,
+    "beforeCare": {
+      "available": true,
+      "time": "8:00 AM - 9:00 AM",
+      "cost": 10
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:00 PM",
+      "cost": 10
+    }
   },
   {
     "name": "Vacanze in Italiano — Week 1 (Sud d'Italia)",
