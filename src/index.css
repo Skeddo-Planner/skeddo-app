@@ -105,7 +105,7 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
   /* Main content area */
   .skeddo-desktop-main {
     flex: 1;
-    max-width: 960px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px 24px !important;
     overflow-y: auto;
@@ -124,7 +124,7 @@ body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-s
   /* Override skeddo-main for desktop to remove mobile padding */
   .skeddo-main.skeddo-desktop-main {
     padding: 20px 24px 0 !important;
-    max-width: 960px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 }
