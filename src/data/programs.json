@@ -11814,7 +11814,7 @@
     "ageMin": 3,
     "ageMax": 6,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-28",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -11826,7 +11826,7 @@
     "lng": -122.913,
     "enrollmentStatus": "Open",
     "registrationUrl": "https://woodsandwaves.ca/camps",
-    "description": "Small outdoor program at Jericho Beach. 1:5 ratio, entirely outdoors.",
+    "description": "Small outdoor program at Jericho Beach. 1:5 ratio, entirely outdoors. Runs weekly, Jul 6 - Aug 28. Register for individual weeks.",
     "tags": [
       "outdoor",
       "nature",
@@ -11838,7 +11838,9 @@
     "confirmed2026": false,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-28"
   },
   {
     "id": 479,
@@ -55837,7 +55839,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -55849,7 +55851,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55861,7 +55863,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1925,
@@ -55873,7 +55877,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -55885,7 +55889,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -55897,7 +55901,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1926,
@@ -55909,7 +55915,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -55921,7 +55927,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -55933,7 +55939,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1927,
@@ -55945,7 +55953,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -55957,7 +55965,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -55969,7 +55977,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1928,
@@ -55981,7 +55991,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -55993,7 +56003,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -56005,7 +56015,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1929,
@@ -56017,7 +56029,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56029,7 +56041,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -56041,7 +56053,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1930,
@@ -56053,7 +56067,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56065,7 +56079,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -56077,7 +56091,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1931,
@@ -56089,7 +56105,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56101,7 +56117,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -56113,7 +56129,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1932,
@@ -56125,7 +56143,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56137,7 +56155,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -56149,7 +56167,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1933,
@@ -56161,7 +56181,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56173,7 +56193,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -56185,7 +56205,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1934,
@@ -56197,7 +56219,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56209,7 +56231,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -56221,7 +56243,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1935,
@@ -56233,7 +56257,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56245,7 +56269,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -56257,7 +56281,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1936,
@@ -56269,7 +56295,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56281,7 +56307,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Thompson+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -56292,7 +56318,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1937,
@@ -56304,7 +56332,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56316,7 +56344,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Thompson+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -56327,7 +56355,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1938,
@@ -56339,7 +56369,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56351,7 +56381,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -56363,7 +56393,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1939,
@@ -56375,7 +56407,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56387,7 +56419,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -56399,7 +56431,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1940,
@@ -56411,7 +56445,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56423,7 +56457,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -56435,7 +56469,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1941,
@@ -56447,7 +56483,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56459,7 +56495,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -56471,7 +56507,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1942,
@@ -56483,7 +56521,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56495,7 +56533,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -56507,7 +56545,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1943,
@@ -56519,7 +56559,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56531,7 +56571,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -56543,7 +56583,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1944,
@@ -56555,7 +56597,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56567,7 +56609,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -56579,7 +56621,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1945,
@@ -56591,7 +56635,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56603,7 +56647,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -56615,7 +56659,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1946,
@@ -56627,7 +56673,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56639,7 +56685,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -56651,7 +56697,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1947,
@@ -56663,7 +56711,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56675,7 +56723,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -56687,7 +56735,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1948,
@@ -56699,7 +56749,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56711,7 +56761,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -56723,7 +56773,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1949,
@@ -56735,7 +56787,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56747,7 +56799,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -56759,7 +56811,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1950,
@@ -56771,7 +56825,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56783,7 +56837,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+South+Arm+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -56794,7 +56848,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1951,
@@ -56806,7 +56862,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56818,7 +56874,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+South+Arm+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -56829,7 +56885,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1952,
@@ -56841,7 +56899,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56853,7 +56911,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -56865,7 +56923,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1953,
@@ -56877,7 +56937,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56889,7 +56949,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -56901,7 +56961,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1954,
@@ -56913,7 +56975,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56925,7 +56987,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -56937,7 +56999,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1955,
@@ -56949,7 +57013,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56961,7 +57025,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -56973,7 +57037,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1956,
@@ -56985,7 +57051,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -56997,7 +57063,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -57009,7 +57075,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1957,
@@ -57021,7 +57089,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57033,7 +57101,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -57045,7 +57113,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1958,
@@ -57057,7 +57127,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57069,7 +57139,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -57081,7 +57151,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1959,
@@ -57093,7 +57165,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57105,7 +57177,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -57117,7 +57189,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1960,
@@ -57129,7 +57203,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57141,7 +57215,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -57153,7 +57227,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1961,
@@ -57165,7 +57241,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57177,7 +57253,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -57189,7 +57265,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1962,
@@ -57201,7 +57279,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57213,7 +57291,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -57225,7 +57303,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1963,
@@ -57237,7 +57317,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57249,7 +57329,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -57261,7 +57341,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1964,
@@ -57273,7 +57355,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57285,7 +57367,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Steveston+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -57296,7 +57378,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1965,
@@ -57308,7 +57392,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57320,7 +57404,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Steveston+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -57331,7 +57415,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1966,
@@ -57343,7 +57429,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57355,7 +57441,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -57367,7 +57453,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1967,
@@ -57379,7 +57467,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57391,7 +57479,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -57403,7 +57491,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1968,
@@ -57415,7 +57505,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57427,7 +57517,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -57439,7 +57529,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1969,
@@ -57451,7 +57543,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57463,7 +57555,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -57475,7 +57567,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1970,
@@ -57487,7 +57581,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57499,7 +57593,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -57511,7 +57605,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1971,
@@ -57523,7 +57619,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57535,7 +57631,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -57547,7 +57643,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1972,
@@ -57559,7 +57657,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57571,7 +57669,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -57583,7 +57681,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1973,
@@ -57595,7 +57695,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57607,7 +57707,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -57619,7 +57719,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1974,
@@ -57631,7 +57733,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57643,7 +57745,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -57655,7 +57757,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1975,
@@ -57667,7 +57771,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57679,7 +57783,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -57691,7 +57795,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1976,
@@ -57703,7 +57809,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57715,7 +57821,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -57727,7 +57833,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1977,
@@ -57739,7 +57847,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57751,7 +57859,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -57763,7 +57871,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1978,
@@ -57775,7 +57885,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57787,7 +57897,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+City+Centre+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -57798,7 +57908,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1979,
@@ -57810,7 +57922,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57822,7 +57934,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+City+Centre+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -57833,7 +57945,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1980,
@@ -57845,7 +57959,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57857,7 +57971,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -57869,7 +57983,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1981,
@@ -57881,7 +57997,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57893,7 +58009,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -57905,7 +58021,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1982,
@@ -57917,7 +58035,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57929,7 +58047,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -57941,7 +58059,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1983,
@@ -57953,7 +58073,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -57965,7 +58085,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -57977,7 +58097,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1984,
@@ -57989,7 +58111,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58001,7 +58123,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -58013,7 +58135,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1985,
@@ -58025,7 +58149,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58037,7 +58161,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -58049,7 +58173,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1986,
@@ -58061,7 +58187,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58073,7 +58199,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -58085,7 +58211,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1987,
@@ -58097,7 +58225,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58109,7 +58237,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -58121,7 +58249,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1988,
@@ -58133,7 +58263,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58145,7 +58275,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -58157,7 +58287,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1989,
@@ -58169,7 +58301,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58181,7 +58313,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -58193,7 +58325,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1990,
@@ -58205,7 +58339,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58217,7 +58351,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -58229,7 +58363,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1991,
@@ -58241,7 +58377,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58253,7 +58389,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -58265,7 +58401,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1992,
@@ -58277,7 +58415,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58289,7 +58427,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+West+Richmond+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -58300,7 +58438,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1993,
@@ -58312,7 +58452,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58324,7 +58464,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+West+Richmond+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -58335,7 +58475,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1994,
@@ -58347,7 +58489,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58359,7 +58501,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -58371,7 +58513,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1995,
@@ -58383,7 +58527,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58395,7 +58539,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -58407,7 +58551,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1996,
@@ -58419,7 +58565,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58431,7 +58577,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -58443,7 +58589,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1997,
@@ -58455,7 +58603,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58467,7 +58615,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -58479,7 +58627,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1998,
@@ -58491,7 +58641,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58503,7 +58653,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -58515,7 +58665,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 1999,
@@ -58527,7 +58679,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58539,7 +58691,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -58551,7 +58703,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2000,
@@ -58563,7 +58717,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58575,7 +58729,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -58587,7 +58741,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2001,
@@ -58599,7 +58755,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58611,7 +58767,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -58623,7 +58779,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2002,
@@ -58635,7 +58793,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58647,7 +58805,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -58659,7 +58817,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2003,
@@ -58671,7 +58831,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58683,7 +58843,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -58695,7 +58855,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2004,
@@ -58707,7 +58869,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58719,7 +58881,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -58731,7 +58893,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2005,
@@ -58743,7 +58907,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58755,7 +58919,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -58767,7 +58931,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2006,
@@ -58779,7 +58945,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58791,7 +58957,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Cambie+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -58802,7 +58968,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2007,
@@ -58814,7 +58982,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58826,7 +58994,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Cambie+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -58837,7 +59005,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2008,
@@ -58849,7 +59019,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58861,7 +59031,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond adventure camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -58873,7 +59043,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2009,
@@ -58885,7 +59057,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58897,7 +59069,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Adventure+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond adventure camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond adventure camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "adventure",
       "outdoor",
@@ -58909,7 +59081,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2010,
@@ -58921,7 +59095,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58933,7 +59107,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond arts camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -58945,7 +59119,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2011,
@@ -58957,7 +59133,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -58969,7 +59145,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Arts+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond arts camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond arts camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "arts",
       "crafts",
@@ -58981,7 +59157,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2012,
@@ -58993,7 +59171,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59005,7 +59183,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond sports camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -59017,7 +59195,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2013,
@@ -59029,7 +59209,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59041,7 +59221,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Sports+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond sports camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond sports camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "sports",
       "active",
@@ -59053,7 +59233,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2014,
@@ -59065,7 +59247,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59077,7 +59259,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond science camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -59089,7 +59271,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2015,
@@ -59101,7 +59285,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59113,7 +59297,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Science+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond science camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond science camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "science",
       "experiments",
@@ -59125,7 +59309,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2016,
@@ -59137,7 +59323,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59149,7 +59335,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond nature camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -59161,7 +59347,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2017,
@@ -59173,7 +59361,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59185,7 +59373,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Nature+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond nature camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond nature camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "nature",
       "outdoor",
@@ -59197,7 +59385,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2018,
@@ -59209,7 +59399,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59221,7 +59411,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond music camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -59233,7 +59423,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2019,
@@ -59245,7 +59437,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59257,7 +59449,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Music+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond music camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond music camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "music",
       "instruments",
@@ -59269,7 +59461,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2020,
@@ -59281,7 +59475,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59293,7 +59487,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Sea+Island+(Ages+6-9)+2026-07-06",
-    "description": "City of Richmond variety camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -59304,7 +59498,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2021,
@@ -59316,7 +59512,7 @@
     "ageMin": 10,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59328,7 +59524,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=17a44143-25f4-4d94-8100-22eb7de0204b&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Variety+Camp+at+Sea+Island+(Ages+10-12)+2026-07-06",
-    "description": "City of Richmond variety camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond variety camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "variety",
       "multi-activity",
@@ -59339,7 +59535,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2022,
@@ -59351,7 +59549,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59363,7 +59561,7 @@
     "lng": -123.1515,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Thompson+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at Thompson Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59374,7 +59572,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2023,
@@ -59386,7 +59586,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59398,7 +59598,7 @@
     "lng": -123.1255,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+South+Arm+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at South Arm Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59409,7 +59609,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2024,
@@ -59421,7 +59623,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59433,7 +59635,7 @@
     "lng": -123.1345,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Steveston+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at Steveston Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59444,7 +59646,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2025,
@@ -59456,7 +59660,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59468,7 +59672,7 @@
     "lng": -123.1365,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+City+Centre+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at City Centre Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59479,7 +59683,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2026,
@@ -59491,7 +59697,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59503,7 +59709,7 @@
     "lng": -123.131,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+West+Richmond+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at West Richmond Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59514,7 +59720,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2027,
@@ -59526,7 +59734,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59538,7 +59746,7 @@
     "lng": -123.08,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Cambie+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at Cambie Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59549,7 +59757,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2028,
@@ -59561,7 +59771,7 @@
     "ageMin": 3,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59573,7 +59783,7 @@
     "lng": -123.096,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://richmondcity.perfectmind.com/23650/Clients/BookMe4BookingPages/BookingCoursesPage?calendarId=eebf133e-f56e-4782-bf67-17877093e87f&widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&keyword=Preschool+Day+Camp+at+Sea+Island+(Ages+3-5)+2026-07-06",
-    "description": "City of Richmond preschool day camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates.",
+    "description": "City of Richmond preschool day camp at Sea Island Community Centre. Price shown is based on Summer 2025 rates (2026 pricing not yet published). Licensed daycamps are subsidized by the Provincial Child Care Fee Reduction Initiative. Check richmond.ca/camps for 2026 updates. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "preschool",
       "day camp",
@@ -59584,7 +59794,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2029,
@@ -59596,7 +59808,7 @@
     "ageMin": 6,
     "ageMax": 10,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59608,7 +59820,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/&keyword=Multi-Sport%20Camp+6-10",
-    "description": "Richmond Olympic Oval multi-sport camp including skating, climbing, basketball, and more at the Olympic facility.",
+    "description": "Richmond Olympic Oval multi-sport camp including skating, climbing, basketball, and more at the Olympic facility. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "multi-sport",
       "skating",
@@ -59621,7 +59833,9 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2030,
@@ -59633,7 +59847,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59645,7 +59859,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/&keyword=Multi-Sport%20Camp+11-14",
-    "description": "Richmond Olympic Oval multi-sport camp for older youth including skating, climbing, and team sports.",
+    "description": "Richmond Olympic Oval multi-sport camp for older youth including skating, climbing, and team sports. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "multi-sport",
       "skating",
@@ -59658,7 +59872,9 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2031,
@@ -59670,7 +59886,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59682,7 +59898,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/adventure-camps/&keyword=Adventure%20Bike%20Camp+6-9",
-    "description": "Bike adventure half-day camp at the Richmond Olympic Oval. Learn bike skills and explore trails.",
+    "description": "Bike adventure half-day camp at the Richmond Olympic Oval. Learn bike skills and explore trails. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "biking",
       "adventure",
@@ -59695,7 +59911,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2032,
@@ -59707,7 +59925,7 @@
     "ageMin": 9,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -59719,7 +59937,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/adventure-camps/&keyword=Adventure%20Bike%20Camp+9-12",
-    "description": "Full-day bike adventure camp at the Richmond Olympic Oval. Trail riding and bike skills for older kids.",
+    "description": "Full-day bike adventure camp at the Richmond Olympic Oval. Trail riding and bike skills for older kids. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "biking",
       "adventure",
@@ -59732,7 +59950,9 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2033,
@@ -59744,7 +59964,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59756,7 +59976,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/",
-    "description": "Learn to skate camp at the Richmond Olympic Oval. Includes skate and helmet rental.",
+    "description": "Learn to skate camp at the Richmond Olympic Oval. Includes skate and helmet rental. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "skating",
       "ice",
@@ -59768,7 +59988,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2034,
@@ -59780,7 +60002,7 @@
     "ageMin": 9,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59792,7 +60014,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/ice-camps/",
-    "description": "Ice sports camp covering hockey, speed skating, ringette, and figure skating at the Richmond Olympic Oval.",
+    "description": "Ice sports camp covering hockey, speed skating, ringette, and figure skating at the Richmond Olympic Oval. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "ice sports",
       "hockey",
@@ -59805,7 +60027,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2035,
@@ -59817,7 +60041,7 @@
     "ageMin": 6,
     "ageMax": 9,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59829,7 +60053,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/sport-specific-camps/&keyword=Sport-Specific%20Camp+6-9",
-    "description": "Sport-specific camps at the Richmond Olympic Oval. Choose from basketball, baseball, rock climbing, soccer, badminton, and more.",
+    "description": "Sport-specific camps at the Richmond Olympic Oval. Choose from basketball, baseball, rock climbing, soccer, badminton, and more. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "basketball",
       "baseball",
@@ -59843,7 +60067,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2036,
@@ -59855,7 +60081,7 @@
     "ageMin": 9,
     "ageMax": 12,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59867,7 +60093,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/sport-specific-camps/&keyword=Sport-Specific%20Camp+9-12",
-    "description": "Sport-specific camps for older kids at the Richmond Olympic Oval. Choose from basketball, baseball, rock climbing, track & field, and more.",
+    "description": "Sport-specific camps for older kids at the Richmond Olympic Oval. Choose from basketball, baseball, rock climbing, track & field, and more. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "basketball",
       "baseball",
@@ -59880,7 +60106,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2037,
@@ -59892,7 +60120,7 @@
     "ageMin": 4,
     "ageMax": 5,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -59904,7 +60132,7 @@
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/&keyword=Tot%20Multi-Sport%20Camp+4-5",
-    "description": "Tot multi-sport camp for ages 4-5 at the Richmond Olympic Oval. Introduction to various sports in a fun, supportive environment.",
+    "description": "Tot multi-sport camp for ages 4-5 at the Richmond Olympic Oval. Introduction to various sports in a fun, supportive environment. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "tots",
       "multi-sport",
@@ -59917,7 +60145,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": 2038,
@@ -71790,7 +72020,7 @@
     "ageMin": 6,
     "ageMax": 7,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Explore the engineering design process and building basics. Science AL!VE summer camp at SFU Burnaby for students entering Grade 1. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -71808,7 +72038,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -71836,7 +72068,7 @@
     "ageMin": 6,
     "ageMax": 7,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Discover body science and medical problem-solving. Science AL!VE summer camp at SFU Burnaby for students entering Grade 1. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -71854,7 +72086,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -71882,7 +72116,7 @@
     "ageMin": 6,
     "ageMax": 7,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Dive into marine biology and environmental science. Science AL!VE summer camp at SFU Burnaby for students entering Grade 1. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -71900,7 +72134,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -71928,7 +72164,7 @@
     "ageMin": 6,
     "ageMax": 7,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Cross-disciplinary hands-on experiments in science, technology, engineering, art, and math. Science AL!VE summer camp at SFU Burnaby for students entering Grade 1. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -71946,7 +72182,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -71974,7 +72212,7 @@
     "ageMin": 7,
     "ageMax": 9,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Build simple machines with LEGO Spike Prime kits and learn drag-and-drop coding. Science AL!VE summer camp at SFU Burnaby for students entering Grade 2/3. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -71992,7 +72230,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72020,7 +72260,7 @@
     "ageMin": 7,
     "ageMax": 9,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Explore the science of flight through hands-on builds and aerial challenges. Science AL!VE summer camp at SFU Burnaby for students entering Grade 2/3. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72038,7 +72278,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72066,7 +72308,7 @@
     "ageMin": 7,
     "ageMax": 9,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Boat-building and navigation exploring ocean science and engineering. Science AL!VE summer camp at SFU Burnaby for students entering Grade 2/3. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72084,7 +72326,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72112,7 +72356,7 @@
     "ageMin": 7,
     "ageMax": 9,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Cosmic investigations and celestial body modeling exploring space and astronomy. Science AL!VE summer camp at SFU Burnaby for students entering Grade 2/3. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72130,7 +72374,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72158,7 +72404,7 @@
     "ageMin": 9,
     "ageMax": 11,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Explore how data and programming reveal sports trends using coding and statistics. Science AL!VE summer camp at SFU Burnaby for students entering Grade 4/5. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72176,7 +72422,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72204,7 +72452,7 @@
     "ageMin": 9,
     "ageMax": 11,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Create superheroes and build games with coding and game design. Science AL!VE summer camp at SFU Burnaby for students entering Grade 4/5. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72222,7 +72470,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72250,7 +72500,7 @@
     "ageMin": 9,
     "ageMax": 11,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Investigate animal behavior and veterinary care through zoology. Science AL!VE summer camp at SFU Burnaby for students entering Grade 4/5. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72268,7 +72518,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72296,7 +72548,7 @@
     "ageMin": 9,
     "ageMax": 11,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Design experiments to verify popular claims using scientific reasoning. Science AL!VE summer camp at SFU Burnaby for students entering Grade 4/5. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72314,7 +72566,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72342,7 +72596,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Front-end web development for social advocacy with coding and UX/UI design. Science AL!VE summer camp at SFU Burnaby for students entering Grade 6/7/8. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72360,7 +72614,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72388,7 +72644,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Miniature construction exploring architectural design, engineering, and model building. Science AL!VE summer camp at SFU Burnaby for students entering Grade 6/7/8. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72406,7 +72662,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72434,7 +72692,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Board game prototyping and playtesting exploring game mechanics and strategy. Science AL!VE summer camp at SFU Burnaby for students entering Grade 6/7/8. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72452,7 +72710,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72480,7 +72740,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "description": "Arduino-based invention with C/C++ programming and a final pitch component. Science AL!VE summer camp at SFU Burnaby for students entering Grade 6/7/8. Themes rotate across weeks Jun 29 - Aug 21. Each theme runs for one week within the Jun 29 – Aug 21 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72498,7 +72758,9 @@
       "available": true,
       "time": "3:30 PM - 5:00 PM",
       "cost": null
-    }
+    },
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "provider": "Science AL!VE",
@@ -72526,7 +72788,7 @@
     "ageMin": 6,
     "ageMax": 8,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Explore space and astronomy through hands-on activities. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 1/2. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72546,7 +72808,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72574,7 +72838,7 @@
     "ageMin": 6,
     "ageMax": 8,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Journey through paleontology and fossil discovery. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 1/2. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72594,7 +72858,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72622,7 +72888,7 @@
     "ageMin": 6,
     "ageMax": 8,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Develop engineering and design skills through STEAM challenges. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 1/2. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72642,7 +72908,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 186,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72670,7 +72938,7 @@
     "ageMin": 6,
     "ageMax": 8,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Explore animal adaptations and environmental science. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 1/2. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72690,7 +72958,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72718,7 +72988,7 @@
     "ageMin": 8,
     "ageMax": 11,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Explore insect biology and adaptations. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 3/4/5. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72738,7 +73008,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72766,7 +73038,7 @@
     "ageMin": 8,
     "ageMax": 11,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Investigate forensic science through hands-on detective work. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 3/4/5. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72786,7 +73058,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72814,7 +73088,7 @@
     "ageMin": 8,
     "ageMax": 11,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Explore medicine and body systems. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 3/4/5. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72834,7 +73108,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72862,7 +73138,7 @@
     "ageMin": 8,
     "ageMax": 11,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Engineering and design thinking through hands-on STEAM projects. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 3/4/5. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72882,7 +73158,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 186,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72910,7 +73188,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Learn app development with block-coding from brainstorming through wireframing to creation. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 6/7/8. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72930,7 +73208,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 295,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -72958,7 +73238,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Hands-on exploration of design and problem-solving through structure and system experiments. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 6/7/8. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -72978,7 +73258,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 245,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -73006,7 +73288,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Explore creative solutions to everyday challenges through projects inspired by historical innovators. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 6/7/8. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -73026,7 +73308,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 186,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "provider": "Science AL!VE",
@@ -73054,7 +73338,7 @@
     "ageMin": 11,
     "ageMax": 14,
     "startDate": "2026-07-20",
-    "endDate": "2026-08-14",
+    "endDate": "2026-07-24",
     "description": "Design characters, build sets, and create animated stories frame-by-frame. Science AL!VE half-day summer camp at SFU Surrey for students entering Grade 6/7/8. Themes rotate across weeks Jul 20 - Aug 14. Each theme runs for one week within the Jul 20 – Aug 14 window. Select your preferred week on Eventbrite when registering.",
     "confirmed2026": true,
     "priceVerified": true,
@@ -73074,7 +73358,9 @@
       "costFourDay": 60
     },
     "earlyBirdCost": 295,
-    "earlyBirdDeadline": "2026-03-31"
+    "earlyBirdDeadline": "2026-03-31",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-14"
   },
   {
     "id": 2476,
@@ -73804,7 +74090,7 @@
     "ageMin": 4,
     "ageMax": 12,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-28",
+    "endDate": "2026-07-03",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -73816,7 +74102,7 @@
     "lng": -123.1008,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://pedalheads.com/en/camp",
-    "description": "Week-long bike camp for beginners to advanced riders at David Livingstone Elementary. Levels from training wheels to street riding. Half-day and full-day options. Pricing varies by level ($275-$565/week).",
+    "description": "Week-long bike camp for beginners to advanced riders at David Livingstone Elementary. Levels from training wheels to street riding. Half-day and full-day options. Pricing varies by level ($275-$565/week). Runs weekly, Jun 29 - Aug 28. Register for individual weeks.",
     "tags": [
       "cycling",
       "bike",
@@ -73828,7 +74114,9 @@
     "priceVerified": false,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-28"
   },
   {
     "id": 2500,
@@ -73840,7 +74128,7 @@
     "ageMin": 6,
     "ageMax": 12,
     "startDate": "2026-06-29",
-    "endDate": "2026-09-04",
+    "endDate": "2026-07-03",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "3:00 PM",
@@ -73852,7 +74140,7 @@
     "lng": -123.1036,
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.scienceworld.ca/summer-camps/",
-    "description": "Week-long STEAM summer camps for grades 1-6. Live science shows, hands-on workshops, gallery explorations. Free Stay & Play extended care until 4pm. Members $475/week, non-members $550/week. Member registration April 9, public April 13.",
+    "description": "Week-long STEAM summer camps for grades 1-6. Live science shows, hands-on workshops, gallery explorations. Free Stay & Play extended care until 4pm. Members $475/week, non-members $550/week. Member registration April 9, public April 13. Runs weekly, Jun 29 - Sep 4. Register for individual weeks.",
     "tags": [
       "STEM",
       "science",
@@ -73865,7 +74153,9 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-09-04"
   },
   {
     "id": 2501,
@@ -75561,7 +75851,7 @@
     "ageMax": 12,
     "cost": 465,
     "startDate": "2026-07-06",
-    "endDate": "2026-08-28",
+    "endDate": "2026-07-10",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "12:00 PM",
@@ -75570,7 +75860,7 @@
     "address": "6161 Cambie Street, Vancouver, BC",
     "enrollmentStatus": "TBD",
     "registrationUrl": "https://www.alliancefrancaise.ca/en/language/kids-and-teens-classes/summer-break/",
-    "description": "French immersion half-day summer camp for ages 4-12. Fun language learning through games, arts, cooking, and cultural activities. July 6 to August 28, 2026.",
+    "description": "French immersion half-day summer camp for ages 4-12. Fun language learning through games, arts, cooking, and cultural activities. July 6 to August 28, 2026. Runs weekly, Jul 6 - Aug 28. Register for individual weeks.",
     "tags": [
       "language",
       "french",
@@ -75582,7 +75872,9 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-28"
   },
   {
     "id": "camp-virgule-1",
@@ -75595,7 +75887,7 @@
     "ageMax": 12,
     "cost": 280,
     "startDate": "2026-06-29",
-    "endDate": "2026-08-21",
+    "endDate": "2026-07-03",
     "days": "Mon-Fri",
     "startTime": "9:00 AM",
     "endTime": "4:00 PM",
@@ -75604,7 +75896,7 @@
     "address": "1551 West 7th Avenue, Vancouver, BC",
     "enrollmentStatus": "Open",
     "registrationUrl": "https://www.lecentreculturel.com/en/camp-virgule",
-    "description": "French immersion full-day camp for ages 6-12. Arts, sports, games, and outings — all in French. June 29 to August 21, 2026.",
+    "description": "French immersion full-day camp for ages 6-12. Arts, sports, games, and outings — all in French. June 29 to August 21, 2026. Runs weekly, Jun 29 - Aug 21. Register for individual weeks.",
     "tags": [
       "language",
       "french",
@@ -75616,7 +75908,9 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costPer": "week"
+    "costPer": "week",
+    "repeating": "weekly",
+    "repeatEndDate": "2026-08-21"
   },
   {
     "id": "sfm-french-1",
