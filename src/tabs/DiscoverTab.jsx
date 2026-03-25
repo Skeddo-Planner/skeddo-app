@@ -1053,11 +1053,11 @@ export default function DiscoverTab({
         <FilterChip label={`♡ ${favorites.length}`} active={showFavoritesOnly} onClick={() => { setShowFavoritesOnly(!showFavoritesOnly); setVisibleCount(PAGE_SIZE); }} />
         <FilterChip label="Week" count={selectedWeeks.size} active={selectedWeeks.size > 0} onClick={() => setActiveDrawer("week")} />
         <FilterChip label="Category" count={selectedCats.size + selectedActivityTypes.size} active={selectedCats.size > 0 || selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("category")} />
-        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} />
         {kids && kids.length > 0 && (
           <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
         )}
         <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} />
+        <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} />
         <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} />
         <FilterChip label="Duration" count={durationMin > 0 || durationMax < 10 ? 1 : 0} active={durationMin > 0 || durationMax < 10} onClick={() => setActiveDrawer("duration")} />
         <FilterChip label="Status" count={selectedRegStatuses.size} active={selectedRegStatuses.size > 0} onClick={() => setActiveDrawer("status")} />
