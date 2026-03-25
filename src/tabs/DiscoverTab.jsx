@@ -73,21 +73,29 @@ const CITY_NEIGHBOURHOODS = [
   },
   {
     city: "Surrey",
-    neighbourhoods: ["Cloverdale", "South Surrey", "Surrey City Centre", "Whalley"],
+    neighbourhoods: [
+      "Cloverdale", "Fleetwood", "Green Timbers", "Guildford", "Newton",
+      "Panorama", "South Surrey", "Surrey City Centre", "Whalley",
+    ],
   },
   {
     city: "Coquitlam",
     neighbourhoods: ["Burquitlam", "Central Coquitlam", "Maillardville"],
   },
-  { city: "Port Coquitlam", neighbourhoods: ["Central Port Coquitlam"] },
+  { city: "Port Coquitlam", neighbourhoods: ["Central Port Coquitlam", "Port Coquitlam"] },
   { city: "Port Moody", neighbourhoods: ["Port Moody"] },
   { city: "Maple Ridge", neighbourhoods: ["Maple Ridge", "Town Centre"] },
   { city: "Pitt Meadows", neighbourhoods: ["Central Pitt Meadows"] },
-  { city: "Delta", neighbourhoods: ["Delta"] },
+  { city: "Delta", neighbourhoods: ["Delta", "North Delta"] },
   { city: "White Rock", neighbourhoods: ["White Rock"] },
   { city: "Squamish", neighbourhoods: ["Squamish"] },
   { city: "Bowen Island", neighbourhoods: ["Bowen Island"] },
   { city: "Sunshine Coast", neighbourhoods: ["Sunshine Coast"] },
+  { city: "Langley", neighbourhoods: ["Langley"] },
+  { city: "Abbotsford", neighbourhoods: ["Abbotsford"] },
+  { city: "Mission", neighbourhoods: ["Mission"] },
+  { city: "Hope", neighbourhoods: ["Hope"] },
+  { city: "Okanagan", neighbourhoods: ["Okanagan"] },
 ];
 
 const COST_RANGES = [
