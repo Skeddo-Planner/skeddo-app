@@ -77383,7 +77383,10 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
+    "durationPerDay": 3
   },
   {
     "id": "fraserview-golf-5",
@@ -77414,7 +77417,10 @@
     "priceVerified": true,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
+    "durationPerDay": 3
   },
   {
     "id": "salmon-forest-1",
@@ -78069,7 +78075,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Overnight",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": null
   },
   {
     "id": "camp-squeah-2",
@@ -78098,7 +78105,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Overnight",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": null
   },
   {
     "id": "camp-squeah-3",
@@ -78127,7 +78135,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Overnight",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": null
   },
   {
     "id": "camp-squeah-4",
@@ -78156,7 +78165,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Overnight",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": null
   },
   {
     "id": "camp-squeah-5",
@@ -78185,7 +78195,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Overnight",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": null
   },
   {
     "id": "camp-squeah-6",
@@ -78215,7 +78226,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Overnight",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": null
   },
   {
     "id": "mcna-islamic-1",
@@ -103470,8 +103482,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103499,7 +103511,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0002",
@@ -103513,8 +103526,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103542,7 +103555,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0003",
@@ -103556,8 +103570,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103585,7 +103599,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0004",
@@ -103599,8 +103614,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103628,7 +103643,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0005",
@@ -103642,8 +103658,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103671,7 +103687,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0006",
@@ -103685,8 +103702,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103714,7 +103731,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0007",
@@ -103728,8 +103746,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103757,7 +103775,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0008",
@@ -103771,8 +103790,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103800,7 +103819,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0009",
@@ -103814,8 +103834,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103843,7 +103863,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0010",
@@ -103857,8 +103878,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103886,7 +103907,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0011",
@@ -103900,8 +103922,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103929,7 +103951,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0012",
@@ -103943,8 +103966,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -103972,7 +103995,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0013",
@@ -103986,8 +104010,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104015,7 +104039,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0014",
@@ -104029,8 +104054,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104058,7 +104083,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0015",
@@ -104072,8 +104098,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104101,7 +104127,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0016",
@@ -104115,8 +104142,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104144,7 +104171,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0017",
@@ -104158,8 +104186,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104187,7 +104215,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0018",
@@ -104201,8 +104230,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104230,7 +104259,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0019",
@@ -104244,8 +104274,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104273,7 +104303,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0020",
@@ -104287,8 +104318,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104316,7 +104347,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0021",
@@ -104330,8 +104362,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104359,7 +104391,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0022",
@@ -104373,8 +104406,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104402,7 +104435,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0023",
@@ -104416,8 +104450,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104445,7 +104479,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0024",
@@ -104459,8 +104494,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104488,7 +104523,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0025",
@@ -104502,8 +104538,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104531,7 +104567,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0026",
@@ -104545,8 +104582,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104574,7 +104611,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0027",
@@ -104588,8 +104626,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104617,7 +104655,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0028",
@@ -104631,8 +104670,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104660,7 +104699,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0029",
@@ -104674,8 +104714,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104703,7 +104743,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0030",
@@ -104717,8 +104758,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104746,7 +104787,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0031",
@@ -104760,8 +104802,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104789,7 +104831,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0032",
@@ -104803,8 +104846,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104832,7 +104875,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0033",
@@ -104846,8 +104890,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104875,7 +104919,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0034",
@@ -104889,8 +104934,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104918,7 +104963,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0035",
@@ -104932,8 +104978,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -104961,7 +105007,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0036",
@@ -104975,8 +105022,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105004,7 +105051,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0037",
@@ -105018,8 +105066,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105047,7 +105095,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0038",
@@ -105061,8 +105110,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105090,7 +105139,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0039",
@@ -105104,8 +105154,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105133,7 +105183,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0040",
@@ -105147,8 +105198,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105176,7 +105227,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0041",
@@ -105190,8 +105242,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105219,7 +105271,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0042",
@@ -105233,8 +105286,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105262,7 +105315,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0043",
@@ -105276,8 +105330,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105305,7 +105359,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0044",
@@ -105319,8 +105374,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105348,7 +105403,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0045",
@@ -105362,8 +105418,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105389,7 +105445,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0046",
@@ -105403,8 +105460,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105430,7 +105487,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0047",
@@ -105444,8 +105502,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105471,7 +105529,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0048",
@@ -105485,8 +105544,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105512,7 +105571,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0049",
@@ -105526,8 +105586,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105553,7 +105613,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0050",
@@ -105567,8 +105628,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Both",
     "neighbourhood": "Multiple Locations",
@@ -105594,7 +105655,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0051",
@@ -105608,8 +105670,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Both",
     "neighbourhood": "Multiple Locations",
@@ -105635,7 +105697,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0052",
@@ -105649,8 +105712,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Both",
     "neighbourhood": "Multiple Locations",
@@ -105676,7 +105739,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0053",
@@ -105690,8 +105754,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105717,7 +105781,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0054",
@@ -105731,8 +105796,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105758,7 +105823,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0055",
@@ -105772,8 +105838,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 390,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105799,7 +105865,8 @@
     "urlVerified": true,
     "registrationDate": "2026-04-30",
     "registrationDateLabel": "Apr 30 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD41-0001",
@@ -105895,8 +105962,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-07-17",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105920,7 +105987,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD41-0004",
@@ -105934,8 +106002,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -105959,7 +106027,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0056",
@@ -105973,8 +106042,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106004,7 +106073,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0057",
@@ -106018,8 +106088,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106049,7 +106119,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0058",
@@ -106063,8 +106134,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106094,7 +106165,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0059",
@@ -106108,8 +106180,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106139,7 +106211,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0060",
@@ -106153,8 +106226,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106184,7 +106257,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0061",
@@ -106198,8 +106272,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106229,7 +106303,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0062",
@@ -106243,8 +106318,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -106274,7 +106349,8 @@
     "urlVerified": true,
     "registrationDate": "2026-05-07",
     "registrationDateLabel": "May 7 at 12 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD44-0001",
@@ -106706,8 +106782,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -106731,7 +106807,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0002",
@@ -106745,8 +106822,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -106770,7 +106847,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0003",
@@ -106784,8 +106862,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -106809,7 +106887,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0004",
@@ -106823,8 +106902,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -106848,7 +106927,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0005",
@@ -106862,8 +106942,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
@@ -106887,7 +106967,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0006",
@@ -106901,8 +106982,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -106926,7 +107007,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0007",
@@ -106940,8 +107022,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Both",
     "neighbourhood": "City Centre",
@@ -106965,7 +107047,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0008",
@@ -106979,8 +107062,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107004,7 +107087,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0009",
@@ -107018,8 +107102,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107043,7 +107127,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0010",
@@ -107057,8 +107142,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107082,7 +107167,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0011",
@@ -107096,8 +107182,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107121,7 +107207,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0012",
@@ -107135,8 +107222,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107160,7 +107247,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0013",
@@ -107174,8 +107262,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107199,7 +107287,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0014",
@@ -107213,8 +107302,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107238,7 +107327,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0015",
@@ -107252,8 +107342,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107277,7 +107367,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0016",
@@ -107291,8 +107382,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107316,7 +107407,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0017",
@@ -107330,8 +107422,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107355,7 +107447,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0018",
@@ -107369,8 +107462,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107394,7 +107487,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0019",
@@ -107408,8 +107502,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107433,7 +107527,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0020",
@@ -107447,8 +107542,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107472,7 +107567,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0021",
@@ -107486,8 +107582,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107511,7 +107607,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0025",
@@ -107525,8 +107622,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107550,7 +107647,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0026",
@@ -107564,8 +107662,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 400,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107587,7 +107685,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0027",
@@ -107601,8 +107700,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 400,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107624,7 +107723,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0028",
@@ -107638,8 +107738,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 400,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107661,7 +107761,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0029",
@@ -107675,8 +107776,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 400,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107698,7 +107799,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0030",
@@ -107712,8 +107814,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 400,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107735,7 +107837,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0031",
@@ -107749,8 +107852,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 500,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107772,7 +107875,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0032",
@@ -107786,8 +107890,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 500,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107809,7 +107913,8 @@
     ],
     "source": "Richmond SD38 Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0033",
@@ -107823,8 +107928,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107849,7 +107954,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0034",
@@ -107863,8 +107969,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107889,7 +107995,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0035",
@@ -107903,8 +108010,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107929,7 +108036,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0036",
@@ -107943,8 +108051,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -107969,7 +108077,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0037",
@@ -107983,8 +108092,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108009,7 +108118,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0038",
@@ -108023,8 +108133,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108049,7 +108159,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0039",
@@ -108063,8 +108174,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108089,7 +108200,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0040",
@@ -108103,8 +108215,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108129,7 +108241,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0041",
@@ -108143,8 +108256,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108169,7 +108282,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0042",
@@ -108183,8 +108297,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108209,7 +108323,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0043",
@@ -108223,8 +108338,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108249,7 +108364,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0044",
@@ -108263,8 +108379,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108289,7 +108405,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0045",
@@ -108303,8 +108420,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108329,7 +108446,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0046",
@@ -108343,8 +108461,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108369,7 +108487,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0047",
@@ -108383,8 +108502,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108409,7 +108528,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0048",
@@ -108423,8 +108543,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108449,7 +108569,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD38-0049",
@@ -108463,8 +108584,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "City Centre",
@@ -108489,7 +108610,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD40-0001",
@@ -108503,8 +108625,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Downtown New Westminster",
@@ -108527,7 +108649,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD40-0002",
@@ -108541,8 +108664,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-22",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Downtown New Westminster",
@@ -108565,7 +108688,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD40-0003",
@@ -108579,8 +108703,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-22",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Downtown New Westminster",
@@ -108603,7 +108727,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD43-0001",
@@ -108617,8 +108742,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -108641,7 +108766,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD43-0002",
@@ -108655,8 +108781,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -108679,7 +108805,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD43-0003",
@@ -108693,8 +108820,8 @@
     "startDate": "2026-07-07",
     "endDate": "2026-07-24",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -108717,7 +108844,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD43-0004",
@@ -108731,8 +108859,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-08-06",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -108755,7 +108883,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD43-0005",
@@ -108769,8 +108898,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-08-06",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -108793,7 +108922,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "SD43-0006",
@@ -108807,8 +108937,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-08-06",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Multiple Locations",
@@ -108831,7 +108961,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "durationPerDay": 3
   },
   {
     "id": "camp-steam-surrey-1",
@@ -108853,7 +108984,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-2",
@@ -108875,7 +109019,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-3",
@@ -108897,7 +109054,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-4",
@@ -108919,7 +109089,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-5",
@@ -108941,7 +109124,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-6",
@@ -108963,7 +109159,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-7",
@@ -108985,7 +109194,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "camp-steam-surrey-8",
@@ -109007,7 +109229,20 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM",
+    "durationPerDay": 10,
+    "beforeCare": {
+      "available": true,
+      "time": "7:30 AM - 9:00 AM",
+      "cost": 40
+    },
+    "afterCare": {
+      "available": true,
+      "time": "4:00 PM - 5:30 PM",
+      "cost": 40
+    }
   },
   {
     "id": "surrey-parks-funzone-1",
@@ -109026,7 +109261,10 @@
     "enrollmentStatus": "TBD",
     "season": "Summer 2026",
     "dayLength": "Full Day",
-    "description": "Weekly day camps at Guildford, Newton, South Surrey, Fraser Heights, Fleetwood, Clayton, and Kensington Prairie recreation centres. Registration opens May 2026."
+    "description": "Weekly day camps at Guildford, Newton, South Surrey, Fraser Heights, Fleetwood, Clayton, and Kensington Prairie recreation centres. Registration opens May 2026.",
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM",
+    "durationPerDay": 6
   },
   {
     "id": "surrey-parks-funzone-2",
@@ -109043,7 +109281,10 @@
     "registrationUrl": "https://www.surrey.ca/parks-recreation/recreation-programs/day-camps",
     "enrollmentStatus": "TBD",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM",
+    "durationPerDay": 6
   },
   {
     "id": "surrey-parks-preteen-1",
@@ -109061,7 +109302,10 @@
     "registrationUrl": "https://www.surrey.ca/parks-recreation/recreation-programs/day-camps",
     "enrollmentStatus": "TBD",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM",
+    "durationPerDay": 6
   },
   {
     "id": "surrey-nature-1",
@@ -109080,7 +109324,10 @@
     "dayLength": "Full Day",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM",
+    "durationPerDay": 6
   },
   {
     "id": "surrey-museum-1",
@@ -109098,7 +109345,10 @@
     "dayLength": "Full Day",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM",
+    "durationPerDay": 6
   },
   {
     "id": "steamoji-surrey-1",
@@ -109908,16 +110158,19 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": false,
-    "priceVerified": false,
+    "priceVerified": true,
     "tags": [
       "climbing",
       "rock climbing",
       "camp",
       "sports"
     ],
-    "cost": null,
-    "costNote": "Inquire for pricing",
-    "neighbourhood": "Mount Pleasant"
+    "cost": 475,
+    "costNote": null,
+    "neighbourhood": "Mount Pleasant",
+    "startTime": "9:00 AM",
+    "endTime": "3:30 PM",
+    "durationPerDay": 6.5
   },
   {
     "id": "hive-camp-9-12",
@@ -109933,16 +110186,19 @@
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "confirmed2026": false,
-    "priceVerified": false,
+    "priceVerified": true,
     "tags": [
       "climbing",
       "rock climbing",
       "camp",
       "sports"
     ],
-    "cost": null,
-    "costNote": "Inquire for pricing",
-    "neighbourhood": "Mount Pleasant"
+    "cost": 475,
+    "costNote": null,
+    "neighbourhood": "Mount Pleasant",
+    "startTime": "9:00 AM",
+    "endTime": "3:30 PM",
+    "durationPerDay": 6.5
   },
   {
     "id": "hive-youth-1",
@@ -109957,15 +110213,18 @@
     "season": "Year-Round",
     "dayLength": "Half Day",
     "confirmed2026": false,
-    "priceVerified": false,
+    "priceVerified": true,
     "tags": [
       "climbing",
       "rock climbing",
       "sports"
     ],
-    "cost": null,
-    "costNote": "Inquire for pricing",
-    "neighbourhood": "Mount Pleasant"
+    "cost": 475,
+    "costNote": null,
+    "neighbourhood": "Mount Pleasant",
+    "startTime": "9:00 AM",
+    "endTime": "3:30 PM",
+    "durationPerDay": 6.5
   },
   {
     "id": "dirty-apron-1",
@@ -110799,7 +111058,7 @@
     "activityType": "Music",
     "ageMin": 0,
     "ageMax": 5,
-    "cost": 215,
+    "cost": 222,
     "days": "Mon, Wed, Thu, Fri",
     "address": "197 E 17th Ave, Vancouver, BC",
     "neighbourhood": "Mount Pleasant",
@@ -110807,7 +111066,9 @@
     "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Half Day",
-    "description": "Live folk music classes for infants and young children. 45-minute sessions exploring music and movement in a cozy studio. Award-winning program celebrating 10 years."
+    "description": "Live folk music classes for infants and young children. 45-minute sessions exploring music and movement in a cozy studio. Award-winning program celebrating 10 years.",
+    "priceVerified": true,
+    "costNote": null
   },
   {
     "id": "chorus-clouds-2",
@@ -110817,7 +111078,7 @@
     "activityType": "General Arts",
     "ageMin": 0,
     "ageMax": 3,
-    "cost": 205,
+    "cost": 212,
     "days": "Mon, Tue, Fri",
     "address": "197 E 17th Ave, Vancouver, BC",
     "neighbourhood": "Mount Pleasant",
@@ -110825,7 +111086,9 @@
     "enrollmentStatus": "Full/Waitlist",
     "season": "Year-Round",
     "dayLength": "Half Day",
-    "description": "Expressive arts classes for babies and toddlers (10 months+). 45-minute sessions. Currently sold out."
+    "description": "Expressive arts classes for babies and toddlers (10 months+). 45-minute sessions. Currently sold out.",
+    "priceVerified": true,
+    "costNote": null
   },
   {
     "id": "chorus-clouds-3",
@@ -110835,7 +111098,7 @@
     "activityType": "Life Skills",
     "ageMin": 0,
     "ageMax": 1,
-    "cost": 185,
+    "cost": 191,
     "days": "Mon, Thu, Fri",
     "address": "197 E 17th Ave, Vancouver, BC",
     "neighbourhood": "Mount Pleasant",
@@ -110843,7 +111106,9 @@
     "enrollmentStatus": "Full/Waitlist",
     "season": "Year-Round",
     "dayLength": "Half Day",
-    "description": "Developmental play class for babies 3-12 months. 1-hour sessions. Currently sold out."
+    "description": "Developmental play class for babies 3-12 months. 1-hour sessions. Currently sold out.",
+    "priceVerified": true,
+    "costNote": null
   },
   {
     "id": "chorus-clouds-4",
@@ -110861,7 +111126,9 @@
     "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Half Day",
-    "description": "School preparation program for ages 2.5-5. 1-hour sessions exploring early learning through play, art, and social skills."
+    "description": "School preparation program for ages 2.5-5. 1-hour sessions exploring early learning through play, art, and social skills.",
+    "priceVerified": true,
+    "costNote": null
   },
   {
     "id": "chorus-clouds-5",
@@ -110871,7 +111138,7 @@
     "activityType": "Music",
     "ageMin": 0,
     "ageMax": 5,
-    "cost": 30,
+    "cost": 222,
     "days": "Sat",
     "times": "10:30 AM - 11:15 AM",
     "address": "197 E 17th Ave, Vancouver, BC",
@@ -110880,7 +111147,9 @@
     "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Single Day",
-    "description": "Saturday drop-in art and music class. No registration required. Sibling discount available."
+    "description": "Saturday drop-in art and music class. No registration required. Sibling discount available.",
+    "priceVerified": true,
+    "costNote": null
   },
   {
     "id": "ymca-dc-douglas",
@@ -110898,7 +111167,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-fleming",
@@ -110916,7 +111188,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-jamieson",
@@ -110934,7 +111209,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-jules",
@@ -110952,7 +111230,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-roberts",
@@ -110970,7 +111251,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-mtpleasant",
@@ -110988,7 +111272,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-osler",
@@ -111006,7 +111293,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-rupert",
@@ -111024,7 +111314,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-vanhorne",
@@ -111042,7 +111335,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-weir",
@@ -111060,7 +111356,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-cascade",
@@ -111078,7 +111377,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-stoney",
@@ -111096,7 +111398,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-coast",
@@ -111114,7 +111419,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-anderson",
@@ -111132,7 +111440,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-sprouts",
@@ -111150,7 +111461,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-jessie",
@@ -111168,7 +111482,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-tonglouie",
@@ -111186,7 +111503,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-dc-donna",
@@ -111204,7 +111524,10 @@
     "registrationDate": "2026-03-08",
     "enrollmentStatus": "Open",
     "season": "Summer 2026",
-    "dayLength": "Full Day"
+    "dayLength": "Full Day",
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-mcnabb",
@@ -111218,14 +111541,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-5day",
@@ -111239,14 +111565,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-12day",
@@ -111260,14 +111589,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-3day-trip",
@@ -111281,14 +111613,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-8day-trip",
@@ -111302,14 +111637,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-ld1",
@@ -111323,14 +111661,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-ld2",
@@ -111344,14 +111685,17 @@
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/overnight-camp",
     "registrationDate": "2026-01-30",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Overnight",
     "description": "Overnight camp on the Sunshine Coast. Activities include canoeing, archery, ropes courses, wilderness expeditions.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8
   },
   {
     "id": "ymca-elph-daycamp",
@@ -111365,14 +111709,18 @@
     "address": "Camp Elphinstone, near Langdale, Sunshine Coast, BC",
     "neighbourhood": "Sunshine Coast",
     "registrationUrl": "https://www.gv.ymca.ca/elphinstone-day-camp",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Summer 2026",
     "dayLength": "Full Day",
     "description": "Day camp at Camp Elphinstone. Sailing, kayaking, rock climbing, archery, shelter building, discovery hikes.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8,
+    "registrationDate": "2026-03-08"
   },
   {
     "id": "ymca-swim-robert",
@@ -111385,14 +111733,18 @@
     "address": "955 Burrard St, Vancouver, BC",
     "neighbourhood": "Downtown",
     "registrationUrl": "https://www.gv.ymca.ca/ymca-swim-lessons",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Half Day",
     "description": "Continuous enrollment swim lessons. Requires YMCA membership + $5 bi-weekly swim add-on. Parent & Tot through advanced levels.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8,
+    "registrationDate": "2026-03-08"
   },
   {
     "id": "ymca-swim-langara",
@@ -111405,14 +111757,18 @@
     "address": "282 W 49th Ave, Vancouver, BC",
     "neighbourhood": "Marpole",
     "registrationUrl": "https://www.gv.ymca.ca/ymca-swim-lessons",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Half Day",
     "description": "Continuous enrollment swim lessons. Requires YMCA membership + $5 bi-weekly swim add-on. Parent & Tot through advanced levels.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8,
+    "registrationDate": "2026-03-08"
   },
   {
     "id": "ymca-swim-tonglouie",
@@ -111425,14 +111781,18 @@
     "address": "14988 57 Ave, Surrey, BC",
     "neighbourhood": "Panorama",
     "registrationUrl": "https://www.gv.ymca.ca/ymca-swim-lessons",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Half Day",
     "description": "Continuous enrollment swim lessons. Requires YMCA membership + $5 bi-weekly swim add-on. Parent & Tot through advanced levels.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8,
+    "registrationDate": "2026-03-08"
   },
   {
     "id": "ymca-swim-bettie",
@@ -111445,14 +111805,18 @@
     "address": "555 Emerson St, Coquitlam, BC",
     "neighbourhood": "Maillardville",
     "registrationUrl": "https://www.gv.ymca.ca/ymca-swim-lessons",
-    "enrollmentStatus": "Likely Coming Soon",
+    "enrollmentStatus": "Open",
     "season": "Year-Round",
     "dayLength": "Half Day",
     "description": "Continuous enrollment swim lessons. Requires YMCA membership + $5 bi-weekly swim add-on. Parent & Tot through advanced levels.",
     "cost": 300,
     "priceVerified": false,
     "costNote": "Estimated -/week. Some locations subsidized.",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "8:30 AM",
+    "endTime": "4:30 PM",
+    "durationPerDay": 8,
+    "registrationDate": "2026-03-08"
   },
   {
     "id": "ywca-citygate",
@@ -111470,7 +111834,10 @@
     "enrollmentStatus": "Waitlist",
     "season": "Year-Round",
     "dayLength": "Full Day",
-    "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist."
+    "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist.",
+    "startTime": "7:30 AM",
+    "endTime": "5:30 PM",
+    "durationPerDay": 10
   },
   {
     "id": "ywca-crabtree",
@@ -111490,7 +111857,10 @@
     "dayLength": "Full Day",
     "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist.",
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "7:30 AM",
+    "endTime": "5:30 PM",
+    "durationPerDay": 10
   },
   {
     "id": "ywca-emma",
@@ -111508,7 +111878,10 @@
     "enrollmentStatus": "Waitlist",
     "season": "Year-Round",
     "dayLength": "Full Day",
-    "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist."
+    "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist.",
+    "startTime": "7:30 AM",
+    "endTime": "5:30 PM",
+    "durationPerDay": 10
   },
   {
     "id": "ywca-leslie",
@@ -111526,7 +111899,10 @@
     "enrollmentStatus": "Waitlist",
     "season": "Year-Round",
     "dayLength": "Full Day",
-    "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist."
+    "description": "Year-round early learning and child care. $10-a-day BC child care funding available. Approximately 20-month waitlist.",
+    "startTime": "7:30 AM",
+    "endTime": "5:30 PM",
+    "durationPerDay": 10
   },
   {
     "id": "pa-hillcrest-w1",
@@ -112055,9 +112431,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM",
     "confirmed2026": true,
-    "priceVerified": false,
-    "cost": null,
-    "costNote": "Contact provider for pricing: petitarchitect.com",
+    "priceVerified": true,
+    "cost": 375,
+    "costNote": null,
     "durationPerDay": 6
   },
   {
@@ -112084,9 +112460,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM",
     "confirmed2026": true,
-    "priceVerified": false,
-    "cost": null,
-    "costNote": "Contact provider for pricing: petitarchitect.com",
+    "priceVerified": true,
+    "cost": 375,
+    "costNote": null,
     "urlVerified": false,
     "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca.",
     "durationPerDay": 6
@@ -112115,9 +112491,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM",
     "confirmed2026": true,
-    "priceVerified": false,
-    "cost": null,
-    "costNote": "Contact provider for pricing: petitarchitect.com",
+    "priceVerified": true,
+    "cost": 375,
+    "costNote": null,
     "urlVerified": false,
     "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca.",
     "durationPerDay": 6
