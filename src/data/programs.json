@@ -2308,7 +2308,7 @@
     "lat": 49.3155,
     "lng": -123.071,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "http://www.monarcharts.com/",
+    "registrationUrl": "https://www.monarcharts.com/camp-monarch",
     "description": "Camp Monarch: Orff-Schulwerk-based summer arts day camp for ages 5-12 in North Vancouver. Music, art, dance, and theater. 2026 dates TBA — check monarcharts.com.",
     "tags": [
       "musical theatre",
@@ -2320,7 +2320,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 144,
@@ -2343,7 +2344,7 @@
     "lat": 49.3155,
     "lng": -123.071,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "http://www.monarcharts.com/",
+    "registrationUrl": "https://www.monarcharts.com/camp-monarch",
     "description": "Camp Monarch: Orff-Schulwerk-based summer arts day camp for ages 5-12 in North Vancouver. Music, art, dance, and theater. 2026 dates TBA — check monarcharts.com.",
     "tags": [
       "musical theatre",
@@ -2355,7 +2356,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 145,
@@ -2378,7 +2380,7 @@
     "lat": 49.3155,
     "lng": -123.071,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "http://www.monarcharts.com/",
+    "registrationUrl": "https://www.monarcharts.com/camp-monarch",
     "description": "Camp Monarch: Orff-Schulwerk-based summer arts day camp for ages 5-12 in North Vancouver. Music, art, dance, and theater. 2026 dates TBA — check monarcharts.com.",
     "tags": [
       "musical theatre",
@@ -2390,7 +2392,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 146,
@@ -2413,7 +2416,7 @@
     "lat": 49.3155,
     "lng": -123.071,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "http://www.monarcharts.com/",
+    "registrationUrl": "https://www.monarcharts.com/camp-monarch",
     "description": "Camp Monarch: Orff-Schulwerk-based summer arts day camp for ages 5-12 in North Vancouver. Music, art, dance, and theater. 2026 dates TBA — check monarcharts.com.",
     "tags": [
       "musical theatre",
@@ -2425,7 +2428,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 147,
@@ -2448,7 +2452,7 @@
     "lat": 49.3155,
     "lng": -123.071,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "http://www.monarcharts.com/",
+    "registrationUrl": "https://www.monarcharts.com/camp-monarch",
     "description": "Camp Monarch: Orff-Schulwerk-based summer arts day camp for ages 5-12 in North Vancouver. Music, art, dance, and theater. 2026 dates TBA — check monarcharts.com.",
     "tags": [
       "musical theatre",
@@ -2460,7 +2464,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 148,
@@ -2483,7 +2488,7 @@
     "lat": 49.3155,
     "lng": -123.071,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "http://www.monarcharts.com/",
+    "registrationUrl": "https://www.monarcharts.com/camp-monarch",
     "description": "Camp Monarch: Orff-Schulwerk-based summer arts day camp for ages 5-12 in North Vancouver. Music, art, dance, and theater. 2026 dates TBA — check monarcharts.com.",
     "tags": [
       "musical theatre",
@@ -2495,7 +2500,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 149,
@@ -3420,7 +3426,7 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.bytecamp.ca/",
+    "registrationUrl": "https://bytecamp.ca/calendar/",
     "description": "Creative tech camps: coding, animation, 3D modelling, music production. Ages 9-14. 6:1 ratio. 2026 schedule not yet posted — check bytecamp.ca.",
     "tags": [
       "coding",
@@ -3432,7 +3438,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 182,
@@ -3455,7 +3462,7 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.bytecamp.ca/",
+    "registrationUrl": "https://bytecamp.ca/calendar/",
     "description": "Creative tech camps: coding, animation, 3D modelling, music production. Ages 9-14. 6:1 ratio. 2026 schedule not yet posted — check bytecamp.ca.",
     "tags": [
       "coding",
@@ -3467,7 +3474,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 183,
@@ -3490,7 +3498,7 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.bytecamp.ca/",
+    "registrationUrl": "https://bytecamp.ca/calendar/",
     "description": "Creative tech camps: coding, animation, 3D modelling, music production. Ages 9-14. 6:1 ratio. 2026 schedule not yet posted — check bytecamp.ca.",
     "tags": [
       "coding",
@@ -3502,7 +3510,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 184,
@@ -3525,7 +3534,7 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.bytecamp.ca/",
+    "registrationUrl": "https://bytecamp.ca/calendar/",
     "description": "Creative tech camps: coding, animation, 3D modelling, music production. Ages 9-14. 6:1 ratio. 2026 schedule not yet posted — check bytecamp.ca.",
     "tags": [
       "coding",
@@ -3537,7 +3546,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 185,
@@ -3560,7 +3570,7 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.bytecamp.ca/",
+    "registrationUrl": "https://bytecamp.ca/calendar/",
     "description": "Creative tech camps: coding, animation, 3D modelling, music production. Ages 9-14. 6:1 ratio. 2026 schedule not yet posted — check bytecamp.ca.",
     "tags": [
       "coding",
@@ -3572,7 +3582,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 186,
@@ -3595,7 +3606,7 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.bytecamp.ca/",
+    "registrationUrl": "https://bytecamp.ca/calendar/",
     "description": "Creative tech camps: coding, animation, 3D modelling, music production. Ages 9-14. 6:1 ratio. 2026 schedule not yet posted — check bytecamp.ca.",
     "tags": [
       "coding",
@@ -3607,7 +3618,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 193,
@@ -6918,7 +6930,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -6929,7 +6941,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 318,
@@ -6952,7 +6965,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -6963,7 +6976,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 319,
@@ -6986,7 +7000,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -6997,7 +7011,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 320,
@@ -7020,7 +7035,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -7031,7 +7046,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 321,
@@ -7054,7 +7070,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -7065,7 +7081,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 322,
@@ -7088,7 +7105,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -7099,7 +7116,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 323,
@@ -7122,7 +7140,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -7133,7 +7151,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 324,
@@ -7156,7 +7175,7 @@
     "lat": 49.3515,
     "lng": -123.0155,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.sportscampscanada.com/",
+    "registrationUrl": "https://www.sportscampscanada.com/camps/nike-basketball-summer-camps-at-the-vancouver-basketball-academy-tm",
     "description": "Multi-sport day camp. Note: Sports Camps Canada (Nike Sports Camps) has not yet posted 2026 Vancouver summer camp details — check sportscampscanada.com for updates.",
     "tags": [
       "multi-sport",
@@ -7167,7 +7186,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 325,
@@ -8962,7 +8982,7 @@
     "lat": 49.2635,
     "lng": -123.166,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.kfitness.com/",
+    "registrationUrl": "https://www.kfitness.com/martial-arts-classes/summer-camps-vancouver/",
     "description": "Martial arts summer camp: kickboxing, karate, MMA. Part of Sport Kickboxing Federation. Building confidence, discipline, and fitness since 1996.",
     "tags": [
       "kickboxing",
@@ -8974,7 +8994,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 384,
@@ -8997,7 +9018,7 @@
     "lat": 49.2635,
     "lng": -123.166,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.kfitness.com/",
+    "registrationUrl": "https://www.kfitness.com/martial-arts-classes/summer-camps-vancouver/",
     "description": "Martial arts summer camp: kickboxing, karate, MMA. Part of Sport Kickboxing Federation. Building confidence, discipline, and fitness since 1996.",
     "tags": [
       "kickboxing",
@@ -9009,7 +9030,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 385,
@@ -9032,7 +9054,7 @@
     "lat": 49.2635,
     "lng": -123.166,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.kfitness.com/",
+    "registrationUrl": "https://www.kfitness.com/martial-arts-classes/summer-camps-vancouver/",
     "description": "Martial arts summer camp: kickboxing, karate, MMA. Part of Sport Kickboxing Federation. Building confidence, discipline, and fitness since 1996.",
     "tags": [
       "kickboxing",
@@ -9044,7 +9066,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 386,
@@ -9067,7 +9090,7 @@
     "lat": 49.2635,
     "lng": -123.166,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.kfitness.com/",
+    "registrationUrl": "https://www.kfitness.com/martial-arts-classes/summer-camps-vancouver/",
     "description": "Martial arts summer camp: kickboxing, karate, MMA. Part of Sport Kickboxing Federation. Building confidence, discipline, and fitness since 1996.",
     "tags": [
       "kickboxing",
@@ -9079,7 +9102,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 387,
@@ -10505,7 +10529,7 @@
     "lat": 49.2135,
     "lng": -123.036,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://rosewoodhj.com/",
+    "registrationUrl": "https://rosewoodhj.com/pro-d-day-riding-camps",
     "description": "Week-long horseback riding camp in Southlands, Vancouver. $400/week, Mon-Fri 9am-12:30pm or 12pm-3:30pm. Ages 4-16, no experience necessary. Daily riding lessons, horsemanship, stable management, games, arts & crafts. ASTM-approved helmet mandatory. Limited space, first come first served. 25+ years in business.",
     "tags": [
       "horseback riding",
@@ -10518,7 +10542,8 @@
     "priceVerified": true,
     "confirmed2026": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 432,
@@ -10541,7 +10566,7 @@
     "lat": 49.2135,
     "lng": -123.036,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://rosewoodhj.com/",
+    "registrationUrl": "https://rosewoodhj.com/pro-d-day-riding-camps",
     "description": "Week-long horseback riding camp in Southlands, Vancouver. $400/week, Mon-Fri 9am-12:30pm or 12pm-3:30pm. Ages 4-16, no experience necessary. Daily riding lessons, horsemanship, stable management, games, arts & crafts. ASTM-approved helmet mandatory. Limited space, first come first served. 25+ years in business.",
     "tags": [
       "horseback riding",
@@ -10554,7 +10579,8 @@
     "priceVerified": true,
     "confirmed2026": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 433,
@@ -10577,7 +10603,7 @@
     "lat": 49.2135,
     "lng": -123.036,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://rosewoodhj.com/",
+    "registrationUrl": "https://rosewoodhj.com/pro-d-day-riding-camps",
     "description": "Week-long horseback riding camp in Southlands, Vancouver. $400/week, Mon-Fri 9am-12:30pm or 12pm-3:30pm. Ages 4-16, no experience necessary. Daily riding lessons, horsemanship, stable management, games, arts & crafts. ASTM-approved helmet mandatory. Limited space, first come first served. 25+ years in business.",
     "tags": [
       "horseback riding",
@@ -10590,7 +10616,8 @@
     "priceVerified": true,
     "confirmed2026": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 434,
@@ -10613,7 +10640,7 @@
     "lat": 49.2135,
     "lng": -123.036,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://rosewoodhj.com/",
+    "registrationUrl": "https://rosewoodhj.com/pro-d-day-riding-camps",
     "description": "Week-long horseback riding camp in Southlands, Vancouver. $400/week, Mon-Fri 9am-12:30pm or 12pm-3:30pm. Ages 4-16, no experience necessary. Daily riding lessons, horsemanship, stable management, games, arts & crafts. ASTM-approved helmet mandatory. Limited space, first come first served. 25+ years in business.",
     "tags": [
       "horseback riding",
@@ -10626,7 +10653,8 @@
     "priceVerified": true,
     "confirmed2026": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 435,
@@ -10871,7 +10899,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 442,
@@ -10906,7 +10935,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 443,
@@ -10941,7 +10971,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 444,
@@ -10976,7 +11007,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 445,
@@ -11011,7 +11043,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 446,
@@ -11046,7 +11079,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 447,
@@ -12253,7 +12287,7 @@
     "lat": 49.3305,
     "lng": -123.031,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.thrivingroots.org",
+    "registrationUrl": "https://www.thrivingroots.org/summer-camps",
     "description": "Nature adventure with forest games, wilderness skills, and place-based mentoring. Ages 5-17. Registration opened March 15, 2026.",
     "tags": [
       "wilderness",
@@ -12265,7 +12299,8 @@
     "priceVerified": true,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 489,
@@ -12288,7 +12323,7 @@
     "lat": 49.3305,
     "lng": -123.031,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.thrivingroots.org",
+    "registrationUrl": "https://www.thrivingroots.org/summer-camps",
     "description": "Nature adventure with forest games, wilderness skills, and place-based mentoring. Ages 5-17. Registration opened March 15, 2026.",
     "tags": [
       "wilderness",
@@ -12300,7 +12335,8 @@
     "priceVerified": true,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 490,
@@ -12323,7 +12359,7 @@
     "lat": 49.3305,
     "lng": -123.031,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.thrivingroots.org",
+    "registrationUrl": "https://www.thrivingroots.org/summer-camps",
     "description": "Nature adventure with forest games, wilderness skills, and place-based mentoring. Ages 5-17. Registration opened March 15, 2026.",
     "tags": [
       "wilderness",
@@ -12335,7 +12371,8 @@
     "priceVerified": true,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 491,
@@ -12358,7 +12395,7 @@
     "lat": 49.3305,
     "lng": -123.031,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.thrivingroots.org",
+    "registrationUrl": "https://www.thrivingroots.org/summer-camps",
     "description": "Nature adventure with forest games, wilderness skills, and place-based mentoring. Ages 5-17. Registration opened March 15, 2026.",
     "tags": [
       "wilderness",
@@ -12370,7 +12407,8 @@
     "priceVerified": true,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 492,
@@ -12393,7 +12431,7 @@
     "lat": 49.3305,
     "lng": -123.031,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.thrivingroots.org",
+    "registrationUrl": "https://www.thrivingroots.org/summer-camps",
     "description": "Nature adventure with forest games, wilderness skills, and place-based mentoring. Ages 5-17. Registration opened March 15, 2026.",
     "tags": [
       "wilderness",
@@ -12405,7 +12443,8 @@
     "priceVerified": true,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 493,
@@ -12428,7 +12467,7 @@
     "lat": 49.3305,
     "lng": -123.031,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.thrivingroots.org",
+    "registrationUrl": "https://www.thrivingroots.org/summer-camps",
     "description": "Nature adventure with forest games, wilderness skills, and place-based mentoring. Ages 5-17. Registration opened March 15, 2026.",
     "tags": [
       "wilderness",
@@ -12440,7 +12479,8 @@
     "priceVerified": true,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 494,
@@ -14338,7 +14378,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 560,
@@ -14373,7 +14414,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 561,
@@ -14408,7 +14450,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 562,
@@ -14443,7 +14486,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 563,
@@ -14478,7 +14522,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 564,
@@ -14513,7 +14558,8 @@
     "confirmed2026": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Price may vary — verify with provider"
+    "costNote": "Price may vary — verify with provider",
+    "urlVerified": true
   },
   {
     "id": 565,
@@ -14758,7 +14804,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 572,
@@ -14793,7 +14840,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 573,
@@ -14828,7 +14876,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 574,
@@ -14863,7 +14912,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 575,
@@ -14898,7 +14948,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 576,
@@ -14933,7 +14984,8 @@
     "priceVerified": false,
     "confirmed2026": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 577,
@@ -28230,7 +28282,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 972,
@@ -28267,7 +28320,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 973,
@@ -28304,7 +28358,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 974,
@@ -28341,7 +28396,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 975,
@@ -28378,7 +28434,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 976,
@@ -28415,7 +28472,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 977,
@@ -28452,7 +28510,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 978,
@@ -28489,7 +28548,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 979,
@@ -28526,7 +28586,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 980,
@@ -28563,7 +28624,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 981,
@@ -28600,7 +28662,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 982,
@@ -28637,7 +28700,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 983,
@@ -28674,7 +28738,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 984,
@@ -28711,7 +28776,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 985,
@@ -28748,7 +28814,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 986,
@@ -28785,7 +28852,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 987,
@@ -28822,7 +28890,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 988,
@@ -28859,7 +28928,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 989,
@@ -28896,7 +28966,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 990,
@@ -28933,7 +29004,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 991,
@@ -28970,7 +29042,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 992,
@@ -29007,7 +29080,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 993,
@@ -29044,7 +29118,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 994,
@@ -29081,7 +29156,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 995,
@@ -29118,7 +29194,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 996,
@@ -29155,7 +29232,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 997,
@@ -29192,7 +29270,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 998,
@@ -29229,7 +29308,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 999,
@@ -29266,7 +29346,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1000,
@@ -29303,7 +29384,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1001,
@@ -29340,7 +29422,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1002,
@@ -29377,7 +29460,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1003,
@@ -29414,7 +29498,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1004,
@@ -29451,7 +29536,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1005,
@@ -29488,7 +29574,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1006,
@@ -29525,7 +29612,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1007,
@@ -29562,7 +29650,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1008,
@@ -29599,7 +29688,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1009,
@@ -29636,7 +29726,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1010,
@@ -29673,7 +29764,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1011,
@@ -29710,7 +29802,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1012,
@@ -29747,7 +29840,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1013,
@@ -29784,7 +29878,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1014,
@@ -29821,7 +29916,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1015,
@@ -29858,7 +29954,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1016,
@@ -29895,7 +29992,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1017,
@@ -29932,7 +30030,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1018,
@@ -29969,7 +30068,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1019,
@@ -30006,7 +30106,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1020,
@@ -30043,7 +30144,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1021,
@@ -30080,7 +30182,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1022,
@@ -30117,7 +30220,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1023,
@@ -30154,7 +30258,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1024,
@@ -30191,7 +30296,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1025,
@@ -30228,7 +30334,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1026,
@@ -30265,7 +30372,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1027,
@@ -30302,7 +30410,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1028,
@@ -30339,7 +30448,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1029,
@@ -30376,7 +30486,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1030,
@@ -30413,7 +30524,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1031,
@@ -30450,7 +30562,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1032,
@@ -30487,7 +30600,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1033,
@@ -30524,7 +30638,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1034,
@@ -30561,7 +30676,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1035,
@@ -30598,7 +30714,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1036,
@@ -30635,7 +30752,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1037,
@@ -30672,7 +30790,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1038,
@@ -30709,7 +30828,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1039,
@@ -30746,7 +30866,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1040,
@@ -30783,7 +30904,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1041,
@@ -30820,7 +30942,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1042,
@@ -30857,7 +30980,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1043,
@@ -30894,7 +31018,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1044,
@@ -30931,7 +31056,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1045,
@@ -30968,7 +31094,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1046,
@@ -31005,7 +31132,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1047,
@@ -31042,7 +31170,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1048,
@@ -31079,7 +31208,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1049,
@@ -31116,7 +31246,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1050,
@@ -31153,7 +31284,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1051,
@@ -31190,7 +31322,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1052,
@@ -31227,7 +31360,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1053,
@@ -31264,7 +31398,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1054,
@@ -31301,7 +31436,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1055,
@@ -31338,7 +31474,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1056,
@@ -31375,7 +31512,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1057,
@@ -31412,7 +31550,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1058,
@@ -31449,7 +31588,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1059,
@@ -31486,7 +31626,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1060,
@@ -31523,7 +31664,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1061,
@@ -31560,7 +31702,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1062,
@@ -31597,7 +31740,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1063,
@@ -31634,7 +31778,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1064,
@@ -31671,7 +31816,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1065,
@@ -31708,7 +31854,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1066,
@@ -31745,7 +31892,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1067,
@@ -31782,7 +31930,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1068,
@@ -31819,7 +31968,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1069,
@@ -31856,7 +32006,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1070,
@@ -31893,7 +32044,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1071,
@@ -31930,7 +32082,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1072,
@@ -31967,7 +32120,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1073,
@@ -32004,7 +32158,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1074,
@@ -32041,7 +32196,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1075,
@@ -32078,7 +32234,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1076,
@@ -32115,7 +32272,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1077,
@@ -32152,7 +32310,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1078,
@@ -32189,7 +32348,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1079,
@@ -32226,7 +32386,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1080,
@@ -32263,7 +32424,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1081,
@@ -32300,7 +32462,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1082,
@@ -32337,7 +32500,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1083,
@@ -32374,7 +32538,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1084,
@@ -32411,7 +32576,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1085,
@@ -32448,7 +32614,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1086,
@@ -32485,7 +32652,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1087,
@@ -32522,7 +32690,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1088,
@@ -32559,7 +32728,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1089,
@@ -32596,7 +32766,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1090,
@@ -32633,7 +32804,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1091,
@@ -32670,7 +32842,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1092,
@@ -32707,7 +32880,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1093,
@@ -32744,7 +32918,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1094,
@@ -32781,7 +32956,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1095,
@@ -32818,7 +32994,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1096,
@@ -32855,7 +33032,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1097,
@@ -32892,7 +33070,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1098,
@@ -32929,7 +33108,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1099,
@@ -32966,7 +33146,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1100,
@@ -33003,7 +33184,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1101,
@@ -33039,7 +33221,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1102,
@@ -33075,7 +33258,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1103,
@@ -33111,7 +33295,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1104,
@@ -33147,7 +33332,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1105,
@@ -33183,7 +33369,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1106,
@@ -33219,7 +33406,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1107,
@@ -33255,7 +33443,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1108,
@@ -33291,7 +33480,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1109,
@@ -33327,7 +33517,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1110,
@@ -33363,7 +33554,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1111,
@@ -33399,7 +33591,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1112,
@@ -33435,7 +33628,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1113,
@@ -33471,7 +33665,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1114,
@@ -33507,7 +33702,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1115,
@@ -33543,7 +33739,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1116,
@@ -33579,7 +33776,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1117,
@@ -33615,7 +33813,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1118,
@@ -33651,7 +33850,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1119,
@@ -33687,7 +33887,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1120,
@@ -33723,7 +33924,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1121,
@@ -33759,7 +33961,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1122,
@@ -33795,7 +33998,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1123,
@@ -33831,7 +34035,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1124,
@@ -33867,7 +34072,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1125,
@@ -33903,7 +34109,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1126,
@@ -33939,7 +34146,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1127,
@@ -33975,7 +34183,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1128,
@@ -34011,7 +34220,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1129,
@@ -34047,7 +34257,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1130,
@@ -34083,7 +34294,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1131,
@@ -34119,7 +34331,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1132,
@@ -34155,7 +34368,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1133,
@@ -34191,7 +34405,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1134,
@@ -34227,7 +34442,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1135,
@@ -34263,7 +34479,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1136,
@@ -34299,7 +34516,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1137,
@@ -34335,7 +34553,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1138,
@@ -34371,7 +34590,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1139,
@@ -34407,7 +34627,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1140,
@@ -34443,7 +34664,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1141,
@@ -34479,7 +34701,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1142,
@@ -34515,7 +34738,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1143,
@@ -34550,7 +34774,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1144,
@@ -34585,7 +34810,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1145,
@@ -34620,7 +34846,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1146,
@@ -34655,7 +34882,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1147,
@@ -34690,7 +34918,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1148,
@@ -34725,7 +34954,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1149,
@@ -34760,7 +34990,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1150,
@@ -34795,7 +35026,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1151,
@@ -34830,7 +35062,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1152,
@@ -34865,7 +35098,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1153,
@@ -34900,7 +35134,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1154,
@@ -34935,7 +35170,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1155,
@@ -34970,7 +35206,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1156,
@@ -35005,7 +35242,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1157,
@@ -35040,7 +35278,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1158,
@@ -35075,7 +35314,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1159,
@@ -35110,7 +35350,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1160,
@@ -35145,7 +35386,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1161,
@@ -35180,7 +35422,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1162,
@@ -35215,7 +35458,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1163,
@@ -35250,7 +35494,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 1164,
@@ -61125,7 +61370,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Drawing & Painting Intensive for ages 10-13. Intensive program at Granville Island.",
     "tags": [
       "art-design",
@@ -61136,7 +61381,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2141,
@@ -61164,7 +61410,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 3D Modeling & Animation Intensive for ages 10-13. Intensive program at Granville Island.",
     "tags": [
       "art-design",
@@ -61175,7 +61421,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2142,
@@ -61203,7 +61450,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Clay Sculpture Intensive for ages 10-13. Intensive program at Granville Island.",
     "tags": [
       "art-design",
@@ -61214,7 +61461,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2143,
@@ -61242,7 +61490,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 3D Modeling & Animation Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "art-design",
@@ -61253,7 +61501,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2144,
@@ -61281,7 +61530,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Ceramics Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "art-design",
@@ -61292,7 +61541,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2145,
@@ -61320,7 +61570,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Drawing & Painting Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "art-design",
@@ -61331,7 +61581,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2146,
@@ -61360,7 +61611,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 2D Digital Animation for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61371,7 +61622,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2147,
@@ -61400,7 +61652,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Architecture & Environmental Design for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61411,7 +61663,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2148,
@@ -61440,7 +61693,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61451,7 +61704,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2149,
@@ -61480,7 +61734,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61491,7 +61745,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2150,
@@ -61520,7 +61775,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61531,7 +61786,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2151,
@@ -61560,7 +61816,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61571,7 +61827,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2152,
@@ -61600,7 +61857,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61611,7 +61868,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2153,
@@ -61640,7 +61898,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61651,7 +61909,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2154,
@@ -61680,7 +61939,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 6-8. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61691,7 +61950,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2155,
@@ -61720,7 +61980,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61731,7 +61991,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2156,
@@ -61760,7 +62021,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61771,7 +62032,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2157,
@@ -61800,7 +62062,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61811,7 +62073,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2158,
@@ -61840,7 +62103,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 2D Digital Animation for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61851,7 +62114,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2159,
@@ -61880,7 +62144,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -61891,7 +62155,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2160,
@@ -61920,7 +62185,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Video Game Design for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61931,7 +62196,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2161,
@@ -61960,7 +62226,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -61971,7 +62237,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2162,
@@ -62000,7 +62267,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Drawing & Painting for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62011,7 +62278,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2163,
@@ -62040,7 +62308,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62051,7 +62319,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2164,
@@ -62080,7 +62349,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62091,7 +62360,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2165,
@@ -62120,7 +62390,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62131,7 +62401,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2166,
@@ -62160,7 +62431,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62171,7 +62442,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2167,
@@ -62200,7 +62472,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62211,7 +62483,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2168,
@@ -62240,7 +62513,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 6-8. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62251,7 +62524,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2169,
@@ -62280,7 +62554,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62291,7 +62565,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2170,
@@ -62320,7 +62595,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62331,7 +62606,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2171,
@@ -62360,7 +62636,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62371,7 +62647,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2172,
@@ -62400,7 +62677,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62411,7 +62688,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2173,
@@ -62440,7 +62718,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Video Game Design for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62451,7 +62729,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2174,
@@ -62480,7 +62759,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 3D Modeling & Animation for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62491,7 +62770,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2175,
@@ -62520,7 +62800,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Clay Sculpture for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62531,7 +62811,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2176,
@@ -62560,7 +62841,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62571,7 +62852,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2177,
@@ -62600,7 +62882,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Drawing & Painting for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62611,7 +62893,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2178,
@@ -62640,7 +62923,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62651,7 +62934,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2179,
@@ -62680,7 +62964,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62691,7 +62975,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2180,
@@ -62720,7 +63005,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62731,7 +63016,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2181,
@@ -62760,7 +63046,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62771,7 +63057,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2182,
@@ -62800,7 +63087,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 6-8. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62811,7 +63098,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2183,
@@ -62840,7 +63128,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62851,7 +63139,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2184,
@@ -62880,7 +63169,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -62891,7 +63180,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2185,
@@ -62920,7 +63210,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62931,7 +63221,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2186,
@@ -62960,7 +63251,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 3D Modeling & Animation for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -62971,7 +63262,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2187,
@@ -63000,7 +63292,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63011,7 +63303,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2188,
@@ -63040,7 +63333,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63051,7 +63344,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2189,
@@ -63080,7 +63374,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63091,7 +63385,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2190,
@@ -63120,7 +63415,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Digital Photography & Photoshop for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63131,7 +63426,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2191,
@@ -63160,7 +63456,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Stop Motion Animation for ages 13-17. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63171,7 +63467,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2192,
@@ -63200,7 +63497,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63211,7 +63508,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2193,
@@ -63240,7 +63538,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63251,7 +63549,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2194,
@@ -63280,7 +63579,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63291,7 +63590,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2195,
@@ -63320,7 +63620,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63331,7 +63631,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2196,
@@ -63360,7 +63661,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella City Sketchbook: Drawing & Painting for ages 6-8. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63371,7 +63672,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2197,
@@ -63400,7 +63702,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63411,7 +63713,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2199,
@@ -63440,7 +63743,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella 2D Digital Animation for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63451,7 +63754,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2200,
@@ -63480,7 +63784,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63491,7 +63795,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2201,
@@ -63520,7 +63825,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63531,7 +63836,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2202,
@@ -63560,7 +63866,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Darkroom Photography for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "art-design",
@@ -63571,7 +63877,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2203,
@@ -63599,7 +63906,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63610,7 +63917,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2204,
@@ -63638,7 +63946,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63649,7 +63957,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2205,
@@ -63677,7 +63986,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 4-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63688,7 +63997,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2206,
@@ -63716,7 +64026,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 4-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63727,7 +64037,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2207,
@@ -63755,7 +64066,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63766,7 +64077,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2208,
@@ -63794,7 +64106,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "art-design",
@@ -63805,7 +64117,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2209,
@@ -63834,7 +64147,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Summerstage: Musical Theatre Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -63845,7 +64158,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2210,
@@ -63874,7 +64188,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Summerstage: Stagecraft Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -63885,7 +64199,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2211,
@@ -63914,7 +64229,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Summerstage: Theatre Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -63925,7 +64240,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2212,
@@ -63954,7 +64270,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Stagecraft Intensive - Intro for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -63965,7 +64281,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2213,
@@ -63994,7 +64311,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre Sampler for ages 13-19. Specialty program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64005,7 +64322,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2214,
@@ -64034,7 +64352,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64045,7 +64363,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2215,
@@ -64074,7 +64393,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64085,7 +64404,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2216,
@@ -64114,7 +64434,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64125,7 +64445,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2217,
@@ -64154,7 +64475,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64165,7 +64486,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2218,
@@ -64194,7 +64516,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64205,7 +64527,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2219,
@@ -64234,7 +64557,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64245,7 +64568,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2220,
@@ -64274,7 +64598,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64285,7 +64609,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2221,
@@ -64314,7 +64639,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64325,7 +64650,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2222,
@@ -64354,7 +64680,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Sketch Comedy & Improv Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64365,7 +64691,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2223,
@@ -64394,7 +64721,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Classical Acting Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64405,7 +64732,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2224,
@@ -64434,7 +64762,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Musical Theatre Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64445,7 +64773,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2225,
@@ -64474,7 +64803,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Sketch Comedy & Improv Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64485,7 +64814,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2226,
@@ -64514,7 +64844,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Song Study Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64525,7 +64855,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2227,
@@ -64554,7 +64885,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Stagecraft Intensive II for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64565,7 +64896,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2228,
@@ -64594,7 +64926,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64605,7 +64937,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2229,
@@ -64634,7 +64967,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64645,7 +64978,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2230,
@@ -64674,7 +65008,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64685,7 +65019,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2231,
@@ -64714,7 +65049,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64725,7 +65060,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2232,
@@ -64754,7 +65090,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64765,7 +65101,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2233,
@@ -64794,7 +65131,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64805,7 +65142,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2234,
@@ -64834,7 +65172,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64845,7 +65183,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2235,
@@ -64874,7 +65213,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -64885,7 +65224,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2236,
@@ -64914,7 +65254,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Acting: Film Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64925,7 +65265,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2237,
@@ -64954,7 +65295,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Musical Theatre Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -64965,7 +65306,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2238,
@@ -64994,7 +65336,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Acting: Film & Television Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65005,7 +65347,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2239,
@@ -65034,7 +65377,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65045,7 +65388,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2240,
@@ -65074,7 +65418,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65085,7 +65429,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2241,
@@ -65114,7 +65459,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65125,7 +65470,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2242,
@@ -65154,7 +65500,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65165,7 +65511,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2243,
@@ -65194,7 +65541,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65205,7 +65552,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2244,
@@ -65234,7 +65582,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65245,7 +65593,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2245,
@@ -65274,7 +65623,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65285,7 +65634,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2246,
@@ -65314,7 +65664,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Musical Theatre Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65325,7 +65675,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2247,
@@ -65354,7 +65705,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Musical Theatre Intensive for ages 13-19. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65365,7 +65716,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2248,
@@ -65394,7 +65746,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65405,7 +65757,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2249,
@@ -65434,7 +65787,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65445,7 +65798,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2250,
@@ -65474,7 +65828,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65485,7 +65839,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2251,
@@ -65514,7 +65869,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65525,7 +65880,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2252,
@@ -65554,7 +65910,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 6-8. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65565,7 +65921,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2253,
@@ -65594,7 +65951,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 9-12. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65605,7 +65962,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2254,
@@ -65634,7 +65992,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Acting: Classical Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65645,7 +66003,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2255,
@@ -65674,7 +66033,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Acting: Film Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65685,7 +66044,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2256,
@@ -65714,7 +66074,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Introduction to Acting for ages 9-12. Specialty program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65725,7 +66085,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2257,
@@ -65754,7 +66115,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Sketch Comedy & Improv Intensive for ages 9-12. Intensive program at Granville Island.",
     "tags": [
       "theatre,-music-film",
@@ -65765,7 +66126,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2258,
@@ -65793,7 +66155,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65804,7 +66166,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2259,
@@ -65832,7 +66195,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 3-5. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65843,7 +66206,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2260,
@@ -65871,7 +66235,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65882,7 +66246,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2261,
@@ -65910,7 +66275,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre, Music & Film summer camp for ages 5-6. Package-based program at Granville Island with multiple class sections available.",
     "tags": [
       "theatre,-music-film",
@@ -65921,7 +66286,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2262,
@@ -65950,7 +66316,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Junior Dance Intensive (Gr 2-4) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -65961,7 +66327,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2263,
@@ -65990,7 +66357,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Junior Dance Intensive (Gr 2-4) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66001,7 +66368,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2264,
@@ -66030,7 +66398,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Junior Dance Intensive (Gr 5-7) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66041,7 +66409,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2265,
@@ -66070,7 +66439,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Junior Dance Intensive (Gr 5-7) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66081,7 +66450,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2266,
@@ -66110,7 +66480,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Teen Dance Intensive (Gr 8-10) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66121,7 +66491,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2267,
@@ -66150,7 +66521,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Teen Dance Intensive (Gr 8-10) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66161,7 +66532,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2268,
@@ -66190,7 +66562,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Teen Dance Intensive (Gr 10-12) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66201,7 +66573,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2269,
@@ -66230,7 +66603,7 @@
     "lat": 49.2713,
     "lng": -123.134,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Teen Dance Intensive (Gr 10-12) - intensive dance training at Granville Island.",
     "tags": [
       "dance",
@@ -66241,7 +66614,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2270,
@@ -66270,7 +66644,7 @@
     "lat": 49.1756,
     "lng": -122.8471,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design Camp at Surrey Centre location.",
     "tags": [
       "arts",
@@ -66280,7 +66654,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2271,
@@ -66309,7 +66684,7 @@
     "lat": 49.1756,
     "lng": -122.8471,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre Camp at Surrey Centre location.",
     "tags": [
       "arts",
@@ -66319,7 +66694,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2272,
@@ -66348,7 +66724,7 @@
     "lat": 49.1756,
     "lng": -122.8471,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design Camp at Surrey Centre location.",
     "tags": [
       "arts",
@@ -66358,7 +66734,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2273,
@@ -66387,7 +66764,7 @@
     "lat": 49.1756,
     "lng": -122.8471,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre Camp at Surrey Centre location.",
     "tags": [
       "arts",
@@ -66397,7 +66774,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2274,
@@ -66426,7 +66804,7 @@
     "lat": 49.1756,
     "lng": -122.8471,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Art & Design Camp at Surrey Centre location.",
     "tags": [
       "arts",
@@ -66436,7 +66814,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2275,
@@ -66465,7 +66844,7 @@
     "lat": 49.1756,
     "lng": -122.8471,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/artsumbrella/home",
+    "registrationUrl": "https://www.artsumbrella.com/programs/art-camps/vancouver-summer-session/",
     "description": "Arts Umbrella Theatre Camp at Surrey Centre location.",
     "tags": [
       "arts",
@@ -66475,7 +66854,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2276,
@@ -74326,7 +74706,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Single Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2496,
@@ -74426,7 +74807,7 @@
     "lat": 49.2288,
     "lng": -123.0878,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.aquaventuresregistration.com/",
+    "registrationUrl": "https://www.aquaventuresswim.com/registration/how-to-register/",
     "description": "Year-round swim lessons in warm-water teaching pools purpose-built for kids. Waterbabies through school-age levels. Lifesaving Society Swim for Life program. Small class sizes.",
     "tags": [
       "swimming",
@@ -74439,7 +74820,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": 2502,
@@ -74642,7 +75024,7 @@
     "lat": 49.2802,
     "lng": -123.1118,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.dirtyapron.com/",
+    "registrationUrl": "https://www.dirtyapron.com/cooking-school/",
     "description": "Professional cooking camp for ages 7-17. Includes daily recipe book, hands-on instruction, fine dining experience, and take-home apron. 24 campers per session. ~$601-$700/week. Summer 2026 dates not yet announced.",
     "tags": [
       "cooking",
@@ -74654,7 +75036,8 @@
     "confirmed2026": false,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": 2508,
@@ -74821,7 +75204,8 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Single Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "fraserview-golf-2",
@@ -74852,7 +75236,8 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Single Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "fraserview-golf-3",
@@ -74883,7 +75268,8 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Single Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "fraserview-golf-4",
@@ -74913,7 +75299,8 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "fraserview-golf-5",
@@ -74943,7 +75330,8 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "salmon-forest-1",
@@ -75070,7 +75458,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "vcbc-vbs-2",
@@ -75105,7 +75494,8 @@
     "confirmed2026": true,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "urlVerified": true
   },
   {
     "id": "camp-spirit-1",
@@ -75536,7 +75926,7 @@
     "endTime": "4:00 PM",
     "indoorOutdoor": "Indoor",
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.clubhousekids.ca/",
+    "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Faith-based summer day camp for ages 5-13. Multiple locations available.",
     "tags": [
       "faith-based",
@@ -75549,7 +75939,8 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "camp-squeah-1",
@@ -76001,7 +76392,8 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": 0,
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "urlVerified": true
   },
   {
     "id": "khalsa-school-1",
@@ -76536,7 +76928,8 @@
     "dayLength": "Half Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "vjls-camp-1",
@@ -76624,7 +77017,8 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "nikkei-manga-1",
@@ -76686,7 +77080,8 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "words-motion-1",
@@ -76718,7 +77113,8 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "hola-spanish-1",
@@ -76747,7 +77143,8 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "vwgs-german-1",
@@ -76775,7 +77172,8 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "surrey-german-1",
@@ -76805,7 +77203,8 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "il-centro-camp-1",
@@ -76986,7 +77385,8 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "grace-korean-1",
@@ -77039,7 +77439,8 @@
     "tags": [],
     "cost": null,
     "costNote": "Contact provider for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "urlVerified": true
   },
   {
     "id": "maaboli-1",
@@ -77061,7 +77462,8 @@
     "tags": [],
     "cost": null,
     "costNote": "Contact provider for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "urlVerified": true
   },
   {
     "id": "berlitz-asl-1",
@@ -77121,7 +77523,8 @@
     "tags": [],
     "cost": null,
     "costNote": "Contact provider for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "urlVerified": true
   },
   {
     "id": "my-lang-connect-1",
@@ -77141,7 +77544,8 @@
     "tags": [],
     "cost": null,
     "costNote": "Contact provider for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "urlVerified": true
   },
   {
     "id": "ACT-0127",
@@ -99756,7 +100160,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0002",
@@ -99795,7 +100200,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0003",
@@ -99834,7 +100240,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0004",
@@ -99873,7 +100280,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0005",
@@ -99912,7 +100320,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0006",
@@ -99951,7 +100360,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0007",
@@ -99990,7 +100400,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0008",
@@ -100029,7 +100440,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0009",
@@ -100068,7 +100480,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0010",
@@ -100107,7 +100520,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0011",
@@ -100146,7 +100560,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0012",
@@ -100185,7 +100600,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0013",
@@ -100224,7 +100640,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0014",
@@ -100263,7 +100680,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0015",
@@ -100302,7 +100720,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0016",
@@ -100341,7 +100760,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0017",
@@ -100380,7 +100800,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0018",
@@ -100419,7 +100840,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0019",
@@ -100458,7 +100880,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0020",
@@ -100497,7 +100920,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0021",
@@ -100536,7 +100960,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0022",
@@ -100575,7 +101000,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0023",
@@ -100614,7 +101040,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0024",
@@ -100653,7 +101080,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0025",
@@ -100692,7 +101120,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0026",
@@ -100731,7 +101160,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0027",
@@ -100770,7 +101200,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0028",
@@ -100809,7 +101240,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0029",
@@ -100848,7 +101280,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0030",
@@ -100887,7 +101320,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0031",
@@ -100926,7 +101360,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0032",
@@ -100965,7 +101400,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0033",
@@ -101004,7 +101440,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0034",
@@ -101043,7 +101480,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0035",
@@ -101082,7 +101520,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0036",
@@ -101121,7 +101560,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0037",
@@ -101160,7 +101600,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0038",
@@ -101199,7 +101640,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0039",
@@ -101238,7 +101680,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0040",
@@ -101277,7 +101720,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0041",
@@ -101316,7 +101760,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0042",
@@ -101355,7 +101800,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0043",
@@ -101394,7 +101840,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0044",
@@ -101433,7 +101880,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0045",
@@ -101470,7 +101918,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0046",
@@ -101507,7 +101956,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0047",
@@ -101544,7 +101994,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0048",
@@ -101581,7 +102032,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0049",
@@ -101618,7 +102070,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0050",
@@ -101655,7 +102108,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0051",
@@ -101692,7 +102146,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0052",
@@ -101729,7 +102184,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0053",
@@ -101766,7 +102222,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0054",
@@ -101803,7 +102260,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD39-0055",
@@ -101840,7 +102298,8 @@
     ],
     "source": "VSB Summer Learning Catalogue 2026",
     "season": "Summer 2026",
-    "dayLength": "Half Day"
+    "dayLength": "Half Day",
+    "urlVerified": true
   },
   {
     "id": "SD41-0001",
@@ -102039,7 +102498,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0057",
@@ -102080,7 +102540,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0058",
@@ -102121,7 +102582,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0059",
@@ -102162,7 +102624,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0060",
@@ -102203,7 +102666,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0061",
@@ -102244,7 +102708,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD39-0062",
@@ -102285,7 +102750,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": true
   },
   {
     "id": "SD44-0001",
@@ -105214,7 +105680,8 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "kerrisdale-ll-1",
@@ -105285,7 +105752,8 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "little-mountain-bb-1",
@@ -105355,7 +105823,8 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "vcb-1",
@@ -105398,7 +105867,8 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "ua-flag-1",
@@ -105444,7 +105914,8 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Contact provider for pricing"
+    "costNote": "Contact provider for pricing",
+    "urlVerified": true
   },
   {
     "id": "bc-lions-camp-1",
