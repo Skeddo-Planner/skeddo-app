@@ -176,20 +176,33 @@ function programOverlapsWeek(program, weekMonday, weekFriday) {
 }
 
 /* Build a week-specific schedule string like "Mon–Fri · 9–3 PM" */
-function getWeekScheduleLabel(program, weekDays) {
+function getWeekScheduleLabel(program, weekDays, weekMonday) {
   if (weekDays.length === 0) return "";
+  // Show date range instead of day names (e.g., "Jun 29 – Jul 3" instead of "Mon–Fri")
+  if (weekMonday && weekDays.length > 0) {
+    const firstDay = new Date(weekMonday);
+    firstDay.setDate(weekMonday.getDate() + weekDays[0]);
+    const lastDay = new Date(weekMonday);
+    lastDay.setDate(weekMonday.getDate() + weekDays[weekDays.length - 1]);
+    let dateLabel;
+    if (firstDay.getMonth() === lastDay.getMonth()) {
+      dateLabel = `${MONTH_ABBR[firstDay.getMonth()]} ${firstDay.getDate()} – ${lastDay.getDate()}, ${firstDay.getFullYear()}`;
+    } else {
+      dateLabel = `${MONTH_ABBR[firstDay.getMonth()]} ${firstDay.getDate()} – ${MONTH_ABBR[lastDay.getMonth()]} ${lastDay.getDate()}, ${lastDay.getFullYear()}`;
+    }
+    const timeStr = program.startTime && program.endTime
+      ? ` · ${program.startTime}–${program.endTime}`
+      : "";
+    return dateLabel + timeStr;
+  }
+  // Fallback to day names if no weekMonday provided
   let dayLabel;
   if (weekDays.length === 5) {
     dayLabel = "Mon–Fri";
   } else if (weekDays.length === 1) {
     dayLabel = DAY_NAMES[weekDays[0]];
   } else {
-    const isConsecutive = weekDays.every((d, i) => i === 0 || d === weekDays[i - 1] + 1);
-    if (isConsecutive && weekDays.length >= 3) {
-      dayLabel = `${DAY_NAMES[weekDays[0]]}–${DAY_NAMES[weekDays[weekDays.length - 1]]}`;
-    } else {
-      dayLabel = weekDays.map((d) => DAY_NAMES[d]).join(", ");
-    }
+    dayLabel = weekDays.map((d) => DAY_NAMES[d]).join(", ");
   }
   const timeStr = program.startTime && program.endTime
     ? ` · ${program.startTime}–${program.endTime}`
@@ -1173,7 +1186,7 @@ export default function DiscoverTab({
                     const firstWeek = SUMMER_WEEKS.find((w) => w.id === firstWeekId);
                     if (firstWeek) {
                       const weekDays = getProgramWeekDays(p, firstWeek.monday);
-                      weekLabel = getWeekScheduleLabel(p, weekDays);
+                      weekLabel = getWeekScheduleLabel(p, weekDays, firstWeek.monday);
                     }
                   }
                   return (
