@@ -111,5 +111,26 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - A program must NEVER display as "Free" unless it is genuinely free
 - When displaying costs in the UI: null cost should show "Inquire for pricing", NOT "$0" or "Free"
 
+## Rule 17: Every New Rule Must Be Documented AND Automated (META-RULE)
+**Why:** Rules documented in memory alone were not enforced during batch imports. 847 false "Free" listings resulted.
+- Every new rule must be saved to: (1) memory file, (2) this document, (3) validate-programs.cjs or code
+- Never rely on Claude "remembering" to apply a rule
+- If a rule can't be fully automated, add a WARNING check to the validation script
+
+## Rule 18: UI Changes Apply to Both Platforms by Default
+**Why:** Changes were frequently applied to only mobile or only desktop.
+- No platform specified → change applies to BOTH mobile (< 1024px) and desktop (≥ 1024px)
+- "For the phone version" → mobile only
+- "For the desktop version" → desktop only
+- Verify at both 375px and 1400px before committing
+
+## Rule 19: GitHub Is Source of Truth for Multi-Computer Work
+**Why:** Two founders work from different computers. Local files can go stale.
+- Always `git pull` before starting a session
+- Always commit and push after changes
+- Critical rules live in this file and `docs/PROGRAM-SEARCH-METHODOLOGY.md` (in git, not just memory)
+- Google Drive "My Drive" is for input documents (specs, briefs, CSVs) only
+- Never work on stale local files
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
