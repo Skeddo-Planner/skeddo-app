@@ -13,26 +13,42 @@ export default async function handler(req, res) {
   const ids = childIds || (childId ? [childId] : []);
   if (ids.length === 0) return res.status(400).json({ error: "childId or childIds required" });
 
-  // Use service-role client to bypass RLS — we verify ownership manually below
-  const sb = getSupabaseClient();
+  // Use service-role client if available, otherwise user token
+  // Service-role bypasses RLS; user token works through RLS policies
+  const sb = getSupabaseClient(user._token);
 
   // Verify user has access to ALL children
   for (const cid of ids) {
+    // Check ownership via kids table (use .maybeSingle to avoid error on no match)
     const { data: ownedKid } = await sb
       .from("kids")
-      .select("id")
+      .select("id, user_id")
       .eq("id", cid)
       .eq("user_id", user.id)
-      .single();
+      .maybeSingle();
 
+    // Check access via child_access table
     const { data: accessRow } = await sb
       .from("child_access")
       .select("role")
       .eq("child_id", cid)
       .eq("user_id", user.id)
-      .single();
+      .maybeSingle();
 
-    if (!ownedKid && !accessRow) return res.status(403).json({ error: `No access to child ${cid}` });
+    if (!ownedKid && !accessRow) {
+      // Last resort: check if kid exists at all (maybe user_id mismatch)
+      const { data: anyKid } = await sb
+        .from("kids")
+        .select("id, user_id")
+        .eq("id", cid)
+        .maybeSingle();
+      console.error("invite-create: no access", {
+        childId: cid, userId: user.id,
+        kidExists: !!anyKid, kidOwner: anyKid?.user_id,
+        ownerMatch: anyKid?.user_id === user.id,
+      });
+      return res.status(403).json({ error: `No access to child ${cid}` });
+    }
 
     // Check max 2 adults per child
     const { count } = await sb
