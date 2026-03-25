@@ -2,6 +2,49 @@ import { verifyUser, getSupabaseClient, handleCors } from "./_helpers.js";
 
 export default async function handler(req, res) {
   if (handleCors(req, res)) return;
+
+  /* ── DELETE: remove a shared activity (only by the person who shared it) ── */
+  if (req.method === "DELETE") {
+    try {
+      const user = await verifyUser(req);
+      if (!user) return res.status(401).json({ error: "Unauthorized" });
+
+      const { sharedActivityId } = req.body || {};
+      if (!sharedActivityId) {
+        return res.status(400).json({ error: "sharedActivityId is required" });
+      }
+
+      const sb = getSupabaseClient(user._token);
+
+      // Fetch the shared activity to verify ownership
+      const { data: activity, error: fetchErr } = await sb
+        .from("shared_activities")
+        .select("id, shared_by")
+        .eq("id", sharedActivityId)
+        .single();
+
+      if (fetchErr || !activity) {
+        return res.status(404).json({ error: "Shared activity not found" });
+      }
+
+      if (activity.shared_by !== user.id) {
+        return res.status(403).json({ error: "You can only remove activities you shared" });
+      }
+
+      const { error: delErr } = await sb
+        .from("shared_activities")
+        .delete()
+        .eq("id", sharedActivityId);
+
+      if (delErr) return res.status(500).json({ error: delErr.message });
+
+      return res.status(200).json({ success: true });
+    } catch (err) {
+      console.error("circles-share DELETE error:", err);
+      return res.status(500).json({ error: err.message || "Failed to delete shared activity" });
+    }
+  }
+
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   try {

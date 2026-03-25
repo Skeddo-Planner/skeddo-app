@@ -110,6 +110,46 @@ function HeartIcon({ filled, size = 18 }) {
   );
 }
 
+/* ─── Trash SVG for delete ─── */
+function TrashIcon({ size = 16, color = C.danger }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="3 6 5 6 21 6" />
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+    </svg>
+  );
+}
+
+/* ─── Status pill for per-member status on shared activities ─── */
+function StatusPill({ initial, status, label }) {
+  const statusStyles = {
+    Enrolled: { color: C.seaGreen, bg: "rgba(45,159,111,0.10)", text: "Enrolled" },
+    Exploring: { color: C.blue, bg: "rgba(74,111,165,0.10)", text: "Exploring" },
+    Waitlist: { color: C.olive, bg: "rgba(231,111,81,0.10)", text: "Waitlisted" },
+    Interested: { color: C.lilac, bg: "rgba(244,162,97,0.10)", text: "Interested" },
+    none: { color: "#9CA3AF", bg: "rgba(156,163,175,0.08)", text: "\u2014" },
+  };
+  const s = statusStyles[status] || statusStyles.none;
+  return (
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 4,
+      fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600,
+      color: s.color, background: s.bg, padding: "2px 8px 2px 6px",
+      borderRadius: 20, whiteSpace: "nowrap",
+      border: status === "none" ? "1px solid #E5E7EB" : "none",
+    }}>
+      <span style={{
+        width: 16, height: 16, borderRadius: "50%", background: s.color,
+        color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center",
+        fontSize: 9, fontWeight: 700, flexShrink: 0,
+      }}>
+        {initial}
+      </span>
+      {label}: {s.text}
+    </span>
+  );
+}
+
 /* ─── Co-parent SVG (two equal people, same as HomeTab) ─── */
 function CoParentIcon({ color = C.blue, size = 22 }) {
   return (
@@ -132,7 +172,7 @@ export default function CirclesTab({
     circles, pendingRequests, activeFeed, bookmarks, bookmarkedActivities, referrals, loading,
     referralCode, referralUrl, membersRecruited, freeMonthsEarned,
     createCircle, joinCircle, handleMemberRequest, leaveCircle, removeMember,
-    shareActivities, loadFeed, toggleBookmark, flagActivity,
+    shareActivities, loadFeed, toggleBookmark, flagActivity, deleteSharedActivity,
     ensureReferralCode, getMembers, refreshPending, pendingCount,
   } = circlesHook;
 
@@ -837,25 +877,60 @@ export default function CirclesTab({
             const isBookmarked = bookmarks.has(item.id);
             const isFlagged = item.activity_flags?.length > 0;
             const dateLabel = formatDateRange(item.start_date, item.end_date);
+            const isSharer = item.shared_by === userId;
+
+            // Compute per-member statuses
+            const sharerName = item.shared_by_name || "Someone";
+            const sharerInitial = sharerName[0]?.toUpperCase() || "?";
+            const myName = profile?.displayName || "You";
+            const myInitial = myName[0]?.toUpperCase() || "?";
+
+            // Check if current user has this program in their tracked programs
+            const myProgram = item.program_id
+              ? (programs || []).find((p) => p.id === item.program_id)
+              : null;
+            const myStatus = myProgram?.status || "none";
 
             return (
               <div key={item.id} style={{
                 background: C.white, borderRadius: 12, boxShadow: SHADOW,
-                marginBottom: 12, overflow: "hidden",
+                marginBottom: 12, overflow: "hidden", position: "relative",
               }}>
+                {/* Delete button — only visible to the person who shared */}
+                {isSharer && (
+                  <button
+                    onClick={async () => {
+                      if (!window.confirm("Remove from circle?")) return;
+                      try {
+                        await deleteSharedActivity(item.id, activeCircle?.id);
+                        showToast("Removed from circle");
+                      } catch (e) { showToast(e.message || "Failed to remove"); }
+                    }}
+                    style={{
+                      position: "absolute", top: 10, right: 10, zIndex: 2,
+                      background: "rgba(239,68,68,0.08)", border: "none", borderRadius: 8,
+                      padding: 6, cursor: "pointer", display: "flex", alignItems: "center",
+                      justifyContent: "center", lineHeight: 1,
+                    }}
+                    aria-label="Remove shared activity"
+                  >
+                    <TrashIcon size={15} color={C.danger} />
+                  </button>
+                )}
+
                 {/* Attribution row */}
-                <div style={{ padding: "12px 14px 0", display: "flex", alignItems: "center", gap: 8 }}>
+                <div style={{ padding: "12px 14px 0", display: "flex", alignItems: "center", gap: 8, paddingRight: isSharer ? 40 : 14 }}>
                   <div style={{
                     width: 26, height: 26, borderRadius: 8,
                     background: `linear-gradient(135deg, ${C.seaGreen}, ${C.blue})`,
                     color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
                     fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, flexShrink: 0,
                   }}>
-                    {(item.shared_by_name || "?")[0].toUpperCase()}
+                    {sharerInitial}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
-                      <strong style={{ color: C.ink }}>{item.shared_by_name || "A parent"}</strong>
+                      <strong style={{ color: C.ink }}>{sharerName}</strong>
                       {item.child_name && <> shared <strong style={{ color: C.ink }}>{item.child_name}</strong>'s activity</>}
                     </span>
                   </div>
@@ -912,6 +987,23 @@ export default function CirclesTab({
                       {dupCount} parents shared this program
                     </div>
                   )}
+                  {/* Per-member status pills */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
+                    {/* Sharer's status — only show if sharer is not the current user */}
+                    {!isSharer && (
+                      <StatusPill
+                        initial={sharerInitial}
+                        status={item.sharer_status || "none"}
+                        label={sharerName.split(" ")[0]}
+                      />
+                    )}
+                    {/* Current user's status */}
+                    <StatusPill
+                      initial={myInitial}
+                      status={myStatus}
+                      label="You"
+                    />
+                  </div>
                 </div>
 
                 {/* Action buttons */}

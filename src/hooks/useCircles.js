@@ -315,6 +315,31 @@ export function useCircles(userId, session) {
     return data;
   }, [getAuthHeaders, loadFeed]);
 
+  /* ── Delete a shared activity (only by the sharer) ── */
+  const deleteSharedActivity = useCallback(async (sharedActivityId, circleId) => {
+    // Optimistic: remove from feed immediately
+    setActiveFeed((prev) => prev.filter((item) => item.id !== sharedActivityId));
+    try {
+      const res = await fetch("/api/circles-share", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+        body: JSON.stringify({ sharedActivityId }),
+      });
+      let data;
+      try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+      if (!res.ok) {
+        // Revert optimistic update on failure
+        if (circleId) await loadFeed(circleId);
+        throw new Error(data.error || "Failed to remove shared activity");
+      }
+      return data;
+    } catch (err) {
+      // Revert on network error
+      if (circleId) await loadFeed(circleId);
+      throw err;
+    }
+  }, [getAuthHeaders, loadFeed]);
+
   /* ── Get or create the user's permanent referral link ── */
   const ensureReferralCode = useCallback(async () => {
     if (referralCode) return { referralCode, referralUrl };
@@ -416,6 +441,7 @@ export function useCircles(userId, session) {
     loadFeed,
     toggleBookmark,
     flagActivity,
+    deleteSharedActivity,
     ensureReferralCode,
     getMembers,
     refreshPending,
