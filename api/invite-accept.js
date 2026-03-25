@@ -135,6 +135,40 @@ export default async function handler(req, res) {
     .update({ status: "used", used_by: user.id, used_at: new Date().toISOString() })
     .eq("invite_code", inviteCode);
 
+  // Auto-add co-parent to ALL circles that the inviter belongs to
+  const inviterId = first.created_by;
+  try {
+    const { data: inviterCircles } = await sb
+      .from("circle_memberships")
+      .select("circle_id")
+      .eq("user_id", inviterId)
+      .eq("status", "approved");
+
+    if (inviterCircles && inviterCircles.length > 0) {
+      for (const cm of inviterCircles) {
+        // Check if co-parent is already a member
+        const { data: existing } = await sb
+          .from("circle_memberships")
+          .select("id")
+          .eq("circle_id", cm.circle_id)
+          .eq("user_id", user.id)
+          .single();
+
+        if (!existing) {
+          await sb.from("circle_memberships").insert({
+            circle_id: cm.circle_id,
+            user_id: user.id,
+            role: "member",
+            status: "approved", // auto-approved since they're a co-parent
+          });
+        }
+      }
+    }
+  } catch (e) {
+    // Circle auto-add is best-effort — don't fail the invite acceptance
+    console.error("Circle auto-add error:", e.message);
+  }
+
   return res.status(200).json({
     success: true,
     children: grantedChildren,
