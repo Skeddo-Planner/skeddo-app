@@ -93,6 +93,7 @@ const CITY_NEIGHBOURHOODS = [
 const COST_RANGES = [
   { label: "Any price", min: 0, max: Infinity },
   { label: "Free", min: 0, max: 0 },
+  { label: "Inquire for pricing", min: -1, max: -1 },
   { label: "Under $100", min: 0.01, max: 100 },
   { label: "$100 - $250", min: 100, max: 250 },
   { label: "$250 - $500", min: 250, max: 500 },
@@ -573,7 +574,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         }}>
           {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date()
             ? <><span>${Number(program.earlyBirdCost).toLocaleString()}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${Number(program.cost).toLocaleString()}</span></>
-            : program.cost === "TBD" ? "TBD" : program.cost === null || program.cost === undefined ? "Inquire" : program.cost === 0 ? "Free" : (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() + (program.costPer === "week" ? "/wk" : "")
+            : program.cost === "TBD" ? "TBD" : program.cost === null || program.cost === undefined ? "Inquire for pricing" : program.cost === 0 ? "Free" : (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() + (program.costPer === "week" ? "/wk" : "")
           }
         </div>
       </div>
@@ -849,11 +850,12 @@ export default function DiscoverTab({
       if (minAge != null && p.ageMax != null && p.ageMax < minAge) return false;
       if (maxAge != null && p.ageMin != null && p.ageMin > maxAge) return false;
       if (costRanges) {
-        if (p.cost === "TBD" || p.cost === null || p.cost === undefined) return true; // unknown cost — always show
-        const cost = typeof p.cost === "number" ? p.cost : 0;
+        const cost = typeof p.cost === "number" ? p.cost : null;
         if (!costRanges.some((range) => {
+          if (range.min === -1 && range.max === -1) return cost === null; // "Inquire for pricing" — matches null cost
           if (range.max === 0) return cost === 0; // "Free" filter — only matches cost === 0
           if (range.min === 0 && range.max === Infinity) return true;
+          if (cost === null) return false; // null cost doesn't match price ranges
           return cost >= range.min && cost <= range.max;
         })) return false;
       }
