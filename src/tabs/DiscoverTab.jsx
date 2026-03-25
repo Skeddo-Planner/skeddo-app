@@ -798,11 +798,12 @@ export default function DiscoverTab({
     if (selectedActivityTypes.size > 0) return true;
     if (selectedDayLengths.size > 0) return true;
     if (selectedWeeks.size > 0) return true;
+    if (durationMin > 0 || durationMax < 10) return true;
     if (sortBy !== "relevance") return true;
     // Registration status: default is 4 statuses, if different then a filter is active
     if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) return true;
     return false;
-  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks, sortBy, selectedRegStatuses]);
+  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks, sortBy, selectedRegStatuses, durationMin, durationMax]);
 
   const totalActiveFilters = useMemo(() => {
     let count = 0;
