@@ -20,8 +20,8 @@
     "lat": 49.2827,
     "lng": -123.1207,
     "enrollmentStatus": "Likely Coming Soon",
-    "registrationUrl": "https://www.vanartgallery.bc.ca/events/summer-camp-july-2025/",
-    "description": "Half-day art camp at the Vancouver Art Gallery. Ages 7-10, max 20 campers. 2025 price was $240 (non-member) / $220 (member). 2026 summer camp not yet announced — check vanartgallery.bc.ca for updates.",
+    "registrationUrl": "https://www.vanartgallery.bc.ca/events/",
+    "description": "Half-day art camp at the Vancouver Art Gallery. Ages 7-10, max 20 campers. 2025 price was $240 (non-member) / $220 (member). 2026 summer camp not yet announced — check vanartgallery.bc.ca for updates. 2026 dates not yet confirmed — check provider website.",
     "tags": [
       "art",
       "gallery",
@@ -1105,7 +1105,7 @@
     "lat": 49.2672,
     "lng": -123.1005,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.performingstars.ca/camp-checkout",
+    "registrationUrl": "https://www.performingstars.ca/summercamps",
     "description": "Musical theatre, singing, dance camps for ages 1-18. Spring Break 2026 camps available; summer 2026 dates TBA — check performingstars.ca.",
     "tags": [
       "musical theatre",
@@ -1140,7 +1140,7 @@
     "lat": 49.2672,
     "lng": -123.1005,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.performingstars.ca/camp-checkout",
+    "registrationUrl": "https://www.performingstars.ca/summercamps",
     "description": "Musical theatre, singing, dance camps for ages 1-18. Spring Break 2026 camps available; summer 2026 dates TBA — check performingstars.ca.",
     "tags": [
       "musical theatre",
@@ -1175,7 +1175,7 @@
     "lat": 49.2672,
     "lng": -123.1005,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.performingstars.ca/camp-checkout",
+    "registrationUrl": "https://www.performingstars.ca/summercamps",
     "description": "Musical theatre, singing, dance camps for ages 1-18. Spring Break 2026 camps available; summer 2026 dates TBA — check performingstars.ca.",
     "tags": [
       "musical theatre",
@@ -1210,7 +1210,7 @@
     "lat": 49.2672,
     "lng": -123.1005,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.performingstars.ca/camp-checkout",
+    "registrationUrl": "https://www.performingstars.ca/summercamps",
     "description": "Musical theatre, singing, dance camps for ages 1-18. Spring Break 2026 camps available; summer 2026 dates TBA — check performingstars.ca.",
     "tags": [
       "musical theatre",
@@ -1245,7 +1245,7 @@
     "lat": 49.2672,
     "lng": -123.1005,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.performingstars.ca/camp-checkout",
+    "registrationUrl": "https://www.performingstars.ca/summercamps",
     "description": "Musical theatre, singing, dance camps for ages 1-18. Spring Break 2026 camps available; summer 2026 dates TBA — check performingstars.ca.",
     "tags": [
       "musical theatre",
@@ -1280,7 +1280,7 @@
     "lat": 49.2672,
     "lng": -123.1005,
     "enrollmentStatus": "Open",
-    "registrationUrl": "https://www.performingstars.ca/camp-checkout",
+    "registrationUrl": "https://www.performingstars.ca/summercamps",
     "description": "Musical theatre, singing, dance camps for ages 1-18. Spring Break 2026 camps available; summer 2026 dates TBA — check performingstars.ca.",
     "tags": [
       "musical theatre",
@@ -59819,7 +59819,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/&keyword=Multi-Sport%20Camp+6-10",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/?keyword=Multi-Sport%20Camp+6-10",
     "description": "Richmond Olympic Oval multi-sport camp including skating, climbing, basketball, and more at the Olympic facility. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "multi-sport",
@@ -59858,7 +59858,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/&keyword=Multi-Sport%20Camp+11-14",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/?keyword=Multi-Sport%20Camp+11-14",
     "description": "Richmond Olympic Oval multi-sport camp for older youth including skating, climbing, and team sports. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "multi-sport",
@@ -59897,7 +59897,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/adventure-camps/&keyword=Adventure%20Bike%20Camp+6-9",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/adventure-camps/?keyword=Adventure%20Bike%20Camp+6-9",
     "description": "Bike adventure half-day camp at the Richmond Olympic Oval. Learn bike skills and explore trails. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "biking",
@@ -59936,7 +59936,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/adventure-camps/&keyword=Adventure%20Bike%20Camp+9-12",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/adventure-camps/?keyword=Adventure%20Bike%20Camp+9-12",
     "description": "Full-day bike adventure camp at the Richmond Olympic Oval. Trail riding and bike skills for older kids. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "biking",
@@ -60052,7 +60052,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/sport-specific-camps/&keyword=Sport-Specific%20Camp+6-9",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/sport-specific-camps/?keyword=Sport-Specific%20Camp+6-9",
     "description": "Sport-specific camps at the Richmond Olympic Oval. Choose from basketball, baseball, rock climbing, soccer, badminton, and more. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "basketball",
@@ -60092,7 +60092,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/sport-specific-camps/&keyword=Sport-Specific%20Camp+9-12",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/sport-specific-camps/?keyword=Sport-Specific%20Camp+9-12",
     "description": "Sport-specific camps for older kids at the Richmond Olympic Oval. Choose from basketball, baseball, rock climbing, track & field, and more. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "basketball",
@@ -60131,7 +60131,7 @@
     "lat": 49.1743,
     "lng": -123.1519,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/&keyword=Tot%20Multi-Sport%20Camp+4-5",
+    "registrationUrl": "https://www.richmondoval.ca/sport/camps/multi-sport-camps/?keyword=Tot%20Multi-Sport%20Camp+4-5",
     "description": "Tot multi-sport camp for ages 4-5 at the Richmond Olympic Oval. Introduction to various sports in a fun, supportive environment. Runs weekly, Jul 6 - Aug 21. Register for individual weeks.",
     "tags": [
       "tots",
@@ -74213,7 +74213,7 @@
     "lat": 49.2558,
     "lng": -123.0538,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://ca.apm.activecommunities.com/vancouver/Home",
+    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/Home",
     "description": "Preschool and Swimmer-level swim lessons at Trout Lake pool. Lifesaving Society Swim for Life curriculum. Summer registration opens April 8 at 7pm via vanrec.ca.",
     "tags": [
       "swimming",
@@ -74248,7 +74248,7 @@
     "lat": 49.2437,
     "lng": -123.1098,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://ca.apm.activecommunities.com/vancouver/Home",
+    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/Home",
     "description": "Swim lessons at Vancouver's largest aquatic facility. Indoor and outdoor pools. Parent & Tot, Preschool, and Swimmer levels. Summer registration opens April 8 at 7pm.",
     "tags": [
       "swimming",
@@ -74283,7 +74283,7 @@
     "lat": 49.275,
     "lng": -123.0708,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://ca.apm.activecommunities.com/vancouver/Home",
+    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/Home",
     "description": "Swim lessons at Britannia pool with 25m indoor pool, heated tot pool with slide and water fountain. Tot pool for ages 4 months-8 years with adult. Summer registration opens April 8.",
     "tags": [
       "swimming",
@@ -74318,7 +74318,7 @@
     "lat": 49.2498,
     "lng": -123.0388,
     "enrollmentStatus": "TBD",
-    "registrationUrl": "https://ca.apm.activecommunities.com/vancouver/Home",
+    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/Home",
     "description": "Swim lessons at Renfrew pool with diving board, slide, sauna, whirlpool, and Wibit inflatable play structure. Summer registration opens April 8.",
     "tags": [
       "swimming",
@@ -76705,40 +76705,6 @@
     "dayLength": "Half Day",
     "description": "First Arabic school in BC (since 2006). Arabic reading, writing, speaking classes for children and adults, open to all backgrounds.",
     "address": "Richmond, BC",
-    "tags": []
-  },
-  {
-    "id": "myarabic-1",
-    "name": "myArabic Academy Kids Classes",
-    "provider": "myArabic Academy",
-    "category": "Language",
-    "activityType": "Arabic Language",
-    "ageMin": 6,
-    "ageMax": 14,
-    "neighbourhood": "Kerrisdale",
-    "registrationUrl": "https://myarabic.ca/",
-    "enrollmentStatus": "Open",
-    "season": "Year-Round",
-    "dayLength": "Half Day",
-    "description": "Custom-tailored Arabic classes for children in small class sizes.",
-    "address": "Near Kerrisdale, Vancouver West",
-    "tags": []
-  },
-  {
-    "id": "mac-albayan-1",
-    "name": "Vancouver Albayan Arabic & Islamic Studies",
-    "provider": "Muslim Association of Canada",
-    "category": "Language",
-    "activityType": "Arabic Language",
-    "ageMin": 6,
-    "ageMax": 16,
-    "neighbourhood": "Vancouver",
-    "registrationUrl": "https://schools.macnet.ca/vancouveralbayan/",
-    "enrollmentStatus": "Open",
-    "season": "Year-Round",
-    "dayLength": "Half Day",
-    "description": "Arabic Language, Islamic Studies, and Quran classes. Operating since 2015.",
-    "address": "Vancouver, BC",
     "tags": []
   },
   {
@@ -103575,7 +103541,7 @@
     "ageMax": 12,
     "address": "4747 Dunbar St, Vancouver, BC",
     "neighbourhood": "Dunbar-Southlands",
-    "registrationUrl": "https://dunbarbaseball.ca/registration/",
+    "registrationUrl": "https://go.teamsnap.com/forms/505908/",
     "enrollmentStatus": "Open",
     "season": "Spring",
     "dayLength": "Half Day",
@@ -103710,25 +103676,6 @@
     "tags": [
       "softball",
       "girls",
-      "sports"
-    ]
-  },
-  {
-    "id": "vmsa-1",
-    "name": "Vancouver Minor Softball Association",
-    "provider": "VMSA",
-    "category": "Sports",
-    "activityType": "Softball",
-    "ageMin": 5,
-    "ageMax": 18,
-    "registrationUrl": "http://vmsa.ca/",
-    "enrollmentStatus": "Open",
-    "season": "Spring",
-    "dayLength": "Half Day",
-    "confirmed2026": true,
-    "priceVerified": false,
-    "tags": [
-      "softball",
       "sports"
     ]
   },
@@ -104514,26 +104461,6 @@
     "tags": [
       "chess",
       "strategy",
-      "academic"
-    ]
-  },
-  {
-    "id": "debate-camp-1",
-    "name": "Debate Camp Vancouver",
-    "provider": "Debate Camp",
-    "category": "Academic",
-    "activityType": "Public Speaking",
-    "ageMin": 10,
-    "ageMax": 16,
-    "registrationUrl": "http://www.debatecamp.org/vancouver",
-    "enrollmentStatus": "Likely Coming Soon",
-    "season": "Summer 2026",
-    "dayLength": "Full Day",
-    "confirmed2026": false,
-    "priceVerified": false,
-    "tags": [
-      "debate",
-      "public speaking",
       "academic"
     ]
   },
