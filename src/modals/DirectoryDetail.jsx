@@ -378,10 +378,6 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       {/* Detail grid */}
       <div style={s.detailGrid}>
         <div>
-          <div style={s.detailLabel}>DAYS</div>
-          <div style={s.detailValue}>{p.days || "\u2014"}</div>
-        </div>
-        <div>
           <div style={s.detailLabel}>TIMES{p.confirmed2026 === false ? " (est.)" : ""}</div>
           <div style={{ ...s.detailValue, ...(p.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : {}) }}>
             {p.startTime && p.endTime ? `${p.startTime}\u2013${p.endTime}` : p.times || "\u2014"}

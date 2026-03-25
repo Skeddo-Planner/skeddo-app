@@ -170,7 +170,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
       {/* Bottom row: days/times + cost + register link */}
       <div style={s.cardBottom}>
         <span style={s.cardMeta}>
-          {[p.days, p.times].filter(Boolean).join(" \u00B7 ") || "\u2014"}
+          {p.times || "\u2014"}
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>

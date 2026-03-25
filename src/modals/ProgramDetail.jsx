@@ -113,10 +113,6 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
           </div>
         </div>
         <div>
-          <div style={s.detailLabel}>DAYS</div>
-          <div style={s.detailValue}>{p.days || "\u2014"}</div>
-        </div>
-        <div>
           <div style={s.detailLabel}>TIMES</div>
           <div style={s.detailValue}>{p.times || "\u2014"}</div>
         </div>
