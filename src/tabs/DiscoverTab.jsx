@@ -564,7 +564,7 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         }}>
           {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date()
             ? <><span>${Number(program.earlyBirdCost).toLocaleString()}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${Number(program.cost).toLocaleString()}</span></>
-            : program.cost === "TBD" ? "TBD" : program.cost ? (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() + (program.costPer === "week" ? "/wk" : "") : "Free"
+            : program.cost === "TBD" ? "TBD" : program.cost === null || program.cost === undefined ? "Inquire" : program.cost === 0 ? "Free" : (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() + (program.costPer === "week" ? "/wk" : "")
           }
         </div>
       </div>
@@ -840,10 +840,10 @@ export default function DiscoverTab({
       if (minAge != null && p.ageMax != null && p.ageMax < minAge) return false;
       if (maxAge != null && p.ageMin != null && p.ageMin > maxAge) return false;
       if (costRanges) {
-        if (p.cost === "TBD") return true;
+        if (p.cost === "TBD" || p.cost === null || p.cost === undefined) return true; // unknown cost — always show
         const cost = typeof p.cost === "number" ? p.cost : 0;
         if (!costRanges.some((range) => {
-          if (range.max === 0) return cost === 0;
+          if (range.max === 0) return cost === 0; // "Free" filter — only matches cost === 0
           if (range.min === 0 && range.max === Infinity) return true;
           return cost >= range.min && cost <= range.max;
         })) return false;

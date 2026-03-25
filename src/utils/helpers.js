@@ -8,7 +8,9 @@ import { C } from "../constants/brand";
 export const fmt$ = (n) =>
   n === "TBD"
     ? "TBD"
-    : Number(n || 0).toLocaleString("en-CA", {
+    : n === null || n === undefined
+    ? "Inquire"
+    : Number(n).toLocaleString("en-CA", {
         style: "currency",
         currency: "CAD",
         minimumFractionDigits: 0,
