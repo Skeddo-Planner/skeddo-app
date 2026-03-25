@@ -195,19 +195,28 @@ function getWeekScheduleLabel(program, weekDays, weekMonday) {
       : "";
     return dateLabel + timeStr;
   }
-  // Fallback to day names if no weekMonday provided
-  let dayLabel;
-  if (weekDays.length === 5) {
-    dayLabel = "Mon–Fri";
-  } else if (weekDays.length === 1) {
-    dayLabel = DAY_NAMES[weekDays[0]];
-  } else {
-    dayLabel = weekDays.map((d) => DAY_NAMES[d]).join(", ");
+  // Fallback — use program's own date range instead of day names
+  if (program.startDate) {
+    const sd = new Date(program.startDate + "T00:00:00");
+    const ed = program.endDate ? new Date(program.endDate + "T00:00:00") : sd;
+    let dateLabel;
+    if (program.startDate === program.endDate || !program.endDate) {
+      dateLabel = `${MONTH_ABBR[sd.getMonth()]} ${sd.getDate()}, ${sd.getFullYear()}`;
+    } else if (sd.getMonth() === ed.getMonth()) {
+      dateLabel = `${MONTH_ABBR[sd.getMonth()]} ${sd.getDate()} – ${ed.getDate()}, ${sd.getFullYear()}`;
+    } else {
+      dateLabel = `${MONTH_ABBR[sd.getMonth()]} ${sd.getDate()} – ${MONTH_ABBR[ed.getMonth()]} ${ed.getDate()}, ${ed.getFullYear()}`;
+    }
+    const timeStr = program.startTime && program.endTime
+      ? ` · ${program.startTime}–${program.endTime}`
+      : "";
+    return dateLabel + timeStr;
   }
+  // Last resort — times only
   const timeStr = program.startTime && program.endTime
-    ? ` · ${program.startTime}–${program.endTime}`
+    ? `${program.startTime}–${program.endTime}`
     : "";
-  return dayLabel + timeStr;
+  return timeStr;
 }
 
 
