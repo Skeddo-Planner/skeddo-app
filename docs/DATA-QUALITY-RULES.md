@@ -164,5 +164,15 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - If prior-year data is used as a reference, it MUST be labeled: "Based on [year] — check provider for current info"
 - This rule has NO exceptions
 
+## Rule 23: Every Program Must Be Verified on the Provider's Live Page Before Adding (HARD RULE)
+**Why:** Collage Collage had a "Kids Art Class" listing that didn't exist — it was fabricated based on assumptions. The provider's actual page showed completely different programs (Mini MAKE and Spring Break Camp).
+- Before adding ANY program, visit the provider's actual registration/booking page
+- Verify EVERY field against what's on the page: name, cost, dates, times, ages, registration status
+- If the provider's page shows different programs than what you expected, use THEIR programs — not your assumptions
+- If the provider's page is down, unreachable, or has no programs listed, do NOT add guessed programs
+- This applies to initial adds AND to every data refresh
+- Cross-check: after adding programs for any provider, revisit the registration page and confirm each listing matches
+- This rule has NO exceptions — a fabricated listing is worse than a missing listing
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
