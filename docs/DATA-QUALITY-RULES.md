@@ -149,5 +149,20 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - If a URL cannot be verified (JS-rendered page), note it as unverified and prioritize manual checking
 - This check must happen for EVERY program, not just a sample
 
+## Rule 22: NEVER Guess or Estimate Program Data (HARD RULE)
+**Why:** Guessed ActiveNet IDs linked to wrong programs. Estimated prices, dates, and ages turned out wrong repeatedly.
+- ALL data must come from the actual provider website or registration page
+- NEVER construct, guess, or increment ActiveNet/PerfectMind activity IDs
+- NEVER estimate prices from "typical" ranges or "comparable" providers
+- NEVER assume dates, times, or age ranges from patterns
+- NEVER assume enrollment status — verify on the actual page
+- When data genuinely isn't available:
+  - Set the field to `null` (not 0, not a guess)
+  - Add a note explaining what's missing (e.g., `costNote: "Not published"`)
+  - Mark `confirmed2026: false`, `priceVerified: false`
+  - Use `enrollmentStatus: "Likely Coming Soon"`
+- If prior-year data is used as a reference, it MUST be labeled: "Based on [year] — check provider for current info"
+- This rule has NO exceptions
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.

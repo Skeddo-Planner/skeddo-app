@@ -54,7 +54,7 @@
     "address": "8410 Ontario St, Vancouver, BC",
     "lat": 49.2098,
     "lng": -123.1079,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.boogalooacademy.com/index.php/summer-camps/",
     "description": "Dance, drama, and art camps led by Vancouver's top professionals. Full day 9am-3pm or half day options. 2026 registration open — visit boogalooacademy.com.",
     "tags": [
@@ -67,7 +67,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 56,
@@ -89,7 +90,7 @@
     "address": "8410 Ontario St, Vancouver, BC",
     "lat": 49.2098,
     "lng": -123.1079,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.boogalooacademy.com/index.php/summer-camps/",
     "description": "Dance, drama, and art camps led by Vancouver's top professionals. Full day 9am-3pm or half day options. 2026 registration open — visit boogalooacademy.com.",
     "tags": [
@@ -102,7 +103,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 57,
@@ -124,7 +126,7 @@
     "address": "8410 Ontario St, Vancouver, BC",
     "lat": 49.2098,
     "lng": -123.1079,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.boogalooacademy.com/index.php/summer-camps/",
     "description": "Dance, drama, and art camps led by Vancouver's top professionals. Full day 9am-3pm or half day options. 2026 registration open — visit boogalooacademy.com.",
     "tags": [
@@ -137,7 +139,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 58,
@@ -159,7 +162,7 @@
     "address": "8410 Ontario St, Vancouver, BC",
     "lat": 49.2098,
     "lng": -123.1079,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.boogalooacademy.com/index.php/summer-camps/",
     "description": "Dance, drama, and art camps led by Vancouver's top professionals. Full day 9am-3pm or half day options. 2026 registration open — visit boogalooacademy.com.",
     "tags": [
@@ -172,7 +175,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 59,
@@ -194,7 +198,7 @@
     "address": "8410 Ontario St, Vancouver, BC",
     "lat": 49.2098,
     "lng": -123.1079,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.boogalooacademy.com/index.php/summer-camps/",
     "description": "Dance, drama, and art camps led by Vancouver's top professionals. Full day 9am-3pm or half day options. 2026 registration open — visit boogalooacademy.com.",
     "tags": [
@@ -207,7 +211,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 60,
@@ -229,7 +234,7 @@
     "address": "8410 Ontario St, Vancouver, BC",
     "lat": 49.2098,
     "lng": -123.1079,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.boogalooacademy.com/index.php/summer-camps/",
     "description": "Dance, drama, and art camps led by Vancouver's top professionals. Full day 9am-3pm or half day options. 2026 registration open — visit boogalooacademy.com.",
     "tags": [
@@ -242,7 +247,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 61,
@@ -614,7 +620,7 @@
     "address": "4230 Yew Street, Vancouver, BC",
     "lat": 49.251,
     "lng": -123.151,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.danceco.com/summer-dance-camps",
     "description": "Summer dance camps at Dance Co covering multiple disciplines. Keepsake performance on final day. 2026 registration open — visit danceco.com.",
     "tags": [
@@ -627,7 +633,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 72,
@@ -649,7 +656,7 @@
     "address": "4230 Yew Street, Vancouver, BC",
     "lat": 49.251,
     "lng": -123.151,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.danceco.com/summer-dance-camps",
     "description": "Summer dance camps at Dance Co covering multiple disciplines. Keepsake performance on final day. 2026 registration open — visit danceco.com.",
     "tags": [
@@ -662,7 +669,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 73,
@@ -684,7 +692,7 @@
     "address": "4230 Yew Street, Vancouver, BC",
     "lat": 49.251,
     "lng": -123.151,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.danceco.com/summer-dance-camps",
     "description": "Summer dance camps at Dance Co covering multiple disciplines. Keepsake performance on final day. 2026 registration open — visit danceco.com.",
     "tags": [
@@ -697,7 +705,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 74,
@@ -719,7 +728,7 @@
     "address": "4230 Yew Street, Vancouver, BC",
     "lat": 49.251,
     "lng": -123.151,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.danceco.com/summer-dance-camps",
     "description": "Summer dance camps at Dance Co covering multiple disciplines. Keepsake performance on final day. 2026 registration open — visit danceco.com.",
     "tags": [
@@ -732,7 +741,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 75,
@@ -754,7 +764,7 @@
     "address": "4230 Yew Street, Vancouver, BC",
     "lat": 49.251,
     "lng": -123.151,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.danceco.com/summer-dance-camps",
     "description": "Summer dance camps at Dance Co covering multiple disciplines. Keepsake performance on final day. 2026 registration open — visit danceco.com.",
     "tags": [
@@ -767,7 +777,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 76,
@@ -789,7 +800,7 @@
     "address": "4230 Yew Street, Vancouver, BC",
     "lat": 49.251,
     "lng": -123.151,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.danceco.com/summer-dance-camps",
     "description": "Summer dance camps at Dance Co covering multiple disciplines. Keepsake performance on final day. 2026 registration open — visit danceco.com.",
     "tags": [
@@ -802,7 +813,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 77,
@@ -968,7 +980,7 @@
     "address": "1425 Charles St, Vancouver, BC",
     "lat": 49.2752,
     "lng": -123.0686,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.shoreline-studios.com/crafting-the-actor",
     "description": "Week-long film/TV acting workshop. Students learn camera techniques and character building. Private link to on-camera work sent after course.",
     "tags": [
@@ -980,7 +992,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 90,
@@ -1002,7 +1015,7 @@
     "address": "1425 Charles St, Vancouver, BC",
     "lat": 49.2752,
     "lng": -123.0686,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.shoreline-studios.com/crafting-the-actor",
     "description": "Week-long film/TV acting workshop. Students learn camera techniques and character building. Private link to on-camera work sent after course.",
     "tags": [
@@ -1014,7 +1027,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 91,
@@ -1036,7 +1050,7 @@
     "address": "1425 Charles St, Vancouver, BC",
     "lat": 49.2752,
     "lng": -123.0686,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.shoreline-studios.com/crafting-the-actor",
     "description": "Week-long film/TV acting workshop. Students learn camera techniques and character building. Private link to on-camera work sent after course.",
     "tags": [
@@ -1048,7 +1062,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 92,
@@ -1070,7 +1085,7 @@
     "address": "1425 Charles St, Vancouver, BC",
     "lat": 49.2752,
     "lng": -123.0686,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.shoreline-studios.com/crafting-the-actor",
     "description": "Week-long film/TV acting workshop. Students learn camera techniques and character building. Private link to on-camera work sent after course.",
     "tags": [
@@ -1082,7 +1097,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 93,
@@ -1314,7 +1330,7 @@
     "address": "2490 West 37th Avenue, Vancouver, BC",
     "lat": 49.241,
     "lng": -123.158,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -1328,7 +1344,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 104,
@@ -1350,7 +1367,7 @@
     "address": "2490 West 37th Avenue, Vancouver, BC",
     "lat": 49.241,
     "lng": -123.158,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -1364,7 +1381,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 105,
@@ -1386,7 +1404,7 @@
     "address": "2490 West 37th Avenue, Vancouver, BC",
     "lat": 49.241,
     "lng": -123.158,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -1400,7 +1418,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 106,
@@ -1422,7 +1441,7 @@
     "address": "2490 West 37th Avenue, Vancouver, BC",
     "lat": 49.241,
     "lng": -123.158,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -1436,7 +1455,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 113,
@@ -2144,7 +2164,7 @@
     "address": "4101 Arbutus Street, Vancouver, BC",
     "lat": 49.253,
     "lng": -123.153,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://musicworkscanada.com/summer-camp/",
     "description": "Build and learn to play your own ukulele. Art design, instrument assembly, and ukulele fundamentals.",
     "tags": [
@@ -2157,7 +2177,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 140,
@@ -2179,7 +2200,7 @@
     "address": "4101 Arbutus Street, Vancouver, BC",
     "lat": 49.253,
     "lng": -123.153,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://musicworkscanada.com/summer-camp/",
     "description": "Math skills, coding basics, and applied STEM learning through music.",
     "tags": [
@@ -2192,7 +2213,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 141,
@@ -2214,7 +2236,7 @@
     "address": "4101 Arbutus Street, Vancouver, BC",
     "lat": 49.253,
     "lng": -123.153,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://musicworkscanada.com/summer-camp/",
     "description": "Intro music theory and multi-instrument exploration for young beginners.",
     "tags": [
@@ -2227,7 +2249,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 142,
@@ -2249,7 +2272,7 @@
     "address": "4101 Arbutus Street, Vancouver, BC",
     "lat": 49.253,
     "lng": -123.153,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://musicworkscanada.com/summer-camp/",
     "description": "Theory development and multi-instrument skills for older beginners.",
     "tags": [
@@ -2261,7 +2284,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 143,
@@ -3605,7 +3629,7 @@
     "address": "5465 West Boulevard, Vancouver, BC",
     "lat": 49.244,
     "lng": -123.1575,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.steamoji.com/camps/canada-bc-kitsilano/",
     "description": "Hands-on STEM camps: coding, robotics, 3D printing, engineering. Ages 6-14. Multiple Vancouver locations (Kitsilano, Kerrisdale, West Van, North Van). 2026 registration open.",
     "tags": [
@@ -3618,7 +3642,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 194,
@@ -3640,7 +3665,7 @@
     "address": "5465 West Boulevard, Vancouver, BC",
     "lat": 49.244,
     "lng": -123.1575,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.steamoji.com/camps/canada-bc-kitsilano/",
     "description": "Hands-on STEM camps: coding, robotics, 3D printing, engineering. Ages 6-14. Multiple Vancouver locations (Kitsilano, Kerrisdale, West Van, North Van). 2026 registration open.",
     "tags": [
@@ -3653,7 +3678,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 195,
@@ -3675,7 +3701,7 @@
     "address": "5465 West Boulevard, Vancouver, BC",
     "lat": 49.244,
     "lng": -123.1575,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.steamoji.com/camps/canada-bc-kitsilano/",
     "description": "Hands-on STEM camps: coding, robotics, 3D printing, engineering. Ages 6-14. Multiple Vancouver locations (Kitsilano, Kerrisdale, West Van, North Van). 2026 registration open.",
     "tags": [
@@ -3688,7 +3714,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 196,
@@ -3710,7 +3737,7 @@
     "address": "5465 West Boulevard, Vancouver, BC",
     "lat": 49.244,
     "lng": -123.1575,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.steamoji.com/camps/canada-bc-kitsilano/",
     "description": "Hands-on STEM camps: coding, robotics, 3D printing, engineering. Ages 6-14. Multiple Vancouver locations (Kitsilano, Kerrisdale, West Van, North Van). 2026 registration open.",
     "tags": [
@@ -3723,7 +3750,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 197,
@@ -3745,7 +3773,7 @@
     "address": "5465 West Boulevard, Vancouver, BC",
     "lat": 49.244,
     "lng": -123.1575,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.steamoji.com/camps/canada-bc-kitsilano/",
     "description": "Hands-on STEM camps: coding, robotics, 3D printing, engineering. Ages 6-14. Multiple Vancouver locations (Kitsilano, Kerrisdale, West Van, North Van). 2026 registration open.",
     "tags": [
@@ -3758,7 +3786,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 198,
@@ -3780,7 +3809,7 @@
     "address": "5465 West Boulevard, Vancouver, BC",
     "lat": 49.244,
     "lng": -123.1575,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.steamoji.com/camps/canada-bc-kitsilano/",
     "description": "Hands-on STEM camps: coding, robotics, 3D printing, engineering. Ages 6-14. Multiple Vancouver locations (Kitsilano, Kerrisdale, West Van, North Van). 2026 registration open.",
     "tags": [
@@ -3793,7 +3822,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 203,
@@ -6487,7 +6517,7 @@
     "address": "Spanish Banks East Beach, Vancouver, BC",
     "lat": 49.276,
     "lng": -123.2215,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.pacificcoastvolleyballclub.com/beach-volleyball-summer-camps.html",
     "description": "Volleyball skills and game play camp.",
     "tags": [
@@ -6498,7 +6528,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 306,
@@ -6520,7 +6551,7 @@
     "address": "Spanish Banks East Beach, Vancouver, BC",
     "lat": 49.276,
     "lng": -123.2215,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.pacificcoastvolleyballclub.com/beach-volleyball-summer-camps.html",
     "description": "Volleyball skills and game play camp.",
     "tags": [
@@ -6531,7 +6562,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 307,
@@ -6553,7 +6585,7 @@
     "address": "Spanish Banks East Beach, Vancouver, BC",
     "lat": 49.276,
     "lng": -123.2215,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.pacificcoastvolleyballclub.com/beach-volleyball-summer-camps.html",
     "description": "Volleyball skills and game play camp.",
     "tags": [
@@ -6564,7 +6596,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 308,
@@ -6586,7 +6619,7 @@
     "address": "Spanish Banks East Beach, Vancouver, BC",
     "lat": 49.276,
     "lng": -123.2215,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.pacificcoastvolleyballclub.com/beach-volleyball-summer-camps.html",
     "description": "Volleyball skills and game play camp.",
     "tags": [
@@ -6597,7 +6630,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 309,
@@ -7563,7 +7597,7 @@
     "address": "4588 Clancy Loranger Way, Vancouver, BC V5Y 4B6",
     "lat": 49.243,
     "lng": -123.1085,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://phoenixgymnastics.uplifterinc.com/pages/Recreational/camps/summer/",
     "description": "Gymnastics camps for ages 1-10+. Half-day (preschool) and full-day options. 50+ years of experience. Summer 2026 registration via Uplifter.",
     "tags": [
@@ -7575,7 +7609,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 338,
@@ -7597,7 +7632,7 @@
     "address": "4588 Clancy Loranger Way, Vancouver, BC V5Y 4B6",
     "lat": 49.243,
     "lng": -123.1085,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://phoenixgymnastics.uplifterinc.com/pages/Recreational/camps/summer/",
     "description": "Gymnastics camps for ages 1-10+. Half-day (preschool) and full-day options. 50+ years of experience. Summer 2026 registration via Uplifter.",
     "tags": [
@@ -7609,7 +7644,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 339,
@@ -7631,7 +7667,7 @@
     "address": "4588 Clancy Loranger Way, Vancouver, BC V5Y 4B6",
     "lat": 49.243,
     "lng": -123.1085,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://phoenixgymnastics.uplifterinc.com/pages/Recreational/camps/summer/",
     "description": "Gymnastics camps for ages 1-10+. Half-day (preschool) and full-day options. 50+ years of experience. Summer 2026 registration via Uplifter.",
     "tags": [
@@ -7643,7 +7679,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 340,
@@ -7665,7 +7702,7 @@
     "address": "4588 Clancy Loranger Way, Vancouver, BC V5Y 4B6",
     "lat": 49.243,
     "lng": -123.1085,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://phoenixgymnastics.uplifterinc.com/pages/Recreational/camps/summer/",
     "description": "Gymnastics camps for ages 1-10+. Half-day (preschool) and full-day options. 50+ years of experience. Summer 2026 registration via Uplifter.",
     "tags": [
@@ -7677,7 +7714,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 341,
@@ -7699,7 +7737,7 @@
     "address": "4588 Clancy Loranger Way, Vancouver, BC V5Y 4B6",
     "lat": 49.243,
     "lng": -123.1085,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://phoenixgymnastics.uplifterinc.com/pages/Recreational/camps/summer/",
     "description": "Gymnastics camps for ages 1-10+. Half-day (preschool) and full-day options. 50+ years of experience. Summer 2026 registration via Uplifter.",
     "tags": [
@@ -7711,7 +7749,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 342,
@@ -7733,7 +7772,7 @@
     "address": "4588 Clancy Loranger Way, Vancouver, BC V5Y 4B6",
     "lat": 49.243,
     "lng": -123.1085,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://phoenixgymnastics.uplifterinc.com/pages/Recreational/camps/summer/",
     "description": "Gymnastics camps for ages 1-10+. Half-day (preschool) and full-day options. 50+ years of experience. Summer 2026 registration via Uplifter.",
     "tags": [
@@ -7745,7 +7784,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 343,
@@ -8307,7 +8347,7 @@
     "address": "1445 West 8th Avenue, Vancouver, BC",
     "lat": 49.264,
     "lng": -123.1365,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.temartialarts.com/camps",
     "description": "Martial arts camp building discipline and confidence. Themed weeks including Pokemon, Superhero, Outer Space, Anti-bullying, Leadership.",
     "tags": [
@@ -8319,7 +8359,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 366,
@@ -8341,7 +8382,7 @@
     "address": "1445 West 8th Avenue, Vancouver, BC",
     "lat": 49.264,
     "lng": -123.1365,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.temartialarts.com/camps",
     "description": "Martial arts camp building discipline and confidence. Themed weeks including Pokemon, Superhero, Outer Space, Anti-bullying, Leadership.",
     "tags": [
@@ -8353,7 +8394,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 367,
@@ -8375,7 +8417,7 @@
     "address": "1445 West 8th Avenue, Vancouver, BC",
     "lat": 49.264,
     "lng": -123.1365,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.temartialarts.com/camps",
     "description": "Martial arts camp building discipline and confidence. Themed weeks including Pokemon, Superhero, Outer Space, Anti-bullying, Leadership.",
     "tags": [
@@ -8387,7 +8429,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 368,
@@ -8409,7 +8452,7 @@
     "address": "1445 West 8th Avenue, Vancouver, BC",
     "lat": 49.264,
     "lng": -123.1365,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.temartialarts.com/camps",
     "description": "Martial arts camp building discipline and confidence. Themed weeks including Pokemon, Superhero, Outer Space, Anti-bullying, Leadership.",
     "tags": [
@@ -8421,7 +8464,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 369,
@@ -8443,7 +8487,7 @@
     "address": "1445 West 8th Avenue, Vancouver, BC",
     "lat": 49.264,
     "lng": -123.1365,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.temartialarts.com/camps",
     "description": "Martial arts camp building discipline and confidence. Themed weeks including Pokemon, Superhero, Outer Space, Anti-bullying, Leadership.",
     "tags": [
@@ -8455,7 +8499,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 370,
@@ -8477,7 +8522,7 @@
     "address": "1445 West 8th Avenue, Vancouver, BC",
     "lat": 49.264,
     "lng": -123.1365,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.temartialarts.com/camps",
     "description": "Martial arts camp building discipline and confidence. Themed weeks including Pokemon, Superhero, Outer Space, Anti-bullying, Leadership.",
     "tags": [
@@ -8489,7 +8534,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 371,
@@ -9055,7 +9101,7 @@
     "address": "1-1740 Broadway Street, Port Coquitlam, BC",
     "lat": 49.262,
     "lng": -122.769,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://martialartsportcoquitlam.com/program/summer-camp/",
     "description": "Full-day martial arts summer camp. Daily martial arts class, outdoor activities at local parks, crafts, gymnastics, indoor games. Fridays are field trip days. Early drop-off and late pick-up available.",
     "tags": [
@@ -9065,7 +9111,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 388,
@@ -9087,7 +9134,7 @@
     "address": "1-1740 Broadway Street, Port Coquitlam, BC",
     "lat": 49.262,
     "lng": -122.769,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://martialartsportcoquitlam.com/program/summer-camp/",
     "description": "Full-day martial arts summer camp. Daily martial arts class, outdoor activities at local parks, crafts, gymnastics, indoor games. Fridays are field trip days. Early drop-off and late pick-up available.",
     "tags": [
@@ -9097,7 +9144,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 389,
@@ -9119,7 +9167,7 @@
     "address": "1-1740 Broadway Street, Port Coquitlam, BC",
     "lat": 49.262,
     "lng": -122.769,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://martialartsportcoquitlam.com/program/summer-camp/",
     "description": "Full-day martial arts summer camp. Daily martial arts class, outdoor activities at local parks, crafts, gymnastics, indoor games. Fridays are field trip days. Early drop-off and late pick-up available.",
     "tags": [
@@ -9129,7 +9177,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 390,
@@ -9151,7 +9200,7 @@
     "address": "1-1740 Broadway Street, Port Coquitlam, BC",
     "lat": 49.262,
     "lng": -122.769,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://martialartsportcoquitlam.com/program/summer-camp/",
     "description": "Full-day martial arts summer camp. Daily martial arts class, outdoor activities at local parks, crafts, gymnastics, indoor games. Fridays are field trip days. Early drop-off and late pick-up available.",
     "tags": [
@@ -9161,7 +9210,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 391,
@@ -9762,7 +9812,7 @@
     "address": "1300 Discovery St, Vancouver, BC",
     "lat": 49.2763,
     "lng": -123.2,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.windsure.com/summercamps",
     "description": "Windsurfing, paddleboarding, and kayaking at Jericho Beach.",
     "tags": [
@@ -9775,7 +9825,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 412,
@@ -9797,7 +9848,7 @@
     "address": "1300 Discovery St, Vancouver, BC",
     "lat": 49.2763,
     "lng": -123.2,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.windsure.com/summercamps",
     "description": "Windsurfing, paddleboarding, and kayaking at Jericho Beach.",
     "tags": [
@@ -9810,7 +9861,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 413,
@@ -9832,7 +9884,7 @@
     "address": "1300 Discovery St, Vancouver, BC",
     "lat": 49.2763,
     "lng": -123.2,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.windsure.com/summercamps",
     "description": "Windsurfing, paddleboarding, and kayaking at Jericho Beach.",
     "tags": [
@@ -9845,7 +9897,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 414,
@@ -9867,7 +9920,7 @@
     "address": "1300 Discovery St, Vancouver, BC",
     "lat": 49.2763,
     "lng": -123.2,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.windsure.com/summercamps",
     "description": "Windsurfing, paddleboarding, and kayaking at Jericho Beach.",
     "tags": [
@@ -9880,7 +9933,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 415,
@@ -9902,7 +9956,7 @@
     "address": "1300 Discovery St, Vancouver, BC",
     "lat": 49.2763,
     "lng": -123.2,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.windsure.com/summercamps",
     "description": "Windsurfing, paddleboarding, and kayaking at Jericho Beach.",
     "tags": [
@@ -9915,7 +9969,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 416,
@@ -9937,7 +9992,7 @@
     "address": "1300 Discovery St, Vancouver, BC",
     "lat": 49.2763,
     "lng": -123.2,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.windsure.com/summercamps",
     "description": "Windsurfing, paddleboarding, and kayaking at Jericho Beach.",
     "tags": [
@@ -9950,7 +10005,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 417,
@@ -10802,7 +10858,7 @@
     "address": "38221 Guilford Dr, Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.squamishclimbingacademy.com/",
     "description": "Outdoor rock climbing and adventure camp in Squamish.",
     "tags": [
@@ -10814,7 +10870,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 442,
@@ -10836,7 +10893,7 @@
     "address": "38221 Guilford Dr, Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.squamishclimbingacademy.com/",
     "description": "Outdoor rock climbing and adventure camp in Squamish.",
     "tags": [
@@ -10848,7 +10905,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 443,
@@ -10870,7 +10928,7 @@
     "address": "38221 Guilford Dr, Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.squamishclimbingacademy.com/",
     "description": "Outdoor rock climbing and adventure camp in Squamish.",
     "tags": [
@@ -10882,7 +10940,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 444,
@@ -10904,7 +10963,7 @@
     "address": "38221 Guilford Dr, Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.squamishclimbingacademy.com/",
     "description": "Outdoor rock climbing and adventure camp in Squamish.",
     "tags": [
@@ -10916,7 +10975,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 445,
@@ -10938,7 +10998,7 @@
     "address": "38221 Guilford Dr, Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.squamishclimbingacademy.com/",
     "description": "Outdoor rock climbing and adventure camp in Squamish.",
     "tags": [
@@ -10950,7 +11010,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 446,
@@ -10972,7 +11033,7 @@
     "address": "38221 Guilford Dr, Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.squamishclimbingacademy.com/",
     "description": "Outdoor rock climbing and adventure camp in Squamish.",
     "tags": [
@@ -10984,7 +11045,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 447,
@@ -11006,7 +11068,7 @@
     "address": "Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mountainskillsacademy.com/camps/",
     "description": "Rock climbing, hiking, via ferratas, biking, and canoeing in Whistler/Squamish.",
     "tags": [
@@ -11020,7 +11082,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 448,
@@ -11042,7 +11105,7 @@
     "address": "Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mountainskillsacademy.com/camps/",
     "description": "Rock climbing, hiking, via ferratas, biking, and canoeing in Whistler/Squamish.",
     "tags": [
@@ -11056,7 +11119,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 449,
@@ -11078,7 +11142,7 @@
     "address": "Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mountainskillsacademy.com/camps/",
     "description": "Rock climbing, hiking, via ferratas, biking, and canoeing in Whistler/Squamish.",
     "tags": [
@@ -11092,7 +11156,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 450,
@@ -11114,7 +11179,7 @@
     "address": "Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mountainskillsacademy.com/camps/",
     "description": "Rock climbing, hiking, via ferratas, biking, and canoeing in Whistler/Squamish.",
     "tags": [
@@ -11128,7 +11193,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 451,
@@ -11150,7 +11216,7 @@
     "address": "Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mountainskillsacademy.com/camps/",
     "description": "Rock climbing, hiking, via ferratas, biking, and canoeing in Whistler/Squamish.",
     "tags": [
@@ -11164,7 +11230,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 452,
@@ -11186,7 +11253,7 @@
     "address": "Squamish, BC",
     "lat": 49.7016,
     "lng": -123.1558,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mountainskillsacademy.com/camps/",
     "description": "Rock climbing, hiking, via ferratas, biking, and canoeing in Whistler/Squamish.",
     "tags": [
@@ -11200,7 +11267,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 453,
@@ -14257,7 +14325,7 @@
     "address": "5307 Victoria Dr #125, Vancouver, BC V5P 3V6",
     "lat": 49.2363,
     "lng": -123.0647,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Summer day camps focusing on five dimensions of wellness through indoor and outdoor activities. Extended care available.",
     "tags": [
@@ -14269,7 +14337,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 560,
@@ -14291,7 +14360,7 @@
     "address": "5307 Victoria Dr #125, Vancouver, BC V5P 3V6",
     "lat": 49.2363,
     "lng": -123.0647,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Summer day camps focusing on five dimensions of wellness through indoor and outdoor activities. Extended care available.",
     "tags": [
@@ -14303,7 +14372,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 561,
@@ -14325,7 +14395,7 @@
     "address": "5307 Victoria Dr #125, Vancouver, BC V5P 3V6",
     "lat": 49.2363,
     "lng": -123.0647,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Summer day camps focusing on five dimensions of wellness through indoor and outdoor activities. Extended care available.",
     "tags": [
@@ -14337,7 +14407,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 562,
@@ -14359,7 +14430,7 @@
     "address": "5307 Victoria Dr #125, Vancouver, BC V5P 3V6",
     "lat": 49.2363,
     "lng": -123.0647,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Summer day camps focusing on five dimensions of wellness through indoor and outdoor activities. Extended care available.",
     "tags": [
@@ -14371,7 +14442,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 563,
@@ -14393,7 +14465,7 @@
     "address": "5307 Victoria Dr #125, Vancouver, BC V5P 3V6",
     "lat": 49.2363,
     "lng": -123.0647,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Summer day camps focusing on five dimensions of wellness through indoor and outdoor activities. Extended care available.",
     "tags": [
@@ -14405,7 +14477,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 564,
@@ -14427,7 +14500,7 @@
     "address": "5307 Victoria Dr #125, Vancouver, BC V5P 3V6",
     "lat": 49.2363,
     "lng": -123.0647,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.clubhousekids.ca",
     "description": "Summer day camps focusing on five dimensions of wellness through indoor and outdoor activities. Extended care available.",
     "tags": [
@@ -14439,7 +14512,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 565,
@@ -15085,7 +15159,7 @@
     "address": "2330 Cypress Bowl Ln, West Vancouver, BC",
     "lat": 49.394,
     "lng": -123.2045,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mulgrave.com/campus-life/mulgrave-school-summer-camps",
     "description": "Summer camps for PK4 to Grade 11 (entering 2026-27). Jul 6-31, four weeks. Half-day, full-day, and mix-and-match morning/afternoon options. STEM, robotics, sports, arts, music. After-camp care $20/day. Registration open at mulgrave.com. Contact summer@mulgrave.com for pricing.",
     "tags": [
@@ -15097,7 +15171,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 584,
@@ -15119,7 +15194,7 @@
     "address": "2330 Cypress Bowl Ln, West Vancouver, BC",
     "lat": 49.394,
     "lng": -123.2045,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mulgrave.com/campus-life/mulgrave-school-summer-camps",
     "description": "Summer camps for PK4 to Grade 11 (entering 2026-27). Jul 6-31, four weeks. Half-day, full-day, and mix-and-match morning/afternoon options. STEM, robotics, sports, arts, music. After-camp care $20/day. Registration open at mulgrave.com. Contact summer@mulgrave.com for pricing.",
     "tags": [
@@ -15131,7 +15206,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 585,
@@ -15153,7 +15229,7 @@
     "address": "2330 Cypress Bowl Ln, West Vancouver, BC",
     "lat": 49.394,
     "lng": -123.2045,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mulgrave.com/campus-life/mulgrave-school-summer-camps",
     "description": "Summer camps for PK4 to Grade 11 (entering 2026-27). Jul 6-31, four weeks. Half-day, full-day, and mix-and-match morning/afternoon options. STEM, robotics, sports, arts, music. After-camp care $20/day. Registration open at mulgrave.com. Contact summer@mulgrave.com for pricing.",
     "tags": [
@@ -15165,7 +15241,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 586,
@@ -15187,7 +15264,7 @@
     "address": "2330 Cypress Bowl Ln, West Vancouver, BC",
     "lat": 49.394,
     "lng": -123.2045,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://www.mulgrave.com/campus-life/mulgrave-school-summer-camps",
     "description": "Summer camps for PK4 to Grade 11 (entering 2026-27). Jul 6-31, four weeks. Half-day, full-day, and mix-and-match morning/afternoon options. STEM, robotics, sports, arts, music. After-camp care $20/day. Registration open at mulgrave.com. Contact summer@mulgrave.com for pricing.",
     "tags": [
@@ -15199,7 +15276,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 587,
@@ -15221,7 +15299,7 @@
     "address": "12660 Gilley Rd, Richmond, BC",
     "lat": 49.145,
     "lng": -123.078,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://renaissanceacademy.ca/summer-wondercamps-for-kids-in-richmond/",
     "description": "Themed week-long camps covering dance, music, art, food, technology, and science. Designed to incite imagination for K-Grade 7.",
     "tags": [
@@ -15236,7 +15314,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 588,
@@ -15258,7 +15337,7 @@
     "address": "12660 Gilley Rd, Richmond, BC",
     "lat": 49.145,
     "lng": -123.078,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://renaissanceacademy.ca/summer-wondercamps-for-kids-in-richmond/",
     "description": "Themed week-long camps covering dance, music, art, food, technology, and science. Designed to incite imagination for K-Grade 7.",
     "tags": [
@@ -15273,7 +15352,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 589,
@@ -15295,7 +15375,7 @@
     "address": "12660 Gilley Rd, Richmond, BC",
     "lat": 49.145,
     "lng": -123.078,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://renaissanceacademy.ca/summer-wondercamps-for-kids-in-richmond/",
     "description": "Themed week-long camps covering dance, music, art, food, technology, and science. Designed to incite imagination for K-Grade 7.",
     "tags": [
@@ -15310,7 +15390,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 590,
@@ -15332,7 +15413,7 @@
     "address": "12660 Gilley Rd, Richmond, BC",
     "lat": 49.145,
     "lng": -123.078,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://renaissanceacademy.ca/summer-wondercamps-for-kids-in-richmond/",
     "description": "Themed week-long camps covering dance, music, art, food, technology, and science. Designed to incite imagination for K-Grade 7.",
     "tags": [
@@ -15347,7 +15428,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 591,
@@ -15369,7 +15451,7 @@
     "address": "12660 Gilley Rd, Richmond, BC",
     "lat": 49.145,
     "lng": -123.078,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://renaissanceacademy.ca/summer-wondercamps-for-kids-in-richmond/",
     "description": "Themed week-long camps covering dance, music, art, food, technology, and science. Designed to incite imagination for K-Grade 7.",
     "tags": [
@@ -15384,7 +15466,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 592,
@@ -15406,7 +15489,7 @@
     "address": "12660 Gilley Rd, Richmond, BC",
     "lat": 49.145,
     "lng": -123.078,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://renaissanceacademy.ca/summer-wondercamps-for-kids-in-richmond/",
     "description": "Themed week-long camps covering dance, music, art, food, technology, and science. Designed to incite imagination for K-Grade 7.",
     "tags": [
@@ -15421,7 +15504,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 593,
@@ -15583,7 +15667,7 @@
     "address": "900 Sharpe St, Coquitlam, BC",
     "lat": 49.257,
     "lng": -122.8055,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/",
     "description": "Reggio-inspired summer camp at Meadowbrook Elementary. Founded in 1995, one of the first Reggio-inspired centres in the Tri-Cities.",
     "tags": [
@@ -15596,7 +15680,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 598,
@@ -15618,7 +15703,7 @@
     "address": "900 Sharpe St, Coquitlam, BC",
     "lat": 49.257,
     "lng": -122.8055,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/",
     "description": "Reggio-inspired summer camp at Meadowbrook Elementary. Founded in 1995, one of the first Reggio-inspired centres in the Tri-Cities.",
     "tags": [
@@ -15631,7 +15716,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 599,
@@ -15653,7 +15739,7 @@
     "address": "900 Sharpe St, Coquitlam, BC",
     "lat": 49.257,
     "lng": -122.8055,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/",
     "description": "Reggio-inspired summer camp at Meadowbrook Elementary. Founded in 1995, one of the first Reggio-inspired centres in the Tri-Cities.",
     "tags": [
@@ -15666,7 +15752,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 600,
@@ -15688,7 +15775,7 @@
     "address": "900 Sharpe St, Coquitlam, BC",
     "lat": 49.257,
     "lng": -122.8055,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/",
     "description": "Reggio-inspired summer camp at Meadowbrook Elementary. Founded in 1995, one of the first Reggio-inspired centres in the Tri-Cities.",
     "tags": [
@@ -15701,7 +15788,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 601,
@@ -15723,7 +15811,7 @@
     "address": "900 Sharpe St, Coquitlam, BC",
     "lat": 49.257,
     "lng": -122.8055,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/",
     "description": "Reggio-inspired summer camp at Meadowbrook Elementary. Founded in 1995, one of the first Reggio-inspired centres in the Tri-Cities.",
     "tags": [
@@ -15736,7 +15824,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 602,
@@ -15758,7 +15847,7 @@
     "address": "900 Sharpe St, Coquitlam, BC",
     "lat": 49.257,
     "lng": -122.8055,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://parklandplayers.com/programs/summer-camp-coquitlam-daycare-summer-school/",
     "description": "Reggio-inspired summer camp at Meadowbrook Elementary. Founded in 1995, one of the first Reggio-inspired centres in the Tri-Cities.",
     "tags": [
@@ -15771,7 +15860,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 603,
@@ -16565,7 +16655,7 @@
     "address": "2428 Haywood Ave, West Vancouver, BC",
     "lat": 49.3375,
     "lng": -123.156,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://aspiremathacademy.com/camps/",
     "description": "Educational camps: Singapore Math, reading & writing, science. Certified Singapore Math Learning Centre. Grades 1-9.",
     "tags": [
@@ -16578,7 +16668,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 626,
@@ -16600,7 +16691,7 @@
     "address": "2428 Haywood Ave, West Vancouver, BC",
     "lat": 49.3375,
     "lng": -123.156,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://aspiremathacademy.com/camps/",
     "description": "Educational camps: Singapore Math, reading & writing, science. Certified Singapore Math Learning Centre. Grades 1-9.",
     "tags": [
@@ -16613,7 +16704,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 627,
@@ -16635,7 +16727,7 @@
     "address": "2428 Haywood Ave, West Vancouver, BC",
     "lat": 49.3375,
     "lng": -123.156,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://aspiremathacademy.com/camps/",
     "description": "Educational camps: Singapore Math, reading & writing, science. Certified Singapore Math Learning Centre. Grades 1-9.",
     "tags": [
@@ -16648,7 +16740,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 628,
@@ -16670,7 +16763,7 @@
     "address": "2428 Haywood Ave, West Vancouver, BC",
     "lat": 49.3375,
     "lng": -123.156,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://aspiremathacademy.com/camps/",
     "description": "Educational camps: Singapore Math, reading & writing, science. Certified Singapore Math Learning Centre. Grades 1-9.",
     "tags": [
@@ -16683,7 +16776,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 629,
@@ -16915,7 +17009,7 @@
     "address": "233 W 1st St, North Vancouver, BC",
     "lat": 49.309,
     "lng": -123.0845,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://littlecooksclub.ca/summer-camps",
     "description": "Cooking camp teaching kitchen skills and recipes. B.C. certified teacher-led, ages 8-16.",
     "tags": [
@@ -16928,7 +17022,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 636,
@@ -16950,7 +17045,7 @@
     "address": "233 W 1st St, North Vancouver, BC",
     "lat": 49.309,
     "lng": -123.0845,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://littlecooksclub.ca/summer-camps",
     "description": "Cooking camp teaching kitchen skills and recipes. B.C. certified teacher-led, ages 8-16.",
     "tags": [
@@ -16963,7 +17058,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 637,
@@ -16985,7 +17081,7 @@
     "address": "233 W 1st St, North Vancouver, BC",
     "lat": 49.309,
     "lng": -123.0845,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://littlecooksclub.ca/summer-camps",
     "description": "Cooking camp teaching kitchen skills and recipes. B.C. certified teacher-led, ages 8-16.",
     "tags": [
@@ -16998,7 +17094,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 638,
@@ -17020,7 +17117,7 @@
     "address": "233 W 1st St, North Vancouver, BC",
     "lat": 49.309,
     "lng": -123.0845,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://littlecooksclub.ca/summer-camps",
     "description": "Cooking camp teaching kitchen skills and recipes. B.C. certified teacher-led, ages 8-16.",
     "tags": [
@@ -17033,7 +17130,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 639,
@@ -17055,7 +17153,7 @@
     "address": "233 W 1st St, North Vancouver, BC",
     "lat": 49.309,
     "lng": -123.0845,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://littlecooksclub.ca/summer-camps",
     "description": "Cooking camp teaching kitchen skills and recipes. B.C. certified teacher-led, ages 8-16.",
     "tags": [
@@ -17068,7 +17166,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 640,
@@ -17090,7 +17189,7 @@
     "address": "233 W 1st St, North Vancouver, BC",
     "lat": 49.309,
     "lng": -123.0845,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://littlecooksclub.ca/summer-camps",
     "description": "Cooking camp teaching kitchen skills and recipes. B.C. certified teacher-led, ages 8-16.",
     "tags": [
@@ -17103,7 +17202,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 641,
@@ -60835,7 +60935,7 @@
     "address": "2490 W 37th Ave, Vancouver, BC",
     "lat": 49.2389,
     "lng": -123.1597,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -60848,7 +60948,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 2136,
@@ -60870,7 +60971,7 @@
     "address": "2490 W 37th Ave, Vancouver, BC",
     "lat": 49.2389,
     "lng": -123.1597,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -60883,7 +60984,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 2137,
@@ -60905,7 +61007,7 @@
     "address": "2490 W 37th Ave, Vancouver, BC",
     "lat": 49.2389,
     "lng": -123.1597,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://petitarchitect.com/summer-camps",
     "description": "Hands-on architecture & design STEAM camp created by a professional architect. 2026 themes: Houses Around the World, Dream House, Happy City, Dream Boutique. 9 weeks across 4 locations.",
     "tags": [
@@ -60918,7 +61020,8 @@
     "priceVerified": false,
     "confirmed2026": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 2138,
@@ -74172,7 +74275,7 @@
     "address": "3697 Main St, Vancouver, BC V5V 3N6",
     "lat": 49.2458,
     "lng": -123.1008,
-    "enrollmentStatus": "Open",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://shop.collagecollage.ca/collections/camps-classes",
     "description": "Registered parent + child art class for ages 3-5. Creative projects in a cozy studio. Registration required via Shopify checkout.",
     "tags": [
@@ -74186,7 +74289,8 @@
     "confirmed2026": true,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "costNote": "Price may vary — verify with provider"
   },
   {
     "id": 2495,
@@ -107420,7 +107524,7 @@
     "endTime": "3:00 PM",
     "address": "4575 Clancy Loranger Way, Vancouver, BC",
     "neighbourhood": "South Cambie",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604139",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107430,7 +107534,8 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false
   },
   {
     "id": "pa-hillcrest-w2",
@@ -107448,7 +107553,7 @@
     "endTime": "3:00 PM",
     "address": "4575 Clancy Loranger Way, Vancouver, BC",
     "neighbourhood": "South Cambie",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604147",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107457,7 +107562,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-hillcrest-w3",
@@ -107475,7 +107582,7 @@
     "endTime": "3:00 PM",
     "address": "4575 Clancy Loranger Way, Vancouver, BC",
     "neighbourhood": "South Cambie",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604149",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107484,7 +107591,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-hillcrest-w4",
@@ -107502,7 +107611,7 @@
     "endTime": "3:00 PM",
     "address": "4575 Clancy Loranger Way, Vancouver, BC",
     "neighbourhood": "South Cambie",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604152",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107511,7 +107620,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-hillcrest-w5",
@@ -107529,7 +107640,7 @@
     "endTime": "3:00 PM",
     "address": "4575 Clancy Loranger Way, Vancouver, BC",
     "neighbourhood": "South Cambie",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/604155",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107538,7 +107649,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-killarney-w1",
@@ -107556,7 +107669,7 @@
     "endTime": "4:00 PM",
     "address": "6260 Killarney Street, Vancouver, BC",
     "neighbourhood": "Killarney",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/610401",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107566,7 +107679,8 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false
   },
   {
     "id": "pa-troutlake-w2",
@@ -107584,7 +107698,7 @@
     "endTime": "3:00 PM",
     "address": "3360 Victoria Drive, Vancouver, BC",
     "neighbourhood": "Kensington-Cedar Cottage",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606200",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107593,7 +107707,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-troutlake-w3",
@@ -107611,7 +107727,7 @@
     "endTime": "3:00 PM",
     "address": "3360 Victoria Drive, Vancouver, BC",
     "neighbourhood": "Kensington-Cedar Cottage",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606203",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107620,7 +107736,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-troutlake-w4",
@@ -107638,7 +107756,7 @@
     "endTime": "3:00 PM",
     "address": "3360 Victoria Drive, Vancouver, BC",
     "neighbourhood": "Kensington-Cedar Cottage",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606207",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107647,7 +107765,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-troutlake-w5",
@@ -107665,7 +107785,7 @@
     "endTime": "3:00 PM",
     "address": "3360 Victoria Drive, Vancouver, BC",
     "neighbourhood": "Kensington-Cedar Cottage",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/606210",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107674,7 +107794,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-roundhouse-w2",
@@ -107692,7 +107814,7 @@
     "endTime": "3:00 PM",
     "address": "181 Roundhouse Mews, Vancouver, BC",
     "neighbourhood": "Yaletown",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/607500",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107701,7 +107823,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-marpole-w3",
@@ -107719,7 +107843,7 @@
     "endTime": "3:00 PM",
     "address": "990 West 59th Avenue, Vancouver, BC",
     "neighbourhood": "Marpole",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/608300",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107728,7 +107852,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM, creative, hands-on",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-richmond-w2",
@@ -107855,7 +107981,7 @@
     "endTime": "3:00 PM",
     "address": "181 Roundhouse Mews, Vancouver, BC",
     "neighbourhood": "Yaletown",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/609170",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107864,7 +107990,9 @@
     "indoorOutdoor": "Indoor",
     "tags": "architecture, design, building, art, STEAM",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-coalh-w6",
@@ -107909,7 +108037,7 @@
     "endTime": "3:00 PM",
     "address": "990 West 59th Avenue, Vancouver, BC",
     "neighbourhood": "Marpole",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/615326",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107920,7 +108048,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "cost": null,
-    "costNote": "Contact provider for pricing: petitarchitect.com"
+    "costNote": "Contact provider for pricing: petitarchitect.com",
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "pa-troutlake-w6",
@@ -107937,7 +108067,7 @@
     "endTime": "3:00 PM",
     "address": "3360 Victoria Drive, Vancouver, BC",
     "neighbourhood": "Kensington-Cedar Cottage",
-    "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/609129",
+    "registrationUrl": "https://petitarchitect.com/summer-camps",
     "enrollmentStatus": "Likely Coming Soon",
     "season": "Summer 2026",
     "dayLength": "Full Day",
@@ -107948,7 +108078,9 @@
     "confirmed2026": true,
     "priceVerified": false,
     "cost": null,
-    "costNote": "Contact provider for pricing: petitarchitect.com"
+    "costNote": "Contact provider for pricing: petitarchitect.com",
+    "urlVerified": false,
+    "description": " Registration through City of Vancouver opens April 8, 2026 at 7 PM via vanrec.ca."
   },
   {
     "id": "proday-jump-cambie-1",
