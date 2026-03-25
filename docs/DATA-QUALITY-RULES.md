@@ -132,5 +132,22 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - Google Drive "My Drive" is for input documents (specs, briefs, CSVs) only
 - Never work on stale local files
 
+## Rule 20: "Coming Soon" Requires a Confirmed Registration Date (HARD RULE)
+**Why:** Listings showed "Coming Soon" with no registration date, giving parents false hope with no actionable info.
+- `enrollmentStatus: "Coming Soon"` MUST include a `registrationDate` field with the confirmed date
+- The registration date must be within 30 days of today
+- If registration date is confirmed but >30 days away, use `enrollmentStatus: "Upcoming"`
+- If registration date is NOT confirmed, use `enrollmentStatus: "Likely Coming Soon"`
+- The listing MUST display the registration date (e.g., "Registration opens April 8 at 7 PM")
+- Programs with "Coming Soon" but no registrationDate must be changed to "Likely Coming Soon"
+
+## Rule 21: Every URL Must Be Verified Against the Actual Page (HARD RULE)
+**Why:** A Petit Architect listing linked to a "Greenhorn Community Music Project" page — a completely wrong program.
+- Before adding ANY program, the registration URL MUST be visited and the page content verified
+- The program name, provider, dates, and cost on the linked page must match our listing
+- ActiveNet activity IDs must be verified — never guess or increment IDs
+- If a URL cannot be verified (JS-rendered page), note it as unverified and prioritize manual checking
+- This check must happen for EVERY program, not just a sample
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.

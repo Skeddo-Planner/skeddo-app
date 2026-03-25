@@ -61,6 +61,11 @@ programs.forEach((p) => {
     }
   }
 
+  // Rule 20: "Coming Soon" must have registrationDate
+  if (p.enrollmentStatus === "Coming Soon" && !p.registrationDate) {
+    fail(id, prov, 20, "enrollmentStatus='Coming Soon' but no registrationDate (change to 'Likely Coming Soon')");
+  }
+
   // Missing required fields
   if (!p.name) fail(id, prov, 0, "Missing name");
   if (!p.provider) fail(id, prov, 0, "Missing provider");
