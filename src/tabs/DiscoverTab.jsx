@@ -580,10 +580,16 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           fontFamily: "'Poppins', sans-serif", fontSize: 16, color: C.ink,
           fontWeight: 700, whiteSpace: "nowrap", marginLeft: 8,
         }}>
-          {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date()
-            ? <><span>${Number(program.earlyBirdCost).toLocaleString()}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${Number(program.cost).toLocaleString()}</span></>
-            : program.cost === "TBD" ? "TBD" : program.cost === null || program.cost === undefined ? "Inquire for pricing" : program.cost === 0 ? "Free" : (isApprox ? "~$" : "$") + Number(program.cost).toLocaleString() + (program.costPer === "week" ? "/wk" : "")
-          }
+          {(() => {
+            const fmtPrice = (n) => Number(n) % 1 === 0 ? Number(n).toLocaleString() : Number(n).toFixed(2);
+            if (program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date())
+              return <><span>${fmtPrice(program.earlyBirdCost)}</span><span style={{ fontSize: 11, color: C.muted, textDecoration: "line-through", marginLeft: 4 }}>${fmtPrice(program.cost)}</span></>;
+            if (program.cost === "TBD") return "TBD";
+            if (program.cost === null || program.cost === undefined) return "Inquire for pricing";
+            if (program.cost === 0) return "Free";
+            return (isApprox ? "~$" : "$") + fmtPrice(program.cost) + (program.costPer === "week" ? "/wk" : "");
+          })()}
+
         </div>
       </div>
     </div>

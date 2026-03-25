@@ -10,12 +10,9 @@ export const fmt$ = (n) =>
     ? "TBD"
     : n === null || n === undefined
     ? "Inquire"
-    : Number(n).toLocaleString("en-CA", {
-        style: "currency",
-        currency: "CAD",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
-      });
+    : Number(n) % 1 === 0
+      ? Number(n).toLocaleString("en-CA", { style: "currency", currency: "CAD", minimumFractionDigits: 0, maximumFractionDigits: 0 })
+      : Number(n).toLocaleString("en-CA", { style: "currency", currency: "CAD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 /* ─── Date formatters ─── */
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
