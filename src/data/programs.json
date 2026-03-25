@@ -76198,8 +76198,8 @@
     "startDate": "",
     "endDate": "",
     "days": "Mon, Sun",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Riley Park",
@@ -76220,7 +76220,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2481,
@@ -76346,8 +76347,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Riley Park",
@@ -76368,7 +76369,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2485,
@@ -76382,8 +76384,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Mount Pleasant",
@@ -76405,7 +76407,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2486,
@@ -76456,8 +76459,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Mount Pleasant",
@@ -76478,7 +76481,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Check with provider"
   },
   {
     "id": 2488,
@@ -76492,8 +76496,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Mount Pleasant",
@@ -76514,7 +76518,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2489,
@@ -76528,8 +76533,8 @@
     "startDate": "",
     "endDate": "",
     "days": "Mon-Fri",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Both",
     "neighbourhood": "Kensington-Cedar Cottage",
@@ -76551,7 +76556,8 @@
     "priceVerified": false,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Check with provider"
   },
   {
     "id": 2490,
@@ -76565,8 +76571,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kensington-Cedar Cottage",
@@ -76587,7 +76593,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2491,
@@ -76601,8 +76608,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kensington-Cedar Cottage",
@@ -76625,7 +76632,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2492,
@@ -76639,15 +76647,15 @@
     "startDate": "",
     "endDate": "",
     "days": "Mon-Fri",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": 260,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Riley Park",
     "address": "3697 Main St, Vancouver, BC V5V 3N6",
     "lat": 49.2458,
     "lng": -123.1008,
-    "enrollmentStatus": "TBD",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://shop.collagecollage.ca/collections/art-camp",
     "description": "Week-long art camp with painting, drawing, and building in small class sizes. Based on Spring Break 2026 pricing ($260). Summer 2026 camps not yet announced. Check registration URL for updates.",
     "tags": [
@@ -76661,7 +76669,8 @@
     "confirmed2026": false,
     "priceVerified": false,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "timeNote": "Check with provider"
   },
   {
     "id": 2493,
@@ -76675,15 +76684,15 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Riley Park",
     "address": "3697 Main St, Vancouver, BC V5V 3N6",
     "lat": 49.2458,
     "lng": -123.1008,
-    "enrollmentStatus": "TBD",
+    "enrollmentStatus": "Likely Coming Soon",
     "registrationUrl": "https://shop.collagecollage.ca/collections/camps-classes",
     "description": "Registered art classes for kids ages 5+ (drop-off). Creative projects with professional instruction in a cozy studio. Check website for current schedule.",
     "tags": [
@@ -76698,7 +76707,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2494,
@@ -76731,7 +76741,7 @@
       "registered"
     ],
     "activityType": "Painting & Drawing",
-    "confirmed2026": true,
+    "confirmed2026": false,
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
@@ -76829,8 +76839,8 @@
     "startDate": "",
     "endDate": "",
     "days": "Mon-Fri",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sunset",
@@ -76852,7 +76862,8 @@
     "dayLength": "Half Day",
     "season": "Summer 2026",
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2502,
@@ -76866,8 +76877,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": 63,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Kensington-Cedar Cottage",
@@ -76890,7 +76901,8 @@
     "season": "Summer 2026",
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
-    "registrationDateLabel": "Apr 8 at 7 PM"
+    "registrationDateLabel": "Apr 8 at 7 PM",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2503,
@@ -76904,8 +76916,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": 63,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Riley Park",
@@ -76928,7 +76940,8 @@
     "season": "Summer 2026",
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
-    "registrationDateLabel": "Apr 8 at 7 PM"
+    "registrationDateLabel": "Apr 8 at 7 PM",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2504,
@@ -76942,8 +76955,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": 63,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Grandview-Woodland",
@@ -76966,7 +76979,8 @@
     "season": "Summer 2026",
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
-    "registrationDateLabel": "Apr 8 at 7 PM"
+    "registrationDateLabel": "Apr 8 at 7 PM",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2505,
@@ -76980,8 +76994,8 @@
     "startDate": "",
     "endDate": "",
     "days": "",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": 63,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Renfrew-Collingwood",
@@ -77004,7 +77018,8 @@
     "season": "Summer 2026",
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
-    "registrationDateLabel": "Apr 8 at 7 PM"
+    "registrationDateLabel": "Apr 8 at 7 PM",
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": 2506,
@@ -77018,8 +77033,8 @@
     "startDate": "",
     "endDate": "",
     "days": "Mon-Fri",
-    "startTime": "",
-    "endTime": "",
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
     "cost": 415,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Sunset",
@@ -77040,7 +77055,8 @@
     "confirmed2026": false,
     "priceVerified": false,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "timeNote": "Morning session; afternoon (12:30-3:30 PM) and evening (4-7 PM) also available"
   },
   {
     "id": 2507,
@@ -77091,8 +77107,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-08-31",
     "days": "Mon-Fri",
-    "startTime": "",
-    "endTime": "",
+    "startTime": null,
+    "endTime": null,
     "cost": null,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Fairview",
@@ -77114,7 +77130,8 @@
     "priceVerified": false,
     "dayLength": "Half Day",
     "season": "Summer 2026",
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "timeNote": "Check with provider"
   },
   {
     "id": "origins-parkour-1",
@@ -77415,7 +77432,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM"
   },
   {
     "id": "camp-shalom-1",
@@ -77445,7 +77464,10 @@
     "dayLength": "Half Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "camp-shalom-2",
@@ -77475,7 +77497,10 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "vcbc-vbs-1",
@@ -78039,7 +78064,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "camp-squeah-2",
@@ -78069,7 +78097,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "camp-squeah-3",
@@ -78099,7 +78130,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "camp-squeah-4",
@@ -78129,7 +78163,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "camp-squeah-5",
@@ -78159,7 +78196,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "camp-squeah-6",
@@ -78190,7 +78230,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "mcna-islamic-1",
@@ -78217,7 +78260,10 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "gan-israel-1",
@@ -78246,7 +78292,10 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "centre-camp-1",
@@ -78312,7 +78361,10 @@
     "dayLength": "Overnight",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Residential camp — check drop-off/pick-up times"
   },
   {
     "id": "wcsya-1",
@@ -78344,7 +78396,10 @@
     "dayLength": "Overnight",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "kcmv-1",
@@ -78376,7 +78431,10 @@
     "dayLength": "Overnight",
     "season": "Summer 2026",
     "cost": 0,
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "ghiss-1",
@@ -78407,7 +78465,10 @@
     "dayLength": "Overnight",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "gurmat-center-1",
@@ -78438,7 +78499,10 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "sukh-sagar-1",
@@ -78469,7 +78533,9 @@
     "season": "Summer 2026",
     "cost": 0,
     "costNote": "Free program",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": "9:00 AM",
+    "endTime": "3:30 PM"
   },
   {
     "id": "khalsa-school-1",
@@ -78499,7 +78565,10 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "hindu-heritage-1",
@@ -78529,7 +78598,10 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "rvn-wellness-1",
@@ -78591,7 +78663,10 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Half Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "alliance-francaise-1",
@@ -78728,7 +78803,10 @@
     "dayLength": "Half Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "azalea-music-1",
@@ -78757,7 +78835,9 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "2:00 PM",
+    "endTime": "3:30 PM"
   },
   {
     "id": "vcac-dayknight-1",
@@ -78821,7 +78901,10 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "ubc-cedar-1",
@@ -78852,7 +78935,10 @@
     "priceVerified": true,
     "dayLength": "Full Day",
     "season": "Summer 2026",
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "isparc-1",
@@ -78883,7 +78969,10 @@
     "priceVerified": true,
     "dayLength": "Overnight",
     "season": "Summer 2026",
-    "costNote": "Free program"
+    "costNote": "Free program",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "moa-nyp-1",
@@ -78914,7 +79003,9 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM"
   },
   {
     "id": "squamish-arts-1",
@@ -78981,7 +79072,10 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "spirit-dance-1",
@@ -79011,7 +79105,10 @@
     "season": "Summer 2026",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "vjls-camp-1",
@@ -79040,7 +79137,10 @@
     "dayLength": "Half Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "gladstone-jls-1",
@@ -79070,7 +79170,10 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "steveston-jls-1",
@@ -79100,7 +79203,10 @@
     "season": "Year-Round",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "nikkei-manga-1",
@@ -79130,7 +79236,9 @@
     "confirmed2026": false,
     "priceVerified": true,
     "dayLength": "Full Day",
-    "season": "Summer 2026"
+    "season": "Summer 2026",
+    "startTime": "9:30 AM",
+    "endTime": "4:30 PM"
   },
   {
     "id": "psla-spanish-1",
@@ -79228,7 +79336,10 @@
     "season": "Year-Round",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "vwgs-german-1",
@@ -79257,7 +79368,10 @@
     "season": "Year-Round",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "surrey-german-1",
@@ -79288,7 +79402,10 @@
     "season": "Year-Round",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "il-centro-camp-1",
@@ -79319,7 +79436,10 @@
     "dayLength": "Full Day",
     "season": "Summer 2026",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "il-centro-classes-1",
@@ -79349,7 +79469,10 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "ccc-chinese-1",
@@ -79379,7 +79502,10 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "cue-cantonese-1",
@@ -79410,7 +79536,10 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "fun-cantonese-1",
@@ -79439,7 +79568,10 @@
     "dayLength": "Half Day",
     "season": "Year-Round",
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "mandokids-1",
@@ -79470,7 +79602,10 @@
     "season": "Year-Round",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "grace-korean-1",
@@ -79525,7 +79660,9 @@
     "cost": null,
     "costNote": "Inquire for pricing",
     "confirmed2026": false,
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": "10:00 AM",
+    "endTime": "2:00 PM"
   },
   {
     "id": "maaboli-1",
@@ -79548,7 +79685,10 @@
     "cost": null,
     "costNote": "Inquire for pricing",
     "confirmed2026": false,
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "berlitz-asl-1",
@@ -79568,7 +79708,10 @@
     "tags": [],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "berlitz-van-1",
@@ -79588,7 +79731,10 @@
     "tags": [],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "todo-spanish-1",
@@ -79609,7 +79755,10 @@
     "cost": null,
     "costNote": "Inquire for pricing",
     "confirmed2026": false,
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "my-lang-connect-1",
@@ -79630,7 +79779,10 @@
     "cost": null,
     "costNote": "Inquire for pricing",
     "confirmed2026": false,
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "ACT-0127",
@@ -79811,7 +79963,8 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "ACT-0132",
@@ -79849,7 +80002,8 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "ACT-0145",
@@ -81959,7 +82113,8 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "timeNote": "Thursdays 4-5:30 PM and Saturdays 12:30-2:30 PM"
   },
   {
     "id": "ACT-0221",
@@ -85991,7 +86146,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0329",
@@ -86557,7 +86713,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0344",
@@ -87945,7 +88102,8 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "confirmed2026": true
+    "confirmed2026": true,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "ACT-0377",
@@ -87980,7 +88138,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0378",
@@ -90807,7 +90966,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0446",
@@ -93437,7 +93597,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0511",
@@ -95710,7 +95871,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Full day — check registration for times"
   },
   {
     "id": "ACT-0575",
@@ -95745,7 +95907,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0576",
@@ -98411,7 +98574,8 @@
     "dayLength": "Full Day",
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Lunch add-on for all-day campers — check registration"
   },
   {
     "id": "ACT-0645",
@@ -106327,8 +106491,8 @@
     "startDate": "2026-07-02",
     "endDate": "2026-07-31",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:30 AM",
+    "endTime": "12:30 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106365,8 +106529,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-22",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:30 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106403,8 +106567,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-22",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:30 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106441,8 +106605,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-22",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:30 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106479,8 +106643,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-22",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:30 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106517,8 +106681,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-17",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:30 AM",
+    "endTime": "12:00 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106555,8 +106719,8 @@
     "startDate": "2026-07-06",
     "endDate": "2026-07-21",
     "days": "Mon-Fri",
-    "startTime": null,
-    "endTime": null,
+    "startTime": "8:40 AM",
+    "endTime": "12:15 PM",
     "cost": 0,
     "indoorOutdoor": "Indoor",
     "neighbourhood": "Central Lonsdale",
@@ -106617,7 +106781,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Check with provider"
   },
   {
     "id": "SD45-0002",
@@ -106655,7 +106820,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Check with provider"
   },
   {
     "id": "SD45-0003",
@@ -106693,7 +106859,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Check with provider"
   },
   {
     "id": "SD45-0004",
@@ -106731,7 +106898,8 @@
     "season": "Summer 2026",
     "dayLength": "Half Day",
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "timeNote": "Check with provider"
   },
   {
     "id": "SD38-0001",
@@ -109331,7 +109499,10 @@
     "dayLength": "Full Day",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": "9:00 AM",
+    "endTime": "3:00 PM",
+    "timeNote": "Full day; half-day option (9 AM-12 PM) also available"
   },
   {
     "id": "stema-surrey-1",
@@ -109349,7 +109520,10 @@
     "dayLength": "Full Day",
     "cost": null,
     "costNote": "Inquire for pricing",
-    "confirmed2026": false
+    "confirmed2026": false,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "sd36-summer-1",
@@ -109368,7 +109542,10 @@
     "description": "Community Schools Partnership summer camps across Surrey schools. Activities include basketball, drumming, arts, theatre, golf, tennis, soccer, dance, STEM. Many camps are free or low-cost. Details published after spring break.",
     "cost": 0,
     "costNote": "Free — public school district program",
-    "priceVerified": true
+    "priceVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "trout-lake-ll-1",
@@ -109392,7 +109569,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "vafc-soccer-1",
@@ -109417,7 +109597,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "kerrisdale-ll-1",
@@ -109441,7 +109624,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "dunbar-ll-1",
@@ -109465,7 +109651,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "jericho-ll-1",
@@ -109489,7 +109678,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "little-mountain-bb-1",
@@ -109512,7 +109704,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "svll-1",
@@ -109535,7 +109730,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "hcll-1",
@@ -109560,7 +109758,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "urlVerified": true
+    "urlVerified": true,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "vcb-1",
@@ -109582,7 +109783,10 @@
       "teen",
       "sports"
     ],
-    "neighbourhood": "Hastings-Sunrise"
+    "neighbourhood": "Hastings-Sunrise",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "vgsa-1",
@@ -109606,7 +109810,10 @@
     "cost": null,
     "costNote": "Inquire for pricing",
     "urlVerified": true,
-    "neighbourhood": "Riley Park"
+    "neighbourhood": "Riley Park",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "ua-flag-1",
@@ -109630,7 +109837,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "vmfl-1",
@@ -109654,7 +109864,10 @@
     "cost": null,
     "costNote": "Inquire for pricing",
     "urlVerified": true,
-    "neighbourhood": "East Vancouver"
+    "neighbourhood": "East Vancouver",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "bc-lions-camp-1",
@@ -109678,7 +109891,9 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "East Vancouver"
+    "neighbourhood": "East Vancouver",
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM"
   },
   {
     "id": "raw-sports-1",
@@ -109701,7 +109916,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "East Vancouver"
+    "neighbourhood": "East Vancouver",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "vmla-1",
@@ -109723,7 +109941,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Riley Park"
+    "neighbourhood": "Riley Park",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "nsmla-1",
@@ -109746,7 +109967,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "vrc-rugby-1",
@@ -109769,7 +109993,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "scribes-rugby-1",
@@ -109792,7 +110019,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "capilano-rugby-1",
@@ -109814,7 +110044,10 @@
       "rugby",
       "north shore",
       "sports"
-    ]
+    ],
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "vrc-rowing-1",
@@ -109838,7 +110071,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "ubc-rowing-1",
@@ -109861,7 +110097,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "dcrc-rowing-1",
@@ -109910,7 +110149,10 @@
       "field hockey",
       "sports"
     ],
-    "neighbourhood": "UBC"
+    "neighbourhood": "UBC",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "wvfhc-1",
@@ -109930,7 +110172,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "bmwc-1",
@@ -109954,7 +110199,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "6:30 PM",
+    "endTime": "8:00 PM",
+    "timeNote": "Mon/Wed/Fri schedule"
   },
   {
     "id": "coast-wrestling-1",
@@ -109975,7 +110223,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Kitsilano"
+    "neighbourhood": "Kitsilano",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "westsider-wrestling-1",
@@ -109996,7 +110247,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "West Point Grey"
+    "neighbourhood": "West Point Grey",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "grandview-sc-1",
@@ -110019,7 +110273,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "kerrisdale-fsc-1",
@@ -110041,7 +110298,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "kits-fsc-1",
@@ -110062,7 +110322,10 @@
       "sports"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "van-sc-1",
@@ -110083,7 +110346,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Riley Park"
+    "neighbourhood": "Riley Park",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "lykopis-1",
@@ -110105,7 +110371,10 @@
     "tags": [
       "archery",
       "sports"
-    ]
+    ],
+    "startTime": "10:00 AM",
+    "endTime": "12:00 PM",
+    "timeNote": "Sundays; afternoon session (3-5 PM) also available"
   },
   {
     "id": "hive-camp-6-8",
@@ -110212,7 +110481,10 @@
       "life skills"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "little-kitchen-pg-1",
@@ -110236,7 +110508,10 @@
       "life skills"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "9:00 AM",
+    "endTime": "12:00 PM",
+    "timeNote": "Morning session; afternoon (12:30-3:30 PM) and evening (4-7 PM) also available"
   },
   {
     "id": "pica-teen-1",
@@ -110260,7 +110535,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Granville Island"
+    "neighbourhood": "Granville Island",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "sprouting-chefs-1",
@@ -110311,7 +110589,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Kitsilano"
+    "neighbourhood": "Kitsilano",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "ubc-filmmaking-1",
@@ -110334,7 +110615,9 @@
       "arts"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM"
   },
   {
     "id": "vfs-summer-1",
@@ -110387,7 +110670,9 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Downtown"
+    "neighbourhood": "Downtown",
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM"
   },
   {
     "id": "van-chess-1",
@@ -110410,7 +110695,10 @@
       "academic"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "roundhouse-chess-1",
@@ -110432,7 +110720,10 @@
       "community centre"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "penny-chess-1",
@@ -110456,7 +110747,10 @@
       "academic"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "fdt-academy-1",
@@ -110479,7 +110773,10 @@
       "academic"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "bcfl-1",
@@ -110503,7 +110800,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Downtown"
+    "neighbourhood": "Downtown",
+    "startTime": "4:00 PM",
+    "endTime": "8:00 PM",
+    "timeNote": "Mon/Wed/Fri; Gr 3-4 ends at 7 PM"
   },
   {
     "id": "champlain-cc-1",
@@ -110529,7 +110829,10 @@
       "victoria-fraserview"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "sunset-cc-camp-1",
@@ -110555,7 +110858,9 @@
       "sunset"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": "9:00 AM",
+    "endTime": "4:00 PM"
   },
   {
     "id": "moberly-arts-1",
@@ -110582,7 +110887,10 @@
       "sunset"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "moberly-arts-2",
@@ -110610,7 +110918,10 @@
       "sunset"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "svnh-camp-1",
@@ -110635,7 +110946,10 @@
       "sunset"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "renfrew-cc-camp-1",
@@ -110661,7 +110975,10 @@
       "renfrew-collingwood"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "cnh-camp-1",
@@ -110687,7 +111004,10 @@
       "renfrew-collingwood"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "thunderbird-cc-1",
@@ -110713,7 +111033,10 @@
       "renfrew-collingwood"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "stema-van-1",
@@ -110739,7 +111062,10 @@
       "renfrew-collingwood"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "frog-hollow-1",
@@ -110764,7 +111090,10 @@
       "hastings-sunrise"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "marpole-oakridge-cc-1",
@@ -110790,7 +111119,10 @@
       "oakridge"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "hillcrest-cc-1",
@@ -110816,7 +111148,10 @@
       "south cambie"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "arbutus-cc-1",
@@ -110842,7 +111177,10 @@
       "arbutus ridge"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "trout-lake-cc-1",
@@ -110868,7 +111206,10 @@
       "grandview-woodland"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "danceworks-1",
@@ -110890,7 +111231,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Kitsilano"
+    "neighbourhood": "Kitsilano",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "landing-dance-1",
@@ -110912,7 +111256,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Granville Island"
+    "neighbourhood": "Granville Island",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "emily-carr-jai-1",
@@ -110940,7 +111287,10 @@
       "teens"
     ],
     "cost": null,
-    "costNote": "Inquire for pricing"
+    "costNote": "Inquire for pricing",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "efk-van-1",
@@ -110964,7 +111314,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Kitsilano"
+    "neighbourhood": "Kitsilano",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "camp-mclean-1",
@@ -110988,7 +111341,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Lynn Valley"
+    "neighbourhood": "Lynn Valley",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Check with provider"
   },
   {
     "id": "vmha-1",
@@ -111011,7 +111367,10 @@
     ],
     "cost": null,
     "costNote": "Inquire for pricing",
-    "neighbourhood": "Riley Park"
+    "neighbourhood": "Riley Park",
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Varies by division — check registration"
   },
   {
     "id": "chorus-clouds-1",
@@ -111031,7 +111390,10 @@
     "dayLength": "Half Day",
     "description": "Live folk music classes for infants and young children. 45-minute sessions exploring music and movement in a cozy studio. Award-winning program celebrating 10 years.",
     "priceVerified": true,
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "chorus-clouds-2",
@@ -111051,7 +111413,10 @@
     "dayLength": "Half Day",
     "description": "Expressive arts classes for babies and toddlers (10 months+). 45-minute sessions. Currently sold out.",
     "priceVerified": true,
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "chorus-clouds-3",
@@ -111071,7 +111436,10 @@
     "dayLength": "Half Day",
     "description": "Developmental play class for babies 3-12 months. 1-hour sessions. Currently sold out.",
     "priceVerified": true,
-    "costNote": null
+    "costNote": null,
+    "startTime": "12:30 PM",
+    "endTime": "1:30 PM",
+    "timeNote": "Mon/Thu/Fri schedule"
   },
   {
     "id": "chorus-clouds-4",
@@ -111091,7 +111459,10 @@
     "dayLength": "Half Day",
     "description": "School preparation program for ages 2.5-5. 1-hour sessions exploring early learning through play, art, and social skills.",
     "priceVerified": true,
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Multiple sessions — check schedule"
   },
   {
     "id": "chorus-clouds-5",
@@ -111112,7 +111483,10 @@
     "dayLength": "Single Day",
     "description": "Saturday drop-in art and music class. No registration required. Sibling discount available.",
     "priceVerified": true,
-    "costNote": null
+    "costNote": null,
+    "startTime": null,
+    "endTime": null,
+    "timeNote": "Drop-in — check schedule"
   },
   {
     "id": "ymca-dc-douglas",
