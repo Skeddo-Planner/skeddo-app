@@ -99,7 +99,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
         {isDesktop ? (
           /* ─── Desktop header: white bg, pill tabs, user dropdown ─── */
           <>
-            {/* Logo on left — Poppins wordmark */}
+            {/* Logo on left — same image as mobile */}
             <div
               style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", flexShrink: 0 }}
               onClick={onLogoClick}
@@ -107,16 +107,12 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               tabIndex={0}
               aria-label="Go to homepage"
             >
-              <span style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 18,
-                fontWeight: 700,
-                color: C.ink,
-                letterSpacing: -0.3,
-                lineHeight: 1,
-              }}>
-                sked<span style={{ color: C.olive, fontStyle: "italic" }}>do</span>
-              </span>
+              <img
+                src="/skeddo-logo-dark.png"
+                alt="Skeddo"
+                style={{ height: 40, width: "auto", borderRadius: 8 }}
+                fetchpriority="high"
+              />
             </div>
 
             {/* Center: pill-style tab switcher */}
