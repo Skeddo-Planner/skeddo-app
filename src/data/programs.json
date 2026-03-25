@@ -79053,7 +79053,7 @@
     "dayLength": "Half Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79099,7 +79099,7 @@
     "dayLength": "Half Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79147,7 +79147,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2.5
   },
   {
     "id": "ACT-0130",
@@ -79266,7 +79266,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -79303,7 +79303,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 5
   },
   {
     "id": "ACT-0163",
@@ -79338,7 +79338,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79378,7 +79378,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0165",
@@ -79423,7 +79423,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 5
   },
   {
     "id": "ACT-0166",
@@ -79459,7 +79459,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0167",
@@ -79504,7 +79504,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 5
   },
   {
     "id": "ACT-0168",
@@ -79540,7 +79540,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0169",
@@ -79578,7 +79578,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0170",
@@ -79622,7 +79622,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -79661,7 +79661,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0173",
@@ -79696,7 +79696,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79732,7 +79732,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79768,7 +79768,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79804,7 +79804,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79843,7 +79843,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0179",
@@ -79879,7 +79879,7 @@
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2.5
   },
   {
     "id": "ACT-0180",
@@ -79914,7 +79914,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -79952,7 +79952,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0182",
@@ -79989,7 +79989,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0183",
@@ -80025,7 +80025,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80061,7 +80061,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80097,7 +80097,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80134,7 +80134,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80170,7 +80170,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80210,7 +80210,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0189",
@@ -80246,7 +80246,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0190",
@@ -80282,7 +80282,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0191",
@@ -80317,7 +80317,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80353,7 +80353,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80393,7 +80393,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0194",
@@ -80430,7 +80430,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0195",
@@ -80467,7 +80467,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0196",
@@ -80502,7 +80502,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80538,7 +80538,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -80577,7 +80577,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0199",
@@ -80614,7 +80614,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0200",
@@ -80652,7 +80652,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0203",
@@ -80697,7 +80697,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -80743,7 +80743,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0206",
@@ -80786,7 +80786,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0207",
@@ -80830,7 +80830,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0208",
@@ -80875,7 +80875,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -80920,7 +80920,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0210",
@@ -80965,7 +80965,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81004,7 +81004,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0212",
@@ -81041,7 +81041,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0213",
@@ -81078,7 +81078,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0214",
@@ -81116,7 +81116,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0215",
@@ -81381,7 +81381,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -81418,7 +81418,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81456,7 +81456,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0224",
@@ -81493,7 +81493,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0225",
@@ -81529,7 +81529,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81566,7 +81566,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81603,7 +81603,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81640,7 +81640,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81678,7 +81678,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81715,7 +81715,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81753,7 +81753,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 12,
     "confirmed2026": true
   },
   {
@@ -81791,7 +81791,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81830,7 +81830,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81870,7 +81870,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0235",
@@ -81907,7 +81907,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81946,7 +81946,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -81986,7 +81986,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0238",
@@ -82023,7 +82023,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -82063,7 +82063,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": null,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0241",
@@ -82101,7 +82101,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0242",
@@ -82139,7 +82139,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0244",
@@ -82178,7 +82178,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0246",
@@ -82218,7 +82218,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0247",
@@ -82257,7 +82257,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0248",
@@ -82296,7 +82296,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0249",
@@ -82335,7 +82335,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0250",
@@ -82372,7 +82372,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1,
     "confirmed2026": true
   },
   {
@@ -82412,7 +82412,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0252",
@@ -82451,7 +82451,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0253",
@@ -82489,7 +82489,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0254",
@@ -82528,7 +82528,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0255",
@@ -82567,7 +82567,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0256",
@@ -82604,7 +82604,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0257",
@@ -82641,7 +82641,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0258",
@@ -82679,7 +82679,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0259",
@@ -82717,7 +82717,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0260",
@@ -82755,7 +82755,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0261",
@@ -82793,7 +82793,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0262",
@@ -82831,7 +82831,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0263",
@@ -82869,7 +82869,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0264",
@@ -82907,7 +82907,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0265",
@@ -82945,7 +82945,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0266",
@@ -82983,7 +82983,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0267",
@@ -83021,7 +83021,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0268",
@@ -83059,7 +83059,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0269",
@@ -83097,7 +83097,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0270",
@@ -83135,7 +83135,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0271",
@@ -83173,7 +83173,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0272",
@@ -83211,7 +83211,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0273",
@@ -83249,7 +83249,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0274",
@@ -83287,7 +83287,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0275",
@@ -83325,7 +83325,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0276",
@@ -83363,7 +83363,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0277",
@@ -83401,7 +83401,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0278",
@@ -83439,7 +83439,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0279",
@@ -83477,7 +83477,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0280",
@@ -83515,7 +83515,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0281",
@@ -83553,7 +83553,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0282",
@@ -83591,7 +83591,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0283",
@@ -83629,7 +83629,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0284",
@@ -83667,7 +83667,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0285",
@@ -83705,7 +83705,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0286",
@@ -83743,7 +83743,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0287",
@@ -83781,7 +83781,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0288",
@@ -83819,7 +83819,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0289",
@@ -83857,7 +83857,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0290",
@@ -83895,7 +83895,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0291",
@@ -83933,7 +83933,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0292",
@@ -83971,7 +83971,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0293",
@@ -84009,7 +84009,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0294",
@@ -84046,7 +84046,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0295",
@@ -84084,7 +84084,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0296",
@@ -84122,7 +84122,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0297",
@@ -84159,7 +84159,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0298",
@@ -84197,7 +84197,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0299",
@@ -84235,7 +84235,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0300",
@@ -84272,7 +84272,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0301",
@@ -84310,7 +84310,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0302",
@@ -84348,7 +84348,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0303",
@@ -84386,7 +84386,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0304",
@@ -84427,7 +84427,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -84465,7 +84465,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0306",
@@ -84501,7 +84501,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0307",
@@ -84546,7 +84546,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 5.5,
     "confirmed2026": true
   },
   {
@@ -84591,7 +84591,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 5.5,
     "confirmed2026": true
   },
   {
@@ -84629,7 +84629,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0310",
@@ -84667,7 +84667,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0311",
@@ -84705,7 +84705,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0312",
@@ -84742,7 +84742,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0313",
@@ -84780,7 +84780,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0314",
@@ -84817,7 +84817,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0315",
@@ -84853,7 +84853,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0316",
@@ -84890,7 +84890,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0317",
@@ -84926,7 +84926,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1.5
   },
   {
     "id": "ACT-0318",
@@ -84970,7 +84970,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 5.5,
     "confirmed2026": true
   },
   {
@@ -85015,7 +85015,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 5.5,
     "confirmed2026": true
   },
   {
@@ -85057,7 +85057,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -85094,7 +85094,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0322",
@@ -85139,7 +85139,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 5.5,
     "confirmed2026": true
   },
   {
@@ -85185,7 +85185,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 5.5,
     "confirmed2026": true
   },
   {
@@ -85222,7 +85222,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2
   },
   {
     "id": "ACT-0325",
@@ -85263,7 +85263,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -85300,7 +85300,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0327",
@@ -85336,7 +85336,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0328",
@@ -85409,7 +85409,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0330",
@@ -85446,7 +85446,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0331",
@@ -85483,7 +85483,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0332",
@@ -85520,7 +85520,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0333",
@@ -85557,7 +85557,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0334",
@@ -85593,7 +85593,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0335",
@@ -85634,7 +85634,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0336",
@@ -85676,7 +85676,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0337",
@@ -85714,7 +85714,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0338",
@@ -85751,7 +85751,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0339",
@@ -85788,7 +85788,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -85826,7 +85826,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2,
     "confirmed2026": true
   },
   {
@@ -85864,7 +85864,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -85902,7 +85902,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2,
     "confirmed2026": true
   },
   {
@@ -85977,7 +85977,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0345",
@@ -86017,7 +86017,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -86059,7 +86059,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -86105,7 +86105,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86152,7 +86152,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86198,7 +86198,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86244,7 +86244,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86281,7 +86281,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0352",
@@ -86326,7 +86326,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86373,7 +86373,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0354",
@@ -86419,7 +86419,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0355",
@@ -86464,7 +86464,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86510,7 +86510,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86547,7 +86547,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0358",
@@ -86583,7 +86583,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0359",
@@ -86619,7 +86619,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0360",
@@ -86664,7 +86664,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86710,7 +86710,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86756,7 +86756,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86793,7 +86793,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0364",
@@ -86838,7 +86838,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86884,7 +86884,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -86922,7 +86922,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0367",
@@ -86967,7 +86967,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87014,7 +87014,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0369",
@@ -87050,7 +87050,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0370",
@@ -87087,7 +87087,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0371",
@@ -87126,7 +87126,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0372",
@@ -87168,7 +87168,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0373",
@@ -87210,7 +87210,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0374",
@@ -87247,7 +87247,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0375",
@@ -87285,7 +87285,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87402,7 +87402,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0379",
@@ -87443,7 +87443,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -87484,7 +87484,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -87530,7 +87530,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87576,7 +87576,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87622,7 +87622,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87668,7 +87668,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87714,7 +87714,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 4
   },
   {
     "id": "ACT-0386",
@@ -87751,7 +87751,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0387",
@@ -87797,7 +87797,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0388",
@@ -87844,7 +87844,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0389",
@@ -87889,7 +87889,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87935,7 +87935,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -87981,7 +87981,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88028,7 +88028,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0393",
@@ -88073,7 +88073,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88110,7 +88110,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -88155,7 +88155,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0396",
@@ -88200,7 +88200,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88246,7 +88246,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0398",
@@ -88292,7 +88292,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0399",
@@ -88337,7 +88337,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0400",
@@ -88382,7 +88382,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88418,7 +88418,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88456,7 +88456,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0405",
@@ -88501,7 +88501,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0406",
@@ -88547,7 +88547,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0407",
@@ -88583,7 +88583,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0408",
@@ -88629,7 +88629,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0409",
@@ -88675,7 +88675,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88721,7 +88721,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88767,7 +88767,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88813,7 +88813,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -88859,7 +88859,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0414",
@@ -88904,7 +88904,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0415",
@@ -88950,7 +88950,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0416",
@@ -88986,7 +88986,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0417",
@@ -89030,7 +89030,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0418",
@@ -89075,7 +89075,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0419",
@@ -89120,7 +89120,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0420",
@@ -89166,7 +89166,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0421",
@@ -89205,7 +89205,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0423",
@@ -89249,7 +89249,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -89294,7 +89294,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 3,
     "confirmed2026": true
   },
   {
@@ -89337,7 +89337,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0426",
@@ -89379,7 +89379,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0427",
@@ -89424,7 +89424,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0428",
@@ -89470,7 +89470,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0429",
@@ -89516,7 +89516,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0430",
@@ -89553,7 +89553,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0431",
@@ -89599,7 +89599,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0432",
@@ -89644,7 +89644,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0433",
@@ -89689,7 +89689,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0434",
@@ -89733,7 +89733,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0435",
@@ -89778,7 +89778,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0436",
@@ -89822,7 +89822,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0437",
@@ -89868,7 +89868,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0438",
@@ -89913,7 +89913,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0439",
@@ -89957,7 +89957,7 @@
     "dayLength": "Half Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 3,
     "confirmed2026": true
   },
   {
@@ -90003,7 +90003,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0441",
@@ -90040,7 +90040,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0442",
@@ -90085,7 +90085,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0443",
@@ -90121,7 +90121,7 @@
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2.5
   },
   {
     "id": "ACT-0444",
@@ -90156,7 +90156,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -90230,7 +90230,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0447",
@@ -90271,7 +90271,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -90313,7 +90313,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -90359,7 +90359,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -90396,7 +90396,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -90443,7 +90443,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0453",
@@ -90480,7 +90480,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0454",
@@ -90525,7 +90525,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0455",
@@ -90562,7 +90562,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0456",
@@ -90606,7 +90606,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0457",
@@ -90651,7 +90651,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -90698,7 +90698,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -90736,7 +90736,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0460",
@@ -90772,7 +90772,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0461",
@@ -90809,7 +90809,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0462",
@@ -90846,7 +90846,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0463",
@@ -90891,7 +90891,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0464",
@@ -90928,7 +90928,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0465",
@@ -90973,7 +90973,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91019,7 +91019,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91065,7 +91065,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91111,7 +91111,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91158,7 +91158,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91204,7 +91204,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0471",
@@ -91249,7 +91249,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0473",
@@ -91295,7 +91295,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0474",
@@ -91340,7 +91340,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0475",
@@ -91385,7 +91385,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91432,7 +91432,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0477",
@@ -91477,7 +91477,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91523,7 +91523,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91568,7 +91568,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 4
   },
   {
     "id": "ACT-0480",
@@ -91604,7 +91604,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0481",
@@ -91648,7 +91648,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0482",
@@ -91693,7 +91693,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91738,7 +91738,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0484",
@@ -91784,7 +91784,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0485",
@@ -91820,7 +91820,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0486",
@@ -91865,7 +91865,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -91912,7 +91912,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0488",
@@ -91951,7 +91951,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0490",
@@ -91995,7 +91995,7 @@
     "dayLength": "Full Day",
     "costNote": "Inquire for pricing",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -92037,7 +92037,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0492",
@@ -92078,7 +92078,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0493",
@@ -92124,7 +92124,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0494",
@@ -92169,7 +92169,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0495",
@@ -92215,7 +92215,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0496",
@@ -92253,7 +92253,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0497",
@@ -92298,7 +92298,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0498",
@@ -92344,7 +92344,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0499",
@@ -92390,7 +92390,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0500",
@@ -92435,7 +92435,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0501",
@@ -92480,7 +92480,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0502",
@@ -92526,7 +92526,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0503",
@@ -92570,7 +92570,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0504",
@@ -92615,7 +92615,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0505",
@@ -92661,7 +92661,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0507",
@@ -92698,7 +92698,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0508",
@@ -92743,7 +92743,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0509",
@@ -92788,7 +92788,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0510",
@@ -92870,7 +92870,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 4
   },
   {
     "id": "ACT-0512",
@@ -92907,7 +92907,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0513",
@@ -92945,7 +92945,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -92987,7 +92987,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -93029,7 +93029,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -93075,7 +93075,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93122,7 +93122,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0518",
@@ -93168,7 +93168,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0519",
@@ -93213,7 +93213,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93259,7 +93259,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93305,7 +93305,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0522",
@@ -93350,7 +93350,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 4
   },
   {
     "id": "ACT-0523",
@@ -93394,7 +93394,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0524",
@@ -93432,7 +93432,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0526",
@@ -93468,7 +93468,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0527",
@@ -93513,7 +93513,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93559,7 +93559,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93605,7 +93605,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93652,7 +93652,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0531",
@@ -93689,7 +93689,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0532",
@@ -93734,7 +93734,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0533",
@@ -93770,7 +93770,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0534",
@@ -93815,7 +93815,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -93862,7 +93862,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0537",
@@ -93907,7 +93907,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0538",
@@ -93952,7 +93952,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0539",
@@ -93998,7 +93998,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0540",
@@ -94043,7 +94043,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -94081,7 +94081,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0542",
@@ -94126,7 +94126,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -94164,7 +94164,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0546",
@@ -94201,7 +94201,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0547",
@@ -94245,7 +94245,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0548",
@@ -94281,7 +94281,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -94321,7 +94321,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0553",
@@ -94363,7 +94363,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0554",
@@ -94405,7 +94405,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0556",
@@ -94450,7 +94450,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0557",
@@ -94496,7 +94496,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0558",
@@ -94540,7 +94540,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0559",
@@ -94586,7 +94586,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0560",
@@ -94632,7 +94632,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0561",
@@ -94670,7 +94670,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0562",
@@ -94716,7 +94716,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0563",
@@ -94761,7 +94761,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0564",
@@ -94806,7 +94806,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0565",
@@ -94852,7 +94852,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0567",
@@ -94897,7 +94897,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0568",
@@ -94934,7 +94934,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0569",
@@ -94979,7 +94979,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0570",
@@ -95053,7 +95053,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -95216,7 +95216,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0578",
@@ -95254,7 +95254,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -95296,7 +95296,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -95338,7 +95338,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -95384,7 +95384,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95430,7 +95430,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95476,7 +95476,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95521,7 +95521,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0585",
@@ -95567,7 +95567,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0586",
@@ -95612,7 +95612,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95659,7 +95659,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0588",
@@ -95695,7 +95695,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0589",
@@ -95741,7 +95741,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0590",
@@ -95786,7 +95786,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95832,7 +95832,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95878,7 +95878,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95925,7 +95925,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -95971,7 +95971,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 4
   },
   {
     "id": "ACT-0595",
@@ -96007,7 +96007,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0597",
@@ -96044,7 +96044,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0598",
@@ -96089,7 +96089,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0599",
@@ -96134,7 +96134,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -96174,7 +96174,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -96211,7 +96211,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0603",
@@ -96256,7 +96256,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -96302,7 +96302,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -96348,7 +96348,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -96395,7 +96395,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0607",
@@ -96433,7 +96433,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0608",
@@ -96471,7 +96471,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0609",
@@ -96517,7 +96517,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0610",
@@ -96562,7 +96562,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0611",
@@ -96607,7 +96607,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0612",
@@ -96652,7 +96652,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0613",
@@ -96699,7 +96699,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0614",
@@ -96744,7 +96744,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -96790,7 +96790,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -96830,7 +96830,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -96876,7 +96876,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0618",
@@ -96920,7 +96920,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0619",
@@ -96956,7 +96956,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -96996,7 +96996,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0623",
@@ -97033,7 +97033,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 5
   },
   {
     "id": "ACT-0624",
@@ -97074,7 +97074,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0625",
@@ -97116,7 +97116,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0627",
@@ -97151,7 +97151,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 3.5,
     "confirmed2026": true
   },
   {
@@ -97187,7 +97187,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 3.5,
     "confirmed2026": true
   },
   {
@@ -97234,7 +97234,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0630",
@@ -97280,7 +97280,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0631",
@@ -97326,7 +97326,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0632",
@@ -97372,7 +97372,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0633",
@@ -97418,7 +97418,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0634",
@@ -97463,7 +97463,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0635",
@@ -97508,7 +97508,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0637",
@@ -97554,7 +97554,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0638",
@@ -97591,7 +97591,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0639",
@@ -97637,7 +97637,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0641",
@@ -97682,7 +97682,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0642",
@@ -97727,7 +97727,7 @@
     "costNote": "Contact for pricing: summer@mulgrave.com",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0643",
@@ -97764,7 +97764,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0644",
@@ -97838,7 +97838,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0646",
@@ -97879,7 +97879,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -97921,7 +97921,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -97967,7 +97967,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98013,7 +98013,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98051,7 +98051,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0652",
@@ -98097,7 +98097,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0653",
@@ -98142,7 +98142,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98188,7 +98188,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98234,7 +98234,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98272,7 +98272,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0658",
@@ -98317,7 +98317,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98354,7 +98354,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -98400,7 +98400,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98438,7 +98438,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0664",
@@ -98484,7 +98484,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0665",
@@ -98529,7 +98529,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98575,7 +98575,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98622,7 +98622,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0668",
@@ -98667,7 +98667,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98704,7 +98704,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0670",
@@ -98749,7 +98749,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98795,7 +98795,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98841,7 +98841,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98887,7 +98887,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -98925,7 +98925,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6.5
   },
   {
     "id": "ACT-0675",
@@ -98971,7 +98971,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0676",
@@ -99010,7 +99010,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0680",
@@ -99052,7 +99052,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0681",
@@ -99094,7 +99094,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0685",
@@ -99131,7 +99131,7 @@
     "costNote": "Contact for pricing: collingwood.org/camps",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 1
   },
   {
     "id": "ACT-0690",
@@ -99204,7 +99204,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -99245,7 +99245,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -99287,7 +99287,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -99334,7 +99334,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0695",
@@ -99379,7 +99379,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99416,7 +99416,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -99462,7 +99462,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99508,7 +99508,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99554,7 +99554,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99600,7 +99600,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99647,7 +99647,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0702",
@@ -99692,7 +99692,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99738,7 +99738,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99785,7 +99785,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0705",
@@ -99830,7 +99830,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99877,7 +99877,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99923,7 +99923,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -99960,7 +99960,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0709",
@@ -100005,7 +100005,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100051,7 +100051,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100097,7 +100097,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100144,7 +100144,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100184,7 +100184,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0716",
@@ -100226,7 +100226,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0717",
@@ -100268,7 +100268,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0719",
@@ -100303,7 +100303,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100339,7 +100339,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100375,7 +100375,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100411,7 +100411,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100447,7 +100447,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100483,7 +100483,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100519,7 +100519,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100556,7 +100556,7 @@
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2.5
   },
   {
     "id": "ACT-0728",
@@ -100592,7 +100592,7 @@
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 2.5
   },
   {
     "id": "ACT-0729",
@@ -100627,7 +100627,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100663,7 +100663,7 @@
     "dayLength": "Half Day",
     "costNote": "Contact provider for pricing: burnabywinterclub.com",
     "priceVerified": true,
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2.5,
     "confirmed2026": true
   },
   {
@@ -100705,7 +100705,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -100747,7 +100747,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -100783,7 +100783,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100829,7 +100829,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100875,7 +100875,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -100922,7 +100922,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0737",
@@ -100958,7 +100958,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0738",
@@ -101003,7 +101003,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101049,7 +101049,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101095,7 +101095,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101132,7 +101132,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -101180,7 +101180,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0743",
@@ -101225,7 +101225,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101271,7 +101271,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101317,7 +101317,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101363,7 +101363,7 @@
     "dayLength": "Full Day",
     "costNote": "Contact provider for pricing: summer.bodwell.edu",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101410,7 +101410,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0748",
@@ -101455,7 +101455,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101501,7 +101501,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101547,7 +101547,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101594,7 +101594,7 @@
     "priceVerified": true,
     "costNote": "Estimated - (UBC Geering Up pricing at Chaoyin location)",
     "confirmed2026": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0752",
@@ -101633,7 +101633,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0756",
@@ -101674,7 +101674,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0757",
@@ -101712,7 +101712,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 2,
     "confirmed2026": true
   },
   {
@@ -101755,7 +101755,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0760",
@@ -101796,7 +101796,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -101838,7 +101838,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6.5,
     "confirmed2026": true
   },
   {
@@ -101884,7 +101884,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101930,7 +101930,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -101976,7 +101976,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102022,7 +102022,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102068,7 +102068,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102115,7 +102115,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102152,7 +102152,7 @@
     "earlyBirdCost": 498,
     "earlyBirdDeadline": "2026-05-01",
     "priceVerified": true,
-    "durationPerDay": "Full Day",
+    "durationPerDay": 8,
     "confirmed2026": true
   },
   {
@@ -102198,7 +102198,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102244,7 +102244,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102290,7 +102290,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102336,7 +102336,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102382,7 +102382,7 @@
     "dayLength": "Full Day",
     "priceVerified": true,
     "costNote": "Ranges - depending on theme and duration",
-    "durationPerDay": "Full Day",
+    "durationPerDay": 6,
     "confirmed2026": true
   },
   {
@@ -102422,7 +102422,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0777",
@@ -102464,7 +102464,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0778",
@@ -102506,7 +102506,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0780",
@@ -102545,7 +102545,7 @@
     "confirmed2026": true,
     "priceVerified": true,
     "costNote": "Contact provider for pricing: petitarchitect.com",
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0781",
@@ -102586,7 +102586,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0782",
@@ -102628,7 +102628,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 6
   },
   {
     "id": "ACT-0783",
@@ -102668,7 +102668,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -102710,7 +102710,7 @@
     "costNote": "Subsidized rate ~-/week. Leisure Access Program available.",
     "registrationDate": "2026-04-08",
     "registrationDateLabel": "Apr 8 at 7 PM",
-    "durationPerDay": "Half Day",
+    "durationPerDay": 1.5,
     "confirmed2026": true
   },
   {
@@ -102748,7 +102748,7 @@
     "costNote": "Inquire for pricing",
     "confirmed2026": true,
     "priceVerified": true,
-    "durationPerDay": "Full Day"
+    "durationPerDay": 5
   },
   {
     "id": "ACT-0786",
@@ -102785,7 +102785,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "ACT-0787",
@@ -102821,7 +102821,7 @@
     "priceVerified": true,
     "costNote": "Estimated from Grouse Mountain pricing",
     "confirmed2026": true,
-    "durationPerDay": "Half Day"
+    "durationPerDay": 3
   },
   {
     "id": "SD39-0001",
