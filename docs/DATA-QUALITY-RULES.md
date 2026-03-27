@@ -176,3 +176,45 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
+
+## Rule 16: NEVER import from activekids.com
+activekids.com is NOT a primary data source. It is a third-party directory with incomplete, outdated, and sometimes inaccurate program listings. NEVER use activekids.com as a source for new programs, pricing, dates, or any other data. Always go directly to the provider's own website or the official registration system (ActiveNet, PerfectMind, Eventbrite, etc.) for program data.
+
+This rule is PERMANENT and NON-NEGOTIABLE.
+
+## Rule 17: Always scrape official registration APIs directly
+For any municipality or large provider with a registration portal, ALWAYS find and use their REST API to get the complete program catalog. Never rely on:
+- Third-party directories (activekids.com — BANNED per Rule 16)
+- CSV imports (partial, outdated)
+- Manual web scraping (misses programs)
+- Keyword-based searches (only finds subset)
+
+Known municipal APIs:
+- City of Vancouver: POST https://anc.ca.apm.activecommunities.com/vancouver/rest/activities/list?locale=en-US
+- City of Burnaby: POST https://anc.ca.apm.activecommunities.com/burnaby/rest/activities/list?locale=en-US
+- (Other cities: research their portals — many use PerfectMind, Xplor, or custom systems)
+
+Payload format: {"activity_select_param":2,"page_info":{"page_number":N,"total_records_per_page":20,"order_by":"Name","order_option":"ASC"}}
+
+Filter kids programs client-side: age_max_year <= 17 AND age_min_year < 18
+
+Reusable scraper: scripts/scrape-cov-activenet.cjs (modify HOST and CITY variables for other ActiveNet cities)
+
+## Rule 18: Include ALL program types
+Skeddo is not just for summer camps. Include EVERY program a parent might use:
+- Day camps and summer camps
+- Swimming lessons and aquatics
+- Dance classes (ballet, hip hop, jazz, contemporary)
+- Sports classes (tennis, soccer, basketball, hockey, skating)
+- Arts (pottery, painting, drawing, ceramics)
+- Music lessons (piano, guitar, drums, choir)
+- STEM/coding programs
+- Fitness and yoga
+- Martial arts
+- Theatre and performing arts
+- Language classes
+- Single-session classes and multi-week programs
+
+If the program has an age range that includes children (0-17), it belongs in Skeddo. Parents use Skeddo to plan, schedule, budget, and coordinate — ALL activities benefit from these tools.
+
+This rule exists because the March 2026 CoV import only captured 149 of 2,700 kids programs (5.5%) by focusing narrowly on "summer camp" keyword searches.
