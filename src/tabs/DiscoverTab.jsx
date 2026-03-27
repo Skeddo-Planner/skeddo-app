@@ -89,6 +89,7 @@ const CITY_NEIGHBOURHOODS = [
   { city: "Delta", neighbourhoods: ["Delta", "North Delta"] },
   { city: "White Rock", neighbourhoods: ["White Rock"] },
   { city: "Squamish", neighbourhoods: ["Squamish"] },
+  { city: "Whistler", neighbourhoods: ["Whistler"] },
   { city: "Bowen Island", neighbourhoods: ["Bowen Island"] },
   { city: "Sunshine Coast", neighbourhoods: ["Sunshine Coast"] },
   { city: "Langley", neighbourhoods: ["Langley"] },
