@@ -610,6 +610,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onInviteCoParent={handleInviteCoParent}
                 profile={profile}
                 circlesHook={circlesHook}
+                childAccess={childAccess}
               />
             )}
 
@@ -723,6 +724,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onInviteCoParent={handleInviteCoParent}
                 profile={profile}
                 circlesHook={circlesHook}
+                childAccess={childAccess}
               />
             )}
 
@@ -839,6 +841,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           onAddToSchedule={handleAddToSchedule}
           onClose={() => setModal(null)}
           selectedKid={kidFilter ? kids.find((k) => k.id === kidFilter) : null}
+          circlesHook={circlesHook}
+          profile={profile}
         />
       )}
 

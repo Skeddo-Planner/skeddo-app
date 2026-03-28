@@ -10,7 +10,7 @@ import {
 import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
 import { trackEvent } from "../utils/analytics";
 
-export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid }) {
+export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid, circlesHook, profile }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const regStatus = getRegistrationStatus(p);
@@ -31,6 +31,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const [customCost, setCustomCost] = useState(
     p.cost === "TBD" ? "" : (typeof p.cost === "number" ? String(p.cost) : "")
   );
+  const [sharedToCircles, setSharedToCircles] = useState(new Set());
 
   // Price is approximate if explicitly flagged or if provider is not verified
   const isApproxPrice = p.priceVerified === false && typeof p.cost === "number" && p.cost > 0;
@@ -751,6 +752,56 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase" }}>Email</span>
             </button>
           </div>
+
+          {/* Circle sharing */}
+          {circlesHook && circlesHook.circles && circlesHook.circles.length > 0 && (
+            <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px solid ${C.seaGreen}20` }}>
+              <div style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                color: C.muted, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
+              }}>
+                Share to a circle
+              </div>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                {circlesHook.circles.map((circle) => {
+                  const shared = sharedToCircles.has(circle.id);
+                  return (
+                    <button
+                      key={circle.id}
+                      onClick={async () => {
+                        if (shared) return;
+                        try {
+                          await circlesHook.shareActivities(circle.id, [{
+                            id: p.id || (p.name + "-" + p.provider),
+                            name: p.name,
+                            provider: p.provider,
+                            category: p.category,
+                            cost: p.cost,
+                            startDate: p.startDate,
+                            endDate: p.endDate,
+                            status: "Exploring",
+                          }], profile?.displayName || "Someone");
+                          trackEvent("share_program_to_circle", { program_name: p.name, circle_name: circle.name });
+                          setSharedToCircles((prev) => new Set(prev).add(circle.id));
+                        } catch { /* noop */ }
+                      }}
+                      style={{
+                        fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                        padding: "6px 12px", borderRadius: 16,
+                        border: shared ? `1.5px solid ${C.seaGreen}` : `1.5px solid ${C.blue}30`,
+                        background: shared ? C.seaGreen + "14" : C.blue + "08",
+                        color: shared ? C.seaGreen : C.blue,
+                        cursor: shared ? "default" : "pointer",
+                        display: "flex", alignItems: "center", gap: 4,
+                      }}
+                    >
+                      {shared ? "\u2713 " : ""}{circle.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       )}
 

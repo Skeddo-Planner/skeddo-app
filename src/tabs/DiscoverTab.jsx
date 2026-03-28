@@ -16,6 +16,7 @@ import {
   sortPrograms,
   fmtDate,
   PAGE_SIZE,
+  calcCostPerHour,
 } from "../utils/helpers";
 import { trackEvent } from "../utils/analytics";
 import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
@@ -109,6 +110,15 @@ const COST_RANGES = [
   { label: "$500+", min: 500, max: Infinity },
 ];
 
+const COST_PER_HOUR_RANGES = [
+  { label: "Any $/hr", min: 0, max: Infinity },
+  { label: "Under $5/hr", min: 0.01, max: 5 },
+  { label: "$5 - $10/hr", min: 5, max: 10 },
+  { label: "$10 - $15/hr", min: 10, max: 15 },
+  { label: "$15 - $20/hr", min: 15, max: 20 },
+  { label: "$20+/hr", min: 20, max: Infinity },
+];
+
 const SORT_OPTIONS = [
   { key: "relevance", label: "Relevance" },
   { key: "price-asc", label: "Price: Low to High" },
@@ -149,6 +159,7 @@ const SUMMER_WEEKS = [
   { id: "w7", weekNum: 7, label: "Week 7", dateRange: "Aug 10 – Aug 14", monday: new Date(2026, 7, 10), friday: new Date(2026, 7, 14), statHolidays: [] },
   { id: "w8", weekNum: 8, label: "Week 8", dateRange: "Aug 17 – Aug 21", monday: new Date(2026, 7, 17), friday: new Date(2026, 7, 21), statHolidays: [] },
   { id: "w9", weekNum: 9, label: "Week 9", dateRange: "Aug 24 – Aug 28", monday: new Date(2026, 7, 24), friday: new Date(2026, 7, 28), statHolidays: [] },
+  { id: "w10", weekNum: 10, label: "Week 10", dateRange: "Aug 31 – Sep 4", monday: new Date(2026, 7, 31), friday: new Date(2026, 8, 4), statHolidays: [], note: "Last week before school" },
 ];
 
 /* Determine which weekdays a program covers in a given week */
@@ -683,6 +694,8 @@ export default function DiscoverTab({
   const [ageMin, setAgeMin] = useState("");
   const [ageMax, setAgeMax] = useState("");
   const [selectedCosts, setSelectedCosts] = useState(new Set());
+  const [costFilterMode, setCostFilterMode] = useState("total"); // "total" | "perHour"
+  const [selectedCostPerHour, setSelectedCostPerHour] = useState(new Set());
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [activeDrawer, setActiveDrawer] = useState(null);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
@@ -774,6 +787,8 @@ export default function DiscoverTab({
     setAgeMin("");
     setAgeMax("");
     setSelectedCosts(new Set());
+    setSelectedCostPerHour(new Set());
+    setCostFilterMode("total");
     setShowFavoritesOnly(false);
     setSortBy("relevance");
     setSelectedRegStatuses(new Set(["open", "coming-soon", "upcoming", "likely-coming-soon"]));
@@ -795,6 +810,7 @@ export default function DiscoverTab({
     if (selectedHoods.size > 0) return true;
     if (ageMin || ageMax) return true;
     if (selectedCosts.size > 0) return true;
+    if (selectedCostPerHour.size > 0) return true;
     if (showFavoritesOnly) return true;
     if (selectedProviders.size > 0) return true;
     if (selectedActivityTypes.size > 0) return true;
@@ -805,13 +821,13 @@ export default function DiscoverTab({
     // Registration status: default is 4 statuses, if different then a filter is active
     if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) return true;
     return false;
-  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, sortBy, selectedRegStatuses, durationMin, durationMax]);
+  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, selectedCostPerHour, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, sortBy, selectedRegStatuses, durationMin, durationMax]);
 
   const totalActiveFilters = useMemo(() => {
     let count = 0;
     if (selectedCats.size > 0) count++;
     if (ageMin || ageMax) count++;
-    if (selectedCosts.size > 0) count++;
+    if (selectedCosts.size > 0 || selectedCostPerHour.size > 0) count++;
     if (selectedHoods.size > 0) count++;
     if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) count++;
     if (selectedDayLengths.size > 0) count++;
@@ -823,7 +839,7 @@ export default function DiscoverTab({
     if (search) count++;
     if (selectedWeeks.size > 0) count++;
     return count;
-  }, [selectedCats, ageMin, ageMax, selectedCosts, selectedHoods, selectedRegStatuses, selectedDayLengths, selectedActivityTypes, selectedProviders, showFavoritesOnly, sortBy, search, selectedWeeks]);
+  }, [selectedCats, ageMin, ageMax, selectedCosts, selectedCostPerHour, selectedHoods, selectedRegStatuses, selectedDayLengths, selectedActivityTypes, selectedProviders, showFavoritesOnly, sortBy, search, selectedWeeks]);
 
   const addedNames = useMemo(() => {
     const set = new Set();
@@ -846,6 +862,9 @@ export default function DiscoverTab({
     const maxAge = ageMax ? Number(ageMax) : null;
     const costRanges = selectedCosts.size > 0
       ? [...selectedCosts].map((i) => COST_RANGES[i])
+      : null;
+    const cphRanges = selectedCostPerHour.size > 0
+      ? [...selectedCostPerHour].map((i) => COST_PER_HOUR_RANGES[i])
       : null;
 
     return allDirectoryPrograms.filter((p) => {
@@ -879,6 +898,14 @@ export default function DiscoverTab({
           if (range.min === 0 && range.max === Infinity) return true;
           if (cost === null) return false; // null cost doesn't match price ranges
           return cost >= range.min && cost <= range.max;
+        })) return false;
+      }
+      if (cphRanges) {
+        const cph = calcCostPerHour(p);
+        if (!cphRanges.some((range) => {
+          if (range.min === 0 && range.max === Infinity) return true;
+          if (cph === null) return false;
+          return cph >= range.min && cph <= range.max;
         })) return false;
       }
       if (selectedDayLengths.size > 0 && (!p.dayLength || !selectedDayLengths.has(p.dayLength))) return false;
@@ -1076,7 +1103,7 @@ export default function DiscoverTab({
         {kids && kids.length > 0 && (
           <FilterChip label="Eligible for" count={kidFilter ? 1 : 0} active={!!kidFilter} onClick={() => setActiveDrawer("eligible")} />
         )}
-        <FilterChip label="Cost" count={selectedCosts.size} active={selectedCosts.size > 0} onClick={() => setActiveDrawer("cost")} />
+        <FilterChip label="Cost" count={selectedCosts.size + selectedCostPerHour.size} active={selectedCosts.size > 0 || selectedCostPerHour.size > 0} onClick={() => setActiveDrawer("cost")} />
         <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} />
         <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} />
         <FilterChip label="Duration" count={durationMin > 0 || durationMax < 10 ? 1 : 0} active={durationMin > 0 || durationMax < 10} onClick={() => setActiveDrawer("duration")} />
@@ -1429,12 +1456,35 @@ export default function DiscoverTab({
 
         {/* Cost Drawer */}
         <FilterDrawer open={activeDrawer === "cost"} onClose={() => setActiveDrawer(null)} title="Cost"
-          onClear={() => { setSelectedCosts(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
-          <FilterOptions
-            options={COST_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
-            selected={selectedCosts}
-            onToggle={(id) => toggleInSet(setSelectedCosts, id)}
-          />
+          onClear={() => { setSelectedCosts(new Set()); setSelectedCostPerHour(new Set()); setCostFilterMode("total"); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+          {/* Toggle: Total / Per Hour */}
+          <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3, marginBottom: 12 }}>
+            {[{ id: "total", l: "Total cost" }, { id: "perHour", l: "$/hr" }].map((m) => (
+              <button key={m.id} onClick={() => {
+                setCostFilterMode(m.id);
+                if (m.id === "total") setSelectedCostPerHour(new Set());
+                else setSelectedCosts(new Set());
+              }} style={{
+                flex: 1, padding: "7px 12px", borderRadius: 8, border: "none",
+                background: costFilterMode === m.id ? C.seaGreen + "18" : "transparent",
+                color: costFilterMode === m.id ? C.seaGreen : C.muted,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600, cursor: "pointer",
+              }}>{m.l}</button>
+            ))}
+          </div>
+          {costFilterMode === "total" ? (
+            <FilterOptions
+              options={COST_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
+              selected={selectedCosts}
+              onToggle={(id) => toggleInSet(setSelectedCosts, id)}
+            />
+          ) : (
+            <FilterOptions
+              options={COST_PER_HOUR_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
+              selected={selectedCostPerHour}
+              onToggle={(id) => toggleInSet(setSelectedCostPerHour, id)}
+            />
+          )}
         </FilterDrawer>
 
         {/* Neighbourhood Drawer */}

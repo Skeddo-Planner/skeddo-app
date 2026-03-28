@@ -164,6 +164,7 @@ export default function HomeTab({
   onInviteCoParent,
   profile,
   circlesHook,
+  childAccess,
 }) {
   const allPrograms = useMemo(() => [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms], [enrolledPrograms, waitlistPrograms, exploringPrograms]);
   const isPaid = planAccess.isPaid;
@@ -311,6 +312,64 @@ export default function HomeTab({
           >+ Add kid</button>
         )}
       </div>
+
+      {/* ══ 1b. Co-parent pills ══ */}
+      {(() => {
+        if (!childAccess) return null;
+        const allCoParents = [];
+        const seen = new Set();
+        kids.forEach((k) => {
+          const coParents = childAccess.getCoParents ? childAccess.getCoParents(k.id) : [];
+          coParents.forEach((cp) => {
+            if (!seen.has(cp.userId)) {
+              seen.add(cp.userId);
+              allCoParents.push(cp);
+            }
+          });
+        });
+        if (allCoParents.length === 0) return null;
+        return (
+          <div style={{ display: "flex", gap: 6, marginBottom: 12, overflowX: "auto", paddingBottom: 2, alignItems: "center" }}>
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: "0.06em", whiteSpace: "nowrap", flexShrink: 0 }}>
+              Co-parents
+            </span>
+            {allCoParents.map((cp) => (
+              <div key={cp.userId} style={{
+                display: "flex", alignItems: "center", gap: 6,
+                padding: "4px 10px 4px 10px", borderRadius: 16,
+                background: "rgba(27,36,50,0.04)", border: "1px solid rgba(27,36,50,0.08)",
+                whiteSpace: "nowrap", flexShrink: 0,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 500, color: C.ink,
+              }}>
+                <span style={{
+                  width: 22, height: 22, borderRadius: "50%",
+                  background: C.lilac + "30", display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 11, fontWeight: 700, color: C.lilac, flexShrink: 0,
+                }}>{(cp.displayName || "?")[0].toUpperCase()}</span>
+                {cp.displayName || "Co-parent"}
+                <button
+                  onClick={() => {
+                    if (window.confirm(`Remove ${cp.displayName || "this co-parent"} from all shared kids?`)) {
+                      kids.forEach((k) => {
+                        const kCoParents = childAccess.getCoParents ? childAccess.getCoParents(k.id) : [];
+                        if (kCoParents.some((c) => c.userId === cp.userId)) {
+                          childAccess.removeAccess(k.id, cp.userId).catch(() => {});
+                        }
+                      });
+                    }
+                  }}
+                  aria-label={`Remove ${cp.displayName || "co-parent"}`}
+                  style={{
+                    background: "none", border: "none", cursor: "pointer",
+                    padding: "0 0 0 2px", lineHeight: 1,
+                    fontSize: 14, color: C.muted, fontWeight: 600,
+                  }}
+                >{"\u2715"}</button>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
 
       {/* ══ 2. Compact Stat Strip ══ */}
       <div style={{

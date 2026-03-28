@@ -1181,7 +1181,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   /* ═══════════════════════════════════════
      DESKTOP WEEKLY GRID VIEW
      ═══════════════════════════════════════ */
-  if (isDesktop) {
+  if (isDesktop && mode === "calendar") {
     const HOURS = [];
     // Determine hour range from events
     let minHour = 8, maxHour = 17;
@@ -1207,6 +1207,21 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
 
     return (
       <div>
+        {/* Desktop mode toggle + header */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+          <h2 style={s.pageTitle}>Schedule</h2>
+          <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3 }}>
+            {[{ id: "calendar", l: "Calendar" }, { id: "planner", l: "Planner" }].map((m) => (
+              <button key={m.id} onClick={() => setMode(m.id)} style={{
+                padding: "7px 14px", borderRadius: 8, border: "none",
+                background: mode === m.id ? C.seaGreen + "18" : "transparent",
+                color: mode === m.id ? C.seaGreen : C.muted,
+                fontFamily: F.sans, fontSize: 13, fontWeight: 600, cursor: "pointer",
+              }}>{m.l}</button>
+            ))}
+          </div>
+        </div>
+
         {/* Panel header with week navigation */}
         <div className="skeddo-panel-header" style={{ marginBottom: 16 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
