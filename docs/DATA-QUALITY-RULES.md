@@ -182,6 +182,14 @@ activekids.com is NOT a primary data source. It is a third-party directory with 
 
 This rule is PERMANENT and NON-NEGOTIABLE.
 
+## Rule 24: NEVER use activekids.com or campscui.active.com URLs (HARD RULE)
+**Why:** 459 programs were found with third-party aggregator URLs instead of direct provider registration pages. Parents clicking these links landed on generic search pages with no filters, couldn't find the specific program, and lost trust.
+- Registration URLs must NEVER contain `activekids.com` or `campscui.active.com`
+- URLs must point directly to the provider's own website or their official registration portal (ActiveNet, PerfectMind, Eventbrite, etc.)
+- This extends Rule 16 (never import from activekids.com) to explicitly ban these domains in URLs
+- The validator auto-flags any URL containing these domains as a hard error
+- This rule has NO exceptions
+
 ## Rule 17: Always scrape official registration APIs directly
 For any municipality or large provider with a registration portal, ALWAYS find and use their REST API to get the complete program catalog. Never rely on:
 - Third-party directories (activekids.com — BANNED per Rule 16)

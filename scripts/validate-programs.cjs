@@ -67,6 +67,11 @@ programs.forEach((p, idx) => {
     warn(id, 1, `Invalid registrationUrl: ${p.registrationUrl}`);
   }
 
+  // ── Rule 24: NEVER use activekids.com or campscui.active.com URLs ──
+  if (p.registrationUrl && (p.registrationUrl.includes("activekids.com") || p.registrationUrl.includes("campscui.active.com"))) {
+    warn(id, 24, `Banned URL domain (third-party aggregator): ${p.registrationUrl.split("/")[2]}`);
+  }
+
   // ── Rule 2: Dates must be program-specific, not season-wide ──
   if (p.startDate && p.endDate) {
     const start = new Date(p.startDate + "T00:00:00");
