@@ -36,7 +36,7 @@ function SectionHeader({ label, action, onAction }) {
 }
 
 /* ─── Kid pill button ─── */
-function KidPill({ kid, enrolledCount, active, onClick }) {
+function KidPill({ kid, enrolledCount, active, onClick, onEdit }) {
   return (
     <button onClick={onClick} style={{
       display: "flex", alignItems: "center", gap: 10,
@@ -45,15 +45,21 @@ function KidPill({ kid, enrolledCount, active, onClick }) {
       border: active ? `2px solid ${C.seaGreen}` : "2px solid rgba(27,36,50,0.08)",
       boxShadow: active ? "0 2px 8px rgba(45,159,111,0.15)" : "none",
       cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap", flexShrink: 0,
-      fontFamily: "'Barlow', sans-serif",
+      fontFamily: "'Barlow', sans-serif", position: "relative",
     }}>
-      <div style={{
-        width: 36, height: 36, borderRadius: "50%",
-        background: active ? (kid.color || C.seaGreen) : "rgba(27,36,50,0.08)",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        color: active ? C.white : C.muted,
-        fontSize: 15, fontWeight: 700, transition: "all 0.2s",
-      }}>{kid.name?.[0]?.toUpperCase() || "?"}</div>
+      <div
+        onClick={(e) => { e.stopPropagation(); onEdit && onEdit(kid); }}
+        style={{
+          width: 36, height: 36, borderRadius: "50%",
+          background: active ? (kid.color || C.seaGreen) : "rgba(27,36,50,0.08)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          color: active ? C.white : C.muted,
+          fontSize: 15, fontWeight: 700, transition: "all 0.2s",
+          cursor: "pointer",
+        }}
+      >
+        {kid.name?.[0]?.toUpperCase() || "?"}
+      </div>
       <div style={{ textAlign: "left" }}>
         <div style={{ fontSize: 14, fontWeight: 600, color: C.ink, lineHeight: 1.2 }}>{kid.name}</div>
         <div style={{ fontSize: 11, color: C.muted, lineHeight: 1.2 }}>{enrolledCount} enrolled</div>
@@ -296,6 +302,7 @@ export default function HomeTab({
               enrolledCount={kidEnrolled}
               active={activeKidId === k.id}
               onClick={() => setActiveKidId(activeKidId === k.id ? null : k.id)}
+              onEdit={onEditKid}
             />
           );
         })}

@@ -272,6 +272,12 @@ export function useAppData(userId) {
         const mappedKids = (kidsData || []).map(kidFromDb);
         if (mappedKids.length > 0) {
           setKids(mappedKids);
+          // Ensure child_access rows exist for owner (needed for co-parent features)
+          for (const kid of mappedKids) {
+            supabase.from("child_access")
+              .upsert({ child_id: kid.id, user_id: userId, role: "owner" }, { onConflict: "child_id,user_id" })
+              .then(() => {});
+          }
         } else {
           // Only migrate from localStorage if data belongs to this user
           const localData = tryParseJson(localStorage.getItem(STORAGE_KEY), {});
@@ -588,7 +594,16 @@ export function useAppData(userId) {
       if (usingSupabase.current && userId) {
         const row = kidToDb(kid, userId);
         supabase.from("kids").upsert(row, { onConflict: "id" })
-          .then(({ error }) => { if (error) console.warn("Failed to save kid:", error); else markSynced(); });
+          .then(({ error }) => {
+            if (error) { console.warn("Failed to save kid:", error); return; }
+            markSynced();
+            // Ensure owner has a child_access row (required for co-parent features)
+            if (!existing) {
+              supabase.from("child_access")
+                .upsert({ child_id: kidId, user_id: userId, role: "creator" }, { onConflict: "child_id,user_id" })
+                .then(({ error: caErr }) => { if (caErr) console.warn("Failed to create child_access:", caErr); });
+            }
+          });
       }
       if (existing) return prev.map((k) => (k.id === kidId ? { ...k, ...kid } : k));
       return [...prev, kid];

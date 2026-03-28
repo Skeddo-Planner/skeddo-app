@@ -707,7 +707,7 @@ export default function DiscoverTab({
   const [selectedDayLengths, setSelectedDayLengths] = useState(new Set());
   const [durationMin, setDurationMin] = useState(0);
   const [durationMax, setDurationMax] = useState(10);
-  const [showBorderline, setShowBorderline] = useState(true);
+  const [showBorderline, setShowBorderline] = useState(false);
 
   /* Week filter state — NO week selected by default */
   const [selectedWeeks, setSelectedWeeks] = useState(new Set());
@@ -1066,8 +1066,8 @@ export default function DiscoverTab({
         </div>
       )}
 
-      {/* Show borderline toggle */}
-      {selectedKid && selectedKid.birthMonth && selectedKid.birthYear && (
+      {/* Show borderline toggle — visible for single kid OR all-kids when kids have birth info */}
+      {((selectedKid && selectedKid.birthMonth && selectedKid.birthYear) || (isAllKids && kidsWithBirth.length > 0)) && (
         <div style={{
           display: "flex", alignItems: "center", gap: 8, margin: isDesktop ? "0 32px 12px" : "0 16px 12px",
           padding: "8px 12px", background: "rgba(244, 162, 97, 0.08)", borderRadius: 10,
@@ -1081,7 +1081,7 @@ export default function DiscoverTab({
             Show borderline camps
           </label>
           <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted }}>
-            Filtering for {selectedKid.name}
+            Filtering for {isAllKids ? "all kids" : selectedKid.name}
           </span>
         </div>
       )}

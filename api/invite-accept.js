@@ -147,14 +147,13 @@ export default async function handler(req, res) {
     if (inviterCircles && inviterCircles.length > 0) {
       for (const cm of inviterCircles) {
         // Check if co-parent is already a member
-        const { data: existing } = await sb
+        const { data: existingRows } = await sb
           .from("circle_memberships")
           .select("id")
           .eq("circle_id", cm.circle_id)
-          .eq("user_id", user.id)
-          .single();
+          .eq("user_id", user.id);
 
-        if (!existing) {
+        if (!existingRows || existingRows.length === 0) {
           await sb.from("circle_memberships").insert({
             circle_id: cm.circle_id,
             user_id: user.id,
