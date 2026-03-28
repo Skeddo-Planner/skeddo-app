@@ -791,7 +791,7 @@ function AnimStyles() {
 export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, onOpenDetail, onNavigateToDiscover, onOpenAddProgram, planAccess }) {
   const isDesktop = useIsDesktop();
   /* ─── Mode & page state ─── */
-  const [mode, setMode] = useState("calendar"); // "calendar" | "planner"
+  const [mode, setMode] = useState("planner"); // "calendar" | "planner"
   const [page, setPage] = useState("main"); // "main" | "setup"
 
   /* ─── Toast ─── */
@@ -1421,7 +1421,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
         <div>
           <h2 style={s.pageTitle}>Schedule</h2>
-          <p style={{ fontFamily: F.sans, fontSize: 14, color: C.muted, margin: "2px 0 0" }}>
+          <p style={{ fontFamily: F.sans, fontSize: 14, color: C.muted, margin: "2px 0 6px" }}>
             {mode === "calendar" ? "Your week at a glance" : "Break coverage planner"}
           </p>
         </div>

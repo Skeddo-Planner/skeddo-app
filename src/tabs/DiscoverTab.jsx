@@ -787,7 +787,8 @@ export default function DiscoverTab({
     setVisibleCount(PAGE_SIZE);
   };
 
-  /* Determine if any filter/search is active (used to decide browse vs filtered view) */
+  /* Determine if any filter/search is active (used to decide browse vs filtered view).
+     Week filter alone still shows the browse view (filtered to selected weeks). */
   const hasAnyFilter = useMemo(() => {
     if (search.trim()) return true;
     if (selectedCats.size > 0) return true;
@@ -798,13 +799,13 @@ export default function DiscoverTab({
     if (selectedProviders.size > 0) return true;
     if (selectedActivityTypes.size > 0) return true;
     if (selectedDayLengths.size > 0) return true;
-    if (selectedWeeks.size > 0) return true;
+    // Week filter alone does NOT trigger the flat grid — browse view handles it
     if (durationMin > 0 || durationMax < 10) return true;
     if (sortBy !== "relevance") return true;
     // Registration status: default is 4 statuses, if different then a filter is active
     if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) return true;
     return false;
-  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks, sortBy, selectedRegStatuses, durationMin, durationMax]);
+  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, sortBy, selectedRegStatuses, durationMin, durationMax]);
 
   const totalActiveFilters = useMemo(() => {
     let count = 0;
@@ -965,9 +966,12 @@ export default function DiscoverTab({
 
   /* ─── Programs grouped by week for browse view ─── */
   const programsByWeek = useMemo(() => {
-    if (hasAnyFilter) return null; // Only compute for default browse view
+    if (hasAnyFilter) return null; // Only compute for default / week-only browse view
+    const weeksToShow = selectedWeeks.size > 0
+      ? SUMMER_WEEKS.filter((w) => selectedWeeks.has(w.id))
+      : SUMMER_WEEKS;
     const result = [];
-    for (const week of SUMMER_WEEKS) {
+    for (const week of weeksToShow) {
       const weekPrograms = allDirectoryPrograms.filter((p) =>
         programOverlapsWeek(p, week.monday, week.friday)
       );
@@ -976,7 +980,7 @@ export default function DiscoverTab({
       }
     }
     return result;
-  }, [allDirectoryPrograms, hasAnyFilter]);
+  }, [allDirectoryPrograms, hasAnyFilter, selectedWeeks]);
 
 
   /* ══════════════════════════════════════════════════════════

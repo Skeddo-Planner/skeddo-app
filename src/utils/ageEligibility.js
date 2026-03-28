@@ -53,26 +53,23 @@ export function computeEligibility(birthMonth, birthYear, ageMin, ageMax, campSt
   const effectiveMax = ageMax != null ? Number(ageMax) : Infinity;
 
   let eligibilityTier;
+  let borderlineReason = null; // "too-young" or "too-old"
 
   if (ageYears >= effectiveMin && ageYears <= effectiveMax) {
-    // Within range — but check if they age out soon (within 6 months of exceeding max)
-    if (ageMax != null && ageYears === effectiveMax && monthsUntilBirthday <= 6) {
-      // They'll turn ageMax+1 within 6 months — still eligible but borderline
-      eligibilityTier = "eligible";
-    } else {
-      eligibilityTier = "eligible";
-    }
+    eligibilityTier = "eligible";
   } else if (ageYears === effectiveMin - 1 && monthsUntilBirthday <= 6) {
     // Too young by ≤ 6 months — borderline (they'll qualify soon)
     eligibilityTier = "borderline";
+    borderlineReason = "too-young";
   } else if (ageYears === effectiveMax + 1 && ageMonths <= 6) {
     // Just aged out within 6 months — borderline
     eligibilityTier = "borderline";
+    borderlineReason = "too-old";
   } else {
     eligibilityTier = "ineligible";
   }
 
-  return { ageYears, ageMonths, monthsUntilBirthday, eligibilityTier };
+  return { ageYears, ageMonths, monthsUntilBirthday, eligibilityTier, borderlineReason };
 }
 
 /**
@@ -100,8 +97,11 @@ export function getEligibilityLabel(childName, birthMonth, birthYear, ageMin, ag
   }
 
   if (result.eligibilityTier === "borderline") {
-    const nextAge = result.ageYears + 1;
     const birthdayMonthName = MONTH_NAMES[(birthMonth - 1)] || "";
+    if (result.borderlineReason === "too-old") {
+      return `${name} is ${result.ageYears} (turned ${result.ageYears} in ${birthdayMonthName}) — check age policy with provider`;
+    }
+    const nextAge = result.ageYears + 1;
     return `${name} turns ${nextAge} in ${birthdayMonthName} — check age policy with provider`;
   }
 
