@@ -21,7 +21,7 @@ function formatLastSynced(ts) {
   return `Last synced: ${d.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} at ${time}`;
 }
 
-export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess, session }) {
+export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess, session, kids = [], onEditKid, onDeleteKid, onAddKid }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
@@ -91,6 +91,73 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
           {formatLastSynced(lastSynced)}
         </div>
       )}
+
+      {/* ─── Kids Section ─── */}
+      <SectionLabel>Your Kids</SectionLabel>
+      {kids.length === 0 ? (
+        <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 12 }}>
+          No kids added yet.
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
+          {kids.map((kid) => (
+            <div key={kid.id} style={{
+              display: "flex", alignItems: "center", gap: 10,
+              padding: "10px 12px", borderRadius: 10,
+              background: "rgba(27,36,50,0.03)", border: `1px solid ${C.border}`,
+            }}>
+              <div style={{
+                width: 32, height: 32, borderRadius: "50%",
+                background: kid.color || C.seaGreen, display: "flex",
+                alignItems: "center", justifyContent: "center",
+                color: C.white, fontSize: 14, fontWeight: 700, flexShrink: 0,
+              }}>{kid.name?.[0]?.toUpperCase() || "?"}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink }}>
+                  {kid.name}
+                </div>
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                  {kid.birthMonth && kid.birthYear
+                    ? `Born ${new Date(kid.birthYear, kid.birthMonth - 1).toLocaleDateString("en-CA", { month: "short", year: "numeric" })}`
+                    : kid.age ? `Age ${kid.age}` : ""}
+                </div>
+              </div>
+              <button
+                onClick={() => { onClose(); setTimeout(() => onEditKid(kid), 150); }}
+                aria-label={`Edit ${kid.name}`}
+                style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                  color: C.seaGreen, background: "none", border: `1.5px solid ${C.seaGreen}30`,
+                  borderRadius: 8, padding: "5px 10px", cursor: "pointer",
+                }}
+              >Edit</button>
+              <button
+                onClick={() => {
+                  if (window.confirm(`Remove ${kid.name}? This will also remove their programs and schedule items.`)) {
+                    onDeleteKid(kid.id);
+                  }
+                }}
+                aria-label={`Delete ${kid.name}`}
+                style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                  color: C.muted, background: "none", border: "none",
+                  padding: "5px 4px", cursor: "pointer",
+                }}
+              >{"\u2715"}</button>
+            </div>
+          ))}
+        </div>
+      )}
+      <button
+        onClick={() => { onClose(); setTimeout(() => onAddKid(), 150); }}
+        style={{
+          fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+          color: C.seaGreen, background: `${C.seaGreen}08`,
+          border: `1.5px dashed ${C.seaGreen}30`, borderRadius: 10,
+          padding: "10px 14px", cursor: "pointer", width: "100%",
+          marginBottom: 4,
+        }}
+      >+ Add Kid</button>
 
       {/* ─── Notifications Section ─── */}
       <SectionLabel>Push Notifications</SectionLabel>

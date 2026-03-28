@@ -1161,6 +1161,10 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           pushNotifications={pushNotifications}
           planAccess={planAccess}
           session={session}
+          kids={kids}
+          onEditKid={openEditKid}
+          onDeleteKid={deleteKid}
+          onAddKid={openAddKid}
         />
       )}
 
