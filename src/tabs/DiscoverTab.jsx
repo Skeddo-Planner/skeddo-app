@@ -1020,8 +1020,8 @@ export default function DiscoverTab({
       <div style={{ padding: isDesktop ? "24px 32px 0" : "0 0 0", marginBottom: 5 }}>
         <h2 style={s.pageTitle}>Search</h2>
         <p style={{
-          fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted,
-          marginBottom: 8, marginTop: 0,
+          fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted,
+          marginBottom: 16, marginTop: 0,
           padding: isDesktop ? 0 : undefined,
         }}>
           {isLoadingPrograms

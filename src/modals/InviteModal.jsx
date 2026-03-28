@@ -115,11 +115,11 @@ export default function InviteModal({ kid, pendingInvites, onCreateInvite, onRev
               padding: "8px 0", borderBottom: `1px solid ${C.border}`,
             }}>
               <div>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.ink }}>
-                  {inv.invite_code}
+                <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.ink, fontWeight: 600 }}>
+                  Pending invite
                 </div>
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
-                  Expires {new Date(inv.expires_at).toLocaleDateString()}
+                  Awaiting response &middot; expires {new Date(inv.expires_at).toLocaleDateString()}
                 </div>
               </div>
               <button

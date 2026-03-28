@@ -78,7 +78,7 @@ export default function Skeddo() {
     return <ComingSoonPage />;
   }
 
-  /* ── Auth loading — simple centered logo on dark background ── */
+  /* ── Auth loading — large logo on dark background ── */
   if (authLoading) {
     return (
       <div style={{
@@ -91,7 +91,7 @@ export default function Skeddo() {
         <img
           src="/skeddo-logo-dark.png"
           alt="Skeddo"
-          style={{ height: 140, width: "auto", borderRadius: 20 }}
+          style={{ width: "60%", maxWidth: 320, height: "auto" }}
         />
       </div>
     );
@@ -483,19 +483,19 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     completeOnboarding();
   };
 
-  /* ── Loading state ── */
+  /* ── Loading state — large logo on dark background ── */
   if (!loaded) return (
     <div style={{
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       minHeight: "100dvh",
-      background: "#1B2432",
+      background: C.ink,
     }}>
       <img
         src="/skeddo-logo-dark.png"
         alt="Skeddo"
-        style={{ height: 140, width: "auto", borderRadius: 20 }}
+        style={{ width: "60%", maxWidth: 320, height: "auto" }}
       />
     </div>
   );

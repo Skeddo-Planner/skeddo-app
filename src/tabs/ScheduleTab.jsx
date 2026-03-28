@@ -1436,7 +1436,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
         <div>
           <h2 style={s.pageTitle}>Schedule</h2>
-          <p style={{ fontFamily: F.sans, fontSize: 14, color: C.muted, margin: "2px 0 6px" }}>
+          <p style={{ fontFamily: F.sans, fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
             {mode === "calendar" ? "Your week at a glance" : "Break coverage planner"}
           </p>
         </div>

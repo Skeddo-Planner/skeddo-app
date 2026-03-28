@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#1A2E26"/>
+  <!-- Tent/triangle icon -->
+  <polygon points="256,120 160,340 352,340" fill="#3A9E6A" opacity="0.9"/>
+  <!-- Accent dot -->
+  <circle cx="290" cy="180" r="16" fill="#B89A2A"/>
+  <!-- "S" letter hint -->
+  <text x="256" y="420" text-anchor="middle" font-family="serif" font-weight="400" font-size="100" fill="#FAF8F3" letter-spacing="-2">skeddo</text>
+</svg>

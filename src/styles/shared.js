@@ -24,7 +24,7 @@ export const s = {
   pageTitle: { fontFamily: "'Poppins', sans-serif", fontSize: 24, color: C.ink },
   addButton: { fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: "#FFFFFF", background: C.seaGreen, border: "none", borderRadius: 8, padding: "12px 24px", cursor: "pointer", minHeight: 44 },
 
-  programCard: { background: C.white, borderRadius: 12, padding: "14px 16px", marginBottom: 10, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)" },
+  programCard: { background: C.white, borderRadius: 12, padding: "10px 16px 14px", marginBottom: 10, boxShadow: "0 2px 8px rgba(27, 36, 50, 0.07), 0 1px 3px rgba(27, 36, 50, 0.04)" },
   cardCategory: { fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
   cardName: { fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: C.ink, lineHeight: 1.3, wordBreak: "break-word", overflowWrap: "break-word" },
   cardProvider: { fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginTop: 1, wordBreak: "break-word", overflowWrap: "break-word" },

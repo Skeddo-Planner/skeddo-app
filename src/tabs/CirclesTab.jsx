@@ -303,7 +303,7 @@ export default function CirclesTab({
       <div>
         {/* Header */}
         <h2 style={s.pageTitle}>Circles</h2>
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 12, marginTop: 0 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
           {circles.length} group{circles.length !== 1 ? "s" : ""}
           {newThisWeek > 0 && <> &middot; <span style={{ color: C.olive, fontWeight: 600 }}>{newThisWeek} new activit{newThisWeek === 1 ? "y" : "ies"} this week</span></>}
         </p>
@@ -370,7 +370,7 @@ export default function CirclesTab({
                       <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, fontWeight: 600, color: C.ink }}>
                         {c.name}
                       </div>
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted }}>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginTop: 2 }}>
                         {c.memberCount} member{c.memberCount !== 1 ? "s" : ""}
                       </div>
                     </div>
