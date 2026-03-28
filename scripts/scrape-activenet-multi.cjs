@@ -53,7 +53,7 @@ async function scrapeCity(city) {
             location: item.location?.label?.replace(/^\*/, "").trim() || "",
             startDate: item.date_range_start || "", endDate: item.date_range_end || "",
             days: item.days_of_week || "", timeRange: item.time_range || "",
-            ageMin: item.age_min_year, ageMax: item.age_max_year,
+            ageMin: item.age_min_year || null, ageMax: item.age_max_year || null,
             openings: item.total_open, enrollNow: item.enroll_now?.label || "",
             desc: (item.desc || "").replace(/<[^>]*>/g, "").substring(0, 300),
           });

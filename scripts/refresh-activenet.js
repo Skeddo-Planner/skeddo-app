@@ -355,8 +355,8 @@ async function fetchActivityDetail(activityId, cookies) {
     const detail = data?.body?.detail || {};
 
     return {
-      ageMin: detail.age_min_year ?? null,
-      ageMax: detail.age_max_year ?? null,
+      ageMin: detail.age_min_year || null,
+      ageMax: detail.age_max_year || null,
       spotsAvailable: detail.spots_available ?? null,
       isFull: detail.is_sold_out === true,
       registrationStartDate: detail.registration_start_date ?? null,
