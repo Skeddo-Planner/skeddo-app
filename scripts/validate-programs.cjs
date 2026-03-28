@@ -218,6 +218,17 @@ programs.forEach((p, idx) => {
   if (!p.season) warn(id, "REQ", "Missing season");
 });
 
+// ── R23: Adult-only programs (ageMin >= 18) should not be in database ──
+for (const p of programs) {
+  if (p.ageMin >= 18 && (!p.ageMax || p.ageMax >= 18)) {
+    warn(String(p.id), 23, `Adult-only program (ageMin=${p.ageMin}, ageMax=${p.ageMax}) — remove or verify`);
+  }
+}
+
+// ── R24: Programs for teens (ageMin 13-17) are VALID — do NOT remove ──
+// This is a documentation rule, not a check. Programs with ageMin < 18 must be kept.
+// Skeddo serves all kids under 18.
+
 // ── Batch: Duplicate IDs ──
 const idCounts = {};
 programs.forEach(p => { idCounts[String(p.id)] = (idCounts[String(p.id)] || 0) + 1; });
@@ -234,7 +245,7 @@ if (FIX) {
   fs.writeFileSync(programsPath, JSON.stringify(programs, null, 2));
   console.log(`programs.json saved.`);
 }
-console.log(`Rules checked: 1,2,3,4,5,6,8,10,11,14,15,20,22 + REQ`);
+console.log(`Rules checked: 1,2,3,4,5,6,8,10,11,14,15,20,22,23 + REQ`);
 console.log(`\nRun with --fix to auto-repair fixable issues.\n`);
 
 process.exit(violations > 0 ? 1 : 0);
