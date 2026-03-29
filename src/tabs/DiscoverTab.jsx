@@ -889,7 +889,7 @@ export default function DiscoverTab({
         }}>
           {isLoadingPrograms
             ? "Loading programs..."
-            : `Browse ${allDirectoryPrograms.length.toLocaleString()} programs`}
+            : `Browse ${eligibilityFiltered.length.toLocaleString()} programs`}
         </p>
       </div>
 
