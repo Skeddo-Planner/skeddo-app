@@ -174,6 +174,47 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - Cross-check: after adding programs for any provider, revisit the registration page and confirm each listing matches
 - This rule has NO exceptions — a fabricated listing is worse than a missing listing
 
+## Rule 25: isEstimate and priceVerified Are Mutually Exclusive (HARD RULE)
+**Why:** Programs had both `isEstimate: true` and `priceVerified: true`, creating contradictory data — a price can't be both estimated and verified.
+- `isEstimate: true` means the data is from a prior year and unverified
+- `priceVerified: true` means the current-year price was confirmed on the provider's site
+- If both are set, the validator auto-fixes by setting `priceVerified: false`
+- When current-year data replaces an estimate: set `isEstimate: false` (or remove it) and `priceVerified: true`
+
+## Rule 26: Estimated Data Must Explain Its Source
+**Why:** Parents need to know WHY a price is approximate so they can plan accordingly.
+- Any program with `isEstimate: true` MUST have a `costNote` explaining the source (e.g., "Estimated from 2025 pricing")
+- The validator auto-adds "Estimated from prior year pricing" if missing
+- Never present estimated data without context
+
+## Rule 27: dayLength "Lesson" for Short-Duration Classes (HARD RULE)
+**Why:** 30-minute violin lessons were tagged "Half Day" — misleading for parents filtering by program length.
+- Programs with `durationPerDay` ≤ 2 hours AND lesson-type names (lesson, class, private, instruction, tutorial, coaching, clinic) MUST have `dayLength: "Lesson"`
+- The validator auto-fixes matching programs from other dayLength values to "Lesson"
+- "Lesson" is distinct from "Half Day" (2-4 hours) — lessons are shorter, structured instruction
+
+## Rule 28: "Open" Status Requires Verified Source (HARD RULE)
+**Why:** 313 programs were bulk-defaulted to "Open" when providers hadn't confirmed 2026 offerings. Parents saw "Open for Registration" and clicked through to find nothing available.
+- `enrollmentStatus: "Open"` requires EITHER `confirmed2026: true` OR an ActiveNet ID (verified via API)
+- Programs with `confirmed2026: false` and no ActiveNet verification CANNOT be "Open"
+- The validator auto-fixes these to "Likely Coming Soon"
+- Never bulk-default unknown status to "Open"
+
+## Rule 30: Deduplication Must Preserve Unique Listings (HARD RULE)
+**Why:** 822 programs were incorrectly removed as "duplicates" based only on matching name+provider+startDate. In reality, these were different time slots, age groups, or pricing tiers — e.g., Ballet for ages 6-9 at 2:00 PM and Ballet for ages 8-14 at 3:00 PM. Parents need to see all options.
+- Two programs are only TRUE duplicates if ALL substantive fields match: id, registrationUrl, ageMin, ageMax, address, neighbourhood, startTime, endTime, cost, days, category, enrollmentStatus, dayLength, durationPerDay, scheduleType
+- Different registrationUrls (e.g., different ActiveNet activity IDs like COV-615925 vs COV-615927) mean different bookable slots — these are NEVER duplicates
+- Programs with the same name/provider/startDate but different ages, times, costs, locations, or days are DISTINCT listings and MUST be kept
+- The validator checks all substantive fields before flagging a duplicate
+- Only true duplicates (every field identical) are auto-removed with `--fix`
+- This rule has NO exceptions — never remove a listing without verifying all fields match an existing one
+
+## Rule 29: Registration URLs Must Not Be Generic Homepages
+**Why:** Scottish Cultural Centre had all 12 programs linking to the generic homepage. Parents couldn't find the actual registration page.
+- URLs that resolve to just a domain root (no path), `/home`, or `/index.html` are flagged
+- The URL must point to a program-specific or at minimum a programs/registration landing page
+- The validator warns on these — manual fix required to find the correct URL
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
 
@@ -226,3 +267,22 @@ Skeddo is not just for summer camps. Include EVERY program a parent might use:
 If the program has an age range that includes children (0-17), it belongs in Skeddo. Parents use Skeddo to plan, schedule, budget, and coordinate — ALL activities benefit from these tools.
 
 This rule exists because the March 2026 CoV import only captured 149 of 2,700 kids programs (5.5%) by focusing narrowly on "summer camp" keyword searches.
+
+## Rule 31: Triple-Check Before Removing Any Program (HARD RULE)
+**Why:** Over 100 programs were incorrectly removed across the project's history — real kids programs from real providers (SportBall, Burnaby Winter Club, Paintlounge, Camp Qwanoes, etc.) were lost because removal criteria were too aggressive or not carefully verified.
+- Before removing ANY program, triple-check that it genuinely does not belong in Skeddo
+- A program should ONLY be removed if it meets one or more of these criteria:
+  - **Adult-only:** ageMin >= 18 with no children/teens in the age range
+  - **Outside service area:** program is not in the Lower Mainland / BC (e.g., Ontario-only programs, US programs)
+  - **Permanently closed / no longer offered:** the provider has shut down or permanently discontinued the program, OR the program was cancelled/delisted before registration ever opened (NOT programs that ran and completed, NOT programs that are temporarily full, waitlisted, or between seasons)
+  - **Fabricated / does not exist:** the listing was invented and the program never existed on the provider's website
+  - **True duplicate:** an exact copy of another listing with ALL fields matching (per Rule 30)
+- A program must NEVER be removed for any of these reasons:
+  - Registration is full or has a waitlist (parents still want to see it)
+  - Registration hasn't opened yet (use "Likely Coming Soon" status instead)
+  - Price is unknown (use `cost: null` with `costNote: "Inquire for pricing"`)
+  - URL is temporarily broken (mark as unverified, don't delete)
+  - Data is from a prior year (mark as `confirmed2026: false` and `isEstimate: true`)
+  - Provider hasn't confirmed 2026 offerings yet (use "Likely Coming Soon")
+- When in doubt, KEEP the listing — a visible listing with estimated data is better than a missing listing
+- This rule has NO exceptions

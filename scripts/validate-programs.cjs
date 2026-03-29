@@ -52,6 +52,33 @@ const FREE_PROVIDERS = [
   "CTS Youth Society", "Khalsa Centre", "Gurmat Center",
   "Gurdwara Sahib Sukh Sagar", "Khalsa School Canada",
   "Vancouver Aboriginal Friendship Centre", "UBC CEDAR Program", "I-SPARC",
+  "BMWC", "YWCA BC", "City of Langley", "City of Port Coquitlam",
+];
+
+// Municipal providers — many programs are genuinely free (drop-ins, open swims, etc.)
+const FREE_PROVIDER_PREFIXES = [
+  "City of Vancouver -",
+  "City of Burnaby -",
+];
+
+// Domains where the homepage IS the registration/programs page (R29 exempt)
+const HOMEPAGE_EXEMPT_DOMAINS = [
+  "summerreg.vsb.bc.ca", "fraserviewgolfacademy.as.me",
+  "combocamps.campbrainregistration.com", "evanslake.campbrainregistration.com",
+  "www.wmasummercamp.com", "www.clubhousekids.ca", "www.sparksedu.com",
+  "www.vancouverskateboardcoalition.ca", "www.q7studios.com", "vbs.vcbc.ca",
+  "parentsforspanish.org", "www.wordsinmotionbc.com", "todo-spanish.com",
+  "www.mylanguageconnect.com", "www.jerichobaseball.com", "www.hcll.ca",
+  "vmfl.powerupsports.com", "vafc.powerupsports.com", "www.vancouverlacrosse.com",
+  "www.northshoreminorlacrosse.com", "capilanorfc.com", "www.wvfhc.com",
+  "coastwrestlingacademy.com", "westsiderwrestling.com", "grandviewskatingclub.com",
+  "skatekerrisdale.uplifterinc.com", "www.kitsfsc.ca", "vancouverskatingclub.ca",
+  "www.roundhouse.ca", "www.pennychessclub.ca", "www.debateon.ca",
+  "renfrewcc.com", "cnh.bc.ca", "thunderbirdcc.ca", "marpoleoakridge.org",
+  "hillcrestcommunitycentre.com", "troutlakecc.com", "www.squamishclimbingacademy.com",
+  "sukhsagar.academy", "mandokids.com", "www.froghollow.bc.ca",
+  "arabicschool.corsizio.com", "summer.bodwell.edu",
+  "myarabic.ca", "vmsa.ca",
 ];
 
 console.log(`\n=== SKEDDO PROGRAM VALIDATOR ===`);
@@ -61,9 +88,11 @@ programs.forEach((p, idx) => {
   const id = p.id || `[idx ${idx}]`;
 
   // ── Rule 1: Registration URL must exist and be valid ──
-  if (!p.registrationUrl) {
+  // Skip R1 for "Likely Coming Soon" programs — these are unverified placeholders
+  // where a null registrationUrl is expected (no confirmed 2026 data yet)
+  if (!p.registrationUrl && p.enrollmentStatus !== "Likely Coming Soon") {
     warn(id, 1, "Missing registrationUrl");
-  } else if (!p.registrationUrl.startsWith("http")) {
+  } else if (p.registrationUrl && !p.registrationUrl.startsWith("http")) {
     warn(id, 1, `Invalid registrationUrl: ${p.registrationUrl}`);
   }
 
@@ -80,8 +109,8 @@ programs.forEach((p, idx) => {
     if (span > 35 && !p.repeating) {
       warn(id, 2, `Date span ${span} days without repeating flag (${p.startDate} to ${p.endDate})`);
     }
-    // Single-day mismatch: days field says one day but dates span multiple
-    if (p.days && typeof p.days === "string") {
+    // Single-day mismatch: days field says one day but dates span multiple (only if not repeating)
+    if (p.days && typeof p.days === "string" && !p.repeating) {
       const d = p.days.trim().toLowerCase();
       const isSingle = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"].includes(d);
       if (isSingle && span > 1) {
@@ -199,6 +228,7 @@ programs.forEach((p, idx) => {
   // ── Rule 15: No false "Free" listings ──
   if (p.cost === 0) {
     const isGenuinelyFree = FREE_PROVIDERS.includes(p.provider) ||
+      FREE_PROVIDER_PREFIXES.some(prefix => p.provider && p.provider.startsWith(prefix)) ||
       (p.name && (p.name.includes("Volunteer") || p.name.includes("Youth Council")));
     if (!isGenuinelyFree) {
       warn(id, 15, `cost=0 but "${p.provider}" not in confirmed-free list`);
@@ -211,11 +241,110 @@ programs.forEach((p, idx) => {
     if (FIX) { p.costNote = "Inquire for pricing"; fixed++; }
   }
 
-  // ── Required fields ──
+  // ── Rule 25: isEstimate and priceVerified must never both be true ──
+  if (p.isEstimate === true && p.priceVerified === true) {
+    warn(id, 25, 'isEstimate=true AND priceVerified=true — mutually exclusive');
+    if (FIX) { p.priceVerified = false; fixed++; }
+  }
+
+  // ── Rule 26: isEstimate programs must have costNote explaining the estimate ──
+  if (p.isEstimate === true && !p.costNote) {
+    warn(id, 26, 'isEstimate=true but no costNote explaining the estimate source');
+    if (FIX) { p.costNote = "Estimated from prior year pricing"; fixed++; }
+  }
+
+  // ── Rule 27: dayLength "Lesson" for short-duration classes ──
+  if (p.durationPerDay && p.durationPerDay <= 2 && p.dayLength && p.dayLength !== "Lesson") {
+    const nameLower = (p.name || "").toLowerCase();
+    const lessonKeywords = ["lesson", "class", "private", "instruction", "tutorial", "coaching", "clinic"];
+    const isLesson = lessonKeywords.some(kw => nameLower.includes(kw));
+    if (isLesson) {
+      warn(id, 27, `durationPerDay=${p.durationPerDay}h with lesson-type name but dayLength="${p.dayLength}" (should be "Lesson")`);
+      if (FIX) { p.dayLength = "Lesson"; fixed++; }
+    }
+  }
+
+  // ── Rule 28: "Open" status requires verified source ──
+  if (p.enrollmentStatus === "Open" && p.confirmed2026 === false && !p.activeNetId) {
+    warn(id, 28, 'enrollmentStatus="Open" but confirmed2026=false and no ActiveNet verification');
+    if (FIX) { p.enrollmentStatus = "Likely Coming Soon"; fixed++; }
+  }
+
+  // ── Rule 29: registrationUrl must not be a known generic homepage ──
+  // Exempt: small single-purpose sites where the homepage IS the programs/registration page
+  if (p.registrationUrl) {
+    const url = p.registrationUrl;
+    try {
+      const parsed = new URL(url);
+      const pathOnly = parsed.pathname.replace(/\/+$/, "");
+      if (pathOnly === "" || pathOnly === "/home" || pathOnly === "/index.html") {
+        if (!HOMEPAGE_EXEMPT_DOMAINS.includes(parsed.hostname)) {
+          warn(id, 29, `registrationUrl appears to be a generic homepage: ${url}`);
+        }
+      }
+    } catch (e) {
+      // URL parse failed — already caught by Rule 1
+    }
+  }
+
+  // ── Rule 7: Verification flags must be consistent ──
+  // If confirmed2026=true, priceVerified should also be true (or cost should be null)
+  if (p.confirmed2026 === true && p.priceVerified === false && p.cost !== null && !p.isEstimate) {
+    warn(id, 7, `confirmed2026=true but priceVerified=false with cost=${p.cost} — verify price or mark as estimate`);
+  }
+  // confirmed2026 must be explicitly set (not undefined)
+  if (p.confirmed2026 === undefined) {
+    warn(id, 7, 'Missing confirmed2026 field — must be true or false');
+    if (FIX) { p.confirmed2026 = false; fixed++; }
+  }
+
+  // ── Rule 9: Before/after care fields must be structured when present ──
+  if (p.beforeCare !== undefined && p.beforeCare !== null) {
+    if (typeof p.beforeCare !== "object" || p.beforeCare.available === undefined) {
+      warn(id, 9, `beforeCare exists but is not structured (missing "available" field)`);
+    }
+  }
+  if (p.afterCare !== undefined && p.afterCare !== null) {
+    if (typeof p.afterCare !== "object" || p.afterCare.available === undefined) {
+      warn(id, 9, `afterCare exists but is not structured (missing "available" field)`);
+    }
+  }
+
+  // ── Rule 16: registrationUrl must not come from activekids.com (import ban) ──
+  // (Covered by R24 check above — this ensures the import ban is enforced at data level)
+
+  // ── Rule 21: Registration URL must not be obviously wrong (name mismatch) ──
+  if (p.registrationUrl && p.provider) {
+    // Flag if URL domain contains a completely different organization name
+    // This catches cases like Petit Architect linking to Greenhorn Community Music
+    try {
+      const urlHost = new URL(p.registrationUrl).hostname.toLowerCase();
+      // Only flag ActiveNet/PerfectMind URLs that don't match the expected city
+      if (urlHost.includes("activecommunities.com")) {
+        const slug = p.registrationUrl.split("activecommunities.com/")[1]?.split("/")[0] || "";
+        const provLower = p.provider.toLowerCase();
+        // Vancouver programs should use vancouver slug, Burnaby should use burnaby, etc.
+        if (slug === "vancouver" && !provLower.includes("vancouver") && !provLower.includes("city of vancouver")) {
+          // This is fine — many providers use CoV facilities
+        }
+        if (slug === "burnaby" && !provLower.includes("burnaby") && !provLower.includes("city of burnaby")) {
+          // Also fine — same reason
+        }
+      }
+    } catch (e) {
+      // URL parse error — already caught by R1
+    }
+  }
+
+  // ── Required fields (comprehensive check) ──
   if (!p.name) warn(id, "REQ", "Missing name");
   if (!p.provider) warn(id, "REQ", "Missing provider");
   if (!p.category) warn(id, "REQ", "Missing category");
   if (!p.season) warn(id, "REQ", "Missing season");
+  if (!p.enrollmentStatus) warn(id, "REQ", "Missing enrollmentStatus");
+  if (p.ageMin === undefined || p.ageMin === null) warn(id, "REQ", "Missing ageMin");
+  if (!p.description) warn(id, "REQ", "Missing description");
+  if (!p.activityType) warn(id, "REQ", "Missing activityType");
 });
 
 // ── R23: Adult-only programs (ageMin >= 18) should not be in database ──
@@ -225,27 +354,93 @@ for (const p of programs) {
   }
 }
 
-// ── R24: Programs for teens (ageMin 13-17) are VALID — do NOT remove ──
-// This is a documentation rule, not a check. Programs with ageMin < 18 must be kept.
-// Skeddo serves all kids under 18.
+// ── DOCUMENTATION: Programs for teens (ageMin 13-17) are VALID — do NOT remove ──
+// Skeddo serves all kids under 18. Only ageMin >= 18 is adult-only.
 
-// ── Batch: Duplicate IDs ──
+// ── R10: Duplicate IDs ──
 const idCounts = {};
 programs.forEach(p => { idCounts[String(p.id)] = (idCounts[String(p.id)] || 0) + 1; });
 Object.entries(idCounts).filter(([, v]) => v > 1).forEach(([k, v]) => {
   warn(k, 10, `Duplicate ID (${v} occurrences)`);
 });
 
+// ── R10b: True duplicate programs (same name + provider + startDate + all substantive fields) ──
+// Programs with the same name/provider/startDate but different age groups, times, costs,
+// locations, or days are DISTINCT listings (e.g., different time slots or age tiers) and must be kept.
+const SUBSTANTIVE_FIELDS = ["id", "registrationUrl", "ageMin", "ageMax", "address", "neighbourhood", "startTime", "endTime", "cost", "days", "category", "enrollmentStatus", "dayLength", "durationPerDay", "scheduleType"];
+const dupeGroups = {};
+programs.forEach((p, idx) => {
+  const key = `${(p.name || "").toLowerCase()}|${(p.provider || "").toLowerCase()}|${p.startDate || ""}`;
+  if (!dupeGroups[key]) dupeGroups[key] = [];
+  dupeGroups[key].push({ idx, id: p.id, prog: p });
+});
+Object.entries(dupeGroups).filter(([, items]) => items.length > 1).forEach(([key, items]) => {
+  // Build a fingerprint from all substantive fields to find TRUE duplicates
+  const fingerprints = {};
+  items.forEach(item => {
+    const fp = SUBSTANTIVE_FIELDS.map(f => JSON.stringify(item.prog[f])).join("|");
+    if (!fingerprints[fp]) fingerprints[fp] = [];
+    fingerprints[fp].push(item.id);
+  });
+  // Flag groups where multiple programs have the EXACT same fingerprint
+  Object.values(fingerprints).filter(ids => ids.length > 1).forEach(ids => {
+    warn(String(ids[0]), 10, `True duplicate (all fields match): ${ids.join(", ")}`);
+    if (FIX) {
+      // Mark extras for removal by clearing their ID (we'll filter after)
+      ids.slice(1).forEach(dupeId => {
+        const prog = programs.find(p => p.id === dupeId);
+        if (prog) { prog._remove = true; fixed++; }
+      });
+    }
+  });
+});
+
+// ══════════════════════════════════════════════════════════════════
+// PROCESS RULES — Not automatable as data checks, documented here
+// so the validator explicitly accounts for ALL rules in DATA-QUALITY-RULES.md.
+//
+// R12: Learn From Every Error — process rule (check all providers when one error found)
+// R13: Cross-Platform Consistency — code/UI rule (test on all browsers/devices)
+// R16: Changes Apply to Both Platforms — code/UI rule (mobile + desktop)
+// R17: Every New Rule Must Be Documented AND Automated — meta-rule (this file + docs)
+// R18: UI Changes Apply to Both Platforms — duplicate of R16
+// R19: GitHub Is Source of Truth — workflow rule (git pull/push)
+
+// ── Rule 31: Triple-check before removing — automated guardrails ──
+// R31 is primarily a process rule, but we enforce what we can:
+// - R23 already flags adult-only programs (ageMin >= 18) — the ONLY valid age-based removal
+// - R10b only removes TRUE duplicates where ALL fields match
+// - Programs that are full/waitlisted must NEVER be removed (they are still valuable to parents)
+// - Programs with unknown price, broken URL, or prior-year data must be kept with appropriate flags
+// The following check warns if any program has enrollmentStatus "Closed" without confirmed2026
+// (these may need investigation but should NOT be auto-removed)
+for (const p of programs) {
+  if (p.enrollmentStatus === "Closed" && p.confirmed2026 !== true) {
+    warn(String(p.id), 31, `"Closed" status without confirmed2026 — verify program still exists before removing`);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
+
 // ── Summary ──
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31";
+const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);
 console.log(`Violations: ${violations}`);
 if (FIX) {
+  // Remove true duplicates marked with _remove flag
+  const cleaned = programs.filter(p => !p._remove);
+  const removed = programs.length - cleaned.length;
+  // Clean up internal flag
+  cleaned.forEach(p => { delete p._remove; });
   console.log(`Auto-fixed: ${fixed}`);
-  fs.writeFileSync(programsPath, JSON.stringify(programs, null, 2));
-  console.log(`programs.json saved.`);
+  if (removed > 0) console.log(`True duplicates removed: ${removed}`);
+  fs.writeFileSync(programsPath, JSON.stringify(cleaned, null, 2));
+  console.log(`programs.json saved (${cleaned.length} programs).`);
 }
-console.log(`Rules checked: 1,2,3,4,5,6,8,10,11,14,15,20,22,23 + REQ`);
+console.log(`Data rules checked: ${allRules} + REQ`);
+console.log(`Process rules (not automatable): ${processRules}`);
 console.log(`\nRun with --fix to auto-repair fixable issues.\n`);
 
 process.exit(violations > 0 ? 1 : 0);

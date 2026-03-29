@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef, useCallback } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES, DAY_LENGTHS } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
@@ -325,106 +325,6 @@ function WeekCoverageRow({ selectedWeeks, programs, isDesktop }) {
   );
 }
 
-
-/* ─── WeekBrowseRow — horizontal scrollable row for a week section (desktop default) ─── */
-function WeekBrowseRow({ week, programs, onTap, isFavorite, toggleFavorite, addedNames, favorites, eligibilityMap }) {
-  const scrollRef = useRef(null);
-  const [showLeft, setShowLeft] = useState(false);
-  const [showRight, setShowRight] = useState(true);
-
-  const updateArrows = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setShowLeft(el.scrollLeft > 10);
-    setShowRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateArrows();
-    el.addEventListener("scroll", updateArrows, { passive: true });
-    return () => el.removeEventListener("scroll", updateArrows);
-  }, [updateArrows, programs.length]);
-
-  const scroll = (dir) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * 620, behavior: "smooth" });
-  };
-
-  if (programs.length === 0) return null;
-
-  return (
-    <div style={{ marginBottom: 32 }}>
-      {/* Section header */}
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "baseline",
-        marginBottom: 12,
-      }}>
-        <h3 style={{
-          fontFamily: "'Poppins', sans-serif", fontSize: 20, fontWeight: 700,
-          color: C.ink, margin: 0,
-        }}>
-          {week.label}: {week.dateRange}
-        </h3>
-        <span style={{
-          fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted,
-        }}>
-          {programs.length} program{programs.length !== 1 ? "s" : ""}
-        </span>
-      </div>
-
-      {/* Scrollable row with arrows */}
-      <div style={{ position: "relative" }}>
-        {showLeft && (
-          <button onClick={() => scroll(-1)} aria-label="Scroll left" style={{
-            position: "absolute", left: -16, top: "50%", transform: "translateY(-50%)",
-            zIndex: 5, width: 40, height: 40, borderRadius: "50%",
-            background: C.white, border: `1px solid ${C.border}`,
-            boxShadow: "0 2px 8px rgba(27,36,50,0.12)", cursor: "pointer",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 18, color: C.ink,
-          }}>
-            {"<"}
-          </button>
-        )}
-        {showRight && (
-          <button onClick={() => scroll(1)} aria-label="Scroll right" style={{
-            position: "absolute", right: -16, top: "50%", transform: "translateY(-50%)",
-            zIndex: 5, width: 40, height: 40, borderRadius: "50%",
-            background: C.white, border: `1px solid ${C.border}`,
-            boxShadow: "0 2px 8px rgba(27,36,50,0.12)", cursor: "pointer",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 18, color: C.ink,
-          }}>
-            {">"}
-          </button>
-        )}
-        <div ref={scrollRef} style={{
-          display: "flex", gap: 16, overflowX: "auto",
-          scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch",
-          padding: "4px 0",
-        }}>
-          {programs.map((p) => (
-            <div key={p.id} style={{ width: 300, flexShrink: 0 }}>
-              <DirectoryCard
-                program={p}
-                alreadyAdded={addedNames.has(p.name?.toLowerCase())}
-                favorited={isFavorite(p.id)}
-                onToggleFavorite={toggleFavorite}
-                onTap={onTap}
-                regStatus={getRegistrationStatus(p)}
-                eligibility={eligibilityMap ? eligibilityMap.get(p.id) : null}
-                weekScheduleLabel=""
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 
 /* ─── Directory Card — program card ─── */
@@ -802,27 +702,6 @@ export default function DiscoverTab({
     setVisibleCount(PAGE_SIZE);
   };
 
-  /* Determine if any filter/search is active (used to decide browse vs filtered view).
-     Week filter alone still shows the browse view (filtered to selected weeks). */
-  const hasAnyFilter = useMemo(() => {
-    if (search.trim()) return true;
-    if (selectedCats.size > 0) return true;
-    if (selectedHoods.size > 0) return true;
-    if (ageMin || ageMax) return true;
-    if (selectedCosts.size > 0) return true;
-    if (selectedCostPerHour.size > 0) return true;
-    if (showFavoritesOnly) return true;
-    if (selectedProviders.size > 0) return true;
-    if (selectedActivityTypes.size > 0) return true;
-    if (selectedDayLengths.size > 0) return true;
-    // Week filter alone does NOT trigger the flat grid — browse view handles it
-    if (durationMin > 0 || durationMax < 10) return true;
-    if (sortBy !== "relevance") return true;
-    // Registration status: default is 4 statuses, if different then a filter is active
-    if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) return true;
-    return false;
-  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, selectedCostPerHour, showFavoritesOnly, selectedProviders, selectedActivityTypes, selectedDayLengths, sortBy, selectedRegStatuses, durationMin, durationMax]);
-
   const totalActiveFilters = useMemo(() => {
     let count = 0;
     if (selectedCats.size > 0) count++;
@@ -991,23 +870,7 @@ export default function DiscoverTab({
   const visiblePrograms = eligibilityFiltered.slice(0, visibleCount);
   const hasMore = visibleCount < eligibilityFiltered.length;
 
-  /* ─── Programs grouped by week for browse view ─── */
-  const programsByWeek = useMemo(() => {
-    if (hasAnyFilter) return null; // Only compute for default / week-only browse view
-    const weeksToShow = selectedWeeks.size > 0
-      ? SUMMER_WEEKS.filter((w) => selectedWeeks.has(w.id))
-      : SUMMER_WEEKS;
-    const result = [];
-    for (const week of weeksToShow) {
-      const weekPrograms = allDirectoryPrograms.filter((p) =>
-        programOverlapsWeek(p, week.monday, week.friday)
-      );
-      if (weekPrograms.length > 0) {
-        result.push({ week, programs: weekPrograms });
-      }
-    }
-    return result;
-  }, [allDirectoryPrograms, hasAnyFilter, selectedWeeks]);
+  /* programsByWeek removed — default view now shows flat filtered list */
 
 
   /* ══════════════════════════════════════════════════════════
@@ -1128,81 +991,8 @@ export default function DiscoverTab({
       )}
 
       {/* ─── CONTENT AREA ─── */}
-      {!hasAnyFilter && isDesktop && programsByWeek ? (
-        /* Desktop browse view — vertical listings grouped by week */
-        <div style={{ padding: "24px 32px" }}>
-          {programsByWeek.map(({ week, programs: weekProgs }) => (
-            <WeekBrowseRow
-              key={week.id}
-              week={week}
-              programs={weekProgs}
-              onTap={onOpenDirectoryDetail}
-              isFavorite={isFavorite}
-              toggleFavorite={toggleFavorite}
-              addedNames={addedNames}
-              favorites={favorites}
-              eligibilityMap={eligibilityMap}
-            />
-          ))}
-        </div>
-      ) : !hasAnyFilter && !isDesktop && programsByWeek ? (
-        /* Mobile browse view — grouped by week, vertical cards */
-        <div style={{ padding: "16px 16px" }}>
-          {programsByWeek.map(({ week, programs: weekProgs }) => {
-            const showProgs = weekProgs.slice(0, 6);
-            return (
-              <div key={week.id} style={{ marginBottom: 28 }}>
-                <div style={{
-                  display: "flex", justifyContent: "space-between", alignItems: "baseline",
-                  marginBottom: 10,
-                }}>
-                  <h3 style={{
-                    fontFamily: "'Poppins', sans-serif", fontSize: 18, fontWeight: 700,
-                    color: C.ink, margin: 0,
-                  }}>
-                    {week.label}: {week.dateRange}
-                  </h3>
-                  <span style={{
-                    fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted,
-                  }}>
-                    {weekProgs.length} programs
-                  </span>
-                </div>
-                {showProgs.map((p) => (
-                  <DirectoryCard
-                    key={p.id}
-                    program={p}
-                    alreadyAdded={addedNames.has(p.name?.toLowerCase())}
-                    favorited={isFavorite(p.id)}
-                    onToggleFavorite={toggleFavorite}
-                    onTap={onOpenDirectoryDetail}
-                    regStatus={getRegistrationStatus(p)}
-                    eligibility={eligibilityMap ? eligibilityMap.get(p.id) : null}
-                    weekScheduleLabel=""
-                  />
-                ))}
-                {weekProgs.length > 6 && (
-                  <button
-                    onClick={() => {
-                      setSelectedWeeks(new Set([week.id]));
-                      setVisibleCount(PAGE_SIZE);
-                    }}
-                    style={{
-                      width: "100%", fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600,
-                      color: C.seaGreen, background: "rgba(45,159,111,0.06)",
-                      border: `1px solid ${C.seaGreen}20`, borderRadius: 10,
-                      padding: "10px 16px", cursor: "pointer",
-                    }}
-                  >
-                    See all {weekProgs.length} programs in {week.label}
-                  </button>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        /* Filtered / search view — grid or list */
+      {(
+        /* All programs view — flat paginated grid/list, respects all filters */
         <>
           {/* Results count */}
           <div style={{
