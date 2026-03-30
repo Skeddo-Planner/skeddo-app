@@ -49,7 +49,7 @@ async function scrapeCity(city) {
         if (item.age_max_year !== undefined && item.age_max_year !== null && item.age_max_year > 17) continue;
         if (!programs.has(item.id)) {
           programs.set(item.id, {
-            id: item.id, name: item.name,
+            id: item.id, name: (item.name || "").replace(/^\s*\|+\s*|\s*\|+\s*$/g, "").trim(),
             location: item.location?.label?.replace(/^\*/, "").trim() || "",
             startDate: item.date_range_start || "", endDate: item.date_range_end || "",
             days: item.days_of_week || "", timeRange: item.time_range || "",

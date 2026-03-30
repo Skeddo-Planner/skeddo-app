@@ -498,7 +498,7 @@ async function main() {
         const program = {
           _activityId: activityId,
           _fallbackAges: fallbackAges,
-          name: item.name,
+          name: (item.name || "").replace(/^\s*\|+\s*|\s*\|+\s*$/g, "").trim(),
           provider: "City of Vancouver",
           category,
           camp_type: "Summer Camp",

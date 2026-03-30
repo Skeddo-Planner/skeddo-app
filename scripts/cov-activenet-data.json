@@ -1555,7 +1555,7 @@
   },
   {
     "id": 594553,
-    "name": "|Discount Skate|",
+    "name": "Discount Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-01-09",
     "endDate": "2026-03-27",
@@ -1933,7 +1933,7 @@
   },
   {
     "id": 597496,
-    "name": "|Family Fun Hockey|",
+    "name": "Family Fun Hockey",
     "location": "Britannia Rink",
     "startDate": "2026-02-21",
     "endDate": "2026-03-28",
@@ -1975,7 +1975,7 @@
   },
   {
     "id": 597473,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Britannia Rink",
     "startDate": "2026-02-21",
     "endDate": "2026-03-28",
@@ -3109,7 +3109,7 @@
   },
   {
     "id": 616410,
-    "name": "|Public Swim/ Lessons]",
+    "name": "Public Swim/ Lessons]",
     "location": "Kensington Pool",
     "startDate": "",
     "endDate": "",
@@ -3130,7 +3130,7 @@
   },
   {
     "id": 616405,
-    "name": "|Public Swim|",
+    "name": "Public Swim",
     "location": "Kensington Pool",
     "startDate": "",
     "endDate": "",
@@ -3151,7 +3151,7 @@
   },
   {
     "id": 616422,
-    "name": "|Public Swim|",
+    "name": "Public Swim",
     "location": "Kensington Pool",
     "startDate": "",
     "endDate": "",
@@ -3865,7 +3865,7 @@
   },
   {
     "id": 596283,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-03-29",
     "endDate": "",
@@ -3928,7 +3928,7 @@
   },
   {
     "id": 604097,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-03-29",
     "endDate": "",
@@ -7246,7 +7246,7 @@
   },
   {
     "id": 596282,
-    "name": "|Family Fun Hockey|",
+    "name": "Family Fun Hockey",
     "location": "Hillcrest Rink",
     "startDate": "2026-03-29",
     "endDate": "",
@@ -7414,7 +7414,7 @@
   },
   {
     "id": 426413,
-    "name": "|Facility Closure for Citywide Training 12-7:30pm|",
+    "name": "Facility Closure for Citywide Training 12-7:30pm",
     "location": "Vancouver Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -10186,7 +10186,7 @@
   },
   {
     "id": 604640,
-    "name": "|Adult Skate|",
+    "name": "Adult Skate",
     "location": "Britannia Rink",
     "startDate": "2026-03-31",
     "endDate": "2026-05-12",
@@ -12160,7 +12160,7 @@
   },
   {
     "id": 526349,
-    "name": "|Lessons and One Lane|",
+    "name": "Lessons and One Lane",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",
@@ -12181,7 +12181,7 @@
   },
   {
     "id": 612659,
-    "name": "|Lessons|",
+    "name": "Lessons",
     "location": "Hillcrest Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -12202,7 +12202,7 @@
   },
   {
     "id": 595412,
-    "name": "|Parent and Preschooler|",
+    "name": "Parent and Preschooler",
     "location": "Hillcrest Rink",
     "startDate": "2026-03-29",
     "endDate": "",
@@ -12223,7 +12223,7 @@
   },
   {
     "id": 599533,
-    "name": "|Parent and Preschooler|",
+    "name": "Parent and Preschooler",
     "location": "Hillcrest Rink",
     "startDate": "2026-03-30",
     "endDate": "2026-06-22",
@@ -12244,7 +12244,7 @@
   },
   {
     "id": 590861,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Kitsilano Rink",
     "startDate": "2026-01-09",
     "endDate": "2026-03-27",
@@ -12265,7 +12265,7 @@
   },
   {
     "id": 591627,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-01-04",
     "endDate": "2026-03-29",
@@ -12286,7 +12286,7 @@
   },
   {
     "id": 594554,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-01-09",
     "endDate": "2026-03-27",
@@ -12307,7 +12307,7 @@
   },
   {
     "id": 595229,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-01-10",
     "endDate": "2026-03-28",
@@ -12328,7 +12328,7 @@
   },
   {
     "id": 595230,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-01-10",
     "endDate": "2026-03-28",
@@ -12349,7 +12349,7 @@
   },
   {
     "id": 596285,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-01-04",
     "endDate": "2026-03-29",
@@ -12370,7 +12370,7 @@
   },
   {
     "id": 599038,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Britannia Rink",
     "startDate": "2026-02-22",
     "endDate": "2026-03-29",
@@ -12391,7 +12391,7 @@
   },
   {
     "id": 599535,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-04-01",
     "endDate": "2026-06-24",
@@ -12412,7 +12412,7 @@
   },
   {
     "id": 599536,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-04-04",
     "endDate": "2026-06-27",
@@ -12433,7 +12433,7 @@
   },
   {
     "id": 599537,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-04-04",
     "endDate": "2026-06-27",
@@ -12454,7 +12454,7 @@
   },
   {
     "id": 599539,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-04-05",
     "endDate": "2026-06-28",
@@ -12475,7 +12475,7 @@
   },
   {
     "id": 602825,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Britannia Rink",
     "startDate": "2026-04-05",
     "endDate": "2026-06-21",
@@ -12496,7 +12496,7 @@
   },
   {
     "id": 603550,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Britannia Rink",
     "startDate": "2026-04-04",
     "endDate": "2026-06-27",
@@ -12517,7 +12517,7 @@
   },
   {
     "id": 613973,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Britannia Rink",
     "startDate": "2026-06-05",
     "endDate": "",
@@ -12622,7 +12622,7 @@
   },
   {
     "id": 616459,
-    "name": "Statutory Holiday | Lengths |",
+    "name": "Statutory Holiday | Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -13147,7 +13147,7 @@
   },
   {
     "id": 560473,
-    "name": "|Lengths with Tot Pool|",
+    "name": "Lengths with Tot Pool",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",
@@ -15625,7 +15625,7 @@
   },
   {
     "id": 616461,
-    "name": "Statutory Holiday | Lessons/Swim Club | 1L Lengths |",
+    "name": "Statutory Holiday | Lessons/Swim Club | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -16927,7 +16927,7 @@
   },
   {
     "id": 600427,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-04-05",
     "endDate": "2026-06-28",
@@ -17389,7 +17389,7 @@
   },
   {
     "id": 616462,
-    "name": "Statutory Holiday | Lessons/Swim Club | 1L Lengths |",
+    "name": "Statutory Holiday | Lessons/Swim Club | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -19048,7 +19048,7 @@
   },
   {
     "id": 599034,
-    "name": "|Family Fun Hockey|",
+    "name": "Family Fun Hockey",
     "location": "Britannia Rink",
     "startDate": "2026-02-22",
     "endDate": "2026-03-29",
@@ -19069,7 +19069,7 @@
   },
   {
     "id": 602806,
-    "name": "|Family Fun Hockey|",
+    "name": "Family Fun Hockey",
     "location": "Britannia Rink",
     "startDate": "2026-04-05",
     "endDate": "2026-06-21",
@@ -30115,7 +30115,7 @@
   },
   {
     "id": 593901,
-    "name": "|Family Fun Hockey|",
+    "name": "Family Fun Hockey",
     "location": "Trout Lake Rink",
     "startDate": "2026-01-03",
     "endDate": "2026-03-28",
@@ -30199,7 +30199,7 @@
   },
   {
     "id": 598231,
-    "name": "| Public Swim | 1L Lengths |",
+    "name": "Public Swim | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -31501,7 +31501,7 @@
   },
   {
     "id": 440619,
-    "name": "|SwimFIT|",
+    "name": "SwimFIT",
     "location": "Vancouver Aquatic Centre",
     "startDate": "2026-03-13",
     "endDate": "2026-06-26",
@@ -31564,7 +31564,7 @@
   },
   {
     "id": 519086,
-    "name": "| Length Swim (50m) |",
+    "name": "Length Swim (50m)",
     "location": "Vancouver Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -35449,7 +35449,7 @@
   },
   {
     "id": 538696,
-    "name": "|Public Swim|",
+    "name": "Public Swim",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",
@@ -35512,7 +35512,7 @@
   },
   {
     "id": 608387,
-    "name": "|Discount Skate|",
+    "name": "Discount Skate",
     "location": "Hillcrest Rink",
     "startDate": "2026-04-03",
     "endDate": "2026-06-26",
@@ -35722,7 +35722,7 @@
   },
   {
     "id": 616452,
-    "name": "| Lengths |",
+    "name": "Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -35743,7 +35743,7 @@
   },
   {
     "id": 598232,
-    "name": "| Lessons/Swim Club | 1L Lengths |",
+    "name": "Lessons/Swim Club | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -35764,7 +35764,7 @@
   },
   {
     "id": 616456,
-    "name": "| Lessons/Swim Club | 1L Lengths |",
+    "name": "Lessons/Swim Club | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -35785,7 +35785,7 @@
   },
   {
     "id": 616451,
-    "name": "| Public Swim | 1L Lengths |",
+    "name": "Public Swim | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -35806,7 +35806,7 @@
   },
   {
     "id": 616457,
-    "name": "| Public Swim | 1L Lengths |",
+    "name": "Public Swim | 1L Lengths",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -35827,7 +35827,7 @@
   },
   {
     "id": 616453,
-    "name": "| School Board | 1L",
+    "name": "School Board | 1L",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -35848,7 +35848,7 @@
   },
   {
     "id": 616454,
-    "name": "| School Use |",
+    "name": "School Use",
     "location": "Lord Byng Pool",
     "startDate": "",
     "endDate": "",
@@ -38053,7 +38053,7 @@
   },
   {
     "id": 519084,
-    "name": "| Length Swim (50m) |",
+    "name": "Length Swim (50m)",
     "location": "Vancouver Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -38074,7 +38074,7 @@
   },
   {
     "id": 612138,
-    "name": "|Length Swim (3 lanes x 50m)|",
+    "name": "Length Swim (3 lanes x 50m)",
     "location": "Hillcrest Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -38095,7 +38095,7 @@
   },
   {
     "id": 616782,
-    "name": "|Lengths Swim|",
+    "name": "Lengths Swim",
     "location": "Renfrew Park Pool",
     "startDate": "",
     "endDate": "",
@@ -38116,7 +38116,7 @@
   },
   {
     "id": 389427,
-    "name": "|Lengths|",
+    "name": "Lengths",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",
@@ -38137,7 +38137,7 @@
   },
   {
     "id": 612141,
-    "name": "|Bulkhead Move - No lanes available|",
+    "name": "Bulkhead Move - No lanes available",
     "location": "Hillcrest Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -38158,7 +38158,7 @@
   },
   {
     "id": 612143,
-    "name": "|Public Swim, 3 lanes x 25m|",
+    "name": "Public Swim, 3 lanes x 25m",
     "location": "Hillcrest Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -38179,7 +38179,7 @@
   },
   {
     "id": 533300,
-    "name": "|Public Swim|",
+    "name": "Public Swim",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",
@@ -38200,7 +38200,7 @@
   },
   {
     "id": 616783,
-    "name": "|Public Swim|",
+    "name": "Public Swim",
     "location": "Renfrew Park Pool",
     "startDate": "",
     "endDate": "",
@@ -38221,7 +38221,7 @@
   },
   {
     "id": 463271,
-    "name": "|Lengths with Tot Pool|",
+    "name": "Lengths with Tot Pool",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",
@@ -38326,7 +38326,7 @@
   },
   {
     "id": 612139,
-    "name": "|Length Swim (3 lanes x 25m)|",
+    "name": "Length Swim (3 lanes x 25m)",
     "location": "Hillcrest Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -39208,7 +39208,7 @@
   },
   {
     "id": 593872,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Sunset Rink",
     "startDate": "2026-01-11",
     "endDate": "2026-03-29",
@@ -39229,7 +39229,7 @@
   },
   {
     "id": 593889,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-01-04",
     "endDate": "2026-03-29",
@@ -39250,7 +39250,7 @@
   },
   {
     "id": 593900,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-01-10",
     "endDate": "2026-03-28",
@@ -39271,7 +39271,7 @@
   },
   {
     "id": 593902,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-01-09",
     "endDate": "2026-03-27",
@@ -39292,7 +39292,7 @@
   },
   {
     "id": 600137,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-04-04",
     "endDate": "2026-06-27",
@@ -39313,7 +39313,7 @@
   },
   {
     "id": 600428,
-    "name": "|Public Skate|",
+    "name": "Public Skate",
     "location": "Trout Lake Rink",
     "startDate": "2026-04-05",
     "endDate": "2026-06-28",
@@ -39376,7 +39376,7 @@
   },
   {
     "id": 519052,
-    "name": "| Length Swim (50m) |",
+    "name": "Length Swim (50m)",
     "location": "Vancouver Aquatic Centre",
     "startDate": "2026-03-02",
     "endDate": "2026-06-26",
@@ -39397,7 +39397,7 @@
   },
   {
     "id": 519080,
-    "name": "| Length Swim (50m) |",
+    "name": "Length Swim (50m)",
     "location": "Vancouver Aquatic Centre",
     "startDate": "2026-03-10",
     "endDate": "2026-06-25",
@@ -50128,7 +50128,7 @@
   },
   {
     "id": 439045,
-    "name": "| Length Swim (50m) 6:30am-12pm|",
+    "name": "Length Swim (50m) 6:30am-12pm",
     "location": "Vancouver Aquatic Centre",
     "startDate": "",
     "endDate": "",
@@ -51157,7 +51157,7 @@
   },
   {
     "id": 491704,
-    "name": "|Public Swim|",
+    "name": "Public Swim",
     "location": "Britannia Pool",
     "startDate": "",
     "endDate": "",

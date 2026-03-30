@@ -82,7 +82,7 @@ async function main() {
         if (!allPrograms.has(item.id)) {
           allPrograms.set(item.id, {
             id: item.id,
-            name: item.name,
+            name: (item.name || "").replace(/^\s*\|+\s*|\s*\|+\s*$/g, "").trim(),
             location: item.location?.label?.replace(/^\*/, "").trim() || "",
             startDate: item.date_range_start || "",
             endDate: item.date_range_end || "",
