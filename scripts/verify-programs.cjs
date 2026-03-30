@@ -54,10 +54,12 @@ const LIMIT       = LIMIT_ARG ? parseInt(LIMIT_ARG.split('=')[1], 10) : null;
 
 // ── Config ────────────────────────────────────────────────────────────────────
 const RATE_MS        = 750;     // ms between requests (≈1.3 req/sec across all domains)
-const TIMEOUT_MS     = 14000;   // per-request timeout
+const TIMEOUT_MS     = 10000;   // per-request timeout (socket inactivity)
+const HARD_TIMEOUT_MS = 10000;  // hard deadline per fetchPage call (total wall-clock budget)
 const MAX_HTML_BYTES = 150000;  // cap body read at 150 KB
 const MAX_REDIRECTS  = 6;
 const STALE_DAYS     = 7;       // re-check after this many days in incremental mode
+const STATE_SAVE_EVERY = 50;    // save partial progress to state file every N programs
 
 // ── Paths ─────────────────────────────────────────────────────────────────────
 const PROGRAMS_PATH = path.join(__dirname, '..', 'src', 'data', 'programs.json');
@@ -143,6 +145,22 @@ function fetchPage(startUrl) {
 
     doRequest(startUrl, 0);
   });
+}
+
+/**
+ * Wraps fetchPage with a hard wall-clock deadline (HARD_TIMEOUT_MS).
+ * Even if the socket timeout fires but the stream hangs, this ensures we move on.
+ */
+function fetchPageWithDeadline(url) {
+  return Promise.race([
+    fetchPage(url),
+    new Promise(resolve =>
+      setTimeout(
+        () => resolve({ status: null, finalUrl: url, html: '', redirectChain: [], error: 'Hard deadline exceeded' }),
+        HARD_TIMEOUT_MS
+      )
+    ),
+  ]);
 }
 
 /**
@@ -340,7 +358,7 @@ async function verifyProgram(program) {
   }
 
   // ── Fetch ──
-  const { status, finalUrl, html, redirectChain, error } = await fetchPage(program.registrationUrl);
+  const { status, finalUrl, html, redirectChain, error } = await fetchPageWithDeadline(program.registrationUrl);
 
   result.httpStatus    = status;
   result.finalUrl      = finalUrl;
@@ -601,7 +619,7 @@ async function main() {
 
     if (i > 0) await sleep(RATE_MS);
 
-    if (VERBOSE || i % 100 === 0) {
+    if (VERBOSE || i % 10 === 0) {
       process.stdout.write(`[${i + 1}/${toCheck.length}] ${program.name} (${id})\n`);
     }
 
@@ -625,6 +643,13 @@ async function main() {
       outcome:    verifyResult.issues.length === 0 ? 'ok' : 'issues',
       issueCount: verifyResult.issues.length,
     };
+
+    // Periodically flush state to disk so we can resume if interrupted
+    if ((i + 1) % STATE_SAVE_EVERY === 0) {
+      state.lastRun = new Date().toISOString();
+      fs.writeFileSync(STATE_PATH, JSON.stringify(state, null, 2));
+      process.stdout.write(`  [checkpoint] State saved at program ${i + 1}/${toCheck.length}\n`);
+    }
 
     if (verifyResult.jsRendered) report.summary.jsRendered++;
 
