@@ -56,7 +56,8 @@ const LIMIT        = LIMIT_ARG ? parseInt(LIMIT_ARG.split('=')[1], 10) : null;
 
 // ── Config ────────────────────────────────────────────────────────────────────
 const RATE_MS        = 200;    // ms between requests (≈5 req/sec)
-const TIMEOUT_MS     = 10000;  // per-request timeout
+const TIMEOUT_MS     = 10000;  // per-request socket timeout
+const HARD_TIMEOUT_MS = 10000; // hard wall-clock deadline per fetchUrl call
 const MAX_HTML_BYTES = 80000;  // 80 KB is enough to check titles and pricing
 const MAX_REDIRECTS  = 6;
 
@@ -195,6 +196,22 @@ function fetchUrl(startUrl) {
   });
 }
 
+/**
+ * Wraps fetchUrl with a hard wall-clock deadline.
+ * Even if the socket timeout fires but the stream hangs, this ensures we move on.
+ */
+function fetchUrlWithDeadline(url) {
+  return Promise.race([
+    fetchUrl(url),
+    new Promise(resolve =>
+      setTimeout(
+        () => resolve({ status: null, finalUrl: url, html: '', redirectChain: [], error: 'Hard deadline exceeded' }),
+        HARD_TIMEOUT_MS
+      )
+    ),
+  ]);
+}
+
 // ── URL analysis helpers ──────────────────────────────────────────────────────
 
 /**
@@ -311,7 +328,7 @@ async function validateUrls(opts = {}) {
       process.stdout.write(`[${i + 1}/${toCheck.length}] ${program.name}\n`);
     }
 
-    const { status, finalUrl, html, redirectChain, error } = await fetchUrl(program.registrationUrl);
+    const { status, finalUrl, html, redirectChain, error } = await fetchUrlWithDeadline(program.registrationUrl);
 
     // ── Network / connection error ──
     if (error && !status) {
