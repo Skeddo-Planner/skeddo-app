@@ -325,7 +325,16 @@ export default function HomeTab({
         if (!childAccess) return null;
         const allCoParents = [];
         const seen = new Set();
-        kids.forEach((k) => {
+        // Check both own kids AND shared kids for co-parents (bidirectional visibility)
+        const allKidsForCoParents = [...kids];
+        if (childAccess.sharedKids) {
+          childAccess.sharedKids.forEach((sk) => {
+            if (!allKidsForCoParents.some((k) => k.id === sk.id)) {
+              allKidsForCoParents.push(sk);
+            }
+          });
+        }
+        allKidsForCoParents.forEach((k) => {
           const coParents = childAccess.getCoParents ? childAccess.getCoParents(k.id) : [];
           coParents.forEach((cp) => {
             if (!seen.has(cp.userId)) {
@@ -357,7 +366,8 @@ export default function HomeTab({
                 <button
                   onClick={async () => {
                     if (window.confirm(`Remove ${cp.displayName || "this co-parent"} from all shared kids and circles?`)) {
-                      kids.forEach((k) => {
+                      // Remove from both own kids and shared kids (bidirectional)
+                      allKidsForCoParents.forEach((k) => {
                         const kCoParents = childAccess.getCoParents ? childAccess.getCoParents(k.id) : [];
                         if (kCoParents.some((c) => c.userId === cp.userId)) {
                           childAccess.removeAccess(k.id, cp.userId).catch(() => {});

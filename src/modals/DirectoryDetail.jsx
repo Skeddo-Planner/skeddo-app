@@ -32,6 +32,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
     p.cost === "TBD" ? "" : (typeof p.cost === "number" ? String(p.cost) : "")
   );
   const [sharedToCircles, setSharedToCircles] = useState(new Set());
+  const [selectedCircleIds, setSelectedCircleIds] = useState([]);
 
   // Price is approximate if explicitly flagged or if provider is not verified
   const isApproxPrice = p.priceVerified === false && typeof p.cost === "number" && p.cost > 0;
@@ -46,9 +47,15 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
     );
   };
 
+  const toggleCircle = (circleId) => {
+    setSelectedCircleIds((prev) =>
+      prev.includes(circleId) ? prev.filter((id) => id !== circleId) : [...prev, circleId]
+    );
+  };
+
   const [ageWarning, setAgeWarning] = useState(null);
 
-  const doAdd = () => {
+  const doAdd = async () => {
     const kidNames = selectedKidIds.map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
     setAddedKidNames(kidNames);
     onAddToSchedule({
@@ -57,6 +64,27 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       status: selectedStatus,
       kidIds: selectedKidIds,
     });
+    // Share to selected circles
+    if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
+      const newShared = new Set(sharedToCircles);
+      for (const circleId of selectedCircleIds) {
+        try {
+          await circlesHook.shareActivities(circleId, [{
+            id: p.id || (p.name + "-" + p.provider),
+            name: p.name,
+            provider: p.provider,
+            category: p.category,
+            cost: p.cost,
+            startDate: p.startDate,
+            endDate: p.endDate,
+            status: selectedStatus,
+          }], profile?.displayName || "Someone");
+          trackEvent("share_program_to_circle", { program_name: p.name, circle_name: circlesHook.circles.find((c) => c.id === circleId)?.name });
+          newShared.add(circleId);
+        } catch { /* noop */ }
+      }
+      setSharedToCircles(newShared);
+    }
     setShowAddForm(false);
     setJustAdded(true);
     setAgeWarning(null);
@@ -619,6 +647,45 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.danger, marginBottom: 10 }}>
               Please assign this program to at least one child
             </div>
+          )}
+
+          {/* Share with circle */}
+          {circlesHook && circlesHook.circles && circlesHook.circles.length > 0 && (
+            <>
+              <div
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: C.muted,
+                  textTransform: "uppercase",
+                  letterSpacing: 1,
+                  marginBottom: 8,
+                }}
+              >
+                SHARE WITH CIRCLE
+              </div>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
+                {circlesHook.circles.map((circle) => {
+                  const sel = selectedCircleIds.includes(circle.id);
+                  return (
+                    <button
+                      key={circle.id}
+                      className="chip-btn"
+                      onClick={() => toggleCircle(circle.id)}
+                      style={{
+                        ...s.filterChip,
+                        background: sel ? C.blue : "transparent",
+                        color: sel ? "#fff" : C.ink,
+                        borderColor: sel ? C.blue : C.border,
+                      }}
+                    >
+                      {sel ? "\u2713 " : ""}{circle.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
           )}
 
           {/* Age eligibility warning */}

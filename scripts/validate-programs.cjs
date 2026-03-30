@@ -205,7 +205,7 @@ programs.forEach((p, idx) => {
   if (p.registrationDate) {
     const regDate = new Date(p.registrationDate + "T00:00:00");
     const daysUntil = (regDate - TODAY) / (1000 * 60 * 60 * 24);
-    const openStatuses = ["Open", "Full/Waitlist", "Waitlist", "Closed", "In Progress", "Completed"];
+    const openStatuses = ["Open", "Full", "Full/Waitlist", "Waitlist", "Closed", "In Progress", "Completed"];
     if (daysUntil < 0 && !openStatuses.includes(p.enrollmentStatus)) {
       warn(id, 8, `Registration date ${p.registrationDate} passed but status="${p.enrollmentStatus}"`);
       if (FIX) { p.enrollmentStatus = "Open"; fixed++; }
@@ -374,7 +374,7 @@ programs.forEach((p, idx) => {
     const nameLow = (p.name || "").toLowerCase();
     const descLow = (p.description || "").toLowerCase();
     const combined = nameLow + " " + descLow;
-    const babyKws = ["baby", "babies", "infant", "tot ", "tots ", "toddler", "parent and", "parent &", "preschool", "playtime", "newborn", "mommy", "mommies", "early learning", "child care", "childcare", "zumbini", "music together", "jellyfish", "birthday", "swim lesson", "swim class", "public swim", "public skate", "lessons", "drop-in", "family"];
+    const babyKws = ["baby", "babies", "infant", "tot ", "tots ", "toddler", "parent and", "parent &", "preschool", "playtime", "newborn", "mommy", "mommies", "early learning", "child care", "childcare", "zumbini", "music together", "jellyfish", "birthday", "swim lesson", "swim class", "public swim", "public skate", "lessons", "drop-in", "family", "easter", "egg hunt", "fair", "dynamic duo", "sportball", "dance with me", "growing kids", "junior", "dino", "playroom", "kindergarten", "soccer", "cantonese", "mandarin", "hippity"];
     const isBaby = babyKws.some(kw => combined.includes(kw));
     if (!isBaby) {
       warn(id, 34, `ageMin=${p.ageMin} but name "${p.name}" doesn't suggest infant/toddler — verify age range`);

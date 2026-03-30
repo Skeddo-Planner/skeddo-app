@@ -8,7 +8,15 @@ import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import useIsDesktop from "../hooks/useIsDesktop";
 import { supabase } from "../lib/supabase";
-import fallbackPrograms from "../data/programs.json";
+// Lazy-loaded for performance — 8.6MB JSON loaded async instead of blocking initial bundle
+let _cachedPrograms = null;
+const loadPrograms = () => {
+  if (_cachedPrograms) return Promise.resolve(_cachedPrograms);
+  return import("../data/programs.json").then((m) => {
+    _cachedPrograms = m.default;
+    return _cachedPrograms;
+  });
+};
 import {
   REGISTRATION_STATUSES,
   getRegistrationStatus,
@@ -526,17 +534,25 @@ export default function DiscoverTab({
   onKidFilter,
   onOpenAddProgram,
 }) {
+  const [fallbackPrograms, setFallbackPrograms] = useState([]);
   const [userSubmitted, setUserSubmitted] = useState([]);
-  const [isLoadingPrograms, setIsLoadingPrograms] = useState(false);
+  const [isLoadingPrograms, setIsLoadingPrograms] = useState(true);
   const isDesktop = useIsDesktop();
 
   const [filterToast, setFilterToast] = useState(null);
   const showFilterToast = (msg) => { setFilterToast(msg); setTimeout(() => setFilterToast(null), 2500); };
 
+  /* Load programs.json lazily */
+  useEffect(() => {
+    loadPrograms().then((data) => {
+      setFallbackPrograms(data);
+      setIsLoadingPrograms(false);
+    });
+  }, []);
+
   /* Load user-submitted programs from Supabase */
   useEffect(() => {
     async function loadUserSubmitted() {
-      setIsLoadingPrograms(true);
       try {
         const { data } = await supabase
           .from("directory_programs")
@@ -574,7 +590,6 @@ export default function DiscoverTab({
           })));
         }
       } catch {}
-      setIsLoadingPrograms(false);
     }
     loadUserSubmitted();
   }, []);
@@ -584,7 +599,7 @@ export default function DiscoverTab({
     const existing = new Set(fallbackPrograms.map((p) => `${p.name}|||${p.provider}`.toLowerCase()));
     const newOnes = userSubmitted.filter((p) => !existing.has(`${p.name}|||${p.provider}`.toLowerCase()));
     return [...fallbackPrograms, ...newOnes];
-  }, [userSubmitted]);
+  }, [userSubmitted, fallbackPrograms]);
 
   const searchTrackRef = useRef(null);
   const [search, setSearch] = useState("");
@@ -832,25 +847,24 @@ export default function DiscoverTab({
       const tierRank = { eligible: 2, borderline: 1, ineligible: 0 };
       sortedPrograms.forEach((p) => {
         const startDate = p.startDate || new Date().toISOString().split("T")[0];
-        let bestTier = "ineligible";
+        // Intersection logic: use the WORST tier — ALL kids must be eligible
+        let worstTier = "eligible";
         const labels = [];
         for (const kid of kidsWithBirth) {
           const result = computeEligibility(kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate);
-          // Use union logic: if ANY kid is eligible, show the program
-          if (tierRank[result.eligibilityTier] > tierRank[bestTier]) {
-            bestTier = result.eligibilityTier;
+          if (tierRank[result.eligibilityTier] < tierRank[worstTier]) {
+            worstTier = result.eligibilityTier;
           }
           if (result.eligibilityTier === "borderline") {
             labels.push(getEligibilityLabel(kid.name, kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate));
+          } else if (result.eligibilityTier === "ineligible") {
+            labels.push(`${kid.name} is outside age range`);
           }
         }
-        const allEligible = kidsWithBirth.every((kid) => {
-          const r = computeEligibility(kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate);
-          return r.eligibilityTier === "eligible";
-        });
+        const allEligible = worstTier === "eligible";
         map.set(p.id, {
-          eligibilityTier: p.ageMin == null && p.ageMax == null ? null : bestTier,
-          label: labels.join("; ") || (allEligible ? "All kids eligible" : bestTier === "eligible" ? "Eligible for some kids" : ""),
+          eligibilityTier: p.ageMin == null && p.ageMax == null ? null : worstTier,
+          label: labels.join("; ") || (allEligible ? "All kids eligible" : ""),
         });
       });
       return map;
@@ -1075,23 +1089,40 @@ export default function DiscoverTab({
               </div>
             )}
 
-            {/* Load more */}
-            {hasMore && (
-              <button
-                onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
-                aria-label={`Load more programs, ${eligibilityFiltered.length - visibleCount} remaining`}
-                style={{
-                  width: "100%",
-                  fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
-                  color: C.seaGreen, background: C.white,
-                  border: `1.5px solid ${C.seaGreen}`, borderRadius: 12,
-                  padding: "12px 16px", cursor: "pointer",
-                  marginTop: 8, marginBottom: 8, transition: "all 0.15s",
-                }}
-              >
-                Load more ({eligibilityFiltered.length - visibleCount} remaining)
-              </button>
-            )}
+            {/* Load more / See all */}
+            {hasMore && (() => {
+              const weekFilterActive = selectedWeeks.size > 0;
+              const firstWeekObj = weekFilterActive
+                ? SUMMER_WEEKS.find((w) => w.id === [...selectedWeeks][0])
+                : null;
+              const remaining = eligibilityFiltered.length - visibleCount;
+              const buttonLabel = weekFilterActive && firstWeekObj
+                ? `See all ${eligibilityFiltered.length} programs in ${firstWeekObj.label}`
+                : `Load more (${remaining} remaining)`;
+              return (
+                <button
+                  onClick={() => {
+                    if (weekFilterActive) {
+                      // Show ALL programs for the selected week(s)
+                      setVisibleCount(eligibilityFiltered.length);
+                    } else {
+                      setVisibleCount((v) => v + PAGE_SIZE);
+                    }
+                  }}
+                  aria-label={`Load more programs, ${remaining} remaining`}
+                  style={{
+                    width: "100%",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                    color: C.seaGreen, background: C.white,
+                    border: `1.5px solid ${C.seaGreen}`, borderRadius: 12,
+                    padding: "12px 16px", cursor: "pointer",
+                    marginTop: 8, marginBottom: 8, transition: "all 0.15s",
+                  }}
+                >
+                  {buttonLabel}
+                </button>
+              );
+            })()}
           </div>
         </>
       )}

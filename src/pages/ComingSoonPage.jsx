@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
-import directoryPrograms from "../data/programs.json";
+// Program count hardcoded to avoid bundling 8.6MB JSON for Coming Soon page
+const PROGRAM_COUNT = 6800;
 
 export default function ComingSoonPage() {
   // Prevent search engines from indexing the Coming Soon page
@@ -163,7 +164,7 @@ export default function ComingSoonPage() {
               color: "rgba(250,248,243,0.8)",
             }}
           >
-            Browse <strong style={{ color: C.seaGreen }}>{(Math.floor(directoryPrograms.length / 100) * 100).toLocaleString()}+ kids camps &amp; summer programs</strong> across Vancouver &amp; the Lower Mainland
+            Browse <strong style={{ color: C.seaGreen }}>{PROGRAM_COUNT.toLocaleString()}+ kids camps &amp; summer programs</strong> across Vancouver &amp; the Lower Mainland
             <br />
             Track waitlists · Manage budgets · Coordinate family schedules
           </p>
