@@ -829,19 +829,29 @@ export default function DiscoverTab({
   const eligibilityMap = useMemo(() => {
     if (isAllKids && kidsWithBirth.length > 0) {
       const map = new Map();
+      const tierRank = { eligible: 2, borderline: 1, ineligible: 0 };
       sortedPrograms.forEach((p) => {
         const startDate = p.startDate || new Date().toISOString().split("T")[0];
-        let worstTier = "eligible";
+        let bestTier = "ineligible";
         const labels = [];
         for (const kid of kidsWithBirth) {
           const result = computeEligibility(kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate);
-          if (result.eligibilityTier === "ineligible") { worstTier = "ineligible"; break; }
+          // Use union logic: if ANY kid is eligible, show the program
+          if (tierRank[result.eligibilityTier] > tierRank[bestTier]) {
+            bestTier = result.eligibilityTier;
+          }
           if (result.eligibilityTier === "borderline") {
-            worstTier = "borderline";
             labels.push(getEligibilityLabel(kid.name, kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate));
           }
         }
-        map.set(p.id, { eligibilityTier: p.ageMin == null && p.ageMax == null ? null : worstTier, label: labels.join("; ") || (worstTier === "eligible" ? "All kids eligible" : "") });
+        const allEligible = kidsWithBirth.every((kid) => {
+          const r = computeEligibility(kid.birthMonth, kid.birthYear, p.ageMin, p.ageMax, startDate);
+          return r.eligibilityTier === "eligible";
+        });
+        map.set(p.id, {
+          eligibilityTier: p.ageMin == null && p.ageMax == null ? null : bestTier,
+          label: labels.join("; ") || (allEligible ? "All kids eligible" : bestTier === "eligible" ? "Eligible for some kids" : ""),
+        });
       });
       return map;
     }

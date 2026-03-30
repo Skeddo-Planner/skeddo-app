@@ -52,7 +52,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
-          marginBottom: 4,
+          marginBottom: 1,
         }}
       >
         <span style={s.cardCategory}>
@@ -77,7 +77,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
       </div>
 
       {/* Name + provider */}
-      <div style={{ ...s.cardName, fontSize: 16 }}>{p.name}</div>
+      <div style={s.cardName}>{p.name}</div>
       <div style={s.cardProvider}>
         {p.provider}
         {p.addedByName && p.addedBy && currentUserId && p.addedBy !== currentUserId && (
