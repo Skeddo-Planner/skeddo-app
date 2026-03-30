@@ -867,6 +867,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           isEdit={modal.isEdit}
           onSave={handleSaveProgram}
           onClose={() => setModal(null)}
+          circlesHook={circlesHook}
+          profile={profile}
         />
       )}
 

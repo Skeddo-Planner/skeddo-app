@@ -4,9 +4,16 @@ import { s } from "../styles/shared";
 import Label from "../components/Label";
 import Modal from "../components/Modal";
 
-export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClose }) {
+export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClose, circlesHook, profile }) {
   const update = (field, value) => setForm((f) => ({ ...f, [field]: value }));
   const [errors, setErrors] = useState({});
+  const [selectedCircleIds, setSelectedCircleIds] = useState([]);
+
+  const toggleCircle = (circleId) => {
+    setSelectedCircleIds((prev) =>
+      prev.includes(circleId) ? prev.filter((id) => id !== circleId) : [...prev, circleId]
+    );
+  };
 
   /* ─── Validation ─── */
   function validate() {
@@ -40,8 +47,26 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
     return Object.keys(e).length === 0;
   }
 
-  function handleSave() {
-    if (validate()) onSave();
+  async function handleSave() {
+    if (!validate()) return;
+    onSave();
+    // Share to selected circles after saving
+    if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
+      for (const circleId of selectedCircleIds) {
+        try {
+          await circlesHook.shareActivities(circleId, [{
+            id: form.id || (form.name + "-" + (form.provider || "")),
+            name: form.name,
+            provider: form.provider || "",
+            category: form.category || "Sports",
+            cost: form.cost ? Number(form.cost) : null,
+            startDate: form.startDate || "",
+            endDate: form.endDate || "",
+            status: form.status || "Exploring",
+          }], profile?.displayName || "Someone");
+        } catch { /* noop */ }
+      }
+    }
   }
 
   const errorStyle = {
@@ -300,6 +325,34 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         onChange={(e) => update("notes", e.target.value)}
         placeholder="Any extra info..."
       />
+
+      {/* Share with circle */}
+      {!isEdit && circlesHook && circlesHook.circles && circlesHook.circles.length > 0 && (
+        <>
+          <Label>Share with Circle</Label>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 4 }}>
+            {circlesHook.circles.map((circle) => {
+              const sel = selectedCircleIds.includes(circle.id);
+              return (
+                <button
+                  key={circle.id}
+                  type="button"
+                  className="chip-btn"
+                  onClick={() => toggleCircle(circle.id)}
+                  style={{
+                    ...s.filterChip,
+                    background: sel ? C.blue : "transparent",
+                    color: sel ? "#fff" : C.ink,
+                    borderColor: sel ? C.blue : C.border,
+                  }}
+                >
+                  {sel ? "\u2713 " : ""}{circle.name}
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
 
       {/* Action buttons */}
       <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
