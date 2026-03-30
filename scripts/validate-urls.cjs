@@ -53,6 +53,8 @@ const VERBOSE      = ARGS.includes('--verbose');
 const SKIP_CONTENT = ARGS.includes('--skip-content');
 const LIMIT_ARG    = ARGS.find(a => a.startsWith('--limit='));
 const LIMIT        = LIMIT_ARG ? parseInt(LIMIT_ARG.split('=')[1], 10) : null;
+const OFFSET_ARG   = ARGS.find(a => a.startsWith('--offset='));
+const OFFSET       = OFFSET_ARG ? parseInt(OFFSET_ARG.split('=')[1], 10) : 0;
 
 // ── Config ────────────────────────────────────────────────────────────────────
 const RATE_MS        = 200;    // ms between requests (≈5 req/sec)
@@ -310,6 +312,7 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 async function validateUrls(opts = {}) {
   const fix         = opts.fix         ?? FIX;
   const limit       = opts.limit        ?? LIMIT;
+  const offset      = opts.offset       ?? OFFSET;
   const verbose     = opts.verbose      ?? VERBOSE;
   const skipContent = opts.skipContent  ?? SKIP_CONTENT;
 
@@ -318,11 +321,12 @@ async function validateUrls(opts = {}) {
   // Only check programs that have a registrationUrl
   const withUrl     = programs.filter(p => p.registrationUrl);
   const withoutUrl  = programs.length - withUrl.length;
-  const toCheck     = (limit !== null && limit > 0) ? withUrl.slice(0, limit) : withUrl;
+  const sliced      = offset > 0 ? withUrl.slice(offset) : withUrl;
+  const toCheck     = (limit !== null && limit > 0) ? sliced.slice(0, limit) : sliced;
 
   console.log('\n=== SKEDDO URL VALIDATOR ===');
   console.log(`Programs: ${programs.length} total | ${withUrl.length} with URLs | ${withoutUrl} without`);
-  console.log(`Checking: ${toCheck.length}${limit ? ` (--limit=${limit})` : ''} | Fix: ${fix} | Skip content: ${skipContent}`);
+  console.log(`Checking: ${toCheck.length}${offset ? ` (--offset=${offset})` : ''}${limit ? ` (--limit=${limit})` : ''} | Fix: ${fix} | Skip content: ${skipContent}`);
   console.log(`Date: ${TODAY}\n`);
 
   const summary = {
