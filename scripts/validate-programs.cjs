@@ -96,6 +96,15 @@ programs.forEach((p, idx) => {
     warn(id, 1, `Invalid registrationUrl: ${p.registrationUrl}`);
   }
 
+  // ── Rule 32: Registration URL must lead to enrollment for THAT specific program ──
+  if (p.registrationUrl) {
+    const url = p.registrationUrl;
+    // ActiveNet search pages without a detail ID AND without keyword filter
+    if (url.includes("activecommunities.com") && url.includes("/activity/search") && !url.includes("/detail/") && !url.includes("activity_keyword")) {
+      warn(id, 32, `ActiveNet URL points to generic search page, not activity detail: ${url}`);
+    }
+  }
+
   // ── Rule 24: NEVER use activekids.com or campscui.active.com URLs ──
   if (p.registrationUrl && (p.registrationUrl.includes("activekids.com") || p.registrationUrl.includes("campscui.active.com"))) {
     warn(id, 24, `Banned URL domain (third-party aggregator): ${p.registrationUrl.split("/")[2]}`);
@@ -423,7 +432,7 @@ for (const p of programs) {
 // ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
-const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31";
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31,32";
 const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);

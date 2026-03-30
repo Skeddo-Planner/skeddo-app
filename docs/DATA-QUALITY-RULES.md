@@ -286,3 +286,13 @@ This rule exists because the March 2026 CoV import only captured 149 of 2,700 ki
   - Provider hasn't confirmed 2026 offerings yet (use "Likely Coming Soon")
 - When in doubt, KEEP the listing — a visible listing with estimated data is better than a missing listing
 - This rule has NO exceptions
+
+## Rule 32: Registration URL Must Lead to Enrollment for THAT Specific Program (HARD RULE)
+**Why:** VSO School of Music "Arts Explorers" linked to a generic "camps" page. Parents had to click "Enroll Now", then navigate 8 sub-categories to find the right camp week. Multiple other providers had similar issues — generic program pages instead of direct enrollment links.
+- The registrationUrl must lead to a page where the user can enroll in THAT SPECIFIC program within 1 click
+- For ActiveNet providers: use the activity detail URL (`/activity/search/detail/{ID}`) not the search page
+- For providers with sub-activities (e.g., weekly camps under a parent activity): link to the parent activity detail page (sub-activities are shown on that page)
+- A URL that leads to a search results page, category listing, or generic "programs" page is NOT acceptable — even if the program appears somewhere on that page
+- This extends Rule 1 (program-specific URLs) and Rule 29 (no generic homepages) to also cover intermediate pages that require additional navigation
+- The validator checks for known patterns: ActiveNet search pages without a detail ID, provider pages ending in `/programs/`, `/camps/`, `/classes/` without a specific program path
+- This rule has NO exceptions
