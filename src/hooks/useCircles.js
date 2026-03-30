@@ -15,6 +15,8 @@ export function useCircles(userId, session) {
   const [referralCode, setReferralCode] = useState(null); // user's permanent referral code
   const [referralUrl, setReferralUrl] = useState(null);
   const [loading, setLoading] = useState(true);
+  // Social proof map for Discover tab: { "name|||provider" → [{ sharedByName }] }
+  const [circleSocialProof, setCircleSocialProof] = useState({});
 
   const getAuthHeaders = useCallback(() => {
     const token = session?.access_token;
@@ -59,6 +61,25 @@ export function useCircles(userId, session) {
           }));
 
           setCircles(approvedCircles);
+
+          // Build social proof map: all shares across all circles (excluding own)
+          const circleIds = approvedCircles.map((c) => c.id);
+          if (circleIds.length > 0) {
+            const { data: allShares } = await supabase
+              .from("shared_activities")
+              .select("activity_name, provider_name, shared_by_name, shared_by")
+              .in("circle_id", circleIds)
+              .neq("shared_by", userId);
+            const proofMap = {};
+            for (const share of (allShares || [])) {
+              const key = `${(share.activity_name || "").toLowerCase()}|||${(share.provider_name || "").toLowerCase()}`;
+              if (!proofMap[key]) proofMap[key] = [];
+              if (!proofMap[key].some((s) => s.sharedByName === share.shared_by_name)) {
+                proofMap[key].push({ sharedByName: share.shared_by_name });
+              }
+            }
+            setCircleSocialProof(proofMap);
+          }
         }
 
         // Get pending requests for circles this user owns
@@ -429,6 +450,7 @@ export function useCircles(userId, session) {
     referrals,
     referralCode,
     referralUrl,
+    circleSocialProof,
     membersRecruited,
     freeMonthsEarned,
     loading,

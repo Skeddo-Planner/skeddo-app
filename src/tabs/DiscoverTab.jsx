@@ -336,7 +336,7 @@ function WeekCoverageRow({ selectedWeeks, programs, isDesktop }) {
 
 
 /* ─── Directory Card — program card ─── */
-function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus, eligibility, weekScheduleLabel, accentOverride }) {
+function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavorite, regStatus, eligibility, weekScheduleLabel, accentOverride, friendActivity }) {
   const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
   const isApprox = program.priceVerified === false && typeof program.cost === "number" && program.cost > 0;
   const accent = accentOverride || CAT_ACCENT[program.category] || C.seaGreen;
@@ -452,6 +452,23 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
         )}
       </div>
 
+      {/* Circle social proof */}
+      {friendActivity && friendActivity.length > 0 && (
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 5,
+          marginTop: 6,
+          background: "rgba(200, 127, 160, 0.12)",
+          color: C.lilac,
+          borderRadius: 8, padding: "3px 9px",
+          fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+        }}>
+          <span style={{ fontSize: 13 }}>👥</span>
+          {friendActivity.length === 1
+            ? `${friendActivity[0].sharedByName} saved this`
+            : `${friendActivity.length} friends saved this`}
+        </div>
+      )}
+
       {/* Bottom row: badges + price */}
       <div style={{
         display: "flex", justifyContent: "space-between", alignItems: "flex-end",
@@ -533,6 +550,7 @@ export default function DiscoverTab({
   kidFilter,
   onKidFilter,
   onOpenAddProgram,
+  circleSocialProof,
 }) {
   const [fallbackPrograms, setFallbackPrograms] = useState([]);
   const [userSubmitted, setUserSubmitted] = useState([]);
@@ -1072,6 +1090,7 @@ export default function DiscoverTab({
                       weekLabel = getWeekScheduleLabel(p, weekDays, firstWeek.monday);
                     }
                   }
+                  const socialKey = `${(p.name || "").toLowerCase()}|||${(p.provider || "").toLowerCase()}`;
                   return (
                     <DirectoryCard
                       key={p.id}
@@ -1083,6 +1102,7 @@ export default function DiscoverTab({
                       regStatus={getRegistrationStatus(p)}
                       eligibility={eligibilityMap ? eligibilityMap.get(p.id) : null}
                       weekScheduleLabel={weekLabel}
+                      friendActivity={circleSocialProof ? circleSocialProof[socialKey] : null}
                     />
                   );
                 })}
