@@ -475,6 +475,14 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     trackPageView(`/${tabId}`, `Skeddo - ${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`);
   };
 
+  const handleFindAlternatives = (program) => {
+    setCatFilter(program.category || "All");
+    setSearchQuery("");
+    setStatusFilter("All");
+    setTab("discover");
+    trackPageView("/discover", "Skeddo - Discover");
+  };
+
   const handleOnboardingComplete = (onboardedKids, profileData) => {
     onboardedKids.forEach((k) => saveKid(k));
     if (profileData) {
@@ -627,6 +635,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 kidFilter={kidFilter}
                 onKidFilter={setKidFilter}
                 onOpenAddProgram={openAddProgram}
+                circleSocialProof={circlesHook.circleSocialProof}
               />
             </div>
 
@@ -693,6 +702,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 planAccess={planAccess}
                 onSaveKid={saveKid}
                 onOpenDetail={openDetail}
+                onFindAlternatives={handleFindAlternatives}
               />
             )}
           </main>
@@ -741,6 +751,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 kidFilter={kidFilter}
                 onKidFilter={setKidFilter}
                 onOpenAddProgram={openAddProgram}
+                circleSocialProof={circlesHook.circleSocialProof}
               />
             </div>
 
@@ -807,6 +818,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 planAccess={planAccess}
                 onSaveKid={saveKid}
                 onOpenDetail={openDetail}
+                onFindAlternatives={handleFindAlternatives}
               />
             )}
           </main>

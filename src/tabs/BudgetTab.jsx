@@ -71,7 +71,7 @@ export default function BudgetTab({
   enrolledPrograms, waitlistPrograms, exploringPrograms,
   totalCostEnrolled, totalCostAll, budgetGoal,
   manualCosts, onAddCost, onEditCost, userId, planAccess, onSaveKid,
-  onOpenDetail,
+  onOpenDetail, onFindAlternatives,
 }) {
   const isPaid = planAccess.canUseBudgetTracking;
   const isDesktop = useIsDesktop();
@@ -432,10 +432,22 @@ export default function BudgetTab({
                   const kidNames = (p.kidIds || []).map((id) => kids.find((k) => k.id === id)?.name || "").filter(Boolean).join(", ");
                   const cphColor = perHrColor(p.cph);
                   return (
-                    <tr key={p.id} onClick={() => onOpenDetail && onOpenDetail(p)}>
+                    <tr key={p.id} onClick={() => onOpenDetail && onOpenDetail(p)} style={{ cursor: "pointer" }}>
                       <td>
                         <div style={{ fontWeight: 500, fontSize: 14 }}>{p.name}</div>
                         {p.provider && <div style={{ fontSize: 11, color: C.muted }}>{p.provider}</div>}
+                        {onFindAlternatives && (
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onFindAlternatives(p); }}
+                            style={{
+                              marginTop: 3, background: "none", border: "none", padding: 0,
+                              fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600,
+                              color: C.blue, cursor: "pointer",
+                            }}
+                          >
+                            Find similar →
+                          </button>
+                        )}
                       </td>
                       <td style={{ fontSize: 12 }}>{kidNames || "\u2014"}</td>
                       <td>
@@ -972,17 +984,31 @@ export default function BudgetTab({
                     )}
                   </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-                  <span style={{
-                    fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, padding: "2px 8px",
-                    borderRadius: 4, background: st.bg, color: st.color, textTransform: "uppercase",
-                  }}>
-                    {st.icon} {p.status}
-                  </span>
-                  {p.startDate && (
-                    <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
-                      {fmtShortDate(p.startDate)}{p.endDate ? ` – ${fmtShortDate(p.endDate)}` : ""}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, padding: "2px 8px",
+                      borderRadius: 4, background: st.bg, color: st.color, textTransform: "uppercase",
+                    }}>
+                      {st.icon} {p.status}
                     </span>
+                    {p.startDate && (
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted }}>
+                        {fmtShortDate(p.startDate)}{p.endDate ? ` – ${fmtShortDate(p.endDate)}` : ""}
+                      </span>
+                    )}
+                  </div>
+                  {onFindAlternatives && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); onFindAlternatives(p); }}
+                      style={{
+                        background: "none", border: "none", padding: 0,
+                        fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 600,
+                        color: C.blue, cursor: "pointer", flexShrink: 0,
+                      }}
+                    >
+                      Find similar →
+                    </button>
                   )}
                 </div>
               </div>
