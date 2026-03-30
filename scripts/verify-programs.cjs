@@ -250,6 +250,67 @@ function isHomepageRedirect(originalUrl, finalUrl) {
 }
 
 /**
+ * Known SPA (JavaScript-rendered) platform URL patterns.
+ * These platforms render all content via JavaScript — the raw HTML fetched
+ * by the verifier will never contain the program name, so name-check results
+ * would be 100% false positives.  We skip the name check for these and mark
+ * the result as "name-check-skipped-spa" instead of "not-found".
+ *
+ * Add new entries here whenever a new registration platform is identified
+ * that renders content via JS (React, Angular, Vue, etc.).
+ */
+const SPA_PLATFORM_PATTERNS = [
+  // ActiveNet (municipalities across BC/Canada: Vancouver, Burnaby, West Van, etc.)
+  /anc\.ca\.apm\.activecommunities\.com/i,
+  // PerfectMind (Richmond, Coquitlam, North Shore, Maple Ridge, etc.)
+  /webreg\.perfectmind\.com/i,
+  /perfectmind\.com/i,
+  // CampBrain (many camps and school districts)
+  /campbrainregistration\.com/i,
+  /campbrain\.com/i,
+  // JackRabbit (swim schools, gymnastics, dance, martial arts)
+  /jackrabbittech\.com/i,
+  /app\.jackrabbitclass\.com/i,
+  // TeamSnap (sports leagues and team registration)
+  /teamsnap\.com/i,
+  // iClassPro (dance, gymnastics, swim schools)
+  /iclasspro\.com/i,
+  /app\.iclasspro\.com/i,
+  // JotForm (online form builder — no program content in HTML)
+  /jotform\.com/i,
+  // Amilia (recreation management — CoV leisure centres, etc.)
+  /amilia\.com/i,
+  // CourseStorm (classes and workshops)
+  /coursestorm\.com/i,
+  // FitDEGREE (fitness classes)
+  /fitdegree\.com/i,
+  // Mindbody (fitness and wellness)
+  /mindbodyonline\.com/i,
+  /mindbody\.io/i,
+  // Square Appointments / Square Online
+  /squareup\.com\/appointments/i,
+  // Regpack
+  /regpacks\.com/i,
+  // SignUpGenius
+  /signupgenius\.com/i,
+  // Corsizio
+  /corsizio\.com/i,
+  // VSB Summer Learning Portal (React SPA — no static program text)
+  /summerreg\.vsb\.bc\.ca/i,
+  // SD41 Burnaby Summer Session form
+  /registration\.sd41\.bc\.ca/i,
+];
+
+/**
+ * Returns true if the program's registrationUrl matches a known JavaScript SPA
+ * platform where name-check verification would always produce false positives.
+ */
+function isSPAPlatform(url) {
+  if (!url) return false;
+  return SPA_PLATFORM_PATTERNS.some(pattern => pattern.test(url));
+}
+
+/**
  * Returns true if the page appears to be a JavaScript SPA
  * with little or no static text content visible in the raw HTML.
  */
@@ -426,6 +487,16 @@ async function verifyProgram(program) {
   }
 
   result.checks.url = 'ok';
+
+  // ── Known SPA platform — skip all content checks (name, price, status) ──
+  // These platforms render content via JavaScript; raw HTML never contains
+  // program-specific text, so any content check would be a false positive.
+  if (isSPAPlatform(program.registrationUrl)) {
+    result.jsRendered     = true;
+    result.checks.content = 'name-check-skipped-spa';
+    // URL resolved successfully — that is all we can verify for SPA platforms
+    return result;
+  }
 
   // ── JS-rendered detection — content checks can't run without a browser ──
   if (isJsRendered(html)) {
@@ -608,7 +679,7 @@ async function main() {
     total:   toCheck.length,
     skipped: expectedNoUrl.length,
     results: [],
-    summary: { ok: 0, issues: 0, resolved: 0, unresolved: 0, jsRendered: 0 },
+    summary: { ok: 0, issues: 0, resolved: 0, unresolved: 0, jsRendered: 0, spaSkipped: 0 },
   };
 
   let programsModified = false;
@@ -652,6 +723,7 @@ async function main() {
     }
 
     if (verifyResult.jsRendered) report.summary.jsRendered++;
+    if (verifyResult.checks.content === 'name-check-skipped-spa') report.summary.spaSkipped++;
 
     if (verifyResult.issues.length === 0) {
       report.summary.ok++;
@@ -704,6 +776,7 @@ async function main() {
   console.log(`Checked:       ${report.total}`);
   console.log(`OK:            ${report.summary.ok}`);
   console.log(`JS-rendered:   ${report.summary.jsRendered} (URL verified, content not checkable)`);
+  console.log(`SPA-skipped:   ${report.summary.spaSkipped} (known SPA platform — name check suppressed)`);
   console.log(`With issues:   ${report.summary.issues}`);
   if (FIX) {
     console.log(`Auto-resolved: ${report.summary.resolved}`);
