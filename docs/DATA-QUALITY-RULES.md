@@ -232,6 +232,48 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - Grade-to-age mapping: K=5, Grade 1-2=6-7, Grade 3-4=8-9, Grade 5-6=10-11, Grade 7-8=12-13
 - This is a WARNING rule (not auto-fixed) — manual verification required
 
+## Rule 35: Broken URLs Must Fall Back to Provider Search Page (HARD RULE)
+**Why:** When a program's specific URL breaks (404, redirect to homepage, expired event), parents clicking it land on an error page or homepage with no way to find the program. A search page is always better than a broken link.
+- When a registrationUrl returns 404, 410, or redirects to a homepage: update it to the provider's registration search page
+- Add `urlNote: "Search provider site for this program"` so parents know to look for the specific program
+- Known search page patterns:
+  - ActiveNet: `https://anc.ca.apm.activecommunities.com/{city}/activity/search`
+  - PerfectMind: root of the webreg.perfectmind.com subdomain
+  - CampBrain: root of the `.campbrainregistration.com` subdomain
+  - Private providers: root domain (e.g., `https://www.sciencealive.ca`)
+- Run `node scripts/validate-urls.cjs --fix` to apply this rule across all programs
+- NEVER leave a 404 URL in programs.json — always apply a fallback
+
+## Rule 36: Unverifiable Pricing Must Show Graceful Fallback, Not Wrong Data (HARD RULE)
+**Why:** Showing a price that doesn't match the provider's actual current price is worse than showing no price. Parents plan budgets based on what Skeddo shows — a wrong price causes real harm.
+- If a price can't be verified against the live registration page: set `cost: null`, `costNote: "Inquire with provider"`, `priceVerified: false`
+- If the page shows a clearly different price AND there is only one price on the page: update `cost` to the page price
+- If the page shows multiple prices (tiered, early bird, multiple sessions): set `cost: null`, `costNote: "Inquire with provider"`
+- This rule applies to ALL programs, not just new ones — run `node scripts/verify-programs.cjs --audit --fix`
+- A program showing "Inquire with provider" is not a failure — it is honest data
+
+## Rule 37: Enrollment Status Must Degrade Gracefully When Unverifiable (HARD RULE)
+**Why:** Showing "Open" for a program that is full, closed, or hasn't opened registration yet erodes parent trust. "Likely Coming Soon" is the safe default — it doesn't mislead.
+- If enrollment status cannot be verified from the live registration page:
+  - Default to `enrollmentStatus: "Likely Coming Soon"` (not "Open", not "Coming Soon")
+  - This is consistent with Rule 14 (prior-year data) and Rule 28 (verified source required for "Open")
+- Acceptable page signals that justify updating status:
+  - "Register Now" / "Enroll Now" / "Add to Cart" → Open
+  - "Sold Out" / "Class is Full" / "No Spots Available" → Full
+  - "Waitlist" → Full/Waitlist
+  - "Registration Opens [date]" → Coming Soon (if date within 30 days) or Upcoming
+  - "Registration Closed" → Closed
+  - "Coming Soon" / "Not Yet Open" → Likely Coming Soon
+- Run `node scripts/verify-programs.cjs --incremental --fix` to apply status corrections
+
+## Rule 38: URL Verification Must Run on All Programs Regularly (PROCESS RULE)
+**Why:** Provider websites change constantly — events expire, registration systems migrate, URLs restructure. Without regular checks, broken links accumulate silently.
+- `validate-urls.cjs` runs in the daily GitHub Actions pipeline (after each refresh cycle)
+- `verify-programs.cjs --incremental` checks unverified or stale programs (>7 days old)
+- `verify-programs.cjs --audit` should be run manually after any large batch import
+- State is tracked in `scripts/verify-state.json` — do not delete this file
+- The verify-report-YYYY-MM-DD.json files document what was checked and what was fixed
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
 

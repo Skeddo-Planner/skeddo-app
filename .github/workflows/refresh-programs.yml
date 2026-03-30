@@ -1,13 +1,17 @@
-# Skeddo — Auto-refresh program data from all sources
+# Skeddo — Auto-refresh + validate program data from all sources
 #
 # Runs daily at 6 AM Pacific (2 PM UTC) and can also be triggered manually.
-# Refreshes programs from:
-#   1. City of Vancouver (ActiveNet API)
-#   2. City of Richmond (PerfectMind system)
-#   3. Private providers (web scraping camp pages)
+# Pipeline:
+#   1. Refresh data from City of Vancouver (ActiveNet API)
+#   2. Refresh data from City of Richmond (PerfectMind system)
+#   3. Refresh data from private providers (web scraping)
+#   4. Validate data quality rules (validate-programs.cjs)
+#   5. Validate URLs — fix broken links (validate-urls.cjs)
+#   6. Incremental source-of-truth verification (verify-programs.cjs)
+#   7. Commit any auto-fixed programs.json changes back to the repo
 #
 # Required repository secrets (set in GitHub → Settings → Secrets):
-#   SUPABASE_URL             — Your Supabase project URL
+#   SUPABASE_URL              — Your Supabase project URL
 #   SUPABASE_SERVICE_ROLE_KEY — Your Supabase service role key (NOT the anon key)
 
 name: Refresh Programs
@@ -21,11 +25,14 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60  # Extended to accommodate URL validation (~23 min for full run)
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Need a token with write access to push back auto-fixed programs.json
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node.js 22
         uses: actions/setup-node@v4
@@ -34,6 +41,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # ── Data refresh ──────────────────────────────────────────────────────────
 
       - name: Refresh City of Vancouver (ActiveNet)
         env:
@@ -53,6 +62,61 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/refresh-private.js
 
+      # ── Data quality validation ───────────────────────────────────────────────
+
+      - name: Validate data quality rules
+        # Auto-fix known violations (cost types, status mismatches, duplicate cleanup, etc.)
+        # Continues even if violations remain so later steps still run
+        continue-on-error: true
+        run: node scripts/validate-programs.cjs --fix
+
+      - name: Validate and fix broken URLs
+        # Checks every registrationUrl — fixes 404s, homepage redirects, client errors.
+        # Uses --limit=500 to stay well within the 60-minute job timeout on a daily run.
+        # Run manually with no --limit for a full audit: node scripts/validate-urls.cjs --fix
+        continue-on-error: true
+        run: node scripts/validate-urls.cjs --fix --limit=500
+
+      - name: Incremental source-of-truth verification
+        # Checks programs not verified in the last 7 days — cross-checks name, price, and
+        # enrollment status against the live registration page.
+        # Uses --limit=200 to keep this step under ~5 minutes (200 × 750ms ≈ 2.5 min + overhead).
+        # Full audit: node scripts/verify-programs.cjs --audit --fix
+        continue-on-error: true
+        run: node scripts/verify-programs.cjs --incremental --fix --limit=200
+
+      # ── Commit auto-fixes back to repo ───────────────────────────────────────
+
+      - name: Commit auto-fixed programs.json (if changed)
+        run: |
+          git config user.name  "Skeddo Pipeline"
+          git config user.email "pipeline@skeddo.ca"
+          if git diff --quiet src/data/programs.json scripts/verify-state.json 2>/dev/null; then
+            echo "No changes to programs.json or verify-state.json — nothing to commit."
+          else
+            git add src/data/programs.json
+            git add scripts/verify-state.json 2>/dev/null || true
+            git commit -m "chore: auto-fix data quality issues [skip ci]
+
+Auto-applied by daily pipeline:
+- validate-programs.cjs --fix (data quality rules)
+- validate-urls.cjs --fix (broken URL resolution)
+- verify-programs.cjs --incremental --fix (source-of-truth verification)"
+            git push
+          fi
+
+      # ── Report ────────────────────────────────────────────────────────────────
+
       - name: Report results
         if: always()
-        run: echo "All refreshes completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
+        run: |
+          echo "Pipeline completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
+          echo ""
+          echo "Steps run:"
+          echo "  1. Refresh: ActiveNet (CoV), PerfectMind (Richmond), Private providers"
+          echo "  2. Validate: data quality rules (validate-programs.cjs)"
+          echo "  3. Validate: URL resolution (validate-urls.cjs --limit=500)"
+          echo "  4. Verify:   incremental source-of-truth (verify-programs.cjs --limit=200)"
+          echo ""
+          echo "For a full URL audit: node scripts/validate-urls.cjs --fix"
+          echo "For a full verify audit: node scripts/verify-programs.cjs --audit --fix"
