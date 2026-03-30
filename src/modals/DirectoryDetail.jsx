@@ -310,14 +310,43 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         </div>
       )}
 
+      {/* Spots remaining urgency */}
+      {p.spotsRemaining && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 13,
+          fontWeight: 700,
+          color: "#C0392B",
+          background: "rgba(192, 57, 43, 0.07)",
+          borderRadius: 8,
+          padding: "8px 12px",
+          marginBottom: 12,
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+        }}>
+          ⚡ {p.spotsRemaining}
+          {p.spotsUpdatedAt && (
+            <span style={{ fontWeight: 400, fontSize: 11, color: C.muted }}>
+              (as of {new Date(p.spotsUpdatedAt).toLocaleDateString("en-CA", { month: "short", day: "numeric" })})
+            </span>
+          )}
+        </div>
+      )}
+
       {/* Key info highlights */}
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: p.costNote ? 4 : 16, alignItems: "center" }}>
         {p.cost != null && (
           <span style={{
             fontFamily: "'Poppins', sans-serif", fontSize: 16,
             color: C.ink, background: C.cream, padding: "4px 12px", borderRadius: 8,
           }}>
             {earlyBirdActive ? fmt$(p.earlyBirdCost) : isApproxPrice ? `~${fmt$(p.cost)}` : fmt$(p.cost)}
+            {p.costPer && (
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginLeft: 2 }}>
+                /{p.costPer}
+              </span>
+            )}
           </span>
         )}
         {!earlyBirdActive && isApproxPrice && (
@@ -404,13 +433,32 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         )}
       </div>
 
+      {/* Cost note */}
+      {p.costNote && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif", fontSize: 11,
+          color: C.muted, fontStyle: "italic", marginBottom: 12,
+        }}>
+          {p.costNote}
+        </div>
+      )}
+
       {/* Detail grid */}
-      <div style={s.detailGrid}>
+      <div style={s.detailGrid} className="skeddo-detail-grid">
         <div>
           <div style={s.detailLabel}>TIMES{p.confirmed2026 === false ? " (est.)" : ""}</div>
           <div style={{ ...s.detailValue, ...(p.confirmed2026 === false ? { fontStyle: "italic", color: "#B8860B" } : {}) }}>
-            {p.startTime && p.endTime ? `${p.startTime}\u2013${p.endTime}` : p.times || "\u2014"}
+            {p.days && p.startTime
+              ? `${p.days} · ${p.startTime}\u2013${p.endTime || ""}`
+              : p.startTime && p.endTime
+                ? `${p.startTime}\u2013${p.endTime}`
+                : p.times || "\u2014"}
           </div>
+          {p.timeNote && (
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontStyle: "italic", marginTop: 2 }}>
+              {p.timeNote}
+            </div>
+          )}
         </div>
         <div>
           <div style={s.detailLabel}>DATES{p.confirmed2026 === false ? " (est.)" : ""}</div>
@@ -420,6 +468,12 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
               : fmtDate(p.startDate) || "\u2014"}
           </div>
         </div>
+        {p.indoorOutdoor && (
+          <div>
+            <div style={s.detailLabel}>SETTING</div>
+            <div style={s.detailValue}>{p.indoorOutdoor}</div>
+          </div>
+        )}
         <div>
           <div style={s.detailLabel}>LOCATION</div>
           <div style={s.detailValue}>{p.address || p.location || "\u2014"}</div>

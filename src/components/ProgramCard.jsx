@@ -86,9 +86,19 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
           </span>
         )}
       </div>
+      {p.activityType && p.activityType !== p.category && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 12,
+          color: C.muted,
+          marginTop: 1,
+        }}>
+          {p.activityType}
+        </div>
+      )}
 
-      {/* Info badges row: date range, age, season type, early bird */}
-      {(dateRange || ageLabel || p.seasonType || earlyBirdActive) && (
+      {/* Info badges row: date range, age, season type, early bird, indoor/outdoor */}
+      {(dateRange || ageLabel || p.seasonType || earlyBirdActive || p.indoorOutdoor) && (
         <div
           style={{
             display: "flex",
@@ -121,6 +131,11 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
           {p.dayLength && (
             <span style={badgeStyle(C.seaGreen, "#E8F5EE")}>
               {p.dayLength}
+            </span>
+          )}
+          {p.indoorOutdoor && (
+            <span style={badgeStyle(C.muted, "#F2F0EC")}>
+              {p.indoorOutdoor === "Indoor" ? "🏠" : p.indoorOutdoor === "Outdoor" ? "🌿" : "🏟️"} {p.indoorOutdoor}
             </span>
           )}
         </div>
@@ -167,10 +182,29 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
         </div>
       )}
 
+      {/* Spots remaining urgency */}
+      {p.spotsRemaining && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 11,
+          fontWeight: 700,
+          color: "#C0392B",
+          background: "rgba(192, 57, 43, 0.08)",
+          borderRadius: 6,
+          padding: "3px 8px",
+          marginTop: 6,
+          display: "inline-block",
+        }}>
+          ⚡ {p.spotsRemaining}
+        </div>
+      )}
+
       {/* Bottom row: days/times + cost + register link */}
       <div style={s.cardBottom}>
         <span style={s.cardMeta}>
-          {p.times || "\u2014"}
+          {p.days && p.startTime
+            ? `${p.days} · ${p.startTime}–${p.endTime || ""}`
+            : p.times || "\u2014"}
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
@@ -199,6 +233,11 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
                 ? fmt$(p.earlyBirdCost)
                 : p.priceVerified === false ? `~${fmt$(p.cost)}` : fmt$(p.cost)
               }
+              {p.costPer && (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginLeft: 2 }}>
+                  /{p.costPer}
+                </span>
+              )}
             </span>
             {earlyBirdActive && p.cost > 0 && (
               <span style={{
@@ -208,6 +247,16 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
                 textDecoration: "line-through",
               }}>
                 {fmt$(p.cost)}
+              </span>
+            )}
+            {p.costNote && (
+              <span style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 10,
+                color: C.muted,
+                fontStyle: "italic",
+              }}>
+                {p.costNote}
               </span>
             )}
           </div>

@@ -108,7 +108,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         </>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }} className="skeddo-two-col-form">
         <div>
           <Label>Category</Label>
           <select
@@ -135,7 +135,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }} className="skeddo-two-col-form">
         <div>
           <Label>Cost ($)</Label>
           <input
@@ -195,7 +195,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }} className="skeddo-two-col-form">
         <div>
           <Label>Times</Label>
           <input
@@ -216,7 +216,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }} className="skeddo-two-col-form">
         <div>
           <Label>End Date</Label>
           <input
@@ -242,7 +242,7 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }} className="skeddo-two-col-form">
         <div>
           <Label>Age Min</Label>
           <input

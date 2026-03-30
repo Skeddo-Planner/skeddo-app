@@ -1056,7 +1056,7 @@ export default function DiscoverTab({
               </>
             )}
             {!isLoadingPrograms && (
-              <div style={isDesktop ? {
+              <div className="discover-results" style={isDesktop ? {
                 display: "grid",
                 gridTemplateColumns: eligibilityFiltered.length >= 9 ? "repeat(4, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))",
                 gap: 12,

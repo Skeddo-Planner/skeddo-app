@@ -86,6 +86,11 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         }}
       >
         {CAT_EMOJI[p.category] || ""} {p.category}
+        {p.activityType && p.activityType !== p.category && (
+          <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0, marginLeft: 6, fontSize: 11 }}>
+            · {p.activityType}
+          </span>
+        )}
       </div>
 
       {/* Program name */}
@@ -101,7 +106,7 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
       </div>
 
       {/* Detail grid */}
-      <div style={s.detailGrid}>
+      <div style={s.detailGrid} className="skeddo-detail-grid">
         <div>
           <div style={s.detailLabel}>PROVIDER</div>
           <div style={s.detailValue}>{p.provider || "\u2014"}</div>
@@ -110,11 +115,32 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
           <div style={s.detailLabel}>COST</div>
           <div style={{ ...s.detailValue, fontFamily: "'Poppins', sans-serif", fontSize: 20 }}>
             {fmt$(p.cost)}
+            {p.costPer && (
+              <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginLeft: 3 }}>
+                /{p.costPer}
+              </span>
+            )}
           </div>
+          {p.costNote && (
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontStyle: "italic", marginTop: 2 }}>
+              {p.costNote}
+            </div>
+          )}
         </div>
         <div>
           <div style={s.detailLabel}>TIMES</div>
-          <div style={s.detailValue}>{p.times || "\u2014"}</div>
+          <div style={s.detailValue}>
+            {p.days && p.startTime
+              ? `${p.days} · ${p.startTime}–${p.endTime || ""}`
+              : p.startTime && p.endTime
+                ? `${p.startTime}–${p.endTime}`
+                : p.times || "\u2014"}
+          </div>
+          {p.timeNote && (
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontStyle: "italic", marginTop: 2 }}>
+              {p.timeNote}
+            </div>
+          )}
         </div>
         <div>
           <div style={s.detailLabel}>START DATE</div>
@@ -136,9 +162,15 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
                   : "\u2014"}
           </div>
         </div>
+        {p.indoorOutdoor && (
+          <div>
+            <div style={s.detailLabel}>SETTING</div>
+            <div style={s.detailValue}>{p.indoorOutdoor}</div>
+          </div>
+        )}
         <div>
           <div style={s.detailLabel}>LOCATION</div>
-          <div style={s.detailValue}>{p.location || "\u2014"}</div>
+          <div style={s.detailValue}>{p.address || p.location || "\u2014"}</div>
         </div>
         <div>
           <div style={s.detailLabel}>NEIGHBOURHOOD</div>
@@ -146,9 +178,49 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         </div>
         <div>
           <div style={s.detailLabel}>SEASON TYPE</div>
-          <div style={s.detailValue}>{p.seasonType || "\u2014"}</div>
+          <div style={s.detailValue}>{p.seasonType || p.season || "\u2014"}</div>
         </div>
       </div>
+
+      {/* Spots remaining urgency */}
+      {p.spotsRemaining && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 13,
+          fontWeight: 700,
+          color: "#C0392B",
+          background: "rgba(192, 57, 43, 0.07)",
+          borderRadius: 8,
+          padding: "8px 12px",
+          marginTop: 12,
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+        }}>
+          ⚡ {p.spotsRemaining}
+          {p.spotsUpdatedAt && (
+            <span style={{ fontWeight: 400, fontSize: 11, color: C.muted, marginLeft: 4 }}>
+              (as of {new Date(p.spotsUpdatedAt).toLocaleDateString("en-CA", { month: "short", day: "numeric" })})
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Description */}
+      {p.description && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 14,
+          color: C.ink,
+          lineHeight: 1.7,
+          marginTop: 14,
+          padding: "12px 14px",
+          background: C.cream,
+          borderRadius: 8,
+        }}>
+          {p.description}
+        </div>
+      )}
 
       {/* Links row — Register + Add to Calendar */}
       <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
