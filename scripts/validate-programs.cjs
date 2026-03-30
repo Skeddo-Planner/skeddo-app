@@ -63,6 +63,7 @@ const FREE_PROVIDER_PREFIXES = [
 
 // Domains where the homepage IS the registration/programs page (R29 exempt)
 // Only include sites where the root URL is genuinely the registration portal
+// MAX 25 entries — if this list grows beyond that, fix the URLs instead of adding exemptions
 const HOMEPAGE_EXEMPT_DOMAINS = [
   // Registration portals (homepage = registration system)
   "summerreg.vsb.bc.ca", "fraserviewgolfacademy.as.me",
@@ -78,6 +79,12 @@ const HOMEPAGE_EXEMPT_DOMAINS = [
   "www.mylanguageconnect.com", "myarabic.ca",
   "www.q7studios.com",
 ];
+
+// Guard: exempt list must stay small — if it grows, URLs need fixing, not exempting
+if (HOMEPAGE_EXEMPT_DOMAINS.length > 25) {
+  console.error(`\n⚠️  HOMEPAGE_EXEMPT_DOMAINS has ${HOMEPAGE_EXEMPT_DOMAINS.length} entries (max 25). Fix URLs instead of adding exemptions.\n`);
+  process.exit(1);
+}
 
 console.log(`\n=== SKEDDO PROGRAM VALIDATOR ===`);
 console.log(`Programs: ${programs.length} | Mode: ${FIX ? "FIX" : "REPORT"} | Date: ${TODAY.toISOString().split("T")[0]}\n`);
