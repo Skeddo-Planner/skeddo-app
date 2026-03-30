@@ -62,23 +62,21 @@ const FREE_PROVIDER_PREFIXES = [
 ];
 
 // Domains where the homepage IS the registration/programs page (R29 exempt)
+// Only include sites where the root URL is genuinely the registration portal
 const HOMEPAGE_EXEMPT_DOMAINS = [
+  // Registration portals (homepage = registration system)
   "summerreg.vsb.bc.ca", "fraserviewgolfacademy.as.me",
   "combocamps.campbrainregistration.com", "evanslake.campbrainregistration.com",
-  "www.wmasummercamp.com", "www.clubhousekids.ca", "www.sparksedu.com",
-  "www.vancouverskateboardcoalition.ca", "www.q7studios.com", "vbs.vcbc.ca",
-  "parentsforspanish.org", "www.wordsinmotionbc.com", "todo-spanish.com",
-  "www.mylanguageconnect.com", "www.jerichobaseball.com", "www.hcll.ca",
-  "vmfl.powerupsports.com", "vafc.powerupsports.com", "www.vancouverlacrosse.com",
-  "www.northshoreminorlacrosse.com", "capilanorfc.com", "www.wvfhc.com",
-  "coastwrestlingacademy.com", "westsiderwrestling.com", "grandviewskatingclub.com",
-  "skatekerrisdale.uplifterinc.com", "www.kitsfsc.ca", "vancouverskatingclub.ca",
-  "www.roundhouse.ca", "www.pennychessclub.ca", "www.debateon.ca",
-  "renfrewcc.com", "cnh.bc.ca", "thunderbirdcc.ca", "marpoleoakridge.org",
-  "hillcrestcommunitycentre.com", "troutlakecc.com", "www.squamishclimbingacademy.com",
-  "sukhsagar.academy", "mandokids.com", "www.froghollow.bc.ca",
-  "arabicschool.corsizio.com", "summer.bodwell.edu",
-  "myarabic.ca", "vmsa.ca",
+  "vmfl.powerupsports.com", "vafc.powerupsports.com",
+  "skatekerrisdale.uplifterinc.com", "vancouversc.uplifterinc.com",
+  "arabicschool.corsizio.com", "regportal.cnh.bc.ca",
+  // Single-purpose sites (entire site IS the program page)
+  "www.wmasummercamp.com", "www.clubhousekids.ca",
+  "www.vancouverskateboardcoalition.ca", "www.capilanorfcminiyouth.com",
+  "www.squamishclimbingacademy.com", "sukhsagar.academy",
+  "mandokids.com", "summer.bodwell.edu",
+  "www.mylanguageconnect.com", "myarabic.ca",
+  "www.q7studios.com",
 ];
 
 console.log(`\n=== SKEDDO PROGRAM VALIDATOR ===`);
