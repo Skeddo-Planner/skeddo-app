@@ -614,7 +614,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
               />
             )}
 
-            {tab === "discover" && (
+            <div style={{ display: tab === "discover" ? "contents" : "none" }}>
               <DiscoverTab
                 programs={programs}
                 kids={kids}
@@ -628,7 +628,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onKidFilter={setKidFilter}
                 onOpenAddProgram={openAddProgram}
               />
-            )}
+            </div>
 
             {tab === "schedule" && (
               <ScheduleTab
@@ -728,7 +728,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
               />
             )}
 
-            {tab === "discover" && (
+            <div style={{ display: tab === "discover" ? "contents" : "none" }}>
               <DiscoverTab
                 programs={programs}
                 kids={kids}
@@ -742,7 +742,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onKidFilter={setKidFilter}
                 onOpenAddProgram={openAddProgram}
               />
-            )}
+            </div>
 
             {tab === "schedule" && (
               <ScheduleTab
