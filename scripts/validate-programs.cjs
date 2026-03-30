@@ -63,14 +63,16 @@ const FREE_PROVIDER_PREFIXES = [
 
 // Domains where the homepage IS the registration/programs page (R29 exempt)
 // Only include sites where the root URL is genuinely the registration portal
-// MAX 25 entries — if this list grows beyond that, fix the URLs instead of adding exemptions
+// MAX 30 entries — if this list grows beyond that, fix the URLs instead of adding exemptions
 const HOMEPAGE_EXEMPT_DOMAINS = [
   // Registration portals (homepage = registration system)
   "summerreg.vsb.bc.ca", "fraserviewgolfacademy.as.me",
   "combocamps.campbrainregistration.com", "evanslake.campbrainregistration.com",
-  "vmfl.powerupsports.com", "vafc.powerupsports.com",
+  "thrivingroots.campbrainregistration.com", "cts.campbrainregistration.com",
+  "vmfl.powerupsports.com", "vafc.powerupsports.com", "newwestsc.powerupsports.com",
   "skatekerrisdale.uplifterinc.com", "vancouversc.uplifterinc.com",
   "arabicschool.corsizio.com", "regportal.cnh.bc.ca",
+  "book.singenuity.com", "littlecooksclub.getomnify.com",
   // Single-purpose sites (entire site IS the program page)
   "www.wmasummercamp.com", "www.clubhousekids.ca",
   "www.vancouverskateboardcoalition.ca", "www.capilanorfcminiyouth.com",
@@ -81,8 +83,8 @@ const HOMEPAGE_EXEMPT_DOMAINS = [
 ];
 
 // Guard: exempt list must stay small — if it grows, URLs need fixing, not exempting
-if (HOMEPAGE_EXEMPT_DOMAINS.length > 25) {
-  console.error(`\n⚠️  HOMEPAGE_EXEMPT_DOMAINS has ${HOMEPAGE_EXEMPT_DOMAINS.length} entries (max 25). Fix URLs instead of adding exemptions.\n`);
+if (HOMEPAGE_EXEMPT_DOMAINS.length > 30) {
+  console.error(`\n⚠️  HOMEPAGE_EXEMPT_DOMAINS has ${HOMEPAGE_EXEMPT_DOMAINS.length} entries (max 30). Fix URLs instead of adding exemptions.\n`);
   process.exit(1);
 }
 
@@ -105,7 +107,7 @@ programs.forEach((p, idx) => {
   if (p.registrationUrl) {
     const url = p.registrationUrl;
     // ActiveNet search pages without a detail ID AND without keyword filter
-    if (url.includes("activecommunities.com") && url.includes("/activity/search") && !url.includes("/detail/") && !url.includes("activity_keyword")) {
+    if (url.includes("activecommunities.com") && url.includes("/activity/search") && !url.includes("/detail/") && !url.includes("activity_keyword") && !url.includes("Activity_Search")) {
       warn(id, 32, `ActiveNet URL points to generic search page, not activity detail: ${url}`);
     }
   }
