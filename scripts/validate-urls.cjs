@@ -133,19 +133,32 @@ function getProviderSearchPage(registrationUrl, provider) {
 /**
  * Fetch a URL via GET, following redirects, capping body at MAX_HTML_BYTES.
  * Returns { status, finalUrl, html, redirectChain, error }
+ *
+ * @param {string}      startUrl
+ * @param {AbortSignal} [abortSignal]  When fired, the active socket is destroyed immediately.
  */
-function fetchUrl(startUrl) {
+function fetchUrl(startUrl, abortSignal) {
   return new Promise(resolve => {
     const redirectChain = [];
+    let settled = false;
+
+    // Guard: only resolve once (req.destroy() causes both 'timeout' and 'error' to fire)
+    function safeResolve(val) {
+      if (!settled) { settled = true; resolve(val); }
+    }
+
+    if (abortSignal && abortSignal.aborted) {
+      return safeResolve({ status: null, finalUrl: startUrl, html: '', redirectChain, error: 'Hard deadline exceeded' });
+    }
 
     function doRequest(currentUrl, depth) {
       if (depth > MAX_REDIRECTS) {
-        return resolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: 'Too many redirects' });
+        return safeResolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: 'Too many redirects' });
       }
 
       let parsed;
       try { parsed = new URL(currentUrl); } catch (e) {
-        return resolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: `Invalid URL: ${e.message}` });
+        return safeResolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: `Invalid URL: ${e.message}` });
       }
 
       const lib = parsed.protocol === 'https:' ? https : http;
@@ -171,7 +184,7 @@ function fetchUrl(startUrl) {
           let next;
           try { next = new URL(res.headers.location, currentUrl).href; } catch (e) {
             res.resume();
-            return resolve({ status, finalUrl: currentUrl, html: '', redirectChain, error: `Malformed redirect: ${res.headers.location}` });
+            return safeResolve({ status, finalUrl: currentUrl, html: '', redirectChain, error: `Malformed redirect: ${res.headers.location}` });
           }
           redirectChain.push({ from: currentUrl, to: next, status });
           res.resume();
@@ -183,12 +196,26 @@ function fetchUrl(startUrl) {
         let bytes = 0;
         res.setEncoding('utf8');
         res.on('data',  chunk => { if (bytes < MAX_HTML_BYTES) { html += chunk; bytes += chunk.length; } });
-        res.on('end',   ()    => resolve({ status, finalUrl: currentUrl, html, redirectChain, error: null }));
-        res.on('error', err   => resolve({ status, finalUrl: currentUrl, html, redirectChain, error: err.message }));
+        res.on('end',   ()    => safeResolve({ status, finalUrl: currentUrl, html, redirectChain, error: null }));
+        res.on('error', err   => safeResolve({ status, finalUrl: currentUrl, html, redirectChain, error: err.message }));
       });
 
-      req.on('timeout', () => { req.destroy(); resolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: 'Request timed out' }); });
-      req.on('error',  err  => resolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: err.message }));
+      // Socket-level inactivity timeout (fires once connected but idle) — destroy triggers 'error'
+      req.on('timeout', () => { req.destroy(); });
+      // All errors (including from req.destroy()) land here
+      req.on('error', err => {
+        safeResolve({ status: null, finalUrl: currentUrl, html: '', redirectChain,
+          error: (abortSignal && abortSignal.aborted) ? 'Hard deadline exceeded' : err.message });
+      });
+
+      // Wire up the external abort signal so the hard deadline actually kills this socket
+      if (abortSignal) {
+        abortSignal.addEventListener('abort', () => {
+          req.destroy();
+          safeResolve({ status: null, finalUrl: currentUrl, html: '', redirectChain, error: 'Hard deadline exceeded' });
+        }, { once: true });
+      }
+
       req.end();
     }
 
@@ -197,19 +224,14 @@ function fetchUrl(startUrl) {
 }
 
 /**
- * Wraps fetchUrl with a hard wall-clock deadline.
- * Even if the socket timeout fires but the stream hangs, this ensures we move on.
+ * Wraps fetchUrl with a hard wall-clock deadline via AbortController.
+ * When the deadline fires, controller.abort() destroys the active socket
+ * immediately — no background requests accumulate across thousands of URLs.
  */
 function fetchUrlWithDeadline(url) {
-  return Promise.race([
-    fetchUrl(url),
-    new Promise(resolve =>
-      setTimeout(
-        () => resolve({ status: null, finalUrl: url, html: '', redirectChain: [], error: 'Hard deadline exceeded' }),
-        HARD_TIMEOUT_MS
-      )
-    ),
-  ]);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), HARD_TIMEOUT_MS);
+  return fetchUrl(url, controller.signal).finally(() => clearTimeout(timer));
 }
 
 // ── URL analysis helpers ──────────────────────────────────────────────────────
