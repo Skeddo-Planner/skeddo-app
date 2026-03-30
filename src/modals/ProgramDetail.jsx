@@ -40,7 +40,7 @@ function StarRating({ value, onChange }) {
   );
 }
 
-export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, onDelete, onClose, onSave, activityLog }) {
+export default function ProgramDetail({ program, kids, onCycleStatus, onSetStatus, onEdit, onDelete, onClose, onSave, activityLog }) {
   const p = program;
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const assignedKids = (kids || []).filter((k) => (p.kidIds || []).includes(k.id));
@@ -94,16 +94,166 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
       </div>
 
       {/* Program name */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
-        <h3 style={s.modalTitle}>{p.name}</h3>
-        <div
-          className="status-chip"
-          style={{ ...s.statusChip, background: st.bg, color: st.color, cursor: "pointer" }}
-          onClick={onCycleStatus}
-        >
-          {st.icon} {p.status}
+      <h3 style={{ ...s.modalTitle, marginBottom: 14 }}>{p.name}</h3>
+
+      {/* Status picker — explicit 3-button selector */}
+      <div style={{ marginBottom: 14 }}>
+        <div style={{
+          fontFamily: "'Barlow', sans-serif",
+          fontSize: 11, fontWeight: 700, color: C.muted,
+          textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8,
+        }}>
+          YOUR STATUS
+        </div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {["Exploring", "Waitlist", "Enrolled"].map((s_) => {
+            const sm = STATUS_MAP[s_];
+            const active = p.status === s_;
+            return (
+              <button
+                key={s_}
+                onClick={() => onSetStatus ? onSetStatus(s_) : onCycleStatus && onCycleStatus()}
+                aria-pressed={active}
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  fontSize: 13, fontWeight: 700,
+                  padding: "8px 16px", borderRadius: 8,
+                  border: active ? `2px solid ${sm.color}` : `2px solid rgba(27,36,50,0.12)`,
+                  background: active ? sm.bg : "transparent",
+                  color: active ? sm.color : C.muted,
+                  cursor: active ? "default" : "pointer",
+                  transition: "all 0.15s",
+                  minHeight: 38,
+                }}
+              >
+                {sm.icon} {s_}
+              </button>
+            );
+          })}
         </div>
       </div>
+
+      {/* Contextual next-step CTA */}
+      {p.status === "Exploring" && (
+        <div style={{
+          background: "#EAF5EF",
+          border: `1px solid rgba(58,158,106,0.2)`,
+          borderRadius: 10,
+          padding: "12px 14px",
+          marginBottom: 14,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12,
+          flexWrap: "wrap",
+        }}>
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
+              Ready to sign up?
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2, lineHeight: 1.5 }}>
+              Register on the provider's site, then mark as Enrolled above.
+            </div>
+          </div>
+          {p.registrationUrl && (
+            <a
+              href={p.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 13, fontWeight: 700,
+                color: C.white, background: C.seaGreen,
+                borderRadius: 8, padding: "9px 16px",
+                textDecoration: "none", whiteSpace: "nowrap",
+                minHeight: 38, display: "inline-flex", alignItems: "center",
+              }}
+            >
+              Register &rarr;
+            </a>
+          )}
+        </div>
+      )}
+
+      {p.status === "Waitlist" && (
+        <div style={{
+          background: "rgba(184,154,42,0.08)",
+          border: `1px solid rgba(184,154,42,0.25)`,
+          borderRadius: 10,
+          padding: "12px 14px",
+          marginBottom: 14,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12,
+          flexWrap: "wrap",
+        }}>
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
+              You're on the waitlist
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2, lineHeight: 1.5 }}>
+              When a spot opens and you register, mark as Enrolled above.
+            </div>
+          </div>
+          {p.registrationUrl && (
+            <a
+              href={p.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 13, fontWeight: 700,
+                color: C.olive, background: "rgba(184,154,42,0.12)",
+                borderRadius: 8, padding: "9px 16px",
+                textDecoration: "none", whiteSpace: "nowrap",
+                minHeight: 38, display: "inline-flex", alignItems: "center",
+              }}
+            >
+              Check status &rarr;
+            </a>
+          )}
+        </div>
+      )}
+
+      {p.status === "Enrolled" && !showRating && (
+        <div style={{
+          background: "rgba(58,158,106,0.07)",
+          border: `1px solid rgba(58,158,106,0.18)`,
+          borderRadius: 10,
+          padding: "12px 14px",
+          marginBottom: 14,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12,
+          flexWrap: "wrap",
+        }}>
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.ink }}>
+              You're all set! 🎉
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2, lineHeight: 1.5 }}>
+              Add to your calendar so you don't forget.
+            </div>
+          </div>
+          {p.startDate && (
+            <button
+              onClick={() => downloadICS(p)}
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 13, fontWeight: 700,
+                color: C.seaGreen, background: "#E8F5EE",
+                border: "none", borderRadius: 8, padding: "9px 16px",
+                cursor: "pointer", whiteSpace: "nowrap",
+                minHeight: 38, display: "inline-flex", alignItems: "center", gap: 6,
+              }}
+            >
+              📅 Add to Calendar
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Detail grid */}
       <div style={s.detailGrid} className="skeddo-detail-grid">
@@ -222,28 +372,9 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
         </div>
       )}
 
-      {/* Links row — Register + Add to Calendar */}
-      <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
-        {p.registrationUrl && (
-          <a
-            href={p.registrationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: "'Barlow', sans-serif",
-              fontSize: 13,
-              fontWeight: 700,
-              color: C.seaGreen,
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 4,
-            }}
-          >
-            Register &rarr;
-          </a>
-        )}
-        {p.startDate && (
+      {/* Secondary links row — only shown when not already in CTA panel */}
+      {(p.startDate && p.status !== "Enrolled") && (
+        <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap" }}>
           <button
             onClick={() => downloadICS(p)}
             style={{
@@ -262,8 +393,8 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onEdit, on
           >
             &#128197; Add to Calendar
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Notes */}
       {p.notes && (

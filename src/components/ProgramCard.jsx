@@ -73,6 +73,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
           aria-label={`Status: ${p.status}. Tap to change.`}
         >
           {st.icon} {p.status}
+          <span style={{ fontSize: 9, opacity: 0.55, marginLeft: 3, lineHeight: 1 }}>▾</span>
         </button>
       </div>
 

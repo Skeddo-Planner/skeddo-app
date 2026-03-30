@@ -180,7 +180,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     kidFilter, setKidFilter,
     enrolledPrograms, waitlistPrograms, exploringPrograms,
     totalCostEnrolled, totalCostAll, filteredPrograms,
-    saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
+    saveProgram, deleteProgram, cycleStatus, setStatus, saveKid, deleteKid,
     manualCosts, saveManualCost, deleteManualCost,
     favorites, toggleFavorite, isFavorite,
     profile, setProfile, lastSynced,
@@ -664,6 +664,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onCatFilter={setCatFilter}
                 onOpenDetail={openDetail}
                 onCycleStatus={cycleStatus}
+                onSetStatus={setStatus}
                 onOpenAddProgram={openAddProgram}
                 searchQuery={searchQuery}
                 onSearchQuery={setSearchQuery}
@@ -780,6 +781,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onCatFilter={setCatFilter}
                 onOpenDetail={openDetail}
                 onCycleStatus={cycleStatus}
+                onSetStatus={setStatus}
                 onOpenAddProgram={openAddProgram}
                 searchQuery={searchQuery}
                 onSearchQuery={setSearchQuery}
@@ -834,9 +836,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           <ProgramDetail
             program={currentProgram}
             kids={kids}
-            onCycleStatus={() => {
-              cycleStatus(currentProgram.id);
-            }}
+            onCycleStatus={() => cycleStatus(currentProgram.id)}
+            onSetStatus={(status) => setStatus(currentProgram.id, status)}
             onEdit={() => openEditProgram(currentProgram)}
             onDelete={() => handleDeleteProgram(currentProgram.id)}
             onClose={() => setModal(null)}

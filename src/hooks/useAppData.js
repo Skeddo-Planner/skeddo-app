@@ -581,6 +581,21 @@ export function useAppData(userId) {
     );
   }, [userId, markSynced]);
 
+  const setStatus = useCallback((id, status) => {
+    setPrograms((prev) =>
+      prev.map((p) => {
+        if (p.id !== id) return p;
+        trackEvent("change_status", { new_status: status });
+        const updated = { ...p, status };
+        if (usingSupabase.current && userId) {
+          supabase.from("user_programs").update({ status }).eq("id", id)
+            .then(({ error }) => { if (error) console.warn("Failed to set status:", error); else markSynced(); });
+        }
+        return updated;
+      })
+    );
+  }, [userId, markSynced]);
+
   /* ══════════════════════════════════════════════
      CRUD: Kids
      ══════════════════════════════════════════════ */
@@ -692,7 +707,7 @@ export function useAppData(userId) {
     totalCostEnrolled, totalCostAll, filteredPrograms,
     favorites, toggleFavorite, isFavorite,
     profile, setProfile, lastSynced,
-    saveProgram, deleteProgram, cycleStatus, saveKid, deleteKid,
+    saveProgram, deleteProgram, cycleStatus, setStatus, saveKid, deleteKid,
     manualCosts, saveManualCost, deleteManualCost,
   };
 }

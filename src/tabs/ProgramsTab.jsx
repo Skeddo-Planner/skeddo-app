@@ -37,7 +37,7 @@ function StatusBadge({ status }) {
 }
 
 /* ─── Desktop detail panel ─── */
-function DetailPanel({ program, kids, onClose, onCycleStatus }) {
+function DetailPanel({ program, kids, onClose, onCycleStatus, onSetStatus }) {
   const kidNames = (program.kidIds || []).map((id) => kids.find((k) => k.id === id)?.name).filter(Boolean);
   const cph = calcCostPerHour(program);
   const st = STATUS_MAP[program.status] || STATUS_MAP.Exploring;
@@ -71,19 +71,60 @@ function DetailPanel({ program, kids, onClose, onCycleStatus }) {
         </div>
       )}
 
-      {/* Status badge */}
+      {/* Status picker */}
       <div style={{ marginBottom: 16 }}>
-        <span
-          onClick={() => onCycleStatus(program.id)}
-          className="status-chip"
-          style={{
-            fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
-            padding: "4px 12px", borderRadius: 8,
-            color: st.color, background: st.bg, cursor: "pointer",
-          }}
-        >
-          {program.status}
-        </span>
+        <div style={{
+          fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700,
+          color: C.muted, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 8,
+        }}>
+          YOUR STATUS
+        </div>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+          {["Exploring", "Waitlist", "Enrolled"].map((s_) => {
+            const sm = STATUS_MAP[s_];
+            const active = program.status === s_;
+            return (
+              <button
+                key={s_}
+                onClick={() => {
+                  if (!active) {
+                    if (onSetStatus) onSetStatus(program.id, s_);
+                    else onCycleStatus && onCycleStatus(program.id);
+                  }
+                }}
+                aria-pressed={active}
+                style={{
+                  fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                  padding: "6px 12px", borderRadius: 8,
+                  border: active ? `2px solid ${sm.color}` : `2px solid rgba(27,36,50,0.12)`,
+                  background: active ? sm.bg : "transparent",
+                  color: active ? sm.color : C.muted,
+                  cursor: active ? "default" : "pointer",
+                  transition: "all 0.15s",
+                }}
+              >
+                {sm.icon} {s_}
+              </button>
+            );
+          })}
+        </div>
+        {/* Contextual next-step hint */}
+        {program.status === "Exploring" && (
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted,
+            marginTop: 8, lineHeight: 1.5,
+          }}>
+            Register on the provider's site, then mark as Enrolled.
+          </div>
+        )}
+        {program.status === "Waitlist" && (
+          <div style={{
+            fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted,
+            marginTop: 8, lineHeight: 1.5,
+          }}>
+            When a spot opens and you register, mark as Enrolled.
+          </div>
+        )}
       </div>
 
       {/* Divider */}
@@ -169,6 +210,7 @@ export default function ProgramsTab({
   onCatFilter,
   onOpenDetail,
   onCycleStatus,
+  onSetStatus,
   onOpenAddProgram,
   searchQuery,
   onSearchQuery,
@@ -392,6 +434,7 @@ export default function ProgramsTab({
             kids={kids}
             onClose={() => setSelectedId(null)}
             onCycleStatus={onCycleStatus}
+            onSetStatus={onSetStatus}
           />
         )}
       </div>
