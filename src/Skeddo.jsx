@@ -1145,6 +1145,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           ]}
           userId={userId}
           onRemoveAccess={childAccess.removeAccess}
+          circlesHook={circlesHook}
           onInvite={(kid) => { setModal(null); setTimeout(() => openInviteModal(kid), 100); }}
           onClose={() => setModal(null)}
         />

@@ -3,12 +3,18 @@ import { s } from "../styles/shared";
 import Modal from "../components/Modal";
 import Label from "../components/Label";
 
-export default function ChildSettingsModal({ kid, coParents, userId, onRemoveAccess, onInvite, onClose }) {
-  const handleRemove = (targetUserId, displayName) => {
+export default function ChildSettingsModal({ kid, coParents, userId, onRemoveAccess, circlesHook, onInvite, onClose }) {
+  const handleRemove = async (targetUserId, displayName) => {
     if (window.confirm(
-      `Are you sure? ${displayName} will immediately lose access to ${kid.name}'s schedule. This can't be undone.`
+      `Are you sure? ${displayName} will immediately lose access to ${kid.name}'s schedule and be removed from your circles. This can't be undone.`
     )) {
       onRemoveAccess(kid.id, targetUserId);
+      // Also remove from all shared circles
+      if (circlesHook?.circles && circlesHook.removeMember) {
+        for (const circle of circlesHook.circles) {
+          try { await circlesHook.removeMember(circle.id, targetUserId); } catch { /* may not be a member */ }
+        }
+      }
     }
   };
 

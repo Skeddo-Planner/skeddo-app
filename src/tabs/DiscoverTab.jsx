@@ -84,7 +84,7 @@ const CITY_NEIGHBOURHOODS = [
     neighbourhoods: ["Burquitlam", "Central Coquitlam", "Maillardville"],
   },
   { city: "Port Coquitlam", neighbourhoods: ["Central Port Coquitlam", "Port Coquitlam"] },
-  { city: "Port Moody", neighbourhoods: ["Port Moody"] },
+  { city: "Port Moody", neighbourhoods: ["Ioco", "Port Moody"] },
   { city: "Maple Ridge", neighbourhoods: ["Maple Ridge", "Town Centre"] },
   { city: "Pitt Meadows", neighbourhoods: ["Central Pitt Meadows"] },
   { city: "Delta", neighbourhoods: ["Delta", "North Delta"] },

@@ -125,10 +125,19 @@ function parseDays(daysStr, startDate, endDate) {
 
 function parseTimeRange(timesStr) {
   if (!timesStr) return { start: 9, end: 12 };
-  const parseT = (s) => { const m = s.match(/(\d{1,2}):(\d{2})/); return m ? parseInt(m[1]) + parseInt(m[2]) / 60 : null; };
+  const parseT = (s) => {
+    const m = s.match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+    if (!m) return null;
+    let h = parseInt(m[1]);
+    const min = parseInt(m[2]) / 60;
+    const ampm = (m[3] || "").toUpperCase();
+    if (ampm === "PM" && h < 12) h += 12;
+    if (ampm === "AM" && h === 12) h = 0;
+    return h + min;
+  };
   const parts = timesStr.split(/[-\u2013]/);
-  const start = parseT(parts[0]) || 9;
-  const end = parseT(parts[1]) || start + 3;
+  const start = parseT(parts[0]) ?? 9;
+  const end = parseT(parts[1]) ?? start + 3;
   return { start, end };
 }
 

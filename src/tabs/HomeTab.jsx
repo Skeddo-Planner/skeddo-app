@@ -355,14 +355,20 @@ export default function HomeTab({
                 }}>{(cp.displayName || "?")[0].toUpperCase()}</span>
                 {cp.displayName || "Co-parent"}
                 <button
-                  onClick={() => {
-                    if (window.confirm(`Remove ${cp.displayName || "this co-parent"} from all shared kids?`)) {
+                  onClick={async () => {
+                    if (window.confirm(`Remove ${cp.displayName || "this co-parent"} from all shared kids and circles?`)) {
                       kids.forEach((k) => {
                         const kCoParents = childAccess.getCoParents ? childAccess.getCoParents(k.id) : [];
                         if (kCoParents.some((c) => c.userId === cp.userId)) {
                           childAccess.removeAccess(k.id, cp.userId).catch(() => {});
                         }
                       });
+                      // Also remove from all shared circles
+                      if (circlesHook?.circles && circlesHook.removeMember) {
+                        for (const circle of circlesHook.circles) {
+                          try { await circlesHook.removeMember(circle.id, cp.userId); } catch { /* may not be a member */ }
+                        }
+                      }
                     }
                   }}
                   aria-label={`Remove ${cp.displayName || "co-parent"}`}

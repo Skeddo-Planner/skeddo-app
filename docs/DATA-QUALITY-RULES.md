@@ -215,6 +215,23 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - The URL must point to a program-specific or at minimum a programs/registration landing page
 - The validator warns on these — manual fix required to find the correct URL
 
+## Rule 33: scheduleType "Full Day" Must Have durationPerDay >= 4 Hours (HARD RULE)
+**Why:** 278 programs were tagged "Full Day" but had durations under 4 hours — including 1-hour after-school classes (Young Rembrandts, Professor Puffin's), 1.5-hour paddling lessons (False Creek Sprint Canoe), and 3-hour half-day sessions (Access2Innovate AM/PM). Parents filtering by "Full Day" expected 6-8 hour camps and instead saw 1-hour lessons.
+- If `durationPerDay` < 2 hours: `scheduleType` must be "Lesson" or "Class", `dayLength` must be "Lesson"
+- If `durationPerDay` >= 2 and < 4 hours: `scheduleType` must be "Half Day", "Half Day (AM)", or "Half Day (PM)", `dayLength` must be "Half Day"
+- If `durationPerDay` >= 4 hours: "Full Day" is valid only for actual day camps
+- Before/after care add-ons (e.g., Access2Innovate 8-9 AM care): use "Before Care" or "After Care" scheduleType
+- The validator flags any "Full Day" program with < 4 hours and auto-fixes with `--fix`
+- This rule has NO exceptions
+
+## Rule 34: ageMin <= 2 Must Match Infant/Toddler Program Names (WARNING RULE)
+**Why:** 22 Access2Innovate programs had ageMin=1, ageMax=2 — but these were grade-based programs (Grade 1-2 = ages 6-7). Parents filtering for toddler programs got results for school-age kids.
+- Programs with ageMin <= 2 must have names suggesting infant/toddler content (baby, infant, tot, toddler, parent and, preschool, playtime, etc.)
+- If a program name doesn't contain infant/toddler keywords but has ageMin <= 2, the validator flags it for manual review
+- Common cause: grade numbers being stored as ages (Grade 1-2 stored as ageMin=1, ageMax=2)
+- Grade-to-age mapping: K=5, Grade 1-2=6-7, Grade 3-4=8-9, Grade 5-6=10-11, Grade 7-8=12-13
+- This is a WARNING rule (not auto-fixed) — manual verification required
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
 

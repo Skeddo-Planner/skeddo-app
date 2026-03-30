@@ -345,13 +345,51 @@ programs.forEach((p, idx) => {
     }
   }
 
+  // ── Rule 33: scheduleType "Full Day" but durationPerDay < 4 hours ──
+  if (p.scheduleType === "Full Day" && p.durationPerDay && p.durationPerDay < 4) {
+    warn(id, 33, `scheduleType="Full Day" but durationPerDay=${p.durationPerDay}h (<4h) — should be Class, Lesson, or Half Day`);
+    if (FIX) {
+      const startH = parseTime(p.startTime);
+      const endH = parseTime(p.endTime);
+      if (p.durationPerDay < 2) {
+        p.scheduleType = "Class";
+        p.dayLength = "Lesson";
+      } else {
+        if (endH !== null && endH <= 13) {
+          p.scheduleType = "Half Day (AM)";
+        } else if (startH !== null && startH >= 11.5) {
+          p.scheduleType = "Half Day (PM)";
+        } else {
+          p.scheduleType = "Half Day";
+        }
+        p.dayLength = "Half Day";
+      }
+      fixed++;
+    }
+  }
+
+  // ── Rule 34: ageMin <= 1 without infant/toddler keywords in name ──
+  // Only flag ageMin 0 or 1 (ageMin=2 is common for swim/music programs and usually legitimate)
+  if (typeof p.ageMin === "number" && p.ageMin <= 1 && p.ageMin >= 0) {
+    const nameLow = (p.name || "").toLowerCase();
+    const descLow = (p.description || "").toLowerCase();
+    const combined = nameLow + " " + descLow;
+    const babyKws = ["baby", "babies", "infant", "tot ", "tots ", "toddler", "parent and", "parent &", "preschool", "playtime", "newborn", "mommy", "mommies", "early learning", "child care", "childcare", "zumbini", "music together", "jellyfish", "birthday", "swim lesson", "swim class", "public swim", "public skate", "lessons", "drop-in", "family"];
+    const isBaby = babyKws.some(kw => combined.includes(kw));
+    if (!isBaby) {
+      warn(id, 34, `ageMin=${p.ageMin} but name "${p.name}" doesn't suggest infant/toddler — verify age range`);
+    }
+  }
+
   // ── Required fields (comprehensive check) ──
   if (!p.name) warn(id, "REQ", "Missing name");
   if (!p.provider) warn(id, "REQ", "Missing provider");
   if (!p.category) warn(id, "REQ", "Missing category");
   if (!p.season) warn(id, "REQ", "Missing season");
   if (!p.enrollmentStatus) warn(id, "REQ", "Missing enrollmentStatus");
-  if (p.ageMin === undefined || p.ageMin === null) warn(id, "REQ", "Missing ageMin");
+  // ageMin can be null for CoV ActiveNet programs with no age data from the API
+  // Only flag as warning if it's not a CoV scrape
+  if ((p.ageMin === undefined || p.ageMin === null) && !String(id).startsWith("COV-")) warn(id, "REQ", "Missing ageMin");
   if (!p.description) warn(id, "REQ", "Missing description");
   if (!p.activityType) warn(id, "REQ", "Missing activityType");
 });
@@ -432,7 +470,7 @@ for (const p of programs) {
 // ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
-const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31,32";
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31,32,33,34";
 const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);
