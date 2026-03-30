@@ -1,0 +1,92 @@
+# Skeddo — Weekly deep verification of program data
+#
+# Runs every Sunday at 8 AM Pacific (4 PM UTC during PST / 9 AM PDT during summer).
+# Scheduled one hour after the Saturday daily refresh finishes — no overlap with the
+# daily 6 AM Pacific cron in refresh-programs.yml.
+#
+# Pipeline:
+#   1. Incremental source-of-truth verification — all programs not checked in the last 7 days
+#      (larger batch than the 200-program daily slice)
+#   2. URL validation — 1,000 URLs per run (vs 500 on daily) for faster full-cycle coverage
+#   3. Auto-commit any changes to programs.json back to the repo
+#
+# Required repository secrets (same as refresh-programs.yml):
+#   SUPABASE_URL              — Your Supabase project URL
+#   SUPABASE_SERVICE_ROLE_KEY — Your Supabase service role key (NOT the anon key)
+
+name: Weekly Verify Programs
+
+on:
+  schedule:
+    # Sunday 8 AM PST = 16:00 UTC (also runs at 9 AM PDT during summer — acceptable)
+    # Daily refresh runs at 14:00 UTC — this is safely 2 hours later on Sunday.
+    - cron: '0 16 * * 0'
+  workflow_dispatch: # Manual trigger from GitHub Actions UI
+
+jobs:
+  weekly-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90  # Larger batches take longer — allow up to 90 min
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Need a token with write access to push back auto-fixed programs.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Deep verification ─────────────────────────────────────────────────────
+
+      - name: Incremental source-of-truth verification (weekly deep run)
+        # Checks all programs not verified in the last 7 days.
+        # No --limit here — processes the full backlog each Sunday.
+        # Cross-checks name, price, and enrollment status against live registration pages.
+        continue-on-error: true
+        run: node scripts/verify-programs.cjs --incremental --fix
+
+      - name: Validate and fix broken URLs (weekly batch)
+        # Larger batch than the daily run (1,000 vs 500) to cycle through all 6,729
+        # programs more quickly. Full cycle at this rate: ~7 weeks.
+        continue-on-error: true
+        run: node scripts/validate-urls.cjs --fix --limit=1000
+
+      # ── Commit auto-fixes back to repo ───────────────────────────────────────
+
+      - name: Commit auto-fixed programs.json (if changed)
+        run: |
+          git config user.name  "Skeddo Pipeline"
+          git config user.email "pipeline@skeddo.ca"
+          if git diff --quiet src/data/programs.json scripts/verify-state.json 2>/dev/null; then
+            echo "No changes to programs.json or verify-state.json — nothing to commit."
+          else
+            git add src/data/programs.json
+            git add scripts/verify-state.json 2>/dev/null || true
+            git commit -m "chore: weekly deep verification fixes [skip ci]
+
+Auto-applied by weekly pipeline (Sunday 8 AM Pacific):
+- verify-programs.cjs --incremental --fix (full 7-day backlog)
+- validate-urls.cjs --fix --limit=1000 (URL resolution)"
+            git push
+          fi
+
+      # ── Report ────────────────────────────────────────────────────────────────
+
+      - name: Report results
+        if: always()
+        run: |
+          echo "Weekly verification completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
+          echo ""
+          echo "Steps run:"
+          echo "  1. Verify: incremental source-of-truth (verify-programs.cjs --incremental --fix)"
+          echo "  2. Validate: URL resolution (validate-urls.cjs --fix --limit=1000)"
+          echo ""
+          echo "For a full audit: node scripts/verify-programs.cjs --audit --fix"
+          echo "For unlimited URL audit: node scripts/validate-urls.cjs --fix"
