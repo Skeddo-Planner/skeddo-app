@@ -828,7 +828,7 @@ export default function DiscoverTab({
       }
       return true;
     });
-  }, [allDirectoryPrograms, search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks, durationMin, durationMax]);
+  }, [allDirectoryPrograms, search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, selectedCostPerHour, showFavoritesOnly, favorites, selectedRegStatuses, selectedProviders, selectedActivityTypes, selectedDayLengths, selectedWeeks, durationMin, durationMax]);
 
   /* ─── Sort ─── */
   const sortedPrograms = useMemo(() => {
