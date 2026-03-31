@@ -136,9 +136,32 @@ const profileFromDb = (row) => ({
   notifyCircleRequests: row.notify_circle_requests !== false,
 });
 
+/* ─── DIRECTORY CACHE for merging fresh catalog data into user programs ─── */
+let _dirLookup = null;
+const loadDirectoryLookup = () => {
+  if (_dirLookup) return Promise.resolve(_dirLookup);
+  return import("../data/programs.json").then((m) => {
+    const map = {};
+    for (const p of m.default) {
+      const key = `${(p.name || "").toLowerCase()}|||${(p.provider || "").toLowerCase()}`;
+      if (!map[key]) map[key] = p;
+    }
+    _dirLookup = map;
+    return map;
+  });
+};
+
+// Fields that belong to the catalog and should always reflect the latest programs.json
+const CATALOG_FIELDS = [
+  "days", "times", "startDate", "endDate", "seasonType", "campType",
+  "ageMin", "ageMax", "location", "neighbourhood", "registrationUrl", "category",
+  "name", "provider",
+];
+
 /* ─── HOOK ─── */
 export function useAppData(userId) {
   const [programs, setPrograms] = useState([]);
+  const [directoryLookup, setDirectoryLookup] = useState(null);
   const [kids, setKids] = useState([]);
   const [manualCosts, setManualCosts] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -170,6 +193,11 @@ export function useAppData(userId) {
   const usingSupabase = useRef(false);
   // Prevent save loops during initial load
   const initialLoadDone = useRef(false);
+
+  /* ── Load directory lookup for catalog field merging ── */
+  useEffect(() => {
+    loadDirectoryLookup().then(setDirectoryLookup);
+  }, []);
 
   /* ══════════════════════════════════════════════
      LOAD: Try Supabase first, fall back to localStorage
@@ -498,24 +526,55 @@ export function useAppData(userId) {
   /* ══════════════════════════════════════════════
      COMPUTED LISTS
      ══════════════════════════════════════════════ */
+
+  // Merge each user-saved program with the latest catalog data from programs.json.
+  // User-owned fields (status, kidIds, notes, cost, rating, review) are preserved;
+  // catalog fields (dates, times, location, etc.) are refreshed from the directory.
+  const mergedPrograms = useMemo(() => {
+    if (!directoryLookup) return programs;
+    return programs.map((userProg) => {
+      const key = `${(userProg.name || "").toLowerCase()}|||${(userProg.provider || "").toLowerCase()}`;
+      const dirProg = directoryLookup[key];
+      if (!dirProg) return userProg;
+      const freshCatalogFields = {};
+      for (const field of CATALOG_FIELDS) {
+        if (dirProg[field] !== undefined) freshCatalogFields[field] = dirProg[field];
+      }
+      return {
+        ...userProg,
+        ...freshCatalogFields,
+        // Always keep the user's own fields
+        id: userProg.id,
+        status: userProg.status,
+        kidIds: userProg.kidIds,
+        notes: userProg.notes,
+        cost: userProg.cost,
+        rating: userProg.rating,
+        review: userProg.review,
+        addedBy: userProg.addedBy,
+        addedByName: userProg.addedByName,
+      };
+    });
+  }, [programs, directoryLookup]);
+
   const enrolledPrograms = useMemo(
-    () => programs.filter((p) => p.status === "Enrolled"), [programs]
+    () => mergedPrograms.filter((p) => p.status === "Enrolled"), [mergedPrograms]
   );
   const waitlistPrograms = useMemo(
-    () => programs.filter((p) => p.status === "Waitlist"), [programs]
+    () => mergedPrograms.filter((p) => p.status === "Waitlist"), [mergedPrograms]
   );
   const exploringPrograms = useMemo(
-    () => programs.filter((p) => p.status === "Exploring"), [programs]
+    () => mergedPrograms.filter((p) => p.status === "Exploring"), [mergedPrograms]
   );
   const totalCostEnrolled = useMemo(
     () => enrolledPrograms.reduce((sum, p) => sum + Number(p.cost || 0), 0), [enrolledPrograms]
   );
   const totalCostAll = useMemo(
-    () => programs.reduce((sum, p) => sum + Number(p.cost || 0), 0), [programs]
+    () => mergedPrograms.reduce((sum, p) => sum + Number(p.cost || 0), 0), [mergedPrograms]
   );
 
   const filteredPrograms = useMemo(() => {
-    let list = programs;
+    let list = mergedPrograms;
     if (kidFilter) list = list.filter((p) => (p.kidIds || []).includes(kidFilter));
     if (statusFilter !== "All") list = list.filter((p) => p.status === statusFilter);
     if (catFilter !== "All") list = list.filter((p) => p.category === catFilter);
@@ -528,7 +587,7 @@ export function useAppData(userId) {
       );
     }
     return list;
-  }, [programs, kidFilter, statusFilter, catFilter, searchQuery]);
+  }, [mergedPrograms, kidFilter, statusFilter, catFilter, searchQuery]);
 
   /* ══════════════════════════════════════════════
      CRUD: Programs
@@ -699,7 +758,7 @@ export function useAppData(userId) {
   }, [userId, markSynced]);
 
   return {
-    programs, kids, loaded, tab, setTab,
+    programs: mergedPrograms, kids, loaded, tab, setTab,
     statusFilter, setStatusFilter, catFilter, setCatFilter,
     searchQuery, setSearchQuery, kidFilter, setKidFilter,
     onboarded, completeOnboarding,
