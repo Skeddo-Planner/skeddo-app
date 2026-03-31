@@ -936,7 +936,7 @@ export default function DiscoverTab({
       </div>
 
       {/* Search bar */}
-      <div style={{ padding: isDesktop ? "0 32px" : "0 16px", marginBottom: 8 }}>
+      <div style={{ padding: isDesktop ? "0 32px" : "0 16px 0 13px", marginBottom: 8 }}>
         <div style={{ position: "relative" }}>
           <span style={{
             position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)",
@@ -974,7 +974,7 @@ export default function DiscoverTab({
       {/* Show borderline toggle — visible for single kid OR all-kids when kids have birth info */}
       {((selectedKid && selectedKid.birthMonth && selectedKid.birthYear) || (isAllKids && kidsWithBirth.length > 0)) && (
         <div style={{
-          display: "flex", alignItems: "center", gap: 8, margin: isDesktop ? "0 32px 12px" : "0 16px 12px",
+          display: "flex", alignItems: "center", gap: 8, margin: isDesktop ? "0 32px 12px" : "0 16px 12px 13px",
           padding: "8px 12px", background: "rgba(244, 162, 97, 0.08)", borderRadius: 10,
         }}>
           <label style={{
@@ -993,7 +993,7 @@ export default function DiscoverTab({
 
       {/* Filter chips */}
       <div style={{
-        padding: isDesktop ? "4px 32px 0" : "4px 16px 0",
+        padding: isDesktop ? "4px 32px 0" : "4px 16px 0 13px",
         overflowX: "auto", display: "flex", gap: 6, alignItems: "center",
         scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch",
         ...(isDesktop ? {
@@ -1025,7 +1025,7 @@ export default function DiscoverTab({
 
       {/* Active filter summary */}
       {totalActiveFilters > 0 && (
-        <div style={{ padding: isDesktop ? "6px 32px 0" : "6px 16px 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ padding: isDesktop ? "6px 32px 0" : "6px 16px 0 13px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontSize: 14, color: C.muted, fontFamily: "'Barlow', sans-serif" }}>
             {totalActiveFilters} filter{totalActiveFilters !== 1 ? "s" : ""} · {eligibilityFiltered.length} results
           </span>
@@ -1039,7 +1039,7 @@ export default function DiscoverTab({
           {/* Results count */}
           <div style={{
             display: "flex", justifyContent: "space-between", alignItems: "center",
-            margin: isDesktop ? "8px 32px" : "8px 16px",
+            margin: isDesktop ? "8px 32px" : "8px 16px 8px 13px",
           }}>
             <span style={{
               fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.muted,
@@ -1050,7 +1050,7 @@ export default function DiscoverTab({
           </div>
 
           {/* Program list/grid */}
-          <div style={{ padding: isDesktop ? "0 32px" : "0 16px" }}>
+          <div style={{ padding: isDesktop ? "0 32px" : "0 16px 0 13px" }}>
             {isLoadingPrograms && <SkeletonList count={6} />}
             {!isLoadingPrograms && eligibilityFiltered.length === 0 && (
               <>
