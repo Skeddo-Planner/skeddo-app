@@ -110,6 +110,21 @@ programs.forEach((p, idx) => {
     if (url.includes("activecommunities.com") && url.includes("/activity/search") && !url.includes("/detail/") && !url.includes("activity_keyword") && !url.includes("Activity_Search")) {
       warn(id, 32, `ActiveNet URL points to generic search page, not activity detail: ${url}`);
     }
+    // Generic category/listing pages — too many clicks from registration (Rule 29 + Rule 32)
+    try {
+      const parsedUrl = new URL(url);
+      const pathOnly = parsedUrl.pathname.replace(/\/+$/, "").toLowerCase();
+      const GENERIC_SUFFIXES = ["/programs", "/camps", "/classes", "/register", "/registration", "/activities", "/courses", "/schedule", "/enroll", "/sessions"];
+      const isGenericPath = GENERIC_SUFFIXES.some(suffix => pathOnly === suffix || pathOnly.endsWith(suffix));
+      // Allow if there's a query string (e.g., /programs?id=123 is specific)
+      if (isGenericPath && !parsedUrl.search) {
+        if (!HOMEPAGE_EXEMPT_DOMAINS.includes(parsedUrl.hostname)) {
+          warn(id, 32, `URL points to generic category page (no specific program ID): ${url}`);
+        }
+      }
+    } catch (e) {
+      // URL parse error — already caught by R1
+    }
   }
 
   // ── Rule 24: NEVER use activekids.com or campscui.active.com URLs ──
@@ -238,6 +253,10 @@ programs.forEach((p, idx) => {
     if (p.enrollmentStatus === "Open" || p.enrollmentStatus === "Coming Soon") {
       warn(id, 14, `confirmed2026=false but status="${p.enrollmentStatus}"`);
       if (FIX) { p.enrollmentStatus = "Likely Coming Soon"; fixed++; }
+    }
+    // Description must warn parents this is prior-year data (Rule 14)
+    if (p.description && !p.description.toLowerCase().includes("based on prior year") && !p.description.toLowerCase().includes("prior year") && !p.description.toLowerCase().includes("based on 202")) {
+      warn(id, 14, `confirmed2026=false but description doesn't note prior-year data (add "Based on prior year — check provider for current details")`);
     }
   }
 
@@ -450,35 +469,45 @@ Object.entries(dupeGroups).filter(([, items]) => items.length > 1).forEach(([key
 });
 
 // ══════════════════════════════════════════════════════════════════
-// PROCESS RULES — Not automatable as data checks, documented here
+// PROCESS RULES — Not fully automatable as data checks, documented here
 // so the validator explicitly accounts for ALL rules in DATA-QUALITY-RULES.md.
 //
 // R12: Learn From Every Error — process rule (check all providers when one error found)
 // R13: Cross-Platform Consistency — code/UI rule (test on all browsers/devices)
 // R16: Changes Apply to Both Platforms — code/UI rule (mobile + desktop)
-// R17: Every New Rule Must Be Documented AND Automated — meta-rule (this file + docs)
-// R18: UI Changes Apply to Both Platforms — duplicate of R16
+// R17/META: Every New Rule Must Be Documented AND Automated — meta-rule
+// R18: UI Changes Apply to Both Platforms — same as R16
 // R19: GitHub Is Source of Truth — workflow rule (git pull/push)
+// R21: URL must be visited and page content verified — process rule (can't auto-verify page content)
+// R23: Programs must be verified on provider's live page before adding — process rule
+// R31 CRITICAL: NEVER delete a program except for 5 allowed criteria (adult-only, outside
+//   service area, permanently cancelled before opening, fabricated, true duplicate).
+//   Programs that COMPLETED their run → set enrollmentStatus: "Completed", do NOT delete.
+//   Programs that are full/waitlisted → set status to "Full"/"Full/Waitlist", do NOT delete.
+//   When removing programs: run "git diff --stat" to verify count; never remove >5 at once
+//   without explicit approval. The validator enforces what it can via R23 and R10b below.
 
-// ── Rule 31: Triple-check before removing — automated guardrails ──
-// R31 is primarily a process rule, but we enforce what we can:
+// ── Rule 31: NEVER delete programs except for the 5 allowed criteria — automated guardrails ──
+// R31 is primarily a process rule enforced by Claude discipline, but we check what we can:
 // - R23 already flags adult-only programs (ageMin >= 18) — the ONLY valid age-based removal
 // - R10b only removes TRUE duplicates where ALL fields match
-// - Programs that are full/waitlisted must NEVER be removed (they are still valuable to parents)
-// - Programs with unknown price, broken URL, or prior-year data must be kept with appropriate flags
-// The following check warns if any program has enrollmentStatus "Closed" without confirmed2026
-// (these may need investigation but should NOT be auto-removed)
+// - Programs that are full/waitlisted MUST NEVER be removed (still valuable to parents)
+// - Programs that completed their run MUST have enrollmentStatus="Completed" — NOT deleted
+// The following checks flag suspicious states that might tempt incorrect deletion:
 for (const p of programs) {
+  // "Closed" without confirmed2026 — program may still exist next season; verify before any action
   if (p.enrollmentStatus === "Closed" && p.confirmed2026 !== true) {
-    warn(String(p.id), 31, `"Closed" status without confirmed2026 — verify program still exists before removing`);
+    warn(String(p.id), 31, `"Closed" status without confirmed2026 — verify program still exists; do NOT delete without meeting Rule 31 criteria`);
   }
+  // "Completed" is a valid terminal status — these programs ran and finished, keep them
+  // (No warning needed — "Completed" is the correct way to handle finished programs)
 }
 
 // ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
-const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31,32,33,34";
-const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,22,24,25,26,27,28,29,31,32,33,34";
+const processRules = "12,13,16,17,18,19,21,23 (process rules — enforced by discipline + comment block above)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);
 console.log(`Violations: ${violations}`);

@@ -1,13 +1,19 @@
 # Skeddo Program Data Quality Rules
 
-These rules are MANDATORY for all program data entry, whether manual or automated. They exist because real users found real errors that damaged trust. Every rule traces to a specific incident.
+These rules are MANDATORY for ALL program data entry — whether manual, automated, or performed by Claude agents. They apply to **both existing programs and newly added ones**. Every rule traces to a specific incident where rule-breaking caused real harm to parents.
 
-## Rule 1: Registration URLs Must Be Program-Specific
+**Claude and its agents MUST follow every rule below without exception.** When in doubt, choose the more conservative option (e.g., "Likely Coming Soon" over "Open", `null` cost over a guess, keep a listing rather than remove it).
+
+Automated enforcement: `node scripts/validate-programs.cjs` enforces rules where possible. Run it after ANY data change. Rules that cannot be auto-fixed must still be followed — the validator will flag violations.
+
+## Rule 1: Registration URLs Must Be Program-Specific (HARD RULE)
 **Why:** Science AL!VE listed a generic homepage URL. A parent clicking it couldn't find the actual camp registration.
-- URL must point to the specific program's registration page, not the provider's homepage
+- URL MUST point to the specific program's registration page, not the provider's homepage
 - If the provider uses Eventbrite, link to the specific Eventbrite event
 - If the provider uses a booking system (PerfectMind, ActiveNet), link to the specific activity detail page
-- Test: clicking the URL should land the user within 1 click of registering for THAT specific program
+- Test: clicking the URL MUST land the user within 1 click of registering for THAT specific program
+- Claude and its agents MUST NEVER set a URL to a generic homepage, search page, or category listing when a direct program URL is findable — see Rules 29 and 32
+- This applies to ALL programs in the database — existing programs with generic URLs must be updated
 
 ## Rule 2: Dates Must Be Program-Specific, Not Season-Wide
 **Why:** 130+ programs showed "Jul 6 - Aug 21" (the whole summer) instead of specific camp weeks.
@@ -26,8 +32,8 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 
 ## Rule 4: Times Must Match the Registration Page
 **Why:** Science AL!VE Surrey times were initially reported as wrong (though turned out correct — different locations had different times).
-- Always verify times against the actual registration page, not the provider homepage
-- Different locations of the same provider may have different times
+- Claude and its agents MUST always verify times against the actual registration page, not the provider homepage
+- Different locations of the same provider may have different times — verify each location separately
 - Note before-care and after-care availability and costs when offered
 
 ## Rule 5: Age Ranges Must Match Grade Requirements
@@ -38,9 +44,9 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 
 ## Rule 6: Neighbourhood Must Exist in the Filter
 **Why:** Programs in "Surrey City Centre" and "Burnaby Mountain" weren't findable because those neighbourhoods weren't in the filter dropdown.
-- Before adding a program with a new neighbourhood, verify it exists in CITY_NEIGHBOURHOODS in DiscoverTab.jsx
-- If not, add it to the correct city group
-- Never use vague locations ("Vancouver, BC") — use actual neighbourhood names
+- Claude and its agents MUST verify any new neighbourhood exists in CITY_NEIGHBOURHOODS in DiscoverTab.jsx before adding a program with that neighbourhood
+- If the neighbourhood is missing from the filter, add it to the correct city group before adding the program
+- NEVER use vague locations ("Vancouver, BC") — use actual neighbourhood names
 
 ## Rule 7: Every Field Must Be Verified, Not Estimated
 **Why:** Multiple fields across hundreds of programs contained estimated data that turned out wrong.
@@ -64,9 +70,10 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 
 ## Rule 10: No Duplicate Programs
 **Why:** Some programs appeared multiple times with slightly different data.
-- Before adding a program, check if it already exists (match by name + provider)
+- Claude and its agents MUST check whether a program already exists (match by name + provider + location) before adding
 - If the same program runs at multiple locations, create separate entries per location
 - If the same program runs multiple weeks, either create per-week entries OR use the repeating field
+- See Rule 30 for the complete definition of what constitutes a true duplicate
 
 ## Rule 11: Address Must Be a Real Street Address
 **Why:** Many programs had vague addresses like "Vancouver, BC" instead of actual locations.
@@ -76,9 +83,9 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 
 ## Rule 12: Learn From Every Error
 **Why:** The same types of errors kept appearing across different providers.
-- When an error is found in one provider's data, check ALL providers for the same pattern
+- When an error is found in one provider's data, Claude and its agents MUST check ALL providers for the same pattern
 - When a new error type is discovered, add a rule to this document
-- These rules must be consulted before any batch data import
+- These rules MUST be consulted and applied before any batch data import, not just once at the start
 
 ## Rule 13: Cross-Platform Consistency
 **Why:** Changes must work on all devices and browsers.
@@ -99,8 +106,10 @@ These rules are MANDATORY for all program data entry, whether manual or automate
   - `enrollmentStatus` MUST be "Likely Coming Soon"
   - `confirmed2026` MUST be `false`
   - `priceVerified` MUST be `false`
-  - Description MUST note "Based on prior year — check provider for 2026 details"
+  - `description` MUST contain the phrase "Based on prior year" (e.g., "Based on prior year — check provider for 2026 details")
 - A program CANNOT show "Open" or "Coming Soon" if we're using estimated data
+- This applies to ALL existing programs — Claude and its agents MUST audit and correct any non-compliant programs
+- The validator checks `confirmed2026=false` programs for correct status AND for the required "Based on prior year" text in description
 - This is NON-NEGOTIABLE
 
 ## Rule 15: No False "Free" Listings (HARD RULE)
@@ -113,9 +122,10 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 
 ## Rule 17: Every New Rule Must Be Documented AND Automated (META-RULE)
 **Why:** Rules documented in memory alone were not enforced during batch imports. 847 false "Free" listings resulted.
-- Every new rule must be saved to: (1) memory file, (2) this document, (3) validate-programs.cjs or code
-- Never rely on Claude "remembering" to apply a rule
-- If a rule can't be fully automated, add a WARNING check to the validation script
+- Every new rule MUST be saved to: (1) memory file, (2) this document, (3) validate-programs.cjs or code
+- NEVER rely on Claude "remembering" to apply a rule — if Claude must remember it, it will eventually forget it
+- If a rule can't be fully automated, a WARNING check MUST be added to the validation script so violations are visible
+- Every new rule MUST explicitly state whether it applies to new programs only or also to existing programs (default: both)
 
 ## Rule 18: UI Changes Apply to Both Platforms by Default
 **Why:** Changes were frequently applied to only mobile or only desktop.
@@ -209,11 +219,13 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - Only true duplicates (every field identical) are auto-removed with `--fix`
 - This rule has NO exceptions — never remove a listing without verifying all fields match an existing one
 
-## Rule 29: Registration URLs Must Not Be Generic Homepages
+## Rule 29: Registration URLs Must Not Be Generic Homepages or Category Pages (HARD RULE)
 **Why:** Scottish Cultural Centre had all 12 programs linking to the generic homepage. Parents couldn't find the actual registration page.
-- URLs that resolve to just a domain root (no path), `/home`, or `/index.html` are flagged
-- The URL must point to a program-specific or at minimum a programs/registration landing page
-- The validator warns on these — manual fix required to find the correct URL
+- URLs that resolve to just a domain root (no path), `/home`, or `/index.html` are NEVER acceptable — the validator flags these as errors
+- URLs ending in `/programs`, `/programs/`, `/camps`, `/camps/`, `/classes`, `/classes/`, `/register`, `/registration` (without a specific program ID or slug) are also too generic — the validator warns on these
+- Claude and its agents MUST investigate to find the specific program page before settling for a generic URL
+- Only use a generic URL as a last resort (after thorough investigation), and ALWAYS add `urlNote: "Search provider site for this program"` when doing so
+- The validator flags these — manual fix required
 
 ## Rule 33: scheduleType "Full Day" Must Have durationPerDay >= 4 Hours (HARD RULE)
 **Why:** 278 programs were tagged "Full Day" but had durations under 4 hours — including 1-hour after-school classes (Young Rembrandts, Professor Puffin's), 1.5-hour paddling lessons (False Creek Sprint Canoe), and 3-hour half-day sessions (Access2Innovate AM/PM). Parents filtering by "Full Day" expected 6-8 hour camps and instead saw 1-hour lessons.
@@ -270,15 +282,18 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 **Why:** Provider websites change constantly — events expire, registration systems migrate, URLs restructure. Without regular checks, broken links accumulate silently.
 - `validate-urls.cjs` runs in the daily GitHub Actions pipeline (after each refresh cycle)
 - `verify-programs.cjs --incremental` checks unverified or stale programs (>7 days old)
-- `verify-programs.cjs --audit` should be run manually after any large batch import
-- State is tracked in `scripts/verify-state.json` — do not delete this file
+- `verify-programs.cjs --audit` MUST be run after any large batch import (>50 programs)
+- State is tracked in `scripts/verify-state.json` — NEVER delete this file
 - The verify-report-YYYY-MM-DD.json files document what was checked and what was fixed
+- Claude and its agents MUST run `node scripts/validate-programs.cjs` after every data change before committing
 
 ## When Adding Programs to New Cities
-Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
+Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Claude and its agents MUST apply ALL rules above to every program in the new city. No shortcuts. Run `node scripts/validate-programs.cjs` after completing any batch import and fix ALL violations before committing.
 
-## Rule 16: NEVER import from activekids.com
-activekids.com is NOT a primary data source. It is a third-party directory with incomplete, outdated, and sometimes inaccurate program listings. NEVER use activekids.com as a source for new programs, pricing, dates, or any other data. Always go directly to the provider's own website or the official registration system (ActiveNet, PerfectMind, Eventbrite, etc.) for program data.
+## Rule 39: NEVER import from activekids.com (was duplicate Rule 16 — now Rule 39)
+activekids.com is NOT a primary data source. It is a third-party directory with incomplete, outdated, and sometimes inaccurate program listings. Claude and its agents MUST NEVER use activekids.com as a source for new programs, pricing, dates, or any other data. Always go directly to the provider's own website or the official registration system (ActiveNet, PerfectMind, Eventbrite, etc.) for program data.
+
+See also Rule 24 (ban on activekids.com and campscui.active.com URLs) which extends this rule to URL-level enforcement in the validator.
 
 This rule is PERMANENT and NON-NEGOTIABLE.
 
@@ -290,8 +305,8 @@ This rule is PERMANENT and NON-NEGOTIABLE.
 - The validator auto-flags any URL containing these domains as a hard error
 - This rule has NO exceptions
 
-## Rule 17: Always scrape official registration APIs directly
-For any municipality or large provider with a registration portal, ALWAYS find and use their REST API to get the complete program catalog. Never rely on:
+## Rule 40: Always Scrape Official Registration APIs Directly (was duplicate Rule 17 — now Rule 40)
+For any municipality or large provider with a registration portal, Claude and its agents MUST find and use their REST API to get the complete program catalog. NEVER rely on:
 - Third-party directories (activekids.com — BANNED per Rule 16)
 - CSV imports (partial, outdated)
 - Manual web scraping (misses programs)
@@ -308,8 +323,8 @@ Filter kids programs client-side: age_max_year <= 17 AND age_min_year < 18
 
 Reusable scraper: scripts/scrape-cov-activenet.cjs (modify HOST and CITY variables for other ActiveNet cities)
 
-## Rule 18: Include ALL program types
-Skeddo is not just for summer camps. Include EVERY program a parent might use:
+## Rule 41: Include ALL Program Types (was duplicate Rule 18 — now Rule 41)
+Skeddo is not just for summer camps. Claude and its agents MUST include EVERY program a parent might use:
 - Day camps and summer camps
 - Swimming lessons and aquatics
 - Dance classes (ballet, hip hop, jazz, contemporary)
@@ -327,31 +342,46 @@ If the program has an age range that includes children (0-17), it belongs in Ske
 
 This rule exists because the March 2026 CoV import only captured 149 of 2,700 kids programs (5.5%) by focusing narrowly on "summer camp" keyword searches.
 
-## Rule 31: Triple-Check Before Removing Any Program (HARD RULE)
-**Why:** Over 100 programs were incorrectly removed across the project's history — real kids programs from real providers (SportBall, Burnaby Winter Club, Paintlounge, Camp Qwanoes, etc.) were lost because removal criteria were too aggressive or not carefully verified.
-- Before removing ANY program, triple-check that it genuinely does not belong in Skeddo
-- A program should ONLY be removed if it meets one or more of these criteria:
-  - **Adult-only:** ageMin >= 18 with no children/teens in the age range
-  - **Outside service area:** program is not in the Lower Mainland / BC (e.g., Ontario-only programs, US programs)
-  - **Permanently closed / no longer offered:** the provider has shut down or permanently discontinued the program, OR the program was cancelled/delisted before registration ever opened (NOT programs that ran and completed, NOT programs that are temporarily full, waitlisted, or between seasons)
-  - **Fabricated / does not exist:** the listing was invented and the program never existed on the provider's website
-  - **True duplicate:** an exact copy of another listing with ALL fields matching (per Rule 30)
-- A program must NEVER be removed for any of these reasons:
-  - Registration is full or has a waitlist (parents still want to see it)
-  - Registration hasn't opened yet (use "Likely Coming Soon" status instead)
-  - Price is unknown (use `cost: null` with `costNote: "Inquire for pricing"`)
-  - URL is temporarily broken (mark as unverified, don't delete)
-  - Data is from a prior year (mark as `confirmed2026: false` and `isEstimate: true`)
-  - Provider hasn't confirmed 2026 offerings yet (use "Likely Coming Soon")
-- When in doubt, KEEP the listing — a visible listing with estimated data is better than a missing listing
-- This rule has NO exceptions
+## Rule 31: NEVER Delete Programs Except for the 5 Allowed Criteria (HARD RULE — NO EXCEPTIONS)
+**Why:** Over 100 programs were incorrectly removed across the project's history — real kids programs from real providers (SportBall, Burnaby Winter Club, Paintlounge, Camp Qwanoes, etc.) were lost because removal criteria were too aggressive or not carefully verified. Claude agents have deleted completed and filled programs that should have been kept with updated statuses.
 
-## Rule 32: Registration URL Must Lead to Enrollment for THAT Specific Program (HARD RULE)
+**Claude and its agents MUST NEVER delete a program entry from programs.json except for one of these 5 criteria:**
+
+1. **Adult-only:** ageMin >= 18 with no children/teens in the age range
+2. **Outside service area:** program is not in the Lower Mainland / BC (e.g., Ontario-only, US-only)
+3. **Permanently cancelled BEFORE registration ever opened:** the specific offering was cancelled/delisted before any registration occurred — NOT programs that ran successfully and completed, NOT programs temporarily between seasons
+4. **Fabricated / never existed:** the listing was invented and never appeared on the provider's website
+5. **True duplicate:** an exact copy with ALL substantive fields matching (per Rule 30)
+
+**Programs that completed their run are NEVER deleted — set `enrollmentStatus: "Completed"` and keep the listing.** Completed programs provide useful historical context and may recur next season.
+
+**A program MUST NEVER be deleted for any of these reasons:**
+- Registration is full or has a waitlist — update status to "Full" or "Full/Waitlist", KEEP the listing
+- Registration hasn't opened yet — set `enrollmentStatus: "Likely Coming Soon"`, KEEP the listing
+- Registration period has ended / program ran and finished — set `enrollmentStatus: "Completed"`, KEEP the listing
+- Price is unknown — set `cost: null` with `costNote: "Inquire for pricing"`, KEEP the listing
+- URL is broken — apply Rule 35 fallback (search page URL + urlNote), KEEP the listing
+- Data is from a prior year — set `confirmed2026: false` and `isEstimate: true`, KEEP the listing
+- Provider hasn't confirmed 2026 offerings — set `enrollmentStatus: "Likely Coming Soon"`, KEEP the listing
+
+**When in doubt: KEEP the listing.** A visible listing with estimated or partial data is always better than a missing listing.
+
+**Before deleting any program, Claude MUST:**
+1. Verify it meets one of the 5 criteria above
+2. Run `git diff --stat` after deletion to confirm the count of removed programs is intentional
+3. If deleting more than 5 programs at once, stop and get explicit approval from Tom first
+
+The validator enforces what it can: adult-only checks (Rule 23), true duplicate checks (Rule 10b). Deletion prevention beyond that requires human oversight and this rule.
+
+## Rule 32: Registration URL Must Lead to Enrollment for THAT Specific Program (HARD RULE — NO EXCEPTIONS)
 **Why:** VSO School of Music "Arts Explorers" linked to a generic "camps" page. Parents had to click "Enroll Now", then navigate 8 sub-categories to find the right camp week. Multiple other providers had similar issues — generic program pages instead of direct enrollment links.
-- The registrationUrl must lead to a page where the user can enroll in THAT SPECIFIC program within 1 click
-- For ActiveNet providers: use the activity detail URL (`/activity/search/detail/{ID}`) not the search page
+- The registrationUrl MUST lead to a page where the user can enroll in THAT SPECIFIC program within 1 click
+- For ActiveNet providers: MUST use the activity detail URL (`/activity/search/detail/{ID}`) — NEVER the generic search page
 - For providers with sub-activities (e.g., weekly camps under a parent activity): link to the parent activity detail page (sub-activities are shown on that page)
-- A URL that leads to a search results page, category listing, or generic "programs" page is NOT acceptable — even if the program appears somewhere on that page
-- This extends Rule 1 (program-specific URLs) and Rule 29 (no generic homepages) to also cover intermediate pages that require additional navigation
-- The validator checks for known patterns: ActiveNet search pages without a detail ID, provider pages ending in `/programs/`, `/camps/`, `/classes/` without a specific program path
+- A URL leading to a search results page, category listing, or generic "programs" page is NEVER acceptable — even if the program appears somewhere on that page
+- This extends Rule 1 (program-specific URLs) and Rule 29 (no generic homepages) to also cover intermediate pages requiring additional navigation
+- **Claude and its agents MUST NEVER set a URL to a generic page when a specific program URL is findable.** If after thorough investigation no specific URL exists, use the closest available URL and set `urlNote` explaining the limitation.
+- The validator flags these patterns as errors:
+  - ActiveNet search pages without a detail ID (`/activity/search` without `/detail/`)
+  - Provider pages ending in `/programs`, `/programs/`, `/camps`, `/camps/`, `/classes`, `/classes/` without a specific program ID or slug
 - This rule has NO exceptions
