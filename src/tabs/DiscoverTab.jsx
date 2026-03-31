@@ -181,7 +181,11 @@ function getProgramWeekDays(program, weekMonday) {
     const dayDate = new Date(weekMonday);
     dayDate.setDate(weekMonday.getDate() + d);
     if (dayDate >= pStart && dayDate <= pEnd) {
-      const programDays = program.days ? program.days.toLowerCase() : "";
+      // Normalize days field — some programs store it as an array (e.g. ["Monday","Tuesday"])
+      const rawDays = program.days;
+      const programDays = Array.isArray(rawDays)
+        ? rawDays.map((d) => String(d).toLowerCase().slice(0, 3)).join(" ")
+        : rawDays ? String(rawDays).toLowerCase() : "";
       if (!programDays || programDays.includes("mon-fri") || programDays.includes("m-f") || programDays === "daily") {
         days.push(d);
       } else {
