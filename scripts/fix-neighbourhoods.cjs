@@ -57,6 +57,8 @@ const ADDRESS_RULES = [
   { pattern: /Ortona Ave.*Vancouver|Norma Rose Point/i, neighbourhood: "UBC" },
   // Douglas Elementary = Sunrise area
   { pattern: /Brigadoon Ave.*Vancouver|Douglas Elementary/i, neighbourhood: "Hastings-Sunrise" },
+  // Trout Lake / John Hendry Park = Kensington-Cedar Cottage
+  { pattern: /3360 Victoria Dr.*Vancouver|Trout Lake Community Centre|John Hendry Park/i, neighbourhood: "Kensington-Cedar Cottage" },
   // Generic Vancouver addresses — try to map by street
   { pattern: /Vancouver.*West|Vancouver West/i, neighbourhood: "West Point Grey" },
 
@@ -101,6 +103,8 @@ const ADDRESS_RULES = [
   // Canada Way / Burnaby Winter Club = Deer Lake area
   { pattern: /4990 Canada Way|Burnaby Winter Club/i, neighbourhood: "Deer Lake" },
   { pattern: /Canada Way.*Burnaby/i, neighbourhood: "Deer Lake" },
+  // Curtis St = Kensington Recreation Centre (south-central Burnaby)
+  { pattern: /Curtis St.*Burnaby|Kensington Recreation Centre.*Burnaby/i, neighbourhood: "Kensington" },
   // Kingsway near Metrotown
   { pattern: /4789 Kingsway.*Burnaby/i, neighbourhood: "Metrotown" },
   { pattern: /Kingsway.*Burnaby/i, neighbourhood: "Metrotown" },
