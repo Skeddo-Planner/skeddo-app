@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { C } from "./constants/brand";
 import { uid } from "./constants/sampleData";
 import { s } from "./styles/shared";
@@ -190,6 +190,9 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const [form, setForm] = useState({});
   const [toast, setToast] = useState(null);
   const [infoPage, setInfoPage] = useState(null);
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
+  const stepsBack = useRef(2);
+  const popStateHandler = useRef(null);
   const pushNotifications = usePushNotifications();
   const childAccess = useChildAccess(userId, session);
   const circlesHook = useCircles(userId, session);
@@ -270,6 +273,41 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   const showToast = (message) => {
     setToast(message);
     setTimeout(() => setToast(null), 2000);
+  };
+
+  /* ── Back button / swipe guard ── */
+  useEffect(() => {
+    // Push a guard entry so the first back press can be intercepted
+    history.pushState({ skeddoGuard: true }, "");
+
+    popStateHandler.current = () => {
+      // Re-arm immediately so the app doesn't silently navigate away
+      history.pushState({ skeddoGuard: true }, "");
+      stepsBack.current++;
+      setShowExitConfirm(true);
+    };
+
+    window.addEventListener("popstate", popStateHandler.current);
+    return () => {
+      if (popStateHandler.current) {
+        window.removeEventListener("popstate", popStateHandler.current);
+      }
+    };
+  }, []);
+
+  const handleConfirmExit = () => {
+    setShowExitConfirm(false);
+    // Remove listener before navigating so the history.go() doesn't re-trigger the dialog
+    if (popStateHandler.current) {
+      window.removeEventListener("popstate", popStateHandler.current);
+    }
+    // Go back past all guard entries and the base skeddo.ca entry to the previous external site
+    history.go(-stepsBack.current);
+  };
+
+  const handleCancelExit = () => {
+    setShowExitConfirm(false);
+    // Guard is already re-armed by the popstate handler — nothing else needed
   };
 
   /* ── Scroll to top on tab switch ── */
@@ -1182,6 +1220,74 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           onDeleteKid={deleteKid}
           onAddKid={openAddKid}
         />
+      )}
+
+      {/* ── Exit confirmation dialog ── */}
+      {showExitConfirm && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="exit-dialog-title"
+          style={{
+            position: "fixed", inset: 0,
+            background: "rgba(27,36,50,0.55)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: 24, zIndex: 9999,
+            animation: "fadeBg 0.15s ease",
+          }}
+          onClick={handleCancelExit}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: C.cream, borderRadius: 20, padding: "32px 24px",
+              maxWidth: 320, width: "100%", textAlign: "center",
+              boxShadow: "0 16px 48px rgba(27,36,50,0.22)",
+              animation: "slideIn 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)",
+            }}
+          >
+            <div
+              id="exit-dialog-title"
+              style={{
+                fontFamily: "'Instrument Serif', 'Poppins', serif",
+                fontSize: 24, color: C.ink, marginBottom: 10, lineHeight: 1.2,
+              }}
+            >
+              Leave Skeddo?
+            </div>
+            <p style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 15,
+              color: C.muted, lineHeight: 1.5, marginBottom: 28,
+            }}>
+              Your current filters and view will be lost.
+            </p>
+            <div style={{ display: "flex", gap: 12 }}>
+              <button
+                onClick={handleCancelExit}
+                autoFocus
+                style={{
+                  flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 15,
+                  fontWeight: 700, border: `1.5px solid ${C.border}`,
+                  borderRadius: 10, padding: "13px 0", cursor: "pointer",
+                  background: C.white, color: C.ink, minHeight: 48,
+                }}
+              >
+                Stay
+              </button>
+              <button
+                onClick={handleConfirmExit}
+                style={{
+                  flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 15,
+                  fontWeight: 700, border: "none", borderRadius: 10,
+                  padding: "13px 0", cursor: "pointer",
+                  background: C.seaGreen, color: "#fff", minHeight: 48,
+                }}
+              >
+                Leave
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Toast notification */}
