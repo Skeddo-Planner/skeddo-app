@@ -10,6 +10,7 @@ const programsPath = path.join(__dirname, "..", "src", "data", "programs.json");
 const programs = JSON.parse(fs.readFileSync(programsPath, "utf-8"));
 
 let stats = { scheduleType: 0, indoorOutdoor: 0, campType: 0, activityType: 0, tags: 0, durationPerDay: 0, dayLength: 0, ageMax: 0 };
+let changed = { scheduleType: 0, dayLength: 0, campTypeYearRound: 0 };
 
 function inferScheduleType(p) {
   const name = (p.name || "").toLowerCase();
@@ -38,13 +39,14 @@ function inferScheduleType(p) {
   if (name.includes("weekend") && !name.includes("camp")) return "Weekend";
 
   if (duration !== null) {
-    if (duration <= 4) {
+    if (duration < 3) return "Activity";
+    if (duration < 6) {
       // Check if AM or PM
-      if (startH < 12) return "Half Day (AM)";
-      if (startH >= 12) return "Half Day (PM)";
+      if (startH !== null && startH < 12) return "Half Day (AM)";
+      if (startH !== null && startH >= 12) return "Half Day (PM)";
       return "Half Day";
     }
-    if (duration > 4) return "Full Day";
+    return "Full Day";
   }
 
   // Infer from name
@@ -135,7 +137,32 @@ function inferCampType(p) {
   // Default by season
   if (season.includes("summer")) return "Summer Camp";
 
-  return "Year-Round Program";
+  // Check date range before defaulting to Year-Round
+  // Year-Round ONLY applies if: no end date (truly ongoing), or span > 10 months
+  const startDateStr = p.startDate;
+  const endDateStr = p.endDate;
+  if (startDateStr && endDateStr) {
+    const sd = new Date(startDateStr);
+    const ed = new Date(endDateStr);
+    const spanDays = (ed - sd) / (1000 * 60 * 60 * 24);
+    if (spanDays > 305) {
+      // Genuinely year-round (>10 months)
+      return "Year-Round Program";
+    }
+    // Has a defined short date range — classify by start month
+    const mo = sd.getMonth(); // 0-indexed
+    if (mo >= 2 && mo <= 4) return "Spring Program";   // Mar–May
+    if (mo >= 5 && mo <= 7) return "Summer Camp";      // Jun–Aug
+    if (mo >= 8 && mo <= 10) return "Fall Program";    // Sep–Nov
+    return "Class/Lesson"; // Dec–Feb (winter)
+  }
+  if (!endDateStr && startDateStr) {
+    // Has a start date but no end date — treat as ongoing/year-round
+    return "Year-Round Program";
+  }
+
+  // No date info at all — can't determine, leave as null
+  return null;
 }
 
 function inferActivityType(p) {
@@ -248,61 +275,79 @@ function inferTags(p) {
   return tags.length > 0 ? tags : null;
 }
 
+function parseProgramTime(t) {
+  if (!t) return null;
+  const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!m) return null;
+  let h = parseInt(m[1]);
+  if (m[3].toUpperCase() === "PM" && h !== 12) h += 12;
+  if (m[3].toUpperCase() === "AM" && h === 12) h = 0;
+  return h + parseInt(m[2]) / 60;
+}
+
 for (const p of programs) {
-  // scheduleType
-  if (!p.scheduleType) {
+  // scheduleType — always recompute (thresholds changed, old values may be wrong)
+  {
     const st = inferScheduleType(p);
-    if (st) { p.scheduleType = st; stats.scheduleType++; }
+    if (st) {
+      if (!p.scheduleType) stats.scheduleType++;
+      else if (p.scheduleType !== st) changed.scheduleType++;
+      p.scheduleType = st;
+    }
   }
 
-  // indoorOutdoor
+  // indoorOutdoor — only fill if missing
   if (!p.indoorOutdoor) {
     const io = inferIndoorOutdoor(p);
     if (io) { p.indoorOutdoor = io; stats.indoorOutdoor++; }
   }
 
-  // campType
+  // campType — fill if missing, or fix if incorrectly set to "Year-Round Program"
   if (!p.campType) {
     const ct = inferCampType(p);
     if (ct) { p.campType = ct; stats.campType++; }
+  } else if (p.campType === "Year-Round Program") {
+    const ct = inferCampType(p);
+    if (ct && ct !== "Year-Round Program") {
+      p.campType = ct;
+      changed.campTypeYearRound++;
+    }
   }
 
-  // activityType
+  // activityType — only fill if missing
   if (!p.activityType) {
     const at = inferActivityType(p);
     if (at) { p.activityType = at; stats.activityType++; }
   }
 
-  // tags
+  // tags — only fill if missing
   if (!p.tags || p.tags.length === 0) {
     const tags = inferTags(p);
     if (tags) { p.tags = tags; stats.tags++; }
   }
 
-  // durationPerDay (if we have startTime and endTime)
-  if (!p.durationPerDay && p.startTime && p.endTime) {
-    function parseTime(t) {
-      const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
-      if (!m) return null;
-      let h = parseInt(m[1]);
-      if (m[3].toUpperCase() === "PM" && h !== 12) h += 12;
-      if (m[3].toUpperCase() === "AM" && h === 12) h = 0;
-      return h + parseInt(m[2]) / 60;
-    }
-    const s = parseTime(p.startTime);
-    const e = parseTime(p.endTime);
+  // durationPerDay — always recompute from startTime/endTime if available
+  if (p.startTime && p.endTime) {
+    const s = parseProgramTime(p.startTime);
+    const e = parseProgramTime(p.endTime);
     if (s !== null && e !== null && e > s) {
-      p.durationPerDay = Math.round((e - s) * 10) / 10;
-      stats.durationPerDay++;
+      const dur = Math.round((e - s) * 10) / 10;
+      if (!p.durationPerDay) stats.durationPerDay++;
+      p.durationPerDay = dur;
     }
   }
 
-  // dayLength (if we have durationPerDay)
-  if (!p.dayLength && p.durationPerDay) {
-    if (p.durationPerDay >= 5) p.dayLength = "Full Day";
-    else if (p.durationPerDay >= 3) p.dayLength = "Half Day";
-    else p.dayLength = "Single Day";
-    stats.dayLength++;
+  // dayLength — always recompute with corrected thresholds (< 3 = Single Day, 3-6 = Half Day, 6+ = Full Day)
+  if (p.durationPerDay) {
+    const oldDL = p.dayLength;
+    let newDL;
+    if (p.durationPerDay >= 6) newDL = "Full Day";
+    else if (p.durationPerDay >= 3) newDL = "Half Day";
+    else newDL = "Single Day";
+
+    if (!oldDL) stats.dayLength++;
+    else if (oldDL !== newDL) changed.dayLength++;
+    p.dayLength = newDL;
   }
 
   // Fix ageMax if it's 0
@@ -312,10 +357,15 @@ for (const p of programs) {
   }
 }
 
-console.log("=== FIELDS FILLED ===");
+console.log("=== FIELDS NEWLY FILLED ===");
 for (const [k, v] of Object.entries(stats)) {
-  console.log(k + ": " + v + " programs updated");
+  if (v > 0) console.log(k + ": " + v + " programs");
 }
+
+console.log("\n=== INCORRECT VALUES CORRECTED ===");
+console.log("scheduleType (wrong threshold → Activity/HalfDay/FullDay): " + changed.scheduleType + " programs");
+console.log("dayLength (wrong threshold corrected): " + changed.dayLength + " programs");
+console.log("campType Year-Round → date-based classification: " + changed.campTypeYearRound + " programs");
 
 fs.writeFileSync(programsPath, JSON.stringify(programs, null, 2));
 console.log("\nUpdated programs.json");
