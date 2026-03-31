@@ -1,0 +1,56 @@
+# Skeddo — Rules coverage check
+#
+# Runs on every push and PR to verify that every rule in
+# DATA-QUALITY-RULES.md has a corresponding check in validate-programs.cjs.
+#
+# If coverage drops (a rule exists in the doc with NO validator check),
+# this job fails and appears as a red X on the commit in GitHub — Tom gets
+# immediate visibility without having to run anything manually.
+#
+# The job is intentionally lightweight: no secrets, no network, no npm build.
+
+name: Rules Coverage
+
+on:
+  push:
+    # Run on every push — catches coverage drops the moment they happen
+    branches:
+      - '**'
+  pull_request:
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  coverage:
+    name: Rules coverage check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check rules coverage
+        # Exits 0 if all data rules are covered; exits 1 if any are missing checks.
+        # Output is always printed so it's visible in the Actions log.
+        run: node scripts/check-rules-coverage.cjs
+
+      - name: Warn if rules doc changed without validator change
+        # Only fires on PRs/pushes that touch the rules doc
+        if: always()
+        run: |
+          RULES_CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -c "DATA-QUALITY-RULES.md" || true)
+          VALIDATOR_CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -c "validate-programs.cjs" || true)
+
+          if [ "$RULES_CHANGED" -gt 0 ] && [ "$VALIDATOR_CHANGED" -eq 0 ]; then
+            echo ""
+            echo "⚠️  WARNING: DATA-QUALITY-RULES.md changed but validate-programs.cjs did NOT."
+            echo "   Per Rule 17, every rule must be documented AND automated."
+            echo "   Check whether new/updated rules need a corresponding validator check."
+            echo ""
+          fi

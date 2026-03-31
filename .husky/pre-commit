@@ -1,0 +1,109 @@
+#!/bin/bash
+# ============================================================
+# Skeddo pre-commit hook — data quality safeguards
+#
+# Automatically installed via: git config core.hooksPath .husky
+#
+# What this does:
+#   1. If programs.json changed → validates data quality rules
+#      and BLOCKS the commit on HARD violations
+#   2. If DATA-QUALITY-RULES.md changed but validate-programs.cjs
+#      did NOT → warns that rules need corresponding code
+#   3. Runs check-rules-coverage.cjs and prints coverage %
+# ============================================================
+
+# Find repo root (works in main worktree AND in git worktrees)
+ROOT="$(git rev-parse --show-toplevel)"
+
+# Collect staged file paths
+STAGED="$(git diff --cached --name-only 2>/dev/null || true)"
+
+PROGRAMS_CHANGED=false
+SCRIPTS_CHANGED=false
+RULES_DOC_CHANGED=false
+VALIDATOR_CHANGED=false
+
+while IFS= read -r file; do
+  [ -z "$file" ] && continue
+  case "$file" in
+    src/data/programs.json)        PROGRAMS_CHANGED=true ;;
+    scripts/validate-programs.cjs) VALIDATOR_CHANGED=true; SCRIPTS_CHANGED=true ;;
+    scripts/*)                     SCRIPTS_CHANGED=true ;;
+    docs/DATA-QUALITY-RULES.md)    RULES_DOC_CHANGED=true ;;
+  esac
+done <<< "$STAGED"
+
+EXIT_CODE=0
+
+# ── Check 1: programs.json changed → run validator ──────────────────────────
+if [ "$PROGRAMS_CHANGED" = "true" ]; then
+  echo ""
+  echo "🔍 programs.json staged — running validate-programs.cjs..."
+  echo ""
+
+  # Run validator in report mode (no --fix: we don't auto-modify staged files)
+  if node "$ROOT/scripts/validate-programs.cjs" 2>&1; then
+    echo "✅ All data quality rules pass."
+  else
+    echo ""
+    echo "╔══════════════════════════════════════════════════════════╗"
+    echo "║  ❌  COMMIT BLOCKED — hard rule violations in            ║"
+    echo "║      programs.json (see violations above)                ║"
+    echo "║                                                          ║"
+    echo "║  Fix options:                                            ║"
+    echo "║    node scripts/validate-programs.cjs --fix              ║"
+    echo "║    git add src/data/programs.json                        ║"
+    echo "║    git commit ...                                        ║"
+    echo "╚══════════════════════════════════════════════════════════╝"
+    echo ""
+    EXIT_CODE=1
+  fi
+fi
+
+# ── Check 2: Rules doc changed but validator was NOT touched ─────────────────
+if [ "$RULES_DOC_CHANGED" = "true" ] && [ "$VALIDATOR_CHANGED" = "false" ]; then
+  echo ""
+  echo "┌──────────────────────────────────────────────────────────┐"
+  echo "│  ⚠️  WARNING: DATA-QUALITY-RULES.md was updated but      │"
+  echo "│     validate-programs.cjs was NOT changed.               │"
+  echo "│                                                          │"
+  echo "│  Per Rule 17: every rule must be documented AND          │"
+  echo "│  automated. Verify all new/changed rules have a          │"
+  echo "│  corresponding check in validate-programs.cjs.           │"
+  echo "│                                                          │"
+  echo "│  Run: node scripts/check-rules-coverage.cjs              │"
+  echo "└──────────────────────────────────────────────────────────┘"
+  echo ""
+  # Warning only — does not block commit
+fi
+
+# ── Check 3: Rules coverage report ──────────────────────────────────────────
+if [ "$PROGRAMS_CHANGED" = "true" ] || \
+   [ "$RULES_DOC_CHANGED" = "true" ] || \
+   [ "$VALIDATOR_CHANGED" = "true" ] || \
+   [ "$SCRIPTS_CHANGED" = "true" ]; then
+
+  echo ""
+  echo "📊 Running rules coverage check..."
+  echo ""
+
+  # Run and capture output — always show it, but don't block on coverage gaps
+  # (gaps are tracked in GitHub Actions; locally this is informational)
+  if node "$ROOT/scripts/check-rules-coverage.cjs" 2>&1; then
+    : # coverage output already printed, exit 0 = good
+  else
+    echo ""
+    echo "⚠️  Coverage gaps detected (see report above)."
+    echo "   This is a WARNING — your commit will still proceed."
+    echo "   Fix gaps before merging to main."
+    echo ""
+    # Do NOT set EXIT_CODE=1 for coverage gaps — only violations block commits
+  fi
+fi
+
+echo ""
+if [ $EXIT_CODE -ne 0 ]; then
+  echo "❌ Commit blocked. Fix the violations above, then try again."
+fi
+
+exit $EXIT_CODE
