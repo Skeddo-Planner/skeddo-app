@@ -472,7 +472,11 @@ export function detectConflicts(programs) {
 export function parseDayRange(days) {
   if (!days) return [];
   const dayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
-  const normalized = days.toLowerCase().replace(/\u2013/g, "-"); // en-dash to hyphen
+  // Handle array format like ["Tuesday","Wednesday","Thursday"]
+  if (Array.isArray(days)) {
+    return days.map((d) => dayMap[String(d).toLowerCase().slice(0, 3)]).filter((d) => d != null);
+  }
+  const normalized = String(days).toLowerCase().replace(/\u2013/g, "-"); // en-dash to hyphen
 
   // Handle range like "Mon-Fri"
   const rangeMatch = normalized.match(/^(\w{3})\s*-\s*(\w{3})$/);
