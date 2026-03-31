@@ -1,0 +1,123 @@
+# Skeddo — Claude Agent Instructions
+
+These instructions are MANDATORY for every Claude agent working in this repository.
+They exist because automated rules exist to prevent real harm: wrong prices, broken links,
+and fabricated listings that erode parent trust.
+
+## Before Every Session
+
+```bash
+git pull   # Always pull first — two founders work from different machines (Rule 19)
+```
+
+## After ANY Change to src/data/programs.json
+
+**MANDATORY — no exceptions:**
+
+```bash
+node scripts/validate-programs.cjs --fix
+git add src/data/programs.json
+```
+
+- Run this immediately after every data change, before staging for commit.
+- If violations remain after `--fix`, fix them manually before committing.
+- Include the validator output summary in your commit message (see Commit Format below).
+
+## After Editing docs/DATA-QUALITY-RULES.md
+
+**MANDATORY — no exceptions:**
+
+```bash
+node scripts/check-rules-coverage.cjs
+```
+
+- You MUST also add a corresponding check to `scripts/validate-programs.cjs` for any
+  new rule. Per Rule 17: every rule must be documented AND automated.
+- Never add a rule to the doc without also writing the validator code.
+- Never remove a rule from the doc without also removing the validator check.
+- Stage both files together in the same commit.
+
+## Commit Message Format
+
+Every commit that touches programs.json MUST include the validator summary:
+
+```
+chore: <description of change>
+
+Validator: N violations, M auto-fixed
+Rules checked: R1, R2, R3, ...
+Programs: XXXX total
+```
+
+Example:
+```
+fix: correct enrollment status for Pedalheads summer camps
+
+Validator: 0 violations, 3 auto-fixed (status corrections)
+Rules checked: R1–R34 + REQ
+Programs: 6721 total
+```
+
+## Data Rules Quick Reference
+
+Full rules: docs/DATA-QUALITY-RULES.md
+Validator:  scripts/validate-programs.cjs
+Coverage:   scripts/check-rules-coverage.cjs
+
+**Hard rules most commonly violated:**
+| Rule | Summary |
+|------|---------|
+| R14  | Prior-year data → enrollmentStatus MUST be "Likely Coming Soon" |
+| R15  | cost=null → must have costNote; cost=0 only for genuinely free |
+| R20  | "Coming Soon" requires a registrationDate |
+| R22  | Never guess or estimate — null + costNote when unknown |
+| R23  | Every program must be verified on the provider's live page |
+| R24  | Never use activekids.com or campscui.active.com URLs |
+| R28  | "Open" requires confirmed2026=true or an ActiveNet ID |
+| R30  | Deduplication must preserve unique time slots and age groups |
+| R31  | Triple-check before removing ANY program |
+| R33  | "Full Day" scheduleType requires durationPerDay >= 4 hours |
+
+## What You Must NEVER Do
+
+- Never edit `docs/DATA-QUALITY-RULES.md` without also updating `validate-programs.cjs`
+- Never commit programs.json with unresolved HARD violations
+- Never guess program data (prices, dates, times, ages) — use null + notes
+- Never mark `confirmed2026: true` or `priceVerified: true` without verifying on the
+  actual provider page
+- Never remove a program because registration is full, URL is broken, or price is unknown
+  — use appropriate flags instead
+- Never use activekids.com or campscui.active.com as data sources
+
+## Key Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `node scripts/validate-programs.cjs` | Check all data quality rules |
+| `node scripts/validate-programs.cjs --fix` | Auto-fix fixable violations |
+| `node scripts/check-rules-coverage.cjs` | Verify doc ↔ validator coverage |
+| `node scripts/validate-urls.cjs --fix` | Fix broken registration URLs |
+| `node scripts/verify-programs.cjs --incremental --fix` | Cross-check live pages |
+
+## Git Hooks
+
+The pre-commit hook (`.husky/pre-commit`) runs automatically on every commit:
+- Validates programs.json if it changed (blocks on HARD violations)
+- Warns if rules doc was updated without validator code changes
+- Prints coverage % from check-rules-coverage.cjs
+
+To install (run once per machine):
+```bash
+git config core.hooksPath .husky
+chmod +x .husky/pre-commit   # Mac/Linux only
+```
+
+## Important Files
+
+| File | Purpose |
+|------|---------|
+| `docs/DATA-QUALITY-RULES.md` | Source of truth for all data quality rules |
+| `scripts/validate-programs.cjs` | Automated enforcement of those rules |
+| `scripts/check-rules-coverage.cjs` | Audits that every rule has a check |
+| `src/data/programs.json` | The program database (~6700+ entries) |
+| `scripts/verify-state.json` | State tracker for incremental URL verification — do not delete |

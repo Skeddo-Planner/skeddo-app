@@ -418,9 +418,9 @@ Object.entries(idCounts).filter(([, v]) => v > 1).forEach(([k, v]) => {
   warn(k, 10, `Duplicate ID (${v} occurrences)`);
 });
 
-// ── R10b: True duplicate programs (same name + provider + startDate + all substantive fields) ──
-// Programs with the same name/provider/startDate but different age groups, times, costs,
-// locations, or days are DISTINCT listings (e.g., different time slots or age tiers) and must be kept.
+// ── R10b / R30: True duplicate programs (same name + provider + startDate + all substantive fields) ──
+// R30 (Deduplication Must Preserve Unique Listings): programs with the same name/provider/startDate
+// but different age groups, times, costs, locations, or days are DISTINCT listings and must be kept.
 const SUBSTANTIVE_FIELDS = ["id", "registrationUrl", "ageMin", "ageMax", "address", "neighbourhood", "startTime", "endTime", "cost", "days", "category", "enrollmentStatus", "dayLength", "durationPerDay", "scheduleType"];
 const dupeGroups = {};
 programs.forEach((p, idx) => {
@@ -477,7 +477,7 @@ for (const p of programs) {
 // ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
-const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,31,32,33,34";
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34";
 const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);
