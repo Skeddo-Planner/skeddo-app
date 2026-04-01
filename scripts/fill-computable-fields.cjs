@@ -338,12 +338,18 @@ for (const p of programs) {
   }
 
   // dayLength — always recompute with corrected thresholds (< 3 = Single Day, 3-6 = Half Day, 6+ = Full Day)
+  // Exception: lesson-type names with short duration → "Lesson"
   if (p.durationPerDay) {
     const oldDL = p.dayLength;
     let newDL;
     if (p.durationPerDay >= 6) newDL = "Full Day";
     else if (p.durationPerDay >= 3) newDL = "Half Day";
-    else newDL = "Single Day";
+    else {
+      const nameLower = (p.name || "").toLowerCase();
+      const lessonKeywords = ["lesson", "class", "private", "instruction", "tutorial", "coaching", "clinic"];
+      const isLesson = lessonKeywords.some(kw => nameLower.includes(kw));
+      newDL = isLesson ? "Lesson" : "Single Day";
+    }
 
     if (!oldDL) stats.dayLength++;
     else if (oldDL !== newDL) changed.dayLength++;
