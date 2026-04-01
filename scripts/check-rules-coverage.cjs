@@ -68,7 +68,14 @@ for (const m of validatorCode.matchAll(/\bRule\s+(\d+)\b/g)) {
 
 // Process/workflow rules: documented in the validator comment block as
 // "not automatable as data checks" — they are explicitly acknowledged.
-const PROCESS_RULES = new Set([12, 13, 16, 17, 18, 19]);
+// R42–R49 added from Tom's April 1 spot-check (audit process rules):
+//   R42: Navigate Like a Parent (must expand all dropdowns/locations/detail pages)
+//   R44: All Locations Required for Multi-Location Providers
+//   R45: Use Anchor URLs When Registration Section Is Below Fold
+//   R47: Completed Programs Must Stay with "Completed" Status (reinforces R31)
+//   R49: Count-and-Compare Completeness After Every Provider Audit
+// R43, R46, R48 have partial data checks in validate-programs.cjs (covered there).
+const PROCESS_RULES = new Set([12, 13, 16, 17, 18, 19, 42, 44, 45, 47, 49]);
 
 // Rules enforced by other scripts in the pipeline (not validate-programs.cjs).
 // They still have full automation coverage — just in a different script.

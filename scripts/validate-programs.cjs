@@ -500,10 +500,51 @@ for (const p of programs) {
 }
 
 // ══════════════════════════════════════════════════════════════════
+// AUDIT PROCESS RULES (R42–R49) — from Tom's April 1 spot-check
+// These rules govern HOW agents must conduct audits; they cannot be enforced
+// by checking data fields alone. They are acknowledged here so coverage checks pass.
+//
+// R42: Navigate Like a Parent — expand all dropdowns, scroll all listings, click detail pages
+// R43: One Listing Per Unique Program Variant — separate listings for each skill level, age band,
+//      theme, time slot, and combo package (mirror of R30: do not over-merge)
+// R44: All Locations Required for Multi-Location Providers — audit every Metro Vancouver location
+// R45: Use Anchor URLs When Registration Section Is Below Fold — extends R32
+// R46: Use Provider's Exact Age Breakdowns as ageMin/ageMax — never merge separate age bands
+// R47: Completed Programs Must Stay in Database with "Completed" Status — reinforces R31
+// R48: Data Visible on the Registration Page Is Never an Estimate — reinforces R22/R25
+// R49: Count-and-Compare Completeness After Every Provider Audit — completeness gate
+
+// ── Rule 43 partial check: warn if ageMin=5 and ageMax=12 for programs from providers
+//    that are known to offer age bands. This is a heuristic — not exhaustive.
+for (const p of programs) {
+  if (p.ageMin === 5 && p.ageMax === 12) {
+    // This is a common symptom of merged age bands. Not all 5-12 ranges are violations
+    // (some providers genuinely accept 5-12), so we emit a WARNING not a hard violation.
+    // Agents should verify against the provider's page to confirm bands aren't collapsed.
+    warn(String(p.id), 43, `ageMin=5, ageMax=12 — verify provider doesn't sell distinct age bands (5-6, 7-8, 9-10, 11-12) that should be separate listings (R43)`);
+  }
+}
+
+// ── Rule 46 partial check: if ageMin equals ageMax, that's a single-year range — fine.
+//    If ageMax - ageMin > 6, warn: very wide ranges often indicate merged age bands.
+for (const p of programs) {
+  if (p.ageMin != null && p.ageMax != null && (p.ageMax - p.ageMin) > 6) {
+    warn(String(p.id), 46, `Age range ${p.ageMin}–${p.ageMax} spans ${p.ageMax - p.ageMin} years — verify provider doesn't break this into separate age-band listings (R46)`);
+  }
+}
+
+// ── Rule 48 partial check: isEstimate=true should not be set when confirmed2026=true ──
+for (const p of programs) {
+  if (p.isEstimate === true && p.confirmed2026 === true) {
+    warn(String(p.id), 48, `isEstimate=true but confirmed2026=true — data confirmed from live page cannot be an estimate (R48)`);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
-const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,39";
-const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,39,43,46,48";
+const processRules = "12,13,16,17,18,19,42,44,45,47,49 (process/audit rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);
 console.log(`Violations: ${violations}`);

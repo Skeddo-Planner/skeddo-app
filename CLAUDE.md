@@ -182,6 +182,47 @@ When auditing or adding provider data, EVERY field must be verified against the 
 
 5. If a field cannot be verified (e.g., registration hasn't opened yet), document the specific reason in a costNote or comment field.
 
+## Mandatory Audit Patterns (from Tom's April 1 spot-check)
+
+These patterns were found across ALL 9 providers Tom checked. They are NOT edge cases — they are systemic failures that MUST be prevented in every future audit.
+
+### 1. NAVIGATE LIKE A PARENT
+Do NOT just read the provider's landing page. You MUST:
+- Click every dropdown menu on the registration page
+- Expand every location/category/age group selector
+- Scroll through the full list of programs (many are below the fold)
+- Click into individual program details pages
+- Check EVERY location tab if the provider has multiple locations
+
+### 2. ONE LISTING PER UNIQUE PROGRAM
+If a provider offers "Bike Camp Level 1", "Bike Camp Level 2", "Bike Camp Level 3" — those are THREE separate listings, not one "Bike Camp" listing. Break down by:
+- Skill level (Level 1, Level 2, etc.)
+- Age group (5-6, 7-8, 9-10, 11-12 — NOT generic "5-12")
+- Theme/name (Minecraft camp vs Roblox camp — separate listings)
+- Time slot (AM half-day vs PM half-day — separate listings)
+- Combo/bundle packages (2-week combo is a separate listing from individual weeks)
+
+### 3. EVERY LOCATION MUST BE CHECKED
+Multi-location providers (Code Ninjas, Pedalheads, Pear Tree, etc.) require checking EVERY location in the Metro Vancouver service area. Use location dropdowns, "Change Location" buttons, or location-specific URLs. Missing an entire location is unacceptable.
+
+### 4. URLs MUST POINT TO REGISTRATION, NOT INFO
+The URL must take a parent to where they can actually register/book:
+- ✅ `provider.com/camps/summer-camp/#programs` or `provider.com/register?session=12345`
+- ❌ `provider.com/camps/` or `provider.com/our-programs`
+Look for #register, #programs, #book, #signup anchors. If the registration section is lower on the page, use the anchor URL.
+
+### 5. USE PROVIDER'S EXACT AGE BREAKDOWNS
+If a provider breaks camps into age groups (5-6, 7-8, 9-10, 11-12), use THOSE exact ranges as ageMin/ageMax. Do NOT combine them into a generic range like 5-12. Parents filter by their child's age — wrong ranges mean programs don't appear in search results.
+
+### 6. COMPLETED PROGRAMS STAY IN DATABASE
+If a program ran in the past (e.g., Spring Break camps in March) but is still listed on the provider's website, keep it in the database with enrollmentStatus: "Completed". Parents may want to see what was offered to plan for next year.
+
+### 7. NEVER MARK DATA AS ESTIMATED WHEN IT'S VERIFIABLE
+If the price, date, or any detail is visible on the registration page, it is CONFIRMED data — not an estimate. Only use isEstimate: true when the data genuinely comes from a prior year and the current year hasn't been published.
+
+### 8. COUNT AND VERIFY COMPLETENESS
+After auditing a provider, count the total unique programs on their registration page and compare to what we have in the database. If our count is lower, programs are missing. Document: "Provider shows X programs, we have Y — [X-Y] missing" in the verification log.
+
 ## Important Files
 
 | File | Purpose |

@@ -397,3 +397,67 @@ The validator enforces what it can: adult-only checks (Rule 23), true duplicate 
   - ActiveNet search pages without a detail ID (`/activity/search` without `/detail/`)
   - Provider pages ending in `/programs`, `/programs/`, `/camps`, `/camps/`, `/classes`, `/classes/` without a specific program ID or slug
 - This rule has NO exceptions
+
+---
+
+## Rule 42: Navigate Like a Parent — Read Every Page Level (AUDIT PROCESS RULE)
+**Why:** Tom's April 1 spot-check found every audited provider had programs below the fold, behind dropdowns, or inside location tabs that agents missed entirely because they only read the landing page.
+- Do NOT just read the provider's top-level landing page or homepage
+- You MUST expand every dropdown, location selector, age group selector, and category filter on the registration page
+- You MUST scroll through the full program listing — many programs are below the fold
+- You MUST click into individual program detail pages to get complete field data (times, prices, age ranges)
+- For multi-location providers: MUST check EVERY location tab or location-specific URL, not just the first
+- Skipping any of these steps makes your audit incomplete — treat it like a parent who needs to find the right camp for their child
+
+## Rule 43: One Database Listing Per Unique Program Variant (HARD RULE)
+**Why:** Agents repeatedly collapsed distinct programs (different skill levels, age groups, themes, or time slots) into a single overly-broad listing. This causes programs to not appear in age-filtered searches and misrepresents what the provider offers.
+- If a provider offers Level 1, Level 2, Level 3 of a camp → create THREE separate listings
+- If a provider breaks a camp into age bands (5-6, 7-8, 9-10, 11-12) → create FOUR separate listings, one per band
+- If a provider offers "Minecraft Camp" and "Roblox Camp" → TWO separate listings
+- If a provider offers AM half-day and PM half-day → TWO separate listings
+- If a provider offers a 2-week combo bundle distinct from individual weeks → separate listing for the bundle
+- Extends Rule 30 (deduplication must preserve unique listings): this rule is its mirror image — do not over-merge
+- A listing with ageMin=5 and ageMax=12 when the provider sells distinct 5-6, 7-9, 10-12 bands is a violation
+
+## Rule 44: All Locations Required for Multi-Location Providers (AUDIT PROCESS RULE)
+**Why:** Agents repeatedly missed entire locations (e.g., a Code Ninjas or Pedalheads location in Burnaby) because they audited only the first location returned or only the provider's default city.
+- For any provider with multiple Metro Vancouver locations, EVERY location must be checked and every location's programs must be in the database
+- Use location dropdowns, "Change Location" buttons, or location-specific sub-pages to enumerate all locations
+- After completing a multi-location audit, list the locations you checked and confirm none were skipped
+- Missing an entire location is treated as a missed-programs violation (see Rule 49)
+
+## Rule 45: Use Anchor URLs When Registration Section Is Below Fold (HARD RULE)
+**Why:** Agents used top-level page URLs when the actual registration section or program list was further down the page, behind a #register or #programs anchor. Parents who click a bare URL land at the top of the page with no obvious path to registration.
+- If the registration or program listing section is not visible on page load (i.e., the parent must scroll), use the anchor URL: `provider.com/camps/#register` or `provider.com/camps/#programs`
+- Acceptable anchors: `#register`, `#programs`, `#book`, `#signup`, `#enroll`, `#schedule`, `#sessions`
+- If the provider uses JavaScript tab switching rather than anchors, use the deepest linkable URL available and set `urlNote` explaining this
+- Extends Rule 32 (registration URL must lead to enrollment within 1 click)
+
+## Rule 46: Use Provider's Exact Age Breakdowns as ageMin/ageMax (HARD RULE)
+**Why:** Agents combined provider age bands (5-6, 7-8, 9-10, 11-12) into a single generic range (5-12). Parents filter by their child's specific age — a child aged 7 won't see a program listed as 5-12 if the system normalizes away the 7-8 band.
+- If the provider's registration page shows age bands, each band becomes its own listing with the exact ageMin/ageMax from the provider
+- Do NOT combine: ageMin=5, ageMax=12 when the provider sells 5-6, 7-8, 9-10, and 11-12 separately
+- If the provider lists a single unbroken age range (e.g., "ages 6-14"), use that range as-is
+- This rule pairs with Rule 43 (one listing per variant) — different age bands = different listings
+
+## Rule 47: Completed Programs Must Stay in the Database with "Completed" Status (HARD RULE)
+**Why:** Agents deleted completed programs (Spring Break camps, finished sessions) instead of keeping them with the correct status. Completed programs give parents historical context and often recur the following year.
+- If a program ran in the past (e.g., Spring Break 2026) but is still listed on the provider's website, keep it with `enrollmentStatus: "Completed"`
+- Do NOT delete a program just because it has passed — set status to "Completed" and keep the listing
+- This reinforces Rule 31 (never delete except for the 5 allowed criteria): "program completed its run" is explicitly NOT a deletion criterion
+- A completed program with full field data is always more valuable than a missing listing
+
+## Rule 48: Data Visible on the Registration Page Is Never an Estimate (HARD RULE)
+**Why:** Agents marked prices, dates, and times as `isEstimate: true` even when that data was clearly shown on the provider's live registration page. This incorrectly flags confirmed data as uncertain and misleads parents.
+- If a price, date, time, or age range is visible and readable on the provider's live registration page → it is CONFIRMED data
+- `isEstimate: true` is ONLY for data carried forward from a prior year when the current year's page has not yet published the information
+- `priceVerified: true` and `isEstimate: true` are mutually exclusive (Rule 25 already enforces this)
+- When in doubt: if you can see it on the page, it is not an estimate
+
+## Rule 49: Count-and-Compare Completeness After Every Provider Audit (AUDIT PROCESS RULE)
+**Why:** Every provider Tom spot-checked had missing programs — agents stopped after finding the obvious listings without verifying they had captured everything.
+- After auditing any provider, count the total unique program offerings visible on their registration page
+- Compare that count to the number of listings in programs.json for that provider
+- If your count is lower than what the provider shows, programs are missing — find and add them before finishing
+- Document in your session log or commit message: "Provider shows X programs, we have Y" — if X > Y, explain why
+- This is a completeness gate: an audit is not done until counts match (or discrepancies are explained)
