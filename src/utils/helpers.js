@@ -534,6 +534,21 @@ export function calcCostPerHour(program) {
   if (startH == null || endH == null || endH <= startH) return null;
 
   const hoursPerSession = endH - startH;
+  const costNote = (program.costNote || "").toLowerCase();
+
+  // Per-lesson/per-session cost: cost covers a single session only
+  if (costNote.includes("per lesson") || costNote.includes("per session") || costNote.includes("per class")) {
+    return hoursPerSession > 0 ? cost / hoursPerSession : null;
+  }
+
+  // Per-week cost: cost covers one week of sessions
+  if (costNote.includes("per week")) {
+    const weekdays = parseDayRange(program.days);
+    const daysPerWeek = weekdays.length;
+    if (daysPerWeek === 0) return null;
+    return cost / (hoursPerSession * daysPerWeek);
+  }
+
   const sessions = countSessions(program.startDate, program.endDate, program.days);
   if (sessions === 0) return null;
 
