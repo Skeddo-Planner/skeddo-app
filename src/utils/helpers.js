@@ -526,7 +526,7 @@ function parseTimeToHours(timeStr) {
 
 /** Calculate cost per hour for a program */
 export function calcCostPerHour(program) {
-  const cost = Number(program.cost);
+  const cost = Number(program.costPerSession ?? program.cost);
   if (!cost || cost <= 0) return null;
 
   const startH = parseTimeToHours(program.startTime || program.times?.split("–")[0]?.trim());
@@ -534,6 +534,12 @@ export function calcCostPerHour(program) {
   if (startH == null || endH == null || endH <= startH) return null;
 
   const hoursPerSession = endH - startH;
+
+  // For repeating/drop-in programs, cost is per session — don't multiply by total sessions
+  if (program.repeating) {
+    return hoursPerSession > 0 ? cost / hoursPerSession : null;
+  }
+
   const sessions = countSessions(program.startDate, program.endDate, program.days);
   if (sessions === 0) return null;
 
