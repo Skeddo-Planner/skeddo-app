@@ -479,10 +479,30 @@ for (const p of programs) {
   }
 }
 
+// ── Rule 39: Ages vs Grades — grade numbers must not be stored directly as ages ──
+// Known grade-based providers use parenthetical or "G" prefix notation for grades.
+// When the ageMin equals the grade number for grades >= 3, it's almost certainly a grade-as-age bug.
+// Grade-to-age mapping: K=5, G1=6, G2=7, G3=8, G4=9, G5=10, G6=11, G7=12, G8=13, G9=14, G10=15, G11=16, G12=17
+const GRADE_PROVIDERS_R39 = ['Access2Innovate', 'Collingwood School'];
+const gradeToAgeR39 = { 3: 8, 4: 9, 5: 10, 6: 11, 7: 12, 8: 13, 9: 14, 10: 15, 11: 16, 12: 17 };
+for (const p of programs) {
+  const isGradeProvider = GRADE_PROVIDERS_R39.some(gp => (p.provider || '').includes(gp));
+  if (!isGradeProvider) continue;
+  const name = p.name || '';
+  const m = name.match(/\((\d+)-(\d+)\)/);
+  if (m) {
+    const gradeMin = parseInt(m[1]);
+    if (gradeMin >= 3 && p.ageMin === gradeMin && gradeToAgeR39[gradeMin]) {
+      const expectedAge = gradeToAgeR39[gradeMin];
+      warn(String(p.id), 39, `Grade-as-age bug: "${name}" has ageMin=${p.ageMin} but Grade ${gradeMin} = age ${expectedAge} — use age, not grade number`);
+    }
+  }
+}
+
 // ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
-const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34";
+const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,39";
 const processRules = "12,13,16,17,18,19 (process/UI rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);

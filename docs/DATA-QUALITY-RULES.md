@@ -274,6 +274,18 @@ These rules are MANDATORY for all program data entry, whether manual or automate
 - State is tracked in `scripts/verify-state.json` — do not delete this file
 - The verify-report-YYYY-MM-DD.json files document what was checked and what was fixed
 
+## Rule 39: Ages vs Grades — Always Convert Grades to Ages (HARD RULE)
+**Why:** Collingwood and other school-based providers label programs by grade (e.g., "Grade 3–5", "(3-5)", "G3-4"). When grade numbers are stored directly as `ageMin`/`ageMax`, filters break — a "Grade 3–5" program stored as ageMin:3 appears alongside toddler programs instead of age 8–10 programs.
+- All program listings MUST use ages (not grades) in `ageMin`, `ageMax`, and any filter-facing fields
+- Grade references are ONLY permitted in the `name`/`description` fields as supplementary context
+- When a provider lists programs by grade, convert to ages using this mapping:
+  - Kindergarten (K): age 5 | Grade 1: age 6 | Grade 2: age 7 | Grade 3: age 8
+  - Grade 4: age 9 | Grade 5: age 10 | Grade 6: age 11 | Grade 7: age 12
+  - Grade 8: age 13 | Grade 9: age 14 | Grade 10: age 15 | Grade 11: age 16 | Grade 12: age 17
+- Examples: "Grades 3–5" → ageMin: 8, ageMax: 10 | "Grade 6–8" → ageMin: 11, ageMax: 13
+- The validator flags any program from a known grade-based provider where the `ageMin` equals the grade number directly (e.g., ageMin: 3 for a "Grade 3" program instead of age 8)
+- This rule applies to ALL providers — Collingwood, Mulgrave, school districts, and any others that use grade-based labelling
+
 ## When Adding Programs to New Cities
 Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search approach. Apply ALL rules above to every program in the new city. No shortcuts.
 
