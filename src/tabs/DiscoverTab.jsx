@@ -48,9 +48,9 @@ const CITY_NEIGHBOURHOODS = [
   {
     city: "Burnaby",
     neighbourhoods: [
-      "Burnaby Heights", "Burnaby Mountain", "Capitol Hill", "Cariboo",
-      "Central Park", "Deer Lake", "Edmonds", "Metrotown", "North Burnaby",
-      "SFU / UniverCity", "South Slope", "Sperling-Duthie",
+      "Brentwood", "Burnaby Heights", "Burnaby Mountain", "Capitol Hill", "Cariboo",
+      "Central Park", "Deer Lake", "Edmonds", "Kensington", "Lougheed", "Metrotown",
+      "North Burnaby", "SFU / UniverCity", "South Slope", "Sperling-Duthie",
     ],
   },
   {
