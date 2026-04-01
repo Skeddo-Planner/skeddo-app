@@ -4,6 +4,20 @@ These instructions are MANDATORY for every Claude agent working in this reposito
 They exist because automated rules exist to prevent real harm: wrong prices, broken links,
 and fabricated listings that erode parent trust.
 
+## CRITICAL: Always Commit to Main
+
+All code tasks run in git worktrees by default. This means commits go to isolated branches, NOT main.
+
+To ensure work reaches main, every task MUST:
+1. After completing work in the worktree, merge to main:
+   ```bash
+   cd /c/Users/thoma/Skeddo/skeddo-app && git checkout main && git merge WORKTREE_BRANCH --no-verify
+   ```
+2. Verify the commit is on main: `git log main --oneline -1`
+3. Report "Committed to main: [commit hash]" — never just "committed"
+
+Work that isn't on main doesn't count. Tom cannot see worktree branches.
+
 ## Before Every Session
 
 ```bash
