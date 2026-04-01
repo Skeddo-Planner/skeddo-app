@@ -40,6 +40,42 @@ done <<< "$STAGED"
 
 EXIT_CODE=0
 
+# ── Check 0: audit: commits require a verification log ──────────────────────────
+COMMIT_MSG_FILE="$(git rev-parse --git-dir)/COMMIT_EDITMSG"
+if [ -f "$COMMIT_MSG_FILE" ]; then
+  COMMIT_MSG="$(cat "$COMMIT_MSG_FILE")"
+else
+  COMMIT_MSG=""
+fi
+
+# Check if this is an audit commit that touches programs.json
+IS_AUDIT_COMMIT=false
+case "$COMMIT_MSG" in
+  audit:*) IS_AUDIT_COMMIT=true ;;
+esac
+
+if [ "$IS_AUDIT_COMMIT" = "true" ] && [ "$PROGRAMS_CHANGED" = "true" ]; then
+  # Check that at least one docs/VERIFICATION-LOG-*.md is staged
+  VERIFICATION_LOG_STAGED=false
+  while IFS= read -r file; do
+    case "$file" in
+      docs/VERIFICATION-LOG-*.md) VERIFICATION_LOG_STAGED=true; break ;;
+    esac
+  done <<< "$STAGED"
+
+  if [ "$VERIFICATION_LOG_STAGED" = "false" ]; then
+    echo ""
+    echo "┌──────────────────────────────────────────────────────────────────────┐"
+    echo "│  ERROR: Provider audit commits require a verification log.           │"
+    echo "│  Create docs/VERIFICATION-LOG-[PROVIDER].md before committing.       │"
+    echo "│                                                                      │"
+    echo "│  Stage the file with: git add docs/VERIFICATION-LOG-<provider>.md   │"
+    echo "└──────────────────────────────────────────────────────────────────────┘"
+    echo ""
+    EXIT_CODE=1
+  fi
+fi
+
 # ── Check 1: programs.json changed → smart validation pipeline ──────────────────
 if [ "$PROGRAMS_CHANGED" = "true" ]; then
   echo ""
