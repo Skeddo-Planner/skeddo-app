@@ -80,10 +80,15 @@ const HOMEPAGE_EXEMPT_DOMAINS = [
   "mandokids.com", "summer.bodwell.edu",
   "www.mylanguageconnect.com", "myarabic.ca",
   "www.q7studios.com",
+  // Documented single-purpose sites (verified 2026-04-01, no program-specific pages exist)
+  "scottishculturalcentre.com", "sckimstaekwondo.com",
+  "kirbysnelldance.com", "www.ganisraelbc.com",
+  // CampBrain registration portals (root URL = full program catalog)
+  "campmclean.campbrainregistration.com",
 ];
 
 // Guard: exempt list must stay small — if it grows, URLs need fixing, not exempting
-if (HOMEPAGE_EXEMPT_DOMAINS.length > 30) {
+if (HOMEPAGE_EXEMPT_DOMAINS.length > 35) {
   console.error(`\n⚠️  HOMEPAGE_EXEMPT_DOMAINS has ${HOMEPAGE_EXEMPT_DOMAINS.length} entries (max 30). Fix URLs instead of adding exemptions.\n`);
   process.exit(1);
 }
