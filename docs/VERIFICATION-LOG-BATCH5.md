@@ -88,18 +88,25 @@ These July and final-August entries are not listed on the live 2026 registration
 | W1 (w1) | name | Music & Multi-Sport | Music and Multi-Sport Camp | legacysportclub.com | VERIFIED |
 | W1 (w1) | startDate | 2026-06-29 | Jun 29 | legacysportclub.com | VERIFIED |
 | W1 (w1) | endDate | 2026-07-03 | Jul 3 (No July 1 — Canada Day) | legacysportclub.com | VERIFIED |
-| W1 (w1) | costNote | $345/week (5 days) | **4-day week (Jul 1 Canada Day); actual cost unverified** | legacysportclub.com | **FIXED** — costNote updated; priceVerified=false |
+| W1 (w1) | cost | $345 | **$280** (4-day camp, Canada Day holiday confirmed) | legacysportclub.com booking system | **FIXED** → $280 |
+| W1 (w1) | costNote | $345/week (5 days) | Updated to reflect 4-day rate $280 | legacysportclub.com | **FIXED** |
 | W2 (w2) | name | Art & Multi-Sport | Art & Multi-Sport Camp | legacysportclub.com | VERIFIED |
+| W2 (w2) | cost | $350 | $350 | legacysportclub.com booking | VERIFIED |
 | W3 (w3) | name | Cooking & Multi-Sport | Cooking & Multi-Sport Camp | legacysportclub.com | VERIFIED |
-| W4 (w4) | name | Rock Climbing & Multi-Sport | Rockclimbing & Multi-Sport Camp | legacysportclub.com | VERIFIED |
+| W3 (w3) | enrollmentStatus | Open | **Full** (SOLD OUT per booking system) | legacysportclub.com booking | **FIXED** → Full |
+| W4 (w4) | name | Rock Climbing & Multi-Sport | **Rockwall & Multi-Sport** | legacysportclub.com | **FIXED** |
+| W4 (w4) | cost | $345 | **$350** | legacysportclub.com booking | **FIXED** → $350 |
 | W5 (w5) | name | Art & Multi-Sport | Art & Multi-Sport Camp | legacysportclub.com | VERIFIED |
+| W5 (w5) | cost | $350 | $350 | legacysportclub.com booking | VERIFIED |
 | W6 (w6) | name | Legacy Wilderness | Legacy Wilderness Camp | legacysportclub.com | VERIFIED |
 | W6 (w6) | days | Tue-Fri | Tue-Fri (No Aug 3 — BC Day) | legacysportclub.com | VERIFIED |
-| W6 (w6) | cost | null | Not listed | legacysportclub.com | VERIFIED |
+| W6 (w6) | cost | null | **$280** (4-day camp rate confirmed) | legacysportclub.com booking | **FIXED** → $280 |
 | W7 (w7) | name | Music & Multi-Sport | Music & Multi-Sport Camp | legacysportclub.com | VERIFIED |
+| W7 (w7) | cost | $345 | **$350** | legacysportclub.com booking | **FIXED** → $350 |
 | W8 (w8) | name | Drama & Multi-Sport | Drama & Multi-Sport Camp | legacysportclub.com | VERIFIED |
+| W8 (w8) | cost | $345 | **$350** | legacysportclub.com booking | **FIXED** → $350 |
 | W9 (w9) | name | Art & Multi-Sport | Art & Multi-Sport Camp | legacysportclub.com | VERIFIED |
-| All 9 | cost (all except W6) | Various $345–$350 | **Not listed on live site** | legacysportclub.com | VERIFIED-GATED (pricing requires direct contact; prior-session rates used) |
+| W9 (w9) | cost | $350 | $350 | legacysportclub.com booking | VERIFIED |
 
 ---
 
