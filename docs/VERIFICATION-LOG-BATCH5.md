@@ -199,6 +199,25 @@ These July and final-August entries are not listed on the live 2026 registration
 
 **Total changes: 19 field updates across 13 programs**
 
+## Addendum — Additional Pear Tree Fixes (follow-up commit)
+
+Additional research confirmed further Pear Tree description errors:
+
+| ID | Field | Old Value | New Value |
+|----|-------|-----------|-----------|
+| 629, 630, 631, 632 | description | "STEAM, EduActivity, French, Mandarin, and sports camp" | Updated — French/Mandarin removed (July weeks are STEAM/creative only) |
+| 633, 634, peartree-kits-summer-w7 | description | "STEAM, EduActivity, French, Mandarin, and sports camp" | Updated — French immersion confirmed for August weeks |
+
+**French camp schedule confirmed:** French/Mandarin immersion themes offered at Kitsilano for weeks 5–7 only (Aug 4–7, Aug 10–14, Aug 17–21). July weeks (IDs 629–632) are STEAM and creative themes only — no French content.
+
+**Pro-D Day Apr 20 (proday-peartree-kits-1):** Confirmed on live site — April 20, 2026 is listed. Status "Open" is correct.
+
+**Pro-D Day May 15 (proday-peartreeeducation-20260515-kitsilano):** NOT found on live site as of April 1, 2026. "Likely Coming Soon"/confirmed2026=false is appropriate.
+
+**Early bird pricing:** Site showed $445/week early bird (deadline March 31, 2026) and $499/week regular rate. Database value of $499 is correct as of April 1, 2026.
+
+**Total addendum changes: 7 description updates across 7 programs**
+
 ## Validator Result
 
 ```
@@ -212,4 +231,4 @@ Programs: 7306 total
 - **Sports Camps Canada IDs 317–320, 324**: July sessions and Aug 24-28 do NOT appear on the 2026 live registration page. Currently marked "Likely Coming Soon" / confirmed2026=false — appropriate. Consider removing if still absent when summer approaches.
 - **Made Talents IDs 2479, 2480**: These appear to be ongoing weekly classes (Hip Hop, Ballet), not summer camps. Cost null is correct until their class schedule page is verified. The summer CAMP versions (ages 8–13, $475) may warrant separate camp entries.
 - **Legacy Sport Club**: Pricing is not publicly listed on their website. All costs are sourced from previous seasons or direct contact. Mark for re-verification when 2026 pricing is published.
-- **Pear Tree Education**: French camps run at Kitsilano Aug 4–21 only (separate program category). Summer weekly STEAM themes vary by week — current generic names ("STEAM & French Camp") are approximate. Consider updating per-week names from the booking calendar.
+- **Pear Tree Education**: Program names "STEAM & French Camp" are approximate — July weeks are STEAM/creative only; French immersion is August only. Consider renaming July entries to "STEAM & Theme-Based Camp" when exact weekly themes are confirmed from booking calendar.
