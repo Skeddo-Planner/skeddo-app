@@ -165,7 +165,10 @@ These July and final-August entries are not listed on the live 2026 registration
 | ID 2477 | name | Summer Dance Camp — Wicked Theme | Wicked Dance Camp | madetalents.com | VERIFIED |
 | ID 2477 | cost | $475 | **$275** (half-day per 2025 live site; half-day Wicked = $275) | madetalents.com | **FIXED** → $275 |
 | ID 2477 | costNote | $475 per week | **$275 per week (half-day); 2026 pricing unconfirmed** | madetalents.com | **FIXED** |
-| ID 2477 | scheduleType | Half Day (AM) | Half Day AM per DB; consistent with $275 pricing | madetalents.com | VERIFIED |
+| ID 2477 | scheduleType | Full Day (incorrect in DB) | **Half Day AM** — $275 price matches Frozen camp ($275 half-day); Full Day camps are $475 | madetalents.com | **FIXED** → Half Day (AM) |
+| ID 2477 | endTime | 3:00 PM (incorrect) | **12:00 PM** — half-day camp ends at noon | madetalents.com | **FIXED** |
+| ID 2477 | durationPerDay | 6 (incorrect) | **3** — 9 AM–12 PM = 3 hours | madetalents.com | **FIXED** |
+| ID 2477 | description | "full-day dance camp" | **"half-day dance camp"** — corrected to match schedule | madetalents.com | **FIXED** |
 | ID 2478 | name | Summer Dance Camp — TikTok Theme | Music Video & TikTok Dance Camp | madetalents.com | VERIFIED |
 | ID 2478 | cost | $475 | $475 (full-day camp) | madetalents.com | VERIFIED |
 | ID 2478 | ageMin | 5 | **8** (ages 8–13 per live site) | madetalents.com | **FIXED** → 8 |
@@ -204,7 +207,19 @@ These July and final-August entries are not listed on the live 2026 registration
 | 2478 | Made Talents | costNote | $475/week (half-day) | $475/week (full-day); 2026 unconfirmed |
 | 2478 | Made Talents | priceVerified | true | false |
 
-**Total changes: 19 field updates across 13 programs**
+**Total changes: 23 field updates across 13 programs**
+
+### Addendum 2 — Made Talents ID 2477 Schedule Fix (follow-up commit)
+
+| ID | Field | Old Value | New Value |
+|----|-------|-----------|-----------|
+| 2477 | scheduleType | Full Day | Half Day (AM) |
+| 2477 | endTime | 3:00 PM | 12:00 PM |
+| 2477 | dayLength | Full Day | Half Day |
+| 2477 | durationPerDay | 6 | 3 |
+| 2477 | description | "Wicked-themed full-day dance camp…" | "Wicked-themed half-day dance camp…" |
+
+**Reason:** DB had contradictory data — scheduleType/endTime/description said Full Day but costNote said "half-day 9 AM–12 PM". At $275, consistent with Frozen camp ($275, confirmed Half Day AM). Full-day camps are $475 (TikTok, 2478).
 
 ## Addendum — Additional Pear Tree Fixes (follow-up commit)
 
@@ -228,7 +243,7 @@ Additional research confirmed further Pear Tree description errors:
 ## Validator Result
 
 ```
-Violations: 0 (after fill-computable-fields + validate --fix + auto-resolve --offline)
+Violations: 0 (after fill-computable-fields + validate --fix)
 Rules checked: R1–R34 + REQ
 Programs: 7306 total
 ```
