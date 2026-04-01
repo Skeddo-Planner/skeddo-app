@@ -6,9 +6,11 @@
 #   2. Refresh data from City of Richmond (PerfectMind system)
 #   3. Refresh data from private providers (web scraping)
 #   4. Validate data quality rules (validate-programs.cjs)
-#   5. Validate URLs — fix broken links (validate-urls.cjs)
-#   6. Incremental source-of-truth verification (verify-programs.cjs)
-#   7. Commit any auto-fixed programs.json changes back to the repo
+#   5. Auto-resolve violations on newly changed programs (auto-resolve-violations.cjs)
+#   6. Validate URLs — fix broken links (validate-urls.cjs)
+#   7. Incremental source-of-truth verification (verify-programs.cjs)
+#   8. Quarantine programs that still have violations after all auto-fixes
+#   9. Commit any auto-fixed programs.json changes back to the repo
 #
 # Required repository secrets (set in GitHub → Settings → Secrets):
 #   SUPABASE_URL              — Your Supabase project URL
@@ -64,11 +66,131 @@ jobs:
 
       # ── Data quality validation ───────────────────────────────────────────────
 
+      - name: Compute derived fields
+        # Fill in scheduleType, dayLength, durationPerDay, etc. from existing data
+        continue-on-error: true
+        run: node scripts/fill-computable-fields.cjs
+
       - name: Validate data quality rules
         # Auto-fix known violations (cost types, status mismatches, duplicate cleanup, etc.)
         # Continues even if violations remain so later steps still run
         continue-on-error: true
         run: node scripts/validate-programs.cjs --fix
+
+      - name: Auto-resolve violations on newly changed programs
+        # Identify programs changed by the scrapers, then apply additional offline
+        # resolution (R2 repeating inference, R11 address lookup, R7 estimate marking,
+        # R29/R32 URL path resolution via HTTP HEAD).
+        # Writes unresolvable programs to src/data/quarantined-programs.json.
+        continue-on-error: true
+        run: |
+          echo "--- Identifying programs changed since last commit ---"
+          # Save original programs.json hash for comparison
+          ORIG_HASH=$(git show HEAD:src/data/programs.json 2>/dev/null | md5sum | cut -d' ' -f1 || echo "none")
+          CURR_HASH=$(md5sum src/data/programs.json | cut -d' ' -f1)
+
+          if [ "$ORIG_HASH" = "$CURR_HASH" ]; then
+            echo "No changes to programs.json from scrapers. Skipping auto-resolve."
+            exit 0
+          fi
+
+          echo "--- Extracting changed program IDs ---"
+          CHANGED_IDS=$(node -e "
+            const fs = require('fs');
+            const { execSync } = require('child_process');
+            let oldPrograms = [];
+            try {
+              const oldJson = execSync('git show HEAD:src/data/programs.json', { encoding: 'utf8' });
+              oldPrograms = JSON.parse(oldJson);
+            } catch(e) {}
+            const newPrograms = JSON.parse(fs.readFileSync('src/data/programs.json', 'utf8'));
+            const oldById = {};
+            oldPrograms.forEach(p => { oldById[String(p.id)] = JSON.stringify(p); });
+            const changed = newPrograms
+              .filter(p => !oldById[String(p.id)] || oldById[String(p.id)] !== JSON.stringify(p))
+              .map(p => String(p.id));
+            console.log(changed.join(','));
+          " 2>/dev/null)
+
+          if [ -z "$CHANGED_IDS" ]; then
+            echo "No changed program IDs found."
+            exit 0
+          fi
+
+          echo "Changed programs: $(echo $CHANGED_IDS | tr ',' '\n' | wc -l) programs"
+
+          echo "--- Running auto-resolve (online mode, with URL checks) ---"
+          node scripts/auto-resolve-violations.cjs "--ids=${CHANGED_IDS}" || true
+
+          echo "--- Checking for remaining violations on changed programs ---"
+          VIOLATIONS_JSON=$(node scripts/auto-resolve-violations.cjs "--ids=${CHANGED_IDS}" --report --json 2>/dev/null || echo '{"resolved":0,"unresolvable":[]}')
+          UNRESOLVABLE_COUNT=$(echo "$VIOLATIONS_JSON" | node -e "
+            let d=''; process.stdin.on('data',c=>d+=c).on('end',()=>{
+              try { const j=JSON.parse(d); console.log(j.unresolvable.length); }
+              catch(e) { console.log(0); }
+            });
+          " <<< "$VIOLATIONS_JSON" 2>/dev/null || echo "0")
+
+          echo "Unresolvable violations on changed programs: $UNRESOLVABLE_COUNT"
+
+          if [ "$UNRESOLVABLE_COUNT" -gt "0" ]; then
+            echo "--- Writing quarantine tracking file ---"
+            DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            node -e "
+              const fs = require('fs');
+              const path = require('path');
+              const violationsJson = \`${VIOLATIONS_JSON}\`;
+              const newData = JSON.parse(violationsJson);
+
+              // Load existing quarantine file (if any)
+              const qPath = path.join('src', 'data', 'quarantined-programs.json');
+              let existing = { lastUpdated: '', programs: [] };
+              if (fs.existsSync(qPath)) {
+                try { existing = JSON.parse(fs.readFileSync(qPath, 'utf8')); } catch(e) {}
+              }
+
+              // Merge: update existing entries, add new ones
+              const existingById = {};
+              existing.programs.forEach(p => { existingById[p.id] = p; });
+
+              const now = '${DATE}';
+              newData.unresolvable.forEach(({ id, violations }) => {
+                if (existingById[id]) {
+                  existingById[id].violations = violations;
+                  existingById[id].lastSeen = now;
+                  existingById[id].resolveAttempts = (existingById[id].resolveAttempts || 0) + 1;
+                } else {
+                  existingById[id] = { id, violations, quarantinedAt: now, lastSeen: now, resolveAttempts: 1 };
+                }
+              });
+
+              const result = {
+                lastUpdated: now,
+                note: 'Programs with violations that could not be auto-resolved. Run auto-resolve-violations.cjs or fix manually.',
+                programs: Object.values(existingById).sort((a,b) => b.resolveAttempts - a.resolveAttempts),
+              };
+              fs.writeFileSync(qPath, JSON.stringify(result, null, 2));
+              console.log('Quarantine file updated: ' + result.programs.length + ' programs tracked.');
+            " 2>/dev/null || true
+          else
+            echo "All violations on changed programs were resolved!"
+            # Clear resolved programs from quarantine file
+            node -e "
+              const fs = require('fs'), path = require('path');
+              const ids = new Set('${CHANGED_IDS}'.split(','));
+              const qPath = path.join('src', 'data', 'quarantined-programs.json');
+              if (!fs.existsSync(qPath)) { process.exit(0); }
+              let q;
+              try { q = JSON.parse(fs.readFileSync(qPath, 'utf8')); } catch(e) { process.exit(0); }
+              const before = q.programs.length;
+              q.programs = q.programs.filter(p => !ids.has(String(p.id)));
+              if (q.programs.length !== before) {
+                q.lastUpdated = new Date().toISOString();
+                fs.writeFileSync(qPath, JSON.stringify(q, null, 2));
+                console.log('Removed ' + (before - q.programs.length) + ' resolved programs from quarantine.');
+              }
+            " 2>/dev/null || true
+          fi
 
       - name: Validate and fix broken URLs
         # Checks every registrationUrl — fixes 404s, homepage redirects, client errors.
@@ -85,23 +207,68 @@ jobs:
         continue-on-error: true
         run: node scripts/verify-programs.cjs --incremental --fix --limit=200
 
+      # ── Resolve quarantined programs (opportunistic) ───────────────────────────
+
+      - name: Attempt to resolve previously quarantined programs
+        # Try web-based resolution for programs in the quarantine file.
+        # This runs AFTER URL validation so the most up-to-date URLs are used.
+        continue-on-error: true
+        run: |
+          QFILE="src/data/quarantined-programs.json"
+          if [ ! -f "$QFILE" ]; then
+            echo "No quarantine file found. Skipping."
+            exit 0
+          fi
+          QCOUNT=$(node -e "
+            const q = JSON.parse(require('fs').readFileSync('$QFILE'));
+            console.log(q.programs.length);
+          " 2>/dev/null || echo "0")
+          if [ "$QCOUNT" -eq "0" ]; then
+            echo "Quarantine file is empty. Nothing to resolve."
+            exit 0
+          fi
+          echo "Attempting to resolve $QCOUNT quarantined program(s)..."
+          QIDS=$(node -e "
+            const q = JSON.parse(require('fs').readFileSync('$QFILE'));
+            console.log(q.programs.map(p=>p.id).join(','));
+          " 2>/dev/null || echo "")
+          if [ -n "$QIDS" ]; then
+            node scripts/auto-resolve-violations.cjs "--ids=${QIDS}" || true
+          fi
+
       # ── Commit auto-fixes back to repo ───────────────────────────────────────
 
       - name: Commit auto-fixed programs.json (if changed)
         run: |
           git config user.name  "Skeddo Pipeline"
           git config user.email "pipeline@skeddo.ca"
-          if git diff --quiet src/data/programs.json scripts/verify-state.json 2>/dev/null; then
-            echo "No changes to programs.json or verify-state.json — nothing to commit."
+
+          # Stage all changed data files
+          git add src/data/programs.json
+          git add scripts/verify-state.json 2>/dev/null || true
+          git add src/data/quarantined-programs.json 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit — nothing changed."
           else
-            git add src/data/programs.json
-            git add scripts/verify-state.json 2>/dev/null || true
+            # Build summary for commit message
+            PROGRAM_COUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('src/data/programs.json')).length)" 2>/dev/null || echo "?")
+            QCOUNT=$(node -e "
+              const fs = require('fs');
+              if (!fs.existsSync('src/data/quarantined-programs.json')) { console.log(0); process.exit(0); }
+              console.log(JSON.parse(fs.readFileSync('src/data/quarantined-programs.json')).programs.length);
+            " 2>/dev/null || echo "0")
+
             git commit -m "chore: auto-fix data quality issues [skip ci]
 
 Auto-applied by daily pipeline:
+- fill-computable-fields.cjs (computed field inference)
 - validate-programs.cjs --fix (data quality rules)
+- auto-resolve-violations.cjs (R2/R7/R11/R29/R32 resolution)
 - validate-urls.cjs --fix (broken URL resolution)
-- verify-programs.cjs --incremental --fix (source-of-truth verification)"
+- verify-programs.cjs --incremental --fix (source-of-truth verification)
+
+Programs: ${PROGRAM_COUNT} total | Quarantined: ${QCOUNT} with unresolvable violations"
             git push
           fi
 
@@ -113,10 +280,19 @@ Auto-applied by daily pipeline:
           echo "Pipeline completed at $(date -u '+%Y-%m-%d %H:%M UTC')"
           echo ""
           echo "Steps run:"
-          echo "  1. Refresh: ActiveNet (CoV), PerfectMind (Richmond), Private providers"
-          echo "  2. Validate: data quality rules (validate-programs.cjs)"
-          echo "  3. Validate: URL resolution (validate-urls.cjs --limit=500)"
-          echo "  4. Verify:   incremental source-of-truth (verify-programs.cjs --limit=200)"
+          echo "  1. Refresh:       ActiveNet (CoV), PerfectMind (Richmond), Private providers"
+          echo "  2. Compute:       fill-computable-fields.cjs"
+          echo "  3. Validate:      data quality rules (validate-programs.cjs --fix)"
+          echo "  4. Auto-resolve:  offline + web resolution for changed programs"
+          echo "  5. Validate URLs: URL resolution (validate-urls.cjs --limit=500)"
+          echo "  6. Verify:        incremental source-of-truth (verify-programs.cjs --limit=200)"
+          echo "  7. Quarantine:    programs with unresolvable violations → src/data/quarantined-programs.json"
+          echo ""
+          if [ -f "src/data/quarantined-programs.json" ]; then
+            QCOUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('src/data/quarantined-programs.json')).programs.length)" 2>/dev/null || echo "?")
+            echo "Quarantined programs: ${QCOUNT} (see src/data/quarantined-programs.json)"
+          fi
           echo ""
           echo "For a full URL audit: node scripts/validate-urls.cjs --fix"
           echo "For a full verify audit: node scripts/verify-programs.cjs --audit --fix"
+          echo "To resolve quarantined programs: node scripts/auto-resolve-violations.cjs --all"

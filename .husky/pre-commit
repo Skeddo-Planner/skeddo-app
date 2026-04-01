@@ -1,12 +1,17 @@
 #!/bin/bash
 # ============================================================
-# Skeddo pre-commit hook — data quality safeguards
+# Skeddo pre-commit hook — smart data quality pipeline
 #
 # Automatically installed via: git config core.hooksPath .husky
 #
 # What this does:
-#   1. If programs.json changed → validates data quality rules
-#      and BLOCKS the commit on HARD violations
+#   1. If programs.json changed → runs the smart validation pipeline
+#      (pre-commit-validate.cjs) which:
+#        a. Identifies only new/changed programs
+#        b. Auto-fixes computed fields and rule violations
+#        c. Tries offline auto-resolution for remaining violations
+#        d. BLOCKS only if new/changed programs still have violations
+#        e. ALLOWS with a warning if violations are on pre-existing programs
 #   2. If DATA-QUALITY-RULES.md changed but validate-programs.cjs
 #      did NOT → warns that rules need corresponding code
 #   3. Runs check-rules-coverage.cjs and prints coverage %
@@ -35,27 +40,15 @@ done <<< "$STAGED"
 
 EXIT_CODE=0
 
-# ── Check 1: programs.json changed → run validator ──────────────────────────
+# ── Check 1: programs.json changed → smart validation pipeline ──────────────────
 if [ "$PROGRAMS_CHANGED" = "true" ]; then
   echo ""
-  echo "🔍 programs.json staged — running validate-programs.cjs..."
-  echo ""
+  echo "🔍 programs.json staged — running smart validation pipeline..."
 
-  # Run validator in report mode (no --fix: we don't auto-modify staged files)
-  if node "$ROOT/scripts/validate-programs.cjs" 2>&1; then
-    echo "✅ All data quality rules pass."
+  if node "$ROOT/scripts/pre-commit-validate.cjs" 2>&1; then
+    echo "✅ Validation passed. Commit allowed."
   else
-    echo ""
-    echo "╔══════════════════════════════════════════════════════════╗"
-    echo "║  ❌  COMMIT BLOCKED — hard rule violations in            ║"
-    echo "║      programs.json (see violations above)                ║"
-    echo "║                                                          ║"
-    echo "║  Fix options:                                            ║"
-    echo "║    node scripts/validate-programs.cjs --fix              ║"
-    echo "║    git add src/data/programs.json                        ║"
-    echo "║    git commit ...                                        ║"
-    echo "╚══════════════════════════════════════════════════════════╝"
-    echo ""
+    # pre-commit-validate.cjs already printed the detailed error
     EXIT_CODE=1
   fi
 fi
@@ -87,8 +80,6 @@ if [ "$PROGRAMS_CHANGED" = "true" ] || \
   echo "📊 Running rules coverage check..."
   echo ""
 
-  # Run and capture output — always show it, but don't block on coverage gaps
-  # (gaps are tracked in GitHub Actions; locally this is informational)
   if node "$ROOT/scripts/check-rules-coverage.cjs" 2>&1; then
     : # coverage output already printed, exit 0 = good
   else
@@ -97,7 +88,7 @@ if [ "$PROGRAMS_CHANGED" = "true" ] || \
     echo "   This is a WARNING — your commit will still proceed."
     echo "   Fix gaps before merging to main."
     echo ""
-    # Do NOT set EXIT_CODE=1 for coverage gaps — only violations block commits
+    # Do NOT block on coverage gaps — only data violations block commits
   fi
 fi
 
