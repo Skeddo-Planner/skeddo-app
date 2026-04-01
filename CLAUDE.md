@@ -112,6 +112,32 @@ git config core.hooksPath .husky
 chmod +x .husky/pre-commit   # Mac/Linux only
 ```
 
+## One Click Deeper Audit Standard
+
+When auditing or adding provider data, EVERY field must be verified against the provider's actual registration page. This means:
+
+1. Navigate to the provider's registration/program listing page (not just their homepage)
+2. For EVERY program listing, verify ALL of these fields against what's shown on the registration page:
+   - name: Must match the program name on the registration page
+   - description: Must accurately describe the program based on registration page content
+   - cost: Must match the price shown on the registration page (not "inquire for pricing" if a price exists)
+   - costNote: Must include context if cost is per-session, per-week, etc.
+   - startDate/endDate: Must match dates on registration page
+   - startTime/endTime: Must match times on registration page
+   - ageMin/ageMax: Must match age ranges on registration page
+   - address: Must be the actual physical location of the program
+   - neighbourhood: Must be correct for the address
+   - url: Must point to the specific registration/program page (not a search page or homepage)
+   - enrollmentStatus: Must reflect the actual current status (Open, Full, Waitlist, etc.)
+   - category/subcategory: Must be appropriate for the program content
+   - days: Must match the actual schedule days
+
+3. For NEW listings being added: every field value must be directly sourced from the provider's registration page. No guessing, no placeholders, no "inquire for pricing" if the price is visible.
+
+4. For EXISTING listings being verified: compare every field against the registration page. Fix any discrepancies.
+
+5. If a field cannot be verified (e.g., registration hasn't opened yet), document the specific reason in a costNote or comment field.
+
 ## Important Files
 
 | File | Purpose |
