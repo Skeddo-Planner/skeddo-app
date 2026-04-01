@@ -66,14 +66,14 @@ export default async function handler(req, res) {
             </h1>
 
             <p style="font-size: 15px; color: #4A5E52; line-height: 1.7; text-align: center; margin-bottom: 24px;">
-              You're one of our early beta testers — thanks for helping us build the planner for busy families.
+              The activity planner for busy families in Vancouver &amp; the Lower Mainland.
             </p>
 
             <div style="text-align: center; margin-bottom: 28px;">
-              <a href="https://skeddo.ca/?beta=true"
+              <a href="https://skeddo.ca"
                  style="display: inline-block; background: #3A9E6A; color: #ffffff; text-decoration: none;
                         font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 12px;">
-                Open Skeddo Beta
+                Open Skeddo
               </a>
             </div>
 
@@ -91,7 +91,7 @@ export default async function handler(req, res) {
 
             <p style="font-size: 14px; color: #4A5E52; line-height: 1.7; text-align: center; margin-bottom: 8px;">
               Bookmark this link for easy access:<br />
-              <a href="https://skeddo.ca/?beta=true" style="color: #3A9E6A; font-weight: 600;">skeddo.ca/?beta=true</a>
+              <a href="https://skeddo.ca" style="color: #3A9E6A; font-weight: 600;">skeddo.ca</a>
             </p>
 
             <p style="font-size: 14px; color: #4A5E52; line-height: 1.7; text-align: center;">

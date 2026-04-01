@@ -33,22 +33,10 @@ import ChildSettingsModal from "./modals/ChildSettingsModal";
 import InviteAcceptPage from "./pages/InviteAcceptPage";
 import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
-import ComingSoonPage from "./pages/ComingSoonPage";
 
 // Check if this is an invite URL
 const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
 const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
-
-/* Bypass Coming Soon page if: ?preview=true, ?beta=true, app.skeddo.ca subdomain, auth callback, invite URL, or past launch date */
-const params = new URLSearchParams(window.location.search);
-const hasAuthCallback = window.location.hash.includes("access_token") || window.location.hash.includes("type=signup");
-const isPreview =
-  params.get("preview") === "true" ||
-  params.get("beta") === "true" ||
-  hasAuthCallback ||
-  !!pendingInviteCode ||
-  window.location.hostname === "app.skeddo.ca" ||
-  new Date() >= new Date("2026-04-01T00:00:00-07:00");
 
 export default function Skeddo() {
   const { user, session, loading: authLoading, signOut } = useAuth();
@@ -62,9 +50,7 @@ export default function Skeddo() {
 
   /* ── Track auth page views for GA4 ── */
   useEffect(() => {
-    if (!isPreview) {
-      trackPageView("/coming-soon", "Skeddo - Coming Soon");
-    } else if (authPage === "landing") {
+    if (authPage === "landing") {
       trackPageView("/landing", "Skeddo - Welcome");
     } else if (authPage === "signin") {
       trackPageView("/signin", "Skeddo - Sign In");
@@ -72,11 +58,6 @@ export default function Skeddo() {
       trackPageView("/signup", "Skeddo - Sign Up");
     }
   }, [authPage]);
-
-  /* ── Coming Soon page for public visitors ── */
-  if (!isPreview) {
-    return <ComingSoonPage />;
-  }
 
   /* ── Auth loading — large logo on dark background ── */
   if (authLoading) {
