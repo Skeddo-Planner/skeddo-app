@@ -181,3 +181,130 @@ https://pedalheads.com/en/camp/details?region=1&program_event={event_id}&skill_l
 - Expanding "Schedules" → "Levels" → "Times" sometimes causes browser tab freezes (avoid clicking multiple at once)
 - The "details" button for each time slot is an `<a>` tag that navigates to the details page
 - Registration is NOT yet open (opens Apr 7, 2026) — prices show on the search page but "Add to Cart" is not available
+
+---
+
+## BRENTWOOD AUDIT — 2026-04-02
+
+**Session**: hardcore-northcutt worktree
+**Verifier**: Claude Sonnet 4.6
+**Method**: Browser navigation (pedalheads.com/en/camp → BC → Burnaby → Search)
+**URL**: https://pedalheads.com/en/camp?region=1&cities=1007&ph_search=true
+
+### Burnaby Search Results (9 of 9 Programs)
+
+| Activity | Location |
+|---|---|
+| Bike/Soccer Combo | Brentwood – Beecher Park & Brentwood Alliance Ch. |
+| Soccer | Brentwood – Beecher Park (Outdoor) |
+| Bike | Brentwood – Brentwood Park Alliance Church |
+| Bike | Burnaby (South/East) – Our Lady of Mercy School |
+| Bike/Swim Combo | Burquitlam – Bell Park & Fitness 2000 |
+| Soccer/Swim Combo | Deer Lake – Greentree Village |
+| Swim | Deer Lake – Greentree Village |
+| Soccer | Deer Lake – Greentree Village Park (Outdoor) |
+| Swim | Sullivan Heights – Fitness 2000 |
+
+---
+
+### LOCATION 1: Brentwood – Beecher Park & Brentwood Alliance Ch.
+**Program**: Bike/Soccer Combo
+**Registration opens**: April 7, 2026 at 10am PST
+
+#### Weeks on site (9 total):
+| Week | Days | Price (browser-verified) |
+|------|------|--------------------------|
+| Mon Jun 29 – Fri Jul 3, 2026 | 4 Days (Canada Day Jul 1) | $436/child |
+| Mon Jul 6 – Fri Jul 10, 2026 | 5 Days | $545/child |
+| Mon Jul 13 – Fri Jul 17, 2026 | 5 Days | $545/child |
+| Mon Jul 20 – Fri Jul 24, 2026 | 5 Days | $545/child |
+| Mon Jul 27 – Fri Jul 31, 2026 | 5 Days | $545/child |
+| Tue Aug 4 – Fri Aug 7, 2026 | 4 Days (BC Day Aug 3) | $436/child |
+| Mon Aug 10 – Fri Aug 14, 2026 | 5 Days | $545/child |
+| Mon Aug 17 – Fri Aug 21, 2026 | 5 Days | $545/child |
+| Mon Aug 24 – Fri Aug 28, 2026 | 5 Days | $545/child |
+
+#### Levels on site (all weeks):
+| Level | Ages |
+|-------|------|
+| Bike Level 1 | Ages 4 and up |
+| Bike Level 2 | Ages 4 and up |
+| Bike Level 3 | Ages 4 and up |
+| Bike Level 4 | Ages 6 and up |
+| Bike Level 5 | Ages 6 and up |
+
+#### Time: 9:00am – 4:00pm (Full Day)
+
+#### DB ISSUES FOUND AND FIXED:
+- **FIXED**: 5-day weeks had cost $436 → corrected to $545 (IDs: 2928–2931, 2933–2935)
+- **FIXED**: Aug 4-7 4-day week had cost $349 → corrected to $436 (ID: 2932)
+- **FIXED**: All 8 existing entries had ageMax: 12 → corrected to null (site says "4 and up" / "6 and up")
+- **ADDED**: Missing Jun 29–Jul 3 week (4 Days, $436, ID: 15708)
+
+#### DEFERRED (future audit):
+- The combo should be split into 5 separate listings per week by bike level (Levels 1–5), per CLAUDE.md Rule 2 ("One listing per unique program"). That's 45 listings total vs 9 currently. Deferring to dedicated restructure session.
+- DB does NOT differentiate ageMin by level (4 for L1-3 vs 6 for L4-5). Currently all set to ageMin:4.
+
+---
+
+### LOCATION 2: Brentwood – Beecher Park (Outdoor)
+**Program**: Soccer – Half-Day Camp
+**Registration opens**: April 7, 2026 at 10am PST
+
+#### Weeks on site (9 total): Jun 29 – Aug 24 (same weeks as Combo above)
+#### Level: Half-Day Camp | Ages 3 and up
+#### Time: 9:00am – 12:00pm
+#### Price: $216/child (browser-verified, Jun 29 4-day week)
+
+#### DB COMPARISON:
+- ✅ cost: $216 — CORRECT
+- ✅ ageMin: 3, ageMax: null — CORRECT
+- ✅ startTime: 9:00 AM, endTime: 12:00 PM — CORRECT
+- ✅ 9 weeks in DB — CORRECT
+- **STATUS: NO CHANGES NEEDED**
+
+---
+
+### LOCATION 3: Brentwood – Brentwood Park Alliance Church
+**Program**: Bike Camp (Levels 1–5 + Private Lesson)
+**Registration opens**: April 7, 2026 at 10am PST
+
+#### Weeks on site (9+1 total):
+| Week | Days | Notes |
+|------|------|-------|
+| Mon Jun 29 – Fri Jul 3, 2026 | 4 Days | "Historically fills up fast" |
+| Mon Jul 6 – Fri Jul 10, 2026 | 5 Days | |
+| Mon Jul 13 – Fri Jul 17, 2026 | 5 Days | |
+| Mon Jul 20 – Fri Jul 24, 2026 | 5 Days | "Historically fills up fast" |
+| Mon Jul 27 – Fri Jul 31, 2026 | 5 Days | |
+| Tue Aug 4 – Fri Aug 7, 2026 | 4 Days | BC Day Aug 3 |
+| Mon Aug 10 – Fri Aug 14, 2026 | 5 Days | |
+| Mon Aug 17 – Fri Aug 21, 2026 | 5 Days | "Saver pricing – starting at $299" |
+| Mon Aug 24 – Fri Aug 28, 2026 | 5 Days | "Saver pricing – starting at $299" |
+| Mon Aug 31 – Fri Sep 4, 2026 | 5 Days | "Historically fills up fast" |
+
+#### Levels on site:
+| Level | Ages |
+|-------|------|
+| Level 1 – Newbees | Ages 4 and up |
+| Level 2 – Advanced Newbees | Ages 4 and up |
+| Level 3 – Pedalheads | Ages 4 and up |
+| Level 4 – Advanced Pedalheads | Ages 6 and up |
+| Level 5 – Gearheads | Ages 6 and up |
+| Private Lesson | Ages 3 and up |
+
+**NOTE: Level 6 (Treadheads) is NOT shown on the site for this location.** DB has 9 Level 6 entries for Brentwood — these may be incorrect.
+
+#### Prices (browser-verified, Level 1 Jul 6–10 5-day week):
+- Half Day AM (9am–12pm): $330
+- Half Day PM (1pm–4pm): $330  
+- Full Day (9am–4pm): $565
+
+#### DB COMPARISON:
+- ✅ Prices $330/$565 — CORRECT (DB has both)
+- ✅ Ages (Levels 1-3: 4+, Levels 4-5: 6+, Private: 3+) — CORRECT
+- ✅ Jun 29 week — CORRECT (site shows it)
+- ⚠️ Level 6 (Treadheads): 9 entries in DB but NOT shown on site — investigate
+- ⚠️ Missing: Aug 31–Sep 4 week — DB has 10 weeks (Jun 29–Aug 31) but site shows this as last week; DB may actually be correct (need recount)
+- **STATUS: Minor issues flagged, no critical price/age fixes needed**
+
