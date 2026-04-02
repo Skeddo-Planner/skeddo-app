@@ -248,12 +248,14 @@ function countEvents(m) {
 /* ─── Make break weeks from date ranges ─── */
 function makeWeeks(startStr, endStr, prefix) {
   const weeks = [];
-  let ws = new Date(startStr);
-  while (ws.getDay() !== 1 && ws <= new Date(endStr)) ws.setDate(ws.getDate() + 1);
+  // Parse as local noon to avoid UTC-offset date shift issues (e.g. Sep 4 UTC → Sep 3 PDT)
+  const endDate = new Date(endStr + "T12:00:00");
+  let ws = new Date(startStr + "T12:00:00");
+  while (ws.getDay() !== 1 && ws <= endDate) ws.setDate(ws.getDate() + 1);
   let wn = 1;
-  while (ws <= new Date(endStr)) {
+  while (ws <= endDate) {
     const we = new Date(ws); we.setDate(we.getDate() + 4);
-    if (we > new Date(endStr)) we.setTime(new Date(endStr).getTime());
+    if (we > endDate) we.setTime(endDate.getTime());
     const days = [];
     for (let d = new Date(ws); d <= we; d.setDate(d.getDate() + 1)) {
       const dow = d.getDay();

@@ -163,7 +163,7 @@ const SUMMER_WEEKS = [
   { id: "w3", weekNum: 3, label: "Week 3", dateRange: "Jul 13 – Jul 17", monday: new Date(2026, 6, 13), friday: new Date(2026, 6, 17), statHolidays: [] },
   { id: "w4", weekNum: 4, label: "Week 4", dateRange: "Jul 20 – Jul 24", monday: new Date(2026, 6, 20), friday: new Date(2026, 6, 24), statHolidays: [] },
   { id: "w5", weekNum: 5, label: "Week 5", dateRange: "Jul 27 – Jul 31", monday: new Date(2026, 6, 27), friday: new Date(2026, 6, 31), statHolidays: [] },
-  { id: "w6", weekNum: 6, label: "Week 6", dateRange: "Aug 4 – Aug 8", monday: new Date(2026, 7, 4), friday: new Date(2026, 7, 8), statHolidays: [0], note: "BC Day Aug 4" },
+  { id: "w6", weekNum: 6, label: "Week 6", dateRange: "Aug 3 – Aug 7", monday: new Date(2026, 7, 3), friday: new Date(2026, 7, 7), statHolidays: [0], note: "BC Day Aug 3" },
   { id: "w7", weekNum: 7, label: "Week 7", dateRange: "Aug 10 – Aug 14", monday: new Date(2026, 7, 10), friday: new Date(2026, 7, 14), statHolidays: [] },
   { id: "w8", weekNum: 8, label: "Week 8", dateRange: "Aug 17 – Aug 21", monday: new Date(2026, 7, 17), friday: new Date(2026, 7, 21), statHolidays: [] },
   { id: "w9", weekNum: 9, label: "Week 9", dateRange: "Aug 24 – Aug 28", monday: new Date(2026, 7, 24), friday: new Date(2026, 7, 28), statHolidays: [] },
