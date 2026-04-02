@@ -453,7 +453,7 @@ export default function ProgramsTab({
           marginBottom: 0,
         }}
       >
-        <h2 style={{ ...s.pageTitle, marginTop: 0, marginBottom: 0 }}>My Programs</h2>
+        <h2 style={s.pageTitle}>My Programs</h2>
         <button
           className="chip-btn"
           style={s.addButton}

@@ -412,7 +412,7 @@ export default function OnboardingFlow({ onComplete, planAccess }) {
                       onChange={(e) => setKidBirthYear(e.target.value)}
                     >
                       <option value="">Year</option>
-                      {Array.from({ length: 19 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
+                      {Array.from({ length: 24 }, (_, i) => new Date().getFullYear() - i).map((yr) => (
                         <option key={yr} value={yr}>{yr}</option>
                       ))}
                     </select>
@@ -489,7 +489,7 @@ export default function OnboardingFlow({ onComplete, planAccess }) {
                   if (kidName.trim()) {
                     addKid();
                   }
-                  requestAnimationFrame(() => setScreen(4));
+                  setScreen(4);
                 }}
                 disabled={kids.length === 0 && !kidName.trim()}
               >

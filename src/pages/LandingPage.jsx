@@ -1,10 +1,11 @@
+import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 
-const features = [
+const BASE_FEATURES = [
   {
     icon: "\uD83D\uDD0D",
-    title: "Browse 2,000+ Programs",
+    titleTemplate: (count) => `Browse ${count} Programs`,
     desc: "Search and filter kids camps, classes, and summer programs across Vancouver and the Lower Mainland. Filter by age, neighbourhood, price, and activity type.",
   },
   {
@@ -25,6 +26,25 @@ const features = [
 ];
 
 export default function LandingPage({ onNavigate }) {
+  const [programCount, setProgramCount] = useState(null);
+
+  useEffect(() => {
+    import("../data/programs.json").then((m) => {
+      const rounded = Math.floor(m.default.length / 1000) * 1000;
+      setProgramCount(rounded);
+    });
+  }, []);
+
+  const countLabel = programCount
+    ? `${programCount.toLocaleString()}+`
+    : "...";
+
+  const features = BASE_FEATURES.map((f) =>
+    f.titleTemplate
+      ? { ...f, title: f.titleTemplate(countLabel) }
+      : f
+  );
+
   return (
     <main
       role="main"
@@ -161,7 +181,7 @@ export default function LandingPage({ onNavigate }) {
         display: "flex", justifyContent: "center", gap: 20, marginTop: 20,
         fontSize: 13, color: C.muted, fontWeight: 600,
       }}>
-        <span>2,000+ programs</span>
+        <span>{countLabel} programs</span>
         <span>·</span>
         <span>150+ providers</span>
         <span>·</span>
