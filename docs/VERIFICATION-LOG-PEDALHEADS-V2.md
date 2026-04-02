@@ -196,45 +196,9 @@ Pedalheads registration pages confirm programs are "Ages X and up" with no state
 | Delta | 24 |
 | **Total** | **3,185** |
 
-### What Still Needs Doing (Next Session)
+### ~~What Still Needs Doing (Next Session)~~ — COMPLETED IN SESSION 3
 
-#### 1. Remaining 68 Bike Program Events (no API data)
-These PE IDs exist in the database but returned no level data from the API:
-```
-30452-30459, 30364-30370, 30409-30441, 30448-30450, 30461,
-30468, 30470-30477, 30480-30481, 30491, 30494-30501
-```
-**Action:** Re-run `node scripts/rebuild-pedalheads.cjs` in a fresh session (API rate limit resets). These may correspond to weeks later in summer that haven't been configured yet, or locations that use different PE numbering.
-
-### 2. ~~Non-Vancouver Cities~~ — COMPLETED in Session 2
-These Pedalheads cities still need the same level-breakdown treatment:
-- **Burnaby** (3 locations: Beecher Park, Brentwood Alliance, Our Lady of Mercy, Salish Ct)
-- **Coquitlam** (2 locations: Como Lake, Robson Park)
-- **North Vancouver** (Lynn Valley)
-- **Port Coquitlam** (Prairie Ave)
-- **Richmond** (2 locations: No. 2 Rd, Ironwood)
-- **Surrey** (2 locations: White Rock, Hillcrest Elementary)
-- **West Vancouver** (2 locations: Ambleside, Park Royal)
-- **Langley** (Walnut Grove)
-- **Delta/Tsawwassen** (if any)
-
-**How to get their location IDs:** Navigate to `/en/camp` → select BC → select each city → run Search → extract `locationId-XXXX` from DOM → call `scripts/rebuild-pedalheads.cjs` with those IDs
-
-**Script ready:** `scripts/rebuild-pedalheads.cjs` — just update the `vanLocIds` array with non-Vancouver city location IDs.
-
-### 3. Non-Bike Programs (268 kept from original data — NOT YET LEVEL-AUDITED)
-- Swim lessons (~40 programs) — need level breakdown (Tots, Swimmer 1-6) and price/URL audit
-- Soccer camps (~68 programs) — need level breakdown and price/URL audit
-- Trail riding (~8 programs) — should use Trail Rider 1/Trail Rider 2 level names
-- Combo camps (~24 programs) — need price audit for bike+soccer combos
-
-**Priority:** Next session should apply the same level-breakdown treatment to swim and soccer camps. Use the Pedalheads locations API with program_id=2 (Swim) and program_id=1012 (Soccer) to discover PE IDs, then call camp-levels for each.
-
-### 4. Combo Camps
-Bike+Soccer combos may have different pricing than individual camps — not yet audited.
-
-### 5. Spring Break / Fall Camps
-The existing database had "Spring Break Bike Camp" entries that were preserved (not in bike camp PE set). Verify these are correct.
+See Session 3 below.
 
 ---
 
@@ -250,12 +214,11 @@ The existing database had "Spring Break Bike Camp" entries that were preserved (
 ## Script Reference
 
 ```bash
-# Re-run rebuild for additional cities or remaining PEs:
-node scripts/rebuild-pedalheads.cjs
+# Bike camp rebuild (all Metro Van cities):
+node scripts/rebuild-pedalheads-v2.cjs
 
-# To add more cities, update vanLocIds in the script.
-# City location IDs come from the DOM of the search results page:
-#   locationId-XXXX elements on https://pedalheads.com/en/camp?region=1&cities=Y&ph_search=true
+# Non-bike rebuild (soccer, swim, cleanup):
+node scripts/rebuild-pedalheads-nonbike.cjs
 
 # Full pipeline after any data change:
 node scripts/fill-computable-fields.cjs
@@ -263,3 +226,97 @@ node scripts/validate-programs.cjs --fix
 node scripts/auto-resolve-violations.cjs --offline --ids=<changed-ids>
 git add src/data/programs.json
 ```
+
+---
+
+## Session 3 — 2026-04-01 (Non-Bike Rebuild + Merge Recovery)
+
+**Session type:** Non-bike program rebuild — soccer, swim, cleanup of mislabeled entries
+**Script used:** `scripts/rebuild-pedalheads-nonbike.cjs` (new)
+
+### Issue Discovered: Merge Loss
+A merge conflict between Session 2's Pedalheads rebuild and an A2I session overwrote
+the Session 2 Pedalheads Cycling data from programs.json. Session 3 corrected this:
+- Restored Session 2 Cycling data from commit `b6e05b3`
+- Applied 32 new A2I programs + 6 A2I modifications from commit `44b70c6`
+- Applied non-bike Pedalheads rebuild on top of the correct base
+
+### API Discovery — Non-Bike Programs
+
+**Program IDs by type:**
+| program_id | Type | Metro Van Locations |
+|-----------|------|---------------------|
+| 1 | Bike (incl. Trail Rider) | 25 |
+| 2 | Swim Lessons (indoor/pool) | 8 |
+| 1002 | Swim Lessons (outdoor pool) | 3 |
+| 1012 | Soccer Camps | 17 |
+
+**Soccer Skill Levels (ProgramId=1012):**
+| Level | API Name | Min Age | Max Age |
+|-------|----------|---------|---------|
+| Zoomies | Zoomies - 3-4 Years Old | 3 | 4 |
+| Speedsters | Speedsters - 4-5 Years Old | 4 | 5 |
+| Trailblazers | Trailblazers - 5-6 Years Old | 5 | 6 |
+| Legends | Legends - 6-8 Years Old | 6 | 8 |
+| Adapted | Adapted | 3 | null |
+| Half-Day Camp | Half-Day Camp (generic) | 3 | null |
+
+**Soccer Pricing:**
+| Option | Price |
+|--------|-------|
+| Half Day (3 hrs) | $216 (early weeks) / $270 (summer) |
+| Full Day (7 hrs) | $420 (early weeks) / $525 (summer) |
+
+**Swim Levels (ProgramId=2 / 1002):**
+- Parent & Tot: Goldfish (4-12mos), Jellyfish (4-12mos), Sea Horse (24-36mos)
+- Preschool 1: Octopus through Preschool 5: Narwhal (age 3+)
+- Swimmer 1 through Swimmer 6 (age 5+)
+- Swimmer 7 (Rookie Patrol), 8 (Ranger Patrol), 9 (Star Patrol) (age 8+)
+- Private/Semi-private (age 3+)
+- Tots: Seahorse+ (age 2+, no parent participation)
+
+**Swim Pricing:** $354/week (group 1-hour lessons), $504/week (private 30-min), $648/week (Swimmers 7-9, 2-hour extended lessons)
+
+### Cleanup: "Soccer Camp" Mislabeled Entries
+The 68 "Soccer Camp" entries in the DB used **bike program PE IDs** (not soccer PE IDs).
+- 21 were already rebuilt as Cycling entries in Sessions 1–2
+- 47 were checked against API: 35 returned bike/trail level data and were rebuilt as proper Cycling entries; 12 returned no data (left as-is from Session 2)
+- All 68 old "Soccer Camp" labels deleted
+
+### Results (Session 3)
+
+| Metric | Before (merged-depleted state) | Before (correct base) | After |
+|--------|-------------------------------|----------------------|-------|
+| Total programs | 8,702 | 10,422 | 13,544 |
+| Pedalheads total | 1,733 | 3,453 | 6,575 |
+| Cycling subcategory | 1,462 | 3,185 | 3,368 |
+| Soccer subcategory | 0 (68 mislabeled) | 0 (68 mislabeled) | 296 |
+| Swimming subcategory | 16 (all Swimmer 1 only) | 16 (all Swimmer 1 only) | 2,727 |
+
+**Soccer programs by location (17 locations, 79 summer PE IDs):**
+- Vancouver: Jericho Hill, Charleson Park, Quilchena, Lord Selkirk, Charles Tupper, St. James, Jules Quesnel
+- Burnaby: Deer Lake, Beecher Park
+- North Vancouver: Lynn Valley Elementary, Argyle Secondary Turf
+- Richmond: Sportstown Soccer (indoor), McNair Field, James Whiteside, Blundell Park
+- Langley: Alex Hope Elementary
+- Port Coquitlam: École des Pionniers
+
+**Swim programs (11 locations, 58 summer PE IDs):**
+- Indoor/pool: Jericho Hill (PG), Marpole Stan Stronge, Deer Lake (Burnaby), Sullivan Heights (Burnaby), Ironwood (Richmond), Park Royal (West Van), Fremont (PoCo)
+- Outdoor pool: Jericho Hill outdoor (PG), Bell Park (Burnaby/Burquitlam), Ironwood River Club (Richmond)
+
+### Validator Summary (final)
+- **Violations on NEW programs: 0**
+- Total violations: 1,884 (all on pre-existing programs from other providers)
+- Auto-fixed: 0 (pre-existing violations not auto-fixable)
+- Fixed manually: R2 violations (566 soccer/swim entries with >35 day spans → added `repeating: true`)
+
+### What Still Needs Doing
+
+1. **Combo camps (Bike+Soccer, Bike+Swim, Trail+Swim)** — 184 entries preserved from prior data with `priceVerified: false` and `isEstimate: true`. Prices need verification against the Pedalheads API. Use program_id=1014 locations to find combo PE IDs and query camp-levels.
+
+2. **Remaining 12 unresolved bike PEs** (from old Soccer Camp labels, no API data) — likely correspond to future summer weeks not yet activated in the system.
+
+3. **Swim locations completeness** — Sullivan Heights Burnaby (location 1175) and Fremont Port Coquitlam (locations 1732, 1953) may have fewer summer weeks published. Verify in July.
+
+4. **A2I merges** — Watch for future merge conflicts with programs.json. The `rebuild-pedalheads-nonbike.cjs` script should always be run from the correct base (include Session 2 Cycling data).
