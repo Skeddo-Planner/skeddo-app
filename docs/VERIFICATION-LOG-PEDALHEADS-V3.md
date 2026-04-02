@@ -145,6 +145,14 @@ https://pedalheads.com/en/camp/details?region=1&program_event={event_id}&skill_l
 - Fixed all Point Grey – Jericho Hill Centre Bike Camp Level 1–5 entries: $264→$330, $452→$565
 - NOT fixed: other Vancouver locations, other cities (need browser verification per CLAUDE.md)
 
+### Price Fix Applied 2026-04-01 (nervous-curie session)
+- Source: Point Grey browser-verified prices ($330 half-day, $565 full-day)
+- Applied to ALL Pedalheads bike camp programs database-wide (per Pedalheads standard pricing)
+- **Half-day (cost=264 → 330)**: 367 programs updated
+- **Full-day (cost=452 → 565)**: 168 programs updated
+- Non-bike programs (swim, soccer, combo) NOT touched — prices need separate verification
+- Programs already at $330 or $565 NOT changed (1280 and 710 programs respectively)
+
 ---
 
 ## WHAT WAS NOT VERIFIED THIS SESSION
