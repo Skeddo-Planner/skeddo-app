@@ -223,6 +223,19 @@ If the price, date, or any detail is visible on the registration page, it is CON
 ### 8. COUNT AND VERIFY COMPLETENESS
 After auditing a provider, count the total unique programs on their registration page and compare to what we have in the database. If our count is lower, programs are missing. Document: "Provider shows X programs, we have Y — [X-Y] missing" in the verification log.
 
+### 9. API DATA MUST BE VALIDATED BEFORE USE
+Provider APIs (e.g., Pedalheads api.pedalheads.com) may return generic, default, or outdated data that differs from the actual registration page. NEVER use API data as the primary source without validation.
+
+**Validation protocol:**
+1. For the first 10-15 listings from any provider API, pull data from BOTH the API and the actual registration page (via browser navigation)
+2. Compare EVERY field: price, age range, program name, URL, enrollment status
+3. If ALL 10-15 match with ZERO differences → API is "validated" for this provider. May use API for remaining listings with 5% ongoing spot-checks.
+4. If ANY discrepancy is found → API is "invalidated." Use browser navigation only. Do not use the API until the discrepancy is understood and resolved.
+5. In the verification log, mark each listing as "API-verified (validated against samples 1-15)" or "browser-verified (direct registration page check)"
+
+**Currently invalidated APIs:**
+- Pedalheads (api.pedalheads.com) — returned wrong prices, wrong ages, broken URLs. Must use browser only.
+
 ## Important Files
 
 | File | Purpose |

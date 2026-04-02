@@ -500,7 +500,7 @@ for (const p of programs) {
 }
 
 // ══════════════════════════════════════════════════════════════════
-// AUDIT PROCESS RULES (R42–R49) — from Tom's April 1 spot-check
+// AUDIT PROCESS RULES (R42–R50) — from Tom's April 1 spot-check
 // These rules govern HOW agents must conduct audits; they cannot be enforced
 // by checking data fields alone. They are acknowledged here so coverage checks pass.
 //
@@ -513,6 +513,9 @@ for (const p of programs) {
 // R47: Completed Programs Must Stay in Database with "Completed" Status — reinforces R31
 // R48: Data Visible on the Registration Page Is Never an Estimate — reinforces R22/R25
 // R49: Count-and-Compare Completeness After Every Provider Audit — completeness gate
+// R50: Provider API Data Must Be Validated Against Registration Pages Before Use —
+//      validate first 10-15 listings from any API against the live page before bulk import;
+//      Pedalheads API (api.pedalheads.com) is currently invalidated (wrong prices/ages/URLs)
 
 // ── Rule 43 partial check: warn if ageMin=5 and ageMax=12 for programs from providers
 //    that are known to offer age bands. This is a heuristic — not exhaustive.
@@ -544,7 +547,7 @@ for (const p of programs) {
 
 // ── Summary ──
 const allRules = "1,2,3,4,5,6,7,8,9,10,11,14,15,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,39,43,46,48";
-const processRules = "12,13,16,17,18,19,42,44,45,47,49 (process/audit rules — not data checks)";
+const processRules = "12,13,16,17,18,19,42,44,45,47,49,50 (process/audit rules — not data checks)";
 console.log(`\n=== VALIDATION SUMMARY ===`);
 console.log(`Total programs: ${programs.length}`);
 console.log(`Violations: ${violations}`);

@@ -461,3 +461,14 @@ The validator enforces what it can: adult-only checks (Rule 23), true duplicate 
 - If your count is lower than what the provider shows, programs are missing — find and add them before finishing
 - Document in your session log or commit message: "Provider shows X programs, we have Y" — if X > Y, explain why
 - This is a completeness gate: an audit is not done until counts match (or discrepancies are explained)
+
+## Rule 50: Provider API Data Must Be Validated Against Registration Pages Before Use (HARD RULE)
+**Why:** The Pedalheads API (api.pedalheads.com) returned wrong prices, incorrect age ranges, and broken URLs — data that differed materially from what parents see on the actual registration page. Using unvalidated API data caused systemic errors across an entire provider's listings.
+- NEVER use a provider API as the primary data source without first validating it against the actual registration page
+- **Validation protocol:** For the first 10-15 listings from any provider API, compare EVERY field (price, age range, program name, URL, enrollment status) against the live registration page
+  - If ALL 10-15 match with ZERO differences → API is "validated" for this provider. May use API for remaining listings with 5% ongoing spot-checks.
+  - If ANY discrepancy is found → API is "invalidated." Use browser navigation only. Do not use the API until the discrepancy is understood and resolved.
+- In the verification log, mark each listing as "API-verified (validated against samples 1-15)" or "browser-verified (direct registration page check)"
+- **Currently invalidated APIs:**
+  - Pedalheads (api.pedalheads.com) — wrong prices, wrong ages, broken URLs. Must use browser only.
+- This rule pairs with Rule 23 (every program must be verified on the provider's live page) — API data does not count as verification
