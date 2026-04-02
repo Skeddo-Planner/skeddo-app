@@ -54,7 +54,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         style={s.input}
         value={draft.displayName || ""}
         onChange={(e) => update("displayName", e.target.value)}
-        placeholder="e.g. Nicole"
+        placeholder="e.g. Sarah"
       />
 
       <Label>Email</Label>

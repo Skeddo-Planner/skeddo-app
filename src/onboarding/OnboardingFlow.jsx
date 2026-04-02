@@ -199,7 +199,7 @@ export default function OnboardingFlow({ onComplete, planAccess }) {
                 }}
                 value={displayName}
                 onChange={(e) => setDisplayName(e.target.value)}
-                placeholder="e.g. Nicole"
+                placeholder="e.g. Sarah"
                 autoFocus
               />
               {showErrors && !displayName.trim() && (
