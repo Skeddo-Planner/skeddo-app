@@ -97,9 +97,108 @@ Locations observed on site (partial list):
 
 ---
 
-## What Still Needs Doing (Next Session)
+---
 
-### 1. Remaining 68 Bike Program Events (no API data)
+## Session 2 — 2026-04-01 (All Metro Van Cities + New Locations)
+
+**Session type:** Full Metro Vancouver expansion — all cities, new locations, comprehensive rebuild
+**Script used:** `scripts/rebuild-pedalheads-v2.cjs` (new comprehensive script)
+
+### What Was Done
+
+#### 1. Comprehensive API Discovery
+Re-ran camp-levels API for all existing bike PE IDs — still 68 returned no data (those PE IDs are for unactivated future program events, not a rate-limit issue).
+
+Wrote new `scripts/rebuild-pedalheads-v2.cjs` that:
+1. Calls `POST /api/search/locations/` with all 11 Metro Van city IDs to discover ALL bike locations
+2. Calls `POST /api/search/camps/` per location to discover ALL bike PE IDs
+3. Calls `POST /api/search/camp-levels/` per PE ID to get level/price/time data
+4. Builds level-specific entries for every combination
+
+**Metro Vancouver City IDs discovered:**
+| City | City ID |
+|------|---------|
+| Vancouver | 3 |
+| Burnaby | 1007 |
+| Coquitlam | 1004 |
+| North Vancouver | 2 |
+| Richmond | 1003 |
+| Surrey | 1012 |
+| West Vancouver | 1002 |
+| Langley | 1013 |
+| Port Coquitlam | 3166 |
+| Delta | 1010 |
+| Tsawwassen | 3093 |
+
+#### 2. Bike Locations Found (25 total)
+
+| Location ID | Location Name | City |
+|------------|---------------|------|
+| 1 | Lynn Valley - Brockton Preparatory School | North Vancouver |
+| 2 | Point Grey - Jericho Hill Centre | Vancouver |
+| 4 | No 2 & Blundell - Richmond Baptist Church | Richmond |
+| 1001 | White Rock - H.T. Thrift Elementary | Surrey |
+| 1002 | Como Lake - Queen of All Saint's School | Coquitlam |
+| 1003 | Ambleside - Ridgeview Elementary | West Vancouver |
+| 1004 | Little Mountain - Sir Richard McBride Elementary | Vancouver |
+| 1006 | Walnut Grove - Alex Hope Elementary | Langley |
+| 1010 | Pinetree - Robson Park | Coquitlam |
+| 1013 | Delta (North) - Sunshine Hills Elementary | Delta |
+| 1014 | Tsawwassen - Beach Grove Elementary | Tsawwassen |
+| 1161 | Lynn Valley - Brockton Kilmer Park (Trail Riding) | North Vancouver |
+| 1254 | Burnaby (South/East) - Our Lady of Mercy School | Burnaby |
+| 1307 | Arbutus Ridge - Prince of Wales Mini | Vancouver |
+| 1353 | Vancouver North/East (PNE) - A.R. Lord Elementary | Vancouver |
+| 1498 | Port Coquitlam - École des Pionniers | Port Coquitlam |
+| 1545 | Johnston Heights - Surrey Christian School | Surrey |
+| 1614 | Oakridge - Dr. Annie B. Jamieson Elementary | Vancouver |
+| 1628 | Main & 23rd - David Livingstone Elem. | Vancouver |
+| 1655 | Como Lake - Mundy Park | Coquitlam |
+| 1677 | Cloverdale - Hillcrest Elementary School | Surrey |
+| 1678 | Lonsdale - Brooksbank Elementary School | North Vancouver |
+| 1699 | False Creek Seawall - Hadden Park | Vancouver |
+| 1755 | Brentwood - Brentwood Park Alliance Church | Burnaby |
+| 1853 | Renfrew - Nootka Elementary | Vancouver |
+
+**NEW locations not previously in database:** North Vancouver (Lonsdale), Richmond (No. 2 & Blundell), Port Coquitlam (Pionniers), Coquitlam (Mundy Park), Delta (Sunshine Hills), Tsawwassen (Beach Grove)
+
+#### 3. Program Events Discovered
+- **212 unique bike PE IDs** discovered via search/camps API (vs 88 in Session 1)
+- All 212 returned level data from camp-levels API (0 failures)
+- 122 new PE IDs not previously in the database
+
+#### 4. Age Range Fix
+Pedalheads registration pages confirm programs are "Ages X and up" with no stated maximum age (verified: Level 1 "Ages 4 and up", Level 4 "Ages 6 and up"). All new bike programs now have `ageMax: null` to accurately represent this.
+
+### Results (Session 2)
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Total programs in DB | 8,670 | 10,390 |
+| Pedalheads total | 1,733 | 3,453 |
+| Bike (Cycling subcategory) | 1,462 | 3,185 |
+| Unique bike PE IDs resolved | 88 | 212 |
+| Cities covered (bike) | 6 | 11 |
+
+**Bike programs by city:**
+| City | Programs |
+|------|---------|
+| Vancouver | 1,186 |
+| Burnaby | 323 |
+| North Vancouver | 296 |
+| West Vancouver | 270 |
+| Surrey | 264 |
+| Coquitlam | 200 |
+| Port Coquitlam | 160 |
+| Langley | 160 |
+| Richmond | 212 |
+| Tsawwassen | 90 |
+| Delta | 24 |
+| **Total** | **3,185** |
+
+### What Still Needs Doing (Next Session)
+
+#### 1. Remaining 68 Bike Program Events (no API data)
 These PE IDs exist in the database but returned no level data from the API:
 ```
 30452-30459, 30364-30370, 30409-30441, 30448-30450, 30461,
@@ -107,7 +206,7 @@ These PE IDs exist in the database but returned no level data from the API:
 ```
 **Action:** Re-run `node scripts/rebuild-pedalheads.cjs` in a fresh session (API rate limit resets). These may correspond to weeks later in summer that haven't been configured yet, or locations that use different PE numbering.
 
-### 2. Non-Vancouver Cities (NOT YET AUDITED)
+### 2. ~~Non-Vancouver Cities~~ — COMPLETED in Session 2
 These Pedalheads cities still need the same level-breakdown treatment:
 - **Burnaby** (3 locations: Beecher Park, Brentwood Alliance, Our Lady of Mercy, Salish Ct)
 - **Coquitlam** (2 locations: Como Lake, Robson Park)
@@ -123,11 +222,13 @@ These Pedalheads cities still need the same level-breakdown treatment:
 
 **Script ready:** `scripts/rebuild-pedalheads.cjs` — just update the `vanLocIds` array with non-Vancouver city location IDs.
 
-### 3. Non-Bike Programs (135 kept unchanged)
-- Swim lessons (40 programs) — need price/URL audit
-- Soccer camps (68 programs) — need price/URL audit
-- Trail riding (8 programs) — should use Trail Rider 1/Trail Rider 2 level names
-- Combo camps (24 programs) — need price audit
+### 3. Non-Bike Programs (268 kept from original data — NOT YET LEVEL-AUDITED)
+- Swim lessons (~40 programs) — need level breakdown (Tots, Swimmer 1-6) and price/URL audit
+- Soccer camps (~68 programs) — need level breakdown and price/URL audit
+- Trail riding (~8 programs) — should use Trail Rider 1/Trail Rider 2 level names
+- Combo camps (~24 programs) — need price audit for bike+soccer combos
+
+**Priority:** Next session should apply the same level-breakdown treatment to swim and soccer camps. Use the Pedalheads locations API with program_id=2 (Swim) and program_id=1012 (Soccer) to discover PE IDs, then call camp-levels for each.
 
 ### 4. Combo Camps
 Bike+Soccer combos may have different pricing than individual camps — not yet audited.
