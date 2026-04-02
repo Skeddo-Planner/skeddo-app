@@ -105,24 +105,27 @@ export default function LandingPage({ onNavigate }) {
               borderRadius: 12,
               width: "100%",
               textAlign: "center",
-              marginBottom: 16,
+              marginBottom: 10,
             }}
           >
             Get Started — It's Free
           </button>
-          <p style={{ fontSize: 14, color: C.muted, textAlign: "center" }}>
-            Already have an account?{" "}
-            <button
-              onClick={() => onNavigate("signin")}
-              style={{
-                background: "none", border: "none",
-                color: C.seaGreen, fontWeight: 700, cursor: "pointer",
-                fontFamily: "'Barlow', sans-serif", fontSize: 14,
-              }}
-            >
-              Sign In
-            </button>
-          </p>
+          <button
+            onClick={() => onNavigate("signin")}
+            style={{
+              ...s.secondaryBtn,
+              display: "block",
+              padding: "13px 40px",
+              fontSize: 16,
+              borderRadius: 12,
+              width: "100%",
+              textAlign: "center",
+              color: C.seaGreen,
+              border: `1.5px solid ${C.seaGreen}`,
+            }}
+          >
+            Log In
+          </button>
         </div>
       </div>
 
