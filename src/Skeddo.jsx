@@ -42,10 +42,16 @@ export default function Skeddo() {
   const { user, session, loading: authLoading, signOut } = useAuth();
   const [authPage, setAuthPage] = useState("landing"); // 'landing' | 'signin' | 'signup' | 'app'
 
-  // When user becomes authenticated, switch to app view
+  // When user becomes authenticated, switch to app view.
+  // When user signs out (was in "app"), return to landing.
+  // Do NOT reset authPage when user is null and we're on signin/signup —
+  // Supabase fires multiple auth state changes on load which would wipe out navigation.
   useEffect(() => {
-    if (user) setAuthPage("app");
-    else setAuthPage("landing");
+    if (user) {
+      setAuthPage("app");
+    } else {
+      setAuthPage((prev) => (prev === "app" ? "landing" : prev));
+    }
   }, [user]);
 
   /* ── Track auth page views for GA4 ── */
