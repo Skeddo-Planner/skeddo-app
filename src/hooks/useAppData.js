@@ -153,7 +153,7 @@ const loadDirectoryLookup = () => {
 
 // Fields that belong to the catalog and should always reflect the latest programs.json
 const CATALOG_FIELDS = [
-  "days", "times", "startDate", "endDate", "seasonType", "campType",
+  "days", "times", "seasonType", "campType",
   "ageMin", "ageMax", "location", "neighbourhood", "registrationUrl", "category",
   "name", "provider",
 ];
