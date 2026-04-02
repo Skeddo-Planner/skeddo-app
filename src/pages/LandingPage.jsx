@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
+import useIsDesktop from "../hooks/useIsDesktop";
 
 const BASE_FEATURES = [
   {
@@ -27,6 +28,7 @@ const BASE_FEATURES = [
 
 export default function LandingPage({ onNavigate }) {
   const [programCount, setProgramCount] = useState(null);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     import("../data/programs.json").then((m) => {
@@ -46,17 +48,7 @@ export default function LandingPage({ onNavigate }) {
   );
 
   return (
-    <main
-      role="main"
-      style={{
-        fontFamily: "'Barlow', sans-serif",
-        background: C.cream,
-        minHeight: "100dvh",
-        maxWidth: 480,
-        margin: "0 auto",
-        padding: "40px 24px 60px",
-      }}
-    >
+    <div style={{ background: C.cream, minHeight: "100dvh" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,23 +59,91 @@ export default function LandingPage({ onNavigate }) {
         }
       `}</style>
 
+      {/* Desktop header — logo left, Log In right */}
+      {isDesktop && (
+        <header style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          background: C.white,
+          borderBottom: `0.5px solid rgba(27,36,50,0.08)`,
+          padding: "0 32px",
+          height: 56,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}>
+          <img
+            src="/skeddo-logo-dark.png"
+            alt="Skeddo"
+            style={{ height: 38, width: "auto", borderRadius: 8 }}
+          />
+          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <button
+              onClick={() => onNavigate("signin")}
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 14,
+                fontWeight: 600,
+                color: C.seaGreen,
+                background: "transparent",
+                border: `1.5px solid ${C.seaGreen}`,
+                borderRadius: 8,
+                padding: "8px 20px",
+                cursor: "pointer",
+              }}
+            >
+              Log In
+            </button>
+            <button
+              onClick={() => onNavigate("signup")}
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontSize: 14,
+                fontWeight: 600,
+                color: "#fff",
+                background: C.seaGreen,
+                border: "none",
+                borderRadius: 8,
+                padding: "8px 20px",
+                cursor: "pointer",
+              }}
+            >
+              Get Started Free
+            </button>
+          </div>
+        </header>
+      )}
+
+      <main
+        role="main"
+        style={{
+          fontFamily: "'Barlow', sans-serif",
+          maxWidth: 480,
+          margin: "0 auto",
+          padding: isDesktop ? "48px 24px 60px" : "40px 24px 60px",
+        }}
+      >
       <div style={{ animation: "fadeUp 0.5s ease", textAlign: "center" }}>
-        {/* Logo */}
-        <img
-          src="/skeddo-logo-dark.png"
-          alt="Skeddo — kids activity planner for Vancouver families"
-          width={80}
-          height={80}
-          style={{ height: 80, width: "auto", borderRadius: 16, marginBottom: 24 }}
-        />
+        {/* Logo — only show on mobile (desktop header has it) */}
+        {!isDesktop && (
+          <img
+            src="/skeddo-logo-dark.png"
+            alt="Skeddo — kids activity planner for Vancouver families"
+            width={80}
+            height={80}
+            style={{ height: 80, width: "auto", borderRadius: 16, marginBottom: 24 }}
+          />
+        )}
 
         <h1
           style={{
             fontFamily: "'Poppins', sans-serif",
-            fontSize: 30,
+            fontSize: isDesktop ? 36 : 30,
             color: C.ink,
             lineHeight: 1.2,
             marginBottom: 8,
+            marginTop: isDesktop ? 0 : 0,
           }}
         >
           Plan Your Kids' Camps &amp; Classes — All in One Place
@@ -196,6 +256,7 @@ export default function LandingPage({ onNavigate }) {
       }}>
         <p>Made by Mended with Gold Inc. · Vancouver, BC</p>
       </footer>
-    </main>
+      </main>
+    </div>
   );
 }
