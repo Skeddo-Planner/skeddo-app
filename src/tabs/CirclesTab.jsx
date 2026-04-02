@@ -171,7 +171,7 @@ export default function CirclesTab({
   const {
     circles, pendingRequests, activeFeed, bookmarks, bookmarkedActivities, referrals, loading,
     referralCode, referralUrl, membersRecruited, freeMonthsEarned,
-    createCircle, joinCircle, handleMemberRequest, leaveCircle, removeMember,
+    createCircle, joinCircle, handleMemberRequest, leaveCircle, deleteCircle, removeMember,
     shareActivities, loadFeed, toggleBookmark, flagActivity, deleteSharedActivity,
     ensureReferralCode, getMembers, refreshPending, pendingCount,
   } = circlesHook;
@@ -418,6 +418,35 @@ export default function CirclesTab({
                       overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                     }}>
                       {c.lastActivity}
+                    </div>
+                  )}
+
+                  {/* Delete button — owner only */}
+                  {c.role === "owner" && (
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      style={{ marginTop: 10, borderTop: `1px solid ${C.border}`, paddingTop: 8, display: "flex", justifyContent: "flex-end" }}
+                    >
+                      <button
+                        onClick={async (e) => {
+                          e.stopPropagation();
+                          if (!window.confirm(`Delete "${c.name}"? This will remove the circle and all shared activities for all members.`)) return;
+                          try {
+                            await deleteCircle(c.id);
+                            showToast("Circle deleted");
+                          } catch (err) {
+                            showToast(err.message);
+                          }
+                        }}
+                        style={{
+                          fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                          color: "#ef4444", background: "none", border: "none", cursor: "pointer",
+                          padding: "4px 0", display: "flex", alignItems: "center", gap: 4,
+                        }}
+                      >
+                        <TrashIcon size={14} color="#ef4444" />
+                        Delete Circle
+                      </button>
                     </div>
                   )}
                 </div>

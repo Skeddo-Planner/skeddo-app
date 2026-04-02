@@ -250,6 +250,20 @@ export function useCircles(userId, session) {
     return data;
   }, [getAuthHeaders]);
 
+  /* ── Delete a circle (owner only) ── */
+  const deleteCircle = useCallback(async (circleId) => {
+    const res = await fetch("/api/circles-delete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+      body: JSON.stringify({ circleId }),
+    });
+    let data;
+    try { data = await res.json(); } catch { data = { error: "Server returned an invalid response. Please try again." }; }
+    if (!res.ok) throw new Error(data.error || "Failed to delete circle");
+    setCircles((prev) => prev.filter((c) => c.id !== circleId));
+    return data;
+  }, [getAuthHeaders]);
+
   /* ── Remove a member ── */
   const removeMember = useCallback(async (circleId, targetUserId) => {
     const res = await fetch("/api/circles-remove", {
@@ -458,6 +472,7 @@ export function useCircles(userId, session) {
     joinCircle,
     handleMemberRequest,
     leaveCircle,
+    deleteCircle,
     removeMember,
     shareActivities,
     loadFeed,

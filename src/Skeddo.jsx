@@ -516,6 +516,14 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     completeOnboarding();
   };
 
+  // Desktop users skip the mobile-only OnboardingFlow; auto-mark as onboarded
+  // so they won't hit it on mobile later either.
+  useEffect(() => {
+    if (loaded && !onboarded && isDesktop) {
+      completeOnboarding();
+    }
+  }, [loaded, onboarded, isDesktop, completeOnboarding]);
+
   /* ── Loading state — large logo on dark background ── */
   if (!loaded) return (
     <div style={{
@@ -533,8 +541,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     </div>
   );
 
-  /* ── Onboarding ── */
-  if (!onboarded) {
+  /* ── Onboarding (mobile only — desktop skips straight to the app) ── */
+  if (!onboarded && !isDesktop) {
     return <OnboardingFlow onComplete={handleOnboardingComplete} planAccess={planAccess} />;
   }
 

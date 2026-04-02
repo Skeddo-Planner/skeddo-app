@@ -445,15 +445,11 @@ export default function ProgramsTab({
   return (
     <div>
       {/* Header */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 0,
-        }}
-      >
-        <h2 style={s.pageTitle}>My Programs</h2>
+      <h2 style={s.pageTitle}>My Programs</h2>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 16, marginTop: 0 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted }}>
+          {filteredPrograms.length} program{filteredPrograms.length !== 1 ? "s" : ""} tracked
+        </p>
         <button
           className="chip-btn"
           style={s.addButton}
@@ -463,9 +459,6 @@ export default function ProgramsTab({
           + Add
         </button>
       </div>
-      <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
-        {filteredPrograms.length} program{filteredPrograms.length !== 1 ? "s" : ""} tracked
-      </p>
 
       {/* Kid filter */}
       <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
