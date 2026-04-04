@@ -424,6 +424,24 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess, initialError
               }}
             >
               {error}
+              {!isSignUp && /invalid.*login|invalid.*credential|wrong.*password|incorrect.*password/i.test(error) && (
+                <div style={{ marginTop: 8, fontWeight: 400, fontSize: 13 }}>
+                  Forgot your password?{" "}
+                  <button
+                    type="button"
+                    onClick={handleForgotPassword}
+                    disabled={resetLoading}
+                    style={{
+                      background: "none", border: "none", padding: 0,
+                      color: C.danger, fontWeight: 700, fontSize: 13,
+                      cursor: "pointer", textDecoration: "underline",
+                      fontFamily: "'Barlow', sans-serif",
+                    }}
+                  >
+                    {resetLoading ? "Sending..." : "Send reset link"}
+                  </button>
+                </div>
+              )}
             </div>
           )}
           {showResend && !resendSent && (
