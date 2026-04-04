@@ -283,7 +283,103 @@ export default function BudgetTab({
               {effectiveBudget > 0 ? `$${effectiveBudget.toLocaleString()} goal` : "No budget set"}
             </p>
           </div>
+          <button
+            onClick={() => {
+              if (selectedKid) {
+                setEditingBudget(selectedKid.id);
+                setBudgetInput(String(selectedKid.budgetGoal || ""));
+              } else if (kids.length === 1) {
+                setEditingBudget(kids[0].id);
+                setBudgetInput(String(kids[0].budgetGoal || ""));
+              } else if (kids.length > 1) {
+                const target = kids.find((k) => !k.budgetGoal) || kids[0];
+                setEditingBudget(target.id);
+                setBudgetInput(String(target.budgetGoal || ""));
+              }
+            }}
+            style={{
+              fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+              color: effectiveBudget > 0 ? C.seaGreen : C.white,
+              background: effectiveBudget > 0 ? "transparent" : C.seaGreen,
+              border: `1.5px solid ${C.seaGreen}`,
+              borderRadius: 8, padding: "7px 16px", cursor: "pointer",
+            }}
+          >
+            {effectiveBudget > 0 ? "Edit Budget Goal" : "Set Budget Goal"}
+          </button>
         </div>
+
+        {/* Inline budget editor */}
+        {editingBudget && (
+          <div style={{ ...cardStyle, marginBottom: 16, padding: 16, border: `1px solid ${C.seaGreen}40` }}>
+            <div style={{ ...labelStyle, marginBottom: 10 }}>Set Budget by Kid</div>
+            {kids.map((k) => {
+              const isEditing = editingBudget === k.id;
+              return (
+                <div key={k.id} style={{
+                  display: "flex", alignItems: "center", gap: 10, padding: "8px 0",
+                  borderBottom: `1px solid ${C.border}`,
+                }}>
+                  <div style={{ ...s.kidAvatar, width: 28, height: 28, fontSize: 12, borderRadius: 8, background: k.color || s.kidAvatar.background }}>
+                    {k.name?.[0]?.toUpperCase()}
+                  </div>
+                  <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink, flex: 1 }}>
+                    {k.name}
+                  </span>
+                  {isEditing ? (
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.ink }}>$</span>
+                      <input
+                        type="number"
+                        value={budgetInput}
+                        onChange={(e) => setBudgetInput(e.target.value)}
+                        autoFocus
+                        style={{ ...s.input, width: 80, padding: "6px 8px", fontSize: 14, textAlign: "right" }}
+                      />
+                      <button
+                        onClick={() => {
+                          if (onSaveKid) {
+                            const goal = Number(budgetInput) || 0;
+                            trackEvent("set_budget", { kid_name: k.name, budget_goal: goal });
+                            onSaveKid({ ...k, budgetGoal: goal });
+                          }
+                          setEditingBudget(null);
+                        }}
+                        style={{
+                          background: C.seaGreen, color: "#fff", border: "none",
+                          borderRadius: 6, padding: "6px 10px", fontSize: 12, fontWeight: 700,
+                          fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+                        }}
+                      >
+                        Save
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => { setEditingBudget(k.id); setBudgetInput(String(k.budgetGoal || "")); }}
+                      style={{
+                        background: "none", border: `1px solid ${C.border}`, borderRadius: 6,
+                        padding: "4px 10px", fontSize: 14, fontWeight: 600, color: k.budgetGoal ? C.ink : C.muted,
+                        fontFamily: "'Barlow', sans-serif", cursor: "pointer",
+                      }}
+                    >
+                      {k.budgetGoal ? fmt$(k.budgetGoal) : "Set"}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+            <button
+              onClick={() => setEditingBudget(null)}
+              style={{
+                background: "none", border: "none", fontFamily: "'Barlow', sans-serif",
+                fontSize: 12, fontWeight: 600, color: C.muted, cursor: "pointer", marginTop: 8, padding: 0,
+              }}
+            >
+              Done
+            </button>
+          </div>
+        )}
 
         {/* Row 1: Stat cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10, marginBottom: 16 }}>
