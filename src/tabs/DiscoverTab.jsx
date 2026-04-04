@@ -503,7 +503,17 @@ function DirectoryCard({ program, alreadyAdded, onTap, favorited, onToggleFavori
           )}
           {program.earlyBirdCost != null && program.earlyBirdDeadline && new Date(program.earlyBirdDeadline) >= new Date() && (
             <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: C.olive + "18", color: C.olive, padding: "2px 8px", borderRadius: 10 }}>
-              Early Bird until {new Date(program.earlyBirdDeadline + "T00:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" })}
+              🐦 Early Bird until {new Date(program.earlyBirdDeadline + "T00:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" })}
+            </span>
+          )}
+          {program.earlyBirdCost != null && !program.earlyBirdDeadline && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: C.olive + "18", color: C.olive, padding: "2px 8px", borderRadius: 10 }}>
+              🐦 Early Bird Pricing
+            </span>
+          )}
+          {program.discountNote && (
+            <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 700, background: C.olive + "18", color: C.olive, padding: "2px 8px", borderRadius: 10 }}>
+              💰 Discount Available
             </span>
           )}
           {eligibility && eligibility.eligibilityTier === "borderline" && (

@@ -181,6 +181,11 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
               {"\uD83D\uDC26"} Early Bird Pricing
             </span>
           )}
+          {p.discountNote && (
+            <span style={pillStyle(C.olive + "18", C.olive)}>
+              {"\uD83D\uDCB0"} Discount Available
+            </span>
+          )}
           {hasBeforeCare && (
             <span style={pillStyle(C.blue + "14", C.blue)}>
               Before Care

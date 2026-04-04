@@ -37,8 +37,8 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   // Price is approximate if explicitly flagged or if provider is not verified
   const isApproxPrice = p.priceVerified === false && typeof p.cost === "number" && p.cost > 0;
 
-  const hasEarlyBird = p.earlyBirdCost != null && p.earlyBirdDeadline;
-  const earlyBirdActive = hasEarlyBird && new Date(p.earlyBirdDeadline) >= new Date();
+  const earlyBirdActive = p.earlyBirdCost != null && p.earlyBirdDeadline && new Date(p.earlyBirdDeadline) >= new Date();
+  const earlyBirdAvailable = p.earlyBirdCost != null && !p.earlyBirdDeadline;
 
   const toggleKid = (kidId) => {
     setKidError(false);
@@ -286,6 +286,52 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
         </div>
       )}
 
+      {/* Early bird available (no deadline) */}
+      {earlyBirdAvailable && (
+        <div style={{
+          background: "#E8F5EE",
+          borderRadius: 10,
+          padding: "10px 14px",
+          marginBottom: 12,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+        }}>
+          <span style={{ fontSize: 16 }}>{"\uD83D\uDC26"}</span>
+          <div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.seaGreen }}>
+              Early bird: {fmt$(p.earlyBirdCost)}
+              {p.cost > 0 && (
+                <span style={{ fontWeight: 400, color: C.muted, textDecoration: "line-through", marginLeft: 6 }}>
+                  {fmt$(p.cost)}
+                </span>
+              )}
+            </div>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 2 }}>
+              Early bird pricing — check provider for details
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Discount note */}
+      {p.discountNote && (
+        <div style={{
+          background: C.olive + "10",
+          borderRadius: 10,
+          padding: "10px 14px",
+          marginBottom: 12,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+        }}>
+          <span style={{ fontSize: 16 }}>💰</span>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.olive }}>
+            {p.discountNote}
+          </div>
+        </div>
+      )}
+
       {/* Before/After care */}
       {(p.beforeCare?.available || p.afterCare?.available) && (
         <div style={{
@@ -341,7 +387,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             fontFamily: "'Poppins', sans-serif", fontSize: 16,
             color: C.ink, background: C.cream, padding: "4px 12px", borderRadius: 8,
           }}>
-            {earlyBirdActive ? fmt$(p.earlyBirdCost) : isApproxPrice ? `~${fmt$(p.cost)}` : fmt$(p.cost)}
+            {(earlyBirdActive || earlyBirdAvailable) ? fmt$(p.earlyBirdCost) : isApproxPrice ? `~${fmt$(p.cost)}` : fmt$(p.cost)}
             {p.costPer && (
               <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginLeft: 2 }}>
                 /{p.costPer}
@@ -349,7 +395,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
             )}
           </span>
         )}
-        {!earlyBirdActive && isApproxPrice && (
+        {!(earlyBirdActive || earlyBirdAvailable) && isApproxPrice && (
           <span style={{
             fontFamily: "'Barlow', sans-serif", fontSize: 11,
             color: C.muted, fontStyle: "italic",
