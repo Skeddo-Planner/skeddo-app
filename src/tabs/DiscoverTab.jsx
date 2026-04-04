@@ -26,10 +26,15 @@ async function loadProgramsProgressive(onBatch) {
 
   if (PROGRAMS_BLOB_URL) {
     // Blob — single file, slim (no description). Fast CDN path.
-    const data = await fetch(PROGRAMS_BLOB_URL).then((r) => r.json());
-    _cachedPrograms = data;
-    onBatch(data);
-    return data;
+    // Fall back to the paginated API if the blob is unreachable.
+    try {
+      const data = await fetch(PROGRAMS_BLOB_URL).then((r) => r.json());
+      _cachedPrograms = data;
+      onBatch(data);
+      return data;
+    } catch {
+      // Blob unreachable — fall through to paginated API below
+    }
   }
 
   // Paginated API — show first page immediately, fetch the rest in parallel.
@@ -617,6 +622,7 @@ export default function DiscoverTab({
   const [fallbackPrograms, setFallbackPrograms] = useState([]);
   const [userSubmitted, setUserSubmitted] = useState([]);
   const [isLoadingPrograms, setIsLoadingPrograms] = useState(true);
+  const [loadError, setLoadError] = useState(false);
   const isDesktop = useIsDesktop();
 
   const [filterToast, setFilterToast] = useState(null);
@@ -637,9 +643,13 @@ export default function DiscoverTab({
   /* Load programs progressively — first batch shows immediately */
   useEffect(() => {
     let firstBatch = true;
+    setLoadError(false);
     loadProgramsProgressive((data) => {
       setFallbackPrograms(data);
       if (firstBatch) { setIsLoadingPrograms(false); firstBatch = false; }
+    }).catch(() => {
+      setIsLoadingPrograms(false);
+      setLoadError(true);
     });
   }, []);
 
@@ -1006,6 +1016,25 @@ export default function DiscoverTab({
         }}>
           {isLoadingPrograms
             ? "Loading programs..."
+            : loadError
+            ? <span>
+                Couldn't load programs.{" "}
+                <button
+                  onClick={() => {
+                    _cachedPrograms = null;
+                    setIsLoadingPrograms(true);
+                    setLoadError(false);
+                    let firstBatch = true;
+                    loadProgramsProgressive((data) => {
+                      setFallbackPrograms(data);
+                      if (firstBatch) { setIsLoadingPrograms(false); firstBatch = false; }
+                    }).catch(() => { setIsLoadingPrograms(false); setLoadError(true); });
+                  }}
+                  style={{ background: "none", border: "none", color: C.seaGreen, cursor: "pointer", fontWeight: 600, fontSize: "inherit", padding: 0, textDecoration: "underline" }}
+                >
+                  Tap to retry
+                </button>
+              </span>
             : `Browse ${eligibilityFiltered.length.toLocaleString()} programs`}
         </p>
       </div>
@@ -1127,7 +1156,7 @@ export default function DiscoverTab({
           {/* Program list/grid */}
           <div style={{ padding: isDesktop ? "0 32px" : "0 16px 0 13px" }}>
             {isLoadingPrograms && <SkeletonList count={6} />}
-            {!isLoadingPrograms && eligibilityFiltered.length === 0 && (
+            {!isLoadingPrograms && !loadError && eligibilityFiltered.length === 0 && (
               <>
                 <EmptyState
                   icon={"\uD83D\uDD0D"}
@@ -1148,7 +1177,7 @@ export default function DiscoverTab({
                 )}
               </>
             )}
-            {!isLoadingPrograms && (
+            {!isLoadingPrograms && !loadError && (
               <div className="discover-results" style={isDesktop ? {
                 display: "grid",
                 gridTemplateColumns: eligibilityFiltered.length >= 9 ? "repeat(4, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))",
