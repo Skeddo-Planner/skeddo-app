@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
+# Block API endpoints and bundled assets (data lives behind /api/programs)
 Disallow: /api/
+Disallow: /assets/
+
+# Limit aggressive bots
+Crawl-delay: 10
 
 Sitemap: https://skeddo.ca/sitemap.xml

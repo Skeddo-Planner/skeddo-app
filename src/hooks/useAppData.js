@@ -140,9 +140,9 @@ const profileFromDb = (row) => ({
 let _dirLookup = null;
 const loadDirectoryLookup = () => {
   if (_dirLookup) return Promise.resolve(_dirLookup);
-  return import("../data/programs.json").then((m) => {
+  return fetch("/api/programs").then((r) => r.json()).then((programs) => {
     const map = {};
-    for (const p of m.default) {
+    for (const p of programs) {
       const key = `${(p.name || "").toLowerCase()}|||${(p.provider || "").toLowerCase()}`;
       if (!map[key]) map[key] = p;
     }

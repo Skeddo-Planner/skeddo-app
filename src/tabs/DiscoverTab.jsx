@@ -8,12 +8,12 @@ import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import useIsDesktop from "../hooks/useIsDesktop";
 import { supabase } from "../lib/supabase";
-// Lazy-loaded for performance — 8.6MB JSON loaded async instead of blocking initial bundle
+// Loaded from API endpoint — keeps raw data off the public bundle
 let _cachedPrograms = null;
 const loadPrograms = () => {
   if (_cachedPrograms) return Promise.resolve(_cachedPrograms);
-  return import("../data/programs.json").then((m) => {
-    _cachedPrograms = m.default;
+  return fetch("/api/programs").then((r) => r.json()).then((data) => {
+    _cachedPrograms = data;
     return _cachedPrograms;
   });
 };
