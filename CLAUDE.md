@@ -236,6 +236,21 @@ Provider APIs (e.g., Pedalheads api.pedalheads.com) may return generic, default,
 **Currently invalidated APIs:**
 - Pedalheads (api.pedalheads.com) — returned wrong prices, wrong ages, broken URLs. Must use browser only.
 
+## Google Analytics
+
+Skeddo uses GA4 for analytics. When Tom references GA data or asks about user behaviour metrics:
+
+- **Measurement ID (in code):** `G-ZNPPSC16XH` — this is the tag in `index.html` and `src/utils/analytics.js`
+- **GA4 Account:** `skeddo.planner@gmail.com` (not the personal Thomas Montgomery account)
+- **GA4 Property:** `Skeddo` — account ID `388491440`, property ID `529529828`
+- **Direct URL:** `https://analytics.google.com/analytics/web/?authuser=2#/a388491440p529529828/`
+
+Key events marked as conversions: `sign_up`, `onboarding_complete`, `add_program`, `click_register`, `view_program`
+
+Custom dimensions registered: `Program Name` (program_name), `Provider` (provider), `Filter Value` (filter_value), `Search Term` (search_term), `Program Status` (status)
+
+Funnel exploration "Browse to Register" shows the parent journey: View Program → Add to Planner → Click Register
+
 ## Important Files
 
 | File | Purpose |
