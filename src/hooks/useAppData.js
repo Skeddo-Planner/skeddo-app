@@ -170,7 +170,9 @@ export function useAppData(userId) {
   const [tab, setTabRaw] = useState(VALID_TABS.has(hashTab) ? hashTab : "home");
   const setTab = useCallback((newTab) => {
     setTabRaw(newTab);
-    window.location.hash = newTab === "home" ? "" : newTab;
+    // replaceState (not pushState) so tab switches don't accumulate history entries
+    // above the back-button guard — pressing back should exit the app, not cycle tabs
+    history.replaceState(null, "", newTab === "home" ? "/" : "#" + newTab);
   }, []);
   useEffect(() => {
     const onHash = () => {
@@ -186,7 +188,7 @@ export function useAppData(userId) {
   useEffect(() => {
     if (userId && !prevUserId.current) {
       setTabRaw("home");
-      window.location.hash = "";
+      history.replaceState(null, "", "/");
     }
     prevUserId.current = userId;
   }, [userId]);

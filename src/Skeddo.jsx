@@ -292,13 +292,12 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     // Push a guard entry so the first back press can be intercepted
     history.pushState({ skeddoGuard: true }, "");
 
-    const inAppHashes = new Set(["discover", "schedule", "programs", "budget", "circles", ""]);
     popStateHandler.current = () => {
-      // Re-arm immediately so the app doesn't silently navigate away
-      history.pushState({ skeddoGuard: true }, "");
-      // If we're still within the app (navigating between tab hashes), skip the dialog
-      const hash = window.location.hash.replace("#", "");
-      if (inAppHashes.has(hash)) return;
+      // Only show the exit dialog when the user has pressed back past the guard sentinel.
+      // Tab switches use history.replaceState (not pushState), so they don't accumulate
+      // history entries — pressing back always lands on the guard state.
+      if (!history.state?.skeddoGuard) return;
+      history.pushState({ skeddoGuard: true }, ""); // Re-arm
       stepsBack.current++;
       setShowExitConfirm(true);
     };
