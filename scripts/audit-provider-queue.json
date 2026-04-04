@@ -418,9 +418,9 @@
       "listings": 60,
       "distKm": 23.7,
       "priorityScore": 71,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-CITY-OF-PORT-COQUITLAM.md",
       "notes": null,
       "sessionId": null
     },
