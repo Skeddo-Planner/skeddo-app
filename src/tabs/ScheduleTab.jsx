@@ -1747,8 +1747,8 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
       {/* ═══ PLANNER MODE ═══ */}
       {mode === "planner" && (
         <div style={{ animation: "fadeIn 0.2s ease" }}>
-          {/* Kid filter */}
-          <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />
+          {/* Kid filter — hidden on desktop where the sidebar already has it */}
+          {!isDesktop && <KidFilterBar kids={kids} kidFilter={kidFilter} onKidFilter={onKidFilter} />}
 
           {/* Section tabs */}
           <div style={{ display: "flex", gap: 6, marginBottom: 12, overflowX: "auto", WebkitOverflowScrolling: "touch", paddingBottom: 2 }}>
