@@ -1,16 +1,16 @@
 # Verification Log — Missing North Vancouver Providers
 
-**Session:** April 4, 2026
+**Session:** April 4, 2026 (multiple Claude sub-sessions)
 **Auditor:** Claude Sonnet 4.6
 **Reference doc:** docs/MISSING-PROVIDERS-NORTH-VANCOUVER.md
 **Starting program count:** 13,997 (before this session's additions)
-**Ending program count:** 14,011
+**Ending program count:** 14,183
 
 ---
 
 ## Summary
 
-Added 12 providers across two Claude sessions (this session started at Zen Maker Lab). Total new programs added: ~156 programs across all providers. This log covers the providers added starting from Zen Maker Lab onward (the tail of the session).
+Added providers across multiple Claude sessions. Total new programs added: ~186 programs across all providers. This log covers all providers added on 2026-04-04.
 
 | Provider | IDs Added | Count | Status | Enrollment | Verified URL |
 |----------|-----------|-------|--------|------------|-------------|
@@ -22,6 +22,15 @@ Added 12 providers across two Claude sessions (this session started at Zen Maker
 | Parkgate Society | 15902–15905 | 4 | Likely Coming Soon | Not yet open | parkgatesociety.ca |
 | NVFC | 15906–15917 | 12 | Mixed (Open/Completed) | Open | nvfc.ca/programs/ |
 | Steamoji NV | 15918–15919 | 2 | Open | Open | steamoji.com/canada-bc-north-vancouver/ |
+| NSAD (North Shore Academy of Dance) | 16100–16109 | 10 | Open | Open | nsad.ca/summer-intensives |
+| Shift Dance | 16110–16120 | 11 | Open | Open | shiftdance.ca |
+| Vanleena Dance | 16121 | 1 | Likely Coming Soon | Not yet open | vanleena.com |
+| DanceWorks | — | 0 | SKIPPED | — | Out-of-area (Vancouver WA, USA) |
+| Driftwood Theatre Arts | 16122–16128 | 7 | Likely Coming Soon | Not yet open | driftwoodtheatrearts.com |
+| Stagecoach Performing Arts NV | 16129–16130 | 2 | Open | Open | stagecoach.com/schools/northvancouver |
+| MiFa Music & Arts | 16131–16138 | 8 | Open | Open | mifaschool.com |
+| Azars Music School | 16139–16149 | 11 | Open | Open | azarsmusicschool.com |
+| VYAS North Vancouver | 16150–16157 | 8 | Open | Open | vancouveryoungactorsschool.com/camps |
 
 ---
 
@@ -220,6 +229,159 @@ Added 12 providers across two Claude sessions (this session started at Zen Maker
 - Ages: "Suggested Age 8+" per listing (Steamoji general range 6–14) ✅
 - Website note: "We are currently building our new academy!" — NV is a new franchise location
 - Registration URLs use Steamoji's members portal with camp_id and org_id query parameters ✅
+
+---
+
+### NSAD — North Shore Academy of Dance (IDs 16100–16109)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://nsad.ca/summer-intensives
+**Physical location:** #108 – 275 Fell Ave, North Vancouver, BC V7P 3S4
+
+**Programs found on site:** 10 programs (ballet intensives + specialty workshops)
+**Programs in DB:** 10 ✅
+
+**Verification notes:**
+- Week-long summer intensives in ballet, pointe, contemporary, jazz, hip hop, musical theatre, and character dance
+- Age ranges: varies by discipline (approx. 8–18)
+- Prices from registration page: $350–$550/week depending on level
+- All programs confirmed Open ✅
+- Registration via NSAD website form ✅
+
+---
+
+### Shift Dance (IDs 16110–16120)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://shiftdance.ca
+**Physical location:** North Vancouver, BC
+
+**Programs found on site:** 11 listings (technique intensives + competitive team programs)
+**Programs in DB:** 11 ✅
+
+**Verification notes:**
+- Pricing confirmed from PDF registration form on provider site
+- Full Day camp: $400; Half Day: $310; Destined: $475; LTD Full: $500; LTD Half: $375; Advanced: $500
+- Live to Dance programs (IDs 16116–16120): ageMin set to 6 (competitive dance entry point) per costNote; provider does not specify exact age floor
+- All Open programs confirmed ✅
+
+---
+
+### Vanleena Dance (ID 16121)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://vanleena.com
+**Physical location:** North Vancouver, BC
+
+**Programs found on site:** Summer programs not yet published as of 2026-04-04
+**Programs in DB:** 1 (placeholder)
+
+**Verification notes:**
+- Single "Likely Coming Soon" placeholder added
+- 2026 summer schedule not yet available on vanleena.com
+- Set `confirmed2026: false`, `isEstimate: true` ✅
+
+---
+
+### DanceWorks — SKIPPED
+
+**Date verified:** 2026-04-04
+**Reason skipped:** DanceWorks is located in Vancouver, WA (USA) — not North Vancouver, BC. Provider is out of Skeddo's service area.
+
+---
+
+### Driftwood Theatre Arts (IDs 16122–16128)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://driftwoodtheatrearts.com
+**Physical location:** North Vancouver, BC
+
+**Programs found on site:** 7 camp types (based on 2024 lineup; 2026 not yet published)
+**Programs in DB:** 7 ✅
+
+**Verification notes:**
+- 2026 camps not yet published as of audit date
+- Programs added based on 2024 year-end lineup with `isEstimate: true`, `confirmed2026: false`, `enrollmentStatus: 'Likely Coming Soon'`
+- Categories: Musical Theatre, Drama, Dance, Mixed Arts, Youth specific sessions
+- Prices estimated from prior year ✅ (with costNote)
+
+---
+
+### Stagecoach Performing Arts North Vancouver (IDs 16129–16130)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://www.stagecoach.com/schools/northvancouver
+**Physical location:** North Vancouver, BC
+
+**Programs found on site:** Spring term Saturday class programs (note: "Camps" nav section is birthday parties)
+**Programs in DB:** 2 ✅
+
+**Verification notes:**
+- Two spring term program listings (Main Stage and Mini Stage)
+- Date spans are multi-month (added `repeating: true` to fix R2 violations) ✅
+- R46 warning on Main Stage (wide age range): confirmed no sub-age-band splits from provider ✅
+
+---
+
+### MiFa Music & Arts (IDs 16131–16138)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://mifaschool.com (instrument-specific pages)
+**Physical location:** North Vancouver, BC
+
+**Programs found on site:** 8 program types (music lessons + art classes)
+**Programs in DB:** 8 ✅
+
+**Verification notes:**
+- Prices not published on website; set `cost: null` with costNote directing parents to call for rates ✅
+- registrationUrl fixed from generic homepage to instrument-specific pages (e.g., mifaschool.com/violin-lessons-north-vancouver/) ✅
+- Programs: Piano, Violin, Guitar, Voice, Drums, Music for Toddlers, Kids Painting, General Music
+- R46 warning on Kids Painting (wide age range): confirmed from provider page ✅
+
+---
+
+### Azars Music School (IDs 16139–16149)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://www.azarsmusicschool.com/pricing
+**Physical location:** North Vancouver, BC
+
+**Programs found on site:** 11 program types (private lessons + group classes)
+**Programs in DB:** 11 ✅
+
+**Verification notes:**
+- Pricing confirmed from dedicated pricing page: azarsmusicschool.com/pricing ✅
+- Private lessons: $60–$75/30 min; $95–$120/45 min depending on instrument
+- Group lessons: $41/lesson (60 min, taxes included) for art; $38–$48 for music groups
+- Annual membership + one-time registration fee documented in costNote ✅
+- All programs confirmed Open, year-round ✅
+
+---
+
+### VYAS North Vancouver (IDs 16150–16157)
+
+**Date verified:** 2026-04-04
+**Registration page:** https://vancouveryoungactorsschool.com/acting-class-descriptions/camps/
+**Physical location:** #201 – 50 Fell Ave, North Vancouver, BC V7P 3S2
+
+**Programs found on site:** 8 NV summer camp weeks
+**Programs in DB:** 8 ✅ (complete match)
+
+**Verification notes:**
+- NV address confirmed from vyas-locations page: #201 – 50 Fell Ave, NV V7P 3S2 ✅
+- All camps: Mon–Fri, 9:00am–2:30pm, $499/week ✅
+- Ages 8-17: Weeks 1–7 (Jul 6 – Aug 28, skipping BC Day week Aug 4-7)
+  - Week 1: Jul 6-10 (prodId=584) ✅
+  - Week 2: Jul 13-17 (prodId=585) ✅
+  - Week 3: Jul 20-24 (prodId=586) ✅
+  - Week 4: Jul 27-31 (prodId=588) ✅
+  - Week 5: Aug 10-14 (prodId=589) ✅
+  - Week 6: Aug 17-21 (prodId=590) ✅
+  - Week 7: Aug 24-28 (prodId=591) ✅
+- Ages 4-7: Week 4 only (Aug 17-21, prodId=587) ✅
+- Registration via MindBody: clients.mindbodyonline.com/classic/ws?studioid=34640 ✅
+- Note: existing DB entries 657–660 are Vancouver location (112 3rd Ave E), NOT North Vancouver — separate listings ✅
+- R46 warnings (8-17 age range, 9-year span): VYAS confirmed does not split into sub-age bands ✅
 
 ---
 
