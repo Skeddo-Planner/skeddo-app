@@ -132,7 +132,7 @@ const BANNERS = {
     bg: "linear-gradient(135deg, #F4A261 0%, #E08838 100%)",
     label: "Did you know?",
     title: "Looking for programs nearby?",
-    body: "Browse thousands of programs in your neighbourhood from the Discover tab.",
+    body: "Browse thousands of programs in your neighbourhood from the Search tab.",
     darkText: true,
   },
 };

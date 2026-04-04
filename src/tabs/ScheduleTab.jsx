@@ -1717,9 +1717,9 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             <div style={{ ...s.emptyState, marginTop: 16 }}>
               <span style={{ fontSize: 28 }}>{"\uD83D\uDCC5"}</span>
               <p style={{ marginTop: 8 }}>No programs scheduled this week.</p>
-              <p style={{ fontSize: 14, color: C.muted }}>Try navigating to a different week, or add programs from the Discover tab.</p>
+              <p style={{ fontSize: 14, color: C.muted }}>Try navigating to a different week, or add programs from the Search tab.</p>
               {onNavigateToDiscover && (
-                <button onClick={onNavigateToDiscover} aria-label="Browse programs in the Discover tab" style={{ ...s.primaryBtn, marginTop: 12, padding: "10px 24px", fontSize: 14, flex: "none" }}>
+                <button onClick={onNavigateToDiscover} aria-label="Browse programs in the Search tab" style={{ ...s.primaryBtn, marginTop: 12, padding: "10px 24px", fontSize: 14, flex: "none" }}>
                   Browse Programs
                 </button>
               )}

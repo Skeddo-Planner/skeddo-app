@@ -355,7 +355,7 @@ export default function ProgramsTab({
                 No programs yet
               </div>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16 }}>
-                Browse camps and classes in the Discover tab
+                Browse camps and classes in the Search tab
               </div>
             </div>
           ) : (

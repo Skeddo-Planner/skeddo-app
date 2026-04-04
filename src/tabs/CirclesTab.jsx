@@ -1190,7 +1190,7 @@ export default function CirclesTab({
           {/* Activity list (scrollable) */}
           <div style={{ flex: 1, overflowY: "auto", padding: "0 20px", WebkitOverflowScrolling: "touch" }}>
             {shareableActivities.length === 0 ? (
-              <EmptyState icon={"\uD83D\uDCCB"} message="No tracked programs to share. Add programs from the Discover tab first." />
+              <EmptyState icon={"\uD83D\uDCCB"} message="No tracked programs to share. Add programs from the Search tab first." />
             ) : (
               shareableActivities.map((a) => {
                 const isSelected = selectedActivities.has(a.id);

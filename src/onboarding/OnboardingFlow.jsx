@@ -542,7 +542,7 @@ export default function OnboardingFlow({ onComplete, planAccess }) {
                 lineHeight: 1.5,
               }}
             >
-              Tip: Check out the Discover tab to browse local camps and classes.
+              Tip: Check out the Search tab to browse local camps and classes.
             </p>
 
             <button

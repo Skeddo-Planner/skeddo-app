@@ -112,7 +112,7 @@ const PAGES = {
       <>
         <h2 style={h2Style}>Frequently Asked Questions</h2>
         <FAQ q="Is Skeddo free?" a="Yes! Skeddo is free to use. We may introduce optional premium features in the future, but the core planning tools will always be free." />
-        <FAQ q="How do I add a program to my list?" a="Go to the Discover tab, find a program you like, and tap it. From the detail view, you can save it to your list and set its status (Exploring, Waitlist, or Enrolled)." />
+        <FAQ q="How do I add a program to my list?" a="Go to the Search tab, find a program you like, and tap it. From the detail view, you can save it to your list and set its status (Exploring, Waitlist, or Enrolled)." />
         <FAQ q="Can I use Skeddo for multiple kids?" a="Absolutely. Add as many kids as you need from the Home tab. You can assign programs to specific kids and filter views per child." />
         <FAQ q="Where does the program data come from?" a="We source program information directly from provider websites and registration systems across Vancouver. We verify details regularly, but always confirm with the provider before registering." />
         <FAQ q="Can I install Skeddo on my phone?" a="Yes! Skeddo is a web app that works like a native app. On your phone, tap 'Add to Home Screen' from your browser menu to install it." />
