@@ -530,8 +530,9 @@ for (const p of programs) {
 
 // ── Rule 46 partial check: if ageMin equals ageMax, that's a single-year range — fine.
 //    If ageMax - ageMin > 6, warn: very wide ranges often indicate merged age bands.
+//    Skip if ageSpanJustified is set (a string explaining why the wide range is correct).
 for (const p of programs) {
-  if (p.ageMin != null && p.ageMax != null && (p.ageMax - p.ageMin) > 6) {
+  if (p.ageMin != null && p.ageMax != null && (p.ageMax - p.ageMin) > 6 && !p.ageSpanJustified) {
     warn(String(p.id), 46, `Age range ${p.ageMin}–${p.ageMax} spans ${p.ageMax - p.ageMin} years — verify provider doesn't break this into separate age-band listings (R46)`);
   }
 }
