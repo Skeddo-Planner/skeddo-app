@@ -165,6 +165,18 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess, initialError
             We sent a password reset link to <strong style={{ color: C.ink }}>{email}</strong>.
             Follow the link to set a new password.
           </p>
+          <p
+            style={{
+              fontSize: 13,
+              color: C.muted,
+              lineHeight: 1.6,
+              maxWidth: 300,
+              margin: "0 auto 24px",
+            }}
+          >
+            Didn't get it? If you haven't confirmed your email yet, check for
+            our earlier confirmation email and confirm your account first.
+          </p>
           <button
             onClick={() => { setResetSent(false); setError(""); }}
             style={{

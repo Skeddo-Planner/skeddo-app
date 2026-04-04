@@ -42,7 +42,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid email format" });
   }
 
-  const name = escapeHtml(displayName) || "there";
+  const name = escapeHtml(displayName) ||
+    email.split("@")[0].replace(/[._+\-]/g, " ").replace(/\b\w/g, l => l.toUpperCase()) ||
+    "there";
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
