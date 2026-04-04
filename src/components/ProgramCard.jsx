@@ -38,8 +38,13 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
 
   const locationText = p.location || p.neighbourhood || null;
 
-  const hasEarlyBird = p.earlyBirdCost != null && p.earlyBirdDeadline;
-  const earlyBirdActive = hasEarlyBird && new Date(p.earlyBirdDeadline) >= new Date();
+  const hasEarlyBird = p.earlyBirdCost != null;
+  const earlyBirdActive = hasEarlyBird && p.earlyBirdDeadline && new Date(p.earlyBirdDeadline) >= new Date();
+  const earlyBirdAvailable = hasEarlyBird && !p.earlyBirdDeadline;
+  const showEarlyBird = earlyBirdActive || earlyBirdAvailable;
+
+  const hasBeforeCare = p.beforeCare?.available === true;
+  const hasAfterCare = p.afterCare?.available === true;
 
   return (
     <div
@@ -171,6 +176,21 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
               {"\uD83D\uDC26"} Early Bird until {fmtShortDate(p.earlyBirdDeadline)}
             </span>
           )}
+          {earlyBirdAvailable && (
+            <span style={pillStyle(C.olive + "18", C.olive)}>
+              {"\uD83D\uDC26"} Early Bird Pricing
+            </span>
+          )}
+          {hasBeforeCare && (
+            <span style={pillStyle(C.blue + "14", C.blue)}>
+              Before Care
+            </span>
+          )}
+          {hasAfterCare && (
+            <span style={pillStyle(C.blue + "14", C.blue)}>
+              After Care
+            </span>
+          )}
           {ageLabel && (
             <span style={pillStyle(C.blue + "14", C.blue)}>
               {ageLabel}
@@ -203,7 +223,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
               fontFamily: "'Poppins', sans-serif", fontSize: 16, fontWeight: 700,
               color: C.ink, whiteSpace: "nowrap",
             }}>
-              {earlyBirdActive
+              {showEarlyBird
                 ? fmt$(p.earlyBirdCost)
                 : p.priceVerified === false ? `~${fmt$(p.cost)}` : fmt$(p.cost)
               }
@@ -213,7 +233,7 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
                 </span>
               )}
             </span>
-            {earlyBirdActive && p.cost > 0 && (
+            {showEarlyBird && p.cost > 0 && (
               <span style={{
                 fontFamily: "'Barlow', sans-serif", fontSize: 11,
                 color: C.muted, textDecoration: "line-through",

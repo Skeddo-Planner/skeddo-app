@@ -277,6 +277,24 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onSetStatu
             </div>
           )}
         </div>
+        {p.earlyBirdCost != null && (
+          <div>
+            <div style={s.detailLabel}>EARLY BIRD</div>
+            <div style={{ ...s.detailValue, fontFamily: "'Poppins', sans-serif", fontSize: 20, color: C.olive }}>
+              {fmt$(p.earlyBirdCost)}
+              {p.costPer && (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginLeft: 3 }}>
+                  /{p.costPer}
+                </span>
+              )}
+            </div>
+            {p.earlyBirdDeadline && (
+              <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, fontStyle: "italic", marginTop: 2 }}>
+                Until {fmtDate(p.earlyBirdDeadline)}
+              </div>
+            )}
+          </div>
+        )}
         <div>
           <div style={s.detailLabel}>TIMES</div>
           <div style={s.detailValue}>
@@ -330,6 +348,32 @@ export default function ProgramDetail({ program, kids, onCycleStatus, onSetStatu
           <div style={s.detailLabel}>SEASON TYPE</div>
           <div style={s.detailValue}>{p.seasonType || p.season || "\u2014"}</div>
         </div>
+        {p.beforeCare?.available && (
+          <div>
+            <div style={s.detailLabel}>BEFORE CARE</div>
+            <div style={s.detailValue}>
+              {p.beforeCare.time || "Available"}
+              {p.beforeCare.cost != null && (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginLeft: 6 }}>
+                  · {fmt$(p.beforeCare.cost)}
+                </span>
+              )}
+            </div>
+          </div>
+        )}
+        {p.afterCare?.available && (
+          <div>
+            <div style={s.detailLabel}>AFTER CARE</div>
+            <div style={s.detailValue}>
+              {p.afterCare.time || "Available"}
+              {p.afterCare.cost != null && (
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginLeft: 6 }}>
+                  · {fmt$(p.afterCare.cost)}
+                </span>
+              )}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Spots remaining urgency */}
