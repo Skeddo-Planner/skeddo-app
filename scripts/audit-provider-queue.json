@@ -442,9 +442,9 @@
       "listings": 38,
       "distKm": 4.3,
       "priorityScore": 70,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-YOUNG-REMBRANDTS.md",
       "notes": null,
       "sessionId": null
     },
