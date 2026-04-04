@@ -264,3 +264,9 @@ Funnel exploration "Browse to Register" shows the parent journey: View Program â
 | `src/data/programs.json` | The program database (~6700+ entries) |
 | `src/data/quarantined-programs.json` | Programs with violations needing human attention |
 | `scripts/verify-state.json` | State tracker for incremental URL verification â€” do not delete |
+
+## Test Account
+
+| Account | Email | Password |
+|---------|-------|----------|
+| Skeddo test user (skeddo.ca) | skeddotest@gmail.com | Skeddo2026! |
