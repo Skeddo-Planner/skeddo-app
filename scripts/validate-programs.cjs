@@ -117,9 +117,11 @@ programs.forEach((p, idx) => {
     }
   }
 
-  // ── Rule 24: NEVER use activekids.com or campscui.active.com URLs ──
-  if (p.registrationUrl && (p.registrationUrl.includes("activekids.com") || p.registrationUrl.includes("campscui.active.com"))) {
-    warn(id, 24, `Banned URL domain (third-party aggregator): ${p.registrationUrl.split("/")[2]}`);
+  // ── Rule 24: NEVER use activekids.com URLs (direct competitor) ──
+  // Note: campscui.active.com and activecommunities.com are ALLOWED — they are legitimate
+  // registration platforms (ActiveNetwork software), not competitor sites.
+  if (p.registrationUrl && p.registrationUrl.includes("activekids.com")) {
+    warn(id, 24, `Banned URL domain (direct competitor): ${p.registrationUrl.split("/")[2]}`);
   }
 
   // ── Rule 2: Dates must be program-specific, not season-wide ──
