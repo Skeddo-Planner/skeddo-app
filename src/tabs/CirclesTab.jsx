@@ -311,7 +311,10 @@ export default function CirclesTab({
       <div>
         {/* Header */}
         <h2 style={s.pageTitle}>Circles</h2>
-        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 16, color: C.muted, marginBottom: 16, marginTop: 0 }}>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 4, marginTop: 0 }}>
+          Share programs and tips with trusted parents — create a circle with co-parents, family, or friends.
+        </p>
+        <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted, marginBottom: 16, marginTop: 4 }}>
           {circles.length} group{circles.length !== 1 ? "s" : ""}
           {newThisWeek > 0 && <> &middot; <span style={{ color: C.olive, fontWeight: 600 }}>{newThisWeek} new activit{newThisWeek === 1 ? "y" : "ies"} this week</span></>}
         </p>
