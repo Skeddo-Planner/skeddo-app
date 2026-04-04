@@ -29,9 +29,9 @@ export default function ProgramCard({ p, kids, onTap, onStatusTap, currentUserId
 
   const hasAge = p.ageMin != null || p.ageMax != null;
   const ageLabel = hasAge
-    ? p.ageMin && p.ageMax
+    ? p.ageMin != null && p.ageMax != null
       ? `Ages ${p.ageMin}\u2013${p.ageMax}`
-      : p.ageMin
+      : p.ageMin != null
         ? `Ages ${p.ageMin}+`
         : `Up to ${p.ageMax}`
     : null;
