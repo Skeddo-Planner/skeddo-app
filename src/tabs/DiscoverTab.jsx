@@ -8,11 +8,15 @@ import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import useIsDesktop from "../hooks/useIsDesktop";
 import { supabase } from "../lib/supabase";
-// Loaded from API endpoint — keeps raw data off the public bundle
+// Programs URL — defaults to the Vercel API endpoint but can be overridden
+// with VITE_PROGRAMS_URL to point at a stable external CDN (e.g. Vercel Blob)
+// that isn't purged when the app deploys. See scripts/upload-programs-blob.cjs.
+const PROGRAMS_URL = import.meta.env.VITE_PROGRAMS_URL || "/api/programs";
+
 let _cachedPrograms = null;
 const loadPrograms = () => {
   if (_cachedPrograms) return Promise.resolve(_cachedPrograms);
-  return fetch("/api/programs").then((r) => r.json()).then((data) => {
+  return fetch(PROGRAMS_URL).then((r) => r.json()).then((data) => {
     _cachedPrograms = data;
     return _cachedPrograms;
   });
