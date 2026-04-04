@@ -555,6 +555,7 @@ export default function DiscoverTab({
   onKidFilter,
   onOpenAddProgram,
   circleSocialProof,
+  findSimilar,
 }) {
   const [fallbackPrograms, setFallbackPrograms] = useState([]);
   const [userSubmitted, setUserSubmitted] = useState([]);
@@ -563,6 +564,18 @@ export default function DiscoverTab({
 
   const [filterToast, setFilterToast] = useState(null);
   const showFilterToast = (msg) => { setFilterToast(msg); setTimeout(() => setFilterToast(null), 2500); };
+
+  // BUG #11: reset search/category when "Find similar" is triggered from Budget tab
+  useEffect(() => {
+    if (!findSimilar) return;
+    setSearch("");
+    setVisibleCount(PAGE_SIZE);
+    if (findSimilar.category && findSimilar.category !== "All") {
+      setSelectedCats(new Set([findSimilar.category]));
+    } else {
+      setSelectedCats(new Set());
+    }
+  }, [findSimilar]);
 
   /* Load programs.json lazily */
   useEffect(() => {

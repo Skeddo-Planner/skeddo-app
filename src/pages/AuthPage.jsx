@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
 
-export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
+export default function AuthPage({ mode, onNavigate, onAuthSuccess, initialError }) {
   const { signUp, signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(initialError || "");
   const [loading, setLoading] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(false);
   const [resetSent, setResetSent] = useState(false);
   const [resetLoading, setResetLoading] = useState(false);
+  const [showResend, setShowResend] = useState(false);
+  const [resendSent, setResendSent] = useState(false);
+
+  // BUG #3: clear error when switching between sign-in / sign-up
+  useEffect(() => {
+    setError(initialError || "");
+    setShowResend(false);
+    setResendSent(false);
+  }, [mode, initialError]);
 
   const isSignUp = mode === "signup";
   const title = isSignUp ? "Create your account" : "Welcome back";
@@ -24,6 +33,25 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    // BUG #1/#2: inline validation before API call
+    if (!email.trim()) {
+      setError("Please enter your email address.");
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    if (!password) {
+      setError("Please enter a password.");
+      return;
+    }
+    if (isSignUp && password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -50,9 +78,6 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
       setLoading(false);
     }
   };
-
-  const [showResend, setShowResend] = useState(false);
-  const [resendSent, setResendSent] = useState(false);
 
   const handleResendConfirmation = async () => {
     try {
@@ -83,6 +108,13 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
       setResetLoading(false);
     }
   };
+
+  // BUG #9: Set new password form (shown when user arrives via password reset link)
+  if (mode === "resetpassword") {
+    return (
+      <SetPasswordForm onSuccess={onAuthSuccess} />
+    );
+  }
 
   if (resetSent) {
     return (
@@ -449,6 +481,67 @@ export default function AuthPage({ mode, onNavigate, onAuthSuccess }) {
             {isSignUp ? "Sign In" : "Sign Up"}
           </button>
         </p>
+      </div>
+    </div>
+  );
+}
+
+/* ── Set New Password form (used after clicking a password reset link) ── */
+function SetPasswordForm({ onSuccess }) {
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    if (!password) { setError("Please enter a new password."); return; }
+    if (password.length < 6) { setError("Password must be at least 6 characters."); return; }
+    if (password !== confirm) { setError("Passwords don't match."); return; }
+    setLoading(true);
+    try {
+      const { error: updateErr } = await supabase.auth.updateUser({ password });
+      if (updateErr) throw updateErr;
+      setDone(true);
+      setTimeout(() => onSuccess(), 1500);
+    } catch (err) {
+      setError(err.message || "Could not update password. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div style={{ fontFamily: "'Barlow', sans-serif", background: C.cream, minHeight: "100dvh", maxWidth: 480, margin: "0 auto", display: "flex", flexDirection: "column", justifyContent: "center", padding: "40px 24px" }}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap'); * { box-sizing: border-box; margin: 0; padding: 0; } body { background: ${C.cream}; } @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } } input:focus { outline: none; border-color: ${C.seaGreen} !important; box-shadow: 0 0 0 3px rgba(45,159,111,0.12); }`}</style>
+      <div style={{ animation: "fadeUp 0.4s ease" }}>
+        <div style={{ textAlign: "center", marginBottom: 24 }}>
+          <img src="/skeddo-logo-dark.png" alt="Skeddo" width={48} height={48} style={{ height: 48, width: "auto", borderRadius: 10 }} />
+        </div>
+        <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 26, color: C.ink, textAlign: "center", marginBottom: 6 }}>Set a new password</h1>
+        <p style={{ fontSize: 14, color: C.muted, textAlign: "center", marginBottom: 28, lineHeight: 1.5 }}>Choose a password for your Skeddo account.</p>
+        {done ? (
+          <div style={{ background: "rgba(45,159,111,0.1)", color: C.seaGreen, fontSize: 15, fontWeight: 600, padding: "14px 16px", borderRadius: 12, textAlign: "center" }}>
+            ✅ Password updated! Taking you to the app…
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div style={{ marginBottom: 14 }}>
+              <label style={labelStyle}>NEW PASSWORD</label>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="At least 6 characters" autoComplete="new-password" style={s.input} />
+            </div>
+            <div style={{ marginBottom: 20 }}>
+              <label style={labelStyle}>CONFIRM PASSWORD</label>
+              <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="Re-enter your password" autoComplete="new-password" style={s.input} />
+            </div>
+            {error && <div style={{ background: C.dangerBg, color: C.danger, fontSize: 14, fontWeight: 600, padding: "10px 14px", borderRadius: 10, marginBottom: 16 }}>{error}</div>}
+            <button type="submit" disabled={loading} style={{ ...s.primaryBtn, width: "100%", padding: "14px 16px", fontSize: 16, borderRadius: 12, textAlign: "center", opacity: loading ? 0.7 : 1, cursor: loading ? "not-allowed" : "pointer" }}>
+              {loading ? "Updating…" : "Set Password"}
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

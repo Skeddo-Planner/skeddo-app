@@ -6,6 +6,7 @@ export function useAuth() {
   const [user, setUser] = useState(null);
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [passwordRecovery, setPasswordRecovery] = useState(false);
 
   useEffect(() => {
     // Check current session
@@ -18,12 +19,20 @@ export function useAuth() {
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
+        // BUG #9: detect password recovery flow so app can show set-password form
+        if (_event === "PASSWORD_RECOVERY") {
+          setPasswordRecovery(true);
+        }
         setUser(session?.user ?? null);
         setSession(session ?? null);
       }
     );
 
     return () => subscription.unsubscribe();
+  }, []);
+
+  const clearPasswordRecovery = useCallback(() => {
+    setPasswordRecovery(false);
   }, []);
 
   const signUp = useCallback(async (email, password, displayName) => {
@@ -83,5 +92,5 @@ export function useAuth() {
     if (error) throw error;
   }, []);
 
-  return { user, session, loading, signUp, signIn, signOut };
+  return { user, session, loading, signUp, signIn, signOut, passwordRecovery, clearPasswordRecovery };
 }

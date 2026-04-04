@@ -681,7 +681,7 @@ function NoteEditor({ week, pid, onSave, onClose }) {
           <button key={c} onClick={() => setTxt((p) => p ? `${p}. ${c}` : c)} style={{ padding: "5px 10px", borderRadius: 16, border: `1px solid ${C.border}`, background: C.cream, fontFamily: F.sans, fontSize: 11, color: C.muted, cursor: "pointer" }}>{c}</button>
         ))}
       </div>
-      <textarea ref={ref} value={txt} onChange={(e) => setTxt(e.target.value)} placeholder="Your notes\u2026" rows={3} style={{ width: "100%", padding: 12, borderRadius: 10, border: `1.5px solid ${C.border}`, background: C.cream, fontFamily: F.sans, fontSize: 14, color: C.ink, resize: "vertical", outline: "none", boxSizing: "border-box", lineHeight: 1.5 }} />
+      <textarea ref={ref} value={txt} onChange={(e) => setTxt(e.target.value)} placeholder="Your notes…" rows={3} style={{ width: "100%", padding: 12, borderRadius: 10, border: `1.5px solid ${C.border}`, background: C.cream, fontFamily: F.sans, fontSize: 14, color: C.ink, resize: "vertical", outline: "none", boxSizing: "border-box", lineHeight: 1.5 }} />
       <div style={{ display: "flex", gap: 10, marginTop: 16 }}>
         <button onClick={onClose} style={{ ...s.secondaryBtn, flex: 1 }}>Cancel</button>
         <button onClick={() => onSave(txt)} style={{ ...s.primaryBtn, flex: 1 }}>Save</button>
