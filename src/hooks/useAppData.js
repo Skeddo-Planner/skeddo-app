@@ -181,6 +181,15 @@ export function useAppData(userId) {
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Reset to home tab on login (userId transitions from falsy to truthy)
+  const prevUserId = useRef(null);
+  useEffect(() => {
+    if (userId && !prevUserId.current) {
+      setTabRaw("home");
+      window.location.hash = "";
+    }
+    prevUserId.current = userId;
+  }, [userId]);
   const [statusFilter, setStatusFilter] = useState("All");
   const [catFilter, setCatFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
