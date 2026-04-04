@@ -39,20 +39,32 @@ const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$
 const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
 
 export default function Skeddo() {
-  const { user, session, loading: authLoading, signOut } = useAuth();
+  const { user, session, loading: authLoading, signOut, passwordRecovery, clearPasswordRecovery } = useAuth();
   const [authPage, setAuthPage] = useState("landing"); // 'landing' | 'signin' | 'signup' | 'app'
+  const [hashError, setHashError] = useState(null);
+
+  // BUG #5: detect expired OTP / auth error in URL hash on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    if (params.get("error")) {
+      const desc = params.get("error_description");
+      window.history.replaceState({}, "", "/");
+      setHashError(desc ? decodeURIComponent(desc.replace(/\+/g, " ")) : "This link has expired. Please request a new one.");
+      setAuthPage("signin");
+    }
+  }, []);
 
   // When user becomes authenticated, switch to app view.
   // When user signs out (was in "app"), return to landing.
   // Do NOT reset authPage when user is null and we're on signin/signup —
   // Supabase fires multiple auth state changes on load which would wipe out navigation.
   useEffect(() => {
-    if (user) {
+    if (user && !passwordRecovery) {
       setAuthPage("app");
-    } else {
+    } else if (!user) {
       setAuthPage((prev) => (prev === "app" ? "landing" : prev));
     }
-  }, [user]);
+  }, [user, passwordRecovery]);
 
   /* ── Track auth page views for GA4 ── */
   useEffect(() => {
@@ -137,14 +149,26 @@ export default function Skeddo() {
     );
   }
 
+  /* ── BUG #9: Password recovery flow — show set-password form ── */
+  if (user && passwordRecovery) {
+    return (
+      <AuthPage
+        mode="resetpassword"
+        onNavigate={() => {}}
+        onAuthSuccess={clearPasswordRecovery}
+      />
+    );
+  }
+
   /* ── Not authenticated — show landing or auth pages ── */
   if (!user) {
     if (authPage === "signin" || authPage === "signup") {
       return (
         <AuthPage
           mode={authPage}
-          onNavigate={setAuthPage}
+          onNavigate={(p) => { setHashError(null); setAuthPage(p); }}
           onAuthSuccess={() => setAuthPage("app")}
+          initialError={hashError}
         />
       );
     }
@@ -175,6 +199,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   const [modal, setModal] = useState(null);
   const [form, setForm] = useState({});
+  const [findSimilarConfig, setFindSimilarConfig] = useState(null);
   const [toast, setToast] = useState(null);
   const [infoPage, setInfoPage] = useState(null);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
@@ -501,8 +526,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const handleFindAlternatives = (program) => {
-    setCatFilter(program.category || "All");
-    setSearchQuery("");
+    setFindSimilarConfig({ category: program.category || "All", key: Date.now() });
     setStatusFilter("All");
     setTab("discover");
     trackPageView("/discover", "Skeddo - Discover");
@@ -669,6 +693,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onKidFilter={setKidFilter}
                 onOpenAddProgram={openAddProgram}
                 circleSocialProof={circlesHook.circleSocialProof}
+                findSimilar={findSimilarConfig}
               />
             </div>
 
@@ -786,6 +811,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onKidFilter={setKidFilter}
                 onOpenAddProgram={openAddProgram}
                 circleSocialProof={circlesHook.circleSocialProof}
+                findSimilar={findSimilarConfig}
               />
             </div>
 

@@ -200,6 +200,14 @@ export default function CirclesTab({
     }
   }, [screen]);
 
+  // Close share sheet on Escape key
+  useEffect(() => {
+    if (screen !== "share") return;
+    const handler = (e) => { if (e.key === "Escape") setScreen("feed"); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [screen]);
+
   // Build shareable activities from ALL tracked programs
   const shareableActivities = (programs || []).filter((p) => ["Enrolled", "Waitlist", "Exploring"].includes(p.status)).map((p) => {
     const kidNames = (p.kidIds || [])
