@@ -31,8 +31,8 @@ export default function LandingPage({ onNavigate }) {
   const isDesktop = useIsDesktop();
 
   useEffect(() => {
-    import("../data/programs.json").then((m) => {
-      const rounded = Math.floor(m.default.length / 1000) * 1000;
+    import("../data/programs-summary.json").then((m) => {
+      const rounded = Math.floor(m.default.totalPrograms / 1000) * 1000;
       setProgramCount(rounded);
     });
   }, []);

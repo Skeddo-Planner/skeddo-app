@@ -1,4 +1,8 @@
-/* Skeddo Service Worker — PWA install + Push Notifications */
+/* Skeddo Service Worker — PWA install + Push Notifications + Program cache */
+
+const PROGRAMS_CACHE = "skeddo-programs-v1";
+const PROGRAMS_URL   = "/api/programs";
+const PROGRAMS_TTL   = 24 * 60 * 60 * 1000; // 24 hours in ms
 
 /* Activate immediately — don't wait for old service worker to release */
 self.addEventListener("install", () => self.skipWaiting());
@@ -6,12 +10,19 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-/* Fetch handler (required by Chrome for PWA install eligibility).
-   Uses network-first strategy with offline fallback. */
+/* Fetch handler — uses network-first globally, stale-while-revalidate for programs */
 self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
+
+  // Programs API: serve from cache if fresh, always revalidate in background
+  if (url.pathname === PROGRAMS_URL && event.request.method === "GET") {
+    event.respondWith(staleWhileRevalidatePrograms(event.request));
+    return;
+  }
+
+  // All other requests: network-first with offline fallback
   event.respondWith(
     fetch(event.request).catch(() => {
-      // If network fails and this is a navigation request, show a basic offline page
       if (event.request.mode === "navigate") {
         return new Response(
           '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Skeddo — Offline</title></head>' +
@@ -23,11 +34,62 @@ self.addEventListener("fetch", (event) => {
           { status: 503, headers: { "Content-Type": "text/html" } }
         );
       }
-      // For non-navigation requests (images, API calls), just let them fail
       return new Response("", { status: 503, statusText: "Offline" });
     })
   );
 });
+
+/**
+ * Stale-while-revalidate for the programs catalog.
+ * - Returns cached response immediately if it exists and is < 24h old.
+ * - Always kicks off a background network fetch to refresh the cache.
+ * - First-ever load falls back to network (no cache yet).
+ */
+async function staleWhileRevalidatePrograms(request) {
+  const cache = await caches.open(PROGRAMS_CACHE);
+  const cached = await cache.match(request);
+
+  const now = Date.now();
+  const cachedAt = cached
+    ? Number(cached.headers.get("x-sw-cached-at") || 0)
+    : 0;
+  const isFresh = cached && (now - cachedAt) < PROGRAMS_TTL;
+
+  // Background revalidation (always, regardless of freshness)
+  const revalidate = fetch(request)
+    .then(async (networkRes) => {
+      if (networkRes.ok) {
+        // Clone the response and stamp it with our cache time
+        const body = await networkRes.clone().arrayBuffer();
+        const headers = new Headers(networkRes.headers);
+        headers.set("x-sw-cached-at", String(Date.now()));
+        const stamped = new Response(body, { status: networkRes.status, headers });
+        await cache.put(request, stamped);
+      }
+      return networkRes;
+    })
+    .catch(() => null);
+
+  if (isFresh) {
+    // Serve stale immediately, revalidate in background
+    revalidate; // fire and forget
+    return cached;
+  }
+
+  // No fresh cache — wait for network
+  const networkRes = await revalidate;
+  if (networkRes && networkRes.ok) {
+    // Return a fresh clone from the cache (we already stored it above)
+    const fresh = await cache.match(request);
+    return fresh || networkRes;
+  }
+
+  // Network failed — return stale cache if we have anything
+  if (cached) return cached;
+
+  // Nothing — let it fail naturally
+  return fetch(request);
+}
 
 self.addEventListener("push", (event) => {
   if (!event.data) return;
@@ -61,14 +123,12 @@ self.addEventListener("notificationclick", (event) => {
 
   event.waitUntil(
     clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
-      // Focus existing tab if open
       for (const client of clientList) {
         if (client.url.includes(self.location.origin) && "focus" in client) {
           client.navigate(url);
           return client.focus();
         }
       }
-      // Otherwise open a new window
       return clients.openWindow(url);
     })
   );

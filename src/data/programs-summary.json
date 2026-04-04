@@ -1,40 +1,34 @@
 {
-  "totalPrograms": 719,
-  "uniqueCategories": 8,
+  "totalPrograms": 14175,
+  "uniqueCategories": 22,
   "categories": [
     "Academic",
+    "Academic & Language",
     "Arts",
+    "Cultural",
+    "Day Camp",
+    "Education",
+    "Faith-Based",
     "General",
+    "Health & Wellness",
+    "Language",
+    "Leadership",
     "Life Skills",
+    "Multi",
+    "Multi-Activity",
+    "Multi-Activity Camps",
     "Music",
     "Outdoor",
+    "Outdoors",
+    "Performing Arts",
     "STEM",
-    "Sports"
+    "Sports",
+    "Sports & Fitness"
   ],
-  "uniqueNeighbourhoods": 12,
-  "neighbourhoods": [
-    "Burnaby",
-    "Downtown",
-    "Dunbar-Southlands",
-    "Fairview",
-    "Greater Vancouver",
-    "Kerrisdale",
-    "Kitsilano",
-    "New Westminster",
-    "North Vancouver",
-    "Richmond",
-    "West End",
-    "West Point Grey",
-    "West Vancouver"
-  ],
-  "uniqueProviders": 115,
-  "totalProviders": 115,
-  "uniqueCampTypes": 3,
-  "campTypes": [
-    "After School",
-    "Spring Break",
-    "Summer Camp"
-  ],
+  "uniqueNeighbourhoods": 150,
+  "uniqueProviders": 449,
+  "totalProviders": 449,
+  "uniqueCampTypes": 28,
   "dataSource": "Direct from providers — no marketplace intermediaries",
-  "lastUpdated": "2026-03-18"
+  "lastUpdated": "2026-04-04"
 }
