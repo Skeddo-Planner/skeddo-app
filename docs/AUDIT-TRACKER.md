@@ -11,18 +11,19 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 37 | 7,513 |
-| 🔲 Audits pending | 413 | 6,670 |
+| ✅ Audits completed | 38 | 8,242 |
+| 🔲 Audits pending | 412 | 5,941 |
 | **Total** | **450** | **14,183** |
 
 ---
 
-## ✅ Completed Audits (37 providers)
+## ✅ Completed Audits (38 providers)
 
 Sorted by number of listings (most to fewest).
 
 | Provider | Listings | Audit Date | Verification Log(s) |
 |----------|----------|------------|---------------------|
+| City of Burnaby - Unknown | 729 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md |
 | Pedalheads | 6568 | 2026-04-01 | VERIFICATION-LOG-PEDALHEADS.md / V2 / V3 |
 | Pear Tree Education | 190 | 2026-04-03 | VERIFICATION-LOG-PEAR-TREE-V1.md |
 | Access2Innovate / Mulgrave | 107 | 2026-04-01 | VERIFICATION-LOG-ACCESS2INNOVATE.md |
@@ -72,7 +73,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 
 | Rank | Provider | Listings | Dist from V5T 2J6 | Priority Score |
 |------|----------|----------|--------------------|---------------|
-| 1 | City of Burnaby - Unknown | 729 | 9.6 km | 99 |
+| ~~1~~ | ~~City of Burnaby - Unknown~~ | ~~729~~ | ~~9.6 km~~ | ~~99~~ (completed) |
 | 2 | North Vancouver Recreation Commission (NVRC) | 327 | 7.5 km | 91 |
 | 3 | City of Vancouver - Hillcrest Cmty Centre | 168 | 2.3 km | 85 |
 | 4 | District of West Vancouver | 158 | 11.9 km | 83 |

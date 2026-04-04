@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-04-04",
   "referencePostalCode": "V5T 2J6 (Mount Pleasant, Vancouver)",
-  "scoringMethod": "60% log-normalized listing count + 40% proximity — normalized within pending pool only",
+  "scoringMethod": "60% log-normalized listing count + 40% proximity \u00e2\u20ac\u201d normalized within pending pool only",
   "totalProviders": 413,
   "providers": [
     {
@@ -10,9 +10,9 @@
       "listings": 729,
       "distKm": 9.6,
       "priorityScore": 99,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md",
       "notes": null,
       "sessionId": null
     },
@@ -690,7 +690,7 @@
     },
     {
       "rank": 58,
-      "name": "City of Vancouver — Lord Byng Pool",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Lord Byng Pool",
       "listings": 31,
       "distKm": 6.7,
       "priorityScore": 67,
@@ -798,7 +798,7 @@
     },
     {
       "rank": 67,
-      "name": "City of Vancouver — Roundhouse Community Arts & Recreation Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Roundhouse Community Arts & Recreation Centre",
       "listings": 22,
       "distKm": 1.8,
       "priorityScore": 65,
@@ -870,7 +870,7 @@
     },
     {
       "rank": 73,
-      "name": "City of Vancouver — Vancouver Aquatic Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Vancouver Aquatic Centre",
       "listings": 21,
       "distKm": 2.9,
       "priorityScore": 64,
@@ -942,7 +942,7 @@
     },
     {
       "rank": 79,
-      "name": "City of Vancouver — Dunbar Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Dunbar Community Centre",
       "listings": 21,
       "distKm": 6.7,
       "priorityScore": 63,
@@ -1194,7 +1194,7 @@
     },
     {
       "rank": 100,
-      "name": "City of Vancouver — Hillcrest Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Hillcrest Community Centre",
       "listings": 12,
       "distKm": 2.3,
       "priorityScore": 59,
@@ -1206,7 +1206,7 @@
     },
     {
       "rank": 101,
-      "name": "City of Vancouver — Coal Harbour Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Coal Harbour Community Centre",
       "listings": 12,
       "distKm": 3.4,
       "priorityScore": 59,
@@ -1386,7 +1386,7 @@
     },
     {
       "rank": 116,
-      "name": "City of Vancouver — West End Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d West End Community Centre",
       "listings": 9,
       "distKm": 3.7,
       "priorityScore": 56,
@@ -1398,7 +1398,7 @@
     },
     {
       "rank": 117,
-      "name": "City of Vancouver — Trout Lake Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Trout Lake Community Centre",
       "listings": 9,
       "distKm": 2.7,
       "priorityScore": 56,
@@ -1578,7 +1578,7 @@
     },
     {
       "rank": 132,
-      "name": "City of Vancouver — Killarney Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Killarney Community Centre",
       "listings": 9,
       "distKm": 5.9,
       "priorityScore": 55,
@@ -2850,7 +2850,7 @@
     },
     {
       "rank": 238,
-      "name": "City of Vancouver — Renfrew Park Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Renfrew Park Community Centre",
       "listings": 3,
       "distKm": 4.7,
       "priorityScore": 46,
@@ -3102,7 +3102,7 @@
     },
     {
       "rank": 259,
-      "name": "City of Vancouver — Mount Pleasant Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Mount Pleasant Community Centre",
       "listings": 2,
       "distKm": 0,
       "priorityScore": 44,
@@ -3654,7 +3654,7 @@
     },
     {
       "rank": 305,
-      "name": "Petite Forêt Play Café",
+      "name": "Petite For\u00c3\u00aat Play Caf\u00c3\u00a9",
       "listings": 1,
       "distKm": 4.7,
       "priorityScore": 39,
@@ -3666,7 +3666,7 @@
     },
     {
       "rank": 306,
-      "name": "City of Vancouver — Kensington Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Kensington Community Centre",
       "listings": 1,
       "distKm": 3.7,
       "priorityScore": 39,
@@ -3678,7 +3678,7 @@
     },
     {
       "rank": 307,
-      "name": "City of Vancouver — Hastings Community Centre",
+      "name": "City of Vancouver \u00e2\u20ac\u201d Hastings Community Centre",
       "listings": 1,
       "distKm": 4.9,
       "priorityScore": 39,
@@ -4530,7 +4530,7 @@
     },
     {
       "rank": 378,
-      "name": "City of Vancouver - šx?q?el?w?n ct (One Heart, One Mind) Garden",
+      "name": "City of Vancouver - \u00c5\u00a1x?q?el?w?n ct (One Heart, One Mind) Garden",
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
