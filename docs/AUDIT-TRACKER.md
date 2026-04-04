@@ -11,18 +11,19 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 39 | 8,569 |
-| 🔲 Audits pending | 411 | 5,614 |
+| ✅ Audits completed | 128 | 11,518 |
+| 🔲 Audits pending | 322 | 2,665 |
 | **Total** | **450** | **14,183** |
 
 ---
 
-## ✅ Completed Audits (39 providers)
+## ✅ Completed Audits (128 providers)
 
 Sorted by number of listings (most to fewest).
 
 | Provider | Listings | Audit Date | Verification Log(s) |
 |----------|----------|------------|---------------------|
+| City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
 | North Vancouver Recreation Commission (NVRC) | 327 | 2026-04-04 | VERIFICATION-LOG-NVRC.md |
 | City of Burnaby - Unknown | 729 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md |
 | Pedalheads | 6568 | 2026-04-01 | VERIFICATION-LOG-PEDALHEADS.md / V2 / V3 |
