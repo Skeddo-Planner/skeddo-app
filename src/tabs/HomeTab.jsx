@@ -3,6 +3,7 @@ import { C, STATUS_MAP } from "../constants/brand";
 import { s } from "../styles/shared";
 import PromoBanner from "../components/PromoBanner";
 import { fmt$ } from "../utils/helpers";
+import useIsDesktop from "../hooks/useIsDesktop";
 
 /* ─── Helper: format a date as "Mon DD" ─── */
 function fmtDate(d) {
@@ -172,6 +173,7 @@ export default function HomeTab({
   circlesHook,
   childAccess,
 }) {
+  const isDesktop = useIsDesktop();
   const allPrograms = useMemo(() => [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms], [enrolledPrograms, waitlistPrograms, exploringPrograms]);
   const isPaid = planAccess.isPaid;
   const [dismissedBanners, setDismissBanner] = useState(new Set());
@@ -620,17 +622,21 @@ export default function HomeTab({
           alignItems: "center",
           gap: 12,
         }}>
-          <div style={{ fontSize: 28, flexShrink: 0 }}>{"\uD83D\uDCF2"}</div>
+          <div style={{ fontSize: 28, flexShrink: 0 }}>{isDesktop ? "\uD83D\uDCBB" : "\uD83D\uDCF2"}</div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700, color: C.cream, marginBottom: 3 }}>
               Install Skeddo
             </div>
             <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#B0C4B6", lineHeight: 1.4 }}>
               {installPrompt
-                ? "Add Skeddo to your home screen for quick access."
-                : /iPad|iPhone|iPod/.test(navigator.userAgent)
-                  ? "Tap the share button in your browser, then \"Add to Home Screen\"."
-                  : "Tap \u22EE (menu) in Chrome, then \"Add to Home Screen\"."
+                ? (isDesktop
+                  ? "Click the install icon (\u2295) in your browser's address bar to install."
+                  : "Add Skeddo to your home screen for quick access.")
+                : isDesktop
+                  ? "Open Chrome's menu (\u22EE) and choose \"Install Skeddo\u2026\" to add it to your desktop."
+                  : /iPad|iPhone|iPod/.test(navigator.userAgent)
+                    ? "Tap the share button in your browser, then \"Add to Home Screen\"."
+                    : "Tap \u22EE (menu) in Chrome, then \"Add to Home Screen\"."
               }
             </div>
           </div>
