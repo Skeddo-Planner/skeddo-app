@@ -11,8 +11,8 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 128 | 11,518 |
-| 🔲 Audits pending | 322 | 2,665 |
+| ✅ Audits completed | 129 | 11,628 |
+| 🔲 Audits pending | 321 | 2,555 |
 | **Total** | **450** | **14,183** |
 
 ---
@@ -63,6 +63,7 @@ Sorted by number of listings (most to fewest).
 | Parkgate Society | 4 | 2026-04-04 | VERIFICATION-LOG-MISSING-NORTH-VANCOUVER-PROVIDERS.md |
 | Stagecoach Performing Arts | 2 | 2026-04-04 | VERIFICATION-LOG-MISSING-NORTH-VANCOUVER-PROVIDERS.md |
 | Vanleena Dance Academy | 1 | 2026-04-04 | VERIFICATION-LOG-MISSING-NORTH-VANCOUVER-PROVIDERS.md |
+| UBC Recreation | 110 | 2026-04-04 | VERIFICATION-LOG-UBC-RECREATION.md |
 
 ---
 
@@ -87,7 +88,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 10 | City of Vancouver - Kerrisdale Cmty Centre | 121 | 5.3 km | 81 |
 | 11 | UBC Geering Up | 116 | 9.7 km | 80 |
 | 12 | City of Vancouver - Thunderbird Cmty Centre | 106 | 5.1 km | 80 |
-| 13 | UBC Recreation | 110 | 9.5 km | 79 |
+| ~~13~~ | ~~UBC Recreation~~ | ~~110~~ | ~~9.5 km~~ | ~~79~~ (completed) |
 | 14 | City of Vancouver - Douglas Park Cmty Centre | 97 | 2.0 km | 79 |
 | 15 | City of Vancouver - Mount Pleasant Cmty Centre | 95 | 0.1 km | 79 |
 | 16 | City of Vancouver - Roundhouse Cmty Arts and Rec Centre | 96 | 1.8 km | 79 |
