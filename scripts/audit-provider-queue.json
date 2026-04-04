@@ -22,9 +22,9 @@
       "listings": 327,
       "distKm": 7.5,
       "priorityScore": 91,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-NVRC.md",
       "notes": null,
       "sessionId": null
     },
