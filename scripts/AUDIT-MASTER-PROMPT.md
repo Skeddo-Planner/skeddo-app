@@ -156,7 +156,8 @@ genuinely cannot verify data after a reasonable attempt:
   price / confirmation on the live registration page
 - Never delete a program — use `enrollmentStatus: "Completed"` instead
 - Never combine age groups — one listing per age bracket the provider uses
-- Never use activekids.com or campscui.active.com as data sources
+- Never use activekids.com as a data source or in URLs — it is a direct competitor to Skeddo
+- `campscui.active.com` and `activecommunities.com` are ALLOWED — they are legitimate registration platforms (ActiveNetwork software used by providers and municipalities)
 - Never guess prices, dates, or ages — use `null` + `costNote` if not visible
 - Every URL must point to the actual registration/booking page, not a homepage
 - Every commit must go to main (check with `git log main --oneline -1`)

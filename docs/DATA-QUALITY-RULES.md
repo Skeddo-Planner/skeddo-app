@@ -305,17 +305,18 @@ Reference docs/PROGRAM-SEARCH-METHODOLOGY.md for the systematic 9-phase search a
 ## Rule 39: NEVER import from activekids.com (was duplicate Rule 16 — now Rule 39)
 activekids.com is NOT a primary data source. It is a third-party directory with incomplete, outdated, and sometimes inaccurate program listings. Claude and its agents MUST NEVER use activekids.com as a source for new programs, pricing, dates, or any other data. Always go directly to the provider's own website or the official registration system (ActiveNet, PerfectMind, Eventbrite, etc.) for program data.
 
-See also Rule 24 (ban on activekids.com and campscui.active.com URLs) which extends this rule to URL-level enforcement in the validator.
+See also Rule 24 (ban on activekids.com URLs) which extends this rule to URL-level enforcement in the validator.
 
 This rule is PERMANENT and NON-NEGOTIABLE.
 
-## Rule 24: NEVER use activekids.com or campscui.active.com URLs (HARD RULE)
-**Why:** 459 programs were found with third-party aggregator URLs instead of direct provider registration pages. Parents clicking these links landed on generic search pages with no filters, couldn't find the specific program, and lost trust.
-- Registration URLs must NEVER contain `activekids.com` or `campscui.active.com`
-- URLs must point directly to the provider's own website or their official registration portal (ActiveNet, PerfectMind, Eventbrite, etc.)
-- This extends Rule 16 (never import from activekids.com) to explicitly ban these domains in URLs
-- The validator auto-flags any URL containing these domains as a hard error
+## Rule 24: NEVER use activekids.com URLs (HARD RULE)
+**Why:** activekids.com is a direct competitor to Skeddo — linking parents there actively harms the business. 459 programs were found with activekids.com URLs instead of direct provider registration pages.
+- Registration URLs must NEVER contain `activekids.com`
+- URLs must point directly to the provider's own website or their official registration portal (ActiveNet, PerfectMind, Eventbrite, campscui.active.com, etc.)
+- This extends Rule 16 (never import from activekids.com) to explicitly ban this domain in URLs
+- The validator auto-flags any URL containing this domain as a hard error
 - This rule has NO exceptions
+- **Note:** `campscui.active.com` and `activecommunities.com` are legitimate registration management platforms (ActiveNetwork software used by providers and municipalities). URLs on these domains are allowed and encouraged — they are specific registration links, not competitor sites.
 
 ## Rule 40: Always Scrape Official Registration APIs Directly (was duplicate Rule 17 — now Rule 40)
 For any municipality or large provider with a registration portal, Claude and its agents MUST find and use their REST API to get the complete program catalog. NEVER rely on:
