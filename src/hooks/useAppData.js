@@ -165,7 +165,22 @@ export function useAppData(userId) {
   const [kids, setKids] = useState([]);
   const [manualCosts, setManualCosts] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const [tab, setTab] = useState("home");
+  const VALID_TABS = new Set(["home", "discover", "schedule", "programs", "budget", "circles"]);
+  const hashTab = window.location.hash.replace("#", "");
+  const [tab, setTabRaw] = useState(VALID_TABS.has(hashTab) ? hashTab : "home");
+  const setTab = useCallback((newTab) => {
+    setTabRaw(newTab);
+    window.location.hash = newTab === "home" ? "" : newTab;
+  }, []);
+  useEffect(() => {
+    const onHash = () => {
+      const h = window.location.hash.replace("#", "");
+      if (VALID_TABS.has(h)) setTabRaw(h);
+      else if (!h) setTabRaw("home");
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const [statusFilter, setStatusFilter] = useState("All");
   const [catFilter, setCatFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
