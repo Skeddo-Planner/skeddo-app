@@ -239,30 +239,42 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
       )}
 
       {/* Programs group */}
+      {!pushNotifications?.isSubscribed && (
+        <div style={{
+          fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted,
+          marginBottom: 8, lineHeight: 1.5,
+        }}>
+          Enable push notifications above to activate these settings.
+        </div>
+      )}
       <SubLabel>Programs</SubLabel>
       <ToggleRow
         label="Upcoming program reminders"
         description="Alerts before enrolled programs start"
         checked={draft.notifyUpcomingPrograms !== false}
         onChange={(val) => update("notifyUpcomingPrograms", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
       <ToggleRow
         label="Registration reminders"
         description="When registration opens for saved programs"
         checked={draft.notifyRegistration !== false}
         onChange={(val) => update("notifyRegistration", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
       <ToggleRow
         label="Waitlist alerts"
         description="When a waitlisted program has openings"
         checked={draft.notifyWaitlistAlerts !== false}
         onChange={(val) => update("notifyWaitlistAlerts", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
       <ToggleRow
         label="Favourite updates"
         description="Status changes for favourited programs"
         checked={draft.notifyFavouriteUpdates !== false}
         onChange={(val) => update("notifyFavouriteUpdates", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
 
       {/* Social group */}
@@ -272,12 +284,14 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         description="When someone shares to your circle"
         checked={draft.notifyCircleActivity !== false}
         onChange={(val) => update("notifyCircleActivity", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
       <ToggleRow
         label="Circle join requests"
         description="When someone wants to join your circle"
         checked={draft.notifyCircleRequests !== false}
         onChange={(val) => update("notifyCircleRequests", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
 
       {/* Budget group */}
@@ -287,6 +301,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
         description="Alerts at 50%, 75%, and 90% of your goal"
         checked={draft.notifyBudgetMilestones !== false}
         onChange={(val) => update("notifyBudgetMilestones", val)}
+        disabled={!pushNotifications?.isSubscribed}
       />
 
       {/* ─── Feedback ─── */}
@@ -800,7 +815,7 @@ function SubLabel({ children }) {
 }
 
 /* ─── Toggle Row ─── */
-function ToggleRow({ label, description, checked, onChange }) {
+function ToggleRow({ label, description, checked, onChange, disabled }) {
   return (
     <div
       style={{
@@ -809,12 +824,14 @@ function ToggleRow({ label, description, checked, onChange }) {
         justifyContent: "space-between",
         padding: "10px 0",
         borderBottom: `1px solid ${C.border}`,
-        cursor: "pointer",
+        cursor: disabled ? "default" : "pointer",
+        opacity: disabled ? 0.45 : 1,
       }}
-      onClick={() => onChange(!checked)}
+      onClick={() => !disabled && onChange(!checked)}
       role="switch"
-      tabIndex={0}
+      tabIndex={disabled ? -1 : 0}
       aria-checked={checked}
+      aria-disabled={disabled}
       aria-label={label}
     >
       <div style={{ flex: 1, marginRight: 12 }}>
@@ -842,7 +859,7 @@ function ToggleRow({ label, description, checked, onChange }) {
         width: 44,
         height: 24,
         borderRadius: 12,
-        background: checked ? C.seaGreen : C.border,
+        background: checked && !disabled ? C.seaGreen : C.border,
         position: "relative",
         transition: "background 0.2s ease",
         flexShrink: 0,
@@ -854,7 +871,7 @@ function ToggleRow({ label, description, checked, onChange }) {
           background: C.white,
           position: "absolute",
           top: 2,
-          left: checked ? 22 : 2,
+          left: checked && !disabled ? 22 : 2,
           transition: "left 0.2s ease",
           boxShadow: "0 1px 3px rgba(27,36,50,0.15)",
         }} />
