@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { C, STATUS_MAP, CAT_EMOJI } from "../constants/brand";
 import { s } from "../styles/shared";
 import Modal from "../components/Modal";
@@ -11,7 +11,19 @@ import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility
 import { trackEvent } from "../utils/analytics";
 
 export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid, circlesHook, profile }) {
-  const p = program;
+  // description is stripped from the slim list load; fetch it lazily when missing.
+  const [description, setDescription] = useState(
+    "description" in program ? program.description : undefined
+  );
+  useEffect(() => {
+    if ("description" in program || !program.id) return;
+    fetch(`/api/programs/${encodeURIComponent(program.id)}`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((full) => { if (full?.description) setDescription(full.description); })
+      .catch(() => {});
+  }, [program.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const p = { ...program, description };
   const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
   const regStatus = getRegistrationStatus(p);
   const regInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];

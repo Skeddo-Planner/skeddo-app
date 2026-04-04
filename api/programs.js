@@ -7,6 +7,8 @@
  *     shared across ALL serverless instances — no more per-instance bypass)
  *   - Falls back to an in-memory limiter if UPSTASH_REDIS_REST_URL is not set
  *   - Cache-Control keeps most traffic on the CDN edge (24 h)
+ *   - description field stripped by default (~20% payload savings);
+ *     use GET /api/programs/:id for the full record with description
  *
  * Upstash setup (one-time):
  *   1. Create a free Redis database at https://console.upstash.com
@@ -19,6 +21,8 @@
  *   ?ageMin=5&ageMax=12
  *   ?neighbourhood=Kitsilano
  *   ?enrollmentStatus=Open
+ *   ?page=1&limit=1000     paginate results → returns {data,total,page,totalPages}
+ *   ?full=true             include description in list results
  */
 
 import { createRequire } from "module";
@@ -31,6 +35,18 @@ let _programs = null;
 function getPrograms() {
   if (!_programs) _programs = require("../src/data/programs.json");
   return _programs;
+}
+
+// Fields stripped from list responses to reduce payload (~20% savings).
+// Full records are available via GET /api/programs/:id.
+const LIST_STRIP_FIELDS = new Set(["description"]);
+
+function toListRecord(p) {
+  const out = {};
+  for (const key of Object.keys(p)) {
+    if (!LIST_STRIP_FIELDS.has(key)) out[key] = p[key];
+  }
+  return out;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -161,9 +177,10 @@ export default async function handler(req, res) {
   }
 
   const programs = getPrograms();
+  const query = req.query || {};
 
   // Optional server-side filtering to reduce response payload.
-  const { category, ageMin, ageMax, neighbourhood, enrollmentStatus } = req.query || {};
+  const { category, ageMin, ageMax, neighbourhood, enrollmentStatus, full } = query;
   let results = programs;
 
   if (category) {
@@ -187,10 +204,31 @@ export default async function handler(req, res) {
     results = results.filter((p) => p.ageMin == null || p.ageMin <= max);
   }
 
+  // Strip description from list results unless ?full=true is requested.
+  // Full records are available via GET /api/programs/:id.
+  const includeDescription = full === "true";
+  if (!includeDescription) {
+    results = results.map(toListRecord);
+  }
+
+  // Pagination: ?page=1&limit=1000 returns {data, total, page, totalPages}.
+  // Without pagination params, returns the array directly (backwards compat).
+  const pageParam  = query.page  !== undefined ? parseInt(query.page,  10) : null;
+  const limitParam = query.limit !== undefined ? parseInt(query.limit, 10) : null;
+
   // CDN caches for 24 h; browsers for 5 min; stale-while-revalidate covers
   // the brief window after a deploy before the CDN warms up again.
   res.setHeader("Cache-Control", "public, max-age=300, s-maxage=86400, stale-while-revalidate=86400");
   res.setHeader("Content-Type", "application/json; charset=utf-8");
+
+  if (pageParam !== null && limitParam !== null && !isNaN(pageParam) && !isNaN(limitParam)) {
+    const total      = results.length;
+    const totalPages = Math.ceil(total / limitParam);
+    const page       = Math.max(1, Math.min(pageParam, totalPages || 1));
+    const start      = (page - 1) * limitParam;
+    const data       = results.slice(start, start + limitParam);
+    return res.status(200).json({ data, total, page, totalPages });
+  }
 
   return res.status(200).json(results);
 }

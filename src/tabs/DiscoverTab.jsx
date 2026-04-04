@@ -8,19 +8,62 @@ import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import useIsDesktop from "../hooks/useIsDesktop";
 import { supabase } from "../lib/supabase";
-// Programs URL — defaults to the Vercel API endpoint but can be overridden
-// with VITE_PROGRAMS_URL to point at a stable external CDN (e.g. Vercel Blob)
-// that isn't purged when the app deploys. See scripts/upload-programs-blob.cjs.
-const PROGRAMS_URL = import.meta.env.VITE_PROGRAMS_URL || "/api/programs";
+// Programs URL — VITE_PROGRAMS_URL points to the slim Vercel Blob (no description,
+// stable across deploys). Falls back to the paginated /api/programs endpoint which
+// loads progressively: first 1 000 programs arrive immediately, the rest stream in
+// the background so filters keep working as more data loads.
+// See scripts/upload-programs-blob.cjs for the blob upload workflow.
+const PROGRAMS_BLOB_URL  = import.meta.env.VITE_PROGRAMS_URL || null;
+const PROGRAMS_API       = "/api/programs";
+const PROGRAMS_PAGE_SIZE = 1000; // records per API page in progressive-load mode
 
 let _cachedPrograms = null;
-const loadPrograms = () => {
-  if (_cachedPrograms) return Promise.resolve(_cachedPrograms);
-  return fetch(PROGRAMS_URL).then((r) => r.json()).then((data) => {
+
+// Calls onBatch(programs[]) each time a page arrives so the UI can update
+// incrementally. Returns the full array when all pages are done.
+async function loadProgramsProgressive(onBatch) {
+  if (_cachedPrograms) { onBatch(_cachedPrograms); return _cachedPrograms; }
+
+  if (PROGRAMS_BLOB_URL) {
+    // Blob — single file, slim (no description). Fast CDN path.
+    const data = await fetch(PROGRAMS_BLOB_URL).then((r) => r.json());
     _cachedPrograms = data;
+    onBatch(data);
+    return data;
+  }
+
+  // Paginated API — show first page immediately, fetch the rest in parallel.
+  const first = await fetch(
+    `${PROGRAMS_API}?page=1&limit=${PROGRAMS_PAGE_SIZE}`
+  ).then((r) => r.json());
+
+  // Handle both paginated ({data, totalPages}) and legacy array responses.
+  if (!first.totalPages) {
+    _cachedPrograms = Array.isArray(first) ? first : [];
+    onBatch(_cachedPrograms);
     return _cachedPrograms;
-  });
-};
+  }
+
+  let all = [...first.data];
+  onBatch(all);
+
+  if (first.totalPages > 1) {
+    const pages = Array.from({ length: first.totalPages - 1 }, (_, i) => i + 2);
+    await Promise.all(
+      pages.map((page) =>
+        fetch(`${PROGRAMS_API}?page=${page}&limit=${PROGRAMS_PAGE_SIZE}`)
+          .then((r) => r.json())
+          .then(({ data }) => { all = [...all, ...data]; onBatch(all); })
+          .catch(() => {})
+      )
+    );
+  }
+
+  _cachedPrograms = all;
+  return all;
+}
+
+const loadPrograms = () => loadProgramsProgressive(() => {});
 import {
   REGISTRATION_STATUSES,
   getRegistrationStatus,
@@ -591,11 +634,12 @@ export default function DiscoverTab({
     }
   }, [findSimilar]);
 
-  /* Load programs.json lazily */
+  /* Load programs progressively — first batch shows immediately */
   useEffect(() => {
-    loadPrograms().then((data) => {
+    let firstBatch = true;
+    loadProgramsProgressive((data) => {
       setFallbackPrograms(data);
-      setIsLoadingPrograms(false);
+      if (firstBatch) { setIsLoadingPrograms(false); firstBatch = false; }
     });
   }, []);
 
@@ -824,7 +868,7 @@ export default function DiscoverTab({
       if (selectedRegStatuses.size > 0 && !selectedRegStatuses.has(getRegistrationStatus(p))) return false;
       if (showFavoritesOnly && !favorites.includes(p.id)) return false;
       if (q) {
-        const haystack = [p.name, p.provider, p.description].filter(Boolean).join(" ").toLowerCase();
+        const haystack = [p.name, p.provider].filter(Boolean).join(" ").toLowerCase();
         if (!haystack.includes(q)) return false;
       }
       if (selectedCats.size > 0 && !selectedCats.has(p.category)) return false;

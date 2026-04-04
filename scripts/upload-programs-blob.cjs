@@ -2,40 +2,32 @@
 /**
  * scripts/upload-programs-blob.cjs
  *
- * Uploads programs.json to Vercel Blob storage so it can be served from a
- * stable CDN URL that is NOT purged when the Vercel app deploys.
+ * Uploads TWO versions of programs.json to Vercel Blob:
+ *   1. programs-slim.json  — list fields only (no description). Used as the
+ *      primary CDN source (VITE_PROGRAMS_URL). ~20% smaller than full version.
+ *   2. programs.json       — full record including description. The individual
+ *      program detail API (/api/programs/:id) serves from this.
  *
- * This decouples the data CDN cache from the code deployment cache — meaning
- * 1,000 users hitting the site right after a deploy will still get fast,
- * cached responses for the programs data even though the app CDN was purged.
+ * Both uploads use allowOverwrite: true so URLs are stable across runs.
+ * Run this script after any significant change to programs.json — the
+ * post-commit hook does this automatically when programs.json is committed.
  *
  * ONE-TIME SETUP
  * ──────────────
- * 1. In your Vercel project: Storage → Connect Store → Blob
- *    (Free 500 MB included on Hobby plan)
- * 2. In Vercel dashboard → Settings → Environment Variables, copy
- *    BLOB_READ_WRITE_TOKEN (Vercel adds it automatically when you link Blob)
- * 3. Add it to your local .env file:
+ * 1. Vercel dashboard → Storage → Create → Blob (name: skeddo-app-blob, Public)
+ * 2. Copy BLOB_READ_WRITE_TOKEN from the .env.local tab in the Blob dashboard
+ * 3. Add to your local .env file:
  *        BLOB_READ_WRITE_TOKEN=vercel_blob_rw_...
- * 4. Run this script once to upload programs.json:
- *        node scripts/upload-programs-blob.cjs
- * 5. Copy the printed URL and set it in Vercel env vars:
- *        VITE_PROGRAMS_URL=https://xxx.public.blob.vercel-storage.com/programs.json
- *    (In Vercel dashboard → Settings → Environment Variables → Production)
- * 6. Re-deploy the app once so the new env var takes effect.
+ * 4. Run once: node scripts/upload-programs-blob.cjs
+ * 5. Copy the printed SLIM URL and set in Vercel env vars (Production):
+ *        VITE_PROGRAMS_URL=https://xxx.public.blob.vercel-storage.com/programs-slim.json
+ * 6. Redeploy once for the env var to take effect.
  *
- * ONGOING USAGE
- * ─────────────
- * Run this script whenever programs.json changes significantly (e.g. after
- * a large data update). It overwrites the same URL so no client changes needed.
+ * After that, the post-commit hook handles all future uploads automatically.
  *
- * The blob URL is stable and does NOT change between runs (Vercel Blob uses
- * content-addressed storage but puts() with the same pathname return the same
- * public URL when using `allowOverwrite: true`).
- *
- * You can also wire this into CI/CD:
- *   - Run after fill-computable-fields.cjs + validate-programs.cjs
- *   - Only run when programs.json actually changed (check git diff)
+ * LIST FIELDS (slim version strips these from each program):
+ *   description — only needed in the detail modal, fetched lazily via
+ *                 GET /api/programs/:id when a user opens a program card
  */
 
 "use strict";
@@ -54,7 +46,7 @@ const token = process.env.BLOB_READ_WRITE_TOKEN;
 if (!token) {
   console.error(
     "Error: BLOB_READ_WRITE_TOKEN is not set.\n" +
-    "See the ONE-TIME SETUP instructions at the top of this file."
+    "Add it to your .env file. See ONE-TIME SETUP at the top of this file."
   );
   process.exit(1);
 }
@@ -64,12 +56,6 @@ if (!fs.existsSync(programsPath)) {
   console.error("Error: src/data/programs.json not found.");
   process.exit(1);
 }
-
-const fileBytes  = fs.statSync(programsPath).size;
-const fileMB     = (fileBytes / 1024 / 1024).toFixed(1);
-const programCount = JSON.parse(fs.readFileSync(programsPath, "utf8")).length;
-
-console.log(`Uploading programs.json (${fileMB} MB, ${programCount.toLocaleString()} programs)…`);
 
 // Vercel Blob requires @vercel/blob — install it if missing.
 let put;
@@ -83,23 +69,59 @@ try {
   process.exit(1);
 }
 
-async function main() {
-  const fileBuffer = fs.readFileSync(programsPath);
+// Fields stripped from the slim version (only needed in detail modal)
+const SLIM_STRIP_FIELDS = new Set(["description"]);
 
-  const blob = await put("programs.json", fileBuffer, {
-    access:         "public",
-    contentType:    "application/json",
-    allowOverwrite: true,  // same URL on each upload — no client changes needed
-    token,
+async function main() {
+  const programs = JSON.parse(fs.readFileSync(programsPath, "utf8"));
+  const count = programs.length;
+
+  // Build slim array (strip description)
+  const slim = programs.map((p) => {
+    const out = {};
+    for (const key of Object.keys(p)) {
+      if (!SLIM_STRIP_FIELDS.has(key)) out[key] = p[key];
+    }
+    return out;
   });
 
-  console.log("\n✓ Upload complete.");
-  console.log("  Blob URL:", blob.url);
-  console.log("\nNext step — set this in Vercel env vars (Production):");
-  console.log(`  VITE_PROGRAMS_URL=${blob.url}`);
-  console.log("\nThen redeploy the app once for the new env var to take effect.");
-  console.log("After that, programs.json is served from the Blob CDN and will");
-  console.log("remain cached even when you deploy new app code.");
+  const fullBytes = Buffer.byteLength(JSON.stringify(programs));
+  const slimBytes = Buffer.byteLength(JSON.stringify(slim));
+  const savingPct = (((fullBytes - slimBytes) / fullBytes) * 100).toFixed(0);
+
+  console.log(`Programs: ${count.toLocaleString()}`);
+  console.log(`Full:     ${(fullBytes / 1024 / 1024).toFixed(1)} MB`);
+  console.log(`Slim:     ${(slimBytes / 1024 / 1024).toFixed(1)} MB  (${savingPct}% smaller — description stripped)`);
+  console.log("");
+  console.log("Uploading…");
+
+  const [slimBlob, fullBlob] = await Promise.all([
+    put("programs-slim.json", JSON.stringify(slim), {
+      access:         "public",
+      contentType:    "application/json",
+      allowOverwrite: true,
+      token,
+    }),
+    put("programs.json", JSON.stringify(programs), {
+      access:         "public",
+      contentType:    "application/json",
+      allowOverwrite: true,
+      token,
+    }),
+  ]);
+
+  console.log("\n✓ Both blobs uploaded.");
+  console.log("  Slim URL (for VITE_PROGRAMS_URL):", slimBlob.url);
+  console.log("  Full URL (reference only):        ", fullBlob.url);
+
+  const slimUrlEnv = `VITE_PROGRAMS_URL=${slimBlob.url}`;
+  if (process.env.VITE_PROGRAMS_URL === slimBlob.url) {
+    console.log("\n✓ VITE_PROGRAMS_URL already set to the slim blob. No Vercel env var change needed.");
+  } else {
+    console.log("\nIf VITE_PROGRAMS_URL is not yet set (or changed), update it in Vercel:");
+    console.log(`  ${slimUrlEnv}`);
+    console.log("Then redeploy once for the env var to take effect.");
+  }
 }
 
 main().catch((err) => {

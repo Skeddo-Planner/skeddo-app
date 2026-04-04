@@ -1,0 +1,31 @@
+#!/bin/bash
+# ============================================================
+# Skeddo post-commit hook — auto-upload programs to Vercel Blob
+#
+# Runs automatically after every successful commit.
+# If programs.json changed, uploads slim + full versions to
+# Vercel Blob CDN so the data cache is never stale after a
+# data update — no manual script run required.
+#
+# Requires: BLOB_READ_WRITE_TOKEN in .env (or environment)
+# ============================================================
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+# Check if programs.json was in the commit just made
+CHANGED=$(git diff-tree --no-commit-id -r --name-only HEAD 2>/dev/null)
+if ! echo "$CHANGED" | grep -q "src/data/programs.json"; then
+  exit 0
+fi
+
+echo ""
+echo "📤 programs.json changed — uploading to Vercel Blob CDN..."
+
+if node "$ROOT/scripts/upload-programs-blob.cjs" 2>&1; then
+  echo "✅ Blob CDN updated. Returning users get fresh data immediately."
+else
+  echo "⚠️  Blob upload skipped (check BLOB_READ_WRITE_TOKEN in .env)."
+  echo "   Programs still served from /api/programs fallback."
+fi
+
+echo ""
