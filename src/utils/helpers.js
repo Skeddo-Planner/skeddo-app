@@ -536,8 +536,8 @@ export function calcCostPerHour(program) {
   const hoursPerSession = endH - startH;
   const costNote = (program.costNote || "").toLowerCase();
 
-  // Per-lesson/per-session cost: cost covers a single session only
-  if (costNote.includes("per lesson") || costNote.includes("per session") || costNote.includes("per class")) {
+  // Per-lesson/per-session/per-day cost: cost covers a single session only
+  if (costNote.includes("per lesson") || costNote.includes("per session") || costNote.includes("per class") || costNote.includes("per day")) {
     return hoursPerSession > 0 ? cost / hoursPerSession : null;
   }
 
