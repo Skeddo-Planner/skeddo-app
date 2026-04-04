@@ -292,9 +292,13 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     // Push a guard entry so the first back press can be intercepted
     history.pushState({ skeddoGuard: true }, "");
 
+    const inAppHashes = new Set(["discover", "schedule", "programs", "budget", "circles", ""]);
     popStateHandler.current = () => {
       // Re-arm immediately so the app doesn't silently navigate away
       history.pushState({ skeddoGuard: true }, "");
+      // If we're still within the app (navigating between tab hashes), skip the dialog
+      const hash = window.location.hash.replace("#", "");
+      if (inAppHashes.has(hash)) return;
       stepsBack.current++;
       setShowExitConfirm(true);
     };
@@ -726,6 +730,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onOpenAddProgram={openAddProgram}
                 searchQuery={searchQuery}
                 onSearchQuery={setSearchQuery}
+                onNavigateToSearch={() => handleNavigateToTab("discover")}
               />
             )}
 
@@ -844,6 +849,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 onOpenAddProgram={openAddProgram}
                 searchQuery={searchQuery}
                 onSearchQuery={setSearchQuery}
+                onNavigateToSearch={() => handleNavigateToTab("discover")}
               />
             )}
 

@@ -214,6 +214,7 @@ export default function ProgramsTab({
   onOpenAddProgram,
   searchQuery,
   onSearchQuery,
+  onNavigateToSearch,
 }) {
   const isDesktop = useIsDesktop();
   const [sortCol, setSortCol] = useState("startDate");
@@ -357,6 +358,19 @@ export default function ProgramsTab({
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, marginBottom: 16 }}>
                 Browse camps and classes in the Search tab
               </div>
+              {onNavigateToSearch && (
+                <button
+                  onClick={onNavigateToSearch}
+                  style={{
+                    fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 700,
+                    color: "#fff", background: C.seaGreen,
+                    border: "none", borderRadius: 10,
+                    padding: "10px 24px", cursor: "pointer",
+                  }}
+                >
+                  Browse Search tab →
+                </button>
+              )}
             </div>
           ) : (
             <div style={{ borderRadius: 12, overflow: "hidden", border: `0.5px solid rgba(27,36,50,0.08)` }}>
