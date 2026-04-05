@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 143 | 12,034 |
-| 🔲 Audits pending | 307 | 2,242 |
+| ✅ Audits completed | 144 | 12,055 |
+| 🔲 Audits pending | 306 | 2,221 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (144 providers)
+## ✅ Completed Audits (145 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -26,6 +26,7 @@ Sorted by number of listings (most to fewest).
 | City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
+| Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |
 | North Vancouver Recreation Commission (NVRC) | 327 | 2026-04-04 | VERIFICATION-LOG-NVRC.md |
 | City of Burnaby - Unknown | 729 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md |
 | Pedalheads | 6568 | 2026-04-01 | VERIFICATION-LOG-PEDALHEADS.md / V2 / V3 |
@@ -175,7 +176,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 83 | VSO School of Music | 16 | 1.8 km | 62 |
 | 84 | City of Burnaby | 18 | 9.3 km | 62 |
 | 87 | City of Vancouver - Hastings Community Centre | 17 | 4.9 km | 62 |
-| 88 | Richmond Ice Centre | 21 | 14.4 km | 62 |
 | 89 | City of Burnaby - Confederation Park Recreation Centre | 14 | 6.3 km | 60 |
 | 90 | Bodwell High School | 14 | 5.6 km | 60 |
 | 91 | 3D Basketball | 12 | 3.3 km | 59 |
