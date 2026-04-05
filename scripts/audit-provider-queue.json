@@ -223,10 +223,10 @@
       "listings": 96,
       "distKm": 1.8,
       "priorityScore": 79,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright spawn UNKNOWN on all attempts — Firefox/Chromium cannot launch due to system resource exhaustion. Second failed session 2026-04-05. Re-audit required when browser is functional.",
       "sessionId": null
     },
     {
@@ -439,10 +439,10 @@
       "listings": 45,
       "distKm": 5,
       "priorityScore": 71,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright spawn UNKNOWN — system resource exhaustion, browser could not launch. Retry when Chrome/Firefox process slots are available.",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-CYCLONE-TAYLOR-ARENA.md",
+      "notes": "Playwright spawn UNKNOWN — Firefox cannot launch. Two sessions attempted (2026-04-05), multiple retries with waits up to 30s. Same issue as Dunbar, Kitsilano, Marpole-Oakridge, False Creek, Hillcrest. Retry when Playwright/Chrome is operational.",
       "sessionId": null
     },
     {
@@ -727,7 +727,7 @@
       "listings": 28,
       "distKm": 0,
       "priorityScore": 67,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
