@@ -1490,10 +1490,10 @@
       "listings": 9,
       "distKm": 3.8,
       "priorityScore": 56,
-      "status": "in_progress",
-      "auditDate": null,
+      "status": "failed",
+      "auditDate": "2026-04-05",
       "logFile": null,
-      "notes": null,
+      "notes": "Dynamic site (westendca.ca ECONNREFUSED, activecommunities.com returns no program data without JS). Re-audit with browser session.",
       "sessionId": null
     },
     {
