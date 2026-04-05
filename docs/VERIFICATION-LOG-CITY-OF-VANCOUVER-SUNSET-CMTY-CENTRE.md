@@ -1,8 +1,8 @@
 # Verification Log — City of Vancouver - Sunset Cmty Centre
 
-**Date audited:** 2026-04-05
+**Date audited:** 2026-04-05 (session 2)
 **Auditor:** Claude (automated)
-**Status:** BLOCKED — Playwright browser failure
+**Status:** BLOCKED — Playwright browser failure (repeated across 2 sessions)
 
 ---
 
@@ -121,4 +121,6 @@ The Playwright MCP browser (`chrome-for-testing`) cannot be launched in this ses
 
 **Action taken:** No data changes made. Existing confirmed data preserved.
 
-**Recommended next step:** Fix the `chrome-for-testing` browser launch issue (possible antivirus conflict with the Playwright-managed Chromium binary) and re-run this audit.
+**Session 2 failure (2026-04-05):** MCP browser failed with GPU process crash loop. Every navigation attempt returned `GPU process isn't usable. Goodbye.` with the same PID (54096) and timestamps, indicating the MCP server is replaying a cached crash from a previous session and cannot start a fresh browser process.
+
+**Recommended next step:** Restart the Claude Code / MCP server process entirely to clear the cached Playwright browser state, then re-run this audit.
