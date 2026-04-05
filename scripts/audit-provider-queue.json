@@ -523,10 +523,10 @@
       "listings": 36,
       "distKm": 4.8,
       "priorityScore": 69,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright browser spawn UNKNOWN — Firefox process failed to launch (system resource exhaustion). Same error as Dunbar, Creekside, Mount Pleasant audits.",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-THUNDERBIRD-COMMUNITY-CENTRE.md",
+      "notes": "Playwright browser spawn UNKNOWN — Firefox binary fails to launch. Blocked across multiple sessions (same issue as Britannia, Trout Lake, Coal Harbour, Hastings, Dunbar).",
       "sessionId": null
     },
     {
@@ -655,10 +655,10 @@
       "listings": 30,
       "distKm": 2.6,
       "priorityScore": 68,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was partial/not browser-navigated",
+      "notes": "Playwright spawn UNKNOWN — Firefox headless process failed to launch on Windows. Same blocker as Templeton, West End, Champlain Heights, Britannia audits.",
       "sessionId": null
     },
     {
@@ -811,7 +811,7 @@
       "listings": 25,
       "distKm": 2.9,
       "priorityScore": 66,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",

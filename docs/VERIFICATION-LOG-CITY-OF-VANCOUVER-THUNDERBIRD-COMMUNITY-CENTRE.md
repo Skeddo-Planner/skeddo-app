@@ -1,8 +1,8 @@
 # Verification Log — City of Vancouver - Thunderbird Community Centre
 
-**Date Audited:** 2026-04-05
+**Date Audited:** 2026-04-05 (retry attempt)
 **Auditor:** Claude (automated audit agent)
-**Status:** INCOMPLETE — Playwright browser spawn failure
+**Status:** INCOMPLETE — Playwright browser spawn failure (multiple sessions blocked)
 
 ---
 
@@ -22,7 +22,7 @@ Call log:
   - <launching> C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe -no-remote -headless ...
 ```
 
-Attempted 5 times — all failed consistently. This is a system resource exhaustion issue (same error that blocked Dunbar, Creekside, and Mount Pleasant audits).
+Attempted multiple times across two sessions — all failed consistently with the same error. This is a machine-level issue with the Playwright MCP server's Firefox binary (same error that blocked Dunbar, Hastings, Coal Harbour, Trout Lake, and Britannia audits).
 
 ---
 
