@@ -307,10 +307,10 @@
       "listings": 63,
       "distKm": 7.4,
       "priorityScore": 74,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright browser spawn UNKNOWN — system resource exhaustion, same as Dunbar/Mount Pleasant/Creekside failures. Retry when browser resources available.",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-CHAMPLAIN-HEIGHTS-CMTY-CENTRE.md",
+      "notes": "Playwright spawn UNKNOWN — Firefox browser process cannot be launched on this machine. Two attempts on 2026-04-05, all blocked.",
       "sessionId": null
     },
     {
@@ -523,7 +523,7 @@
       "listings": 36,
       "distKm": 4.8,
       "priorityScore": 69,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Playwright browser spawn UNKNOWN — Firefox process failed to launch (system resource exhaustion). Same error as Dunbar, Creekside, Mount Pleasant audits.",
