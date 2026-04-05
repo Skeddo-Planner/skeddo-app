@@ -1,10 +1,24 @@
 # Verification Log — City of Vancouver - Dunbar Cmty Centre
 
-**Date last attempted:** 2026-04-05 (Session 3)
+**Date last attempted:** 2026-04-05 (Session 4)
 **Date first attempted:** 2026-04-05 (Session 1)
 **Audited by:** Claude (automated audit agent)
 **Registration page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&location_ids=23
-**Status:** BLOCKED — Playwright browser unavailable (two consecutive sessions)
+**Status:** BLOCKED — Playwright browser unavailable (four consecutive sessions) — marked FAILED
+
+---
+
+## Audit Outcome: Blocked (Session 4 — 2026-04-05)
+
+### Reason
+
+Same `Error: server: spawn UNKNOWN` as Sessions 1–3. Firefox executable cannot be spawned by the Playwright MCP. Four consecutive sessions have now failed with this exact error. No data changes made.
+
+### What Was Attempted (Session 4)
+
+1. `mcp__playwright__browser_navigate` — failed immediately with spawn UNKNOWN (3 attempts with delays)
+2. No data changes made — marking provider as `failed` in queue
+3. Requires Playwright MCP fix (Firefox executable path issue) or Claude Code restart before this audit can proceed
 
 ---
 
