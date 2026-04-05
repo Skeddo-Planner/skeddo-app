@@ -70,7 +70,7 @@
       "listings": 168,
       "distKm": 2.3,
       "priorityScore": 85,
-      "status": "in_progress",
+      "status": "pending",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-HILLCREST-CMTY-CENTRE.md",
       "notes": "Chrome browser tools (mcp__Claude_in_Chrome__*) not available in session. Cannot render ActiveNet JS. 1 data fix made (Easter Carnival → Completed). Gaps identified: Preschool AM Weeks 1-2, SR Camp Weeks 1-5, Axe Capoeira summer adult. Re-audit required with Chrome tools.",
@@ -208,13 +208,13 @@
     {
       "rank": 15,
       "name": "City of Vancouver - Mount Pleasant Cmty Centre",
-      "listings": 95,
+      "listings": 128,
       "distKm": 0.1,
       "priorityScore": 79,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MOUNT-PLEASANT-CMTY-CENTRE.md",
-      "notes": "Browser (Playwright/Chromium AND Firefox spawn UNKNOWN) failed in both sessions — persistent system-level issue blocking all audits. Retry when Playwright MCP browser is operational.",
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-MOUNT-PLEASANT-CMTY-CENTRE.md",
+      "notes": "Audit complete. 39 status corrections (8 Completed, 31 Full/Waitlist). 33 new programs added (13 classes/camps + 20 birthday party climbing sessions). 419 of ~522 live results loaded via infinite scroll.",
       "sessionId": null
     },
     {
