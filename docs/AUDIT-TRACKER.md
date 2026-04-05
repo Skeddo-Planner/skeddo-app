@@ -17,13 +17,14 @@
 
 ---
 
-## ✅ Completed Audits (149 providers)
+## ✅ Completed Audits (150 providers)
 
 Sorted by number of listings (most to fewest).
 
 | Provider | Listings | Audit Date | Verification Log(s) |
 |----------|----------|------------|---------------------|
 | City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
+| Professor Puffin's Challenge Club | 14 | 2026-04-05 | VERIFICATION-LOG-PROFESSOR-PUFFINS-CHALLENGE-CLUB.md |
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
 | Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |
@@ -94,7 +95,7 @@ Sorted by number of listings (most to fewest).
 
 ---
 
-## 🔲 Pending Audits (315 providers) — Ranked by Priority
+## 🔲 Pending Audits (314 providers) — Ranked by Priority
 
 **Priority score** (0–100) = 60% listing count weight + 40% proximity weight, both log-normalized across the pending pool.
 **Dist** = average km from V5T 2J6 across all of that provider's listings (N/A = no location data).
@@ -186,7 +187,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 95 | City of Burnaby - Eileen Dailly Recreation Centre | 14 | 7.3 km | 59 |
 | 96 | City of Burnaby - Kensington Recreation Centre | 14 | 12.0 km | 59 |
 | 97 | City of Burnaby - Bill Copeland Recreation Centre | 14 | 7.6 km | 59 |
-| 99 | Professor Puffin's Challenge Club | 14 | 7.1 km | 59 |
 | 100 | City of Vancouver — Hillcrest Community Centre | 12 | 2.3 km | 59 |
 | 101 | City of Vancouver — Coal Harbour Community Centre | 12 | 3.4 km | 59 |
 | 102 | City of Vancouver - Kensington Pool | 12 | 3.5 km | 59 |
