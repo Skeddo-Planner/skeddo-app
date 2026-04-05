@@ -11,8 +11,8 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 129 | 11,628 |
-| 🔲 Audits pending | 321 | 2,555 |
+| ✅ Audits completed | 130 | 11,690 |
+| 🔲 Audits pending | 320 | 2,493 |
 | **Total** | **450** | **14,183** |
 
 ---
@@ -64,6 +64,7 @@ Sorted by number of listings (most to fewest).
 | Stagecoach Performing Arts | 2 | 2026-04-04 | VERIFICATION-LOG-MISSING-NORTH-VANCOUVER-PROVIDERS.md |
 | Vanleena Dance Academy | 1 | 2026-04-04 | VERIFICATION-LOG-MISSING-NORTH-VANCOUVER-PROVIDERS.md |
 | UBC Recreation | 110 | 2026-04-04 | VERIFICATION-LOG-UBC-RECREATION.md |
+| Vancouver School Board (SD39) | 62 | 2026-04-04 | VERIFICATION-LOG-VANCOUVER-SCHOOL-BOARD-SD39.md |
 
 ---
 
@@ -96,7 +97,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 18 | City of Vancouver - Britannia Cmty Centre | 71 | 2.5 km | 76 |
 | 19 | City of Vancouver - Creekside Cmty Rec Centre | 65 | 0.9 km | 75 |
 | 20 | City of Vancouver - Sunset Cmty Centre | 68 | 4.6 km | 75 |
-| 21 | Vancouver School Board (SD39) | 62 | 1.6 km | 75 |
+| ~~21~~ | ~~Vancouver School Board (SD39)~~ | ~~62~~ | ~~1.6 km~~ | ~~75~~ (completed) |
 | 22 | City of Vancouver - Roundhouse Community Centre | 56 | 1.8 km | 74 |
 | 23 | City of Vancouver - Trout Lake Community Centre | 55 | 2.7 km | 74 |
 | 24 | City of Vancouver - Champlain Heights Cmty Centre | 63 | 7.4 km | 74 |
