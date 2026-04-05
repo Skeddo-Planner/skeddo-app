@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 132 | 11,753 |
-| 🔲 Audits pending | 318 | 2,430 |
-| **Total** | **450** | **14,183** |
+| ✅ Audits completed | 133 | 11,785 |
+| 🔲 Audits pending | 317 | 2,430 |
+| **Total** | **450** | **14,215** |
 
 ---
 
-## ✅ Completed Audits (133 providers)
+## ✅ Completed Audits (134 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -75,6 +75,7 @@ Sorted by number of listings (most to fewest).
 | Richmond School District (SD38) | 46 | 2026-04-04 | VERIFICATION-LOG-RICHMOND-SCHOOL-DISTRICT-SD38.md |
 | Jump Gymnastics | 30 | 2026-04-04 | VERIFICATION-LOG-JUMP-GYMNASTICS.md |
 | Douglas College | 36 | 2026-04-04 | VERIFICATION-LOG-DOUGLAS-COLLEGE.md |
+| Chaoyin International School | 32 | 2026-04-04 | VERIFICATION-LOG-CHAOYIN-INTERNATIONAL-SCHOOL.md |
 
 ---
 
