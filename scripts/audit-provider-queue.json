@@ -199,14 +199,12 @@
     {
       "rank": 14,
       "name": "City of Vancouver - Douglas Park Cmty Centre",
-      "listings": 97,
+      "listings": 382,
       "distKm": 2,
       "priorityScore": 79,
       "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DOUGLAS-PARK-CMTY-CENTRE.md",
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DOUGLAS-PARK-CMTY-CENTRE.md"
     },
     {
       "rank": 15,
@@ -262,7 +260,7 @@
       "listings": 65,
       "distKm": 0.9,
       "priorityScore": 75,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
