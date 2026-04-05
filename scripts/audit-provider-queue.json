@@ -1766,9 +1766,9 @@
       "listings": 8,
       "distKm": 12.8,
       "priorityScore": 53,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CANLAN-SPORTS-NORTH-SHORE.md",
       "notes": null,
       "sessionId": null
     },
