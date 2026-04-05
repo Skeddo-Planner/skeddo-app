@@ -1354,11 +1354,11 @@
       "listings": 9,
       "distKm": 3.9,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-STEMA-LEARNING.md",
+      "notes": "Added 9 ages 5-7 records + 3 Jun 26 Pro-D. Fixed names, 4-day week costs, registrationUrls for existing 9 records.",
+      "sessionId": "sad-fermat"
     },
     {
       "rank": 113,
