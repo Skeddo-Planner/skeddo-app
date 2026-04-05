@@ -1090,10 +1090,10 @@
       "listings": 14,
       "distKm": 5.6,
       "priorityScore": 60,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-BODWELL-GEERING-UP.md",
+      "notes": "Programs are UBC Geering Up camps at Bodwell venue, not Bodwell own programs. Provider corrected to UBC Geering Up.",
       "sessionId": null
     },
     {
