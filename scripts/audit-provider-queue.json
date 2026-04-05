@@ -130,10 +130,10 @@
       "listings": 117,
       "distKm": 5.9,
       "priorityScore": 81,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KILLARNEY-CMTY-CENTRE.md",
-      "notes": "Playwright browser spawn failed — Firefox Permission denied from bash environment. Re-run in session with working browser.",
+      "notes": "Chrome unavailable; prices null on 33 new programs. 33 added, 1 status updated. Re-audit with Chrome to confirm prices.",
       "sessionId": null
     },
     {
