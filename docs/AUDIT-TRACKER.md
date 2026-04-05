@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 134 | 11,813 |
-| 🔲 Audits pending | 316 | 2,430 |
+| ✅ Audits completed | 135 | 11,843 |
+| 🔲 Audits pending | 315 | 2,400 |
 | **Total** | **450** | **14,243** |
 
 ---
 
-## ✅ Completed Audits (135 providers)
+## ✅ Completed Audits (136 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -75,12 +75,13 @@ Sorted by number of listings (most to fewest).
 | Richmond School District (SD38) | 46 | 2026-04-04 | VERIFICATION-LOG-RICHMOND-SCHOOL-DISTRICT-SD38.md |
 | Jump Gymnastics | 30 | 2026-04-04 | VERIFICATION-LOG-JUMP-GYMNASTICS.md |
 | Douglas College | 36 | 2026-04-04 | VERIFICATION-LOG-DOUGLAS-COLLEGE.md |
+| Science AL!VE | 30 | 2026-04-04 | VERIFICATION-LOG-SCIENCE-ALIVE.md |
 | Chaoyin International School | 32 | 2026-04-04 | VERIFICATION-LOG-CHAOYIN-INTERNATIONAL-SCHOOL.md |
 | Sparks Academy | 28 | 2026-04-04 | VERIFICATION-LOG-SPARKS-ACADEMY.md |
 
 ---
 
-## 🔲 Pending Audits (413 providers) — Ranked by Priority
+## 🔲 Pending Audits (315 providers) — Ranked by Priority
 
 **Priority score** (0–100) = 60% listing count weight + 40% proximity weight, both log-normalized across the pending pool.
 **Dist** = average km from V5T 2J6 across all of that provider's listings (N/A = no location data).
@@ -143,7 +144,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 57 | City of Vancouver - Mount Pleasant Community Centre | 28 | 0.0 km | 67 |
 | 58 | City of Vancouver — Lord Byng Pool | 31 | 6.7 km | 67 |
 | 59 | Douglas College | 36 | 18.2 km | 67 |
-| 60 | Science AL!VE | 30 | 15.5 km | 66 |
 | 61 | Chaoyin International School | 28 | 8.2 km | 66 |
 | 62 | Sparks Academy | 28 | 5.5 km | 66 |
 | 63 | Burnaby Winter Club | 28 | 9.8 km | 66 |
