@@ -1,15 +1,15 @@
 # Verification Log — City of Vancouver - Kerrisdale Cyclone Taylor Arena
 
-**Date audited:** 2026-04-05
+**Date audited:** 2026-04-05 (session 2 — re-attempt)
 **Auditor:** Claude (automated audit agent)
 **Registration page:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?facilityId=59
-**Result:** INCOMPLETE — Playwright browser could not spawn
+**Result:** INCOMPLETE — Playwright browser could not spawn (multiple sessions, multiple attempts)
 
 ---
 
 ## Blocking Issue
 
-Playwright browser failed with `spawn UNKNOWN` on all three launch attempts:
+Playwright browser failed with `spawn UNKNOWN` on all launch attempts across two sessions (session 1 and session 2, same day). Attempts included waits of 5s, 15s, and 30s between tries.
 
 ```
 Error: server: spawn UNKNOWN
