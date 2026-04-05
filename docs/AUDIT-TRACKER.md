@@ -17,7 +17,7 @@
 
 ---
 
-## ✅ Completed Audits (128 providers)
+## ✅ Completed Audits (129 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -65,6 +65,7 @@ Sorted by number of listings (most to fewest).
 | Vanleena Dance Academy | 1 | 2026-04-04 | VERIFICATION-LOG-MISSING-NORTH-VANCOUVER-PROVIDERS.md |
 | UBC Recreation | 110 | 2026-04-04 | VERIFICATION-LOG-UBC-RECREATION.md |
 | Vancouver School Board (SD39) | 62 | 2026-04-04 | VERIFICATION-LOG-VANCOUVER-SCHOOL-BOARD-SD39.md |
+| False Creek Sprint Canoe & Kayak | 36 | 2026-04-04 | VERIFICATION-LOG-FALSE-CREEK-SPRINT.md |
 
 ---
 
@@ -118,7 +119,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 39 | City of Vancouver - Dunbar Community Centre | 36 | 6.5 km | 69 |
 | 40 | City of Vancouver - Kerrisdale Community Centre | 35 | 5.3 km | 69 |
 | 41 | City of Vancouver - Thunderbird Community Centre | 36 | 4.8 km | 69 |
-| 42 | False Creek Sprint Canoe & Kayak | 34 | 3.7 km | 69 |
 | 43 | City of Vancouver - Britannia Pool | 36 | 2.5 km | 69 |
 | 44 | City of Vancouver - Hillcrest Rink | 36 | 2.3 km | 69 |
 | 45 | Mount Seymour | 38 | 16.1 km | 68 |
