@@ -1,10 +1,10 @@
-# Verification Log — LDS Society
+# Verification Log — LDS Society (Learn. Develop. Succeed.)
 
 **Date:** 2026-04-05
 **Auditor:** Claude (automated)
-**Registration Page:** https://ldsociety.ca/program/camps/
-**Application Portal:** https://apply.ldsociety.ca
-**Status:** COMPLETED
+**Registration Page:** https://ldsociety.ca/program-service/summer-camps/
+**Apply Portal:** https://apply.ldsociety.ca
+**Status:** COMPLETE
 
 ---
 
@@ -12,73 +12,68 @@
 
 | Metric | Value |
 |--------|-------|
-| Programs found on live page | 4 (2 program types × 2 sessions each) |
-| Programs in database | 8 |
+| Programs found on live page | 4 (2 camp types x 2 sessions each) |
+| Programs in database (before) | 8 |
+| Programs updated | 4 (real sessions corrected) |
+| Programs marked Completed | 4 (fabricated placeholder entries) |
 | Programs added | 0 |
-| Programs fixed | 4 (corrected dates, pricing, days) |
-| Unconfirmed sessions | 4 (set to Likely Coming Soon) |
 
 ---
 
-## Programs Found on Live Page
+## Provider Information
 
-### Young Scientists (Grades 1–3, approx. ages 6–9)
-- **Activities:** Color-changing potions, volcano building, animal rescues, paper airplane design
-- **Schedule:** Monday–Thursday, 9:00 AM – 4:00 PM
-- **Session 1:** July 13–16, 2026
-- **Session 2:** August 10–13, 2026
-- **Max group size:** 10 students
-
-### Earth Explorers (Grades 4–6, approx. ages 9–12)
-- **Activities:** Rainforest ecosystems, desert adaptations, mountain formation, ocean investigations
-- **Schedule:** Monday–Thursday, 9:00 AM – 4:00 PM
-- **Session 1:** July 27–30, 2026
-- **Session 2:** August 24–27, 2026
-- **Max group size:** 10 students
-
-### Pricing (Sliding Scale — per 4-day camp)
-| Household Income | Fee |
-|---|---|
-| $0–$70,000 | $210 |
-| $70,000–$85,000 | $330 |
-| $85,000–$120,000 | $450 |
-| $120,000+ | $580 |
-
-**Location:** East Vancouver Learning Centre, 3292 East Broadway, Vancouver, BC
-
-**Registration:** Apply at apply.ldsociety.ca — new families require an intake interview; returning learners have a shorter call.
+- **Full name:** LDS — Learn. Develop. Succeed. Society (not the LDS Church)
+- **Location:** East Vancouver Learning Centre, 3292 East Broadway, Vancouver, BC V5M 1Z8
+- **Neighbourhood:** Renfrew-Collingwood
+- **Website:** https://ldsociety.ca
+- **Registration:** https://apply.ldsociety.ca (intake interview required for new families)
+- **Notes:** Specialized camp for students with learning differences. Maximum 10 campers per group. Sliding scale fees by household income.
 
 ---
 
-## Database Changes Made
+## Programs Found on Live Site
 
-### Fixed (dates, cost, days corrected)
+### Young Scientists STEAM Camp (Grades 1-3)
 
-| ID | Name | Old Dates | New Dates | Old Cost | New Cost |
-|----|------|-----------|-----------|----------|----------|
-| 219 | Young Scientists STEAM Camp | Jul 21–25 (Mon-Fri) | Jul 13–16 (Mon-Thu) | $495 | null (sliding scale) |
-| 222 | Young Scientists STEAM Camp | Aug 11–15 (Mon-Fri) | Aug 10–13 (Mon-Thu) | $495 | null (sliding scale) |
-| 224 | Earth Explorers STEAM Camp | Jul 28–Aug 1 (Mon-Fri) | Jul 27–30 (Mon-Thu) | $495 | null (sliding scale) |
-| 226 | Earth Explorers STEAM Camp | Aug 11–15 (Mon-Fri) | Aug 24–27 (Mon-Thu) | $495 | null (sliding scale) |
+| Field | Value |
+|-------|-------|
+| Name | Young Scientists STEAM Camp |
+| Age range | ~6-9 years (entering Grades 1-3 in Sept 2026) |
+| Schedule | Mon-Thu, 9:00 AM – 4:00 PM (4-day sessions) |
+| Session 1 | July 13-16, 2026 |
+| Session 2 | August 10-13, 2026 |
+| Cost | Sliding scale: $210 / $330 / $450 / $580 by household income |
+| Enrollment | Open |
+| URL | https://ldsociety.ca/program-service/summer-camps/ |
+| Registration | https://apply.ldsociety.ca |
 
-All 4 updated entries: `confirmed2026: true`, `priceVerified: true`, `registrationUrl: https://ldsociety.ca/program/camps/`
+### Earth Explorers STEAM Camp (Grades 4-6)
 
-### Set to "Likely Coming Soon" (sessions not shown on live page)
-
-| ID | Name | Old Dates | Reason |
-|----|------|-----------|--------|
-| 220 | Young Scientists STEAM Camp | Jul 28–Aug 1 | Not on live page; only 2 sessions offered |
-| 221 | Young Scientists STEAM Camp | Aug 5–8 | Not on live page; only 2 sessions offered |
-| 223 | Earth Explorers STEAM Camp | Jul 21–25 | Not on live page; only 2 sessions offered |
-| 225 | Earth Explorers STEAM Camp | Aug 5–8 | Not on live page; only 2 sessions offered |
-
-All 4 unconfirmed entries: `confirmed2026: false`, `priceVerified: false`, cost set to null with sliding scale note.
+| Field | Value |
+|-------|-------|
+| Name | Earth Explorers STEAM Camp |
+| Age range | ~9-12 years (entering Grades 4-6 in Sept 2026) |
+| Schedule | Mon-Thu, 9:00 AM – 4:00 PM (4-day sessions) |
+| Session 1 | July 27-30, 2026 |
+| Session 2 | August 24-27, 2026 |
+| Cost | Sliding scale: $210 / $330 / $450 / $580 by household income |
+| Enrollment | Open |
+| URL | https://ldsociety.ca/program-service/summer-camps/ |
+| Registration | https://apply.ldsociety.ca |
 
 ---
 
-## Key Discrepancies Found
+## Database Corrections
 
-1. **Dates wrong:** All 8 database entries had incorrect dates. Our data had Mon-Fri 5-day weeks; live page shows Mon-Thu 4-day camps.
-2. **Cost wrong:** Database had flat $495; actual cost is sliding scale $210–$580 based on household income.
-3. **Too many sessions:** Database had 4 sessions per program type; live page shows only 2 per type.
-4. **Registration URL:** Should point to ldsociety.ca/program/camps/ (camp info page with "Apply Now" button to apply.ldsociety.ca).
+| ID | Change |
+|----|--------|
+| 219 | Fixed dates (Jul 13-16), days (Mon-Thu), cost (null+sliding scale note), address, neighbourhood, confirmed2026=true |
+| 222 | Fixed dates (Aug 10-13), days (Mon-Thu), cost (null+sliding scale note), address, neighbourhood, confirmed2026=true |
+| 224 | Fixed dates (Jul 27-30), days (Mon-Thu), cost (null+sliding scale note), address, neighbourhood, confirmed2026=true |
+| 226 | Fixed dates (Aug 24-27), days (Mon-Thu), cost (null+sliding scale note), address, neighbourhood, confirmed2026=true |
+| 220 | Marked Completed — date (Jul 28) did not match any real session; entry was fabricated |
+| 221 | Marked Completed — date (Aug 5) did not match any real session; entry was fabricated |
+| 223 | Marked Completed — date (Jul 21) did not match any real session; entry was fabricated |
+| 225 | Marked Completed — date (Aug 5) did not match any real session; entry was fabricated |
+
+**Provider shows 4 programs, database has 4 active (4 corrected, 4 retired)**
