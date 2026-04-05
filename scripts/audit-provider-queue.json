@@ -247,10 +247,10 @@
       "listings": 71,
       "distKm": 2.5,
       "priorityScore": 76,
-      "status": "in_progress",
-      "auditDate": null,
+      "status": "failed",
+      "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-BRITANNIA-CMTY-CENTRE.md",
-      "notes": "Playwright browser spawn UNKNOWN error — system resource exhaustion from concurrent audit sessions. Retry when system is less loaded.",
+      "notes": "Playwright spawn UNKNOWN — Firefox and Chrome both fail to launch. Blocked same as Hillcrest, Renfrew, Killarney audits. Retry when browser spawn issue resolved.",
       "sessionId": null
     },
     {

@@ -1,33 +1,44 @@
 # Verification Log — City of Vancouver - Britannia Cmty Centre
 
-**Date audited:** 2026-04-05
+**Date audited:** 2026-04-05 (two attempts)
 **Auditor:** Claude (automated audit session)
-**Registration page URL:** https://ca.apm.activecommunities.com/vancouver/activity_search
-**Status: BLOCKED — Playwright browser failed to launch**
+**Registration page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&locale=en-US&facility=33
+**Status: BLOCKED — Playwright browser failed to launch (both sessions)**
 
 ---
 
 ## Audit Attempt Summary
 
-This audit was attempted on 2026-04-05 but could not be completed due to a Playwright browser failure.
+This audit was attempted twice on 2026-04-05 but could not be completed due to Playwright browser failures.
 
 ### Technical Blocker
 
 Every attempt to launch the Playwright browser (`mcp__playwright__browser_navigate`) failed with:
 
+**Session 1 (earlier):**
 ```
 Error: server: spawn UNKNOWN
 Launching: C:\Users\thoma\AppData\Local\ms-playwright\chromium-1217\chrome-win64\chrome.exe
 User data dir: C:\Users\thoma\AppData\Local\ms-playwright\mcp-chrome-for-testing-5467dfb
 ```
 
-The Chrome binary exists at the expected path but spawning the process failed. Likely cause: Windows resource exhaustion — 30+ concurrent Node.js processes were running from parallel Claude Code audit sessions, likely hitting process limits or handle table limits.
+**Session 2 (this session):**
+```
+Error: server: spawn UNKNOWN
+Launching: C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe
+-no-remote -headless -profile C:\Users\thoma\AppData\Local\ms-playwright\mcp-firefox-5467dfb
+```
 
-Attempts made:
+Both Firefox and Chrome binaries exist at the expected paths but cannot be spawned. This is a persistent system-level issue affecting multiple audit sessions (also blocked Hillcrest CC, Renfrew Park CC, Killarney CC, Hillcrest Rink audits).
+
+Attempts made (Session 1):
 1. Killed stale `chrome-headless-shell.exe` processes
 2. Checked for lockfiles in the MCP user data directory
 3. Tried multiple Playwright calls (navigate, snapshot, close) — all failed identically
 4. The `mcp-chrome-5467dfb/lockfile` was busy (another session's Chrome active)
+
+Attempts made (Session 2):
+1. Tried `mcp__playwright__browser_navigate` 3 times to different URLs — all failed identically with Firefox spawn error
 
 ### What Was NOT Done
 - Could not navigate to the ActiveNet registration page
