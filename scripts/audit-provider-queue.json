@@ -119,10 +119,10 @@
       "listings": 141,
       "distKm": 7.6,
       "priorityScore": 82,
-      "status": "pending",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-WEST-POINT-GREY-CMTY-CENTRE-ABERTHAU.md",
+      "notes": "Chrome MCP unavailable — ActiveNet requires JS rendering, WebFetch insufficient. Same blocker as Dunbar/Hillcrest. Re-audit when Chrome MCP is available.",
       "sessionId": null
     },
     {
