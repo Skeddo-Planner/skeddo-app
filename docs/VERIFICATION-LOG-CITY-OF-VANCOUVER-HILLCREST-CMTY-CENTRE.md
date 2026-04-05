@@ -1,8 +1,8 @@
 # Verification Log — City of Vancouver - Hillcrest Cmty Centre
 
-**Date audited:** 2026-04-05 (this session); prior incomplete session also 2026-04-05
+**Date audited:** 2026-04-05 (completed this session)
 **Auditor:** Claude (claude-sonnet-4-6)
-**Registration page:** https://hillcrestcommunitycentre.com/programs/
+**Registration page:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&activity_select_param=2&viewMode=list
 **Booking system:** ActiveNet — https://anc.ca.apm.activecommunities.com/vancouver/activity/search
 **Note on tooling:** Claude in Chrome MCP tool was NOT available in this session. Programs verified using WebFetch on hillcrestcommunitycentre.com/programs/ (the official Hillcrest Community Association website, which mirrors the ActiveNet listings with program names, dates, times, age ranges, and registration URLs). Prices could not be verified as the Hillcrest website does not display prices. ActiveNet detail pages require JavaScript and could not be rendered via WebFetch.
 
@@ -154,7 +154,7 @@ Source: https://hillcrestcommunitycentre.com/programs/ viewed 2026-04-05
 
 ---
 
-## Known Gaps / Follow-Up Items
+## Known Gaps / Follow-Up Items (from Session 1)
 
 1. **Explorers Summer Day Camp SR Weeks 1–5** — weeks 6–8 are in DB but 1–5 appear missing. Not shown on website during this April audit. Verify when summer registration opens.
 2. **Explorers Preschool Summer Camp AM Week 1** (Jul 6–10) — appears missing from database.
@@ -163,3 +163,50 @@ Source: https://hillcrestcommunitycentre.com/programs/ viewed 2026-04-05
 5. **Prices unverified** — Chrome browser tool unavailable. All new program prices should be re-verified via Chrome browser in a future session once the MCP tool is available.
 6. **Adult/senior programs** — not audited (Fitness, Pickleball, Badminton drop-ins, adult line dancing, etc. out of Skeddo scope).
 7. **Summer 2026 programming** — website only showed Spring 2026 during this audit. Re-audit in May/June when summer programs appear.
+
+---
+
+## Session 2 — 2026-04-05 (Completion Pass)
+
+**Auditor:** Claude Sonnet 4.6
+**Tool:** Playwright browser (mcp__playwright__browser_*)
+**Source:** ActiveNet registration pages verified via direct browser navigation
+
+### Summary
+
+Previous session (Session 1) identified 203 missing programs from 901 Hillcrest IDs found in ActiveNet search. Session 1 added 43. This session added the remaining **160 programs** bringing the database to **416 total Hillcrest programs**.
+
+### Spot-Checks Performed (Session 2)
+
+| ID | Program | Verified |
+|----|---------|---------|
+| COV-602401 | Sportball Junior | May 22–Jun 26, Fri 9:30–10:15 AM, Age 1y4m–2, 2 openings |
+| COV-606732 | Explorers Preschool Summer Camp AM Wk1 | Jul 6–10, 9:15–11:45 AM, Ages 3–5y11m, $154, opens Apr 8 |
+| COV-606739 | Explorers Preschool Summer Camp AM Wk3 | Jul 20–24, $154, opens Apr 8, consistent with Wk1 |
+| COV-604902 | Explorers Youth Leadership Camp Wk1 | Jul 6–10, 9:30 AM–3:30 PM, Ages 12–14y11m, opens Apr 8 |
+| COV-604441 | Birthday Party with Gym (9:30am) | Apr 12, Age <13, confirmed match |
+
+### Session 1 Gaps Resolved
+
+| Gap | Resolution |
+|-----|-----------|
+| Preschool AM Weeks 1–2 missing | Added COV-606732, COV-606738 ✓ |
+| SR Camp Weeks 1–5 missing | Added COV-604932–604936 ✓ |
+| Youth Leadership Weeks 1–8 all missing | Added COV-604902–604909 ✓ |
+| Before Camp Care Weeks 2–8 | Added COV-603528–603536 ✓ |
+| Art of Tennis Camp (8 weeks) | Added COV-605938–605948 ✓ |
+| Birthday Party slots (35 missing) | Added all ✓ |
+| Sportball outdoor/camp | Added 20+ ✓ |
+| High 5 Sports camps | Added 8+ ✓ |
+| Byte Camp additional sessions | Added COV-600455, 600457, 600461, 600464 ✓ |
+| Architecture/Petit Architect camps | Added 10+ ✓ |
+| Performing Stars camps | Added 10+ ✓ |
+
+### Count Summary (Session 2)
+
+| | Count |
+|-|-------|
+| DB before Session 2 | 256 |
+| Added in Session 2 | 160 |
+| **DB after Session 2** | **416** |
+| New violations introduced | 0 (pre-existing violations unchanged) |
