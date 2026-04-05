@@ -1054,9 +1054,9 @@
       "listings": 21,
       "distKm": 14.4,
       "priorityScore": 62,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md",
       "notes": null,
       "sessionId": null
     },
