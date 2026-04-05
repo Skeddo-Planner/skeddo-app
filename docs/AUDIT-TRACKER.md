@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 138 | 11,936 |
-| 🔲 Audits pending | 312 | 2,340 |
-| **Total** | **450** | **14,276** |
+| ✅ Audits completed | 139 | 11,946 |
+| 🔲 Audits pending | 311 | 2,318 |
+| **Total** | **450** | **14,264** |
 
 ---
 
-## ✅ Completed Audits (139 providers)
+## ✅ Completed Audits (140 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -81,6 +81,7 @@ Sorted by number of listings (most to fewest).
 | Burnaby Winter Club | 28 | 2026-04-05 | VERIFICATION-LOG-BURNABY-WINTER-CLUB.md |
 | Flicka Gymnastics | 32 | 2026-04-05 | VERIFICATION-LOG-FLICKA-GYMNASTICS.md |
 | False Creek Community Centre | 33 | 2026-04-05 | VERIFICATION-LOG-FALSE-CREEK-COMMUNITY-CENTRE.md |
+| Ava Music & Art Centre | 22 | 2026-04-05 | VERIFICATION-LOG-AVA-MUSIC-ART-CENTRE.md |
 
 ---
 
