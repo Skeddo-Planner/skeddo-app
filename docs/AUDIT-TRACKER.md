@@ -11,8 +11,8 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 130 | 11,690 |
-| 🔲 Audits pending | 320 | 2,493 |
+| ✅ Audits completed | 131 | 11,720 |
+| 🔲 Audits pending | 319 | 2,463 |
 | **Total** | **450** | **14,183** |
 
 ---
@@ -70,6 +70,7 @@ Sorted by number of listings (most to fewest).
 | Little Kitchen Academy | 104 | 2026-04-04 | VERIFICATION-LOG-LITTLE-KITCHEN-ACADEMY.md |
 | Grouse Mountain | 35 | 2026-04-04 | VERIFICATION-LOG-GROUSE-MOUNTAIN.md |
 | YMCA of Greater Vancouver | 30 | 2026-04-04 | VERIFICATION-LOG-YMCA-GREATER-VANCOUVER.md |
+| Vancouver Athletic Football Club | 30 | 2026-04-04 | VERIFICATION-LOG-VANCOUVER-ATHLETIC-FOOTBALL-CLUB.md |
 
 ---
 
@@ -479,7 +480,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 400 | Sprouting Chefs | 1 | N/A | 0 |
 | 401 | SVLL | 1 | N/A | 0 |
 | 402 | ToDo Spanish | 1 | N/A | 0 |
-| 403 | Vancouver Athletic Football Club | 1 | N/A | 0 |
+| ~~403~~ | ~~Vancouver Athletic Football Club~~ | ~~1~~ | ~~N/A~~ | ~~0~~ (completed) |
 | 404 | Vancouver Hawks | 1 | N/A | 0 |
 | 405 | VSC | 1 | N/A | 0 |
 | 406 | VCB | 1 | N/A | 0 |
