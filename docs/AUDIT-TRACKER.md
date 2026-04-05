@@ -17,7 +17,7 @@
 
 ---
 
-## ✅ Completed Audits (129 providers)
+## ✅ Completed Audits (130 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -66,6 +66,7 @@ Sorted by number of listings (most to fewest).
 | UBC Recreation | 110 | 2026-04-04 | VERIFICATION-LOG-UBC-RECREATION.md |
 | Vancouver School Board (SD39) | 62 | 2026-04-04 | VERIFICATION-LOG-VANCOUVER-SCHOOL-BOARD-SD39.md |
 | False Creek Sprint Canoe & Kayak | 36 | 2026-04-04 | VERIFICATION-LOG-FALSE-CREEK-SPRINT.md |
+| Mount Seymour | 44 | 2026-04-04 | VERIFICATION-LOG-MOUNT-SEYMOUR.md |
 
 ---
 
@@ -121,7 +122,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 41 | City of Vancouver - Thunderbird Community Centre | 36 | 4.8 km | 69 |
 | 43 | City of Vancouver - Britannia Pool | 36 | 2.5 km | 69 |
 | 44 | City of Vancouver - Hillcrest Rink | 36 | 2.3 km | 69 |
-| 45 | Mount Seymour | 38 | 16.1 km | 68 |
 | 46 | Little Kitchen Academy | 35 | 10.5 km | 68 |
 | 47 | Grouse Mountain | 35 | 12.2 km | 68 |
 | 48 | City of Vancouver - Kitsilano Cmty Centre | 34 | 4.4 km | 68 |
