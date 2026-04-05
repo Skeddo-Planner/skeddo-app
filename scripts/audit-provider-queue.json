@@ -331,10 +331,10 @@
       "listings": 55,
       "distKm": 2.7,
       "priorityScore": 73,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright Firefox spawn UNKNOWN — same issue blocking False Creek, Hillcrest, Killarney, Renfrew Park. Firefox MCP cannot launch on this Windows machine. Requires fixing Playwright Firefox installation or switching MCP to use Chromium.",
       "sessionId": null
     },
     {
@@ -343,10 +343,10 @@
       "listings": 52,
       "distKm": 3.4,
       "priorityScore": 73,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright browser spawn UNKNOWN — Firefox process could not launch (system resource exhaustion). Same issue as Mount Pleasant, Creekside, Dunbar audits.",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-COAL-HARBOUR-CMTY-CENTRE.md",
+      "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this machine. Same error blocking all City of Vancouver audits.",
       "sessionId": null
     },
     {
