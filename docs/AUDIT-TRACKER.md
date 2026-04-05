@@ -17,7 +17,7 @@
 
 ---
 
-## ✅ Completed Audits (151 providers)
+## ✅ Completed Audits (152 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -26,6 +26,7 @@ Sorted by number of listings (most to fewest).
 | City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
 | Professor Puffin's Challenge Club | 14 | 2026-04-05 | VERIFICATION-LOG-PROFESSOR-PUFFINS-CHALLENGE-CLUB.md |
 | Origins Parkour | 12 | 2026-04-05 | VERIFICATION-LOG-ORIGINS-PARKOUR.md |
+| MAB Art Studio | 14 | 2026-04-05 | VERIFICATION-LOG-MAB-ART-STUDIO.md (INCOMPLETE — site unreachable) |
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
 | Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |
@@ -96,7 +97,7 @@ Sorted by number of listings (most to fewest).
 
 ---
 
-## 🔲 Pending Audits (313 providers) — Ranked by Priority
+## 🔲 Pending Audits (312 providers) — Ranked by Priority
 
 **Priority score** (0–100) = 60% listing count weight + 40% proximity weight, both log-normalized across the pending pool.
 **Dist** = average km from V5T 2J6 across all of that provider's listings (N/A = no location data).
@@ -192,7 +193,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 101 | City of Vancouver — Coal Harbour Community Centre | 12 | 3.4 km | 59 |
 | 102 | City of Vancouver - Kensington Pool | 12 | 3.5 km | 59 |
 | 103 | City of Vancouver - Renfrew Park Pool | 13 | 4.9 km | 59 |
-| 105 | MAB Art Studio | 14 | 7.9 km | 59 |
 | 106 | City of Burnaby - Cameron Recreation Centre | 14 | 14.8 km | 58 |
 | 107 | BrainSTEM Learning | 10 | 5.6 km | 57 |
 | 108 | JCC of Greater Vancouver | 10 | 3.8 km | 57 |
