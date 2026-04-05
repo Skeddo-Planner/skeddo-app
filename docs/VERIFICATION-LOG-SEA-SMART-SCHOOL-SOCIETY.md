@@ -3,8 +3,8 @@
 **Date:** 2026-04-05
 **Auditor:** Claude (automated)
 **Registration Page:** https://www.seasmartschool.com/summer-camps
-**Booking URL:** https://thestarfishca.square.site/shop/camps/UEH3ISHGMWQ542D3SGLTT2UK
-**Status:** COMPLETE — major data correction
+**Registration Portal:** https://thestarfishca.square.site/shop/camps/
+**Status:** COMPLETED
 
 ---
 
@@ -12,49 +12,70 @@
 
 | Metric | Value |
 |--------|-------|
-| Programs found on live page | 8 programs x 26 sessions |
-| Programs in database (before) | 8 (all wrong) |
-| Programs marked Completed | 8 (wrong names, prices, locations) |
-| Programs added | 26 correct entries |
+| Programs found on live page | 26 (8 program types × 2-4 sessions each) |
+| Programs in database (before) | 8 |
+| Programs replaced | 8 (old entries removed, completely incorrect data) |
+| Programs added | 26 (all new, accurate 2026 data) |
+| Net change | +18 programs |
 
 ---
 
-## Critical Corrections
+## Provider Information
 
-The existing 8 entries (IDs 480-487) had MULTIPLE serious errors:
-
-| Field | Previous (wrong) | Correct |
-|-------|-----------------|---------|
-| Names | "Ocean Explorers Camp", "Forest Guardians Camp" | 8 distinct program names |
-| Price | $75 | $400 (5-day) / $320 (4-day) |
-| Age range | 6-10 combined | 6-7 OR 8-10 (separate listings) |
-| Location | "Kitsilano Beach / Trout Lake" (combined) | One address per listing |
-| Neighbourhood | Strathcona | Kitsilano OR Kensington-Cedar Cottage |
-| August sessions | None | 3 per program (Aug 4-7, 10-14, 17-21) |
-| Girls-only programs | None | Sea Scientists + Marine Biologists in Training |
+- **Full name:** Sea Smart School Society (merging with The Starfish Canada)
+- **Website:** https://www.seasmartschool.com
+- **Registration:** https://thestarfishca.square.site/shop/camps/
+- **Email:** info@seasmartschool.com | **Phone:** +1 (604) 358-0163
+- **Scholarships:** K.E.L.P. Education Fund available
 
 ---
 
-## Programs and Sessions
+## 2026 Programs Found on Live Page
 
-### Kitsilano Beach (1499 Arbutus St area, Kitsilano)
+### Ages 6-7, Kitsilano Beach (1499 Arbutus St, Vancouver)
 
-| Program | Ages | Sessions | Cost |
-|---------|------|---------|------|
-| Ocean Creatures | 6-7 | Jul 13-17, Jul 27-31, Aug 10-14 | $400 each |
-| Sea Scientists (Girls Only) | 6-7 | Jul 6-10, Jul 20-24, Aug 4-7, Aug 17-21 | $400 ($320 Aug 4-7) |
-| Marine Animal Protectors in Training | 8-10 | Jul 13-17, Jul 27-31, Aug 10-14 | $400 each |
-| Marine Biologists in Training (Girls Only) | 8-10 | Jul 6-10, Jul 20-24, Aug 4-7, Aug 17-21 | $400 ($320 Aug 4-7) |
+| Program | Dates | Days | Cost |
+|---------|-------|------|------|
+| Ocean Creatures Camp | Jul 13-17, Jul 27-31, Aug 10-14 | Mon-Fri | $400 |
+| Sea Scientists Camp (Girls Only) | Jul 6-10, Jul 20-24, Aug 17-21 | Mon-Fri | $400 |
+| Sea Scientists Camp (Girls Only) | Aug 4-7 | Tue-Fri | $320 |
 
-### John Hendry Park / Trout Lake (Kensington-Cedar Cottage)
+### Ages 6-7, John Hendry Park / Trout Lake (3550 Victoria Dr, Vancouver)
 
-| Program | Ages | Sessions | Cost |
-|---------|------|---------|------|
-| Animal Detectives | 6-7 | Jul 13-17, Jul 27-31, Aug 10-14 | $400 each |
-| Forest Guardians | 6-7 | Jul 6-10, Jul 20-24, Aug 4-7 | $400 ($320 Aug 4-7) |
-| Aquatic Warriors in Training | 8-10 | Jul 13-17, Jul 27-31, Aug 10-14 | $400 each |
-| Wildlife Biologists in Training | 8-10 | Jul 6-10, Jul 20-24, Aug 4-7 | $400 ($320 Aug 4-7) |
+| Program | Dates | Days | Cost |
+|---------|-------|------|------|
+| Animal Detectives Camp | Jul 13-17, Jul 27-31, Aug 10-14 | Mon-Fri | $400 |
+| Forest Guardians Camp | Jul 6-10, Jul 20-24 | Mon-Fri | $400 |
+| Forest Guardians Camp | Aug 4-7 | Tue-Fri | $320 |
 
-**All sessions:** Mon-Fri (Tue-Fri for Aug 4-7 BC Day week), 9:00 AM - 4:00 PM
+### Ages 8-10, Kitsilano Beach
 
-**Provider shows 8 programs / 26 sessions; database now has 26 active entries + 8 retired**
+| Program | Dates | Days | Cost |
+|---------|-------|------|------|
+| Marine Animal Protectors in Training | Jul 13-17, Jul 27-31, Aug 10-14 | Mon-Fri | $400 |
+| Marine Biologists in Training (Girls Only) | Jul 6-10, Jul 20-24, Aug 17-21 | Mon-Fri | $400 |
+| Marine Biologists in Training (Girls Only) | Aug 4-7 | Tue-Fri | $320 |
+
+### Ages 8-10, John Hendry Park / Trout Lake
+
+| Program | Dates | Days | Cost |
+|---------|-------|------|------|
+| Aquatic Warriors in Training | Jul 13-17, Jul 27-31, Aug 10-14 | Mon-Fri | $400 |
+| Wildlife Biologists in Training | Jul 6-10, Jul 20-24 | Mon-Fri | $400 |
+| Wildlife Biologists in Training | Aug 4-7 | Tue-Fri | $320 |
+
+**Schedule:** 9:00 AM – 4:00 PM | **Ratio:** 1:8 educator-to-camper
+
+---
+
+## Database Issues Found (Old Programs)
+
+The 8 original programs (IDs 480-487) had CRITICAL errors:
+1. **Prices completely wrong:** Database had $75/week; actual cost is $320-$400/week (5-7× too low!)
+2. **Wrong program names:** "Ocean Explorers Camp" and "Forest Guardians Camp" — actual names are much more specific
+3. **Age groups wrong:** Database had 6-10 combined; provider uses separate 6-7 and 8-10 groups
+4. **Dates wrong:** Database had 4 consecutive weeks Jul 6-Jul 27; actual sessions are on alternating weeks
+5. **Missing sessions:** 18 additional sessions not in database (August sessions, girls-only programs, second location)
+6. **Missing location detail:** No address in old entries (2 distinct locations: Kits Beach and John Hendry Park)
+
+**Provider shows 26 programs, database had 8 — 18 added (net). All 8 old entries replaced.**
