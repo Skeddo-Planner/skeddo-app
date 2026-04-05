@@ -1742,9 +1742,9 @@
       "listings": 6,
       "distKm": 1.6,
       "priorityScore": 53,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-STEMA-LEARNING-CENTRE.md",
       "notes": null,
       "sessionId": null
     },
