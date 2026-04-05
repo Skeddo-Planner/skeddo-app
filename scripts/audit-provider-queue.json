@@ -727,10 +727,10 @@
       "listings": 28,
       "distKm": 0,
       "priorityScore": 67,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright spawn UNKNOWN — Firefox cannot launch in this environment. Same blocker as Creekside, Templeton, West End audits.",
       "sessionId": null
     },
     {
@@ -847,7 +847,7 @@
       "listings": 22,
       "distKm": 1.8,
       "priorityScore": 65,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
