@@ -1,43 +1,113 @@
 #!/bin/bash
-# Audit runner with auto-relaunch between providers
+# Audit runner — picks one provider at a time, injects it into the prompt, relaunches automatically
 CLAUDE="/c/Users/thoma/AppData/Roaming/Claude/claude-code/2.1.87/claude.exe"
 NODE="/c/Program Files/nodejs/node"
 LOG="/c/Users/thoma/Skeddo/skeddo-app/audit-agent.log"
-PROMPT_FILE="./scripts/AUDIT-MASTER-PROMPT.md"
 REPO="/c/Users/thoma/Skeddo/skeddo-app"
+MAX_SECONDS=2700  # 45 min per provider before giving up
 
 cd "$REPO" || exit 1
 
 echo "=== AUDIT SESSION STARTED: $(date) ===" >> "$LOG"
 
+# Pull latest before starting
+git pull >> "$LOG" 2>&1
+
+# Reset stale in-progress providers (crashed sessions leave these behind)
+STALE=$("$NODE" -e "
+  const fs = require('fs');
+  const q = JSON.parse(fs.readFileSync('scripts/audit-provider-queue.json'));
+  const stale = q.providers.filter(p => p.status === 'in_progress' && !p.logFile);
+  stale.forEach(p => p.status = 'pending');
+  if (stale.length) fs.writeFileSync('scripts/audit-provider-queue.json', JSON.stringify(q, null, 2));
+  process.stdout.write(stale.map(p => p.name).join(', '));
+" 2>/dev/null)
+
+if [ -n "$STALE" ]; then
+  echo "--- Reset stale in_progress providers: $STALE ---" >> "$LOG"
+  git add scripts/audit-provider-queue.json
+  git commit --no-verify -m "chore: reset stale in_progress providers to pending" >> "$LOG" 2>&1
+  git push >> "$LOG" 2>&1
+fi
+
 while true; do
-  # Use relative paths so Node.js can resolve them (it doesn't understand /c/... POSIX paths)
-  PENDING=$("$NODE" -e "
-    const q = JSON.parse(require('fs').readFileSync('./scripts/audit-provider-queue.json'));
-    const p = q.providers.filter(p => p.status === 'pending');
-    console.log(p.length);
+  # Pick next pending provider and mark it in_progress (runner owns this, not the agent)
+  NEXT=$("$NODE" -e "
+    const fs = require('fs');
+    const q = JSON.parse(fs.readFileSync('scripts/audit-provider-queue.json'));
+    const p = q.providers.find(p => p.status === 'pending');
+    if (!p) { process.stdout.write(''); process.exit(0); }
+    p.status = 'in_progress';
+    fs.writeFileSync('scripts/audit-provider-queue.json', JSON.stringify(q, null, 2));
+    process.stdout.write(p.name);
   " 2>/dev/null)
 
-  if [ "$PENDING" = "0" ]; then
+  if [ -z "$NEXT" ]; then
     echo "=== ALL PROVIDERS COMPLETE: $(date) ===" >> "$LOG"
     break
   fi
 
-  # Get next provider name for logging
-  NEXT=$("$NODE" -e "
-    const q = JSON.parse(require('fs').readFileSync('./scripts/audit-provider-queue.json'));
-    const p = q.providers.find(p => p.status === 'pending');
-    console.log(p ? p.name : 'none');
+  # Compute UPPER-KEBAB-CASE slug for the verification log filename
+  SLUG=$(PROVIDER_NAME="$NEXT" "$NODE" -e "
+    process.stdout.write(process.env.PROVIDER_NAME.toUpperCase().replace(/[^A-Z0-9]+/g, '-').replace(/^-|-\$/g, ''));
   " 2>/dev/null)
 
-  echo "--- LAUNCHING AGENT: $(date) | Pending: $PENDING | Next: $NEXT ---" >> "$LOG"
+  PENDING_COUNT=$("$NODE" -e "
+    const q = JSON.parse(require('fs').readFileSync('scripts/audit-provider-queue.json'));
+    process.stdout.write(String(q.providers.filter(p => p.status === 'pending').length));
+  " 2>/dev/null)
 
-  # Run audit agent
-  PROMPT=$(cat "$PROMPT_FILE")
-  "$CLAUDE" --dangerously-skip-permissions -p "$PROMPT" >> "$LOG" 2>&1
+  echo "--- LAUNCHING AGENT: $(date) | Provider: $NEXT | Remaining pending: $PENDING_COUNT ---" >> "$LOG"
+
+  # Build prompt: substitute {{PROVIDER_NAME}} and {{PROVIDER_SLUG}} in the template
+  PROMPT=$(PROVIDER_NAME="$NEXT" PROVIDER_SLUG="$SLUG" "$NODE" -e "
+    const fs = require('fs');
+    let t = fs.readFileSync('scripts/AUDIT-MASTER-PROMPT.md', 'utf8');
+    t = t.replace(/\{\{PROVIDER_NAME\}\}/g, process.env.PROVIDER_NAME);
+    t = t.replace(/\{\{PROVIDER_SLUG\}\}/g, process.env.PROVIDER_SLUG);
+    process.stdout.write(t);
+  " 2>/dev/null)
+
+  # Launch agent in background so we can enforce a timeout
+  "$CLAUDE" --dangerously-skip-permissions -p "$PROMPT" >> "$LOG" 2>&1 &
+  AGENT_PID=$!
+  ELAPSED=0
+  TIMED_OUT=0
+
+  while kill -0 $AGENT_PID 2>/dev/null; do
+    sleep 30
+    ELAPSED=$((ELAPSED + 30))
+    if [ $ELAPSED -ge $MAX_SECONDS ]; then
+      echo "--- AGENT TIMED OUT (${MAX_SECONDS}s): $(date) | Provider: $NEXT ---" >> "$LOG"
+      kill $AGENT_PID 2>/dev/null
+      sleep 5
+      kill -9 $AGENT_PID 2>/dev/null
+      TIMED_OUT=1
+      break
+    fi
+  done
+
+  wait $AGENT_PID 2>/dev/null
   EXIT_CODE=$?
+  [ $TIMED_OUT -eq 1 ] && EXIT_CODE=124
 
-  echo "--- AGENT EXITED (code $EXIT_CODE): $(date) ---" >> "$LOG"
+  echo "--- AGENT DONE (code $EXIT_CODE): $(date) | Provider: $NEXT ---" >> "$LOG"
 
-  sleep 5
+  # Safety reset: if agent exited without marking the provider complete/failed, put it back to pending
+  STILL_IN_PROGRESS=$(PROVIDER_NAME="$NEXT" "$NODE" -e "
+    const fs = require('fs');
+    const q = JSON.parse(fs.readFileSync('scripts/audit-provider-queue.json'));
+    const p = q.providers.find(p => p.name === process.env.PROVIDER_NAME);
+    if (p && p.status === 'in_progress') {
+      p.status = 'pending';
+      fs.writeFileSync('scripts/audit-provider-queue.json', JSON.stringify(q, null, 2));
+      process.stdout.write('yes');
+    }
+  " 2>/dev/null)
+
+  if [ "$STILL_IN_PROGRESS" = "yes" ]; then
+    echo "--- Provider not completed by agent, reset to pending: $NEXT ---" >> "$LOG"
+  fi
+
+  sleep 3
 done
