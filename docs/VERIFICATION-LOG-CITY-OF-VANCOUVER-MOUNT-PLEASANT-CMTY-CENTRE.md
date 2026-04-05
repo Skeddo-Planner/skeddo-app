@@ -1,9 +1,9 @@
 # Verification Log — City of Vancouver - Mount Pleasant Cmty Centre
 
-**Date Audited:** 2026-04-05
+**Date Audited:** 2026-04-05 (sessions 1 & 2)
 **Auditor:** Claude (automated audit session)
 **Registration Page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search
-**Status:** BLOCKED — Browser failure
+**Status:** BLOCKED — Browser failure (persistent across multiple sessions)
 
 ---
 
@@ -17,20 +17,19 @@
 
 ### Failure Details
 
-All attempts to launch the Playwright browser (Chromium) returned:
-
+**Session 1 (2026-04-05):** All attempts to launch the Playwright browser (Chromium) returned:
 ```
 Error: server: spawn UNKNOWN
 Launching: C:\Users\thoma\AppData\Local\ms-playwright\chromium-1217\chrome-win64\chrome.exe
 ```
 
-- The `chrome.exe` binary **exists** at the expected path.
-- No Playwright-managed browser processes were found running.
-- The user-data directory `mcp-chrome-for-testing-5467dfb` appeared empty/accessible.
-- Regular Chrome processes were running on the system (these are the user's own browser — not interfering with Playwright's headless instance based on separate user-data-dir).
-- **Same failure mode** as the previous session that blocked the City of Vancouver - Sunset Cmty Centre audit.
+**Session 2 (2026-04-05):** Playwright MCP reconfigured to use Firefox — same failure:
+```
+Error: server: spawn UNKNOWN
+Launching: C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe -no-remote -headless -profile C:\Users\thoma\AppData\Local\ms-playwright\mcp-firefox-5467dfb -juggler-pipe about:blank
+```
 
-Multiple retries were attempted (5+ times) with the same `spawn UNKNOWN` result each time.
+Both Chromium and Firefox fail to spawn. This is a persistent system-level issue affecting all recent audit sessions (10+ consecutive providers blocked). Multiple retries were attempted each session with the same result.
 
 ### Impact
 
