@@ -1,9 +1,9 @@
 # Verification Log — City of Vancouver - Templeton Park Pool
 
-**Audit Date:** 2026-04-05
+**Audit Date:** 2026-04-05 (re-attempted 2026-04-05, session 2)
 **Auditor:** Claude (automated)
 **Registration Page:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search
-**Status: INCOMPLETE — Playwright browser spawn blocked**
+**Status: INCOMPLETE — Playwright browser spawn blocked (persistent)**
 
 ---
 
@@ -11,10 +11,13 @@
 
 This audit was blocked by a system-level failure: the Playwright MCP server could not spawn the Firefox browser process (`spawn UNKNOWN`). Chrome is running on the machine, but the MCP tool is configured for Firefox. This is the same error that blocked recent audits of Dunbar, Creekside, and Mount Pleasant community centres.
 
-**Attempts made:**
-- `mcp__playwright__browser_navigate` — spawn UNKNOWN
+**Attempts made (session 1 + session 2):**
+- `mcp__playwright__browser_navigate` — spawn UNKNOWN (all attempts)
 - `mcp__playwright__browser_close` (reset attempt) — spawn UNKNOWN
-- Confirmed Chrome processes are running (13 chrome.exe processes visible) but Firefox binary cannot be launched
+- `mcp__playwright__browser_snapshot` — spawn UNKNOWN
+- Confirmed Chrome processes are running but Firefox binary cannot be launched
+- Error: `spawn UNKNOWN` launching `C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe`
+- This is a persistent system-level failure blocking ALL City of Vancouver ActiveNet audits
 
 **No live page data was obtained.** No fields were verified against the registration page.
 
