@@ -1,9 +1,25 @@
 # Verification Log — Burnaby Winter Club
 
-**Date:** 2026-04-05
+**Date (first audit):** 2026-04-05
+**Date (re-audit attempt):** 2026-04-05
 **Auditor:** Claude (automated audit agent)
 **Provider:** Burnaby Winter Club
 **Registration page URL:** https://www.burnabywinterclub.com/
+
+---
+
+## Re-audit Attempt (2026-04-05 session 2) — BLOCKED
+
+Re-audit was requested (queue reset to pending). Playwright browser invoked 8+ times with wait intervals (5s, 10s, 15s, 30s). Every attempt failed:
+
+```
+Error: server: spawn UNKNOWN
+  - <launching> firefox.exe -no-remote -headless -profile ... -juggler-pipe about:blank
+```
+
+This is the same system resource exhaustion / Firefox spawn failure seen in many other concurrent audit sessions. Re-audit data could not be refreshed. Original audit data from session 1 (below) remains the most recent verified state.
+
+---
 **Secondary URLs checked:**
 - https://www.burnabywinterclub.com/academy
 - https://www.bwchockey.com/hockey/ice_weeklyschedules.aspx

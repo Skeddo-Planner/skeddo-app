@@ -799,10 +799,10 @@
       "listings": 28,
       "distKm": 9.8,
       "priorityScore": 66,
-      "status": "pending",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
+      "notes": "Playwright spawn UNKNOWN — Firefox cannot start. Re-audit when browser available.",
       "sessionId": null
     },
     {
