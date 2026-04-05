@@ -2,7 +2,7 @@
 
 **Date Audited:** 2026-04-05
 **Auditor:** Claude (automated audit agent)
-**Status:** INCOMPLETE — Playwright browser failed to spawn (2 separate audit attempts)
+**Status:** INCOMPLETE — Playwright browser blocked (3 separate audit attempts)
 
 ---
 
@@ -29,6 +29,15 @@ This is a persistent system resource issue. The same error blocked audits of:
 3. After kill/retry — spawn UNKNOWN
 4. After no-Firefox-process confirmed — spawn UNKNOWN
 5. Final attempt — spawn UNKNOWN
+
+**2026-04-05 attempts (third session):**
+All attempts failed with Playwright Chromium GPU crash loop:
+```
+[pid=140912] GPU process exited unexpectedly: exit_code=-2147483645
+The GPU process has crashed 3 time(s)
+```
+Error code -2147483645 = 0x80000003 (STATUS_BREAKPOINT, Windows GPU rendering failure).
+Same crashed browser PID (140912) reused across all retries. Retried 4 times with 3s and 8s delays — all identical failure.
 
 ---
 
@@ -128,4 +137,4 @@ Retry audit when Playwright browser resources are available. Key areas to check:
 
 ---
 
-*This log documents two failed audit attempts (both 2026-04-05). No data changes were made to programs.json.*
+*This log documents three failed audit attempts (all 2026-04-05). No data changes were made to programs.json.*
