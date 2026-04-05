@@ -11,8 +11,8 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 159 | 12,207 |
-| 🔲 Audits pending | 291 | 2,069 |
+| ✅ Audits completed | 160 | 12,240 |
+| 🔲 Audits pending | 290 | 2,036 |
 | **Total** | **450** | **14,276** |
 
 ---
@@ -25,6 +25,7 @@ Sorted by number of listings (most to fewest).
 | Provider | Listings | Audit Date | Verification Log(s) |
 |----------|----------|------------|---------------------|
 | City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
+| Douglas Park Community Centre Association | 33 | 2026-04-05 | VERIFICATION-LOG-DOUGLAS-PARK-COMMUNITY-CENTRE-ASSOCIATION.md |
 | Professor Puffin's Challenge Club | 14 | 2026-04-05 | VERIFICATION-LOG-PROFESSOR-PUFFINS-CHALLENGE-CLUB.md |
 | Origins Parkour | 12 | 2026-04-05 | VERIFICATION-LOG-ORIGINS-PARKOUR.md |
 | MAB Art Studio | 14 | 2026-04-05 | VERIFICATION-LOG-MAB-ART-STUDIO.md (INCOMPLETE — site unreachable) |
@@ -214,7 +215,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 116 | City of Vancouver — West End Community Centre | 9 | 3.7 km | 56 |
 | 117 | City of Vancouver — Killarney Community Centre | 9 | 5.9 km | 56 |
 | 118 | City of Vancouver — Trout Lake Community Centre | 9 | 2.7 km | 56 |
-| 119 | Douglas Park Community Centre Association | 9 | 1.8 km | 56 |
+| ~~119~~ | ~~Douglas Park Community Centre Association~~ | ~~9~~ | ~~1.8 km~~ | ~~56~~ | ✅ 2026-04-05 |
 | 120 | Dragon Zone Paddling Club | 9 | 0.9 km | 56 |
 | 121 | Riley Park Hillcrest Community Association | 9 | 2.3 km | 56 |
 | 122 | Kitsilano Neighbourhood House | 9 | 4.1 km | 56 |
