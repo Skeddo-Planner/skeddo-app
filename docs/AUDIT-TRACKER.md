@@ -17,7 +17,7 @@
 
 ---
 
-## ✅ Completed Audits (131 providers)
+## ✅ Completed Audits (132 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -68,6 +68,7 @@ Sorted by number of listings (most to fewest).
 | False Creek Sprint Canoe & Kayak | 36 | 2026-04-04 | VERIFICATION-LOG-FALSE-CREEK-SPRINT.md |
 | Mount Seymour | 44 | 2026-04-04 | VERIFICATION-LOG-MOUNT-SEYMOUR.md |
 | Little Kitchen Academy | 104 | 2026-04-04 | VERIFICATION-LOG-LITTLE-KITCHEN-ACADEMY.md |
+| Grouse Mountain | 35 | 2026-04-04 | VERIFICATION-LOG-GROUSE-MOUNTAIN.md |
 
 ---
 
@@ -123,7 +124,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 41 | City of Vancouver - Thunderbird Community Centre | 36 | 4.8 km | 69 |
 | 43 | City of Vancouver - Britannia Pool | 36 | 2.5 km | 69 |
 | 44 | City of Vancouver - Hillcrest Rink | 36 | 2.3 km | 69 |
-| 47 | Grouse Mountain | 35 | 12.2 km | 68 |
 | 48 | City of Vancouver - Kitsilano Cmty Centre | 34 | 4.4 km | 68 |
 | 49 | City of Vancouver - West End Cmty Centre | 33 | 3.9 km | 68 |
 | 50 | City of Vancouver - False Creek Cmty Centre | 31 | 2.5 km | 68 |
