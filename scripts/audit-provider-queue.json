@@ -10,7 +10,7 @@
       "listings": 14,
       "distKm": 7.9,
       "priorityScore": 59,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": "VERIFICATION-LOG-MAB-ART-STUDIO.md",
       "notes": "mabstudio.ca unreachable on 2026-04-05 (connection refused). Re-audit when site is back online.",
@@ -1528,7 +1528,7 @@
       "priorityScore": 55,
       "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "docs/VERIFICATION-LOG-ROYAL-CITY-SOCCER-CLUB.md",
+      "logFile": "VERIFICATION-LOG-ROYAL-CITY-SOCCER-CLUB.md",
       "notes": null,
       "sessionId": null
     },
