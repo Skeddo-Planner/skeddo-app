@@ -1706,9 +1706,9 @@
       "listings": 7,
       "distKm": 5.1,
       "priorityScore": 53,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-STANLEY-PARK-ECOLOGY-SOCIETY.md",
       "notes": null,
       "sessionId": null
     },
