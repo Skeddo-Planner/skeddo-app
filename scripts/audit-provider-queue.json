@@ -211,7 +211,7 @@
       "listings": 95,
       "distKm": 0.1,
       "priorityScore": 79,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MOUNT-PLEASANT-CMTY-CENTRE.md",
       "notes": "Browser (Playwright/Chromium spawn UNKNOWN) failed repeatedly — same issue as Sunset Cmty Centre session. Chromium binary exists but cannot be launched. Retry when Playwright MCP browser is operational.",
@@ -235,10 +235,10 @@
       "listings": 75,
       "distKm": 4.4,
       "priorityScore": 76,
-      "status": "pending",
+      "status": "failed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-RENFREW-PARK-CMTY-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN — Firefox process could not be launched (system resource exhaustion). Same error as Dunbar, Creekside, Mount Pleasant. Retry when browser available.",
+      "notes": "Playwright spawn UNKNOWN on all attempts across 2 sessions (7 total attempts). Same system resource exhaustion error as Dunbar, Creekside, Mount Pleasant. Retry when browser available.",
       "sessionId": null
     },
     {
@@ -559,10 +559,10 @@
       "listings": 36,
       "distKm": 2.3,
       "priorityScore": 69,
-      "status": "pending",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright browser spawn UNKNOWN — Firefox failed to launch (system resource exhaustion). Existing data retained as-is.",
       "sessionId": null
     },
     {
