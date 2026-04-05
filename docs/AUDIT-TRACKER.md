@@ -11,9 +11,9 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 161 | 12,249 |
-| 🔲 Audits pending | 289 | 2,027 |
-| **Total** | **450** | **14,276** |
+| ✅ Audits completed | 162 | 12,280 |
+| 🔲 Audits pending | 288 | 2,027 |
+| **Total** | **450** | **14,307** |
 
 ---
 
@@ -25,6 +25,7 @@ Sorted by number of listings (most to fewest).
 | Provider | Listings | Audit Date | Verification Log(s) |
 |----------|----------|------------|---------------------|
 | City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
+| Riley Park Hillcrest Community Association | 40 | 2026-04-05 | VERIFICATION-LOG-RILEY-PARK-HILLCREST-COMMUNITY-ASSOCIATION.md |
 | Douglas Park Community Centre Association | 33 | 2026-04-05 | VERIFICATION-LOG-DOUGLAS-PARK-COMMUNITY-CENTRE-ASSOCIATION.md |
 | Dragon Zone Paddling Club | 9 | 2026-04-05 | VERIFICATION-LOG-DRAGON-ZONE-PADDLING-CLUB.md |
 | Professor Puffin's Challenge Club | 14 | 2026-04-05 | VERIFICATION-LOG-PROFESSOR-PUFFINS-CHALLENGE-CLUB.md |

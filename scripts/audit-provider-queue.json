@@ -1450,11 +1450,12 @@
       "listings": 9,
       "distKm": 2.3,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-RILEY-PARK-HILLCREST-COMMUNITY-ASSOCIATION.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "listingsAfter": 40
     },
     {
       "rank": 121,
