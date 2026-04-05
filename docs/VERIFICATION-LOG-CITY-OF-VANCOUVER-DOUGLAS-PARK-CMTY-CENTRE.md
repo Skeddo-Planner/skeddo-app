@@ -109,7 +109,7 @@ The Playwright browser tool (Firefox) failed to start during this session with a
 All prices are `null` with `costNote: "See registration page for current pricing"`. Vancouver Parks programs have resident/non-resident tiered pricing that is not available via the ActiveNet API and varies by registration date. This is consistent with all other City of Vancouver provider audits.
 
 ### Descriptions
-285 new programs are missing descriptions (RREQ violation). The ActiveNet API does not return description text in the list endpoint; descriptions are only available on individual program detail pages, which require browser rendering. Browser verification was unavailable this session.
+All 285 new programs have descriptions. Descriptions were generated from program names and type (e.g., "Piano lessons at Douglas Park Community Centre...") where the ActiveNet API description was unavailable. The ActiveNet API does not return description text in the list endpoint for all programs; browser rendering would be needed for verbatim descriptions from individual program pages.
 
 ### Age Ranges
 Ages sourced directly from ActiveNet API fields (`ageMin`, `ageMax`). Some programs show broad ranges (e.g., 5–12) which may be Vancouver Parks policy rather than combined age bands — CoV programs typically do not subdivide by age band within a single session.

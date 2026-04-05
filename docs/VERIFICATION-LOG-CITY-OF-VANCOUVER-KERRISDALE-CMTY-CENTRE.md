@@ -277,3 +277,21 @@ A complete scrape of all ActiveNet programs for center_ids=33 was performed usin
 - **Branch:** main
 - **Validator:** 1804 violations, 30 auto-fixed
 - **Programs:** 15,534 total
+
+---
+
+## Session 4 — Pipeline Maintenance (2026-04-05)
+
+Post-session cleanup: ran fill-computable-fields and validate-programs --fix on full database.
+
+- `fill-computable-fields.cjs` updated derived fields (scheduleType, dayLength, durationPerDay, tags) across ~23 programs
+- `validate-programs.cjs --fix` auto-fixed 30 violations globally (not specific to Kerrisdale)
+- Audit queue: reset 2 stale in_progress providers (Creekside, Sunset) to pending
+
+**No new Kerrisdale program changes in this session.** All enrollment status corrections and program additions from Session 3 were already committed in c28d3b0.
+
+### Commit
+
+- **Branch:** main
+- **Validator:** 2144 violations, 30 auto-fixed (global)
+- **Programs:** 15,819 total
