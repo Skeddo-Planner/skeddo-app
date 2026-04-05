@@ -1,15 +1,52 @@
 # Verification Log — Boogaloo Academy
 
-**Latest audit date:** 2026-04-05 (fourth pass)
+**Latest audit date:** 2026-04-05 (fifth pass)
 **Auditor:** Claude (automated)
 **Registration page URL:** https://www.boogalooacademy.com/summer-camps/
-**Overall status:** PARTIAL — Static page readable via curl; JackRabbit pricing blocked; program names and dates confirmed
+**Overall status:** PARTIAL — Static page confirmed; program names/dates/times verified; pricing still requires Chrome browser for JackRabbit widget
 
 ---
 
 ## Audit History
 
-### April 2026 Fourth Pass (2026-04-05) ← THIS SESSION
+### April 2026 Fifth Pass (2026-04-05) ← THIS SESSION
+
+**Method:** curl + Python text extraction (Chrome MCP unavailable in this environment)
+
+**Confirmed from live page (boogalooacademy.com/summer-camps/, page last modified 2025-04-02):**
+
+| Program | Dates on Live Page | Times | DB Match |
+|---------|-------------------|-------|----------|
+| ENCHANTED CASTLE (Ages 3–5) | JUL 7–11 | 9:30–12:00 | ID 2543 ✅ |
+| DISNEY MAGIC (Ages 3–5) | AUG 18–22 | 9:30–12:00 | ID 2544 ✅ |
+| SUPERSTARS MINIS (Ages 5–8) | JUL & AUG | 9:30–3:00 | IDs 55–60 ✅ (general) |
+| SUPERSTARS (Ages 9–12) | JUL & AUG | 9:30–3:00 | IDs 613415–613420 ✅ (general) |
+
+**Also on page (not in DB — excluded):**
+- Saturday summer dance classes: Ages 3–5, 5–8, 9–12, 12+ (no specific dates)
+- Classical Elite Competitive Camps (audition-only, no public dates)
+- Street Elite Competitive Camps (audition-only, no public dates)
+
+**Registration status:** Page says "Register now to secure your spot!" — registration is open.
+
+**Data fixes applied this session:**
+
+| Field | Before | After | IDs |
+|-------|--------|-------|-----|
+| `address` | "8410 Ontario St" | "101-8410 Ontario St" | All 14 |
+| `confirmed2026` | false | true | All 14 |
+| `enrollmentStatus` | "Likely Coming Soon" | "Open" | All 14 |
+| `costNote` | Outdated message | Updated with contact info | All 14 |
+
+**Count:** Provider shows 14 camp listings (4 programs, Superstars/Superstars Minis as multi-week), database has 14 — **0 added, 14 fixed**.
+
+**Pricing:** Still not visible. JackRabbit `OpeningsJS` endpoints return CSS only (no class data). JackRabbit parent portal returned Cloudflare 403. Requires Chrome browser.
+
+**Possible missing week:** JackRabbit has a `cat2=Week7` category. This may represent Aug 17–21 for Superstars and Superstars Minis. Unverifiable without Chrome.
+
+---
+
+### April 2026 Fourth Pass (2026-04-05)
 
 **Method:** curl + Python text extraction (ChromeMCP unavailable; static HTML IS readable via curl unlike WebFetch)
 
@@ -149,7 +186,7 @@ Google indexes `https://www.boogalooacademy.com/index.php/scheduleage/` with tit
 
 ---
 
-## Current Database (14 programs — all unverified, Likely Coming Soon)
+## Current Database (14 programs — confirmed2026=true, enrollmentStatus=Open)
 
 | ID | Name | Dates | Ages | Times | Cost | Status |
 |----|------|-------|------|-------|------|--------|
