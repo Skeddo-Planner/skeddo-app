@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 140 | 11,970 |
-| 🔲 Audits pending | 310 | 2,298 |
-| **Total** | **450** | **14,268** |
+| ✅ Audits completed | 141 | 11,997 |
+| 🔲 Audits pending | 309 | 2,279 |
+| **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (141 providers)
+## ✅ Completed Audits (142 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -83,6 +83,7 @@ Sorted by number of listings (most to fewest).
 | False Creek Community Centre | 33 | 2026-04-05 | VERIFICATION-LOG-FALSE-CREEK-COMMUNITY-CENTRE.md |
 | Ava Music & Art Centre | 22 | 2026-04-05 | VERIFICATION-LOG-AVA-MUSIC-ART-CENTRE.md |
 | Soaring Eagle Nature School | 30 | 2026-04-05 | VERIFICATION-LOG-SOARING-EAGLE-NATURE-SCHOOL.md |
+| Sunset Community Centre | 27 | 2026-04-05 | VERIFICATION-LOG-SUNSET-COMMUNITY-CENTRE.md |
 
 ---
 
