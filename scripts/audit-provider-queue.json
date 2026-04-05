@@ -1672,7 +1672,7 @@
       "priorityScore": 54,
       "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "docs/VERIFICATION-LOG-BRAINSTEM-LEARNING.md",
+      "logFile": "VERIFICATION-LOG-BRAINSTEM-LEARNING-CANADA.md",
       "notes": null,
       "sessionId": null
     },
@@ -1682,7 +1682,7 @@
       "listings": 6,
       "distKm": 0.4,
       "priorityScore": 53,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
