@@ -211,7 +211,7 @@
       "listings": 95,
       "distKm": 0.1,
       "priorityScore": 79,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
@@ -295,10 +295,10 @@
       "listings": 56,
       "distKm": 1.8,
       "priorityScore": 74,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-COMMUNITY-CENTRE.md",
+      "notes": "Playwright spawn UNKNOWN — system resource exhaustion (same as Britannia). All retry attempts failed. 175 existing programs unchanged, 171 already confirmed2026.",
       "sessionId": null
     },
     {
