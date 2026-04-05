@@ -34,11 +34,12 @@
       "listings": 8,
       "distKm": 4.5,
       "priorityScore": 55,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
+      "notes": "Static page readable via curl. Dates confirmed for 2 programs; scheduleType fixed for 12 programs. Pricing still inaccessible (JackRabbit Cloudflare-blocked).",
+      "sessionId": null,
+      "failNote": "Auto-skipped: 4 consecutive stuck attempts (0 output in 5min each)"
     },
     {
       "rank": 1,
@@ -58,7 +59,7 @@
       "listings": 327,
       "distKm": 7.5,
       "priorityScore": 91,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
