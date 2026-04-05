@@ -1306,10 +1306,10 @@
       "listings": 10,
       "distKm": 3.8,
       "priorityScore": 57,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-JCC-OF-GREATER-VANCOUVER.md",
+      "notes": "INCOMPLETE — summer page (jccgv.com) had broken WordPress shortcodes. Centre Camp and Spring Break fixed; Camp Shalom summer records set to Likely Coming Soon pending re-audit.",
       "sessionId": null
     },
     {
