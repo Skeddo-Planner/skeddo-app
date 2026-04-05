@@ -343,10 +343,10 @@
       "listings": 52,
       "distKm": 3.4,
       "priorityScore": 73,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright browser spawn UNKNOWN — Firefox process could not launch (system resource exhaustion). Same issue as Mount Pleasant, Creekside, Dunbar audits.",
       "sessionId": null
     },
     {
