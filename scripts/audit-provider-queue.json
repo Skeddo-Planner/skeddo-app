@@ -1576,7 +1576,7 @@
       "priorityScore": 55,
       "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-RICHMOND-OLYMPIC-OVAL.md",
+      "logFile": "docs/VERIFICATION-LOG-RICHMOND-OLYMPIC-OVAL.md",
       "notes": "Registration opens May 1, 2026 at 8pm. Re-audit needed after May 1 to verify prices.",
       "sessionId": null
     },
@@ -1586,7 +1586,7 @@
       "listings": 8,
       "distKm": 2.6,
       "priorityScore": 55,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
