@@ -293,10 +293,9 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     history.pushState({ skeddoGuard: true }, "");
 
     popStateHandler.current = () => {
-      // Only show the exit dialog when the user has pressed back past the guard sentinel.
-      // Tab switches use history.replaceState (not pushState), so they don't accumulate
-      // history entries — pressing back always lands on the guard state.
-      if (!history.state?.skeddoGuard) return;
+      // User pressed back — show the exit dialog.
+      // Tab switches use history.replaceState (not pushState), so they don't fire
+      // popstate — this handler only runs on actual back/forward navigation.
       history.pushState({ skeddoGuard: true }, ""); // Re-arm
       stepsBack.current++;
       setShowExitConfirm(true);
@@ -730,6 +729,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 searchQuery={searchQuery}
                 onSearchQuery={setSearchQuery}
                 onNavigateToSearch={() => handleNavigateToTab("discover")}
+                onEdit={openEditProgram}
+                onDelete={handleDeleteProgram}
               />
             )}
 
@@ -849,6 +850,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 searchQuery={searchQuery}
                 onSearchQuery={setSearchQuery}
                 onNavigateToSearch={() => handleNavigateToTab("discover")}
+                onEdit={openEditProgram}
+                onDelete={handleDeleteProgram}
               />
             )}
 

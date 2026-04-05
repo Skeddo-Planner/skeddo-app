@@ -37,7 +37,7 @@ function StatusBadge({ status }) {
 }
 
 /* ─── Desktop detail panel ─── */
-function DetailPanel({ program, kids, onClose, onCycleStatus, onSetStatus }) {
+function DetailPanel({ program, kids, onClose, onCycleStatus, onSetStatus, onEdit, onDelete }) {
   const kidNames = (program.kidIds || []).map((id) => kids.find((k) => k.id === id)?.name).filter(Boolean);
   const cph = calcCostPerHour(program);
   const st = STATUS_MAP[program.status] || STATUS_MAP.Exploring;
@@ -195,6 +195,38 @@ function DetailPanel({ program, kids, onClose, onCycleStatus, onSetStatus }) {
           </div>
         </div>
       )}
+
+      {/* Edit / Delete */}
+      {(onEdit || onDelete) && (
+        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+          {onEdit && (
+            <button
+              onClick={onEdit}
+              style={{
+                flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                padding: "9px 0", borderRadius: 8, cursor: "pointer",
+                background: "transparent", color: C.blue, border: `1.5px solid ${C.blue}`,
+              }}
+            >
+              Edit
+            </button>
+          )}
+          {onDelete && (
+            <button
+              onClick={() => {
+                if (window.confirm(`Delete "${program.name}"? This can't be undone.`)) onDelete();
+              }}
+              style={{
+                flex: 1, fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                padding: "9px 0", borderRadius: 8, cursor: "pointer",
+                background: C.dangerBg, color: C.danger, border: "none",
+              }}
+            >
+              Delete
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -215,6 +247,8 @@ export default function ProgramsTab({
   searchQuery,
   onSearchQuery,
   onNavigateToSearch,
+  onEdit,
+  onDelete,
 }) {
   const isDesktop = useIsDesktop();
   const [sortCol, setSortCol] = useState("startDate");
@@ -449,6 +483,8 @@ export default function ProgramsTab({
             onClose={() => setSelectedId(null)}
             onCycleStatus={onCycleStatus}
             onSetStatus={onSetStatus}
+            onEdit={onEdit ? () => onEdit(selectedProgram) : undefined}
+            onDelete={onDelete ? () => { onDelete(selectedProgram.id); setSelectedId(null); } : undefined}
           />
         )}
       </div>
