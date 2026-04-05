@@ -17,24 +17,25 @@ Audit **{{PROVIDER_NAME}}** — verify all existing listings and add any that ar
 
 ---
 
-## CRITICAL: USE CLAUDE IN CHROME — NOT WEBFETCH
+## CRITICAL: USE PLAYWRIGHT BROWSER — NOT WEBFETCH
 
-**You MUST use the Claude in Chrome browser tool (`mcp__Claude_in_Chrome__navigate`) to visit every registration page.**
+**You MUST use the Playwright browser tool (`mcp__playwright__browser_navigate`) to visit every registration page.**
 
 - Do **NOT** use `WebFetch` or `WebSearch` to read registration page content — they cannot render JavaScript and will miss most program data on modern sites
 - Do **NOT** use any API endpoints as a primary source
-- The Chrome browser renders pages exactly as a parent would see them
+- The Playwright browser renders pages exactly as a parent would see them
 
-If a page is blank or seems empty after navigating, scroll down, wait a moment, and try `mcp__Claude_in_Chrome__read_page` to capture the rendered content. Most registration systems (ActiveNet, Jackrabbit, CourseStorm, etc.) require JavaScript to display programs.
+If a page is blank or seems empty after navigating, wait a moment and try `mcp__playwright__browser_snapshot` to capture the rendered content. Most registration systems (ActiveNet, Jackrabbit, CourseStorm, etc.) require JavaScript to display programs.
 
 ---
 
 ## PROCESS
 
-**1. NAVIGATE WITH CHROME** to {{PROVIDER_NAME}}'s registration page.
-- Use `mcp__Claude_in_Chrome__navigate` to open the page
-- If you don't know the URL, use `WebSearch` only to *find* the URL, then navigate with Chrome
-- Click every dropdown, location selector, and age group selector using `mcp__Claude_in_Chrome__find` + `mcp__Claude_in_Chrome__javascript_tool`
+**1. NAVIGATE WITH PLAYWRIGHT** to {{PROVIDER_NAME}}'s registration page.
+- Use `mcp__playwright__browser_navigate` to open the page
+- If you don't know the URL, use `WebSearch` only to *find* the URL, then navigate with Playwright
+- Click dropdowns, location selectors, and age group selectors using `mcp__playwright__browser_click`
+- Use `mcp__playwright__browser_snapshot` to read page content after navigation or interactions
 - Scroll to the bottom of every listing page
 - If they have multiple Metro Vancouver locations, check **every** one
 - Click into individual program detail pages
@@ -130,7 +131,7 @@ git push
 
 ## HARD RULES — NEVER VIOLATE
 
-- **Always use Chrome browser (`mcp__Claude_in_Chrome__navigate`) — never WebFetch — to read registration pages**
+- **Always use Playwright browser (`mcp__playwright__browser_navigate`) — never WebFetch — to read registration pages**
 - Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page via Chrome browser
 - Never delete programs — use `enrollmentStatus: "Completed"` instead
 - Never combine age groups — one listing per age bracket the provider uses

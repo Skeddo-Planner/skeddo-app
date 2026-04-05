@@ -158,7 +158,7 @@ chmod +x .husky/pre-commit   # Mac/Linux only
 
 ## One Click Deeper Audit Standard
 
-**REQUIRED TOOL: Always use Claude in Chrome (`mcp__Claude_in_Chrome__navigate`) for page navigation. Never use `WebFetch` or `WebSearch` to read registration page content** — they cannot render JavaScript and will silently miss program data on modern booking systems (ActiveNet, Jackrabbit, CourseStorm, etc.). Use `WebSearch` only to *find* a URL, then navigate to it with Chrome.
+**REQUIRED TOOL: Always use Playwright browser (`mcp__playwright__browser_navigate`) for page navigation. Never use `WebFetch` or `WebSearch` to read registration page content** — they cannot render JavaScript and will silently miss program data on modern booking systems (ActiveNet, Jackrabbit, CourseStorm, etc.). Use `WebSearch` only to *find* a URL, then navigate to it with Playwright.
 
 When auditing or adding provider data, EVERY field must be verified against the provider's actual registration page. This means:
 
