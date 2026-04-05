@@ -37,7 +37,7 @@
       "status": "completed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
-      "notes": "Static page readable via curl. Dates confirmed for 2 programs; scheduleType fixed for 12 programs. Pricing still inaccessible (JackRabbit Cloudflare-blocked).",
+      "notes": "Static page readable via curl. Dates confirmed for 2 programs; scheduleType fixed for 12 programs. Pricing still inaccessible (JackRabbit Cloudflare-blocked). Marked completed — pricing only gap (JackRabbit login wall, costNote updated to inquire with provider).",
       "sessionId": null,
       "failNote": "Auto-skipped: 4 consecutive stuck attempts (0 output in 5min each)"
     },
