@@ -1,105 +1,117 @@
 # Verification Log — City of Vancouver - Roundhouse Community Centre
 
-**Date Audited:** 2026-04-05
+**Date Audited:** 2026-04-05 (session 5 — still blocked)
 **Auditor:** Claude (automated)
 **Registration Page:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&locale=en-US&keyword=roundhouse
-**Status:** BLOCKED — Playwright browser spawn failure
+**Status:** BLOCKED — Playwright browser GPU crash (all sessions)
 
 ---
 
 ## Audit Outcome
 
-**INCOMPLETE — Playwright browser unavailable.**
+**INCOMPLETE — Playwright browser unavailable across all retry sessions.**
 
-All attempts to launch the Playwright browser (MCP tool `mcp__playwright__browser_navigate`) failed with:
-
+All attempts to launch the Playwright MCP browser failed. In sessions 1–4 the error was:
 ```
 Error: server: spawn UNKNOWN
-[launching] C:\Users\thoma\AppData\Local\ms-playwright\chromium-1217\chrome-win64\chrome.exe
+```
+In session 5 (this session), the error changed to a GPU crash:
+```
+GPU process exited unexpectedly: exit_code=-2147483645
+GPU process has crashed 6 times
+FATAL: GPU process isn't usable. Goodbye.
 ```
 
-This is the same system-level error that blocked the Britannia Community Centre audit (commit ab85df9). Multiple retry attempts with increasing wait intervals (5s, 15s, 30s, 60s) did not resolve the issue.
+The headless shell (`chromium_headless_shell-1217`) crashes before it can render any page. The `--enable-unsafe-swiftshader` software renderer flag is present but is not preventing the crash.
 
-**Root cause:** Windows system resource exhaustion or process creation restriction. At time of audit, ~10 Chrome processes were running consuming ~800MB+ RAM, with ~2.9GB available. The Playwright MCP server was unable to spawn a new headless Chrome process.
-
----
-
-## What Was Attempted
-
-1. `mcp__playwright__browser_navigate` — 6 attempts, all failed with `spawn UNKNOWN`
-2. Waited up to 60 seconds between retries — no improvement
-3. Verified Chrome executable exists: `chromium-1217/chrome-win64/chrome.exe` ✓
-4. Checked for lock files in user-data-dir — none found
-5. Checked system memory: 16GB total, ~2.9GB available
+**This issue is now persistent across 5 separate audit sessions on the same machine.**
 
 ---
 
-## Existing Database State (Not Modified)
+## What Was Attempted (Session 5)
 
-The database already contains **175 programs** for City of Vancouver - Roundhouse Community Centre with the following verification status:
+1. `mcp__playwright__browser_navigate` to ActiveNet search page — failed: GPU crash
+2. `mcp__playwright__browser_navigate` to `about:blank` — same GPU crash
+3. Multiple retry attempts — all fail deterministically with the same crash signature
 
-| Metric | Count |
-|--------|-------|
-| Total programs | 175 |
-| `confirmed2026: true` | 171 |
-| `priceVerified: true` | 149 |
-| Enrollment: Open | 110 |
-| Enrollment: Full/Waitlist | 59 |
-| Enrollment: Completed | 5 |
-| Enrollment: Likely Coming Soon | 1 |
+---
 
-**Program categories:**
-- General: 38
-- Multi-Activity: 37
-- Arts: 30
-- Sports: 24
-- Music: 18
-- Performing Arts: 17
-- STEM: 10
-- Academic: 1
+## Note on Provider Name Variants
 
-**ID range:** 1742 to roundhouse-chess-1
+The database has 4 different provider name variants for Roundhouse:
 
-**Unique program types (as of pre-audit):**
-- Summer Safari Day Camp Junior (6-8) — Weeks 1–10 (with and without "at Roundhouse" suffix)
-- Summer Safari Day Camp Senior (9-12) — Weeks 1–10 (with and without suffix)
-- Afterschool MULTI REC/ARTS Club — Apr, May, Jun, Mar
-- Elsie Roy Noon Hour programs (14 variants)
-- Future Ready Minds camps (6 variants)
-- Byte Camp programs
-- Lego Robotics camps
-- Sportball programs (7 variants)
-- Raincity Basketball camps
-- Roundhouse Young Commander Chess Camp / Young-Commander Chess CAMP
-- Creative Dance/Ballet/Jazz camps
-- Music Together programs
-- Acrobatic Dance camps
-- Wild Science Camp, Science Explorer Camp
-- Art is Fun, Drawing/Painting classes
-- Tennis: Indoor (two age groups)
-- Karate programs
-- Piano, Violin, Vocal lessons
-- Various one-off programs
+| Provider name | Programs |
+|--------------|---------|
+| `City of Vancouver - Roundhouse Community Centre` | 56 |
+| `City of Vancouver - Roundhouse Cmty Arts and Rec Centre` | 96 |
+| `City of Vancouver — Roundhouse Community Arts & Recreation Centre` | 22 |
+| `Roundhouse Community Centre` | 1 |
+| **Total** | **175** |
+
+This audit covers the canonical variant `City of Vancouver - Roundhouse Community Centre` (56 programs). The other variants were likely created by different prior audit sessions — they should be normalized in a future cleanup pass.
+
+---
+
+## Existing Database State — "City of Vancouver - Roundhouse Community Centre" (56 programs)
+
+All 56 programs have `enrollmentStatus: "Full/Waitlist"` and `confirmed2026: true`. Program types:
+
+| Program type | Weeks/sessions |
+|-------------|----------------|
+| Summer Safari Day Camp Junior (6-8) | Weeks 1–10 |
+| Summer Safari Day Camp Senior (9-12) | Weeks 1–10 |
+| Art is Fun Camp | 2 sessions |
+| Creative Remix Arts Camp | 1 session |
+| Little Artist Camp | 2 sessions |
+| Young-Commander Chess CAMP (Novice/Starter I & II) | 3 sessions |
+| Sportball Multisport Outdoor Camp | 4 sessions |
+| Sportball Soccer Outdoor Camp | 2 sessions |
+| Lego Robotics Stop Motion Animation Camp | 2 sessions |
+| Lego Robotics Camp | 2 sessions |
+| Lego Robotics Ev3 Camp | 2 sessions |
+| Byte Camp - Introduction to Coding | 1 session |
+| Byte Camp - Music Video Production | 1 session |
+| Science Explorer Camp | 1 session |
+| Wild Science Camp | 1 session |
+| Acrobatic Dance Camp | 1 session |
+| Creative Dance Camp | 2 sessions |
+| Multi Dance Camp | 1 session |
+| Preschool Acrobatic Dance Camp | 1 session |
+| Preschool Creative Dance Camp | 1 session |
+| Preschool Multi Dance Camp | 1 session |
+| Creative Theatre Summer Camp | 1 session |
+| Raincity Basketball Outdoor Camp (10-15 yrs) | 2 sessions |
+| Raincity Basketball Outdoor Camp (6-10 yrs) | 2 sessions |
+
+All programs:
+- Address: 181 Roundhouse Mews, Vancouver, BC V6Z 2W3
+- Neighbourhood: Yaletown
+- `registrationDate`: 2026-04-08 (registration opens Apr 8 at 7:00 PM)
+- Cost: ranges from $120–$190/week
 
 ---
 
 ## Data Not Verified
 
-Because the Playwright browser could not launch, the following fields could NOT be verified against the live registration page:
+Because the Playwright browser could not launch, the following could NOT be verified:
 
 - Current enrollment status (Open/Full/Waitlist) for each program
 - Current prices
-- Whether registration dates have passed or opened
-- Whether any new programs have been added since last audit
+- Whether any new programs have been added
 - Whether any programs have been discontinued
+- Whether registration has opened (registration date was Apr 8, 2026 — past)
 
 ---
 
 ## Recommendation
 
-Retry this audit when Playwright browser is functional. The existing data has high confidence (171/175 programs with `confirmed2026: true`) from prior sessions and should not be degraded to "Likely Coming Soon" without cause.
+The Playwright MCP browser tool is non-functional on this machine (GPU crash). This is blocking ALL audit sessions. Tom should:
 
-**A note on the `roundhouse-api-data.json` file** (untracked in `scripts/`): This file was found in the working directory from a previous session. Per CLAUDE.md, API data cannot be used as a primary source without browser validation. It was not used.
+1. Restart Claude Code / reboot the machine to clear GPU state
+2. Or update the Playwright MCP to use a different browser backend
+3. Then re-run this audit
+
+The existing 56 programs have high confidence (all `confirmed2026: true`) and should not be degraded until a working audit can be performed.
 
 ---
 
@@ -107,8 +119,9 @@ Retry this audit when Playwright browser is functional. The existing data has hi
 
 | Source | Count |
 |--------|-------|
-| Database (pre-audit) | 175 |
-| Live page (could not access) | Unknown |
+| Database (this provider name) | 56 |
+| Database (all Roundhouse variants) | 175 |
+| Live page | Unknown (browser broken) |
 | Added | 0 |
 | Fixed | 0 |
-| Blocked reason | Playwright spawn UNKNOWN |
+| Blocked reason | Playwright GPU crash (5 sessions) |
