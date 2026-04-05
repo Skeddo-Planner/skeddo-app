@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 158 | 12,198 |
-| 🔲 Audits pending | 292 | 2,078 |
+| ✅ Audits completed | 159 | 12,207 |
+| 🔲 Audits pending | 291 | 2,069 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (158 providers)
+## ✅ Completed Audits (159 providers)
 
 
 Sorted by number of listings (most to fewest).
@@ -35,6 +35,7 @@ Sorted by number of listings (most to fewest).
 | Scottish Cultural Centre | 11 | 2026-04-05 | VERIFICATION-LOG-SCOTTISH-CULTURAL-CENTRE.md (venue only — records re-attributed to Crocodile Mandarin) |
 | STEMA Learning | 27 | 2026-04-05 | VERIFICATION-LOG-STEMA-LEARNING.md |
 | PAL Ropes Course | 10 | 2026-04-05 | VERIFICATION-LOG-PAL-ROPES-COURSE.md |
+| Canadian Dolphin Swim Club | 9 | 2026-04-05 | VERIFICATION-LOG-CANADIAN-DOLPHIN-SWIM-CLUB.md |
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
 | Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |

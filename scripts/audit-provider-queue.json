@@ -1390,11 +1390,11 @@
       "listings": 9,
       "distKm": 4.8,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-CANADIAN-DOLPHIN-SWIM-CLUB.md",
+      "notes": "Competitive swim club. Spring Break records completed. 2026 summer camps not yet published. Re-audit Aug 2026.",
+      "sessionId": "sad-fermat"
     },
     {
       "rank": 116,
