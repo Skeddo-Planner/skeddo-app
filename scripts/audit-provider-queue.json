@@ -439,10 +439,10 @@
       "listings": 45,
       "distKm": 5,
       "priorityScore": 71,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright spawn UNKNOWN — system resource exhaustion, browser could not launch. Retry when Chrome/Firefox process slots are available.",
       "sessionId": null
     },
     {
