@@ -1502,10 +1502,10 @@
       "listings": 8,
       "distKm": 4.5,
       "priorityScore": 55,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
+      "notes": "Dynamic JS site — program content not accessible via static scraping. JackRabbit registration page returned 403. Manual browser audit required.",
       "sessionId": null
     },
     {
