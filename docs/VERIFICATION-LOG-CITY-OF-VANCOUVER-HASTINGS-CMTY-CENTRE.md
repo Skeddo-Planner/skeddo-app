@@ -1,8 +1,8 @@
 # Verification Log — City of Vancouver - Hastings Cmty Centre
 
-**Date Audited:** 2026-04-05
+**Date Audited:** 2026-04-05 (re-attempted 2026-04-05)
 **Auditor:** Claude (automated audit agent)
-**Status:** INCOMPLETE — Playwright browser spawn failure
+**Status:** INCOMPLETE — Playwright browser spawn failure (persists across multiple sessions)
 
 ---
 
