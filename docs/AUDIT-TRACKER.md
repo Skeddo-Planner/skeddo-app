@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 155 | 12,150 |
-| 🔲 Audits pending | 295 | 2,126 |
+| ✅ Audits completed | 156 | 12,161 |
+| 🔲 Audits pending | 294 | 2,115 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (155 providers)
+## ✅ Completed Audits (156 providers)
 
 
 Sorted by number of listings (most to fewest).
@@ -32,6 +32,7 @@ Sorted by number of listings (most to fewest).
 | JCC of Greater Vancouver | 13 | 2026-04-05 | VERIFICATION-LOG-JCC-OF-GREATER-VANCOUVER.md (INCOMPLETE — summer page broken) |
 | VanDusen Botanical Garden | 12 | 2026-04-05 | VERIFICATION-LOG-VANDUSEN-BOTANICAL-GARDEN.md |
 | Vancouver Mandarin School | 12 | 2026-04-05 | VERIFICATION-LOG-VANCOUVER-MANDARIN-SCHOOL.md |
+| Scottish Cultural Centre | 11 | 2026-04-05 | VERIFICATION-LOG-SCOTTISH-CULTURAL-CENTRE.md (venue only — records re-attributed to Crocodile Mandarin) |
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
 | Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |

@@ -1342,11 +1342,11 @@
       "listings": 11,
       "distKm": 7.1,
       "priorityScore": 57,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-SCOTTISH-CULTURAL-CENTRE.md",
+      "notes": "SCC is a venue only — no programs. All 11 records re-attributed to Crocodile Mandarin (the actual operator). Data corruption fixed. Full Crocodile Mandarin audit pending (ranks 195, 233).",
+      "sessionId": "sad-fermat"
     },
     {
       "rank": 112,
