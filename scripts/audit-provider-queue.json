@@ -1438,10 +1438,10 @@
       "listings": 9,
       "distKm": 0.9,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-DRAGON-ZONE-PADDLING-CLUB.md",
+      "notes": "All 9 weeks corrected (dates shifted by 1 week in DB). BC Day week fixed to Aug 4-7. Status updated Likely Coming Soon → Open.",
       "sessionId": null
     },
     {
