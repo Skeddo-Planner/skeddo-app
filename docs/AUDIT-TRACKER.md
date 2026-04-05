@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 139 | 11,946 |
-| 🔲 Audits pending | 311 | 2,318 |
-| **Total** | **450** | **14,264** |
+| ✅ Audits completed | 140 | 11,970 |
+| 🔲 Audits pending | 310 | 2,298 |
+| **Total** | **450** | **14,268** |
 
 ---
 
-## ✅ Completed Audits (140 providers)
+## ✅ Completed Audits (141 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -82,6 +82,7 @@ Sorted by number of listings (most to fewest).
 | Flicka Gymnastics | 32 | 2026-04-05 | VERIFICATION-LOG-FLICKA-GYMNASTICS.md |
 | False Creek Community Centre | 33 | 2026-04-05 | VERIFICATION-LOG-FALSE-CREEK-COMMUNITY-CENTRE.md |
 | Ava Music & Art Centre | 22 | 2026-04-05 | VERIFICATION-LOG-AVA-MUSIC-ART-CENTRE.md |
+| Soaring Eagle Nature School | 30 | 2026-04-05 | VERIFICATION-LOG-SOARING-EAGLE-NATURE-SCHOOL.md |
 
 ---
 
