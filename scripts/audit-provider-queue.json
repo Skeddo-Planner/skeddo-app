@@ -59,7 +59,7 @@
       "listings": 327,
       "distKm": 7.5,
       "priorityScore": 91,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
