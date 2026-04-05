@@ -1030,9 +1030,9 @@
       "listings": 16,
       "distKm": 1.6,
       "priorityScore": 62,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-EXTRA-STEPS.md",
       "notes": null,
       "sessionId": null
     },
