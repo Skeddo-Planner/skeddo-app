@@ -1366,11 +1366,11 @@
       "listings": 10,
       "distKm": 10.5,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-PAL-ROPES-COURSE.md",
+      "notes": "3 enrollment status corrections (Jun 29, Jul 20, Aug 4 -> Waitlist). All other fields verified correct.",
+      "sessionId": "sad-fermat"
     },
     {
       "rank": 114,
