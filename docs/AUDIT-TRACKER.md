@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 136 | 11,871 |
-| 🔲 Audits pending | 314 | 2,372 |
+| ✅ Audits completed | 137 | 11,903 |
+| 🔲 Audits pending | 313 | 2,340 |
 | **Total** | **450** | **14,243** |
 
 ---
 
-## ✅ Completed Audits (137 providers)
+## ✅ Completed Audits (138 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -79,6 +79,7 @@ Sorted by number of listings (most to fewest).
 | Chaoyin International School | 32 | 2026-04-04 | VERIFICATION-LOG-CHAOYIN-INTERNATIONAL-SCHOOL.md |
 | Sparks Academy | 28 | 2026-04-04 | VERIFICATION-LOG-SPARKS-ACADEMY.md |
 | Burnaby Winter Club | 28 | 2026-04-05 | VERIFICATION-LOG-BURNABY-WINTER-CLUB.md |
+| Flicka Gymnastics | 32 | 2026-04-05 | VERIFICATION-LOG-FLICKA-GYMNASTICS.md |
 
 ---
 
@@ -149,7 +150,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 62 | Sparks Academy | 28 | 5.5 km | 66 |
 | 64 | City of Vancouver - Vancouver Aquatic Centre | 25 | 2.9 km | 66 |
 | 65 | City of Vancouver - Various Tennis Courts | 25 | 1.1 km | 66 |
-| 66 | Flicka Gymnastics | 24 | 7.1 km | 65 |
 | 67 | City of Vancouver — Roundhouse Community Arts & Recreation Centre | 22 | 1.8 km | 65 |
 | 68 | City of Vancouver - Kensington Cmty Centre | 23 | 3.5 km | 65 |
 | 69 | False Creek Community Centre | 23 | 2.5 km | 65 |
