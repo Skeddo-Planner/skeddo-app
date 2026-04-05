@@ -619,10 +619,10 @@
       "listings": 33,
       "distKm": 3.9,
       "priorityScore": 68,
-      "status": "pending",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-WEST-END-CMTY-CENTRE.md",
+      "notes": "Playwright spawn UNKNOWN — Firefox cannot launch on this Windows machine. Registration also opens 2026-04-08; re-audit after that date.",
       "sessionId": null
     },
     {
