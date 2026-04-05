@@ -1526,9 +1526,9 @@
       "listings": 8,
       "distKm": 4.6,
       "priorityScore": 55,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-ROYAL-CITY-SOCCER-CLUB.md",
       "notes": null,
       "sessionId": null
     },
