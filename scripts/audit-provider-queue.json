@@ -1502,7 +1502,7 @@
       "listings": 8,
       "distKm": 4.5,
       "priorityScore": 55,
-      "status": "in_progress",
+      "status": "pending",
       "auditDate": null,
       "logFile": null,
       "notes": null,
