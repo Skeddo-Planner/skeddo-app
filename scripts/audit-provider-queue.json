@@ -34,10 +34,10 @@
       "listings": 8,
       "distKm": 4.5,
       "priorityScore": 55,
-      "status": "failed",
-      "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
-      "notes": "Site is JS-rendered (Divi/WordPress); static fetches return only CSS/JS shell. JackRabbit registration portal not publicly indexed. Three sessions attempted (April 2026) — all blocked. Program names, age groups, and dates are plausible from prior-year data but cannot be confirmed from live page. Manual browser audit required.",
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": null,
       "sessionId": null
     },
     {
@@ -58,10 +58,10 @@
       "listings": 327,
       "distKm": 7.5,
       "priorityScore": 91,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-NVRC.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -70,10 +70,10 @@
       "listings": 168,
       "distKm": 2.3,
       "priorityScore": 85,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -82,10 +82,10 @@
       "listings": 158,
       "distKm": 11.9,
       "priorityScore": 83,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-WEST-VANCOUVER.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was partial/not browser-navigated",
       "sessionId": null
     },
     {
@@ -106,10 +106,10 @@
       "listings": 144,
       "distKm": 6,
       "priorityScore": 83,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -118,10 +118,10 @@
       "listings": 141,
       "distKm": 7.6,
       "priorityScore": 82,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -130,10 +130,10 @@
       "listings": 117,
       "distKm": 5.9,
       "priorityScore": 81,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -142,10 +142,10 @@
       "listings": 111,
       "distKm": 2.8,
       "priorityScore": 81,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -154,10 +154,10 @@
       "listings": 121,
       "distKm": 5.3,
       "priorityScore": 81,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -178,10 +178,10 @@
       "listings": 106,
       "distKm": 5.1,
       "priorityScore": 80,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -202,10 +202,10 @@
       "listings": 97,
       "distKm": 2,
       "priorityScore": 79,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -214,10 +214,10 @@
       "listings": 95,
       "distKm": 0.1,
       "priorityScore": 79,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -226,10 +226,10 @@
       "listings": 96,
       "distKm": 1.8,
       "priorityScore": 79,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -238,10 +238,10 @@
       "listings": 75,
       "distKm": 4.4,
       "priorityScore": 76,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -250,10 +250,10 @@
       "listings": 71,
       "distKm": 2.5,
       "priorityScore": 76,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -262,10 +262,10 @@
       "listings": 65,
       "distKm": 0.9,
       "priorityScore": 75,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -274,10 +274,10 @@
       "listings": 68,
       "distKm": 4.6,
       "priorityScore": 75,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -298,10 +298,10 @@
       "listings": 56,
       "distKm": 1.8,
       "priorityScore": 74,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -310,10 +310,10 @@
       "listings": 63,
       "distKm": 7.4,
       "priorityScore": 74,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -322,10 +322,10 @@
       "listings": 58,
       "distKm": 5.6,
       "priorityScore": 74,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -334,10 +334,10 @@
       "listings": 55,
       "distKm": 2.7,
       "priorityScore": 73,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -346,10 +346,10 @@
       "listings": 52,
       "distKm": 3.4,
       "priorityScore": 73,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -358,10 +358,10 @@
       "listings": 55,
       "distKm": 4.8,
       "priorityScore": 73,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -382,10 +382,10 @@
       "listings": 47,
       "distKm": 2.3,
       "priorityScore": 72,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -406,10 +406,10 @@
       "listings": 47,
       "distKm": 3.1,
       "priorityScore": 72,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -430,10 +430,10 @@
       "listings": 42,
       "distKm": 3.4,
       "priorityScore": 71,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -442,10 +442,10 @@
       "listings": 45,
       "distKm": 5,
       "priorityScore": 71,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -466,10 +466,10 @@
       "listings": 39,
       "distKm": 6,
       "priorityScore": 70,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -502,10 +502,10 @@
       "listings": 36,
       "distKm": 6.5,
       "priorityScore": 69,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -514,10 +514,10 @@
       "listings": 35,
       "distKm": 5.3,
       "priorityScore": 69,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -526,10 +526,10 @@
       "listings": 36,
       "distKm": 4.8,
       "priorityScore": 69,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -550,10 +550,10 @@
       "listings": 36,
       "distKm": 2.5,
       "priorityScore": 69,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -562,10 +562,10 @@
       "listings": 36,
       "distKm": 2.3,
       "priorityScore": 69,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -610,10 +610,10 @@
       "listings": 34,
       "distKm": 4.4,
       "priorityScore": 68,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -622,10 +622,10 @@
       "listings": 33,
       "distKm": 3.9,
       "priorityScore": 68,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -634,10 +634,10 @@
       "listings": 31,
       "distKm": 2.5,
       "priorityScore": 68,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -646,10 +646,10 @@
       "listings": 33,
       "distKm": 5.8,
       "priorityScore": 68,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -658,10 +658,10 @@
       "listings": 30,
       "distKm": 2.6,
       "priorityScore": 68,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-YMCA-GREATER-VANCOUVER.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was partial/not browser-navigated",
       "sessionId": null
     },
     {
@@ -706,10 +706,10 @@
       "listings": 32,
       "distKm": 7.4,
       "priorityScore": 67,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -718,10 +718,10 @@
       "listings": 29,
       "distKm": 5.6,
       "priorityScore": 67,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -730,10 +730,10 @@
       "listings": 28,
       "distKm": 0,
       "priorityScore": 67,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -742,10 +742,10 @@
       "listings": 31,
       "distKm": 6.7,
       "priorityScore": 67,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -805,7 +805,7 @@
       "status": "pending",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit used WebFetch/PDF instead of Chrome browser navigation",
+      "notes": null,
       "sessionId": null
     },
     {
@@ -814,10 +814,10 @@
       "listings": 25,
       "distKm": 2.9,
       "priorityScore": 66,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -826,10 +826,10 @@
       "listings": 25,
       "distKm": 1.1,
       "priorityScore": 66,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -850,10 +850,10 @@
       "listings": 22,
       "distKm": 1.8,
       "priorityScore": 65,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -862,10 +862,10 @@
       "listings": 23,
       "distKm": 3.5,
       "priorityScore": 65,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -898,10 +898,10 @@
       "listings": 20,
       "distKm": 1.9,
       "priorityScore": 64,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -910,10 +910,10 @@
       "listings": 35,
       "distKm": 39.4,
       "priorityScore": 64,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -922,10 +922,10 @@
       "listings": 21,
       "distKm": 2.9,
       "priorityScore": 64,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -934,10 +934,10 @@
       "listings": 20,
       "distKm": 1.9,
       "priorityScore": 64,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -946,10 +946,10 @@
       "listings": 21,
       "distKm": 2.5,
       "priorityScore": 64,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -970,10 +970,10 @@
       "listings": 19,
       "distKm": 1.9,
       "priorityScore": 63,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -982,10 +982,10 @@
       "listings": 18,
       "distKm": 2.7,
       "priorityScore": 63,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -994,10 +994,10 @@
       "listings": 21,
       "distKm": 6.7,
       "priorityScore": 63,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1006,10 +1006,10 @@
       "listings": 21,
       "distKm": 6.7,
       "priorityScore": 63,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1018,10 +1018,10 @@
       "listings": 19,
       "distKm": 2.3,
       "priorityScore": 63,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1042,10 +1042,10 @@
       "listings": 18,
       "distKm": 9.3,
       "priorityScore": 62,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was partial/not browser-navigated",
       "sessionId": null
     },
     {
@@ -1078,10 +1078,10 @@
       "listings": 17,
       "distKm": 4.9,
       "priorityScore": 62,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1246,10 +1246,10 @@
       "listings": 12,
       "distKm": 2.3,
       "priorityScore": 59,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1258,10 +1258,10 @@
       "listings": 12,
       "distKm": 3.4,
       "priorityScore": 59,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1270,10 +1270,10 @@
       "listings": 12,
       "distKm": 3.5,
       "priorityScore": 59,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1282,10 +1282,10 @@
       "listings": 13,
       "distKm": 4.9,
       "priorityScore": 59,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1402,10 +1402,10 @@
       "listings": 9,
       "distKm": 4.5,
       "priorityScore": 56,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1426,10 +1426,10 @@
       "listings": 9,
       "distKm": 3.7,
       "priorityScore": 56,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1438,10 +1438,10 @@
       "listings": 9,
       "distKm": 2.7,
       "priorityScore": 56,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1562,10 +1562,10 @@
       "listings": 8,
       "distKm": 3.7,
       "priorityScore": 55,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1598,10 +1598,10 @@
       "listings": 9,
       "distKm": 5.9,
       "priorityScore": 55,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1718,10 +1718,10 @@
       "listings": 6,
       "distKm": 0.3,
       "priorityScore": 53,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -1754,7 +1754,7 @@
       "listings": 7,
       "distKm": 7,
       "priorityScore": 53,
-      "status": "in_progress",
+      "status": "pending",
       "auditDate": null,
       "logFile": null,
       "notes": null,
@@ -2210,10 +2210,10 @@
       "listings": 5,
       "distKm": 6.7,
       "priorityScore": 50,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -2414,10 +2414,10 @@
       "listings": 4,
       "distKm": 3.3,
       "priorityScore": 49,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -2438,10 +2438,10 @@
       "listings": 4,
       "distKm": 2.3,
       "priorityScore": 49,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -2450,10 +2450,10 @@
       "listings": 4,
       "distKm": 3,
       "priorityScore": 49,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -2618,10 +2618,10 @@
       "listings": 4,
       "distKm": 5.9,
       "priorityScore": 48,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -2822,10 +2822,10 @@
       "listings": 3,
       "distKm": 2.5,
       "priorityScore": 47,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -2870,10 +2870,10 @@
       "listings": 3,
       "distKm": 4.7,
       "priorityScore": 46,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3038,10 +3038,10 @@
       "listings": 2,
       "distKm": 2.6,
       "priorityScore": 44,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3122,10 +3122,10 @@
       "listings": 2,
       "distKm": 0,
       "priorityScore": 44,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3146,10 +3146,10 @@
       "listings": 2,
       "distKm": 3.1,
       "priorityScore": 44,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3410,10 +3410,10 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3422,10 +3422,10 @@
       "listings": 1,
       "distKm": 2.7,
       "priorityScore": 40,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3434,10 +3434,10 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3626,10 +3626,10 @@
       "listings": 1,
       "distKm": 4.8,
       "priorityScore": 39,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3686,10 +3686,10 @@
       "listings": 1,
       "distKm": 3.7,
       "priorityScore": 39,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3698,10 +3698,10 @@
       "listings": 1,
       "distKm": 4.9,
       "priorityScore": 39,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3746,10 +3746,10 @@
       "listings": 1,
       "distKm": 4.4,
       "priorityScore": 39,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3758,10 +3758,10 @@
       "listings": 1,
       "distKm": 4.5,
       "priorityScore": 39,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -3770,10 +3770,10 @@
       "listings": 1,
       "distKm": 5.2,
       "priorityScore": 39,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4358,10 +4358,10 @@
       "listings": 5,
       "distKm": null,
       "priorityScore": 11,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4382,10 +4382,10 @@
       "listings": 3,
       "distKm": null,
       "priorityScore": 7,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4394,10 +4394,10 @@
       "listings": 3,
       "distKm": null,
       "priorityScore": 7,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4418,10 +4418,10 @@
       "listings": 2,
       "distKm": null,
       "priorityScore": 4,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4430,10 +4430,10 @@
       "listings": 2,
       "distKm": null,
       "priorityScore": 4,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4538,10 +4538,10 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
@@ -4550,10 +4550,10 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "completed",
-      "auditDate": "2026-04-04",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md",
-      "notes": null,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
     {
