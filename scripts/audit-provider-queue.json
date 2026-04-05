@@ -70,11 +70,12 @@
       "listings": 168,
       "distKm": 2.3,
       "priorityScore": 85,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-HILLCREST-CMTY-CENTRE.md",
-      "notes": "Chrome browser tools (mcp__Claude_in_Chrome__*) not available in session. Cannot render ActiveNet JS. 1 data fix made (Easter Carnival → Completed). Gaps identified: Preschool AM Weeks 1-2, SR Camp Weeks 1-5, Axe Capoeira summer adult. Re-audit required with Chrome tools.",
-      "sessionId": null
+      "notes": null,
+      "sessionId": null,
+      "listingsAfter": 416
     },
     {
       "rank": 4,
