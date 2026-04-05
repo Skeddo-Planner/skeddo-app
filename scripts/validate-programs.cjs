@@ -49,7 +49,7 @@ const FREE_PROVIDERS = [
   "North Vancouver School District (SD44)", "West Vancouver Schools (SD45)",
   "Richmond School District (SD38)", "New Westminster School District (SD40)",
   "Coquitlam School District (SD43)", "Surrey School District (SD36)",
-  "CTS Youth Society", "Khalsa Centre", "Gurmat Center",
+  "CTS Youth Society", "Khalsa Centre", "Gurmat Center", "Canlan Sports North Shore",
   "Gurdwara Sahib Sukh Sagar", "Khalsa School Canada",
   "Vancouver Aboriginal Friendship Centre", "UBC CEDAR Program", "I-SPARC",
   "BMWC", "YWCA BC", "City of Langley", "City of Port Coquitlam",
