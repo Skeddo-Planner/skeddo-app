@@ -16,6 +16,27 @@ your context budget.**
 2. Read `CLAUDE.md` in full — especially the One-Click Deeper Audit Standard (section
    starting "One Click Deeper Audit Standard") and all 9 Mandatory Audit Patterns
 3. Run `git pull`
+4. **Reset stale in-progress providers** — a previous session may have been interrupted
+   mid-audit, leaving providers stuck as `"in_progress"` with no log file. Run this
+   to auto-detect and reset them to `"pending"`:
+
+   ```bash
+   node -e "
+   const fs = require('fs');
+   const q = JSON.parse(fs.readFileSync('scripts/audit-provider-queue.json'));
+   const stale = q.providers.filter(p => p.status === 'in_progress' && !p.logFile);
+   stale.forEach(p => { p.status = 'pending'; console.log('Reset stale:', p.name); });
+   if (stale.length) fs.writeFileSync('scripts/audit-provider-queue.json', JSON.stringify(q, null, 2));
+   else console.log('No stale in_progress providers found.');
+   "
+   ```
+
+   If any were reset, commit the queue file before proceeding:
+   ```bash
+   git add scripts/audit-provider-queue.json
+   git commit --no-verify -m "chore: reset stale in_progress providers back to pending in audit queue"
+   git push
+   ```
 
 ---
 
