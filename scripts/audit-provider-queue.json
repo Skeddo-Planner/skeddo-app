@@ -562,9 +562,9 @@
       "listings": 35,
       "distKm": 12.2,
       "priorityScore": 68,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-GROUSE-MOUNTAIN.md",
       "notes": null,
       "sessionId": null
     },
