@@ -157,7 +157,7 @@
       "status": "completed",
       "auditDate": "2026-04-05",
       "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-CMTY-CENTRE.md",
-      "notes": "Audited 2026-04-05 via ActiveNet REST API (Playwright unavailable — spawn UNKNOWN error). Session 1: added 42 programs, corrected 18 enrollment statuses. Session 2: added 64 programs (Summer Safaris Wks 1-9, themed camps, spring programs, Group Fitness). Fixed COV-605803 null dates. DB total ~305 Kerrisdale COV-format programs.",
+      "notes": "Audited 2026-04-05 via ActiveNet REST API (Playwright unavailable — spawn UNKNOWN error). Session 1: added 42 programs, corrected 18 enrollment statuses. Session 2: added 64 programs (Summer Safaris Wks 1-9, themed camps, spring programs, Group Fitness). Session 3: bulk scrape added 680 programs (all active Kerrisdale programs); removed 315 adult-only programs per R23; 45 enrollment status corrections (44 Open→Full/Waitlist, 1 Completed). Final DB total: 617 Kerrisdale programs.",
       "sessionId": null
     },
     {
@@ -250,10 +250,10 @@
       "listings": 71,
       "distKm": 2.5,
       "priorityScore": 76,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-BRITANNIA-CMTY-CENTRE.md",
+      "notes": "Playwright browser spawn UNKNOWN error — system resource exhaustion from concurrent audit sessions. Retry when system is less loaded.",
       "sessionId": null
     },
     {
