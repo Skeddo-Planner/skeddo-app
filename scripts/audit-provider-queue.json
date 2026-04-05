@@ -1426,10 +1426,10 @@
       "listings": 9,
       "distKm": 1.8,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-DOUGLAS-PARK-COMMUNITY-CENTRE-ASSOCIATION.md",
+      "notes": "Expanded from 9 to 33 entries. Added 6 Preschool Summer Adventures weeks (ages 3-5). Split Spectacular into 3 age groups per week. All updated to Open status. Corrected times, costs, Week 6 dates.",
       "sessionId": null
     },
     {
