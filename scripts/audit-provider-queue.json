@@ -235,10 +235,10 @@
       "listings": 75,
       "distKm": 4.4,
       "priorityScore": 76,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-RENFREW-PARK-CMTY-CENTRE.md",
+      "notes": "Playwright spawn UNKNOWN — Firefox process could not be launched (system resource exhaustion). Same error as Dunbar, Creekside, Mount Pleasant. Retry when browser available.",
       "sessionId": null
     },
     {
@@ -427,10 +427,10 @@
       "listings": 42,
       "distKm": 3.4,
       "priorityScore": 71,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-TEMPLETON-PARK-POOL.md",
+      "notes": "Playwright browser spawn blocked (Firefox spawn UNKNOWN) — same issue as Dunbar/Creekside/Mount Pleasant audits. Re-audit when browser is operational.",
       "sessionId": null
     },
     {
