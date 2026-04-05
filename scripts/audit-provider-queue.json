@@ -1694,10 +1694,10 @@
       "listings": 8,
       "distKm": 13.2,
       "priorityScore": 53,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-SFU-SUMMER-CAMPS.md",
+      "notes": "Partial only — pricing portal login-gated. Existing entries had fabricated names. Full re-audit needed via portal.",
       "sessionId": null
     },
     {
