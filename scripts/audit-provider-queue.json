@@ -730,7 +730,7 @@
       "listings": 30,
       "distKm": 15.5,
       "priorityScore": 66,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
@@ -742,10 +742,10 @@
       "listings": 28,
       "distKm": 8.2,
       "priorityScore": 66,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-CHAOYIN-INTERNATIONAL-SCHOOL.md",
+      "notes": "28 existing programs updated (age ranges, registration URLs, costNotes). 4 new Code Quest 4/5 programs added. 1 winter program marked Completed.",
       "sessionId": null
     },
     {
