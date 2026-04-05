@@ -106,7 +106,7 @@
       "listings": 144,
       "distKm": 6,
       "priorityScore": 83,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
       "notes": "Playwright MCP browser spawn UNKNOWN — 3 consecutive sessions blocked. Firefox executable cannot be launched on this machine. Requires Playwright reinstall or Claude Code restart.",
@@ -895,10 +895,10 @@
       "listings": 20,
       "distKm": 1.9,
       "priorityScore": 64,
-      "status": "pending",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright browser spawn UNKNOWN error — Firefox MCP process cannot launch on this machine. Same blocker as Vancouver Aquatic Centre, Kerrisdale, Mount Pleasant, Killarney, Roundhouse audits.",
       "sessionId": null
     },
     {
