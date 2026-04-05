@@ -135,3 +135,64 @@ Programs: 15032 total
 ```
 
 R46 warnings on wide age ranges (6–13 for Ballet, Chinese Calligraphy; 6–18 for Taekwondo) reflect the provider's own ActiveNet age listings. The API does not indicate sub-band breakdowns for these programs.
+
+---
+
+## Second Audit Session — 2026-04-05 (Evening)
+
+**Date:** 2026-04-05
+**Auditor:** Claude (Sonnet 4.6)
+**Method:** ActiveNet REST API (Playwright browser still unavailable)
+
+Two complementary data fetches were run:
+1. `scripts/thunderbird-fresh.json` — 57 items / 48 unique (comprehensive re-fetch)
+2. `scripts/thunderbird-full-raw.json` — 33 items / 29 unique (facility-filtered fetch)
+
+### Additional Programs Found
+
+Combining both data fetches revealed programs NOT found in the first session's 24-program API result:
+
+| ID | Name | Ages | Dates | Days | Time |
+|----|------|------|-------|------|------|
+| 600204 | Anime Cartoon Drawing Camp | 6–12 | Jul 27–31 | Mon–Fri | 9:15 AM – 12:15 PM |
+| 604985 | Active Dance Sing/Jazz Funk/Hip Hop/KPOP Camp | 6–14 | Jul 27–31 | Mon–Fri | 9:00 AM – 12:00 PM |
+| 605530 | Active Dance: Jazz Funk, Hip Hop and Asian Pop Camp | 8–14 | Jul 27–31 | Mon–Fri | 12:00 PM – 3:00 PM |
+| 601797 | Character Design - Summer Camp | 9–12 | Jul 13–17 | Mon–Fri | 11:50 AM – 12:50 PM |
+| 601798 | Character Design - Summer Camp | 9–12 | Aug 4–7 | Tue–Fri | 11:50 AM – 12:50 PM |
+| 597185 | LEGO Stop Motion Animation | 7–12 | Jul 6–10 | Mon–Fri | 9:00 AM – 4:00 PM |
+| 597186 | LEGO Stop Motion Animation | 7–12 | Aug 10–14 | Mon–Fri | 9:00 AM – 4:00 PM |
+| 597148 | Outdoor Soccer 6-8 yrs | 6–8 | Apr 11 – Jun 13 | Sat | 9:45 AM – 10:45 AM |
+| 597021 | Young Phonics - Gr. 1 | 6–7 | Apr 15 – Jun 17 | Wed | 4:45 PM – 6:00 PM |
+| 597020 | Young Phonics - K | 5–6 | Apr 15 – Jun 17 | Wed | 3:30 PM – 4:45 PM |
+
+Plus 13 Birthday Party Multi-Purpose Room Sunday slots (cost $185 confirmed via API fee field):
+595653, 595655, 595664, 595671, 595673, 595682, 595691, 595698, 595709, 595725, 595727, 595734, 595736
+
+### Status Updates from Second Session
+
+- **COV-600078** (Tax Clinic Apr 4): → `Completed` (event date passed)
+- **COV-597852** (A Ballet Time): → `Open`, `confirmed2026: true` — API no longer shows "Cancelled" status (program reinstated between morning and evening)
+
+### Art Jam Programs Clarification
+
+From first session's API data:
+- **608914** (Art Jam Set 1): was shown as **Cancelled** — NOT in DB (correctly excluded)
+- **601793/601794** (Art Jam Summer Camps): shown in first session API with times 9:30–10:30 AM (Mon–Fri) — NOT added by either session due to API inconsistency between runs
+
+These programs should be verified with a browser in a future audit.
+
+### Second Session Validator Output
+
+```
+Violations: 1841 (pre-existing + new R46 warns for wide age bands)
+Auto-fixed: 31
+Rules checked: R1–R34, R39, R43, R46, R48 + REQ
+Programs: 15842 total
+```
+
+### Programs Count After Both Sessions
+
+- **Database before first audit:** 106 listings
+- **Added in first session:** 8 kids programs
+- **Added in second session:** 23 programs (13 birthday MPR slots + 10 kids/community)
+- **Database after both sessions:** 137 Thunderbird programs
