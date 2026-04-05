@@ -5,6 +5,42 @@
   "totalProviders": 413,
   "providers": [
     {
+      "rank": 105,
+      "name": "MAB Art Studio",
+      "listings": 14,
+      "distKm": 7.9,
+      "priorityScore": 59,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": "VERIFICATION-LOG-MAB-ART-STUDIO.md",
+      "notes": "mabstudio.ca unreachable on 2026-04-05 (connection refused). Re-audit when site is back online.",
+      "sessionId": null
+    },
+    {
+      "rank": 123,
+      "name": "West End Community Association",
+      "listings": 9,
+      "distKm": 3.8,
+      "priorityScore": 56,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": "Dynamic site (westendca.ca ECONNREFUSED, activecommunities.com returns no program data without JS). Re-audit with browser session.",
+      "sessionId": null
+    },
+    {
+      "rank": 124,
+      "name": "Boogaloo Academy",
+      "listings": 8,
+      "distKm": 4.5,
+      "priorityScore": 55,
+      "status": "pending",
+      "auditDate": null,
+      "logFile": "docs/VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
+      "notes": "Dynamic JS site — program content not accessible via static scraping. JackRabbit registration page returned 403. Manual browser audit required.",
+      "sessionId": null
+    },
+    {
       "rank": 1,
       "name": "City of Burnaby - Unknown",
       "listings": 729,
@@ -1265,18 +1301,6 @@
       "sessionId": null
     },
     {
-      "rank": 105,
-      "name": "MAB Art Studio",
-      "listings": 14,
-      "distKm": 7.9,
-      "priorityScore": 59,
-      "status": "failed",
-      "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-MAB-ART-STUDIO.md",
-      "notes": "mabstudio.ca unreachable on 2026-04-05 (connection refused). Re-audit when site is back online.",
-      "sessionId": null
-    },
-    {
       "rank": 106,
       "name": "City of Burnaby - Cameron Recreation Centre",
       "listings": 14,
@@ -1485,36 +1509,12 @@
       "startedAt": "2026-04-05"
     },
     {
-      "rank": 123,
-      "name": "West End Community Association",
-      "listings": 9,
-      "distKm": 3.8,
-      "priorityScore": 56,
-      "status": "failed",
-      "auditDate": "2026-04-05",
-      "logFile": null,
-      "notes": "Dynamic site (westendca.ca ECONNREFUSED, activecommunities.com returns no program data without JS). Re-audit with browser session.",
-      "sessionId": null
-    },
-    {
-      "rank": 124,
-      "name": "Boogaloo Academy",
-      "listings": 8,
-      "distKm": 4.5,
-      "priorityScore": 55,
-      "status": "failed",
-      "auditDate": "2026-04-05",
-      "logFile": "docs/VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
-      "notes": "Dynamic JS site — program content not accessible via static scraping. JackRabbit registration page returned 403. Manual browser audit required.",
-      "sessionId": null
-    },
-    {
       "rank": 125,
       "name": "LDS Society",
       "listings": 8,
       "distKm": 4.1,
       "priorityScore": 55,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
