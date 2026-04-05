@@ -2,9 +2,9 @@
 
 **Date:** 2026-04-05
 **Auditor:** Claude (automated)
-**Registration Page:** https://royalsoccerclub.com/summer-camp-locations/british-columbia/vancouver/
-**Registration Portal:** https://royalbc.campbrainregistration.com/
-**Status:** COMPLETED
+**Registration Page:** https://royalsoccerclub.com/summer-camp-locations/british-columbia/
+**New Westminster Page:** https://royalsoccerclub.com/summer-camp-locations/british-columbia/new-westminster/
+**Status:** COMPLETE
 
 ---
 
@@ -12,78 +12,73 @@
 
 | Metric | Value |
 |--------|-------|
-| Programs found on live page | 80 (4 locations × 10 weeks × 2 session types) |
-| Programs in database (before) | 8 |
-| Programs updated | 8 (corrected URL, name, cost) |
-| Programs added | 72 (missing locations + morning sessions) |
+| Programs found on live page | 4 locations x 10 weeks x 2 sessions = 80 programs |
+| Programs in database (before) | 80 |
+| Programs fixed | 7 (Week 6 date errors) |
+| Programs added | 20 (New Westminster location) |
 | Programs completed | 0 |
 
 ---
 
-## Provider Note
+## Provider Information
 
-"Royal City Soccer Club" (royalsoccer.com) redirects permanently (301) to royalsoccerclub.com ("Royal Soccer Club"). They are the same organization. Our database provider name "Royal City Soccer Club" is correct as it matches the BC-specific branding used on their site.
+- **Name:** Royal City Soccer Club (also markets as "Royal Soccer Club")
+- **Website:** https://royalsoccer.com / https://royalsoccerclub.com
+- **Registration portal:** https://royalbc.campbrainregistration.com
+- **Phone:** 1-800-427-0536
+- **Notes:** Canada's largest grassroots summer soccer day camp provider
 
----
+## Vancouver Locations
 
-## Programs Found on Live Page
+| Neighbourhood | Address |
+|--------------|---------|
+| Kerrisdale | Kerrisdale Park, 5670 East Blvd, Vancouver |
+| Kensington-Cedar Cottage | Kensington Park, 5175 Dumfries St, Vancouver |
+| Renfrew-Collingwood | Beaconsfield Park, 3215 Slocan St, Vancouver |
+| Hastings-Sunrise | Templeton Park, 700 Templeton Dr, Vancouver |
 
-### 4 Vancouver Locations
+## New Westminster Location (added)
 
-| Location | Primary Address | Week 9 Address |
-|----------|----------------|----------------|
-| Kensington | Kensington Park, 5175 Dumfries St, Vancouver | Tecumseh Annex Elementary, 1551 37 Ave E, Vancouver |
-| Renfrew | Beaconsfield Park, 3215 Slocan St, Vancouver | Same |
-| Kerrisdale | Kerrisdale Park, 5670 East Blvd, Vancouver | Quilchena Elementary, 5300 Maple St, Vancouver |
-| Templeton | Templeton Park North Field, 700 Templeton Dr, Vancouver | Templeton Secondary, 727 Templeton Dr, Vancouver |
-
-### 10 Weeks
-
-| Week | Dates | Days | Notes |
-|------|-------|------|-------|
-| 1 | June 29 – July 3, 2026 | Mon-Fri | 4-day (no July 1, Canada Day) |
-| 2 | July 6–10, 2026 | Mon-Fri | Full week |
-| 3 | July 13–17, 2026 | Mon-Fri | Full week |
-| 4 | July 20–24, 2026 | Mon-Fri | Full week |
-| 5 | July 27–31, 2026 | Mon-Fri | Full week |
-| 6 | Aug 3–7, 2026 | Mon-Fri | 4-day (no Aug 3, BC Day) |
-| 7 | Aug 10–14, 2026 | Mon-Fri | Full week |
-| 8 | Aug 17–21, 2026 | Mon-Fri | Full week |
-| 9 | Aug 24–28, 2026 | Mon-Fri | Full week (venue change at some locations) |
-| 10 | Aug 31 – Sept 4, 2026 | Mon-Fri | Full week |
-
-### 2 Session Types
-
-| Session | Times | Full-week Price | 4-day Price |
-|---------|-------|----------------|-------------|
-| Full Day | 9:00 AM – 4:00 PM | $299/week | $215/week |
-| Morning Session | 9:00 AM – 12:00 PM | $195/week | $140/week |
-
-**Ages:** 5–13 (single undivided group; campers must turn 6 before Dec 31, 2026)
-**Early registration discount:** $20 off full day / $10 off morning, if registered by June 1
-**Sibling discount:** $10 off second and additional campers
-**Campers receive:** Soccer ball and medal
+- **Park:** Hume Park Field, 660 E Columbia St, New Westminster, BC V3L 3Y2
+- **Bonus:** Afternoon swim at Hume Park Outdoor Pool included for Full Day campers
 
 ---
 
-## Database Changes Made
+## Programs and Pricing (verified against royalsoccer.com/rates-dates/)
 
-### Updated (8 programs — IDs 291–298)
-- Renamed from "Soccer Camp" to "Soccer Camp — Full Day"
-- Fixed registrationUrl to Vancouver camp page (was missing Kerrisdale location specificity)
-- Updated cost for Week 6 (Aug 3–7, 4-day): $299 → $215
-- Added ageSpanJustified (provider uses single 5–13 group, no sub-bands)
+| Session Type | Regular week (5-day) | 4-day week (Wk 1 & 6) |
+|-------------|---------------------|----------------------|
+| Full Day (9am-4pm) | $299 | $215 |
+| Morning Session (9am-12pm) | $195 | $140 |
 
-### Added (72 programs — IDs 613264–613335)
-- 3 new locations: Kensington, Renfrew, Templeton — all 10 weeks, Full Day sessions
-- Morning Session variants for all 4 locations, all 10 weeks
+Early registration discount (by June 1, 2026): $20 off Full Day, $10 off Morning.
+Note: March 31 early bird deadline has passed.
 
-**Provider shows 80 programs, database had 8 — 72 added**
+## 10-Week Schedule
+
+| Week | Dates | Days | Note |
+|------|-------|------|------|
+| 1 | Jun 29 - Jul 3 | Mon-Fri (4-day) | No July 1 Canada Day |
+| 2 | Jul 6 - Jul 10 | Mon-Fri | |
+| 3 | Jul 13 - Jul 17 | Mon-Fri | |
+| 4 | Jul 20 - Jul 24 | Mon-Fri | |
+| 5 | Jul 27 - Jul 31 | Mon-Fri | |
+| 6 | Aug 4 - Aug 7 | Tue-Fri (4-day) | No Aug 3 BC Day |
+| 7 | Aug 10 - Aug 14 | Mon-Fri | |
+| 8 | Aug 17 - Aug 21 | Mon-Fri | |
+| 9 | Aug 24 - Aug 28 | Mon-Fri | |
+| 10 | Aug 31 - Sep 4 | Mon-Fri | |
 
 ---
 
-## Notes
+## Database Corrections Made
 
-- R46 suppressed via `ageSpanJustified`: provider genuinely uses 5–13 as a single group
-- Early bird deadline (March 31) has already passed as of audit date (April 5, 2026)
-- Week 9 venues differ at Kensington, Kerrisdale, Templeton — noted in `costNote` fields
+### Week 6 Date Errors Fixed
+IDs 613274, 613275 (Kensington), 613294, 613295 (Renfrew-Collingwood), 613310 (Kerrisdale AM), 613326, 613327 (Hastings-Sunrise):
+- startDate: 2026-08-03 → 2026-08-04 (Aug 3 is BC Day)
+- days: Mon-Fri → Tue-Fri
+
+### New Westminster Location Added
+20 new entries (IDs 613336-613355): 10 weeks x 2 session types (Full Day and Morning Session)
+
+**Provider shows 80 programs across 5 locations, database now has 100 active entries (80 Vancouver + 20 New Westminster)**
