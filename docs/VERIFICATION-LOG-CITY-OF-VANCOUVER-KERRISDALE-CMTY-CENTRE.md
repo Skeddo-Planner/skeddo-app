@@ -206,3 +206,74 @@ Summer Safaris is Kerrisdale's flagship summer day camp. All verified via Active
 | Programs added in Session 2 | 64 |
 | Programs removed in Session 2 (R23) | 3 |
 | Programs after Session 2 | ~305 |
+
+---
+
+## Session 3 — Full Scrape & Bulk Import (2026-04-05)
+
+A complete scrape of all ActiveNet programs for center_ids=33 was performed using a standalone Playwright Chromium script with infinite scroll, capturing all 889 programs from the Kerrisdale CC page.
+
+### Method
+
+1. **Scraper (`scripts/scrape-kerrisdale.cjs`):** Playwright-chromium with infinite scroll — collected 889 programs total, parsing containerText for dates/times/ages/status
+2. **Bulk import (`scripts/add-kerrisdale-bulk.cjs`):** Compared scraped IDs vs DB → 680 missing programs added
+3. **Price API:** ActiveNet estimateprice API fetched for all 680 new programs (569 returned prices, 111 returned null → `costNote` set)
+4. **Description API:** ActiveNet detail API fetched catalog_description for all 680 programs
+5. **Adult removal (R23):** 315 programs with ageMin >= 18 removed (Skeddo serves kids under 18)
+
+### Session 3 Counts
+
+| Metric | Count |
+|--------|-------|
+| Programs scraped from ActiveNet (all ages) | 889 |
+| New programs added (vs DB before this session) | 680 |
+| Adult-only programs removed (ageMin >= 18, R23) | 315 |
+| **Final Kerrisdale programs in DB** | **617** |
+| Total programs in DB | 15,534 |
+
+### By Enrollment Status (Final)
+
+| Status | Count |
+|--------|-------|
+| Open | 511 |
+| Full/Waitlist | 46 |
+| Coming Soon | 16 |
+| Completed | 44 |
+
+### By Category (Final)
+
+| Category | Count |
+|----------|-------|
+| Performing Arts | 172 |
+| Sports | 122 |
+| General | 126 |
+| Multi-Activity | 41 |
+| Arts & Crafts | 40 |
+| Fitness | 37 |
+| Education | 20 |
+| STEM | 15 |
+| Music | 13 |
+| Academic | 8 |
+| Arts | 9 |
+| Dance | 6 |
+| Martial Arts | 7 |
+| Social | 1 |
+
+### Price Coverage
+
+| | Count |
+|-|-------|
+| Programs with verified price | 569 |
+| Programs without price (API null → costNote set) | 48 |
+
+### Known Limitations
+
+- **R43 warnings:** ~28 programs have ageMin=5, ageMax=12 — this is the actual age range in ActiveNet (provider does not break into 2-year bands). Not a data error.
+- **R46 wide age range warnings:** Same provider-defined ranges. Accurate.
+
+### Commit
+
+- **Commit:** c28d3b0
+- **Branch:** main
+- **Validator:** 1804 violations, 30 auto-fixed
+- **Programs:** 15,534 total
