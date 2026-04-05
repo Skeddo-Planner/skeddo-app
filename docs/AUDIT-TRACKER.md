@@ -11,19 +11,20 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 141 | 11,997 |
-| 🔲 Audits pending | 309 | 2,279 |
+| ✅ Audits completed | 142 | 12,018 |
+| 🔲 Audits pending | 308 | 2,258 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (142 providers)
+## ✅ Completed Audits (143 providers)
 
 Sorted by number of listings (most to fewest).
 
 | Provider | Listings | Audit Date | Verification Log(s) |
 |----------|----------|------------|---------------------|
 | City of Vancouver (all 89 community centres) | 2,949 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-VANCOUVER-ALL.md |
+| City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | North Vancouver Recreation Commission (NVRC) | 327 | 2026-04-04 | VERIFICATION-LOG-NVRC.md |
 | City of Burnaby - Unknown | 729 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md |
 | Pedalheads | 6568 | 2026-04-01 | VERIFICATION-LOG-PEDALHEADS.md / V2 / V3 |
@@ -172,7 +173,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 82 | Sunset Community Centre | 19 | 4.4 km | 63 |
 | 83 | VSO School of Music | 16 | 1.8 km | 62 |
 | 84 | City of Burnaby | 18 | 9.3 km | 62 |
-| 85 | City of New Westminster | 21 | 15.3 km | 62 |
 | 86 | Extra Steps | 16 | 1.6 km | 62 |
 | 87 | City of Vancouver - Hastings Community Centre | 17 | 4.9 km | 62 |
 | 88 | Richmond Ice Centre | 21 | 14.4 km | 62 |
