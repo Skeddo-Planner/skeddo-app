@@ -1730,9 +1730,9 @@
       "listings": 9,
       "distKm": 22.8,
       "priorityScore": 53,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-SOCIETE-FRANCOPHONE-DE-MAILLARDVILLE.md",
       "notes": null,
       "sessionId": null
     },
