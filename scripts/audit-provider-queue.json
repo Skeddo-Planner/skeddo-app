@@ -1318,11 +1318,11 @@
       "listings": 10,
       "distKm": 3.6,
       "priorityScore": 57,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-VANDUSEN-BOTANICAL-GARDEN.md",
+      "notes": "4 fixes, 1 new Pro-D Day added (Bogs to Beaches Jun 26). Summer records 1164-1171 verified correct.",
+      "sessionId": "sad-fermat"
     },
     {
       "rank": 110,
