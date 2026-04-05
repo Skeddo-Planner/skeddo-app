@@ -160,3 +160,49 @@ The following programs appeared in the ActiveNet API but were excluded as adult-
 4. **Registration date:** Many summer programs had registrationDate of April 8, 2026. Audit conducted April 5 — 17 programs not yet in live API may appear after that date.
 
 5. **Completeness:** Live API showed 57 unique kids programs (ageMax ≤ 17). Database now contains 244 Kerrisdale entries total (including adult programs, personal training, and completed programs).
+
+---
+
+## Session 2 Additions (2026-04-05 continuation)
+
+After the initial audit, a second pass added 64 additional programs identified via targeted ID-range scans (604590–604635 and 617810–617860):
+
+### Summer Safaris Day Camp Weeks 1–9 (27 programs)
+
+Summer Safaris is Kerrisdale's flagship summer day camp. All verified via ActiveNet REST API.
+
+| Program | Weeks | Cost | Notes |
+|---------|-------|------|-------|
+| Summer Safaris Jr Day Camp (Ages 4-7) | Weeks 1-9 | $175/wk ($140 for 4-day) | IDs 604606–604634 (even) |
+| Summer Safaris Sr Day Camp (Ages 7-13) | Weeks 1-9 | $175/wk ($140 for 4-day) | IDs 604607–604635 (odd) |
+| Summer Safaris Before Care (7:30–9am) | Weeks 1-9 | $40/wk ($32 4-day) | IDs 604591–604599 |
+| Summer Safaris After Care (3:30–5:30pm) | Weeks 1-9 | $40/wk ($32 4-day) | IDs 604600–604608 |
+
+4-day holiday weeks: Week 1 (Jun 29 – Jul 3, Canada Day Jul 1), Week 6 (Aug 3-7, BC Day Aug 3).
+
+### Other Camps and Programs Added
+
+| ID | Program | Ages | Cost | Status |
+|----|---------|------|------|--------|
+| COV-604592 | Kerrisdale Pre-teen Group | 11-14 | Free | Open |
+| COV-604593 | Strikewell Youth Boxing Level 2 - Free Trial | 11-18 | Free | Completed |
+| COV-604594 | Badminton Youth | 11-18 | varies | Full |
+| COV-604595–604597 | Group Piano for Preschoolers (3 sections) | 3-5 | $175 | Open |
+| COV-604610 | Cartoons Character Creation Camp | 6-12 | $270 | Open |
+| COV-604611 | Happy Kids Studios camp (summer) | 5-12 | $225-250 | Open |
+| COV-604612-604634 range | Sportball, Game Ready, WIZE Coding, Tomorrow's Playground, Science Explorer, STEAM 4 Kids | various | $245-$325 | Open |
+| COV-617811 | Asian KPOP, Jazz Funk, Hip Hop Dance Camp | 6-13 | $255 | Open |
+| COV-617814–617844 | Summer Group Fitness (ageMin 16+) | 16+ | $6.75/session | Coming Soon |
+
+**Removed (R23 — adult-only):** COV-617817 (Gentle TBC, ageMin=19), COV-617822 (Gentle Fit Plus, ageMin=19), COV-617823 (Gentle Fit, ageMin=19).
+
+**Fixed:** COV-605803 null startDate/endDate → 2026-01-21 / 2026-08-31.
+
+### Session 2 Count
+
+| | Count |
+|-|-------|
+| Programs before Session 2 | 244 |
+| Programs added in Session 2 | 64 |
+| Programs removed in Session 2 (R23) | 3 |
+| Programs after Session 2 | ~305 |
