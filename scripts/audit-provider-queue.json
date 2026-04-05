@@ -106,7 +106,7 @@
       "listings": 144,
       "distKm": 6,
       "priorityScore": 83,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
       "notes": "Chrome browser unavailable (mcp__Claude_in_Chrome__navigate not available). ActiveNet requires JS rendering — WebFetch cannot substitute. Re-queue when Chrome MCP is available.",
