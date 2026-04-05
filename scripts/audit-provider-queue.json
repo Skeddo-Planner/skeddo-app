@@ -1516,7 +1516,7 @@
       "priorityScore": 55,
       "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "docs/VERIFICATION-LOG-LDS-SOCIETY.md",
+      "logFile": "VERIFICATION-LOG-LDS-SOCIETY.md",
       "notes": null,
       "sessionId": null
     },
@@ -1526,7 +1526,7 @@
       "listings": 8,
       "distKm": 4.6,
       "priorityScore": 55,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
