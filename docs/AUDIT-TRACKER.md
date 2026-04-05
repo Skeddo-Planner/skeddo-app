@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 137 | 11,903 |
-| 🔲 Audits pending | 313 | 2,340 |
-| **Total** | **450** | **14,243** |
+| ✅ Audits completed | 138 | 11,936 |
+| 🔲 Audits pending | 312 | 2,340 |
+| **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (138 providers)
+## ✅ Completed Audits (139 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -80,6 +80,7 @@ Sorted by number of listings (most to fewest).
 | Sparks Academy | 28 | 2026-04-04 | VERIFICATION-LOG-SPARKS-ACADEMY.md |
 | Burnaby Winter Club | 28 | 2026-04-05 | VERIFICATION-LOG-BURNABY-WINTER-CLUB.md |
 | Flicka Gymnastics | 32 | 2026-04-05 | VERIFICATION-LOG-FLICKA-GYMNASTICS.md |
+| False Creek Community Centre | 33 | 2026-04-05 | VERIFICATION-LOG-FALSE-CREEK-COMMUNITY-CENTRE.md |
 
 ---
 
