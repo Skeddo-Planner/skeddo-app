@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 147 | 12,100 |
-| 🔲 Audits pending | 303 | 2,179 |
+| ✅ Audits completed | 148 | 12,113 |
+| 🔲 Audits pending | 302 | 2,166 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (148 providers)
+## ✅ Completed Audits (149 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -30,6 +30,7 @@ Sorted by number of listings (most to fewest).
 | VSO School of Music | 16 | 2026-04-05 | VERIFICATION-LOG-VSO-SCHOOL-OF-MUSIC.md |
 | Bodwell High School (UBC Geering Up at Bodwell) | 14 | 2026-04-05 | VERIFICATION-LOG-BODWELL-GEERING-UP.md |
 | 3D Basketball Academy | 12 | 2026-04-05 | VERIFICATION-LOG-3D-BASKETBALL.md |
+| Bard on the Beach | 13 | 2026-04-05 | VERIFICATION-LOG-BARD-ON-THE-BEACH.md |
 | North Vancouver Recreation Commission (NVRC) | 327 | 2026-04-04 | VERIFICATION-LOG-NVRC.md |
 | City of Burnaby - Unknown | 729 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md |
 | Pedalheads | 6568 | 2026-04-01 | VERIFICATION-LOG-PEDALHEADS.md / V2 / V3 |
@@ -185,7 +186,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 95 | City of Burnaby - Eileen Dailly Recreation Centre | 14 | 7.3 km | 59 |
 | 96 | City of Burnaby - Kensington Recreation Centre | 14 | 12.0 km | 59 |
 | 97 | City of Burnaby - Bill Copeland Recreation Centre | 14 | 7.6 km | 59 |
-| 98 | Bard on the Beach | 13 | 3.4 km | 59 |
 | 99 | Professor Puffin's Challenge Club | 14 | 7.1 km | 59 |
 | 100 | City of Vancouver — Hillcrest Community Centre | 12 | 2.3 km | 59 |
 | 101 | City of Vancouver — Coal Harbour Community Centre | 12 | 3.4 km | 59 |
