@@ -1463,11 +1463,13 @@
       "listings": 9,
       "distKm": 4.1,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-KITSILANO-NEIGHBOURHOOD-HOUSE.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "startedAt": "2026-04-05",
+      "listingsAfter": 16
     },
     {
       "rank": 122,
