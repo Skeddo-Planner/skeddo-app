@@ -154,9 +154,9 @@
       "listings": 121,
       "distKm": 5.3,
       "priorityScore": 81,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-CMTY-CENTRE.md",
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null
     },
