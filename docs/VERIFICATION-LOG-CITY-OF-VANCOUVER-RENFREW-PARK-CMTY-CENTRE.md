@@ -1,8 +1,8 @@
 # Verification Log — City of Vancouver - Renfrew Park Community Centre
 
-**Date Audited:** 2026-04-05 (re-attempted)
+**Date Audited:** 2026-04-05 (re-attempted — session 3)
 **Auditor:** Claude (automated audit agent)
-**Status:** INCOMPLETE — Playwright browser failed to spawn (multiple sessions)
+**Status:** INCOMPLETE — Playwright browser failed to spawn (3 sessions, 8+ attempts)
 
 ---
 
@@ -19,9 +19,15 @@
 ### Session 1 (prior session)
 - `mcp__playwright__browser_navigate` called 3 times, all failed with `spawn UNKNOWN`
 
-### Session 2 (2026-04-05)
+### Session 2 (2026-04-05, earlier)
 - `mcp__playwright__browser_navigate` called 4 times with increasing wait times (0s, 5s, 15s between attempts)
 - All 4 attempts failed with: `Error: server: spawn UNKNOWN` — Firefox Playwright process could not be launched
+
+### Session 3 (2026-04-05)
+- `mcp__playwright__browser_navigate` and `mcp__playwright__browser_run_code` both attempted
+- Both failed with same `spawn UNKNOWN` error — Firefox at `C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe` cannot be spawned
+- Confirmed Chromium 147.0.7727.15 IS installed at `ms-playwright/chromium-1217/` but MCP Playwright server is hardcoded to Firefox and cannot be switched without reconfiguring the MCP server
+- Total attempts across all sessions: 8+
 
 **Error message:** `spawn UNKNOWN` — the Playwright MCP server could not launch Firefox at `C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe`
 

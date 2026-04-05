@@ -235,10 +235,10 @@
       "listings": 75,
       "distKm": 4.4,
       "priorityScore": 76,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-RENFREW-PARK-CMTY-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN on all attempts across 2 sessions (7 total attempts). Same system resource exhaustion error as Dunbar, Creekside, Mount Pleasant. Retry when browser available.",
+      "notes": "Playwright Firefox spawn UNKNOWN — 3 sessions, 8+ attempts. Firefox MCP cannot launch on this Windows machine. Chromium 147 IS installed (ms-playwright/chromium-1217) but MCP is hardcoded to Firefox. Requires switching MCP Playwright to use Chromium.",
       "sessionId": null
     },
     {
