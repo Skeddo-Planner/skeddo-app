@@ -718,10 +718,10 @@
       "listings": 36,
       "distKm": 18.2,
       "priorityScore": 67,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-DOUGLAS-COLLEGE.md",
+      "notes": "2026 schedule not yet published. Re-audit after May 2026.",
       "sessionId": null
     },
     {

@@ -74,6 +74,7 @@ Sorted by number of listings (most to fewest).
 | The Hive Climbing | 33 | 2026-04-04 | VERIFICATION-LOG-THE-HIVE-CLIMBING.md |
 | Richmond School District (SD38) | 46 | 2026-04-04 | VERIFICATION-LOG-RICHMOND-SCHOOL-DISTRICT-SD38.md |
 | Jump Gymnastics | 30 | 2026-04-04 | VERIFICATION-LOG-JUMP-GYMNASTICS.md |
+| Douglas College | 36 | 2026-04-04 | VERIFICATION-LOG-DOUGLAS-COLLEGE.md |
 
 ---
 
