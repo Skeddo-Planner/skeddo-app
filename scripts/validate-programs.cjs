@@ -83,6 +83,8 @@ const HOMEPAGE_EXEMPT_DOMAINS = [
   // Documented single-purpose sites (verified 2026-04-01, no program-specific pages exist)
   "scottishculturalcentre.com", "sckimstaekwondo.com",
   "kirbysnelldance.com", "www.ganisraelbc.com",
+  // BWC: no camp-specific pages exist; summer skill camps not yet live as of 2026-04-05
+  "www.burnabywinterclub.com",
   // CampBrain registration portals (root URL = full program catalog)
   "campmclean.campbrainregistration.com",
 ];
