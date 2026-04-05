@@ -629,6 +629,18 @@
       "sessionId": null
     },
     {
+      "rank": 403,
+      "name": "Vancouver Athletic Football Club",
+      "listings": 1,
+      "distKm": null,
+      "priorityScore": 0,
+      "status": "completed",
+      "auditDate": "2026-04-04",
+      "logFile": "VERIFICATION-LOG-VANCOUVER-ATHLETIC-FOOTBALL-CLUB.md",
+      "notes": null,
+      "sessionId": null
+    },
+    {
       "rank": 53,
       "name": "The Hive Climbing",
       "listings": 33,
@@ -4819,18 +4831,6 @@
     {
       "rank": 402,
       "name": "ToDo Spanish",
-      "listings": 1,
-      "distKm": null,
-      "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
-    },
-    {
-      "rank": 403,
-      "name": "Vancouver Athletic Football Club",
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
