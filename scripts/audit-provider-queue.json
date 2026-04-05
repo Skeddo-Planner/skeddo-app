@@ -106,10 +106,10 @@
       "listings": 144,
       "distKm": 6,
       "priorityScore": 83,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
-      "notes": "Chrome browser unavailable (mcp__Claude_in_Chrome__navigate not available). ActiveNet requires JS rendering — WebFetch cannot substitute. Re-queue when Chrome MCP is available.",
+      "notes": "Playwright browser failed with spawn UNKNOWN (session 2). Session 1 failed — mcp__Claude_in_Chrome__navigate unavailable. Two consecutive sessions blocked. Retry when Playwright MCP is working. 2 data fixes applied: COV-610467 repeating=true, COV-610477 ageMax=7.",
       "sessionId": null
     },
     {
@@ -211,10 +211,10 @@
       "listings": 95,
       "distKm": 0.1,
       "priorityScore": 79,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MOUNT-PLEASANT-CMTY-CENTRE.md",
+      "notes": "Browser (Playwright/Chromium spawn UNKNOWN) failed repeatedly — same issue as Sunset Cmty Centre session. Chromium binary exists but cannot be launched. Retry when Playwright MCP browser is operational.",
       "sessionId": null
     },
     {
@@ -223,7 +223,7 @@
       "listings": 96,
       "distKm": 1.8,
       "priorityScore": 79,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
