@@ -59,10 +59,10 @@
       "listings": 327,
       "distKm": 7.5,
       "priorityScore": 91,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-NORTH-VANCOUVER-RECREATION-COMMISSION-NVRC.md",
+      "notes": "Partial audit — Chrome browser unavailable, PerfectMind registration not yet open. Fixed Daytripper costs, removed unverified specialty camp prices, added Board Games Camp. Re-audit required when registration opens late May 2026.",
       "sessionId": null
     },
     {
