@@ -1,10 +1,158 @@
 # Verification Log — City of Vancouver - Dunbar Cmty Centre
 
-**Date last attempted:** 2026-04-05 (Session 4)
-**Date first attempted:** 2026-04-05 (Session 1)
-**Audited by:** Claude (automated audit agent)
-**Registration page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&location_ids=23
-**Status:** BLOCKED — Playwright browser unavailable (four consecutive sessions) — marked FAILED
+**Audit date:** 2026-04-05
+**Auditor:** Claude (automated audit agent)
+**Registration page:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=50
+**Status:** COMPLETE
+
+---
+
+## Summary
+
+| Metric | Value |
+|--------|-------|
+| Programs in DB before audit | 151 |
+| New programs added | 44 |
+| Status fixes (→ Completed) | 5 |
+| Programs in DB after audit | 195 |
+| Violations on new/changed programs | 0 hard (2 soft R43/R46 — intentional combo camp age range) |
+
+---
+
+## Method
+
+- Navigated to `https://anc.ca.apm.activecommunities.com/vancouver/activity/search`
+- Applied "Where" filter → Dunbar Community Centre (`center_ids=50`)
+- Used JavaScript virtual-scroll loading to enumerate all 190 programs at this location
+- Navigated to individual detail pages for each new/unverified program to confirm:
+  - Program name, age range, cost, dates, times, days, enrollment status
+  - Registration open date (April 8, 2026 for summer programs)
+  - Fee details via "View fee details" modal
+
+---
+
+## New Programs Added (44)
+
+### Dunbar Day Camps (8 programs)
+
+| ID | Dates | Ages | Cost | Status |
+|----|-------|------|------|--------|
+| COV-608317 | Jul 2-3 (2-day) | 6-12 | $76 | Coming Soon (Apr 8) |
+| COV-608330 | Jul 6-10 | 6-12 | $190 | Coming Soon (Apr 8) |
+| COV-608332 | Jul 13-17 | 6-12 | $190 | Coming Soon (Apr 8) |
+| COV-609243 | Jul 20-24 | 6-12 | $190 | Coming Soon (Apr 8) |
+| COV-609244 | Jul 27-31 | 6-12 | $190 | Coming Soon (Apr 8) |
+| COV-609245 | Aug 4-8 (4-day, BC Day) | 6-12 | $190 | Coming Soon (Apr 8) |
+| COV-609246 | Aug 11-15 | 6-12 | $190 | Coming Soon (Apr 8) |
+| COV-609247 | Aug 17-21 | 6-12 | $190 | Coming Soon (Apr 8) |
+
+All camps: Mon-Fri 9:00 AM - 3:30 PM. Week 1 shortened due to Canada Day (Jul 1). Week 6 shortened due to BC Day (Aug 3).
+
+### Active Kids UBC Kinesiology (8 programs)
+
+Movement classes led by UBC Kinesiology students for children ages 1-5.
+
+| ID | Days | Dates | Time | Cost | Status |
+|----|------|-------|------|------|--------|
+| COV-608146 | Fri | Apr 17 - May 29 (7 classes) | 9:30-10:15 AM | $132 | Open |
+| COV-608149 | Sun | Apr 19 - Jun 7 (8 classes) | 9:30-10:15 AM | $154 | Open |
+| COV-608151 | Fri | Apr 17 - Jun 5 (8 classes) | 10:30-11:15 AM | $154 | Open |
+| COV-608153 | Sun | Apr 19 - Jun 7 (8 classes) | 10:30-11:15 AM | $154 | Open |
+| COV-608148 | Fri | Jul 3 - Aug 7 (5 classes) | 9:30-10:15 AM | $132 | Coming Soon (Apr 8) |
+| COV-608150 | Sun | Jul 5 - Aug 9 (6 classes) | 9:30-10:15 AM | $154 | Coming Soon (Apr 8) |
+| COV-608152 | Fri | Jul 3 - Aug 7 (5 classes) | 10:30-11:15 AM | $132 | Coming Soon (Apr 8) |
+| COV-608155 | Sun | Jul 5 - Aug 9 (6 classes) | 10:30-11:15 AM | $154 | Coming Soon (Apr 8) |
+
+### Endorphin Rush Dance (14 programs)
+
+Saturday dance classes. Spring: 8 classes, $154. Summer: 5 classes, $112.
+
+| ID | Program | Ages | Time |
+|----|---------|------|------|
+| COV-607751 | My First Dance (Spring) | 1-3 | 9:00-9:30 AM |
+| COV-607741 | Little Ballerinas A (Spring) | 2-4 | 9:30-10:00 AM |
+| COV-607745 | Little Ballerinas B (Spring) | 2-4 | 10:00-10:30 AM |
+| COV-607742 | Ballet/Jazz Fusion A (Spring) | 4-6 | 10:30-11:15 AM |
+| COV-607748 | Ballet/Jazz Fusion B (Spring) | 4-6 | 11:15 AM-12:00 PM |
+| COV-607749 | Hip Hop A (Spring) | 6-10 | 12:00-12:45 PM |
+| COV-607754 | Hip Hop B (Spring) | 6-10 | 12:45-1:30 PM |
+| COV-607768 | My First Dance (Summer) | 1-3 | 9:00-9:30 AM |
+| COV-607758 | Little Ballerinas A (Summer) | 2-4 | 9:30-10:00 AM |
+| COV-607759 | Little Ballerinas B (Summer) | 2-4 | 10:00-10:30 AM |
+| COV-607761 | Ballet/Jazz Fusion A (Summer) | 4-6 | 10:30-11:15 AM |
+| COV-607763 | Ballet/Jazz Fusion B (Summer) | 4-6 | 11:15 AM-12:00 PM |
+| COV-607764 | Hip Hop A (Summer) | 6-10 | 12:00-12:45 PM |
+| COV-607767 | Hip Hop B (Summer) | 6-10 | 12:45-1:30 PM |
+
+Spring dates: Apr 18 - Jun 13. Summer dates: Jul 11 - Aug 15.
+
+### Summer Dance Camps (6 programs)
+
+| ID | Program | Ages | Week | Times | Cost |
+|----|---------|------|------|-------|------|
+| COV-608127 | Ballet/Jazz Half-Day | 5-7 | Jul 20-24 | 9 AM-12 PM | $109 |
+| COV-608131 | Hip Hop Half-Day | 8-12 | Jul 20-24 | 9 AM-12 PM | $109 |
+| COV-608129 | Ballet/Jazz + Hip Hop Combo | 5-12* | Jul 20-24 | 9 AM-3 PM | $220 |
+| COV-608139 | Ballet/Jazz Half-Day | 5-7 | Aug 24-28 | 9 AM-12 PM | $109 |
+| COV-608126 | Hip Hop Half-Day | 8-12 | Aug 24-28 | 9 AM-12 PM | $109 |
+| COV-608145 | Ballet/Jazz + Hip Hop Combo | 5-12* | Aug 24-28 | 9 AM-3 PM | $220 |
+
+All Coming Soon, registration opens Apr 8. *Combo is sold as a single full-day bundle — wide age range is intentional (R43/R46 soft warnings acknowledged).
+
+### Sportball (5 programs)
+
+All Spring, Sat Apr 18 - Jun 6 (8 classes), $120.
+
+| ID | Program | Ages | Time |
+|----|---------|------|------|
+| COV-603636 | Multi-Sport | 2-3 | 9:30-10:00 AM |
+| COV-603638 | Multi-Sport | 3-5 | 10:00-10:45 AM |
+| COV-603640 | Multi-Sport | 5-8 | 10:45-11:45 AM |
+| COV-603645 | Soccer | 2-3 | 11:45 AM-12:15 PM |
+| COV-603646 | Soccer | 3-5 | 12:15-1:00 PM |
+
+### Kids Indoor Tennis (2 programs)
+
+Both Spring, Sat Apr 18 - Jun 6 (8 classes).
+
+| ID | Ages | Time | Cost |
+|----|------|------|------|
+| COV-602544 | 5-7 | 1:00-1:45 PM | $180 |
+| COV-602545 | 8-10 | 1:45-2:30 PM | $180 |
+
+### Dunbar Soccer Academy (1 program)
+
+| ID | Ages | Dates | Times | Cost |
+|----|------|-------|-------|------|
+| COV-600808 | 9-12 | Apr 18 - Jun 7 (Sat+Sun) | 10:00-11:30 AM | $203.50 |
+
+---
+
+## Status Fixes (5 programs → Completed)
+
+These programs no longer appear on the live registration page. Marked Completed per Rule 6.
+
+| ID | Name |
+|----|------|
+| COV-585109 | Birthday Party (2hr rental) |
+| COV-585124 | Dunbar Soccer Academy (3-5 yrs) |
+| COV-585803 | Martial Arts Birthday Party |
+| COV-588376 | LEGO Cinematic Crossovers |
+| COV-591398 | A Ballet Time with Strength and Stretch (7-10 yrs) |
+
+---
+
+## Completeness Check
+
+- Live page showed ~190 programs at Dunbar Community Centre
+- DB before: 151 programs. After: 195 programs (44 added + 5 status fixes)
+- All major program categories confirmed covered: day camps, dance, kinesiology, soccer, tennis, Sportball, piano, karate, art, coding, community programs
+
+---
+
+## Previous Blocked Sessions (1-4 — 2026-04-05)
+
+Sessions 1-4 were blocked by Playwright browser failures (spawn UNKNOWN errors, Firefox executable issues). This session (5) successfully used Playwright to complete the audit.
 
 ---
 

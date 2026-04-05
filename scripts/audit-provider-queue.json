@@ -70,7 +70,7 @@
       "listings": 168,
       "distKm": 2.3,
       "priorityScore": 85,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-HILLCREST-CMTY-CENTRE.md",
       "notes": "Chrome browser tools (mcp__Claude_in_Chrome__*) not available in session. Cannot render ActiveNet JS. 1 data fix made (Easter Carnival → Completed). Gaps identified: Preschool AM Weeks 1-2, SR Camp Weeks 1-5, Axe Capoeira summer adult. Re-audit required with Chrome tools.",
@@ -106,10 +106,10 @@
       "listings": 144,
       "distKm": 6,
       "priorityScore": 83,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
-      "notes": "Playwright MCP browser spawn UNKNOWN — 4 consecutive sessions blocked. Firefox executable cannot be launched. Requires Playwright reinstall or Claude Code restart.",
+      "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
+      "notes": "Completed session 5. Added 44 new programs, 5 status fixes. 195 total Dunbar programs in DB.",
       "sessionId": null
     },
     {
