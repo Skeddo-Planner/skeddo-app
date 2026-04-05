@@ -11,8 +11,8 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 131 | 11,720 |
-| 🔲 Audits pending | 319 | 2,463 |
+| ✅ Audits completed | 132 | 11,753 |
+| 🔲 Audits pending | 318 | 2,430 |
 | **Total** | **450** | **14,183** |
 
 ---
@@ -71,6 +71,7 @@ Sorted by number of listings (most to fewest).
 | Grouse Mountain | 35 | 2026-04-04 | VERIFICATION-LOG-GROUSE-MOUNTAIN.md |
 | YMCA of Greater Vancouver | 30 | 2026-04-04 | VERIFICATION-LOG-YMCA-GREATER-VANCOUVER.md |
 | Vancouver Athletic Football Club | 30 | 2026-04-04 | VERIFICATION-LOG-VANCOUVER-ATHLETIC-FOOTBALL-CLUB.md |
+| The Hive Climbing | 33 | 2026-04-04 | VERIFICATION-LOG-THE-HIVE-CLIMBING.md |
 
 ---
 
@@ -130,7 +131,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 49 | City of Vancouver - West End Cmty Centre | 33 | 3.9 km | 68 |
 | 50 | City of Vancouver - False Creek Cmty Centre | 31 | 2.5 km | 68 |
 | 51 | City of Vancouver - Killarney Pool | 33 | 5.8 km | 68 |
-| 53 | The Hive Climbing | 33 | 9.3 km | 67 |
+| ~~53~~ | ~~The Hive Climbing~~ | ~~33~~ | ~~9.3 km~~ | ~~67~~ (completed) |
 | 54 | Jump Gymnastics | 30 | 3.2 km | 67 |
 | 55 | City of Vancouver - Champlain Heights Community Centre | 32 | 7.4 km | 67 |
 | 56 | City of Vancouver - Marpole-Oakridge Community Centre | 29 | 5.6 km | 67 |
