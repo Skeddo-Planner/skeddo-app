@@ -132,7 +132,9 @@ git push
 ## HARD RULES — NEVER VIOLATE
 
 - **Always use Playwright browser (`mcp__playwright__browser_navigate`) — never WebFetch — to read registration pages**
-- Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page via Chrome browser
+- **NEVER write custom scraper scripts** (no `.cjs`, `.js`, `.py` scraper files, no `node scripts/...` execution for scraping). Use only `mcp__playwright__browser_*` tools directly. Writing scraper scripts spawns uncontrolled browser processes that crash the user's Chrome.
+- **NEVER call `npx playwright`, `require('playwright')`, or spawn any browser process directly** — only the MCP tools are permitted
+- Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page via Playwright browser
 - Never delete programs — use `enrollmentStatus: "Completed"` instead
 - Never combine age groups — one listing per age bracket the provider uses
 - Never use activekids.com as a source or in URLs
