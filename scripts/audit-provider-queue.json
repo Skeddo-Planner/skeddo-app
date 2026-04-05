@@ -1066,9 +1066,9 @@
       "listings": 16,
       "distKm": 1.8,
       "priorityScore": 61,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-VSO-SCHOOL-OF-MUSIC.md",
       "notes": null,
       "sessionId": null
     },
