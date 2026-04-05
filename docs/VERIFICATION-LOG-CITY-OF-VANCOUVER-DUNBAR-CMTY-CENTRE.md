@@ -1,10 +1,24 @@
 # Verification Log — City of Vancouver - Dunbar Cmty Centre
 
-**Date last attempted:** 2026-04-05 (Session 2)
+**Date last attempted:** 2026-04-05 (Session 3)
 **Date first attempted:** 2026-04-05 (Session 1)
 **Audited by:** Claude (automated audit agent)
 **Registration page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&location_ids=23
 **Status:** BLOCKED — Playwright browser unavailable (two consecutive sessions)
+
+---
+
+## Audit Outcome: Blocked (Session 3 — 2026-04-05)
+
+### Reason
+
+Same `Error: server: spawn UNKNOWN` as Session 2. Firefox executable at `C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe` cannot be spawned. Every `mcp__playwright__browser_navigate` and `mcp__playwright__browser_snapshot` call fails immediately. No browser data can be gathered.
+
+### What Was Attempted (Session 3)
+
+1. `mcp__playwright__browser_navigate` — failed with spawn UNKNOWN
+2. `mcp__playwright__browser_snapshot` — failed with spawn UNKNOWN
+3. No data changes made — existing database has 229 Dunbar listings (Open: 132, Coming Soon: 6, Full/Waitlist: 41, Completed: 49, Likely Coming Soon: 1)
 
 ---
 
