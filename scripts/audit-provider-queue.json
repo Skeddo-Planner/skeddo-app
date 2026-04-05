@@ -1477,9 +1477,9 @@
       "listings": 9,
       "distKm": 1.1,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-MOUNT-PLEASANT-COMMUNITY-CENTRE-ASSOCIATION.md",
       "notes": null,
       "sessionId": null,
       "startedAt": "2026-04-05"
