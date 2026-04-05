@@ -37,7 +37,7 @@
       "status": "failed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
-      "notes": "JS-rendered site (WordPress/Divi) — static fetch returns only HTML shell. Jackrabbit Class registration system; OrgID unknown. Site may be compromised (SEO spam detected). Manual browser audit required.",
+      "notes": "Site is JS-rendered (Divi/WordPress); static fetches return only CSS/JS shell. JackRabbit registration portal not publicly indexed. Three sessions attempted (April 2026) — all blocked. Program names, age groups, and dates are plausible from prior-year data but cannot be confirmed from live page. Manual browser audit required.",
       "sessionId": null
     },
     {
