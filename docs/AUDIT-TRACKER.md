@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 133 | 11,785 |
-| 🔲 Audits pending | 317 | 2,430 |
-| **Total** | **450** | **14,215** |
+| ✅ Audits completed | 134 | 11,813 |
+| 🔲 Audits pending | 316 | 2,430 |
+| **Total** | **450** | **14,243** |
 
 ---
 
-## ✅ Completed Audits (134 providers)
+## ✅ Completed Audits (135 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -76,6 +76,7 @@ Sorted by number of listings (most to fewest).
 | Jump Gymnastics | 30 | 2026-04-04 | VERIFICATION-LOG-JUMP-GYMNASTICS.md |
 | Douglas College | 36 | 2026-04-04 | VERIFICATION-LOG-DOUGLAS-COLLEGE.md |
 | Chaoyin International School | 32 | 2026-04-04 | VERIFICATION-LOG-CHAOYIN-INTERNATIONAL-SCHOOL.md |
+| Sparks Academy | 28 | 2026-04-04 | VERIFICATION-LOG-SPARKS-ACADEMY.md |
 
 ---
 
