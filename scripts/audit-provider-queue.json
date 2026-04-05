@@ -307,10 +307,10 @@
       "listings": 63,
       "distKm": 7.4,
       "priorityScore": 74,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright browser spawn UNKNOWN — system resource exhaustion, same as Dunbar/Mount Pleasant/Creekside failures. Retry when browser resources available.",
       "sessionId": null
     },
     {
@@ -523,10 +523,10 @@
       "listings": 36,
       "distKm": 4.8,
       "priorityScore": 69,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright browser spawn UNKNOWN — Firefox process failed to launch (system resource exhaustion). Same error as Dunbar, Creekside, Mount Pleasant audits.",
       "sessionId": null
     },
     {
