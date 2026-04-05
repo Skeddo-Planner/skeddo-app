@@ -1481,7 +1481,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "startedAt": "2026-04-05"
     },
     {
       "rank": 123,
