@@ -1,16 +1,17 @@
 # Verification Log — City of Vancouver - Marpole-Oakridge Cmty Centre
 
-**Date Audited:** 2026-04-05
+**Date Audited:** 2026-04-05 (session 2)
 **Auditor:** Claude (automated audit agent)
 **Registration Page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&activity_select_param=2&viewMode=list&facility_id=37
-**Status: BLOCKED — Playwright Unavailable**
+**Status: BLOCKED — Playwright GPU crash loop**
 
 ---
 
 ## Attempt Summary
 
+### Session 1 (prior)
 Playwright browser (`mcp__playwright__browser_navigate`) failed with `spawn UNKNOWN` on all attempts.
-Firefox could not be launched — this is a system-level resource issue on Windows.
+Firefox could not be launched — system-level resource issue on Windows.
 
 Attempts made:
 1. `https://anc.ca.apm.activecommunities.com/vancouver/activity/search?facilityId=27` → `spawn UNKNOWN`
@@ -19,6 +20,22 @@ Attempts made:
 4. Same URL after 8-second wait → `spawn UNKNOWN`
 
 This is the same failure mode as recent blocked audits: Dunbar Cmty Centre, Creekside Cmty Rec Centre, and Mount Pleasant Cmty Centre.
+
+### Session 2 (2026-04-05)
+Playwright headless browser (chrome-headless-shell-win64) launched (PID 101924) but immediately entered a fatal GPU crash loop:
+
+```
+[0405/135025.549:ERROR] GPU process exited unexpectedly: exit_code=-2147483645
+[0405/135025.549:WARNING] The GPU process has crashed 1 time(s)
+... (crashes 2-6 in rapid succession)
+[0405/135025.734:FATAL] GPU process isn't usable. Goodbye.
+```
+
+All 4 navigation attempts (including `about:blank`) failed. This is the same GPU crash pattern as:
+- City of Vancouver - Sunset Cmty Centre (session 2)
+- City of Vancouver - Britannia Cmty Centre (session 3)
+- City of Vancouver - Renfrew Park Cmty Centre (session 3)
+- City of Vancouver - Roundhouse Cmty Arts and Rec Centre (session 4)
 
 ---
 
@@ -113,14 +130,15 @@ This is the same failure mode as recent blocked audits: Dunbar Cmty Centre, Cree
 - Marpole-Oakridge Cmty Centre uses ActiveNet (anc.ca.apm.activecommunities.com), a JavaScript-heavy booking system
 - `WebFetch` and `WebSearch` cannot render JavaScript and would silently miss most program data
 - Per CLAUDE.md mandatory audit standards, only Playwright browser navigation is permitted
-- Playwright failed to launch on this machine with `spawn UNKNOWN` — Firefox executable could not be started
-- This is a recurring system-level failure on this Windows machine affecting multiple recent audits
+- Session 1: Playwright failed with `spawn UNKNOWN` — Firefox executable could not be started
+- Session 2: Playwright launched but GPU process crashed fatally on startup — all navigation impossible
+- This is a recurring system-level failure on this Windows machine affecting 6+ recent audits
 
 ---
 
 ## Recommendation
 
-No data changes were made in this session. Existing verified programs were not modified.
+No data changes were made in either session. Existing verified programs were not modified.
 
-This provider should be re-audited when the Playwright/Firefox issue is resolved.
+This provider should be re-audited when the Playwright GPU issue is resolved (restart Claude Code / restart machine).
 The 58 existing programs appear to have been recently audited (many have confirmed2026=true) and are likely accurate.

@@ -106,7 +106,7 @@
       "listings": 144,
       "distKm": 6,
       "priorityScore": 83,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
       "notes": "Playwright MCP browser spawn UNKNOWN — 4 consecutive sessions blocked. Firefox executable cannot be launched. Requires Playwright reinstall or Claude Code restart.",
@@ -319,10 +319,10 @@
       "listings": 58,
       "distKm": 5.6,
       "priorityScore": 74,
-      "status": "pending",
-      "auditDate": null,
+      "status": "failed",
+      "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MARPOLE-OAKRIDGE-CMTY-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN — Firefox could not launch. Same recurring system-level failure as Dunbar, Creekside, Mount Pleasant audits.",
+      "notes": "Session 1: Playwright spawn UNKNOWN. Session 2 (2026-04-05): Playwright GPU crash loop — chrome-headless-shell GPU process crashes fatally on launch. Same recurring failure as Sunset, Britannia, Renfrew, Roundhouse, Mount Pleasant audits.",
       "sessionId": null
     },
     {
