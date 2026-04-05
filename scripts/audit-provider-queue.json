@@ -141,10 +141,10 @@
       "listings": 111,
       "distKm": 2.8,
       "priorityScore": 81,
-      "status": "in_progress",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-TROUT-LAKE-CMTY-CENTRE.md",
-      "notes": "Chrome MCP tool unavailable — cannot render JavaScript-based ActiveNet registration pages",
+      "notes": "Playwright unavailable; verified via ActiveNet API. Added 2 programs (COV-608141, COV-609696). Fixed COV-601537 to Full.",
       "sessionId": null
     },
     {
@@ -235,7 +235,7 @@
       "listings": 75,
       "distKm": 4.4,
       "priorityScore": 76,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
