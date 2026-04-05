@@ -34,10 +34,10 @@
       "listings": 8,
       "distKm": 4.5,
       "priorityScore": 55,
-      "status": "failed",
-      "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
-      "notes": "JS-rendered site — program content not accessible via static fetch. Manual browser audit required.",
+      "status": "pending",
+      "auditDate": null,
+      "logFile": null,
+      "notes": null,
       "sessionId": null
     },
     {
@@ -1730,7 +1730,7 @@
       "listings": 9,
       "distKm": 22.8,
       "priorityScore": 53,
-      "status": "in_progress",
+      "status": "pending",
       "auditDate": null,
       "logFile": null,
       "notes": null,
