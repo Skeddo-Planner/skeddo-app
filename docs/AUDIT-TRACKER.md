@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 144 | 12,055 |
-| 🔲 Audits pending | 306 | 2,221 |
+| ✅ Audits completed | 145 | 12,074 |
+| 🔲 Audits pending | 305 | 2,205 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (145 providers)
+## ✅ Completed Audits (146 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -27,6 +27,7 @@ Sorted by number of listings (most to fewest).
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
 | Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |
+| VSO School of Music | 16 | 2026-04-05 | VERIFICATION-LOG-VSO-SCHOOL-OF-MUSIC.md |
 | North Vancouver Recreation Commission (NVRC) | 327 | 2026-04-04 | VERIFICATION-LOG-NVRC.md |
 | City of Burnaby - Unknown | 729 | 2026-04-04 | VERIFICATION-LOG-CITY-OF-BURNABY-UNKNOWN.md |
 | Pedalheads | 6568 | 2026-04-01 | VERIFICATION-LOG-PEDALHEADS.md / V2 / V3 |
@@ -173,7 +174,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 80 | City of Vancouver - West Point Grey Cmty Centre - Jericho Hill | 21 | 6.7 km | 63 |
 | 81 | City of Vancouver - Hillcrest Aquatic Centre | 19 | 2.3 km | 63 |
 | 82 | Sunset Community Centre | 19 | 4.4 km | 63 |
-| 83 | VSO School of Music | 16 | 1.8 km | 62 |
 | 84 | City of Burnaby | 18 | 9.3 km | 62 |
 | 87 | City of Vancouver - Hastings Community Centre | 17 | 4.9 km | 62 |
 | 89 | City of Burnaby - Confederation Park Recreation Centre | 14 | 6.3 km | 60 |
