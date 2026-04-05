@@ -1,8 +1,8 @@
 # Verification Log — City of Vancouver - Renfrew Park Community Centre
 
-**Date Audited:** 2026-04-05
+**Date Audited:** 2026-04-05 (re-attempted)
 **Auditor:** Claude (automated audit agent)
-**Status:** INCOMPLETE — Playwright browser failed to spawn
+**Status:** INCOMPLETE — Playwright browser failed to spawn (multiple sessions)
 
 ---
 
@@ -14,11 +14,14 @@
 
 ---
 
-## Audit Attempt
+## Audit Attempts
 
-**What was tried:**
-1. `mcp__playwright__browser_navigate` called 3 times with the ActiveNet Vancouver registration page URL
-2. All 3 attempts failed with: `Error: server: spawn UNKNOWN` — Firefox Playwright process could not be launched
+### Session 1 (prior session)
+- `mcp__playwright__browser_navigate` called 3 times, all failed with `spawn UNKNOWN`
+
+### Session 2 (2026-04-05)
+- `mcp__playwright__browser_navigate` called 4 times with increasing wait times (0s, 5s, 15s between attempts)
+- All 4 attempts failed with: `Error: server: spawn UNKNOWN` — Firefox Playwright process could not be launched
 
 **Error message:** `spawn UNKNOWN` — the Playwright MCP server could not launch Firefox at `C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe`
 
@@ -126,7 +129,7 @@ At time of audit attempt, the database contained **93 programs** for this provid
 | COV-616783 | Public Swim | Completed | $7.93 |
 | renfrew-cc-camp-1 | Renfrew Summer Adventures Day Camp | Full/Waitlist | null |
 
-**Total in database:** 93
+**Total in database:** 75 (as of 2026-04-05; prior log incorrectly stated 93 — some IDs in that list belong to other providers)
 
 ---
 
