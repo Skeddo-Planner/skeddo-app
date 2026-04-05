@@ -158,9 +158,11 @@ chmod +x .husky/pre-commit   # Mac/Linux only
 
 ## One Click Deeper Audit Standard
 
+**REQUIRED TOOL: Always use Claude in Chrome (`mcp__Claude_in_Chrome__navigate`) for page navigation. Never use `WebFetch` or `WebSearch` to read registration page content** — they cannot render JavaScript and will silently miss program data on modern booking systems (ActiveNet, Jackrabbit, CourseStorm, etc.). Use `WebSearch` only to *find* a URL, then navigate to it with Chrome.
+
 When auditing or adding provider data, EVERY field must be verified against the provider's actual registration page. This means:
 
-1. Navigate to the provider's registration/program listing page (not just their homepage)
+1. Navigate to the provider's registration/program listing page using Chrome browser (not just their homepage)
 2. For EVERY program listing, verify ALL of these fields against what's shown on the registration page:
    - name: Must match the program name on the registration page
    - description: Must accurately describe the program based on registration page content

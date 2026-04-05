@@ -17,11 +17,24 @@ Audit **{{PROVIDER_NAME}}** — verify all existing listings and add any that ar
 
 ---
 
+## CRITICAL: USE CLAUDE IN CHROME — NOT WEBFETCH
+
+**You MUST use the Claude in Chrome browser tool (`mcp__Claude_in_Chrome__navigate`) to visit every registration page.**
+
+- Do **NOT** use `WebFetch` or `WebSearch` to read registration page content — they cannot render JavaScript and will miss most program data on modern sites
+- Do **NOT** use any API endpoints as a primary source
+- The Chrome browser renders pages exactly as a parent would see them
+
+If a page is blank or seems empty after navigating, scroll down, wait a moment, and try `mcp__Claude_in_Chrome__read_page` to capture the rendered content. Most registration systems (ActiveNet, Jackrabbit, CourseStorm, etc.) require JavaScript to display programs.
+
+---
+
 ## PROCESS
 
-**1. USE THE BROWSER** to navigate to {{PROVIDER_NAME}}'s registration page.
-- Search "[provider name] Vancouver kids camps registration 2026" if needed
-- Click every dropdown, location selector, and age group selector
+**1. NAVIGATE WITH CHROME** to {{PROVIDER_NAME}}'s registration page.
+- Use `mcp__Claude_in_Chrome__navigate` to open the page
+- If you don't know the URL, use `WebSearch` only to *find* the URL, then navigate with Chrome
+- Click every dropdown, location selector, and age group selector using `mcp__Claude_in_Chrome__find` + `mcp__Claude_in_Chrome__javascript_tool`
 - Scroll to the bottom of every listing page
 - If they have multiple Metro Vancouver locations, check **every** one
 - Click into individual program detail pages
@@ -117,7 +130,8 @@ git push
 
 ## HARD RULES — NEVER VIOLATE
 
-- Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page
+- **Always use Chrome browser (`mcp__Claude_in_Chrome__navigate`) — never WebFetch — to read registration pages**
+- Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page via Chrome browser
 - Never delete programs — use `enrollmentStatus: "Completed"` instead
 - Never combine age groups — one listing per age bracket the provider uses
 - Never use activekids.com as a source or in URLs
