@@ -223,10 +223,10 @@
       "listings": 96,
       "distKm": 1.8,
       "priorityScore": 79,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-CMTY-ARTS-AND-REC-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN on all attempts (system resource exhaustion) — 3rd consecutive session blocked. Date-based status fixes applied (6 programs). Re-audit when Playwright restored.",
+      "notes": "Playwright spawn UNKNOWN on all attempts (4 consecutive sessions, 2026-04-05) — system-level Firefox spawn failure. Date-based status fixes applied (6 programs). Re-audit when Playwright is restored.",
       "sessionId": null
     },
     {
@@ -247,7 +247,7 @@
       "listings": 71,
       "distKm": 2.5,
       "priorityScore": 76,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-BRITANNIA-CMTY-CENTRE.md",
       "notes": "Playwright spawn UNKNOWN — Firefox and Chrome both fail to launch. Blocked same as Hillcrest, Renfrew, Killarney audits. Retry when browser spawn issue resolved.",
