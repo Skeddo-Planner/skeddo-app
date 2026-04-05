@@ -118,11 +118,10 @@
       "listings": 141,
       "distKm": 7.6,
       "priorityScore": 82,
-      "status": "in_progress",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-WEST-POINT-GREY-CMTY-CENTRE-ABERTHAU.md",
-      "notes": "Chrome MCP unavailable — ActiveNet requires JS rendering, WebFetch insufficient. Same blocker as Dunbar/Hillcrest. Re-audit when Chrome MCP is available.",
-      "sessionId": null
+      "notes": "Playwright browser unavailable; audit conducted via API data (wpg_new_programs.json) + screenshots. 207 programs verified. 1 fix: COV-585245 status Coming Soon -> Full/Waitlist."
     },
     {
       "rank": 8,
@@ -272,7 +271,7 @@
       "listings": 68,
       "distKm": 4.6,
       "priorityScore": 75,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
