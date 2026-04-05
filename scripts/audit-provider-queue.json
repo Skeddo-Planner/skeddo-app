@@ -1552,7 +1552,7 @@
       "priorityScore": 55,
       "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-SEA-SMART-SCHOOL-SOCIETY.md",
+      "logFile": "docs/VERIFICATION-LOG-SEA-SMART-SCHOOL-SOCIETY.md",
       "notes": null,
       "sessionId": null
     },
@@ -1574,7 +1574,7 @@
       "listings": 9,
       "distKm": 10.6,
       "priorityScore": 55,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
