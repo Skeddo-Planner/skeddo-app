@@ -72,6 +72,7 @@ Sorted by number of listings (most to fewest).
 | YMCA of Greater Vancouver | 30 | 2026-04-04 | VERIFICATION-LOG-YMCA-GREATER-VANCOUVER.md |
 | Vancouver Athletic Football Club | 30 | 2026-04-04 | VERIFICATION-LOG-VANCOUVER-ATHLETIC-FOOTBALL-CLUB.md |
 | The Hive Climbing | 33 | 2026-04-04 | VERIFICATION-LOG-THE-HIVE-CLIMBING.md |
+| Richmond School District (SD38) | 46 | 2026-04-04 | VERIFICATION-LOG-RICHMOND-SCHOOL-DISTRICT-SD38.md |
 
 ---
 
