@@ -222,7 +222,7 @@ To mark a provider complete: move it to the Completed table above with the audit
 | ~~120~~ | ~~Dragon Zone Paddling Club~~ | ~~9~~ | ~~0.9 km~~ | ~~56~~ | ✅ 2026-04-05 |
 | 121 | Riley Park Hillcrest Community Association | 9 | 2.3 km | 56 |
 | 122 | Kitsilano Neighbourhood House | 9 | 4.1 km | 56 |
-| 123 | Mount Pleasant Community Centre Association | 9 | 1.1 km | 56 |
+| ~~123~~ | ~~Mount Pleasant Community Centre Association~~ | ~~9~~ | ~~1.1 km~~ | ~~56~~ | ✅ 2026-04-05 |
 | 124 | West End Community Association | 9 | 3.8 km | 56 |
 | 125 | Boogaloo Academy | 8 | 4.5 km | 55 |
 | 126 | LDS Society | 8 | 4.1 km | 55 |
