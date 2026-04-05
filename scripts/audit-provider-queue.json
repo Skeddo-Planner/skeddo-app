@@ -766,9 +766,9 @@
       "listings": 28,
       "distKm": 9.8,
       "priorityScore": 66,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-BURNABY-WINTER-CLUB.md",
       "notes": null,
       "sessionId": null
     },
