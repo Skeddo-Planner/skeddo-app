@@ -355,10 +355,10 @@
       "listings": 55,
       "distKm": 4.8,
       "priorityScore": 73,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Playwright browser spawn UNKNOWN — system resource exhaustion, same issue as Dunbar/Creekside/Mount Pleasant. Retry when browser capacity available.",
       "sessionId": null
     },
     {
@@ -499,10 +499,10 @@
       "listings": 36,
       "distKm": 6.5,
       "priorityScore": 69,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-COMMUNITY-CENTRE.md",
+      "notes": "Playwright spawn UNKNOWN — browser process could not launch on Windows host. Same issue as Creekside, Mount Pleasant audits. Re-audit required once Playwright operational.",
       "sessionId": null
     },
     {
@@ -511,10 +511,10 @@
       "listings": 35,
       "distKm": 5.3,
       "priorityScore": 69,
-      "status": "in_progress",
+      "status": "failed",
       "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-COMMUNITY-CENTRE.md",
+      "notes": "Playwright browser spawn UNKNOWN — Firefox process cannot be launched. Same issue blocking Dunbar, Creekside, Mount Pleasant audits. Re-audit when Playwright MCP is fixed.",
       "sessionId": null
     },
     {
@@ -607,7 +607,7 @@
       "listings": 34,
       "distKm": 4.4,
       "priorityScore": 68,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
