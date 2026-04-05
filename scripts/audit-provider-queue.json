@@ -1018,9 +1018,9 @@
       "listings": 21,
       "distKm": 15.3,
       "priorityScore": 62,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md",
       "notes": null,
       "sessionId": null
     },
