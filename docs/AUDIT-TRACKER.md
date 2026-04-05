@@ -1,6 +1,6 @@
 # Skeddo Provider Audit Tracker
 
-**Last updated:** 2026-04-04
+**Last updated:** 2026-04-05
 **Reference location for proximity ranking:** Postal code V5T 2J6 (Mount Pleasant, Vancouver)
 
 **Priority scoring methodology:** Each pending provider is scored 0–100 using a composite of two factors (60% listing count, 40% proximity). Both factors are log-normalized across the pending-only pool to prevent a single large provider from compressing the rest of the ranking. Providers with no geocoding data receive a proximity score of 0.
@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 135 | 11,843 |
-| 🔲 Audits pending | 315 | 2,400 |
+| ✅ Audits completed | 136 | 11,871 |
+| 🔲 Audits pending | 314 | 2,372 |
 | **Total** | **450** | **14,243** |
 
 ---
 
-## ✅ Completed Audits (136 providers)
+## ✅ Completed Audits (137 providers)
 
 Sorted by number of listings (most to fewest).
 
@@ -78,6 +78,7 @@ Sorted by number of listings (most to fewest).
 | Science AL!VE | 30 | 2026-04-04 | VERIFICATION-LOG-SCIENCE-ALIVE.md |
 | Chaoyin International School | 32 | 2026-04-04 | VERIFICATION-LOG-CHAOYIN-INTERNATIONAL-SCHOOL.md |
 | Sparks Academy | 28 | 2026-04-04 | VERIFICATION-LOG-SPARKS-ACADEMY.md |
+| Burnaby Winter Club | 28 | 2026-04-05 | VERIFICATION-LOG-BURNABY-WINTER-CLUB.md |
 
 ---
 
@@ -146,7 +147,6 @@ To mark a provider complete: move it to the Completed table above with the audit
 | 59 | Douglas College | 36 | 18.2 km | 67 |
 | 61 | Chaoyin International School | 28 | 8.2 km | 66 |
 | 62 | Sparks Academy | 28 | 5.5 km | 66 |
-| 63 | Burnaby Winter Club | 28 | 9.8 km | 66 |
 | 64 | City of Vancouver - Vancouver Aquatic Centre | 25 | 2.9 km | 66 |
 | 65 | City of Vancouver - Various Tennis Courts | 25 | 1.1 km | 66 |
 | 66 | Flicka Gymnastics | 24 | 7.1 km | 65 |
