@@ -259,10 +259,10 @@
       "listings": 65,
       "distKm": 0.9,
       "priorityScore": 75,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-CREEKSIDE-CMTY-REC-CENTRE.md",
+      "notes": "Playwright browser spawn UNKNOWN — system resource exhaustion. Same failure as Britannia Cmty Centre. Re-audit required once browser environment is restored. 65 existing programs preserved unchanged (63 confirmed2026=true). Missing programs identified via scan data cross-reference: Teens Taekwondo, Children Intermediate TKD, Badminton 8-15, additional Capoeira sessions, Soccer Academy age groups, Minecraft Stay Safe camp, Birthday Party April slots.",
       "sessionId": null
     },
     {
