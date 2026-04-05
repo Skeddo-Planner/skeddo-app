@@ -9,6 +9,27 @@
 
 ## Audit History
 
+### April 2026 Third Check (2026-04-05)
+
+**Result:** Still blocked. Site remains JS-rendered (Divi/WordPress). No new program data obtained.
+
+**Additional attempts this session:**
+- Fetched `/summer-camps/`, `/year-at-a-glance/`, `/new-students/`, `/events/` — all CSS/JS shell only
+- Web searches for 2026 pricing/schedule — no 2026-specific data found
+- Checked thebestcamps.com (2014 data only), kidsoutandabout.com (general descriptions), chatterblock.com (no pricing), yelp.ca (403 error)
+- Facebook page rendered no content; JackRabbit portal not publicly indexed
+- Wayback Machine blocked by WebFetch tool
+
+**Data quality fixes applied (no live page data needed):**
+- Reset `confirmed2026=false` on all 14 records — prior sessions incorrectly set true without live page access (violates CLAUDE.md)
+- Reset `enrollmentStatus="Likely Coming Soon"` on all 14 records (was incorrectly "Open")
+- Standardized registrationUrl on IDs 56–60: `/index.php/summer-camps/` → `/summer-camps/`
+- Fixed `days` on IDs 59, 613419: `Mon-Fri` → `Tue-Fri` (BC Day falls Aug 3, 2026; camp starts Tuesday Aug 4)
+
+**Changes this audit:** 14 records updated (confirmed2026, enrollmentStatus, URL, days)
+
+---
+
 ### April 2026 Re-Check (2026-04-05)
 
 **Result:** Still blocked. Same JS-rendering issue. No new program data obtained.
@@ -83,18 +104,24 @@ Google indexes `https://www.boogalooacademy.com/index.php/scheduleage/` with tit
 
 ---
 
-## Current Database (8 programs — all unverified)
+## Current Database (14 programs — all unverified, Likely Coming Soon)
 
 | ID | Name | Dates | Ages | Times | Cost | Status |
 |----|------|-------|------|-------|------|--------|
-| 55 | Creative Arts Day Camp | Jul 6–10, 2026 | 3–12 | 9:30am–3pm | $300 | Likely Coming Soon |
-| 56 | Creative Arts Day Camp | Jul 13–17, 2026 | 3–12 | 9am–4pm | $300 | Likely Coming Soon |
-| 57 | Creative Arts Day Camp | Jul 20–24, 2026 | 3–12 | 9am–4pm | $300 | Likely Coming Soon |
-| 58 | Creative Arts Day Camp | Jul 27–31, 2026 | 3–12 | 9am–4pm | $300 | Likely Coming Soon |
-| 59 | Creative Arts Day Camp | Aug 4–7, 2026 | 3–12 | 9am–4pm | $300 | Likely Coming Soon |
-| 60 | Creative Arts Day Camp | Aug 10–14, 2026 | 3–12 | 9am–4pm | $300 | Likely Coming Soon |
-| 2543 | Enchanted Castle Dance Camp (Ages 3-5) | Jul 7–11, 2026 | 3–5 | 9:30am–12pm | $295 | Likely Coming Soon |
-| 2544 | Disney Magic Dance Camp (Ages 3-5) | Aug 18–22, 2026 | 3–5 | 9:30am–12pm | $295 | Likely Coming Soon |
+| 55 | Superstars Minis | Jul 6–10, 2026 | 5–8 | 9:30am–3pm | null | Likely Coming Soon |
+| 56 | Superstars Minis | Jul 13–17, 2026 | 5–8 | 9:30am–3pm | null | Likely Coming Soon |
+| 57 | Superstars Minis | Jul 20–24, 2026 | 5–8 | 9:30am–3pm | null | Likely Coming Soon |
+| 58 | Superstars Minis | Jul 27–31, 2026 | 5–8 | 9:30am–3pm | null | Likely Coming Soon |
+| 59 | Superstars Minis | Aug 4–7, 2026 (Tue–Fri) | 5–8 | 9:30am–3pm | null | Likely Coming Soon |
+| 60 | Superstars Minis | Aug 10–14, 2026 | 5–8 | 9:30am–3pm | null | Likely Coming Soon |
+| 2543 | Enchanted Castle Dance Camp (Ages 3-5) | Jul 7–11, 2026 (Tue–Sat) | 3–5 | 9:30am–12pm | null | Likely Coming Soon |
+| 2544 | Disney Magic Dance Camp (Ages 3-5) | Aug 18–22, 2026 (Tue–Sat) | 3–5 | 9:30am–12pm | null | Likely Coming Soon |
+| 613415 | Superstars | Jul 6–10, 2026 | 9–12 | 9:30am–3pm | null | Likely Coming Soon |
+| 613416 | Superstars | Jul 13–17, 2026 | 9–12 | 9:30am–3pm | null | Likely Coming Soon |
+| 613417 | Superstars | Jul 20–24, 2026 | 9–12 | 9:30am–3pm | null | Likely Coming Soon |
+| 613418 | Superstars | Jul 27–31, 2026 | 9–12 | 9:30am–3pm | null | Likely Coming Soon |
+| 613419 | Superstars | Aug 4–7, 2026 (Tue–Fri) | 9–12 | 9:30am–3pm | null | Likely Coming Soon |
+| 613420 | Superstars | Aug 10–14, 2026 | 9–12 | 9:30am–3pm | null | Likely Coming Soon |
 
 ---
 
