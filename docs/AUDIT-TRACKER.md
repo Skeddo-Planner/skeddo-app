@@ -11,13 +11,13 @@
 
 | | Providers | Listings |
 |---|---|---|
-| ✅ Audits completed | 154 | 12,138 |
-| 🔲 Audits pending | 296 | 2,138 |
+| ✅ Audits completed | 155 | 12,150 |
+| 🔲 Audits pending | 295 | 2,126 |
 | **Total** | **450** | **14,276** |
 
 ---
 
-## ✅ Completed Audits (154 providers)
+## ✅ Completed Audits (155 providers)
 
 
 Sorted by number of listings (most to fewest).
@@ -31,6 +31,7 @@ Sorted by number of listings (most to fewest).
 | BrainSTEM Learning | 15 | 2026-04-05 | VERIFICATION-LOG-BRAINSTEM-LEARNING.md |
 | JCC of Greater Vancouver | 13 | 2026-04-05 | VERIFICATION-LOG-JCC-OF-GREATER-VANCOUVER.md (INCOMPLETE — summer page broken) |
 | VanDusen Botanical Garden | 12 | 2026-04-05 | VERIFICATION-LOG-VANDUSEN-BOTANICAL-GARDEN.md |
+| Vancouver Mandarin School | 12 | 2026-04-05 | VERIFICATION-LOG-VANCOUVER-MANDARIN-SCHOOL.md |
 | City of New Westminster | 21 | 2026-04-05 | VERIFICATION-LOG-CITY-OF-NEW-WESTMINSTER.md |
 | Extra Steps Preschool | 16 | 2026-04-05 | VERIFICATION-LOG-EXTRA-STEPS.md |
 | Richmond Ice Centre | 21 | 2026-04-05 | VERIFICATION-LOG-RICHMOND-ICE-CENTRE.md |

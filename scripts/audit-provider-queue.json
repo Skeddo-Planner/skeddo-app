@@ -1330,11 +1330,11 @@
       "listings": 10,
       "distKm": 5.5,
       "priorityScore": 57,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-VANCOUVER-MANDARIN-SCHOOL.md",
+      "notes": "ageMin 6→5 for 10 summer records. Added 2 Spring Bootcamp completed records.",
+      "sessionId": "sad-fermat"
     },
     {
       "rank": 111,
