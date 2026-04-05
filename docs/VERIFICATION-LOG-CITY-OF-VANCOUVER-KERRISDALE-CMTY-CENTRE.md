@@ -1,109 +1,162 @@
 # Verification Log — City of Vancouver - Kerrisdale Cmty Centre
 
-**Date audited:** 2026-04-05
-**Auditor:** Claude (automated audit with Playwright browser)
-**Registration page:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search (filter: Kerrisdale Community Centre)
-**Address:** 5851 West Boulevard, Vancouver, BC V6M 3W9
+**Date Audited:** 2026-04-05
+**Auditor:** Claude Sonnet 4.6
+**Registration Page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search
+**Provider Search:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search/detail/{COV-ID}
+**Centre Website:** https://www.kerrisdalecc.com/
+**Address:** 5851 West Boulevard, Vancouver, BC V6M 3W4
+**Neighbourhood:** Kerrisdale
 
 ---
 
-## Method
+## Audit Method
 
-1. Used Playwright headless browser to navigate to Vancouver Recreation ActiveNet portal
-2. Applied "Kerrisdale Community Centre" location filter (center_id=33)
-3. Captured full program list via API interception (page reports 889 results, 60 unique parent programs)
-4. Paginated through all results via in-browser fetch API calls
-5. Compared live data against existing DB (121 existing programs)
-6. Fetched detail pages for programs with "View fee details" pricing
-7. Added 25 new programs; updated 1 status
+**Note:** Playwright browser (Firefox) failed to launch in this session (spawn UNKNOWN error on Windows). Audit was conducted using the ActiveNet REST API directly (`anc.ca.apm.activecommunities.com/vancouver/rest/activities/list`) which returns structured JSON data equivalent to what the registration page displays. This API is the same data source used by the ActiveNet booking system. Configuration updated to use Chrome for future sessions.
 
-**Note:** The 889 results represent individual class sessions. The API returns 60 unique parent program entries which represent distinct program types for Spring/Summer 2026.
+**Data sources used:**
+1. **Live API scan (2026-04-05):** Full scan of 17,050 programs across 853 pages — found 357 Kerrisdale programs total
+2. **Cached API data (2026-03-31):** Previous systematic scan — 197 Kerrisdale kids programs
+3. **Combined union** of both sources used for completeness
 
 ---
 
-## Programs Found on Live Registration Page (60 unique, Spring/Summer 2026)
+## Summary
 
-### Children/Youth Programs (age < 18, confirmed from live page)
-
-| ID | Name | Dates | Age | Time | Days | Price | Status |
-|----|------|-------|-----|------|------|-------|--------|
-| COV-602253 | ABC's and 123's | Apr 12 – Jun 14, 2026 | 3–5y | 9:15–10:00 AM | Sun | $190.00 | Open |
-| COV-602581 | Act, Dance, Sing FUN! Camp | Jul 6–10, 2026 | 7–14y | 12:30–3:30 PM | M-F | $255.00 | Open |
-| COV-602584 | Act, Dance, Sing FUN! Camp | Jul 20–24, 2026 | 7–14y | 12:30–3:30 PM | M-F | $276.25 | Open |
-| COV-602586 | Act, Dance, Sing FUN! Camp | Jul 27–31, 2026 | 5–14y | 12:30–3:30 PM | M-F | $276.25 | **Cancelled** |
-| COV-602591 | Act, Dance, Sing FUN! Camp | Aug 17–21, 2026 | 7–14y | 12:30–3:30 PM | M-F | $255.00 | Open |
-| COV-602595* | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Jun 29–Jul 3, 2026 | 7–14y | 12:30–3:30 PM | M,T,Th,F | $204.00 | Open |
-| COV-602598* | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Aug 4–7, 2026 | 7–14y | 9:15 AM–12:30 PM | T-F | $221.00 | Open |
-| COV-602580* | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Jul 6–10, 2026 | 7–14y | 9:15 AM–12:30 PM | M-F | $276.25 | Open |
-| COV-602585* | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Jul 20–24, 2026 | 7–14y | 12:30–3:30 PM | M-F | $255.00 | Open |
-| COV-602589* | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Aug 10–14, 2026 | 7–14y | 12:30–3:30 PM | M-F | $255.00 | Open |
-| COV-602599* | Act, Dance, Sing FUN! Camp | Aug 4–7, 2026 | 7–14y | 12:30–3:30 PM | T-F | $204.00 | Open |
-| COV-604363* | Act, Dance, Sing FUN! Camp | Aug 24–28, 2026 | 7–14y | 12:30–3:30 PM | M-F | $255.00 | Open |
-| COV-602582 | Active Dance Camp: Jazz Funk, Hip Hop and Asian Pop | Jul 13–17, 2026 | 5–14y | 9:15 AM–12:30 PM | M-F | $276.25 | **Cancelled** |
-| COV-602583 | Active Dance Camp: Street, Locking Popping | Jul 13–17, 2026 | 5–14y | 12:30–3:30 PM | M-F | $255.00 | **Cancelled** |
-| COV-602587 | Active Dance Camp: Street, Locking Popping | Jul 27–31, 2026 | 5–14y | 12:30–3:30 PM | M-F | $255.00 | **Cancelled** |
-| COV-602588* | Active Dance Camp: Street, Locking, Popping and KPOP | Aug 10–14, 2026 | 7–14y | 9:15 AM–12:30 PM | M-F | $276.25 | Open |
-| COV-602590* | Active Dance Camp: Street, Locking, Popping and KPOP | Aug 17–21, 2026 | 7–14y | 9:15 AM–12:30 PM | M-F | $276.25 | Open |
-| COV-602594* | Active Dance Camp: Street, Locking, Popping and KPOP | Jun 29–Jul 3, 2026 | 7–14y | 9:15 AM–12:30 PM | M,T,Th,F | $221.00 | Open |
-| COV-604362* | Active Dance Camp: Street, Locking, Popping and KPOP | Aug 24–28, 2026 | 7–14y | 9:15 AM–12:30 PM | M-F | $276.25 | Open |
-| COV-602460 | Awesome KPOP / Asian Pop / Hip Hop Open - PraiseTEAM | Apr 10–Jun 26, 2026 | 6–12y | varies | Fri | $244.80 | Open |
-| COV-602461 | Awesome KPOP / Urban, Street Dance Hip Hop Sampler - PraiseT | Apr 10–Jun 26, 2026 | 10–17y | varies | Fri | $367.20 | Open |
-| COV-604366* | Anime/Manga Fashion Drawing Camp | Jul 13–17, 2026 | 6–12y | 9:15 AM–12:15 PM | M-F | $220.00 | Open |
-| COV-617810 | Act, Dance, Sing FUN! Camp | Aug 31–Sep 4, 2026 | 6–13y | 12:30–3:30 PM | M-F | $255.00 | Open |
-| COV-617811* | Asian KPOP, Jazz Funk, Hip Hop Dance Camp | Aug 31–Sep 4, 2026 | 6–13y | 12:15–3:15 PM | M-F | $220.00 | Open |
-| COV-603437 | Axe Samba and Afro-Brazilian Dance | Apr 13–27, 2026 | 14y+ | 7:30–8:30 PM | Mon | $45.72 | Open |
-| COV-603441 | Axe Samba and Afro-Brazilian Dance | May 4–25, 2026 | 14y+ | 7:30–8:30 PM | Mon | $45.72 | Open |
-| COV-603442 | Axe Samba and Afro-Brazilian Dance | Jun 1–22, 2026 | 14y+ | 7:30–8:30 PM | Mon | $60.00 | Open |
-| COV-603432* | Axe Capoeira Family | Apr 13–27, 2026 | 7y+ | 6:15–7:15 PM | Mon | null (drop-in $22.50) | Open |
-| COV-603433* | Axe Capoeira Family | May 4–25, 2026 | 7y+ | 6:15–7:15 PM | Mon | null (drop-in $22.50) | Open |
-| COV-603435* | Axe Capoeira Family | Jun 1–22, 2026 | 7y+ | 6:15–7:15 PM | Mon | null (drop-in $22.50) | Open |
-| COV-603429* | Axe Capoeira Mini | Apr 13–27, 2026 | 3–7y | 5:15–6:00 PM | Mon | $54.00 | Open |
-| COV-603430* | Axe Capoeira Mini | May 4–25, 2026 | 3–7y | 5:15–6:00 PM | Mon | $54.00 | Open |
-| COV-603431* | Axe Capoeira Mini | Jun 1–22, 2026 | 3–7y | 5:15–6:00 PM | Mon | $72.00 | Open |
-| COV-604591* | Badminton (Children) | Apr 14–Jun 23, 2026 | 7–12y | 3:30–5:00 PM | Tue | $41.80 | Full |
-| COV-572440* | Kerrisdale Youth Leaders | Oct 7, 2025–May 26, 2026 | 13–18y | 5:15–6:45 PM | Tue | null | Open |
-| COV-609731* | Kinetic Kids (New) | Mar 30–May 25, 2026 | 3–5y | 4:00–4:45 PM | Mon | $160.00 | Open |
-
-*(asterisk = newly added to DB in this audit)*
-
-### Programs in DB but NOT on live page (101 — prior season, marked Completed)
-
-The following DB entries did not appear in the live ActiveNet search (Apr 5, 2026). Most are spring 2026 or winter 2026 programs that have completed. Status verified as correct in DB:
-
-- Spring 2026 programs (end dates up to Mar 2026): COV-587346, COV-587360, COV-588758–769, COV-588782–786, COV-589138–166, COV-589393, COV-589711, COV-589712, COV-589716, COV-590008, COV-595296, COV-615511, COV-615576
-
-**Open programs in DB not found on live page (still valid, may be filtered out of live search):**
-
-These programs have future dates (Apr–Aug 2026) and remain in "Open" status. They may not appear in the filtered search due to API pagination limitations, but were verified by ID at time of last entry:
-
-- COV-602058 through COV-617810 (approx 75 programs): Spring/Summer 2026 classes, day camps, lessons, and activities. Verified as valid at time of entry; further individual URL verification would confirm current enrollment status.
+| Metric | Count |
+|--------|-------|
+| Programs in DB before audit | 202 |
+| Programs added | 42 |
+| Enrollment statuses corrected (Full/Waitlist → Open) | 18 |
+| Programs in DB after audit | 244 |
+| Adult-only programs found (age 16+, excluded) | ~18 |
+| Programs not in live API (kept as-is) | ~17 |
 
 ---
 
-## Discrepancies Found and Resolved
+## Programs Found on Live Registration Page
 
-| Issue | Resolution |
-|-------|-----------|
-| COV-602586 Act, Dance, Sing FUN! (Jul 27–31) was Full/Waitlist but live shows Cancelled | Updated to `enrollmentStatus: "Completed"` with `costNote: "Camp session cancelled by provider"` |
-| 25 programs visible on live page but missing from DB | Added all 25 to DB with confirmed2026:true, priceVerified where price was explicit |
-| API pagination cycling (same 60 programs on every page) | Used Playwright browser automation to intercept API responses; confirmed 60 unique parent programs in live search for Kerrisdale CC |
+### New Programs Added (42)
+
+| ID | Name | Dates | Time | Age | Price | Status |
+|----|------|-------|------|-----|-------|--------|
+| COV-604590 | Kerrisdale Pre-teen Group | Apr 7 – Jun 2, 2026 | 3:30 PM – 5:00 PM | 9–12 | Free | Open (20 spots) |
+| COV-608714 | LABRATS Science Fundamentals (New) | Apr 5 – Jun 7, 2026 | 10:30 AM – 12:00 PM | 9–12 | $75 | Open (25 spots) |
+| COV-604353 | Mini Hip Hop Playground Dance Camp | Aug 17–21, 2026 | 2:00 PM – 3:15 PM | 6–9 | $127 | Open (12 spots) |
+| COV-604354 | Mini Hip Hop Playground Dance Camp (4-6) | Aug 17–21, 2026 | 12:30 PM – 1:45 PM | 4–6 | $127 | Open (8 spots) |
+| COV-602210 | Happy Kids Studios - Art Jam | Apr 11 – May 9, 2026 | 9:30 AM – 10:30 AM | 4–5 | $100 | Open (10 spots) |
+| COV-602213 | Happy Kids Studios - Art Jam | May 23 – Jun 27, 2026 | 9:30 AM – 10:30 AM | 4–5 | $120 | Open (10 spots) |
+| COV-602211 | Happy Kids Studios - Cartooning | Apr 11 – May 9, 2026 | 10:40 AM – 11:40 AM | 6–8 | $100 | Open (12 spots) |
+| COV-602214 | Happy Kids Studios - Cartooning | May 23 – Jun 27, 2026 | 10:40 AM – 11:40 AM | 6–8 | $120 | Open (12 spots) |
+| COV-602212 | Happy Kids Studios - Character Design | Apr 11 – May 9, 2026 | 11:50 AM – 12:50 PM | 9–12 | $100 | Open (12 spots) |
+| COV-603970 | Happy Kids Studios - Character Design Camp | Jul 6–10, 2026 | 11:50 AM – 12:50 PM | 9–12 | $100 | Open (12 spots) |
+| COV-603974 | Happy Kids Studios - Character Design Camp | Aug 10–14, 2026 | 11:50 AM – 12:50 PM | 9–12 | $100 | Open (12 spots) |
+| COV-604005 | LEGO Out of This World | Aug 4–7, 2026 | 9:30 AM – 12:30 PM | 5–10 | $176 | Open (8 spots) |
+| COV-604006 | LEGO Out of This World | Aug 4–7, 2026 | 1:00 PM – 4:00 PM | 5–10 | $176 | Open (8 spots) |
+| COV-608134 | Red Cross Stay Safe | Apr 18, 2026 | 1:00 PM – 5:00 PM | 9–14 | $85 | Open (20 spots) |
+| COV-602514 | WIZE - Mobile App Development | Apr 18 – Jun 13, 2026 | 1:15 PM – 2:45 PM | 8–12 | $320 | Open (12 spots) |
+| COV-604368 | Pastel & Drawing Camp: Colourful Animals | Jul 20–24, 2026 | 9:15 AM – 3:45 PM | 7–12 | $395 | Open (12 spots) |
+| COV-603984 | Legos in Motion | Apr 16 – Jun 4, 2026 | 4:00 PM – 5:00 PM | 5–10 | $160 | Open (12 spots) |
+| COV-604318 | Let's Boost Reading | Apr 7 – Jun 23, 2026 | 4:05 PM – 4:35 PM | 6–8 | $312 | Open (1 spot) |
+| COV-604319 | Let's Boost Reading | Apr 8 – Jun 24, 2026 | 3:30 PM – 4:00 PM | 6–8 | $312 | Open (1 spot) |
+| COV-604320 | Let's Boost Reading | Apr 8 – Jun 24, 2026 | 4:05 PM – 4:35 PM | 6–8 | $312 | Open (1 spot) |
+| COV-604324 | Let's Boost Reading | Apr 9 – Jun 18, 2026 | 4:05 PM – 4:35 PM | 6–8 | $286 | Open (1 spot) |
+| COV-604325 | Let's Boost Reading | Apr 9 – Jun 18, 2026 | 4:40 PM – 5:10 PM | 6–8 | $286 | Open (1 spot) |
+| COV-604326 | Let's Boost Reading | Apr 11 – Jun 20, 2026 | 9:45 AM – 10:15 AM | 6–8 | $286 | Open (1 spot) |
+| COV-604327 | Let's Boost Reading | Apr 11 – Jun 20, 2026 | 10:25 AM – 10:55 AM | 6–8 | $286 | Open (1 spot) |
+| COV-604328 | Let's Boost Reading | Apr 11 – Jun 20, 2026 | 11:15 AM – 11:45 AM | 6–8 | $286 | Open (1 spot) |
+| COV-602056 | Endorphin Rush: Jazz / Ballet | Apr 12 – Jun 21, 2026 | 11:10 AM – 11:55 AM | 4–6 | $165 | Open (8 spots) |
+| COV-602062 | Endorphin Rush: Little Ballerinas 3-5 | Apr 12 – Jun 21, 2026 | 1:55 PM – 2:40 PM | 3–5 | $165 | Open (8 spots) |
+| COV-602055 | Endorphin Rush: Little Ballerinas 4-6 | Apr 12 – Jun 21, 2026 | 10:20 AM – 11:05 AM | 4–6 | $165 | Open (8 spots) |
+| COV-602057 | Endorphin Rush: Mini Hip Hop Breakers | Apr 12 – Jun 21, 2026 | 12:15 PM – 1:00 PM | 4–6 | $165 | Open (8 spots) |
+| COV-604635 | Group Piano for Preschoolers | Apr 5 – Jun 28, 2026 | 10:20 AM – 11:05 AM | 3–5 | $317 | Open (8 spots) |
+| COV-606649 | Summer Smash Tennis: Junior Fundamentals (7.5-10yrs) | May 27 – Jun 17, 2026 | 3:45 PM – 4:45 PM | 7–10 | $143.59 | Open (8 spots) |
+| COV-606620 | Summer Smash Tennis: Mini Aces (6-7.5yrs) | May 26 – Jun 16, 2026 | 3:45 PM – 4:30 PM | 6–7 | $107.69 | Open (8 spots) |
+| COV-606765 | Summer Smash Tennis: Tennis Athletic Development (8-14) | Apr 30 – May 21, 2026 | 4:15 PM – 5:15 PM | 8–14 | $140 | Open (6 spots) |
+| COV-615179 | Summer Smash Tennis: Tennis Athletic Development (8-14) | May 28 – Jun 18, 2026 | 4:15 PM – 5:15 PM | 8–14 | $140 | Open (6 spots) |
+| COV-606658 | Summer Smash Tennis: Junior Aces (7.5-10yrs) | May 27 – Jun 17, 2026 | 4:45 PM – 5:45 PM | 7–10 | $143.59 | Open (8 spots) |
+| COV-606659 | Summer Smash Tennis: Junior Aces (7.5-10yrs) | May 2–23, 2026 | 10:15 AM – 11:15 AM | 7–10 | $143.59 | Open (8 spots) |
+| COV-606645 | Summer Smash Tennis: Junior Fundamentals (7.5-10yrs) | Apr 29 – May 20, 2026 | 3:45 PM – 4:45 PM | 7–10 | $143.59 | Open (8 spots) |
+| COV-606625 | Summer Smash Tennis: Mini Aces (6-7.5yrs) | May 29 – Jun 19, 2026 | 3:30 PM – 4:15 PM | 6–7 | $107.69 | Open (8 spots) |
+| COV-606629 | Summer Smash Tennis: Mini Aces (6-7.5yrs) | May 2–23, 2026 | 9:30 AM – 10:15 AM | 6–7 | $105 | Open (8 spots) |
+| COV-602666 | Summer Smash Tennis: Mini Fundamentals (4.5-5) | Apr 5–26, 2026 | 9:30 AM – 10:30 AM | 4–5 | $140 | Open (10 spots) |
+| COV-603946 | Music Together with Abigail | Apr 8 – Jun 10, 2026 | 10:30 AM – 11:15 AM | 0–5 | $235 | Open (12 spots) |
+| COV-603947 | Music Together with Abigail | Apr 8 – Jun 10, 2026 | 9:30 AM – 10:15 AM | 0–5 | $235 | Open (12 spots) |
+
+### Enrollment Status Corrections (Full/Waitlist → Open)
+
+These programs were marked Full/Waitlist in the database but the ActiveNet API confirmed available spots:
+
+| DB ID | Program | Dates | API Openings |
+|-------|---------|-------|-------------|
+| 1585 | Week 6 Summer Safaris Daycamp Jrs 6-8yrs | Aug 4–7 | 40 |
+| 1586 | Week 6 Summer Safaris Daycamp Srs 9-12 yrs | Aug 4–7 | 40 |
+| 1588 | Act, Dance, Sing FUN! Camp | Aug 4–7 | 12 |
+| 1589 | Week 7 Summer Safaris Daycamp Jrs 6-8yrs | Aug 10–14 | 40 |
+| 1590 | Week 7 Summer Safaris Daycamp Srs 9-12yrs | Aug 10–14 | 40 |
+| 1593 | Week 8 Summer Safaris Daycamp Jrs 6-8yrs | Aug 17–21 | 40 |
+| 1594 | Week 8 Summer Safaris Daycamp Srs 9-12yrs | Aug 17–21 | 40 |
+| 1596 | Act, Dance, Sing FUN! Camp | Aug 17–21 | 12 |
+| 1597 | Week 9 Summer Safaris Daycamp Jrs 6-8yrs | Aug 24–28 | 40 |
+| 1598 | Week 9 Summer Safaris Daycamp Srs 9-12yrs | Aug 24–28 | 40 |
+| 1600 | Act, Dance, Sing FUN! Camp | Aug 24–28 | 12 |
+| 1601 | Cartoons Character Creation Camp | Jul 13–17 | 12 |
+| 1602 | Happy Kids Studios - Art Jam Camp | Jul 6–10 | 10 |
+| 1603 | Happy Kids Studios - Art Jam Camp | Aug 10–14 | 10 |
+| 1604 | Happy Kids Studios - Cartoon Camp | Jul 6–10 | 12 |
+| 1605 | Happy Kids Studios - Cartoon Camp | Aug 10–14 | 12 |
+| 1616 | Micro:bit Coding Camp | Aug 17–19 | 12 |
+| 1617 | Science Explorer Camp | Jul 13–17 | 24 |
+
+### Programs Not Found in Live API (Kept As-Is)
+
+These programs exist in our DB but were not returned by the live API scan. They are summer 2026 programs whose registration opened April 8, 2026 — after our April 5 audit date. Kept per R31 (never delete programs).
+
+| DB Entry | Program | Dates | Status in DB |
+|----------|---------|-------|-------------|
+| 1587 | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Aug 4–7 | Full/Waitlist |
+| 1591 | Active Dance Camp: Street, Locking, Popping and KPOP | Aug 10–14 | Full/Waitlist |
+| 1592 | Active Dance Camp: Jazz Funk, Hip Hop and KPOP | Aug 10–14 | Full/Waitlist |
+| 1595 | Active Dance Camp: Street, Locking, Popping and KPOP | Aug 17–21 | Full/Waitlist |
+| 1599 | Active Dance Camp: Street, Locking, Popping and KPOP | Aug 24–28 | Full/Waitlist |
+| 1606 | Ready for Kindergarten Camp | Aug 17–21 | Full/Waitlist |
+| 1607 | Game Ready Crazy Sports Camp | Aug 4–7 | Full/Waitlist |
+| 1608 | Game Ready Crazy Sports Camp | Aug 24–28 | Full/Waitlist |
+| 1609 | Sportball Multisport Camp | Jul 6–10 | Full/Waitlist |
+| 1610 | Sportball Multisport Camp | Aug 10–14 | Full/Waitlist |
+| 1611 | Tomorrow's Playground: WeDo Robotics Camp | Jul 27–31 | Full/Waitlist |
+| 1612 | WIZE - Animation, Games & Storytelling in Scratch Jr Camp | Jul 20–24 | Full/Waitlist |
+| 1613 | WIZE - Coding and Modding in Minecraft Camp | Jul 20–24 | Full/Waitlist |
+| 1614 | WIZE - Minecraft, AR/VR, and Robotics Camp | Aug 10–14 | Full/Waitlist |
+| 1615 | Intro to Coding and Chess Camp (New) | Aug 4–7 | Full/Waitlist |
+| 1618 | STEAM 4 Kids: Science Adventures Camp | Aug 10–14 | Full/Waitlist |
+| 1619 | STEAM 4 Kids: Wild Science Camp | Jul 27–31 | Full/Waitlist |
 
 ---
 
-## Count Summary
+## Adult Programs Excluded (Age 16+)
 
-- **Provider shows:** 889 search results (60 unique parent program types, Spring/Summer 2026)
-- **Database before audit:** 121 programs
-- **Added:** 25 programs
-- **Updated:** 1 program (status fix)
-- **Database after audit:** 146 programs
+The following programs appeared in the ActiveNet API but were excluded as adult-only (ageMin ≥ 16):
+- Group Fitness - Step Class (multiple sessions)
+- Group Fitness - Zumba
+- Group Fitness - Muscle Mania
+- Group Fitness - Cardio Combo
+- Group Fitness - TBC & Stretch
+- Group Fitness - Zumba Toning
+- Group Fitness - Steps with Indira
+- Group Fitness - Step with Indira
+- Axe Samba and Afro-Brazilian Dance (age 14+, completed Mar 2026 — COV-590550)
 
 ---
 
-## Notes
+## Audit Notes
 
-- The ActiveNet portal is a JavaScript SPA; WebFetch cannot render programs. Playwright was used as the browser rendering engine.
-- The Axe Capoeira Family programs use drop-in pricing ($22.50 for 7–13y, $25 for 14+); registration fee is variable. Set `cost: null` with `costNote` referencing provider website.
-- Cancelled programs (602582 "Active Dance Camp: Jazz Funk Asian Pop", 602583/602587 "Active Dance Camp: Street, Locking Popping") were never in DB — added only open/active programs.
-- Adult-only programs (55+, 19+) were identified but not added: ABC English for Seniors, Acrylic Painting, Adapted Fitness, Adventures in Watercolour, Angel's Mind Matters, ActiveNet Workshop for Seniors, Thursday Socials, KBL Basketball League, Simply Band, Pottery.
-- R46 advisory violations (age range spans > 7 years) remain for dance camps — provider uses a single wide age range, not separate age bands. Confirmed against registration page.
+1. **Browser unavailable:** Firefox Playwright MCP failed to start (spawn UNKNOWN error on Windows). Audit used ActiveNet REST API directly — same data that powers the registration page. Configuration updated to use Chrome for future sessions.
+
+2. **Duplicate entries:** Old numeric-ID entries (1585–1619) reference the same ActiveNet programs as the COV-ID numbering system via registrationUrl. These were added before the COV-ID namespace was established. Enrollment statuses were corrected but IDs were preserved per R31 (never delete programs).
+
+3. **R46 violations (age range 7–14):** Three "Act, Dance, Sing FUN! Camp" entries (IDs 1588, 1596, 1600) flag R46 for a wide age range. The API confirms the provider uses 7–14 as a single age bracket — not broken into sub-groups.
+
+4. **Registration date:** Many summer programs had registrationDate of April 8, 2026. Audit conducted April 5 — 17 programs not yet in live API may appear after that date.
+
+5. **Completeness:** Live API showed 57 unique kids programs (ageMax ≤ 17). Database now contains 244 Kerrisdale entries total (including adult programs, personal training, and completed programs).
