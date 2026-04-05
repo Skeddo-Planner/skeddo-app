@@ -1,9 +1,9 @@
 # Verification Log — City of Vancouver - Britannia Cmty Centre
 
-**Date audited:** 2026-04-05 (two attempts)
+**Date audited:** 2026-04-05 (three attempts)
 **Auditor:** Claude (automated audit session)
 **Registration page URL:** https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&locale=en-US&facility=33
-**Status: BLOCKED — Playwright browser failed to launch (both sessions)**
+**Status: BLOCKED — Playwright browser failed to launch (all three sessions)**
 
 ---
 
@@ -39,6 +39,19 @@ Attempts made (Session 1):
 
 Attempts made (Session 2):
 1. Tried `mcp__playwright__browser_navigate` 3 times to different URLs — all failed identically with Firefox spawn error
+
+**Session 3 (2026-04-05, later):**
+```
+Error: server: spawn UNKNOWN
+Launching: C:\Users\thoma\AppData\Local\ms-playwright\firefox-1511\firefox\firefox.exe
+-no-remote -headless -profile C:\Users\thoma\AppData\Local\ms-playwright\mcp-firefox-5467dfb
+```
+
+Attempts made (Session 3):
+1. Verified Firefox binary exists on disk ✓
+2. Confirmed no stale firefox processes running
+3. Tried `mcp__playwright__browser_navigate` 5 times (with waits between attempts) — all failed identically with Firefox spawn error
+4. Confirmed this is a persistent system-level issue — the browser process cannot be spawned regardless of retries
 
 ### What Was NOT Done
 - Could not navigate to the ActiveNet registration page
