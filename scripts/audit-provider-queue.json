@@ -1102,9 +1102,9 @@
       "listings": 12,
       "distKm": 3.3,
       "priorityScore": 59,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-3D-BASKETBALL.md",
       "notes": null,
       "sessionId": null
     },
