@@ -224,9 +224,9 @@
       "distKm": 1.8,
       "priorityScore": 79,
       "status": "failed",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright spawn UNKNOWN on all attempts — Firefox/Chromium cannot launch due to system resource exhaustion. Second failed session 2026-04-05. Re-audit required when browser is functional.",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-CMTY-ARTS-AND-REC-CENTRE.md",
+      "notes": "Playwright spawn UNKNOWN on all attempts (system resource exhaustion) — 3rd consecutive session blocked. Date-based status fixes applied (6 programs). Re-audit when Playwright restored.",
       "sessionId": null
     },
     {
