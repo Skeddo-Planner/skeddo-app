@@ -38,8 +38,7 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-BOOGALOO-ACADEMY.md",
       "notes": "Static page readable via curl. Dates confirmed for 2 programs; scheduleType fixed for 12 programs. Pricing still inaccessible (JackRabbit Cloudflare-blocked). Marked completed — pricing only gap (JackRabbit login wall, costNote updated to inquire with provider).",
-      "sessionId": null,
-      "failNote": "Auto-skipped: 4 consecutive stuck attempts (0 output in 5min each)"
+      "sessionId": null
     },
     {
       "rank": 1,
@@ -131,10 +130,10 @@
       "listings": 117,
       "distKm": 5.9,
       "priorityScore": 81,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KILLARNEY-CMTY-CENTRE.md",
+      "notes": "Playwright browser spawn failed — Firefox Permission denied from bash environment. Re-run in session with working browser.",
       "sessionId": null
     },
     {
@@ -155,7 +154,7 @@
       "listings": 121,
       "distKm": 5.3,
       "priorityScore": 81,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
