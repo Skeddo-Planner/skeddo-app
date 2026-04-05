@@ -22,10 +22,10 @@
       "listings": 9,
       "distKm": 3.8,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Dynamic site (westendca.ca ECONNREFUSED, activecommunities.com returns no program data without JS). Re-audit with browser session.",
+      "status": "failed",
+      "auditDate": "2026-04-05",
+      "logFile": "docs/VERIFICATION-LOG-WEST-END-COMMUNITY-ASSOCIATION.md",
+      "notes": "Dynamic site unreachable — program content not accessible.",
       "sessionId": null
     },
     {
@@ -1538,9 +1538,9 @@
       "listings": 8,
       "distKm": 2.3,
       "priorityScore": 55,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-05",
+      "logFile": "VERIFICATION-LOG-FIRESIDE-ADVENTURES.md",
       "notes": null,
       "sessionId": null
     },
