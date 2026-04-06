@@ -235,10 +235,10 @@
       "listings": 96,
       "distKm": 1.8,
       "priorityScore": 79,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-CMTY-ARTS-AND-REC-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN on all attempts (4 consecutive sessions, 2026-04-05) — system-level Firefox spawn failure. Date-based status fixes applied (6 programs). Re-audit when Playwright is restored.",
+      "logFile": "docs/VERIFICATION-LOG-ROUNDHOUSE.md",
+      "notes": "Audit complete 2026-04-05. 56 status fixes (Coming Soon), 6 programs added. C-Z programs need follow-up pass.",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=42"
     },
