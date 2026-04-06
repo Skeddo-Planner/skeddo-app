@@ -1115,10 +1115,12 @@
       "listings": 18,
       "distKm": 9.3,
       "priorityScore": 62,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was partial/not browser-navigated",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "programsAdded": 57,
+      "programsCorrected": 112,
+      "logFile": "docs/VERIFICATION-LOG-BURNABY-AUDIT-2026-04-06.md",
+      "notes": "57 new programs (9 new centers: WIL, WCC, CRC, RSC, RBR, SCY, BVM, BAG, SWA). 112 price corrections on 8 existing centers. Burnaby display ID offset = 5487.",
       "sessionId": null
     },
     {
