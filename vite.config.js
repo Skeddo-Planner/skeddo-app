@@ -16,6 +16,22 @@ export default defineConfig({
   ],
   build: {
     sourcemap: true, // needed for readable stack traces in Sentry
+    rollupOptions: {
+      output: {
+        // Split vendor libraries into separate cached chunks
+        manualChunks(id) {
+          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
+            return "vendor-react";
+          }
+          if (id.includes("node_modules/@supabase")) {
+            return "vendor-supabase";
+          }
+          if (id.includes("node_modules/@sentry")) {
+            return "vendor-sentry";
+          }
+        },
+      },
+    },
   },
   define: {
     __BUILD_DATE__: JSON.stringify(new Date().toISOString()),

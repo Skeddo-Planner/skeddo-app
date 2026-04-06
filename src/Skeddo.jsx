@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { C } from "./constants/brand";
 import { uid } from "./constants/sampleData";
 import { s } from "./styles/shared";
@@ -9,30 +9,37 @@ import Header from "./components/Header";
 import TabBar from "./components/TabBar";
 import DesktopSidebar from "./components/DesktopSidebar";
 import useIsDesktop from "./hooks/useIsDesktop";
-import HomeTab from "./tabs/HomeTab";
-import DiscoverTab from "./tabs/DiscoverTab";
-import ScheduleTab from "./tabs/ScheduleTab";
-import ProgramsTab from "./tabs/ProgramsTab";
-import BudgetTab from "./tabs/BudgetTab";
-import CirclesTab from "./tabs/CirclesTab";
-import ProgramDetail from "./modals/ProgramDetail";
-import DirectoryDetail from "./modals/DirectoryDetail";
-import ProgramForm from "./modals/ProgramForm";
-import KidForm from "./modals/KidForm";
-import ManualCostForm from "./modals/ManualCostForm";
-import ProfileModal from "./modals/ProfileModal";
-import OnboardingFlow from "./onboarding/OnboardingFlow";
-import InfoPage from "./pages/InfoPages";
+import LandingPage from "./pages/LandingPage";
+import AuthPage from "./pages/AuthPage";
+
+// Lazy-loaded tabs — split into separate chunks so the landing page bundle
+// stays small. Each tab is only fetched when the user first navigates to it
+// (or, for DiscoverTab, on first app mount after login).
+const HomeTab         = lazy(() => import("./tabs/HomeTab"));
+const DiscoverTab     = lazy(() => import("./tabs/DiscoverTab"));
+const ScheduleTab     = lazy(() => import("./tabs/ScheduleTab"));
+const ProgramsTab     = lazy(() => import("./tabs/ProgramsTab"));
+const BudgetTab       = lazy(() => import("./tabs/BudgetTab"));
+const CirclesTab      = lazy(() => import("./tabs/CirclesTab"));
+
+// Lazy-loaded modals & pages — only fetched when opened
+const ProgramDetail      = lazy(() => import("./modals/ProgramDetail"));
+const DirectoryDetail    = lazy(() => import("./modals/DirectoryDetail"));
+const ProgramForm        = lazy(() => import("./modals/ProgramForm"));
+const KidForm            = lazy(() => import("./modals/KidForm"));
+const ManualCostForm     = lazy(() => import("./modals/ManualCostForm"));
+const ProfileModal       = lazy(() => import("./modals/ProfileModal"));
+const OnboardingFlow     = lazy(() => import("./onboarding/OnboardingFlow"));
+const InfoPage           = lazy(() => import("./pages/InfoPages"));
+const InviteModal        = lazy(() => import("./modals/InviteModal"));
+const ChildSettingsModal = lazy(() => import("./modals/ChildSettingsModal"));
+const InviteAcceptPage   = lazy(() => import("./pages/InviteAcceptPage"));
+
 import { trackEvent, trackPageView } from "./utils/analytics";
 import { usePushNotifications } from "./hooks/usePushNotifications";
 import { useChildAccess } from "./hooks/useChildAccess";
 import { useCircles } from "./hooks/useCircles";
 import usePlanAccess from "./hooks/usePlanAccess";
-import InviteModal from "./modals/InviteModal";
-import ChildSettingsModal from "./modals/ChildSettingsModal";
-import InviteAcceptPage from "./pages/InviteAcceptPage";
-import LandingPage from "./pages/LandingPage";
-import AuthPage from "./pages/AuthPage";
 
 // Check if this is an invite URL
 const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
@@ -130,22 +137,26 @@ export default function Skeddo() {
 
     if (!user) {
       return (
-        <InviteAcceptPage
-          inviteCode={pendingInviteCode}
-          session={null}
-          onAccept={handleAcceptInvite}
-          onSignIn={() => setAuthPage("signin")}
-          onSignUp={() => setAuthPage("signup")}
-        />
+        <Suspense fallback={null}>
+          <InviteAcceptPage
+            inviteCode={pendingInviteCode}
+            session={null}
+            onAccept={handleAcceptInvite}
+            onSignIn={() => setAuthPage("signin")}
+            onSignUp={() => setAuthPage("signup")}
+          />
+        </Suspense>
       );
     }
 
     return (
-      <InviteAcceptPage
-        inviteCode={pendingInviteCode}
-        session={session}
-        onAccept={handleAcceptInvite}
-      />
+      <Suspense fallback={null}>
+        <InviteAcceptPage
+          inviteCode={pendingInviteCode}
+          session={session}
+          onAccept={handleAcceptInvite}
+        />
+      </Suspense>
     );
   }
 
@@ -569,38 +580,16 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   /* ── Onboarding (mobile only — desktop skips straight to the app) ── */
   if (!onboarded && !isDesktop) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} planAccess={planAccess} />;
+    return (
+      <Suspense fallback={null}>
+        <OnboardingFlow onComplete={handleOnboardingComplete} planAccess={planAccess} />
+      </Suspense>
+    );
   }
 
   /* ── Main App ── */
   return (
     <div style={s.app} className="skeddo-app-container">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: ${C.cream}; }
-        .skeddo-card { transition: transform 0.15s ease, box-shadow 0.15s ease; cursor: pointer; }
-        .skeddo-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,46,38,0.08); }
-        .skeddo-card:active { transform: scale(0.98); }
-        .tab-btn { transition: all 0.15s ease; }
-        .tab-btn:hover { background: rgba(58,158,106,0.06); }
-        .chip-btn { transition: all 0.12s ease; }
-        .chip-btn:hover { transform: scale(1.04); }
-        .modal-bg { animation: fadeBg 0.2s ease; }
-        .modal-content { animation: slideIn 0.25s cubic-bezier(0.22, 0.61, 0.36, 1); }
-        @keyframes fadeBg { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .tab-content { animation: fadeIn 0.2s ease; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: ${C.seaGreen} !important; box-shadow: 0 0 0 3px rgba(58,158,106,0.12); }
-        .status-chip { cursor: pointer; user-select: none; transition: all 0.12s; }
-        .status-chip:hover { filter: brightness(0.95); transform: scale(1.05); }
-        .status-chip:active { transform: scale(0.9); animation: chipFlash 0.3s ease; }
-        @keyframes chipFlash { 0% { box-shadow: 0 0 0 0 rgba(58,158,106,0.4); } 50% { box-shadow: 0 0 0 6px rgba(58,158,106,0); } 100% { box-shadow: 0 0 0 0 transparent; } }
-        .del-btn:hover { background: ${C.danger} !important; color: white !important; }
-        .progress-bar { transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
-      `}</style>
-
       {/* Test-mode indicator for founders */}
       {planAccess.isTestMode && (
         <div style={{
@@ -627,6 +616,10 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         setTab={(t) => handleNavigateToTab(t)}
         badges={{ circles: circlesHook.pendingCount }}
       />
+
+      {/* Suspense boundary: wraps all lazy-loaded tabs, modals, and pages.
+          Header is intentionally outside so navigation never disappears during chunk loads. */}
+      <Suspense fallback={null}>
 
       {/* Info pages (About, Privacy, etc.) */}
       {infoPage && (
@@ -1345,6 +1338,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           &#10003; {toast}
         </div>
       )}
+
+      </Suspense>
     </div>
   );
 }
