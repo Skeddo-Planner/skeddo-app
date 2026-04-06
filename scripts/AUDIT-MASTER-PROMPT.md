@@ -17,27 +17,29 @@ Audit **{{PROVIDER_NAME}}** — verify all existing listings and add any that ar
 
 ---
 
-## CRITICAL: USE PLAYWRIGHT BROWSER — NOT WEBFETCH
+## CRITICAL: USE CLAUDE IN CHROME — NOT WEBFETCH OR PLAYWRIGHT
 
-**You MUST use the Playwright browser tool (`mcp__playwright__browser_navigate`) to visit every registration page.**
+**You MUST use the Claude in Chrome browser tool (`mcp__Claude_in_Chrome__navigate`) to visit every registration page.**
 
 - Do **NOT** use `WebFetch` or `WebSearch` to read registration page content — they cannot render JavaScript and will miss most program data on modern sites
+- Do **NOT** use `mcp__playwright__browser_*` tools
 - Do **NOT** use any API endpoints as a primary source
-- The Playwright browser renders pages exactly as a parent would see them
+- Claude in Chrome uses a real Chrome browser with full JS support — all dropdowns, infinite scroll, and dynamic content work correctly
 
 ---
 
 ## PROCESS
 
-**1. NAVIGATE WITH PLAYWRIGHT** to {{PROVIDER_NAME}}'s registration page.
+**1. NAVIGATE WITH CLAUDE IN CHROME** to {{PROVIDER_NAME}}'s registration page.
 
 **Your direct registration URL is: `{{REGISTRATION_URL}}`**
-- Navigate here first using `mcp__playwright__browser_navigate` — do NOT navigate to a generic homepage
-- After loading, use `mcp__playwright__browser_snapshot` to confirm the page loaded
-- If snapshot shows a loading spinner or blank page, wait 3 seconds and snapshot again before interacting
-- For ActiveNet pages: use `mcp__playwright__browser_evaluate` with `window.scrollTo(0, document.body.scrollHeight)` repeated 20–30 times to trigger infinite scroll and load all programs
-- Click into individual program detail pages using `mcp__playwright__browser_click` to confirm prices, dates, enrollment status
-- If you don't know the URL and none was provided, use `WebSearch` only to *find* the URL, then navigate with Playwright
+- Navigate here first using `mcp__Claude_in_Chrome__navigate`
+- After loading, use `mcp__Claude_in_Chrome__read_page` to confirm content loaded
+- If the page shows a loading spinner or blank content, wait 3 seconds and try again
+- For ActiveNet pages: use `mcp__Claude_in_Chrome__javascript_tool` with `window.scrollTo(0, document.body.scrollHeight)` repeated 20–30 times to trigger infinite scroll and load all programs
+- Use `mcp__Claude_in_Chrome__find` to locate dropdowns or filters, then interact using `mcp__Claude_in_Chrome__javascript_tool`
+- Click into individual program detail pages to confirm prices, dates, enrollment status
+- If you don't know the URL and none was provided, use `WebSearch` only to *find* the URL, then navigate with `mcp__Claude_in_Chrome__navigate`
 
 **2. For each individual program on the live page, capture exactly:**
 - Exact name (as written on the registration page)
@@ -130,10 +132,10 @@ git push
 
 ## HARD RULES — NEVER VIOLATE
 
-- **Always use Playwright (`mcp__playwright__browser_navigate`) — never WebFetch — to read registration pages**
-- **NEVER write custom scraper scripts** (no `.cjs`, `.js`, `.py` scraper files, no `node scripts/...` execution for scraping). Use only `mcp__playwright__browser_*` tools directly. Writing scraper scripts spawns uncontrolled browser processes.
+- **Always use Claude in Chrome (`mcp__Claude_in_Chrome__navigate`) — never WebFetch, never Playwright — to read registration pages**
+- **NEVER write custom scraper scripts** (no `.cjs`, `.js`, `.py` scraper files, no `node scripts/...` execution for scraping). Use only `mcp__Claude_in_Chrome__*` tools directly.
 - **NEVER call `npx playwright`, `require('playwright')`, or spawn any browser process directly** — only the MCP tools are permitted
-- Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page via Playwright browser
+- Never mark `confirmed2026: true` or `priceVerified: true` without seeing it confirmed on the live page via Claude in Chrome
 - Never delete programs — use `enrollmentStatus: "Completed"` instead
 - Never combine age groups — one listing per age bracket the provider uses
 - Never use activekids.com as a source or in URLs
