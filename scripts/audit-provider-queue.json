@@ -1964,11 +1964,12 @@
       "listings": 6,
       "distKm": 3.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Cancelled 4 wrong weeks (Jul 13-17, Jul 27-31, Aug 4-7, Aug 10-14 not on 2026 site). Fixed Jul 6-10 to Half Day. Fixed address to 4250 Marguerite St. Cost=null (pricing requires esportsdesk login, not publicly listed). Added Aug 31-Sep 4. 3 weeks confirmed for 2026.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 154,
