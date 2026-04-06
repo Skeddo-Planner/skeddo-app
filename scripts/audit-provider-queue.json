@@ -1075,12 +1075,13 @@
       "listings": 21,
       "distKm": 6.7,
       "priorityScore": 63,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "All 100 camp programs in DB; added 1 missing spring tennis lesson (Mini Aces)",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=49"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=49",
+      "programsAdded": 1
     },
     {
       "rank": 81,
