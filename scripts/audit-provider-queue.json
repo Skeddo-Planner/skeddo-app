@@ -2133,11 +2133,12 @@
       "listings": 8,
       "distKm": 20.7,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Relocated 8 Surrey entries to Burnaby, added 8 Port Moody entries. Surrey 404. Ages fixed 5→6.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 167,
@@ -2145,11 +2146,12 @@
       "listings": 7,
       "distKm": 16,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Added 3 missing AFK day camp sessions; fixed 7 SD44 summer school URLs (404→main page).",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 168,
@@ -2157,11 +2159,12 @@
       "listings": 6,
       "distKm": 11.7,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed wrong address (Minoru Blvd→Hazelbridge), cost 50→null (75 half-day or 50 full-day+taxes), downgraded to Likely Coming Soon.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 169,
@@ -2169,11 +2172,12 @@
       "listings": 6,
       "distKm": 9.7,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed cost $350→null ($249-$449/week), fixed names to weekly format, added ageSpanJustified, July confirmed Open, priceVerified→false, BC Day week corrected.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 170,
@@ -2181,7 +2185,7 @@
       "listings": 6,
       "distKm": 12.1,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
