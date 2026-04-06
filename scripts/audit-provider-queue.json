@@ -1536,12 +1536,13 @@
       "listings": 9,
       "distKm": 2.7,
       "priorityScore": 56,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "14 programs added (Petit Architect x3, Byte Camp x2, Dance x6, Brick Animation x2, Bluey x1). All prices verified via REST API.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=32"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=32",
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 118,
