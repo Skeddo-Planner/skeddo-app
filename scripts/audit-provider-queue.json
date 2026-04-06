@@ -248,10 +248,10 @@
       "listings": 75,
       "distKm": 4.4,
       "priorityScore": 76,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-RENFREW-PARK-CMTY-CENTRE.md",
-      "notes": "Playwright Firefox spawn UNKNOWN — 3 sessions, 8+ attempts. Firefox MCP cannot launch on this Windows machine. Chromium 147 IS installed (ms-playwright/chromium-1217) but MCP is hardcoded to Firefox. Requires switching MCP Playwright to use Chromium.",
+      "logFile": "docs/VERIFICATION-LOG-RENFREW-PARK.md",
+      "notes": "Audit complete 2026-04-05. 2 status fixes, 6 Badminton programs added. C-Z programs need follow-up pass.",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
     },
