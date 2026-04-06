@@ -261,11 +261,19 @@
       "listings": 71,
       "distKm": 2.5,
       "priorityScore": 76,
-      "status": "pending",
+      "status": "complete",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-BRITANNIA-CMTY-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN — Firefox cannot be spawned. Three sessions attempted (2026-04-05). System-level browser issue blocking all audit work.",
-      "sessionId": null
+      "notes": "A-B audited; 5 added, 2 status fixes, African Drumming excluded (adult). C-Z needs follow-up.",
+      "sessionId": null,
+      "url": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=38",
+      "centerIds": [
+        38
+      ],
+      "center_ids": 38,
+      "audited": "2026-04-05",
+      "dbCount": 135,
+      "liveCount": 209
     },
     {
       "rank": 19,
@@ -310,10 +318,10 @@
       "listings": 56,
       "distKm": 1.8,
       "priorityScore": 74,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-COMMUNITY-CENTRE.md",
-      "notes": "Playwright GPU crash — headless Chrome GPU process crashes on launch (exit_code=-2147483645). Failed across 5 sessions. Machine needs reboot or Playwright update before retry.",
+      "notes": "Duplicate of rank 16 — same center_ids=42 (Roundhouse Cmty Arts and Rec Centre), audited 2026-04-05",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=42"
     },
@@ -3089,10 +3097,10 @@
       "listings": 2,
       "distKm": 2.6,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Duplicate of rank 18 (center_ids=38)",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=38"
     },
