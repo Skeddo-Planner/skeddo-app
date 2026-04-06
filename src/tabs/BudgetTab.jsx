@@ -1114,7 +1114,7 @@ export default function BudgetTab({
       </div>
 
       {/* ═══ MANUAL COSTS ═══ */}
-      {isPaid && visibleManualCosts.length > 0 && (
+      {visibleManualCosts.length > 0 && (
         <div style={{ marginBottom: 14 }}>
           <div style={{ ...labelStyle, marginBottom: 8 }}>Additional Costs</div>
           {visibleManualCosts.map((c) => {
@@ -1147,12 +1147,15 @@ export default function BudgetTab({
                     </div>
                   </div>
                 </div>
-                <span style={{
-                  fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700,
-                  color: isNegative ? C.seaGreen : C.ink,
-                }}>
-                  {isNegative ? `-${fmt$(Math.abs(c.amount))}` : fmt$(c.amount)}
-                </span>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{
+                    fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700,
+                    color: isNegative ? C.seaGreen : C.ink,
+                  }}>
+                    {isNegative ? `-${fmt$(Math.abs(c.amount))}` : fmt$(c.amount)}
+                  </span>
+                  <span style={{ fontSize: 14, color: C.muted, lineHeight: 1 }}>&#9998;</span>
+                </div>
               </div>
             );
           })}
