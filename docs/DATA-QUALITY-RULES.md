@@ -215,6 +215,7 @@ Automated enforcement: `node scripts/validate-programs.cjs` enforces rules where
 - Two programs are only TRUE duplicates if ALL substantive fields match: id, registrationUrl, ageMin, ageMax, address, neighbourhood, startTime, endTime, cost, days, category, enrollmentStatus, dayLength, durationPerDay, scheduleType
 - Different registrationUrls (e.g., different ActiveNet activity IDs like COV-615925 vs COV-615927) mean different bookable slots — these are NEVER duplicates
 - Programs with the same name/provider/startDate but different ages, times, costs, locations, or days are DISTINCT listings and MUST be kept
+- **Same numeric ID, different prefix (e.g., ACT-613149 vs COV-613149) is NOT a match** — these IDs are independently assigned by different systems and are frequently unrelated programs. The numeric portion coinciding is a collision, not deduplication evidence. ALWAYS verify every substantive field before concluding they are the same program.
 - The validator checks all substantive fields before flagging a duplicate
 - Only true duplicates (every field identical) are auto-removed with `--fix`
 - This rule has NO exceptions — never remove a listing without verifying all fields match an existing one
