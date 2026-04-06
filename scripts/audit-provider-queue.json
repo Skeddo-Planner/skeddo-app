@@ -1009,11 +1009,13 @@
       "listings": 21,
       "distKm": 2.5,
       "priorityScore": 64,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-BRITANNIA-RINK-AUDIT-2026-04-06.md",
+      "notes": "Audited Funseekers Daycamp programs (both age cohorts). 7 of 20 were in DB; added 13 missing (6-7yr Wk 8-10 + all 8-12yr Wk 1-10). Britannia Rink skating/hockey programs separately in DB under COV-597473+ prefix.",
+      "sessionId": null,
+      "programsAdded": 13,
+      "dbCountAfter": 16000
     },
     {
       "rank": 76,
