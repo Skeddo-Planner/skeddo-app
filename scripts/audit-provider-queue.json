@@ -2185,11 +2185,12 @@
       "listings": 6,
       "distKm": 12.1,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Audit done 2026-04-05. Fixed IDs 325-330 (name/cost/time), added TRY Hockey, Girls Hockey, Goaltender camps. 17 total entries. Queue was reset to pending after audit — data and verification log confirmed intact.",
+      "sessionId": null,
+      "completedDate": "2026-04-05"
     },
     {
       "rank": 171,
@@ -2197,7 +2198,7 @@
       "listings": 6,
       "distKm": 11.8,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
