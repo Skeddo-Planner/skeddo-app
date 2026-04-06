@@ -1886,11 +1886,12 @@
       "listings": 6,
       "distKm": 3.9,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Audit complete. Fixed 6 existing entries: ids 71 (Jul 6) and 76 (Aug 10) marked Cancelled (weeks not offered). Ids 72-75 corrected with right dates/price/status. R46 warnings logged — age bands (3-4, 5-6, 7-8, 9-11, 12-14) should be split in future audit.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 148,
