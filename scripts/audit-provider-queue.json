@@ -2107,11 +2107,12 @@
       "listings": 6,
       "distKm": 4.2,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 4 morning sessions (603-606): confirmed2026, isEstimate=false, price $465 confirmed, ageMax 12→17 (teens), ageSpanJustified added, address postal code added. Fixed 2 afternoon camps (607-608): price $230 confirmed, priceVerified=true.",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 165,
