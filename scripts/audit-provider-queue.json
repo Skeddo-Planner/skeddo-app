@@ -2055,11 +2055,12 @@
       "listings": 6,
       "distKm": 6.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 6 entries (435-440): scheduleType Full Day→Half Day, prices corrected (Farm Camp $550→$299, Preschool $550→$380). Added 27 new entries: 9 Pony Camp (6-12), 9 Farm Camp (6-12), 9 Preschool Pony Camp (3-5).",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 161,
