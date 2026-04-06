@@ -186,9 +186,9 @@
       "listings": 106,
       "distKm": 5.1,
       "priorityScore": 80,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-THUNDERBIRD-CMTY-CENTRE.md",
+      "logFile": "docs/VERIFICATION-LOG-THUNDERBIRD.md",
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=58"
