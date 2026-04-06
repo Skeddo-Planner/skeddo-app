@@ -75,7 +75,8 @@
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-HILLCREST-CMTY-CENTRE.md",
       "notes": null,
       "sessionId": null,
-      "listingsAfter": 416
+      "listingsAfter": 416,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
     {
       "rank": 4,
@@ -111,7 +112,8 @@
       "auditDate": "2026-04-05",
       "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-CMTY-CENTRE.md",
       "notes": "Completed session 5. Added 44 new programs, 5 status fixes. 195 total Dunbar programs in DB.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=50"
     },
     {
       "rank": 7,
@@ -122,7 +124,9 @@
       "status": "pending",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-WEST-POINT-GREY-CMTY-CENTRE-ABERTHAU.md",
-      "notes": "Playwright browser unavailable; audit conducted via API data (wpg_new_programs.json) + screenshots. 207 programs verified. 1 fix: COV-585245 status Coming Soon -> Full/Waitlist."
+      "notes": "Playwright browser unavailable; audit conducted via API data (wpg_new_programs.json) + screenshots. 207 programs verified. 1 fix: COV-585245 status Coming Soon -> Full/Waitlist.",
+      "failedAttempts": 0,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=49"
     },
     {
       "rank": 8,
@@ -134,7 +138,8 @@
       "auditDate": "2026-04-05",
       "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-KILLARNEY-CMTY-CENTRE.md",
       "notes": "Chrome unavailable (2 sessions); prices null on 105 new programs. 105 added total (33 Session 1 + 72 Session 2), 1 status updated. Re-audit with Chrome to confirm prices.",
-      "sessionId": null
+      "sessionId": null,
+      "failedAttempts": 0
     },
     {
       "rank": 9,
@@ -182,7 +187,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-THUNDERBIRD-CMTY-CENTRE.md",
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=58"
     },
     {
       "rank": 13,
@@ -204,7 +210,8 @@
       "priorityScore": 79,
       "status": "pending",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DOUGLAS-PARK-CMTY-CENTRE.md"
+      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DOUGLAS-PARK-CMTY-CENTRE.md",
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=48"
     },
     {
       "rank": 15,
@@ -216,7 +223,8 @@
       "auditDate": "2026-04-05",
       "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-MOUNT-PLEASANT-CMTY-CENTRE.md",
       "notes": "Audit complete. 39 status corrections (8 Completed, 31 Full/Waitlist). 33 new programs added (13 classes/camps + 20 birthday party climbing sessions). 419 of ~522 live results loaded via infinite scroll.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53"
     },
     {
       "rank": 16,
@@ -228,7 +236,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-CMTY-ARTS-AND-REC-CENTRE.md",
       "notes": "Playwright spawn UNKNOWN on all attempts (4 consecutive sessions, 2026-04-05) — system-level Firefox spawn failure. Date-based status fixes applied (6 programs). Re-audit when Playwright is restored.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=42"
     },
     {
       "rank": 17,
@@ -240,7 +249,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-RENFREW-PARK-CMTY-CENTRE.md",
       "notes": "Playwright Firefox spawn UNKNOWN — 3 sessions, 8+ attempts. Firefox MCP cannot launch on this Windows machine. Chromium 147 IS installed (ms-playwright/chromium-1217) but MCP is hardcoded to Firefox. Requires switching MCP Playwright to use Chromium.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
     },
     {
       "rank": 18,
@@ -264,7 +274,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-CREEKSIDE-CMTY-REC-CENTRE.md",
       "notes": "Playwright spawn UNKNOWN — Firefox cannot be launched due to system resource constraints. Same issue as Hillcrest, Hastings, Renfrew Park audits.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=29"
     },
     {
       "rank": 20,
@@ -300,7 +311,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-ROUNDHOUSE-COMMUNITY-CENTRE.md",
       "notes": "Playwright GPU crash — headless Chrome GPU process crashes on launch (exit_code=-2147483645). Failed across 5 sessions. Machine needs reboot or Playwright update before retry.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=42"
     },
     {
       "rank": 23,
@@ -312,7 +324,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-CHAMPLAIN-HEIGHTS-CMTY-CENTRE.md",
       "notes": "Playwright GPU crash loop (exit_code=-2147483645) — 3rd failed session. Browser PID 140912 crashes immediately on GPU init. Same issue affecting other CoV audits.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=57"
     },
     {
       "rank": 24,
@@ -324,7 +337,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MARPOLE-OAKRIDGE-CMTY-CENTRE.md",
       "notes": "Session 1: Playwright spawn UNKNOWN. Session 2 (2026-04-05): Playwright GPU crash loop — chrome-headless-shell GPU process crashes fatally on launch. Same recurring failure as Sunset, Britannia, Renfrew, Roundhouse, Mount Pleasant audits.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=54"
     },
     {
       "rank": 25,
@@ -336,7 +350,8 @@
       "auditDate": "2026-04-05",
       "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-TROUT-LAKE-COMMUNITY-CENTRE.md",
       "notes": "Full audit via Playwright Chrome. 55 existing programs updated (status corrections, field fixes, address). 22 new programs added (Summer Daze Junior Wks 2-9, Summer Daze Senior Wks 1-9, Sportball 5-9yrs Wks 1-5). 8 cancelled soccer weeks marked Completed.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=32"
     },
     {
       "rank": 26,
@@ -348,7 +363,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-COAL-HARBOUR-CMTY-CENTRE.md",
       "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this machine. Same error blocking all City of Vancouver audits.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6"
     },
     {
       "rank": 27,
@@ -360,7 +376,8 @@
       "auditDate": null,
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-HASTINGS-CMTY-CENTRE.md",
       "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this Windows machine. Affects all recent City of Vancouver audits. Retry when Playwright/Firefox is functional.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
     },
     {
       "rank": 28,
@@ -384,7 +401,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Playwright spawn UNKNOWN — system resource exhaustion (Firefox cannot be launched). Re-audit required when browser is available.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
     {
       "rank": 30,
@@ -468,7 +486,8 @@
       "auditDate": "2026-04-05",
       "logFile": null,
       "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this Windows machine. Same failure as Dunbar/Creekside/Mount Pleasant. Re-audit required when Playwright is fixed.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=35"
     },
     {
       "rank": 37,
@@ -504,7 +523,8 @@
       "auditDate": null,
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DUNBAR-COMMUNITY-CENTRE.md",
       "notes": "Playwright spawn UNKNOWN — browser process could not launch on Windows host. Same issue as Creekside, Mount Pleasant audits. Re-audit required once Playwright operational.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=50"
     },
     {
       "rank": 40,
@@ -516,7 +536,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-COMMUNITY-CENTRE.md",
       "notes": "Playwright Firefox spawn UNKNOWN — Firefox binary permission denied, cannot launch browser. Same issue blocking all audits on 2026-04-05.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=33"
     },
     {
       "rank": 41,
@@ -528,7 +549,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-THUNDERBIRD-COMMUNITY-CENTRE.md",
       "notes": "Playwright browser spawn UNKNOWN — Firefox binary fails to launch. Blocked across multiple sessions (same issue as Britannia, Trout Lake, Coal Harbour, Hastings, Dunbar).",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=58"
     },
     {
       "rank": 42,
@@ -564,7 +586,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Playwright browser spawn UNKNOWN — Firefox failed to launch (system resource exhaustion). Existing data retained as-is.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
     {
       "rank": 45,
@@ -612,7 +635,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Playwright spawn UNKNOWN — Firefox browser process failed to launch. Systemic issue affecting all recent audits. Retry when Playwright is restored.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=40"
     },
     {
       "rank": 49,
@@ -636,7 +660,8 @@
       "auditDate": null,
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-FALSE-CREEK-CMTY-CENTRE.md",
       "notes": "Playwright spawn UNKNOWN — Firefox cannot launch on this Windows host. Same error as Hastings, Kerrisdale, Dunbar, Kerrisdale Cyclone Taylor Arena, Templeton Park Pool.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=43"
     },
     {
       "rank": 51,
@@ -708,7 +733,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=57"
     },
     {
       "rank": 56,
@@ -720,7 +746,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MARPOLE-OAKRIDGE-COMMUNITY-CENTRE.md",
       "notes": "Playwright spawn UNKNOWN — Firefox/Chromium cannot launch on this machine. Same system-level failure blocking multiple audits. Re-audit when Playwright is available.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=54"
     },
     {
       "rank": 57,
@@ -732,7 +759,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Playwright spawn UNKNOWN — Firefox cannot launch in this environment. Same blocker as Creekside, Templeton, West End audits.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53"
     },
     {
       "rank": 58,
@@ -852,7 +880,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=42"
     },
     {
       "rank": 68,
@@ -864,7 +893,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
     },
     {
       "rank": 69,
@@ -900,7 +930,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Playwright browser spawn UNKNOWN error — Firefox MCP process cannot launch on this machine. Same blocker as Vancouver Aquatic Centre, Kerrisdale, Mount Pleasant, Killarney, Roundhouse audits.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=51"
     },
     {
       "rank": 72,
@@ -936,7 +967,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=51"
     },
     {
       "rank": 75,
@@ -972,7 +1004,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=48"
     },
     {
       "rank": 78,
@@ -984,7 +1017,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=43"
     },
     {
       "rank": 79,
@@ -996,7 +1030,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=50"
     },
     {
       "rank": 80,
@@ -1008,7 +1043,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=49"
     },
     {
       "rank": 81,
@@ -1020,7 +1056,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
     {
       "rank": 82,
@@ -1080,7 +1117,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
     },
     {
       "rank": 87,
@@ -1248,7 +1286,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
     {
       "rank": 101,
@@ -1260,7 +1299,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6"
     },
     {
       "rank": 102,
@@ -1272,7 +1312,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
     },
     {
       "rank": 103,
@@ -1284,7 +1325,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
     },
     {
       "rank": 104,
@@ -1404,7 +1446,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
     },
     {
       "rank": 115,
@@ -1428,7 +1471,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=7"
     },
     {
       "rank": 117,
@@ -1440,7 +1484,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=32"
     },
     {
       "rank": 118,
@@ -1564,7 +1609,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=7"
     },
     {
       "rank": 130,
@@ -1600,7 +1646,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=35"
     },
     {
       "rank": 133,
@@ -2416,7 +2463,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6"
     },
     {
       "rank": 201,
@@ -2824,7 +2872,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
     {
       "rank": 235,
@@ -2872,7 +2921,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
     },
     {
       "rank": 239,
@@ -3040,7 +3090,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=38"
     },
     {
       "rank": 253,
@@ -3124,7 +3175,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53"
     },
     {
       "rank": 260,
@@ -3628,7 +3680,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
     },
     {
       "rank": 302,
@@ -3688,7 +3741,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
     },
     {
       "rank": 307,
@@ -3700,7 +3754,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
     },
     {
       "rank": 308,
@@ -3748,7 +3803,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=40"
     },
     {
       "rank": 312,
@@ -4360,7 +4416,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
     },
     {
       "rank": 363,
@@ -4432,7 +4489,8 @@
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
     },
     {
       "rank": 369,

@@ -32,13 +32,16 @@ If a page is blank or seems empty after navigating, wait a moment and try `mcp__
 ## PROCESS
 
 **1. NAVIGATE WITH PLAYWRIGHT** to {{PROVIDER_NAME}}'s registration page.
-- Use `mcp__playwright__browser_navigate` to open the page
-- If you don't know the URL, use `WebSearch` only to *find* the URL, then navigate with Playwright
-- Click dropdowns, location selectors, and age group selectors using `mcp__playwright__browser_click`
-- Use `mcp__playwright__browser_snapshot` to read page content after navigation or interactions
-- Scroll to the bottom of every listing page
-- If they have multiple Metro Vancouver locations, check **every** one
-- Click into individual program detail pages
+
+**Your direct registration URL is: `{{REGISTRATION_URL}}`**
+- Navigate here first — do NOT navigate to the generic homepage or search page
+- If this is a City of Vancouver ActiveNet URL (anc.ca.apm.activecommunities.com), it already filters to the correct community centre — do not use location dropdowns
+- Use `mcp__playwright__browser_navigate` to open the URL
+- After loading, use `mcp__playwright__browser_snapshot` immediately to confirm the page loaded
+- If the snapshot shows a loading spinner or blank page, wait 3 seconds and snapshot again before interacting
+- For ActiveNet pages: use `mcp__playwright__browser_evaluate` with `window.scrollTo(0, document.body.scrollHeight)` repeated 20–30 times to trigger infinite scroll and load all programs
+- Click into individual program detail pages to confirm prices, dates, enrollment status
+- If you don't know the URL and none was provided, use `WebSearch` only to *find* the URL, then navigate with Playwright
 
 **2. For each individual program on the live page, capture exactly:**
 - Exact name (as written on the registration page)

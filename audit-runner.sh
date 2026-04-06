@@ -59,12 +59,20 @@ while true; do
 
   echo "--- LAUNCHING AGENT: $(date) | Provider: $NEXT | Remaining pending: $PENDING_COUNT ---" >> "$LOG"
 
-  # Build prompt: substitute {{PROVIDER_NAME}} and {{PROVIDER_SLUG}} in the template
-  PROMPT=$(PROVIDER_NAME="$NEXT" PROVIDER_SLUG="$SLUG" "$NODE" -e "
+  # Get registration URL from queue entry (if set) for direct navigation
+  REG_URL=$("$NODE" -e "
+    const q = JSON.parse(require('fs').readFileSync('scripts/audit-provider-queue.json'));
+    const p = q.providers.find(p => p.name === process.argv[1]);
+    process.stdout.write(p && p.registrationUrl ? p.registrationUrl : '');
+  " "$NEXT" 2>/dev/null)
+
+  # Build prompt: substitute {{PROVIDER_NAME}}, {{PROVIDER_SLUG}}, {{REGISTRATION_URL}} in the template
+  PROMPT=$(PROVIDER_NAME="$NEXT" PROVIDER_SLUG="$SLUG" REGISTRATION_URL="$REG_URL" "$NODE" -e "
     const fs = require('fs');
     let t = fs.readFileSync('scripts/AUDIT-MASTER-PROMPT.md', 'utf8');
     t = t.replace(/\{\{PROVIDER_NAME\}\}/g, process.env.PROVIDER_NAME);
     t = t.replace(/\{\{PROVIDER_SLUG\}\}/g, process.env.PROVIDER_SLUG);
+    t = t.replace(/\{\{REGISTRATION_URL\}\}/g, process.env.REGISTRATION_URL || 'https://anc.ca.apm.activecommunities.com/vancouver/activity/search');
     process.stdout.write(t);
   " 2>/dev/null)
 
@@ -94,19 +102,28 @@ while true; do
   echo "--- AGENT DONE (code $EXIT_CODE): $(date) | Provider: $NEXT ---" >> "$LOG"
 
   # Safety reset: if agent exited without marking the provider complete/failed, put it back to pending
+  # After 3 consecutive failures, flag as needs_review so the runner moves on
   STILL_IN_PROGRESS=$(PROVIDER_NAME="$NEXT" "$NODE" -e "
     const fs = require('fs');
     const q = JSON.parse(fs.readFileSync('scripts/audit-provider-queue.json'));
     const p = q.providers.find(p => p.name === process.env.PROVIDER_NAME);
     if (p && p.status === 'in_progress') {
-      p.status = 'pending';
+      p.failedAttempts = (p.failedAttempts || 0) + 1;
+      if (p.failedAttempts >= 3) {
+        p.status = 'needs_review';
+        process.stdout.write('needs_review');
+      } else {
+        p.status = 'pending';
+        process.stdout.write('yes');
+      }
       fs.writeFileSync('scripts/audit-provider-queue.json', JSON.stringify(q, null, 2));
-      process.stdout.write('yes');
     }
   " 2>/dev/null)
 
   if [ "$STILL_IN_PROGRESS" = "yes" ]; then
     echo "--- Provider not completed by agent, reset to pending: $NEXT ---" >> "$LOG"
+  elif [ "$STILL_IN_PROGRESS" = "needs_review" ]; then
+    echo "--- Provider flagged needs_review after 3 failures (NOT skipped — will need manual audit): $NEXT ---" >> "$LOG"
   fi
 
   sleep 3
