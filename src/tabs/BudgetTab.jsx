@@ -781,7 +781,7 @@ export default function BudgetTab({
               key={b.id}
               onClick={() => setBreakFilter(active ? "all" : b.id)}
               style={{
-                flex: "0 0 auto", minWidth: 115, padding: "12px 14px", borderRadius: 12,
+                flex: "0 0 auto", minWidth: 130, padding: "12px 14px", borderRadius: 12,
                 border: active ? `1.5px solid ${b.color}` : `1px solid ${C.border}`,
                 background: active ? b.bgColor : C.white,
                 boxShadow: "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)",
@@ -792,7 +792,7 @@ export default function BudgetTab({
                 <div style={{
                   width: 8, height: 8, borderRadius: 4, background: b.color, flexShrink: 0,
                 }} />
-                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink }}>
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700, color: C.ink, whiteSpace: "nowrap" }}>
                   {b.label}
                 </span>
               </div>
