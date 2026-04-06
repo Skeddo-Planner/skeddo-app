@@ -1951,11 +1951,12 @@
       "listings": 6,
       "distKm": 2.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed times 9:00-4:00 → 9:30 AM-3:30 PM on all 6 entries. Fixed Aug 4-7 days (BC Day off). Added 5 missing weeks: Jun 24-26 (3-day), Jun 29-Jul 3 (note: Canada Day held), Aug 17-21, Aug 24-28, Aug 31-Sep 4. All 11 weeks now in DB. Location: Variety Challenger Field, 4501 Clancy Loranger Way.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 153,
