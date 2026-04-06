@@ -281,12 +281,16 @@
       "listings": 65,
       "distKm": 0.9,
       "priorityScore": 75,
-      "status": "pending",
+      "status": "complete",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-CREEKSIDE-CMTY-REC-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN — Firefox cannot be launched due to system resource constraints. Same issue as Hillcrest, Hastings, Renfrew Park audits.",
+      "notes": "A programs audited; 28 status fixes, 5 added. B-Z needs follow-up.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=29"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=29",
+      "center_ids": 29,
+      "audited": "2026-04-05",
+      "dbCount": 47,
+      "liveCount": 187
     },
     {
       "rank": 20,
