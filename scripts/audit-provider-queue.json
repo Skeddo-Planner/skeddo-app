@@ -121,10 +121,10 @@
       "listings": 141,
       "distKm": 7.6,
       "priorityScore": 82,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-WEST-POINT-GREY-CMTY-CENTRE-ABERTHAU.md",
-      "notes": "Playwright browser unavailable; audit conducted via API data (wpg_new_programs.json) + screenshots. 207 programs verified. 1 fix: COV-585245 status Coming Soon -> Full/Waitlist.",
+      "logFile": "VERIFICATION-LOG-WPG-ABERTHAU.md",
+      "notes": "5 programs added, 4 ageMax fixes, 308 birthday parties removed platform-wide",
       "failedAttempts": 0,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=49"
     },
