@@ -211,9 +211,9 @@
       "listings": 382,
       "distKm": 2,
       "priorityScore": 79,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-DOUGLAS-PARK-CMTY-CENTRE.md",
+      "logFile": "docs/VERIFICATION-LOG-DOUGLAS-PARK.md",
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=48"
     },
     {
