@@ -2081,11 +2081,12 @@
       "listings": 6,
       "distKm": 3.1,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 6 entries (565-570): set cost $420 (was null), ageMax 11→10, address St→Ave, updated descriptions. Fixed id=569 cost →$370 and days Mon-Fri→Tue-Fri (BC Day). Added 4 missing weeks: Jul 2-3 ($170 partial), Aug 17-21, Aug 24-28, Aug 31-Sep 4.",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 163,
