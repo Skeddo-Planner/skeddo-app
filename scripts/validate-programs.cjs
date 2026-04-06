@@ -524,10 +524,11 @@ for (const p of programs) {
 // ── Rule 43 partial check: warn if ageMin=5 and ageMax=12 for programs from providers
 //    that are known to offer age bands. This is a heuristic — not exhaustive.
 for (const p of programs) {
-  if (p.ageMin === 5 && p.ageMax === 12) {
+  if (p.ageMin === 5 && p.ageMax === 12 && !p.ageSpanJustified) {
     // This is a common symptom of merged age bands. Not all 5-12 ranges are violations
     // (some providers genuinely accept 5-12), so we emit a WARNING not a hard violation.
     // Agents should verify against the provider's page to confirm bands aren't collapsed.
+    // Set ageSpanJustified to suppress this warning once verified.
     warn(String(p.id), 43, `ageMin=5, ageMax=12 — verify provider doesn't sell distinct age bands (5-6, 7-8, 9-10, 11-12) that should be separate listings (R43)`);
   }
 }
