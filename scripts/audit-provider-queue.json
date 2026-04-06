@@ -449,10 +449,10 @@
       "listings": 47,
       "distKm": 3.1,
       "priorityScore": 72,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-TROUT-LAKE-RINK.md",
-      "notes": "Playwright browser spawn blocked (Firefox permission denied). Firefox binary exists but cannot execute in automated context. Same issue as Dunbar, Creekside, Mount Pleasant audits. Re-audit when Playwright is functional.",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "VERIFICATION-LOG-TROUT-LAKE-RINK.md",
+      "notes": "10 status fixes (Open→Full/Waitlist for Sat skating lessons). 9 programs added. center_id=28. 46 programs in DB (live: 62; 16 remaining gap = additional skating time slots not visible in virtual renderer).",
       "sessionId": null
     },
     {
