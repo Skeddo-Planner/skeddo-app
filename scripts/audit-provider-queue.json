@@ -1938,11 +1938,12 @@
       "listings": 6,
       "distKm": 2.5,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Cancelled 6 placeholder Tech Innovation Camp entries (181-186). Fixed endDate+days on 4 COV Hillcrest entries. Added 6 missing sessions: Hillcrest 2D Game Jul 20, Hillcrest 2D Anim Aug 10, Hillcrest 3D Game Aug 17, ByteCamp HQ 2D Game Jul 27, ByteCamp HQ 2D Anim Aug 17, Strathcona Claymation Aug 24. 41 VAN sessions verified on bytecamp.ca.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 152,
