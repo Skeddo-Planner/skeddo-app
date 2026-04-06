@@ -298,11 +298,15 @@
       "listings": 68,
       "distKm": 4.6,
       "priorityScore": 75,
-      "status": "pending",
+      "status": "complete",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-SUNSET-CMTY-CENTRE.md",
-      "notes": "Playwright spawn UNKNOWN (GPU crash loop, session 2) — MCP browser cannot start. Needs MCP/Claude Code restart before retry.",
-      "sessionId": null
+      "notes": "center_ids=41 discovered. A programs audited; 6 status fixes, 8 added. B-Z needs follow-up.",
+      "sessionId": null,
+      "center_ids": 41,
+      "audited": "2026-04-05",
+      "dbCount": 93,
+      "liveCount": 297
     },
     {
       "rank": 21,
