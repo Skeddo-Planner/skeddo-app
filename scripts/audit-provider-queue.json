@@ -2042,11 +2042,12 @@
       "listings": 6,
       "distKm": 7.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Jericho Beach Kayak 11-week season Jun 22-Sep 4. Fixed 6 entries: wrong prices ($315→$569 for full-day, $569→$455 for 4-day BC Day week Aug 4-7), added ageSpanJustified. Added 5 missing weeks (W1 Jun 22-26, W2 Jun 29-Jul 3 $455, W9-W11 Aug 17-Sep 4). Half-day camps ($315) not individually listed.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 160,
