@@ -1326,12 +1326,14 @@
       "listings": 12,
       "distKm": 2.3,
       "priorityScore": 59,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "557 programs already in DB under City of Vancouver - Hillcrest Cmty Centre. No additions needed.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39",
+      "programsAdded": 0,
+      "dbCountAfter": 16000
     },
     {
       "rank": 101,
@@ -1339,12 +1341,14 @@
       "listings": 12,
       "distKm": 3.4,
       "priorityScore": 59,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Programs exist in DB under wecca- prefix and numeric IDs from prior import. No COV- additions needed — verified programs present by name search.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6",
+      "programsAdded": 0,
+      "dbCountAfter": 16000
     },
     {
       "rank": 102,
@@ -1352,12 +1356,14 @@
       "listings": 12,
       "distKm": 3.5,
       "priorityScore": 59,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Queue mislabeled as Kensington Pool; actual center is Kensington CC (center_ids=55). 73 programs already in DB. No additions needed.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55",
+      "programsAdded": 0,
+      "dbCountAfter": 16000
     },
     {
       "rank": 103,
@@ -1365,12 +1371,14 @@
       "listings": 13,
       "distKm": 4.9,
       "priorityScore": 59,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-RENFREW-PARK-AUDIT-2026-04-06.md",
+      "notes": "Queue mislabeled as Renfrew Park Pool; actual center is Renfrew Park CC (center_ids=46). Added: 9 Renfrew Summer Adventures (Wk 1-9), 8 Falaise Supported Day Camp (Wk 1-8), 5 Falaise Fun Finders Day Camp (Wk 4-8).",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46",
+      "programsAdded": 22,
+      "dbCountAfter": 16022
     },
     {
       "rank": 104,
@@ -1486,12 +1494,14 @@
       "listings": 9,
       "distKm": 4.5,
       "priorityScore": 56,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Same center as rank 102 (Kensington CC). Already audited via rank 102.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55",
+      "programsAdded": 0,
+      "dbCountAfter": 16000
     },
     {
       "rank": 115,
