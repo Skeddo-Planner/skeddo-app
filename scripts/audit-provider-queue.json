@@ -597,10 +597,10 @@
       "listings": 36,
       "distKm": 2.5,
       "priorityScore": 69,
-      "status": "pending",
-      "auditDate": "2026-04-05",
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-BRITANNIA-POOL.md",
-      "notes": "Playwright spawn UNKNOWN — browser process cannot launch. Two separate sessions both blocked. Retry after Playwright MCP restart.",
+      "notes": "Playwright spawn UNKNOWN — browser process cannot launch. Two separate sessions both blocked. Retry after Playwright MCP restart. R46 fixed (9 swim levels); added 13 programs (Swim Club Tue, 6×Jellyfish, 6×Goldfish/Seahorse). Live=151, DB=49.",
       "sessionId": null
     },
     {
