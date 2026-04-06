@@ -1977,11 +1977,12 @@
       "listings": 6,
       "distKm": 2.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "2026 summer camps not yet posted on Uplifter (site shows 2022 data). Fixed status Full/Waitlist → Likely Coming Soon on all 6 entries. Added ageSpanJustified (provider offers distinct age bands but 2026 not yet posted). Re-audit when 2026 schedule is published.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 155,
