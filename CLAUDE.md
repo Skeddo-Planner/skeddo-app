@@ -18,6 +18,36 @@ To ensure work reaches main, every task MUST:
 
 Work that isn't on main doesn't count. Tom cannot see worktree branches.
 
+## Staging Environment
+
+Skeddo has two live environments:
+
+| Environment | URL | Branch | Supabase |
+|-------------|-----|---------|----------|
+| **Production** | skeddo.ca | `main` | Production project |
+| **Staging** | staging.skeddo.ca | `staging` | Staging project (separate) |
+
+Staging is completely isolated — separate Supabase project, separate Stripe test keys, separate GA property. Real users only ever hit production (`main`).
+
+### Branch workflow
+
+```
+feature/xyz  →  staging  →  main
+                   ↓           ↓
+          staging.skeddo.ca  skeddo.ca
+```
+
+- **New features / data audits:** branch off `staging`, PR into `staging`
+- **Promote to production:** merge `staging` → `main` via `./promote-to-production.sh`
+- **Hotfixes:** branch off `main`, PR into `main` directly (bypass staging)
+
+### Committing in this repo
+
+The CRITICAL section above (always commit to main) applies to **Claude worktree tasks**. For normal feature development:
+- Work in a feature branch off `staging`
+- PR that branch → `staging`
+- When ready to release, run `./promote-to-production.sh`
+
 ## Before Every Session
 
 ```bash
