@@ -1990,11 +1990,12 @@
       "listings": 6,
       "distKm": 2.6,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed cost $275→$399 ($349 early bird). Named themed weeks. Cancelled Jul 13-17 and Aug 4-7 (not offered). Added Aug 24-28 Ninja Warrior Week. 5 weeks total: Jul 6-10 Disney, Jul 20-24 LEGO, Jul 27-31 Self-Defense, Aug 10-14 Superhero, Aug 24-28 Ninja Warrior. Old domain thirdeyemartialarts.com dead; correct site is temartialarts.com.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 156,
