@@ -916,12 +916,13 @@
       "listings": 23,
       "distKm": 3.5,
       "priorityScore": 65,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-KENSINGTON-AUDIT-2026-04-06.md",
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55",
+      "programsAdded": 29
     },
     {
       "rank": 69,
