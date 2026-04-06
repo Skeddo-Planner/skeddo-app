@@ -969,11 +969,12 @@
       "listings": 35,
       "distKm": 39.4,
       "priorityScore": 64,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "notes": "Skipped: provider name is N/A. 35 programs are administrative (out-of-school care call lists, waitlists), not summer camps. No action needed.",
+      "sessionId": null,
+      "programsAdded": 0
     },
     {
       "rank": 73,
@@ -981,11 +982,12 @@
       "listings": 21,
       "distKm": 2.9,
       "priorityScore": 64,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "notes": "No summer camps found. VAC (center_id=2) has 175 programs — all swim/aquafit classes. Camp keyword search returns 0 results. 46 existing DB entries are swim programs, all accurate.",
+      "sessionId": null,
+      "programsAdded": 0
     },
     {
       "rank": 74,
@@ -993,12 +995,13 @@
       "listings": 20,
       "distKm": 1.9,
       "priorityScore": 64,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-STRATHCONA-AUDIT-2026-04-06.md",
+      "notes": "Same as rank 71 (center_id=51). Audited under rank 71 — see VERIFICATION-LOG-STRATHCONA-AUDIT-2026-04-06.md.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=51"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=51",
+      "programsAdded": 0
     },
     {
       "rank": 75,
@@ -1030,12 +1033,13 @@
       "listings": 19,
       "distKm": 1.9,
       "priorityScore": 63,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-DOUGLAS-PARK-AUDIT-2026-04-06.md",
+      "notes": "17 programs added: EFK ×4, High5 Soccer ×3, High5 Multisport ×3, WIZE ×4, Coerver ×1, Chess ×2. dpcc-* entries retain separate CCFRI-priced registration pathway.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=48"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=48",
+      "programsAdded": 17
     },
     {
       "rank": 78,
@@ -1043,12 +1047,13 @@
       "listings": 18,
       "distKm": 2.7,
       "priorityScore": 63,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-FALSE-CREEK-AUDIT-2026-04-06.md",
+      "notes": "No missing programs; fixed 33 broken URLs, removed 14 birthday party entries",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=43"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=43",
+      "programsAdded": 0
     },
     {
       "rank": 79,
@@ -1056,12 +1061,13 @@
       "listings": 21,
       "distKm": 6.7,
       "priorityScore": 63,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=50"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=50",
+      "programsAdded": 23
     },
     {
       "rank": 80,
