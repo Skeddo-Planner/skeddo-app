@@ -2029,11 +2029,12 @@
       "listings": 6,
       "distKm": 7.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Windsure 10-week season. Fixed 6 existing entries: wrong status (Likely Coming Soon→Open), wrong price ($375→$540), wrong name. Added 4 missing weeks (W1 Jun 29-Jul 3, W8-W10 Aug 17-Sep 4). Canada Day Jul 1 off (4-day week 1). BC Day Aug 3 off (id=415 already correctly dated Aug 4-7). 9 distinct program types exist (full-day $540, half-day $300-$350) not individually listed.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 159,
