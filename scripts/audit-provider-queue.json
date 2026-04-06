@@ -485,10 +485,10 @@
       "listings": 45,
       "distKm": 5,
       "priorityScore": 71,
-      "status": "pending",
-      "auditDate": "2026-04-05",
-      "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-CYCLONE-TAYLOR-ARENA.md",
-      "notes": "Playwright spawn UNKNOWN — Firefox cannot launch. Two sessions attempted (2026-04-05), multiple retries with waits up to 30s. Same issue as Dunbar, Kitsilano, Marpole-Oakridge, False Creek, Hillcrest. Retry when Playwright/Chrome is operational.",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": null,
+      "notes": "All 634 live programs (ages 0-17) are Play Palace birthday party bookings — no youth skating lessons or structured programs. Removed 45 birthday party records from DB per policy.",
       "sessionId": null
     },
     {
