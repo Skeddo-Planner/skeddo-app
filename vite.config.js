@@ -16,6 +16,8 @@ export default defineConfig({
   ],
   build: {
     sourcemap: true, // needed for readable stack traces in Sentry
+    target: "es2020", // modern browsers only — smaller output, no legacy polyfills
+    cssCodeSplit: false, // bundle all CSS into one file (avoids extra per-chunk HTTP requests)
     rollupOptions: {
       output: {
         // Split vendor libraries into separate cached chunks
