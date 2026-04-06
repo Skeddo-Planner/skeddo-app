@@ -2016,11 +2016,12 @@
       "listings": 6,
       "distKm": 7.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "MacSailing 12-week season (Jun 15-Sep 4). Fixed 6 existing entries (wrong price $375→$615, wrong ages 6-16→8-14, wrong name). Added 6 missing weeks (W1-3, W10-12). Full-day combo camps represented. Half-day programs ($330-$395) and keelboat programs exist but not individually listed — follow-up audit recommended.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 158,
