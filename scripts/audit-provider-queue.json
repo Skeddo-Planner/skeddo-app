@@ -2003,11 +2003,12 @@
       "listings": 6,
       "distKm": 3.2,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Private members-only club. No public 2026 summer camp schedule posted. Fixed provider name, address postal code, description. Added ageSpanJustified. Contact 604-731-2191.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 157,
