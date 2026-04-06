@@ -1824,11 +1824,12 @@
       "listings": 6,
       "distKm": 0.3,
       "priorityScore": 53,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "notes": "Verified: 6 existing programs (2025-26 preschool deposits) still live and correct. No summer 2026 programs — licensed child care center, school-year only. No new programs needed.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 143,
@@ -1860,11 +1861,12 @@
       "listings": 7,
       "distKm": 7,
       "priorityScore": 53,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "7 programs verified. All confirmed for 2026 with published dates. Fixed dates/times/status on all 7 entries. Registration opens May 1 (SD44) / May 19 (all). No new programs needed.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 146,
