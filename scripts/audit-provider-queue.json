@@ -339,12 +339,14 @@
       "listings": 63,
       "distKm": 7.4,
       "priorityScore": 74,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-CHAMPLAIN-HEIGHTS-CMTY-CENTRE.md",
       "notes": "Playwright GPU crash loop (exit_code=-2147483645) — 3rd failed session. Browser PID 140912 crashes immediately on GPU init. Same issue affecting other CoV audits.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=57"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=57",
+      "dbCountAfter": 108,
+      "verificationLog": "docs/VERIFICATION-LOG-CHAMPLAIN-HEIGHTS.md"
     },
     {
       "rank": 24,
@@ -352,12 +354,14 @@
       "listings": 58,
       "distKm": 5.6,
       "priorityScore": 74,
-      "status": "pending",
-      "auditDate": "2026-04-05",
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-MARPOLE-OAKRIDGE-CMTY-CENTRE.md",
       "notes": "Session 1: Playwright spawn UNKNOWN. Session 2 (2026-04-05): Playwright GPU crash loop — chrome-headless-shell GPU process crashes fatally on launch. Same recurring failure as Sunset, Britannia, Renfrew, Roundhouse, Mount Pleasant audits.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=54"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=54",
+      "dbCountAfter": 102,
+      "verificationLog": "docs/VERIFICATION-LOG-MARPOLE-OAKRIDGE.md"
     },
     {
       "rank": 25,
@@ -378,12 +382,14 @@
       "listings": 52,
       "distKm": 3.4,
       "priorityScore": 73,
-      "status": "pending",
-      "auditDate": "2026-04-05",
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-COAL-HARBOUR-CMTY-CENTRE.md",
       "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this machine. Same error blocking all City of Vancouver audits.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6",
+      "dbCountAfter": 104,
+      "verificationLog": "docs/VERIFICATION-LOG-COAL-HARBOUR.md"
     },
     {
       "rank": 27,
@@ -391,12 +397,14 @@
       "listings": 55,
       "distKm": 4.8,
       "priorityScore": 73,
-      "status": "pending",
-      "auditDate": null,
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-HASTINGS-CMTY-CENTRE.md",
       "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this Windows machine. Affects all recent City of Vancouver audits. Retry when Playwright/Firefox is functional.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44",
+      "dbCountAfter": 74,
+      "verificationLog": "docs/VERIFICATION-LOG-HASTINGS.md"
     },
     {
       "rank": 28,
@@ -416,10 +424,10 @@
       "listings": 47,
       "distKm": 2.3,
       "priorityScore": 72,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright spawn UNKNOWN — system resource exhaustion (Firefox cannot be launched). Re-audit required when browser is available.",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "VERIFICATION-LOG-HILLCREST.md",
+      "notes": "48 status fixes (Open/Full/Completed → Coming Soon, registrationDate=2026-04-08). No programs added (all A programs already in DB). 526 programs total.",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
