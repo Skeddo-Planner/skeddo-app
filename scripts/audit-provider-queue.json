@@ -559,10 +559,10 @@
       "listings": 35,
       "distKm": 5.3,
       "priorityScore": 69,
-      "status": "pending",
-      "auditDate": "2026-04-05",
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-COMMUNITY-CENTRE.md",
-      "notes": "Playwright Firefox spawn UNKNOWN — Firefox binary permission denied, cannot launch browser. Same issue blocking all audits on 2026-04-05.",
+      "notes": "center_id=33. Status fixed: 35 programs Open/Full→Coming Soon (registrationDate=2026-04-08). Live page count not checked — follow-up for gap analysis needed.",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=33"
     },
