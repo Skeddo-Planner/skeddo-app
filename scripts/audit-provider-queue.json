@@ -509,10 +509,10 @@
       "listings": 39,
       "distKm": 6,
       "priorityScore": 70,
-      "status": "pending",
-      "auditDate": "2026-04-05",
+      "status": "completed",
+      "auditDate": "2026-04-06",
       "logFile": null,
-      "notes": "Playwright browser spawn UNKNOWN — Firefox cannot launch on this Windows machine. Same failure as Dunbar/Creekside/Mount Pleasant. Re-audit required when Playwright is fixed.",
+      "notes": "center_id=35. 531 live (ages 0-17), 39 in DB. Status fixed: 39 summer camps Full/Waitlist→Coming Soon (registrationDate=2026-04-08). Gap: ~492 spring/ongoing programs not in DB — follow-up needed.",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=35"
     },
