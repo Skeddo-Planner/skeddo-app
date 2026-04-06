@@ -1701,12 +1701,14 @@
       "listings": 9,
       "distKm": 5.9,
       "priorityScore": 55,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=35"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=35",
+      "completedAt": "2026-04-06",
+      "note": "Audit complete. 33 programs added, 13 data quality fixes."
     },
     {
       "rank": 133,
