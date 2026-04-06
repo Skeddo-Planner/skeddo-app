@@ -134,12 +134,13 @@
       "listings": 222,
       "distKm": 5.9,
       "priorityScore": 81,
-      "status": "pending",
+      "status": "completed",
       "auditDate": "2026-04-05",
-      "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-KILLARNEY-CMTY-CENTRE.md",
-      "notes": "Chrome unavailable (2 sessions); prices null on 105 new programs. 105 added total (33 Session 1 + 72 Session 2), 1 status updated. Re-audit with Chrome to confirm prices.",
+      "logFile": "VERIFICATION-LOG-KILLARNEY.md",
+      "notes": "9 ACT- dupes removed, camp/class prices updated, 76 null costs remain",
       "sessionId": null,
-      "failedAttempts": 0
+      "failedAttempts": 0,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=35"
     },
     {
       "rank": 9,
@@ -151,7 +152,8 @@
       "auditDate": "2026-04-05",
       "logFile": "VERIFICATION-LOG-CITY-OF-VANCOUVER-TROUT-LAKE-CMTY-CENTRE.md",
       "notes": "Playwright unavailable; verified via ActiveNet API. Added 2 programs (COV-608141, COV-609696). Fixed COV-601537 to Full.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=32"
     },
     {
       "rank": 10,
@@ -163,7 +165,8 @@
       "auditDate": "2026-04-05",
       "logFile": "docs/VERIFICATION-LOG-CITY-OF-VANCOUVER-KERRISDALE-CMTY-CENTRE.md",
       "notes": "Audited 2026-04-05 via ActiveNet REST API (Playwright unavailable — spawn UNKNOWN error). Session 1: added 42 programs, corrected 18 enrollment statuses. Session 2: added 64 programs (Summer Safaris Wks 1-9, themed camps, spring programs, Group Fitness). Session 3: bulk scrape added 680 programs (all active Kerrisdale programs); removed 315 adult-only programs per R23; 45 enrollment status corrections (44 Open→Full/Waitlist, 1 Completed). Final DB total: 617 Kerrisdale programs.",
-      "sessionId": null
+      "sessionId": null,
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=33"
     },
     {
       "rank": 11,
