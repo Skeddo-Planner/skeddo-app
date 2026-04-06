@@ -708,10 +708,10 @@
       "listings": 30,
       "distKm": 2.6,
       "priorityScore": 68,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Playwright spawn UNKNOWN — Firefox headless process failed to launch on Windows. Same blocker as Templeton, West End, Champlain Heights, Britannia audits.",
+      "status": "completed",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-YMCA.md",
+      "notes": "Cost corrected for 15/18 Kids Club locations. All 18 fixed: url, startDate, endDate, costNote, priceVerified.",
       "sessionId": null
     },
     {
