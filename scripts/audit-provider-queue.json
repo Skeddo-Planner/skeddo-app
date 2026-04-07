@@ -2250,11 +2250,12 @@
       "listings": 6,
       "distKm": 11.9,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had wrong times (9am vs 8:30am-5:30pm), wrong price for Aug 10-14 (00→25), wrong status for Jul 20-24 (Open→Full/Sold Out). 10-week season Jun 29-Sep 4; DB covers only 6 weeks. ID 577 repurposed to Week 1 (Canada Day). Weeks 3,8,9,10 not in DB — follow-up needed.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 176,
@@ -2262,7 +2263,7 @@
       "listings": 6,
       "distKm": 13.3,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
