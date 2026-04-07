@@ -2276,11 +2276,12 @@
       "listings": 5,
       "distKm": 3.3,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had confirmed2026=false, Likely Coming Soon — WRONG, registration open. Fixed times (11am-3pm), status, confirmed2026. 7 weeks Jun 22-Aug 21 (no BC Day). ID 617 repurposed to Jun 22-26 Speak Up! week. Aug 10-14 and Aug 17-21 not in DB.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 178,
@@ -2288,7 +2289,7 @@
       "listings": 5,
       "distKm": 3.5,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
