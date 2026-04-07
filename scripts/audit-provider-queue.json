@@ -2198,11 +2198,12 @@
       "listings": 6,
       "distKm": 11.8,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed address (5300 No.3 Rd→4751 Shell Rd), cost (50→5/day), time (1-4pm), status Open. Only Jul 6-10 and Aug 24-28 confirmed. Mid-summer weeks set to Likely Coming Soon.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 172,
@@ -2210,7 +2211,7 @@
       "listings": 6,
       "distKm": 10.9,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
