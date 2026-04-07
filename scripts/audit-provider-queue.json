@@ -2465,11 +2465,12 @@
       "listings": 4,
       "distKm": 4.7,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 193,
