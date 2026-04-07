@@ -2224,11 +2224,12 @@
       "listings": 6,
       "distKm": 9,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "CRITICAL: Provider in Greater Victoria (Vancouver Island), NOT Metro Vancouver. lat/lng corrected to 48.5145,-123.4102. Programs will fall outside Metro Vancouver search area. DB had wrong North Vancouver address. Prices confirmed: ID 488 $465+GST, ID 489 $585+GST. 3 additional programs on listing page not yet in DB.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 174,
@@ -2236,7 +2237,7 @@
       "listings": 6,
       "distKm": 8.5,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
