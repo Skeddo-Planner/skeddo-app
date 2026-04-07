@@ -2289,11 +2289,12 @@
       "listings": 5,
       "distKm": 3.5,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "All programs available (not Full) for spring 2026 semester (May 4-Jun 26). DB had wrong statuses (Full/Waitlist) and wrong prices. Prices: Magical Music 88-215, Art Club 79-205, Little Wonders 62-185, Explorer Lab 88-215, Drop-In 0 (correct). confirmed2026=false→true.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 179,
@@ -2301,7 +2302,7 @@
       "listings": 7,
       "distKm": 18.2,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
