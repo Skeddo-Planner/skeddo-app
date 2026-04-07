@@ -2350,10 +2350,10 @@
       "listings": 5,
       "distKm": 6.7,
       "priorityScore": 50,
-      "status": "in_progress",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-LORDBYNGPOOL-AUDIT-2026-04-06.md",
+      "notes": "All 24 structured lessons marked Full (waiting lists open); Swimmer 7 Rookie cost fixed .30→32.40; no summer sessions yet",
       "sessionId": null
     },
     {
