@@ -2237,11 +2237,12 @@
       "listings": 6,
       "distKm": 8.5,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had wrong address (3663 Park Rd), wrong price (75 vs 45), all marked Full (incorrect). 4 distinct programs at 2 locations: PH Multi-Age (3-9), PH School Age (5-12), West Bay Multi-Age (3-9, ALL FULL), PH Day-to-Day (9/day, Canada Day week). Season Jul 6-Aug 28 (8 weeks). IDs 513-514 placeholders for unconfirmed other locations.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 175,
@@ -2249,7 +2250,7 @@
       "listings": 6,
       "distKm": 11.9,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
