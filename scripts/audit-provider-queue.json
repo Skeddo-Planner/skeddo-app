@@ -2263,11 +2263,12 @@
       "listings": 6,
       "distKm": 13.3,
       "priorityScore": 51,
-      "status": "in_progress",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had ALL 6 entries as cost=null Likely Coming Soon. Registration OPEN with 60+ themed camps across 9 weeks (Jul 6-Sep 4). Split into Little Wonders (5-8) and Junior Wonders (7-12). IDs 587-590 cover season aggregates and BC Day week by cohort. IDs 591-592 placeholders. Prices 10-18/week. Individual themed camp entries not yet in DB.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 177,
@@ -2275,7 +2276,7 @@
       "listings": 5,
       "distKm": 3.3,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "in_progress",
       "auditDate": null,
       "logFile": null,
       "notes": null,
