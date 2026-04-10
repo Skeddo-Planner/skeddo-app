@@ -3112,12 +3112,14 @@
       "listings": 6,
       "distKm": 48.8,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-MOUNTAIN-SKILLS-AUDIT-2026-04-09.md",
       "notes": "Website CSS-only — needs manual verification",
       "sessionId": null,
-      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification",
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 245,
