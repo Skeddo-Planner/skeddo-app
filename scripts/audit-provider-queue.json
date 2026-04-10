@@ -3116,11 +3116,12 @@
       "listings": 3,
       "distKm": 15,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 246,
@@ -3128,11 +3129,12 @@
       "listings": 4,
       "distKm": 30.5,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 247,
@@ -3140,11 +3142,12 @@
       "listings": 3,
       "distKm": 15.2,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 248,
@@ -3152,11 +3155,12 @@
       "listings": 3,
       "distKm": 12.1,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 249,
