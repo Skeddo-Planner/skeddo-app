@@ -2910,10 +2910,10 @@
       "listings": 4,
       "distKm": 15.9,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PLACE-DES-ARTS-AUDIT-2026-04-09.md",
+      "notes": "4 corrected, 6 added. 102 ActiveNet listings. Day Camp ages 7-9, Half Day ages 5-12. Reg Apr 12.",
       "sessionId": null
     },
     {
