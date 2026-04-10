@@ -3210,11 +3210,13 @@
       "listings": 2,
       "distKm": 2.7,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 252,
