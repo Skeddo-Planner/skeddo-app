@@ -3250,11 +3250,12 @@
       "listings": 2,
       "distKm": 1.9,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 255,
