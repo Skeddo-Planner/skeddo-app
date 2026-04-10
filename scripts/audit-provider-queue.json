@@ -3276,11 +3276,12 @@
       "listings": 2,
       "distKm": 3.7,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Hadden Park entries are 2 Petit Architect Spring Break camps (already Closed). No summer programs. Petit Architect covered under 74 other entries.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 257,
@@ -3288,11 +3289,12 @@
       "listings": 2,
       "distKm": 3.5,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 258,
@@ -3300,11 +3302,12 @@
       "listings": 2,
       "distKm": 2.6,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Bloedel entries are Petit Architect Spring Break camps (Closed). No summer programs. Field trip destination for VanDusen camps.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 259,
