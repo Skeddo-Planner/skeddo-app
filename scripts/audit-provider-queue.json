@@ -2730,10 +2730,10 @@
       "listings": 4,
       "distKm": 6.7,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-DHARMAKIDS-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (ageMax 9→8, themed names), 7 added (5 summer + 2 spring). 11 total sessions now complete.",
       "sessionId": null
     },
     {
