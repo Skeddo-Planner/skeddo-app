@@ -2802,10 +2802,10 @@
       "listings": 4,
       "distKm": 10.2,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SD45-AUDIT-2026-04-09.md",
+      "notes": "4 corrected: cost $100→free, ageMax 10→13, times filled, neighbourhood/city fixed, confirmed2026 true. Registration staggered Apr 8-10.",
       "sessionId": null
     },
     {
