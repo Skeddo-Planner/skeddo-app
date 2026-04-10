@@ -39,12 +39,15 @@ export function useAuth() {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: window.location.origin,
+      },
     });
     // Handle "already registered but unconfirmed" — resend confirmation
     if (error) {
       if (error.message?.toLowerCase().includes("already registered")) {
         // Resend confirmation email instead of showing error
-        await supabase.auth.resend({ type: "signup", email });
+        await supabase.auth.resend({ type: "signup", email, options: { emailRedirectTo: window.location.origin } });
         return { user: { email }, session: null };
       }
       throw error;
