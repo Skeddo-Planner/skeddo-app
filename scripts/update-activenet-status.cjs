@@ -89,8 +89,8 @@ function mapStatus(detail) {
     return "Full";
   }
 
-  // Available
-  if (spaceStatus === "Available") {
+  // Available (includes "X openings remaining" format from some instances)
+  if (spaceStatus === "Available" || /\d+\s+opening/i.test(spaceStatus)) {
     return "Open";
   }
 
