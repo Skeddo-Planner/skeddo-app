@@ -5,7 +5,8 @@ import { uid } from "../constants/sampleData";
 import { trackEvent } from "../utils/analytics";
 
 export default function OnboardingFlow({ onComplete, planAccess }) {
-  const maxKids = planAccess?.maxKids ?? Infinity;
+  // During onboarding, allow up to 6 kids regardless of plan (limit enforced in-app later)
+  const maxKids = 6;
   const [screen, setScreen] = useState(0);
   const [kids, setKids] = useState([]);
   const [kidName, setKidName] = useState("");
@@ -468,33 +469,70 @@ export default function OnboardingFlow({ onComplete, planAccess }) {
               </button>
             )}
 
-            {/* Navigation buttons */}
+            {/* Navigation buttons — change behavior when form is open and kids exist */}
             <div style={{ display: "flex", gap: 8 }}>
-              <button
-                style={{
-                  ...s.secondaryBtn,
-                  textAlign: "center",
-                }}
-                onClick={() => setScreen(4)}
-              >
-                Skip
-              </button>
-              <button
-                style={{
-                  ...s.primaryBtn,
-                  textAlign: "center",
-                  opacity: kids.length === 0 && !kidName.trim() ? 0.5 : 1,
-                }}
-                onClick={() => {
-                  if (kidName.trim()) {
-                    addKid();
-                  }
-                  setScreen(4);
-                }}
-                disabled={kids.length === 0 && !kidName.trim()}
-              >
-                Next {kids.length > 0 ? `(${kids.length} kid${kids.length !== 1 ? "s" : ""})` : ""}
-              </button>
+              {showAddForm && kids.length > 0 ? (
+                /* Form is open for adding another kid — show Cancel instead of Skip */
+                <button
+                  style={{
+                    ...s.secondaryBtn,
+                    textAlign: "center",
+                  }}
+                  onClick={() => {
+                    setShowAddForm(false);
+                    setKidName("");
+                    setKidBirthMonth("");
+                    setKidBirthYear("");
+                  }}
+                >
+                  Cancel
+                </button>
+              ) : (
+                <button
+                  style={{
+                    ...s.secondaryBtn,
+                    textAlign: "center",
+                  }}
+                  onClick={() => setScreen(4)}
+                >
+                  Skip
+                </button>
+              )}
+              {showAddForm && kids.length > 0 ? (
+                /* Form open for another kid — "Done" proceeds to next screen */
+                <button
+                  style={{
+                    ...s.primaryBtn,
+                    textAlign: "center",
+                  }}
+                  onClick={() => {
+                    if (kidName.trim()) {
+                      addKid();
+                    }
+                    setShowAddForm(false);
+                    setScreen(4);
+                  }}
+                >
+                  Done ({kids.length}{kidName.trim() ? "+1" : ""} kid{kids.length + (kidName.trim() ? 1 : 0) !== 1 ? "s" : ""})
+                </button>
+              ) : (
+                <button
+                  style={{
+                    ...s.primaryBtn,
+                    textAlign: "center",
+                    opacity: kids.length === 0 && !kidName.trim() ? 0.5 : 1,
+                  }}
+                  onClick={() => {
+                    if (kidName.trim()) {
+                      addKid();
+                    }
+                    setScreen(4);
+                  }}
+                  disabled={kids.length === 0 && !kidName.trim()}
+                >
+                  Next {kids.length > 0 ? `(${kids.length} kid${kids.length !== 1 ? "s" : ""})` : ""}
+                </button>
+              )}
             </div>
           </div>
         )}
