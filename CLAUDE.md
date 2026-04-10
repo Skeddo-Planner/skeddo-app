@@ -163,6 +163,7 @@ Coverage:   scripts/check-rules-coverage.cjs
 | `node scripts/check-rules-coverage.cjs` | Verify doc ↔ validator coverage |
 | `node scripts/validate-urls.cjs --fix` | Fix broken registration URLs |
 | `node scripts/verify-programs.cjs --incremental --fix` | Cross-check live pages |
+| `node scripts/update-activenet-status.cjs --fix` | Refresh enrollment statuses from ActiveNet API (COV/BNB/WV/PC/LGY) |
 
 ### Quarantine file
 

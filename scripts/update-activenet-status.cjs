@@ -1,13 +1,28 @@
 #!/usr/bin/env node
 /**
- * Update registration status for all ActiveNet programs from the detail API.
- * Maps space_status/space_type to our status field.
+ * update-activenet-status.cjs
+ *
+ * Checks enrollment status for all ActiveNet programs via their REST API
+ * and updates programs.json accordingly.
+ *
+ * Also extracts ageMax from the API response where missing.
+ *
+ * Usage:
+ *   node scripts/update-activenet-status.cjs          # dry-run (report only)
+ *   node scripts/update-activenet-status.cjs --fix     # apply changes
+ *   node scripts/update-activenet-status.cjs --fix --limit=100  # test with limit
+ *
+ * This script should be run regularly (e.g. daily via CI or pre-commit)
+ * to keep enrollment statuses current. ActiveNet programs go Full/Waitlist
+ * frequently and our data goes stale without re-checking.
  */
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
 
 const HOST = "anc.ca.apm.activecommunities.com";
+
+// Map program ID prefixes to ActiveNet instance slugs
 const SLUG_MAP = {
   COV: "vancouver",
   BNB: "burnaby",
@@ -16,13 +31,24 @@ const SLUG_MAP = {
   LGY: "langleycityrecconnect",
 };
 
+// Parse CLI args
+const args = process.argv.slice(2);
+const FIX = args.includes("--fix");
+const VERBOSE = args.includes("--verbose");
+const limitArg = args.find(a => a.startsWith("--limit="));
+const LIMIT = limitArg ? parseInt(limitArg.split("=")[1]) : Infinity;
+
+/**
+ * Fetch activity detail from ActiveNet REST API
+ */
 function fetchDetail(slug, activityId) {
   return new Promise((resolve) => {
     const req = https.request({
-      hostname: HOST, port: 443,
+      hostname: HOST,
+      port: 443,
       path: `/${slug}/rest/activity/detail/${activityId}?locale=en-US`,
       method: "GET",
-      headers: { "Accept": "application/json" },
+      headers: { Accept: "application/json", "User-Agent": "Skeddo-StatusChecker/1.0" },
     }, (res) => {
       let data = "";
       res.on("data", (c) => (data += c));
@@ -37,66 +63,189 @@ function fetchDetail(slug, activityId) {
   });
 }
 
+/**
+ * Map ActiveNet space_status + space_message to our enrollmentStatus enum
+ */
+function mapStatus(detail) {
+  const spaceStatus = detail.space_status || "";
+  const spaceMessage = detail.space_message || "";
+  const regStatus = detail.registration_status || "";
+
+  // Closed to registration
+  if (regStatus === "Closed" || spaceStatus === "Closed") {
+    return "Closed";
+  }
+
+  // Cancelled
+  if (spaceStatus === "Cancelled" || regStatus === "Cancelled") {
+    return "Cancelled";
+  }
+
+  // Full — check for waitlist
+  if (spaceStatus === "Full") {
+    if (spaceMessage.toLowerCase().includes("wait")) {
+      return "Full/Waitlist";
+    }
+    return "Full";
+  }
+
+  // Available
+  if (spaceStatus === "Available") {
+    return "Open";
+  }
+
+  // Enrollment not yet open
+  if (regStatus === "Not Yet Open" || spaceMessage.toLowerCase().includes("enrollment opens")) {
+    return "Coming Soon";
+  }
+
+  return null; // Unknown — don't change
+}
+
+/**
+ * Extract ageMax from ActiveNet detail age_restriction field
+ * Format: "Age at least X yrs but less than Y[y Zm]"
+ */
+function extractAgeMax(detail) {
+  const ageText = detail.age_restriction || "";
+  // Pattern: "less than Xy Zm" or "less than X yrs"
+  let m = ageText.match(/less than\s+(\d+)y\s+(\d+)m/i);
+  if (m) {
+    const years = parseInt(m[1]);
+    const months = parseInt(m[2]);
+    // "less than 12y 11m" → ageMax = 12 (up to 12y 10m)
+    // "less than 6y 0m" → ageMax = 5
+    return months >= 6 ? years : years - 1;
+  }
+  m = ageText.match(/less than\s+(\d+)\s*yrs?/i);
+  if (m) {
+    return parseInt(m[1]) - 1; // "less than 6 yrs" → ageMax = 5
+  }
+  return null;
+}
+
 async function main() {
   const programsPath = path.join(__dirname, "..", "src", "data", "programs.json");
   const programs = JSON.parse(fs.readFileSync(programsPath, "utf-8"));
 
+  // Build list of ActiveNet programs to check
   const activenet = [];
   for (let i = 0; i < programs.length; i++) {
     const p = programs[i];
-    const prefix = String(p.id).split("-")[0];
+    if (typeof p.id !== "string") continue;
+    const prefix = p.id.split("-")[0];
     if (!SLUG_MAP[prefix]) continue;
-    const activityId = String(p.id).split("-").slice(1).join("-");
-    activenet.push({ index: i, prefix, slug: SLUG_MAP[prefix], activityId });
+    const activityId = p.id.split("-").slice(1).join("-");
+    activenet.push({ index: i, prefix, slug: SLUG_MAP[prefix], activityId, id: p.id });
   }
 
-  console.log(`Checking status for ${activenet.length} ActiveNet programs...`);
-  let updated = 0;
+  const toCheck = activenet.slice(0, LIMIT);
+  console.log(`\n=== ActiveNet Status Update ===`);
+  console.log(`Mode: ${FIX ? "FIX (will update programs.json)" : "DRY-RUN (report only)"}`);
+  console.log(`Programs to check: ${toCheck.length} / ${activenet.length} ActiveNet entries\n`);
+
+  let statusUpdated = 0;
+  let ageMaxFilled = 0;
+  let errors = 0;
+  const changes = [];
   const BATCH = 10;
 
-  for (let i = 0; i < activenet.length; i += BATCH) {
-    const batch = activenet.slice(i, i + BATCH);
+  for (let i = 0; i < toCheck.length; i += BATCH) {
+    const batch = toCheck.slice(i, i + BATCH);
     await Promise.all(batch.map(async (item) => {
       const result = await fetchDetail(item.slug, item.activityId);
       const detail = result?.body?.detail;
-      if (!detail) return;
-
-      const prog = programs[item.index];
-      const oldStatus = prog.status;
-
-      // Map space_status to our status
-      if (detail.space_status === "Full") {
-        if (detail.space_message && detail.space_message.includes("Waiting List")) {
-          prog.status = "Waitlist";
-        } else {
-          prog.status = "Full";
-        }
-      } else if (detail.space_status === "Available") {
-        prog.status = "Open";
-      } else if (detail.space_status === "Cancelled") {
-        prog.status = "Cancelled";
+      if (!detail) {
+        errors++;
+        return;
       }
 
-      if (prog.status !== oldStatus) {
-        updated++;
-        if (updated <= 50) {
-          console.log(`  ${prog.id}: ${oldStatus} → ${prog.status} (${detail.space_status}, ${detail.space_message || ""})`);
+      const prog = programs[item.index];
+      const oldStatus = prog.enrollmentStatus;
+
+      // --- Status update ---
+      const newStatus = mapStatus(detail);
+      if (newStatus && newStatus !== oldStatus) {
+        // Don't downgrade Completed to Open (program already ran)
+        if (oldStatus === "Completed") return;
+        // Don't downgrade Likely Coming Soon (prior-year data, manually set)
+        if (oldStatus === "Likely Coming Soon") return;
+
+        changes.push({
+          id: prog.id,
+          name: prog.name,
+          from: oldStatus,
+          to: newStatus,
+          spaceStatus: detail.space_status,
+          spaceMessage: detail.space_message || "",
+        });
+
+        if (FIX) {
+          prog.enrollmentStatus = newStatus;
+        }
+        statusUpdated++;
+      }
+
+      // --- ageMax extraction ---
+      if (prog.ageMax === null || prog.ageMax === undefined) {
+        const ageMax = extractAgeMax(detail);
+        if (ageMax !== null && ageMax > 0 && (prog.ageMin === null || ageMax >= prog.ageMin)) {
+          if (FIX) {
+            prog.ageMax = ageMax;
+          }
+          ageMaxFilled++;
+          if (VERBOSE) {
+            console.log(`  ${prog.id}: ageMax set to ${ageMax} from "${detail.age_restriction}"`);
+          }
         }
       }
     }));
 
-    if ((i + BATCH) % 500 < BATCH) {
-      console.log(`Progress: ${Math.min(i + BATCH, activenet.length)}/${activenet.length} — Updated: ${updated}`);
+    // Progress logging
+    const checked = Math.min(i + BATCH, toCheck.length);
+    if (checked % 500 < BATCH || checked === toCheck.length) {
+      console.log(`Progress: ${checked}/${toCheck.length} — Status changes: ${statusUpdated}, ageMax fills: ${ageMaxFilled}, Errors: ${errors}`);
     }
-    await new Promise(r => setTimeout(r, 200));
+    await new Promise(r => setTimeout(r, 200)); // Rate limit between batches
   }
 
+  // --- Report ---
   console.log(`\n=== RESULTS ===`);
-  console.log(`Status updated: ${updated}/${activenet.length}`);
+  console.log(`Checked: ${toCheck.length}`);
+  console.log(`Status changes: ${statusUpdated}`);
+  console.log(`ageMax filled: ${ageMaxFilled}`);
+  console.log(`API errors: ${errors}`);
 
-  if (updated > 0) {
-    fs.writeFileSync(programsPath, JSON.stringify(programs, null, 2));
-    console.log("Updated programs.json");
+  if (changes.length > 0) {
+    console.log(`\nStatus changes${FIX ? " (applied)" : " (dry-run, use --fix to apply)"}:`);
+    // Group by transition type
+    const transitions = {};
+    changes.forEach(c => {
+      const key = `${c.from} → ${c.to}`;
+      transitions[key] = (transitions[key] || 0) + 1;
+    });
+    Object.entries(transitions).sort((a, b) => b[1] - a[1]).forEach(([t, count]) => {
+      console.log(`  ${t}: ${count}`);
+    });
+
+    // Show first 30 individual changes
+    if (VERBOSE || changes.length <= 30) {
+      console.log(`\nDetailed changes:`);
+      changes.slice(0, 50).forEach(c => {
+        console.log(`  ${c.id}: ${c.from} → ${c.to} (${c.spaceStatus}, "${c.spaceMessage}")`);
+      });
+      if (changes.length > 50) console.log(`  ... and ${changes.length - 50} more`);
+    }
+  }
+
+  // --- Save ---
+  if (FIX && (statusUpdated > 0 || ageMaxFilled > 0)) {
+    fs.writeFileSync(programsPath, JSON.stringify(programs, null, 2) + "\n");
+    console.log(`\n✅ Updated programs.json (${statusUpdated} status + ${ageMaxFilled} ageMax)`);
+  } else if (!FIX && (statusUpdated > 0 || ageMaxFilled > 0)) {
+    console.log(`\n⚠️  Dry run — use --fix to apply ${statusUpdated + ageMaxFilled} changes`);
+  } else {
+    console.log(`\n✅ No changes needed`);
   }
 }
 
