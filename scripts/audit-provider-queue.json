@@ -2790,10 +2790,10 @@
       "listings": 4,
       "distKm": 8.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SD41-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (wrong times, enrollment status), 1 PM session added. All free for BC students. Elementary reg opens Apr 14, secondary OPEN.",
       "sessionId": null
     },
     {
