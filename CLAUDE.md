@@ -133,7 +133,7 @@ Coverage:   scripts/check-rules-coverage.cjs
 | R20  | "Coming Soon" requires a registrationDate |
 | R22  | Never guess or estimate — null + costNote when unknown |
 | R23  | Every program must be verified on the provider's live page |
-| R24  | Never use activekids.com or campscui.active.com URLs |
+| R24  | Never use activekids.com URLs (campscui.active.com is allowed) |
 | R28  | "Open" requires confirmed2026=true or an ActiveNet ID |
 | R30  | Deduplication must preserve unique time slots and age groups |
 | R31  | Triple-check before removing ANY program |
@@ -148,7 +148,7 @@ Coverage:   scripts/check-rules-coverage.cjs
   actual provider page
 - Never remove a program because registration is full, URL is broken, or price is unknown
   — use appropriate flags instead
-- Never use activekids.com or campscui.active.com as data sources
+- Never use activekids.com as a data source (campscui.active.com is a legitimate registration platform and is allowed)
 - Never skip `fill-computable-fields.cjs` — it must run before validate to prevent false violations
 
 ## Key Scripts
