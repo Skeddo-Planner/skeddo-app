@@ -2634,10 +2634,10 @@
       "listings": 4,
       "distKm": 0.1,
       "priorityScore": 49,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-YWCABC-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (times, broken URL, durationPerDay). Year-round childcare, not camps. All on waitlist.",
       "sessionId": null
     },
     {
