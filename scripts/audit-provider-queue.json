@@ -2970,10 +2970,10 @@
       "listings": 3,
       "distKm": 1.5,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-CROCODILE-MANDARIN-AUDIT-2026-04-09.md",
+      "notes": "3 corrected, 0 added. Spring term classes, not summer. 64/11 sessions confirmed.",
       "sessionId": null
     },
     {
