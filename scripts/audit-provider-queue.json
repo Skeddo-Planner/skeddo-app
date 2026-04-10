@@ -2946,10 +2946,10 @@
       "listings": 3,
       "distKm": 1.9,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-COLLAGE-COLLAGE-AUDIT-2026-04-09.md",
+      "notes": "3 corrected, 2 added. Summer Art Camp 2026 discovered (AM/PM, ages 6-10, 75/wk). Mini MAKE updated to May/55.",
       "sessionId": null
     },
     {
