@@ -3068,10 +3068,10 @@
       "listings": 3,
       "distKm": 7.2,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-DAVINCI-CODE-AUDIT-2026-04-09.md",
+      "notes": "Website times out — needs manual verification",
       "sessionId": null
     },
     {
