@@ -103,6 +103,16 @@ function mapStatus(detail) {
 }
 
 /**
+ * Extract ageMin from ActiveNet detail age_restriction field
+ */
+function extractAgeMin(detail) {
+  const ageText = detail.age_restriction || "";
+  const m = ageText.match(/at least\s+(\d+)\s*yrs?/i);
+  if (m) return parseInt(m[1]);
+  return null;
+}
+
+/**
  * Extract ageMax from ActiveNet detail age_restriction field
  * Format: "Age at least X yrs but less than Y[y Zm]"
  */
@@ -146,6 +156,7 @@ async function main() {
 
   let statusUpdated = 0;
   let ageMaxFilled = 0;
+  let nameUpdated = 0;
   let errors = 0;
   const changes = [];
   const BATCH = 10;
@@ -186,6 +197,32 @@ async function main() {
         statusUpdated++;
       }
 
+      // --- Name mismatch detection ---
+      const apiName = (detail.activity_name || "").trim();
+      if (apiName && prog.name) {
+        const apiFirst10 = apiName.substring(0, 10).toLowerCase();
+        const ourFirst10 = prog.name.substring(0, 10).toLowerCase();
+        if (apiFirst10 !== ourFirst10 && !apiName.toLowerCase().includes(prog.name.substring(0, 10).toLowerCase()) && !prog.name.toLowerCase().includes(apiFirst10)) {
+          nameUpdated++;
+          if (VERBOSE || nameUpdated <= 30) {
+            console.log(`  ${prog.id}: NAME CHANGED "${prog.name}" → "${apiName}"`);
+          }
+          if (FIX) {
+            prog.name = apiName;
+            // Also update age range from API
+            const newAgeMin = extractAgeMin(detail);
+            const newAgeMax = extractAgeMax(detail);
+            if (newAgeMin !== null) prog.ageMin = newAgeMin;
+            if (newAgeMax !== null) prog.ageMax = newAgeMax;
+            // Update cost if available
+            if (detail.fee_amount !== undefined && detail.fee_amount !== null) {
+              prog.cost = detail.fee_amount;
+              prog.priceVerified = true;
+            }
+          }
+        }
+      }
+
       // --- ageMax extraction ---
       if (prog.ageMax === null || prog.ageMax === undefined) {
         const ageMax = extractAgeMax(detail);
@@ -213,6 +250,7 @@ async function main() {
   console.log(`\n=== RESULTS ===`);
   console.log(`Checked: ${toCheck.length}`);
   console.log(`Status changes: ${statusUpdated}`);
+  console.log(`Name updates: ${nameUpdated}`);
   console.log(`ageMax filled: ${ageMaxFilled}`);
   console.log(`API errors: ${errors}`);
 
@@ -239,11 +277,11 @@ async function main() {
   }
 
   // --- Save ---
-  if (FIX && (statusUpdated > 0 || ageMaxFilled > 0)) {
+  if (FIX && (statusUpdated > 0 || ageMaxFilled > 0 || nameUpdated > 0)) {
     fs.writeFileSync(programsPath, JSON.stringify(programs, null, 2) + "\n");
-    console.log(`\n✅ Updated programs.json (${statusUpdated} status + ${ageMaxFilled} ageMax)`);
-  } else if (!FIX && (statusUpdated > 0 || ageMaxFilled > 0)) {
-    console.log(`\n⚠️  Dry run — use --fix to apply ${statusUpdated + ageMaxFilled} changes`);
+    console.log(`\n✅ Updated programs.json (${statusUpdated} status + ${nameUpdated} names + ${ageMaxFilled} ageMax)`);
+  } else if (!FIX && (statusUpdated > 0 || ageMaxFilled > 0 || nameUpdated > 0)) {
+    console.log(`\n⚠️  Dry run — use --fix to apply ${statusUpdated + ageMaxFilled + nameUpdated} changes`);
   } else {
     console.log(`\n✅ No changes needed`);
   }
