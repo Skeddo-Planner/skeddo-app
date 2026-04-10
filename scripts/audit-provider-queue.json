@@ -2922,10 +2922,10 @@
       "listings": 3,
       "distKm": 2.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-HARBOUR-DANCE-AUDIT-2026-04-09.md",
+      "notes": "3 corrected (URL, postal code, costNote). Data largely accurate. /youth/ page removed.",
       "sessionId": null
     },
     {
