@@ -2670,10 +2670,10 @@
       "listings": 4,
       "distKm": 11.1,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-WAYLANDSPORTS-AUDIT-2026-04-09.md",
+      "notes": "Site times out. Business active per Yelp/Facebook. Entries retained as unconfirmed. Re-audit when site available.",
       "sessionId": null
     },
     {
