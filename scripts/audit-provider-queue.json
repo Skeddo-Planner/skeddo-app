@@ -2958,10 +2958,10 @@
       "listings": 4,
       "distKm": 17.5,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PLANET-ICE-DELTA-AUDIT-2026-04-09.md",
+      "notes": "4 corrected, 0 added. ACTIVE API entries not on current PEHS schedule. All set to confirmed2026=false.",
       "sessionId": null
     },
     {
