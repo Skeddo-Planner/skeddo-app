@@ -2718,10 +2718,10 @@
       "listings": 4,
       "distKm": 7.3,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-ROSEWOOD-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (dates, address, ages, cost), 18 added. Summer 5wks×3 + Spring 2wks×3 + Pro-D May 18. Address fixed 6926→6269.",
       "sessionId": null
     },
     {
