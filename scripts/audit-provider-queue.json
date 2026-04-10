@@ -2886,10 +2886,10 @@
       "listings": 4,
       "distKm": 14.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-QUEENS-ACADEMY-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (address, price, dates), 5 added. Location now Halpern Centre SFU. Provider shows 6 camps, DB has 9 (3 prior-year).",
       "sessionId": null
     },
     {
