@@ -3168,12 +3168,14 @@
       "listings": 3,
       "distKm": 12.1,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
       "sessionId": null,
-      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification",
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 249,
