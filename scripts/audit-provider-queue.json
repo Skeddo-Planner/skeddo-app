@@ -3168,11 +3168,12 @@
       "listings": 4,
       "distKm": 35.3,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 250,
