@@ -2778,10 +2778,10 @@
       "listings": 4,
       "distKm": 5.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-MOBERLY-AUDIT-2026-04-09.md",
+      "notes": "Only 4 community/general activities from CoV ActiveNet bulk import. No summer camps. Data reliable — no corrections needed.",
       "sessionId": null
     },
     {
