@@ -2646,10 +2646,10 @@
       "listings": 4,
       "distKm": 6.5,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PAINTLOUNGE-AUDIT-2026-04-09.md",
+      "notes": "Site 403 Forbidden. Toronto location closed. Address now U Paint I Fire (different business). Likely permanently closed. Entries retained per R31.",
       "sessionId": null
     },
     {
