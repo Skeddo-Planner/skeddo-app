@@ -53,6 +53,7 @@ const FREE_PROVIDERS = [
   "Gurdwara Sahib Sukh Sagar", "Khalsa School Canada",
   "Vancouver Aboriginal Friendship Centre", "UBC CEDAR Program", "I-SPARC",
   "BMWC", "YWCA BC", "City of Langley", "City of Port Coquitlam",
+  "City of Burnaby",
 ];
 
 // Municipal providers — many programs are genuinely free (drop-ins, open swims, etc.)
@@ -238,7 +239,10 @@ programs.forEach((p, idx) => {
   if (p.address) {
     const addr = p.address.trim();
     if (/^[A-Z][a-z]+, BC$/i.test(addr) || /^[A-Z][a-z]+, British Columbia$/i.test(addr)) {
-      warn(id, 11, `Vague address (city only): "${addr}"`);
+      // Exempt if addressNote explains why (e.g., outdoor programs with variable meeting locations)
+      if (!p.addressNote) {
+        warn(id, 11, `Vague address (city only): "${addr}"`);
+      }
     }
   }
 
