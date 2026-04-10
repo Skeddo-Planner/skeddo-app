@@ -2874,10 +2874,10 @@
       "listings": 4,
       "distKm": 18.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-THEATRIX-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (enrollment status, descriptions), 3 added (Port Coquitlam camps). Provider shows 7 camps, DB now has 7.",
       "sessionId": null
     },
     {
