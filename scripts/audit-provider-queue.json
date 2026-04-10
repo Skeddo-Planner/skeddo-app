@@ -3031,9 +3031,9 @@
       "listings": 3,
       "distKm": 4.7,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-RENFREW-PARK-AUDIT-2026-04-09.md",
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
