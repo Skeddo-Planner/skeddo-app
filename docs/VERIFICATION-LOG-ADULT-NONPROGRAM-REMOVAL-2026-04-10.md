@@ -1,56 +1,65 @@
-# Verification Log — Adult & Non-Program Entry Removal (2026-04-10)
+# Verification Log — Adult, Facility & Non-Program Entry Removal (2026-04-10)
 
 **Date:** 2026-04-10
 **Method:** Browser spot-check on ActiveNet + programmatic keyword analysis
-**DB count:** 16,582 → 16,359 (223 entries removed)
+**DB count:** 16,582 → 16,110 (472 entries removed across 3 commits)
 **Violations before:** 0
 **Violations after:** 0
 
 ---
 
-## Root Cause #4: Adult-Only Programs in Youth Database
+## Browser Spot Check Results (10 entries verified)
 
-ActiveNet importers (COV, BNB) pulled in adult fitness programs alongside youth programs because the API doesn't distinguish. Browser-verified examples:
+| ID | Name | Finding |
+|----|------|---------|
+| COV-603902 | Night Hoops | CCA % pricing, ageMax derivable |
+| COV-611985 | Childrens - Hockey | **Wrong status** (page=Full, data=Open), ageMax derivable |
+| COV-577115 | Personal Training: Bita | **Adult program** (12+, "Fitness & Health - Adult") |
+| COV-603448 | Design & Architecture for Kids | Price $240 ✓, age 7-12 ✓ |
+| COV-606741 | Explorers Preschool Summer Camp AM | $123 ✓, age 3-5 ✓, Open ✓ |
+| BNB-92068 | Dance Camp | Price $283.50 ✓, **Wrong status** (page=Full, data=Open) |
+| BNB-102045 | Aquafit | **Adult program** (14+, "Swimming, Adult") |
+| COV-595895 | Cycle Fit | **Adult program** (13+, "Fitness & Health - Adult") |
+| COV-607042 | Chess Camp (Beginner) | $144 ✓, age 7-10 ✓, Open ✓ |
+| COV-616518 | Skating Preschool Level 1 | **Wrong status** (page=Full, data=Open) |
 
-- **COV-577115 (Personal Training: Bita):** Page shows "12 yrs+, Mixed, Fitness & Health 6 - Adult" — CCA personal training for adults
-- **BNB-102045 (Aquafit):** Page shows "14 yrs+, Mixed, Swimming, Adult" — adult aquafit class
+---
 
-### Programs Removed (162 entries)
+## Root Causes Identified & Fixed
 
-| Category | Count | Examples |
-|----------|-------|---------|
-| Aquafit (BNB/COV, ageMin 13-14+) | 90 | Reserve In Advance: Aquafit, Aquafit - Shallow Water Moderate |
-| Personal Training (COV) | 19 | PRIVATE/SEMI PRIVATE Personal Training: [name], City-Wide Personal Training |
-| Group Fitness (COV, ageMin 16+) | 42 | Group Fitness - Zumba, Cardio Combo, Step Class, etc. |
-| Pilates (WV/LGY, ageMin 13-14+) | 2 | Pilates Mat Class, Pilates: Pilates Mat Intermediate |
-| Other adult fitness (WV/PC) | 4 | Workit on the Circuit, Total Body Training, Interval Sculpt, Kickbox Cardio |
-| Spanish: Adult Beginners (COV) | 2 | Spanish: Adult Beginners I/II |
-| Adult & Senior (COV) | 3 | Adult and Senior Public Skate |
+### Root Cause #4: Adult-Only Programs in Youth Database (362 removed)
 
-### Not removed (false positives excluded)
-- "Axe Capoeira - Youth and Adult" — includes youth, kept
-- "Swimming - Adult and Teen Swimmer" — includes teens, kept
-- "Farm Felting Workshop (Ages 6+ with Adult)" — kids program requiring adult supervision, kept
-- "Adult Participation" programs — parent-child classes, kept
+ActiveNet importers (COV, BNB, WV, LGY, PC) pulled in adult fitness programs alongside youth programs because the API doesn't distinguish by target audience.
 
-## Root Cause #5: Non-Program Facility Entries
+| Category | Count |
+|----------|-------|
+| Aquafit (BNB/COV, ageMin 13-14+) | 90 |
+| Cycle Fit / Cycle Xpress (COV, ageMin 13+) | 119 |
+| Group Fitness - Zumba/Cardio/Step/etc (COV, ageMin 16+) | 42 |
+| Personal Training (COV) | 19 |
+| 15-15-15, Yoga Express (LGY/COV, ageMin 14+) | 40 |
+| Pilates, Kickbox Cardio, Total Body Training | 7 |
+| Spanish: Adult Beginners, Adult & Senior Skate | 5 |
+| Other (Tai Chi, Fitness for Parkinsons) | 2 |
+| **Not removed (false positives):** Youth-and-Adult, Adult Participation (parent-child), Teen Swimmer | — |
 
-ActiveNet importers pulled in facility booking slots and public drop-in entries that are not registrable programs.
-
-### Entries Removed (61 entries)
+### Root Cause #5: Non-Program Facility Entries (110 removed)
 
 | Type | Count |
 |------|-------|
+| Squash Court bookings (BNB Reserve In Advance) | 40 |
 | Public Swim / Length Swim / Lengths | 33 |
 | Public Skate | 24 |
-| Organization Registration Form | 1 |
-| Facility Closure | 1 |
-| SwimFIT (facility drop-in) | 1 |
-| Lessons and One Lane (pool schedule) | 1 |
+| Pickleball / Badminton Court Bookings | 8 |
+| Other (Org Registration Form, Facility Closure, SwimFIT) | 5 |
 
-## Additional Fix: R46 ageSpanJustified
+### Root Cause #2: ageMax Not Parsed (101 fixed)
 
-Set `ageSpanJustified` on 2 Family Pickleball entries (COV-615511, COV-615576) — 7-17 age range is correct for family programs.
+Extracted ageMax from description text containing age ranges for 101 entries.
+
+### Root Cause #3: Stale Enrollment Statuses (identified, not fully fixable offline)
+
+3 of 10 spot-checked entries had wrong enrollment status (page=Full but data=Open). This requires live checking against ActiveNet which can't be done offline for all 5,000+ entries.
 
 ---
 
@@ -58,9 +67,11 @@ Set `ageSpanJustified` on 2 Family Pickleball entries (COV-615511, COV-615576) �
 
 | Action | Count |
 |--------|-------|
-| Adult-only programs removed | 162 |
-| Non-program entries removed | 61 |
-| ageMax filled via same-name matching | 2 |
-| ageSpanJustified set | 2 |
-| **Total entries removed** | **223** |
-| **New program count** | **16,359** |
+| Adult-only programs removed | 362 |
+| Non-program/facility entries removed | 110 |
+| ageMax extracted from descriptions | 101 |
+| ageSpanJustified set (R46 fix) | 13 |
+| R5 fix (bad ageMax extraction reverted) | 1 |
+| **Total entries removed** | **472** |
+| **Total entries improved** | **115** |
+| **New program count** | **16,110** |
