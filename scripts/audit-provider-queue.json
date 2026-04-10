@@ -2850,10 +2850,10 @@
       "listings": 4,
       "distKm": 12.4,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SCKIM-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (address, postal code, URL, costNote). 2026 summer camp details not yet announced.",
       "sessionId": null
     },
     {
