@@ -3060,12 +3060,12 @@
       "listings": 3,
       "distKm": 6.4,
       "priorityScore": 46,
-      "status": "pending",
+      "status": "complete",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-UTG-ACADEMY-AUDIT-2026-04-09.md",
       "notes": null,
       "sessionId": null,
-      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
+      "note": "Re-audited via Chrome 2026-04-09. 3 placeholders replaced with 27 verified sessions."
     },
     {
       "rank": 241,
@@ -3073,12 +3073,12 @@
       "listings": 3,
       "distKm": 7.2,
       "priorityScore": 46,
-      "status": "pending",
+      "status": "complete",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-DAVINCI-CODE-AUDIT-2026-04-09.md",
       "notes": "Website times out — needs manual verification",
       "sessionId": null,
-      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
+      "note": "Re-audited via Chrome 2026-04-09. Fixed status/URLs/pricing."
     },
     {
       "rank": 242,
