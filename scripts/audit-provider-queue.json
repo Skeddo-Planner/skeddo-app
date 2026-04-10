@@ -3196,11 +3196,13 @@
       "listings": 4,
       "distKm": 35.4,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 251,
