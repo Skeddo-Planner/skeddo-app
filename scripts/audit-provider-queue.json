@@ -2898,10 +2898,10 @@
       "listings": 4,
       "distKm": 15.1,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-STAGE-MUSICAL-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (activityType, costNote, registrationUrl), 1 added (Alice in Wonderland 11-15). Provider shows 5, DB has 5.",
       "sessionId": null
     },
     {
