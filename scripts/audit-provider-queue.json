@@ -2706,10 +2706,10 @@
       "listings": 4,
       "distKm": 8.4,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-METROTKD-AUDIT-2026-04-09.md",
+      "notes": "Year-round martial arts classes, not summer camps. Reclassified 4 entries, ages fixed to 4-13, cost nulled.",
       "sessionId": null
     },
     {
