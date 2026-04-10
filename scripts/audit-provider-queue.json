@@ -3523,11 +3523,12 @@
       "listings": 7,
       "distKm": 90.7,
       "priorityScore": 41,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 276,
@@ -3535,11 +3536,12 @@
       "listings": 1,
       "distKm": 2.5,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 277,
@@ -3547,11 +3549,12 @@
       "listings": 1,
       "distKm": 1.1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 278,
@@ -3559,11 +3562,12 @@
       "listings": 1,
       "distKm": 0.2,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 279,
@@ -3571,11 +3575,12 @@
       "listings": 1,
       "distKm": 3.3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 280,
@@ -3583,11 +3588,12 @@
       "listings": 1,
       "distKm": 3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 281,
@@ -3595,11 +3601,12 @@
       "listings": 1,
       "distKm": 2.6,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 282,
@@ -3607,11 +3614,12 @@
       "listings": 1,
       "distKm": 1.9,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 283,
@@ -3619,11 +3627,12 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 284,
@@ -3631,11 +3640,12 @@
       "listings": 1,
       "distKm": 2.7,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 285,
@@ -3643,11 +3653,12 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 286,
@@ -3655,11 +3666,12 @@
       "listings": 1,
       "distKm": 2.7,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 287,
@@ -3667,11 +3679,12 @@
       "listings": 1,
       "distKm": 2.5,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 288,
@@ -3679,11 +3692,12 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 289,
@@ -3691,11 +3705,12 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 290,
@@ -3703,11 +3718,12 @@
       "listings": 1,
       "distKm": 2.3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 291,
@@ -3715,11 +3731,12 @@
       "listings": 1,
       "distKm": 0.9,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 292,
@@ -3727,11 +3744,12 @@
       "listings": 1,
       "distKm": 2,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 293,
@@ -3739,11 +3757,12 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 294,
@@ -3751,11 +3770,12 @@
       "listings": 1,
       "distKm": 2.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 295,
@@ -3763,11 +3783,12 @@
       "listings": 1,
       "distKm": 3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 296,
@@ -3775,11 +3796,12 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 297,
@@ -3787,11 +3809,12 @@
       "listings": 1,
       "distKm": 2.9,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 298,
@@ -3799,11 +3822,12 @@
       "listings": 1,
       "distKm": 2.1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 299,
@@ -3811,11 +3835,12 @@
       "listings": 1,
       "distKm": 2.3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 300,
@@ -3823,11 +3848,12 @@
       "listings": 1,
       "distKm": 4,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 301,
