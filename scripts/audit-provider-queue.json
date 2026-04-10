@@ -2670,11 +2670,12 @@
       "listings": 4,
       "distKm": 11.1,
       "priorityScore": 48,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-WAYLANDSPORTS-AUDIT-2026-04-09.md",
       "notes": "Site times out. Business active per Yelp/Facebook. Entries retained as unconfirmed. Re-audit when site available.",
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 209,
@@ -3044,11 +3045,12 @@
       "listings": 8,
       "distKm": 61.5,
       "priorityScore": 46,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-EVANS-LAKE-AUDIT-2026-04-09.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 240,
@@ -3056,11 +3058,12 @@
       "listings": 3,
       "distKm": 6.4,
       "priorityScore": 46,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-UTG-ACADEMY-AUDIT-2026-04-09.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 241,
@@ -3068,11 +3071,12 @@
       "listings": 3,
       "distKm": 7.2,
       "priorityScore": 46,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-DAVINCI-CODE-AUDIT-2026-04-09.md",
       "notes": "Website times out — needs manual verification",
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 242,
@@ -3080,11 +3084,12 @@
       "listings": 4,
       "distKm": 30.2,
       "priorityScore": 45,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-WHITE-ROCK-GYM-AUDIT-2026-04-09.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 243,
@@ -3092,11 +3097,12 @@
       "listings": 6,
       "distKm": 48.8,
       "priorityScore": 45,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-SQUAMISH-CLIMBING-AUDIT-2026-04-09.md",
       "notes": "Website times out — needs manual verification",
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 244,
@@ -3104,11 +3110,12 @@
       "listings": 6,
       "distKm": 48.8,
       "priorityScore": 45,
-      "status": "complete",
+      "status": "pending",
       "auditDate": "2026-04-09",
       "logFile": "docs/VERIFICATION-LOG-MOUNTAIN-SKILLS-AUDIT-2026-04-09.md",
       "notes": "Website CSS-only — needs manual verification",
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 245,
@@ -3116,12 +3123,12 @@
       "listings": 3,
       "distKm": 15,
       "priorityScore": 45,
-      "status": "complete",
+      "status": "pending",
       "auditDate": null,
       "logFile": null,
       "notes": null,
       "sessionId": null,
-      "completedAt": "2026-04-09"
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 246,
@@ -3155,12 +3162,12 @@
       "listings": 3,
       "distKm": 12.1,
       "priorityScore": 45,
-      "status": "complete",
+      "status": "pending",
       "auditDate": null,
       "logFile": null,
       "notes": null,
       "sessionId": null,
-      "completedAt": "2026-04-09"
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification"
     },
     {
       "rank": 249,
