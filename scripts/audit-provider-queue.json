@@ -2766,10 +2766,10 @@
       "listings": 4,
       "distKm": 9.1,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-STAGEKIDZ-AUDIT-2026-04-09.md",
+      "notes": "2026 dates not yet announced. Address fixed Burnaby→Coquitlam (Douglas College). Cost nulled. Re-audit when dates published.",
       "sessionId": null
     },
     {
