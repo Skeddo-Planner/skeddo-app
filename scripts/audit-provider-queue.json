@@ -3315,12 +3315,13 @@
       "listings": 2,
       "distKm": 0,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Mount Pleasant CC — 145 entries already in DB under City of Vancouver. Well covered.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 260,
@@ -3328,11 +3329,12 @@
       "listings": 2,
       "distKm": 3.8,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "JCCGV Camp Shalom — camp page not posted yet. Existing entries Likely Coming Soon — correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 261,
@@ -3340,11 +3342,12 @@
       "listings": 2,
       "distKm": 3.1,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "notes": "Barclay Room — 2 entries (childcare waitlist, not camps). Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 262,
@@ -3352,11 +3355,12 @@
       "listings": 2,
       "distKm": 0.2,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Lykopis Archery — Robin Hood Camp (Summer) in booking form but no details/dates/prices posted. Existing entries correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 263,
@@ -3364,11 +3368,12 @@
       "listings": 2,
       "distKm": 2.7,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Flow Martial Arts — Pro-D day camps only, existing entries correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 264,
@@ -3376,11 +3381,12 @@
       "listings": 2,
       "distKm": 4.7,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Italian Cultural Centre — Vacanze in Italiano price corrected from $495 to $340. Verified on registration form.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 265,
@@ -3388,11 +3394,12 @@
       "listings": 2,
       "distKm": 6.6,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Jericho Beach — 13 entries already in DB (kayak camps). Verified in earlier sessions.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 266,
@@ -3400,11 +3407,12 @@
       "listings": 2,
       "distKm": 9.7,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Scotiabarn Burnaby — 2 hockey camp entries. Existing data correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 267,
@@ -3424,11 +3432,12 @@
       "listings": 2,
       "distKm": 5.5,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Moberly Arts & Cultural Centre — 6 entries already in DB under City of Vancouver. Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 269,
@@ -3436,11 +3445,12 @@
       "listings": 2,
       "distKm": 6.6,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Vancouver Chinese Baptist Church — VBS and DayKnight camp. Existing entries correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 270,
@@ -3448,11 +3458,12 @@
       "listings": 2,
       "distKm": 4.6,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Vancouver Rowing Club — Junior rowing and rugby programs. Existing entries Likely Coming Soon — correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 271,
@@ -3460,11 +3471,12 @@
       "listings": 2,
       "distKm": 10.8,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Little Cooks Club — Summer camp listings. Existing entries Likely Coming Soon — correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 272,
@@ -3472,11 +3484,12 @@
       "listings": 2,
       "distKm": 11.5,
       "priorityScore": 42,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Natobi Garden — 2 Petit Architect entries (Closed). No summer programs at this venue.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 273,
@@ -3484,11 +3497,12 @@
       "listings": 4,
       "distKm": 48.8,
       "priorityScore": 42,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Camp Summit — 4 existing entries with full details. Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 274,
@@ -3496,11 +3510,12 @@
       "listings": 2,
       "distKm": 21.6,
       "priorityScore": 41,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Bowen Island Sea Kayaking — 2 kayak camp entries. Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 275,
