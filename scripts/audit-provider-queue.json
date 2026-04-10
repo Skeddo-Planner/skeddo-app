@@ -2655,13 +2655,13 @@
     {
       "rank": 207,
       "name": "Pacific Coast Volleyball Club",
-      "listings": 4,
+      "listings": 22,
       "distKm": 8.8,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PCVC-AUDIT-2026-04-09.md",
+      "notes": "18 added (missing weeks + schedule types), 4 corrected. 11 weeks × half/full day = 22 listings. Registration open on LeagueApps.",
       "sessionId": null
     },
     {
