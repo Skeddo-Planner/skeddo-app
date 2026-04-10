@@ -2826,10 +2826,10 @@
       "listings": 4,
       "distKm": 9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-NSEC-AUDIT-2026-04-09.md",
+      "notes": "4 corrected: ageMin 6→7, Advanced Beginner Full Day→Half Day, Play Dates reclassified year-round. 2026 dates/prices TBD.",
       "sessionId": null
     },
     {
