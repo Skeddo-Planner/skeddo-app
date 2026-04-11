@@ -81,6 +81,58 @@ function timeAgo(dateStr) {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
+/* ─── Week grouping for feed ─── */
+const SUMMER_WEEKS = [
+  { id: "w1", label: "Week 1", dateRange: "Jun 29 – Jul 3", monday: "2026-06-29", friday: "2026-07-03" },
+  { id: "w2", label: "Week 2", dateRange: "Jul 6 – Jul 10", monday: "2026-07-06", friday: "2026-07-10" },
+  { id: "w3", label: "Week 3", dateRange: "Jul 13 – Jul 17", monday: "2026-07-13", friday: "2026-07-17" },
+  { id: "w4", label: "Week 4", dateRange: "Jul 20 – Jul 24", monday: "2026-07-20", friday: "2026-07-24" },
+  { id: "w5", label: "Week 5", dateRange: "Jul 27 – Jul 31", monday: "2026-07-27", friday: "2026-07-31" },
+  { id: "w6", label: "Week 6", dateRange: "Aug 3 – Aug 7", monday: "2026-08-03", friday: "2026-08-07" },
+  { id: "w7", label: "Week 7", dateRange: "Aug 10 – Aug 14", monday: "2026-08-10", friday: "2026-08-14" },
+  { id: "w8", label: "Week 8", dateRange: "Aug 17 – Aug 21", monday: "2026-08-17", friday: "2026-08-21" },
+  { id: "w9", label: "Week 9", dateRange: "Aug 24 – Aug 28", monday: "2026-08-24", friday: "2026-08-28" },
+  { id: "w10", label: "Week 10", dateRange: "Aug 31 – Sep 4", monday: "2026-08-31", friday: "2026-09-04" },
+];
+
+function getWeekForDate(dateStr) {
+  if (!dateStr) return null;
+  for (const week of SUMMER_WEEKS) {
+    if (dateStr >= week.monday && dateStr <= week.friday) return week;
+  }
+  return null;
+}
+
+function groupFeedByWeek(feed) {
+  // Sort chronologically by start_date (nulls last)
+  const sorted = [...feed].sort((a, b) => {
+    if (!a.start_date && !b.start_date) return 0;
+    if (!a.start_date) return 1;
+    if (!b.start_date) return -1;
+    return a.start_date.localeCompare(b.start_date);
+  });
+
+  const groups = [];
+  let currentWeekId = null;
+
+  for (const item of sorted) {
+    const week = getWeekForDate(item.start_date);
+    const weekId = week?.id || "other";
+
+    if (weekId !== currentWeekId) {
+      currentWeekId = weekId;
+      groups.push({
+        weekId,
+        label: week ? `${week.label} — ${week.dateRange}` : "Other Dates",
+        items: [],
+      });
+    }
+    groups[groups.length - 1].items.push(item);
+  }
+
+  return groups;
+}
+
 function formatDateRange(startDate, endDate) {
   if (!startDate) return null;
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -907,11 +959,22 @@ export default function CirclesTab({
           )}
         </div>
 
-        {/* Feed cards */}
+        {/* Feed cards — grouped by week */}
         {activeFeed.length === 0 ? (
           <EmptyState icon={"\uD83D\uDCE8"} message="No shared activities yet. Tap '+ Share' to share your first activity with this circle." />
         ) : (
-          activeFeed.map((item) => {
+          groupFeedByWeek(activeFeed).map((group) => (
+            <div key={group.weekId}>
+              <div style={{
+                fontFamily: "'Poppins', sans-serif", fontSize: 14, fontWeight: 700,
+                color: C.ink, padding: "16px 0 8px", display: "flex", alignItems: "center", gap: 8,
+              }}>
+                <div style={{
+                  width: 6, height: 6, borderRadius: 3, background: C.seaGreen, flexShrink: 0,
+                }} />
+                {group.label}
+              </div>
+              {group.items.map((item) => {
             const dupKey = `${item.activity_name}|||${item.provider_name}`.toLowerCase();
             const dupCount = duplicateCounts[dupKey] || 1;
             const isBookmarked = bookmarks.has(item.id);
@@ -1098,7 +1161,9 @@ export default function CirclesTab({
                 </div>
               </div>
             );
-          })
+          })}
+            </div>
+          ))
         )}
 
         {/* Invite drawer — slides up from bottom */}
