@@ -55,6 +55,7 @@ export function getSupabaseClient(userToken) {
 const ALLOWED_ORIGINS = [
   "https://skeddo.ca",
   "https://www.skeddo.ca",
+  "https://staging.skeddo.ca",
 ];
 
 // Allow localhost in development
