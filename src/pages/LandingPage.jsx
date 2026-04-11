@@ -80,6 +80,16 @@ export default function LandingPage({ onNavigate }) {
             style={{ height: 38, width: "auto", borderRadius: 8 }}
           />
           <nav style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <Link to="/camps" style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 14,
+              fontWeight: 600,
+              color: C.ink,
+              textDecoration: "none",
+              padding: "8px 12px",
+            }}>
+              Browse Camps
+            </Link>
             <a
               href="/signin"
               onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
@@ -374,6 +384,7 @@ export default function LandingPage({ onNavigate }) {
 
           <footer style={{ textAlign: "center", fontSize: 12, color: C.muted, marginTop: 24 }}>
             <nav style={{ display: "flex", justifyContent: "center", gap: 16, marginBottom: 8 }}>
+              <Link to="/camps" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Browse Camps</Link>
               <Link to="/about" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>About</Link>
               <Link to="/privacy" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Privacy & Terms</Link>
               <Link to="/help" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Help & Contact</Link>
@@ -390,6 +401,7 @@ export default function LandingPage({ onNavigate }) {
           padding: "0 48px 32px",
         }}>
           <nav style={{ display: "flex", justifyContent: "center", gap: 24, marginBottom: 10 }}>
+            <Link to="/camps" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Browse Camps</Link>
             <Link to="/about" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>About</Link>
             <Link to="/privacy" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Privacy & Terms</Link>
             <Link to="/help" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Help & Contact</Link>

@@ -35,6 +35,7 @@ const InfoPage           = lazy(() => import("./pages/InfoPages"));
 const InviteModal        = lazy(() => import("./modals/InviteModal"));
 const ChildSettingsModal = lazy(() => import("./modals/ChildSettingsModal"));
 const InviteAcceptPage   = lazy(() => import("./pages/InviteAcceptPage"));
+const DirectoryPage      = lazy(() => import("./pages/DirectoryPage"));
 
 import { trackEvent, trackPageView } from "./utils/analytics";
 import { usePushNotifications } from "./hooks/usePushNotifications";
@@ -199,7 +200,7 @@ export default function Skeddo() {
     );
   }
 
-  /* ── Public info pages — accessible whether logged in or not ── */
+  /* ── Public info & directory pages — accessible whether logged in or not ── */
   const publicInfoRoutes = (
     <Routes>
       <Route path="/about" element={
@@ -217,15 +218,27 @@ export default function Skeddo() {
           <InfoPage pageId="help" onBack={() => navigate("/")} />
         </Suspense>
       } />
+      <Route path="/camps" element={
+        <Suspense fallback={null}>
+          <DirectoryPage onNavigate={navigateTo} />
+        </Suspense>
+      } />
+      <Route path="/camps/:type/:slug" element={
+        <Suspense fallback={null}>
+          <DirectoryPage onNavigate={navigateTo} />
+        </Suspense>
+      } />
       <Route path="*" element={null} />
     </Routes>
   );
 
-  // Render info pages at their URL regardless of auth state
-  if (["/about", "/privacy", "/help"].includes(location.pathname)) {
-    // Update document title for SEO
+  // Render public pages at their URL regardless of auth state
+  const isPublicPage = ["/about", "/privacy", "/help"].includes(location.pathname)
+    || location.pathname.startsWith("/camps");
+  if (isPublicPage) {
+    // Update document title for SEO (directory pages set their own titles)
     const titles = { "/about": "About Skeddo — Kids Camp Planner for Vancouver Families", "/privacy": "Privacy Policy & Terms — Skeddo", "/help": "Help & Contact — Skeddo" };
-    document.title = titles[location.pathname] || "Skeddo";
+    if (titles[location.pathname]) document.title = titles[location.pathname];
     return publicInfoRoutes;
   }
 

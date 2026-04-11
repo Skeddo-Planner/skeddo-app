@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-directory-data.cjs && node scripts/generate-sitemap.cjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
