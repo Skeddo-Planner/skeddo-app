@@ -177,26 +177,30 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
           <Label>Days</Label>
           <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
             {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => {
-              const current = (form.days || "").toLowerCase();
-              const isSelected = current.includes(day.toLowerCase());
+              const allDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+              // Expand shorthand like "Mon-Fri" into individual days
+              const expandDays = (raw) => {
+                if (!raw) return [];
+                const normalized = raw.trim();
+                if (/^mon\s*-\s*fri$/i.test(normalized)) return ["Mon", "Tue", "Wed", "Thu", "Fri"];
+                if (/^mon\s*-\s*sat$/i.test(normalized)) return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                if (/^mon\s*-\s*sun$/i.test(normalized)) return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+                return normalized.split(",").map((d) => d.trim()).filter(Boolean);
+              };
+              const currentDays = expandDays(form.days);
+              const isSelected = currentDays.some((d) => d.toLowerCase() === day.toLowerCase());
               return (
                 <button
                   key={day}
                   type="button"
                   onClick={() => {
-                    const days = (form.days || "").split(", ").filter(Boolean);
+                    const days = expandDays(form.days);
                     if (isSelected) {
                       update("days", days.filter((d) => d.toLowerCase() !== day.toLowerCase()).join(", "));
                     } else {
-                      const allDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
                       const newDays = [...days.filter((d) => allDays.some((ad) => ad.toLowerCase() === d.toLowerCase())), day];
                       newDays.sort((a, b) => allDays.findIndex((d) => d.toLowerCase() === a.toLowerCase()) - allDays.findIndex((d) => d.toLowerCase() === b.toLowerCase()));
-                      // Use "Mon-Fri" shorthand when all weekdays selected
-                      if (newDays.length === 5 && ["Mon","Tue","Wed","Thu","Fri"].every((d) => newDays.some((nd) => nd.toLowerCase() === d.toLowerCase()))) {
-                        update("days", "Mon-Fri");
-                      } else {
-                        update("days", newDays.join(", "));
-                      }
+                      update("days", newDays.join(", "));
                     }
                   }}
                   style={{
