@@ -24,17 +24,17 @@
     <meta property="og:url" content="https://skeddo.ca/" />
     <meta property="og:site_name" content="Skeddo" />
     <meta property="og:locale" content="en_CA" />
-    <meta property="og:image" content="https://skeddo.ca/skeddo-logo-dark.png" />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="Skeddo app logo — a tent icon on a green background" />
+    <meta property="og:image" content="https://skeddo.ca/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Skeddo — free kids camp planner for Vancouver families. Browse 6,700+ programs." />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Skeddo — Kids Activities &amp; Summer Camp Planner" />
     <meta name="twitter:description" content="Browse kids camps and programs across Vancouver &amp; the Lower Mainland. Track registrations, waitlists, and budgets — free for families." />
-    <meta name="twitter:image" content="https://skeddo.ca/skeddo-logo-dark.png" />
-    <meta name="twitter:image:alt" content="Skeddo app logo — a tent icon on a green background" />
+    <meta name="twitter:image" content="https://skeddo.ca/og-image.png" />
+    <meta name="twitter:image:alt" content="Skeddo — free kids camp planner for Vancouver families. Browse 6,700+ programs." />
 
     <!-- Icons & PWA -->
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -75,7 +75,7 @@
       "operatingSystem": "Web, iOS (PWA), Android (PWA)",
       "url": "https://skeddo.ca",
       "description": "Plan, track, and budget kids' summer camps, classes, and activities across Vancouver and the Lower Mainland. Browse programs from 150+ providers.",
-      "screenshot": "https://skeddo.ca/skeddo-logo-dark.png",
+      "screenshot": "https://skeddo.ca/og-image.png",
       "featureList": "Browse programs, Track registrations and waitlists, Budget per kid, Weekly calendar view, Favorites and bookmarks",
       "softwareVersion": "1.0",
       "offers": {
@@ -92,16 +92,16 @@
     }
     </script>
 
-    <!-- Structured Data: LocalBusiness -->
+    <!-- Structured Data: Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "Skeddo",
       "legalName": "Mended with Gold Inc.",
       "url": "https://skeddo.ca",
       "logo": "https://skeddo.ca/skeddo-logo-dark.png",
-      "image": "https://skeddo.ca/skeddo-logo-dark.png",
+      "image": "https://skeddo.ca/og-image.png",
       "description": "Skeddo helps parents plan, track, and budget their kids' summer camps, classes, and activities across Vancouver and the Lower Mainland.",
       "address": {
         "@type": "PostalAddress",
@@ -119,8 +119,9 @@
           "name": "Lower Mainland, British Columbia"
         }
       ],
-      "priceRange": "Free",
-      "sameAs": []
+      "sameAs": [
+        "https://www.instagram.com/skeddo.app"
+      ]
     }
     </script>
 
@@ -135,6 +136,92 @@
           "position": 1,
           "name": "Home",
           "item": "https://skeddo.ca/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://skeddo.ca/about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Help & Contact",
+          "item": "https://skeddo.ca/help"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage (from Help page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Skeddo free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Skeddo is free to use. We may introduce optional premium features in the future, but the core planning tools will always be free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I add a program to my list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to the Search tab, find a program you like, and tap it. From the detail view, you can save it to your list and set its status (Exploring, Waitlist, or Enrolled)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Skeddo for multiple kids?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Add as many kids as you need from the Home tab. You can assign programs to specific kids and filter views per child."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does the program data come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We source program information directly from provider websites and registration systems across Vancouver. We verify details regularly, but always confirm with the provider before registering."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I install Skeddo on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Skeddo is a web app that works like a native app. On your phone, tap 'Add to Home Screen' from your browser menu to install it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your data is stored securely with Supabase (built on PostgreSQL with row-level security). We never sell or share your personal information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I delete my account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact us at skeddo.planner@gmail.com and we'll take care of it. We'll delete all your data within 48 hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I found incorrect program information. What should I do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Please let us know! Email skeddo.planner@gmail.com with the program name and what needs updating. We appreciate the help keeping our data accurate."
+          }
         }
       ]
     }
@@ -181,9 +268,14 @@
     <noscript>
       <div style="font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; text-align: center;">
         <h1>Skeddo — Kids Activities &amp; Summer Camp Planner</h1>
-        <p>Plan your kids' summer camps and activities across Vancouver and the Lower Mainland. Browse 2,000+ programs from 150+ providers, track registrations and waitlists, and budget across all your kids.</p>
+        <p>Plan your kids' summer camps and activities across Vancouver and the Lower Mainland. Browse 6,700+ programs from 150+ providers, track registrations and waitlists, and budget across all your kids.</p>
         <p>Skeddo is a free web app for busy families. Visit <a href="https://skeddo.ca">skeddo.ca</a> with JavaScript enabled to get started.</p>
-        <p>Features: Browse 2,000+ kids programs | Track registrations &amp; waitlists | Budget per kid | Weekly calendar view | Favorites &amp; bookmarks</p>
+        <p>Features: Browse 6,700+ kids programs | Track registrations &amp; waitlists | Budget per kid | Weekly calendar view | Favorites &amp; bookmarks</p>
+        <nav>
+          <a href="/about">About Skeddo</a> |
+          <a href="/privacy">Privacy &amp; Terms</a> |
+          <a href="/help">Help &amp; Contact</a>
+        </nav>
       </div>
     </noscript>
     <script>

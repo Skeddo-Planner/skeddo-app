@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { C } from "./constants/brand";
 import { uid } from "./constants/sampleData";
 import { s } from "./styles/shared";
@@ -41,14 +42,16 @@ import { useChildAccess } from "./hooks/useChildAccess";
 import { useCircles } from "./hooks/useCircles";
 import usePlanAccess from "./hooks/usePlanAccess";
 
-// Check if this is an invite URL
-const inviteMatch = window.location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
-const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
-
 export default function Skeddo() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { user, session, loading: authLoading, signOut, passwordRecovery, clearPasswordRecovery } = useAuth();
   const [authPage, setAuthPage] = useState("landing"); // 'landing' | 'signin' | 'signup' | 'app'
   const [hashError, setHashError] = useState(null);
+
+  // Check if this is an invite URL
+  const inviteMatch = location.pathname.match(/^\/invite\/([a-zA-Z0-9_-]+)$/);
+  const pendingInviteCode = inviteMatch ? inviteMatch[1] : null;
 
   // BUG #5: detect expired OTP / auth error in URL hash on mount
   useEffect(() => {
@@ -58,6 +61,7 @@ export default function Skeddo() {
       window.history.replaceState({}, "", "/");
       setHashError(desc ? decodeURIComponent(desc.replace(/\+/g, " ")) : "This link has expired. Please request a new one.");
       setAuthPage("signin");
+      navigate("/signin", { replace: true });
     }
   }, []);
 
@@ -68,10 +72,34 @@ export default function Skeddo() {
   useEffect(() => {
     if (user && !passwordRecovery) {
       setAuthPage("app");
+      // After login, go to root (hash-based tabs handle the rest)
+      if (location.pathname === "/signin" || location.pathname === "/signup") {
+        navigate("/", { replace: true });
+      }
     } else if (!user) {
       setAuthPage((prev) => (prev === "app" ? "landing" : prev));
     }
   }, [user, passwordRecovery]);
+
+  // Navigation helper — wraps setAuthPage + URL routing for public pages
+  const navigateTo = (page) => {
+    setAuthPage(page);
+    if (page === "landing") navigate("/");
+    else if (page === "signin") navigate("/signin");
+    else if (page === "signup") navigate("/signup");
+  };
+
+  // Sync authPage state from URL on mount / back-forward navigation
+  useEffect(() => {
+    const path = location.pathname;
+    if (!user) {
+      if (path === "/signin") setAuthPage("signin");
+      else if (path === "/signup") setAuthPage("signup");
+      else if (path === "/about" || path === "/privacy" || path === "/help") {
+        // Info pages handled by Routes below — don't change authPage
+      }
+    }
+  }, [location.pathname, user]);
 
   /* ── Track auth page views for GA4 ── */
   useEffect(() => {
@@ -171,23 +199,56 @@ export default function Skeddo() {
     );
   }
 
+  /* ── Public info pages — accessible whether logged in or not ── */
+  const publicInfoRoutes = (
+    <Routes>
+      <Route path="/about" element={
+        <Suspense fallback={null}>
+          <InfoPage pageId="about" onBack={() => navigate("/")} />
+        </Suspense>
+      } />
+      <Route path="/privacy" element={
+        <Suspense fallback={null}>
+          <InfoPage pageId="legal" onBack={() => navigate("/")} />
+        </Suspense>
+      } />
+      <Route path="/help" element={
+        <Suspense fallback={null}>
+          <InfoPage pageId="help" onBack={() => navigate("/")} />
+        </Suspense>
+      } />
+      <Route path="*" element={null} />
+    </Routes>
+  );
+
+  // Render info pages at their URL regardless of auth state
+  if (["/about", "/privacy", "/help"].includes(location.pathname)) {
+    // Update document title for SEO
+    const titles = { "/about": "About Skeddo — Kids Camp Planner for Vancouver Families", "/privacy": "Privacy Policy & Terms — Skeddo", "/help": "Help & Contact — Skeddo" };
+    document.title = titles[location.pathname] || "Skeddo";
+    return publicInfoRoutes;
+  }
+
   /* ── Not authenticated — show landing or auth pages ── */
   if (!user) {
     if (authPage === "signin" || authPage === "signup") {
+      document.title = authPage === "signin" ? "Sign In — Skeddo" : "Get Started Free — Skeddo";
       return (
         <AuthPage
           mode={authPage}
-          onNavigate={(p) => { setHashError(null); setAuthPage(p); }}
+          onNavigate={(p) => { setHashError(null); navigateTo(p); }}
           onAuthSuccess={() => setAuthPage("app")}
           initialError={hashError}
         />
       );
     }
     // Default: landing page
-    return <LandingPage onNavigate={setAuthPage} />;
+    document.title = "Skeddo — Kids Activities & Summer Camp Planner | Vancouver & Lower Mainland";
+    return <LandingPage onNavigate={navigateTo} />;
   }
 
   /* ── Authenticated — show the app ── */
+  document.title = "Skeddo — My Planner";
   return <SkedDoApp onSignOut={signOut} userEmail={user?.email} userId={user?.id} session={session} />;
 }
 
