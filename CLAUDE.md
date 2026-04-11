@@ -69,6 +69,17 @@ The CRITICAL section above (always commit to main) applies to **Claude worktree 
 git pull   # Always pull first — two founders work from different machines (Rule 19)
 ```
 
+### Check the Submission Queue (Automatic)
+
+After pulling, check if `src/data/submission-queue.json` exists and has entries.
+If it does, **process it between tasks** (or immediately if no other work is pending):
+
+```bash
+node -e "const q=JSON.parse(require('fs').readFileSync('src/data/submission-queue.json'));console.log(q.submissions.length+' submissions awaiting verification')" 2>/dev/null || echo "No submission queue"
+```
+
+**Processing each submission requires browser verification — see "Processing the Submission Queue" below.**
+
 ## After ANY Change to src/data/programs.json
 
 **MANDATORY — no exceptions:**
@@ -188,6 +199,7 @@ Coverage:   scripts/check-rules-coverage.cjs
 | `bash sync-staging.sh` | Sync staging branch with main (run after every push to main) |
 | `node scripts/verify-programs.cjs --incremental --fix` | Cross-check live pages |
 | `node scripts/update-activenet-status.cjs --fix` | Refresh enrollment statuses from ActiveNet API (COV/BNB/WV/PC/LGY) |
+| `node scripts/process-submissions.cjs` | Pull pending user submissions, validate offline, write queue for browser verification |
 
 ### Quarantine file
 
@@ -210,6 +222,59 @@ To install (run once per machine):
 git config core.hooksPath .husky
 chmod +x .husky/pre-commit   # Mac/Linux only
 ```
+
+## Processing the Submission Queue
+
+User-submitted programs flow through this pipeline:
+1. User submits via the app → saved to `program_submissions` table (status: `pending`)
+2. CI cron (`process-submissions.yml`, twice daily) → offline validation → writes `src/data/submission-queue.json`
+3. **Claude browser-verifies** each entry in the next interactive session → adds to `programs.json`
+
+### When to process
+
+- Check `src/data/submission-queue.json` at session start (see "Before Every Session")
+- Process entries **between tasks** or when no other work is pending
+- If Tom gives you a task, do that first — process the queue afterward
+
+### How to process each submission
+
+For EVERY entry in the queue, you MUST:
+
+1. **Navigate to the registration URL** using Chrome browser (Claude in Chrome MCP)
+2. **Verify every field** against the live registration page:
+   - name, provider, category, cost, days, times, startDate, endDate
+   - ageMin, ageMax, location, neighbourhood, registrationUrl
+   - Find the correct `url` (provider's program listing page, NOT homepage)
+3. **Enrich with missing fields** that the user didn't provide but are visible on the page:
+   - description, activityType, tags, city, lat/lng, indoorOutdoor, campType
+   - enrollmentStatus (check if actually open for registration)
+   - costNote (per week? per session? sibling discounts?)
+4. **Generate a proper program ID** following the pattern: `provider-slug-location-weekN`
+5. **Add to programs.json** and run the full validation pipeline:
+   ```bash
+   node scripts/fill-computable-fields.cjs
+   node scripts/validate-programs.cjs --fix
+   node scripts/auto-resolve-violations.cjs --offline --ids=<new-id>
+   ```
+6. **Update the submission status** in Supabase:
+   - Approved: update `program_submissions` set `status='approved'`, `reviewed_at=now()`
+   - Rejected (program doesn't exist, spam, etc.): set `status='rejected'`, `reviewed_at=now()`
+7. **Remove the entry** from `submission-queue.json`
+8. **Commit** the updated programs.json and submission-queue.json
+
+### If browser verification fails
+
+- Registration URL is dead or doesn't match → **reject** the submission
+- Program exists but details differ from what user submitted → use the **live page data**, not the user's submission
+- Program is from a prior year / not yet open → add with `enrollmentStatus: "Likely Coming Soon"` and `confirmed2026: false`
+- Cannot find the program on the provider's site at all → **reject** with reason
+
+### Script reference
+
+| Script | Purpose |
+|--------|---------|
+| `node scripts/process-submissions.cjs` | Pull pending submissions, offline validate, write queue (CI runs this) |
+| `src/data/submission-queue.json` | Queue file — entries awaiting browser verification |
 
 ## One Click Deeper Audit Standard
 
@@ -327,6 +392,8 @@ Funnel exploration "Browse to Register" shows the parent journey: View Program �
 | `src/data/programs.json` | The program database (~6700+ entries) |
 | `src/data/quarantined-programs.json` | Programs with violations needing human attention |
 | `scripts/verify-state.json` | State tracker for incremental URL verification — do not delete |
+| `scripts/process-submissions.cjs` | Pulls pending user submissions, runs offline validation, writes queue |
+| `src/data/submission-queue.json` | User-submitted programs awaiting Claude browser verification |
 
 ## Test Account
 

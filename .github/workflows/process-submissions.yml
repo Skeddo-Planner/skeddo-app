@@ -1,0 +1,72 @@
+# Skeddo — Process user-submitted programs
+#
+# Runs twice daily (8 AM and 6 PM Pacific) and can be triggered manually.
+# Pipeline:
+#   1. Pull pending submissions from program_submissions table
+#   2. Run offline validation (dedup, required fields, URL format)
+#   3. Reject obvious spam/duplicates, mark valid ones as awaiting_verification
+#   4. Write src/data/submission-queue.json for Claude browser verification
+#   5. Commit queue file back to repo
+#
+# The queue is picked up by Claude in the next interactive session.
+# Claude browser-verifies each entry against the live registration page,
+# then adds verified programs to programs.json.
+#
+# Required repository secrets:
+#   SUPABASE_URL              — Supabase project URL
+#   SUPABASE_SERVICE_ROLE_KEY — Supabase service role key
+
+name: Process Submissions
+
+on:
+  schedule:
+    # 8 AM Pacific = 3 PM UTC (PDT) / 4 PM UTC (PST)
+    - cron: '0 15 * * *'
+    # 6 PM Pacific = 1 AM UTC next day (PDT) / 2 AM UTC (PST)
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Process pending submissions
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/process-submissions.cjs
+
+      - name: Commit submission queue (if changed)
+        run: |
+          git config user.name  "Skeddo Pipeline"
+          git config user.email "pipeline@skeddo.ca"
+
+          git add src/data/submission-queue.json 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            QUEUE_COUNT=$(node -e "
+              const fs = require('fs');
+              const q = JSON.parse(fs.readFileSync('src/data/submission-queue.json'));
+              console.log(q.submissions.length);
+            " 2>/dev/null || echo "?")
+
+            git commit -m "chore: process user submissions — ${QUEUE_COUNT} awaiting verification [skip ci]"
+            git push
+          fi
