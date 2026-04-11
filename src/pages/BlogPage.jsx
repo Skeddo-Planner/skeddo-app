@@ -227,6 +227,9 @@ function BlogIndex({ onNavigate }) {
 
   useEffect(() => {
     document.title = "Vancouver Camp Guides & Tips for Parents | Skeddo";
+    // Update meta description for SEO
+    let meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", "Planning tips, camp guides, and cost breakdowns for parents in Vancouver and the Lower Mainland. Free resources from Skeddo.");
   }, []);
 
   const publishedPosts = BLOG_POSTS.filter(p => p.published);
@@ -328,6 +331,9 @@ function BlogPost({ onNavigate }) {
   useEffect(() => {
     if (post) {
       document.title = `${post.seoTitle} | Skeddo`;
+      // Update meta description for SEO
+      let meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute("content", post.seoDescription);
     }
     window.scrollTo(0, 0);
   }, [post]);
