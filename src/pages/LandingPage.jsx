@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import useIsDesktop from "../hooks/useIsDesktop";
@@ -51,7 +52,6 @@ export default function LandingPage({ onNavigate }) {
   return (
     <div style={{ background: C.cream, minHeight: "100dvh" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: ${C.cream}; }
         @keyframes fadeUp {
@@ -79,9 +79,10 @@ export default function LandingPage({ onNavigate }) {
             alt="Skeddo"
             style={{ height: 38, width: "auto", borderRadius: 8 }}
           />
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <button
-              onClick={() => onNavigate("signin")}
+          <nav style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <a
+              href="/signin"
+              onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
               style={{
                 fontFamily: "'Barlow', sans-serif",
                 fontSize: 14,
@@ -92,12 +93,14 @@ export default function LandingPage({ onNavigate }) {
                 borderRadius: 8,
                 padding: "8px 20px",
                 cursor: "pointer",
+                textDecoration: "none",
               }}
             >
               Log In
-            </button>
-            <button
-              onClick={() => onNavigate("signup")}
+            </a>
+            <a
+              href="/signup"
+              onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
               style={{
                 fontFamily: "'Barlow', sans-serif",
                 fontSize: 14,
@@ -108,17 +111,18 @@ export default function LandingPage({ onNavigate }) {
                 borderRadius: 8,
                 padding: "8px 20px",
                 cursor: "pointer",
+                textDecoration: "none",
               }}
             >
               Get Started Free
-            </button>
-          </div>
+            </a>
+          </nav>
         </header>
       )}
 
       {isDesktop ? (
         /* ── DESKTOP: two-column hero ── */
-        <div style={{
+        <main role="main" style={{
           display: "flex",
           alignItems: "center",
           maxWidth: 1200,
@@ -146,19 +150,23 @@ export default function LandingPage({ onNavigate }) {
             </p>
 
             <div style={{ display: "flex", gap: 12, marginBottom: 40 }}>
-              <button
-                onClick={() => onNavigate("signup")}
+              <a
+                href="/signup"
+                onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
                 style={{
                   ...s.primaryBtn,
                   padding: "14px 28px",
                   fontSize: 15,
                   borderRadius: 10,
+                  textDecoration: "none",
+                  textAlign: "center",
                 }}
               >
                 Get Started — It's Free
-              </button>
-              <button
-                onClick={() => onNavigate("signin")}
+              </a>
+              <a
+                href="/signin"
+                onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
                 style={{
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: 15,
@@ -169,10 +177,12 @@ export default function LandingPage({ onNavigate }) {
                   borderRadius: 10,
                   padding: "14px 28px",
                   cursor: "pointer",
+                  textDecoration: "none",
+                  textAlign: "center",
                 }}
               >
                 Log In
-              </button>
+              </a>
             </div>
 
             {/* Feature list */}
@@ -230,7 +240,7 @@ export default function LandingPage({ onNavigate }) {
               />
             </div>
           </div>
-        </div>
+        </main>
       ) : (
         /* ── MOBILE: original single-column layout ── */
         <main
@@ -266,8 +276,9 @@ export default function LandingPage({ onNavigate }) {
             </p>
 
             <div style={{ maxWidth: 300, margin: "0 auto 40px" }}>
-              <button
-                onClick={() => onNavigate("signup")}
+              <a
+                href="/signup"
+                onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
                 style={{
                   ...s.primaryBtn,
                   display: "block",
@@ -277,12 +288,14 @@ export default function LandingPage({ onNavigate }) {
                   width: "100%",
                   textAlign: "center",
                   marginBottom: 10,
+                  textDecoration: "none",
                 }}
               >
                 Get Started — It's Free
-              </button>
-              <button
-                onClick={() => onNavigate("signin")}
+              </a>
+              <a
+                href="/signin"
+                onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
                 style={{
                   ...s.secondaryBtn,
                   display: "block",
@@ -293,10 +306,11 @@ export default function LandingPage({ onNavigate }) {
                   textAlign: "center",
                   color: C.seaGreen,
                   border: `1.5px solid ${C.seaGreen}`,
+                  textDecoration: "none",
                 }}
               >
                 Log In
-              </button>
+              </a>
             </div>
           </div>
 
@@ -359,6 +373,11 @@ export default function LandingPage({ onNavigate }) {
           </div>
 
           <footer style={{ textAlign: "center", fontSize: 12, color: C.muted, marginTop: 24 }}>
+            <nav style={{ display: "flex", justifyContent: "center", gap: 16, marginBottom: 8 }}>
+              <Link to="/about" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>About</Link>
+              <Link to="/privacy" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Privacy & Terms</Link>
+              <Link to="/help" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Help & Contact</Link>
+            </nav>
             <p>Made by Mended with Gold Inc. · Vancouver, BC</p>
           </footer>
         </main>
@@ -370,6 +389,11 @@ export default function LandingPage({ onNavigate }) {
           textAlign: "center", fontSize: 12, color: C.muted,
           padding: "0 48px 32px",
         }}>
+          <nav style={{ display: "flex", justifyContent: "center", gap: 24, marginBottom: 10 }}>
+            <Link to="/about" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>About</Link>
+            <Link to="/privacy" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Privacy & Terms</Link>
+            <Link to="/help" style={{ color: C.muted, textDecoration: "none", fontWeight: 600 }}>Help & Contact</Link>
+          </nav>
           <p>
             Skeddo covers 150+ providers including City of Vancouver community centres, Pedalheads, Science World, and more across the Lower Mainland. &nbsp;·&nbsp; Made by Mended with Gold Inc. · Vancouver, BC
           </p>
