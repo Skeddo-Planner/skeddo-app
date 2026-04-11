@@ -387,38 +387,45 @@ export function useAppData(userId) {
 
   // Realtime subscription: sync co-parent program changes (add/edit/delete)
   // RLS ensures we only receive events for programs we're allowed to see.
+  // Wrapped in try-catch because iOS Safari (private browsing) blocks WebSockets.
   useEffect(() => {
     if (!userId) return;
 
-    const channel = supabase
-      .channel("co-parent-programs")
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "user_programs" },
-        (payload) => {
-          // Ignore changes made by the current user (already reflected in local state)
-          if (payload.new?.user_id === userId && payload.eventType !== "DELETE") return;
-          if (payload.old?.user_id === userId && payload.eventType === "DELETE") return;
+    let channel;
+    try {
+      channel = supabase
+        .channel("co-parent-programs")
+        .on(
+          "postgres_changes",
+          { event: "*", schema: "public", table: "user_programs" },
+          (payload) => {
+            // Ignore changes made by the current user (already reflected in local state)
+            if (payload.new?.user_id === userId && payload.eventType !== "DELETE") return;
+            if (payload.old?.user_id === userId && payload.eventType === "DELETE") return;
 
-          if (payload.eventType === "INSERT") {
-            const prog = programFromDb(payload.new);
-            setPrograms((prev) => {
-              if (prev.some((p) => p.id === prog.id)) return prev;
-              return [...prev, prog];
-            });
-          } else if (payload.eventType === "UPDATE") {
-            const prog = programFromDb(payload.new);
-            setPrograms((prev) =>
-              prev.map((p) => (p.id === prog.id ? prog : p))
-            );
-          } else if (payload.eventType === "DELETE") {
-            setPrograms((prev) => prev.filter((p) => p.id !== payload.old.id));
+            if (payload.eventType === "INSERT") {
+              const prog = programFromDb(payload.new);
+              setPrograms((prev) => {
+                if (prev.some((p) => p.id === prog.id)) return prev;
+                return [...prev, prog];
+              });
+            } else if (payload.eventType === "UPDATE") {
+              const prog = programFromDb(payload.new);
+              setPrograms((prev) =>
+                prev.map((p) => (p.id === prog.id ? prog : p))
+              );
+            } else if (payload.eventType === "DELETE") {
+              setPrograms((prev) => prev.filter((p) => p.id !== payload.old.id));
+            }
           }
-        }
-      )
-      .subscribe();
+        )
+        .subscribe();
+    } catch {
+      // WebSocket unavailable (e.g. iOS Safari private browsing) — degrade
+      // gracefully. Co-parent sync won't be live but the app still works.
+    }
 
-    return () => { supabase.removeChannel(channel); };
+    return () => { if (channel) supabase.removeChannel(channel); };
   }, [userId]);
 
   function loadFromLocalStorage() {
