@@ -618,9 +618,11 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
   const handleNavigateToTab = (tabId, statusFilterVal, kidId) => {
     setTab(tabId);
+    // Only reset ProgramsTab filters when explicitly navigating with filter params
+    // (e.g. "show enrolled programs for Kid X"). Plain tab switches should NOT
+    // reset any filters — DiscoverTab's "Eligible for" and other filters must persist.
     if (statusFilterVal) setStatusFilter(statusFilterVal);
-    else { setStatusFilter("All"); setCatFilter("All"); }
-    setKidFilter(kidId || null);
+    if (kidId) setKidFilter(kidId);
     // Send virtual page_view to GA4 so SPA tab changes appear in Pages and Screens
     trackPageView(`/${tabId}`, `Skeddo - ${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`);
   };
