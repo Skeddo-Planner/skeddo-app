@@ -111,6 +111,22 @@ programs.forEach((p, idx) => {
     warn(id, 1, `Invalid registrationUrl: ${p.registrationUrl}`);
   }
 
+  // ── Rule 1b: Display URL (url field) must not be a generic homepage ──
+  // The url field is what parents see in Skeddo — it must point to the program page, not the provider homepage
+  if (p.url) {
+    try {
+      const parsed = new URL(p.url);
+      const pathOnly = parsed.pathname.replace(/\/+$/, "");
+      if (pathOnly === "" || pathOnly === "/home" || pathOnly === "/index.html") {
+        if (!HOMEPAGE_EXEMPT_DOMAINS.includes(parsed.hostname)) {
+          warn(id, 1, `url field is a generic homepage: ${p.url} — must point to program/camp page`);
+        }
+      }
+    } catch (e) {
+      // URL parse error
+    }
+  }
+
   // ── Rule 32: Registration URL must lead to enrollment for THAT specific program ──
   if (p.registrationUrl) {
     const url = p.registrationUrl;
