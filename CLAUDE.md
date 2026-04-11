@@ -41,13 +41,20 @@ feature/xyz  →  staging  →  main
 ```
 
 - **New features / data audits:** branch off `staging`, PR into `staging`
-- **Promote to production:** merge `staging` → `main` via `./promote-to-production.sh`
+- **Promote to production:** merge `staging` → `main` via `./promote-to-production.sh` — **ONLY when Tom explicitly asks**
 - **Hotfixes:** branch off `main`, PR into `main` directly (bypass staging)
 - **After ANY push to main:** always sync staging so staging.skeddo.ca stays current:
   ```bash
   cd /c/Users/thoma/Skeddo/skeddo-app && bash sync-staging.sh
   ```
   This is MANDATORY. Staging must always be up to date with main.
+
+### ⚠️ One-way sync: main → staging ONLY
+
+- `sync-staging.sh` merges main INTO staging — this is safe and automatic
+- **NEVER merge staging into main** unless Tom explicitly asks to promote to production
+- Staging may contain experimental features, UI changes, or test data that are NOT ready for production
+- The only way staging → main happens is via `./promote-to-production.sh` on Tom's explicit instruction
 
 ### Committing in this repo
 
@@ -162,6 +169,8 @@ Coverage:   scripts/check-rules-coverage.cjs
   The `url` field MUST point to the provider's camp/program listing page at minimum,
   and ideally to the specific program's detail or registration page. The validator now
   enforces this as Rule 1b.
+- **Never merge staging into main** unless Tom explicitly asks to promote to production.
+  Staging contains experimental changes that may not be ready for skeddo.ca.
 - **Never batch-add programs from an API or spreadsheet without browser-verifying a sample** —
   at least 10-15 programs must be checked against the live registration page before committing
 
