@@ -803,6 +803,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   const isDesktop = useIsDesktop();
   /* ─── Mode & page state ─── */
   const [mode, setMode] = useState("planner"); // "calendar" | "planner"
+  const [calView, setCalView] = useState("week"); // "week" | "month" (desktop calendar sub-view)
   const [page, setPage] = useState("main"); // "main" | "setup"
 
   /* ─── Toast ─── */
@@ -857,6 +858,48 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
   }, [visiblePrograms, weekDates]);
 
   const totalThisWeek = scheduledByDay.reduce((sum, day) => sum + day.length, 0);
+
+  /* ─── Desktop month view state ─── */
+  const [desktopMonth, setDesktopMonth] = useState(() => ({
+    year: new Date().getFullYear(),
+    month: new Date().getMonth(),
+  }));
+
+  const desktopMonthData = useMemo(() => {
+    if (!isDesktop || calView !== "month") return null;
+    const { year, month } = desktopMonth;
+    const firstDay = new Date(year, month, 1).getDay();
+    const startOffset = firstDay === 0 ? 6 : firstDay - 1; // Monday-based
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const weeks = [];
+    let dayNum = 1 - startOffset;
+    for (let w = 0; w < 6; w++) {
+      const week = [];
+      for (let d = 0; d < 7; d++) { week.push(dayNum); dayNum++; }
+      weeks.push(week);
+      if (dayNum > daysInMonth) break;
+    }
+
+    // Build program map for every day in month
+    const dayMap = {};
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(year, month, d);
+      const dayOfWeek = date.getDay();
+      const dayIdx = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // Monday=0
+      const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+      const DAY_MAP_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+      const dayName = DAY_MAP_NAMES[dayIdx];
+
+      const progs = visiblePrograms.filter((p) => {
+        if (!isDateInRange(date, p.startDate, p.endDate)) return false;
+        const pDays = parseDays(p.days, p.startDate, p.endDate);
+        return pDays.includes(dayIdx);
+      });
+      dayMap[d] = progs;
+    }
+
+    return { year, month, weeks, daysInMonth, dayMap };
+  }, [isDesktop, calView, desktopMonth, visiblePrograms]);
 
   /* ─── Swipe ─── */
   const touchStartX = useRef(null);
@@ -1221,18 +1264,175 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
         {/* Desktop mode toggle + header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
           <h2 style={s.pageTitle}>Schedule</h2>
-          <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3 }}>
-            {[{ id: "calendar", l: "Calendar" }, { id: "planner", l: "Planner" }].map((m) => (
-              <button key={m.id} onClick={() => setMode(m.id)} style={{
-                padding: "7px 14px", borderRadius: 8, border: "none",
-                background: mode === m.id ? C.seaGreen + "18" : "transparent",
-                color: mode === m.id ? C.seaGreen : C.muted,
-                fontFamily: F.sans, fontSize: 13, fontWeight: 600, cursor: "pointer",
-              }}>{m.l}</button>
-            ))}
+          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            {/* Week / Month sub-toggle */}
+            <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3 }}>
+              {[{ id: "week", l: "Week" }, { id: "month", l: "Month" }].map((v) => (
+                <button key={v.id} onClick={() => setCalView(v.id)} style={{
+                  padding: "7px 14px", borderRadius: 8, border: "none",
+                  background: calView === v.id ? C.white : "transparent",
+                  color: calView === v.id ? C.ink : C.muted,
+                  fontFamily: F.sans, fontSize: 13, fontWeight: 600, cursor: "pointer",
+                  boxShadow: calView === v.id ? "0 1px 3px rgba(27,36,50,0.1)" : "none",
+                }}>{v.l}</button>
+              ))}
+            </div>
+            {/* Calendar / Planner toggle */}
+            <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3 }}>
+              {[{ id: "calendar", l: "Calendar" }, { id: "planner", l: "Planner" }].map((m) => (
+                <button key={m.id} onClick={() => setMode(m.id)} style={{
+                  padding: "7px 14px", borderRadius: 8, border: "none",
+                  background: mode === m.id ? C.seaGreen + "18" : "transparent",
+                  color: mode === m.id ? C.seaGreen : C.muted,
+                  fontFamily: F.sans, fontSize: 13, fontWeight: 600, cursor: "pointer",
+                }}>{m.l}</button>
+              ))}
+            </div>
           </div>
         </div>
 
+        {/* ═══ DESKTOP MONTH VIEW ═══ */}
+        {calView === "month" && desktopMonthData && (() => {
+          const { year, month, weeks, daysInMonth, dayMap } = desktopMonthData;
+          const monthLabel = new Date(year, month, 1).toLocaleDateString("en-US", { month: "long", year: "numeric" });
+          const todayDate = new Date();
+          todayDate.setHours(0, 0, 0, 0);
+
+          return (
+            <div>
+              {/* Month navigation */}
+              <div className="skeddo-panel-header" style={{ marginBottom: 16 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <button
+                    onClick={() => setDesktopMonth((prev) => {
+                      const m = prev.month - 1;
+                      return m < 0 ? { year: prev.year - 1, month: 11 } : { ...prev, month: m };
+                    })}
+                    style={{
+                      width: 32, height: 32, borderRadius: "50%",
+                      border: `1px solid rgba(27,36,50,0.15)`, background: C.white,
+                      cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                      fontFamily: F.sans, fontSize: 16, color: C.muted,
+                    }}
+                    aria-label="Previous month"
+                  >
+                    {"\u2039"}
+                  </button>
+                  <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 22, color: C.ink, margin: 0 }}>
+                    {monthLabel}
+                  </h2>
+                  <button
+                    onClick={() => setDesktopMonth((prev) => {
+                      const m = prev.month + 1;
+                      return m > 11 ? { year: prev.year + 1, month: 0 } : { ...prev, month: m };
+                    })}
+                    style={{
+                      width: 32, height: 32, borderRadius: "50%",
+                      border: `1px solid rgba(27,36,50,0.15)`, background: C.white,
+                      cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                      fontFamily: F.sans, fontSize: 16, color: C.muted,
+                    }}
+                    aria-label="Next month"
+                  >
+                    {"\u203A"}
+                  </button>
+                  {(month !== todayDate.getMonth() || year !== todayDate.getFullYear()) && (
+                    <button
+                      onClick={() => setDesktopMonth({ year: todayDate.getFullYear(), month: todayDate.getMonth() })}
+                      style={{
+                        padding: "4px 12px", borderRadius: 6,
+                        background: "none", border: `1px solid rgba(27,36,50,0.15)`,
+                        fontFamily: F.sans, fontSize: 12, color: C.muted, cursor: "pointer",
+                      }}
+                    >
+                      Today
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Month grid */}
+              <div style={{
+                borderRadius: 12, overflow: "hidden",
+                background: "rgba(27,36,50,0.08)",
+                border: `0.5px solid rgba(27,36,50,0.08)`,
+              }}>
+                {/* Day headers */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 1 }}>
+                  {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
+                    <div key={d} style={{
+                      background: C.cream, padding: "8px 0", textAlign: "center",
+                      fontFamily: F.sans, fontSize: 12, fontWeight: 700, color: C.muted,
+                      textTransform: "uppercase", letterSpacing: 0.5,
+                    }}>{d}</div>
+                  ))}
+                </div>
+
+                {/* Week rows */}
+                {weeks.map((week, wi) => (
+                  <div key={wi} style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 1 }}>
+                    {week.map((dn, di) => {
+                      const inMonth = dn >= 1 && dn <= daysInMonth;
+                      const date = inMonth ? new Date(year, month, dn) : null;
+                      const isToday = date && date.getTime() === todayDate.getTime();
+                      const progs = inMonth ? (dayMap[dn] || []) : [];
+
+                      return (
+                        <div key={di} style={{
+                          background: isToday ? `${C.seaGreen}08` : C.white,
+                          minHeight: 100, padding: "4px 6px",
+                          opacity: inMonth ? 1 : 0.3,
+                          borderTop: isToday ? `2px solid ${C.seaGreen}` : "none",
+                        }}>
+                          <div style={{
+                            fontFamily: F.sans, fontSize: 13, fontWeight: isToday ? 800 : 600,
+                            color: isToday ? C.seaGreen : inMonth ? C.ink : C.muted,
+                            marginBottom: 4, textAlign: "right",
+                          }}>
+                            {inMonth ? dn : ""}
+                          </div>
+                          {progs.slice(0, 3).map((p, pi) => {
+                            const st = STATUS_MAP[p.status] || STATUS_MAP.Exploring;
+                            return (
+                              <div
+                                key={p.id + "-" + pi}
+                                onClick={() => onOpenDetail(p)}
+                                style={{
+                                  padding: "2px 6px", borderRadius: 4, marginBottom: 2,
+                                  background: st.bg, borderLeft: `3px solid ${st.color}`,
+                                  cursor: "pointer", overflow: "hidden",
+                                }}
+                              >
+                                <div style={{
+                                  fontFamily: F.sans, fontSize: 11, fontWeight: 600,
+                                  color: C.ink, whiteSpace: "nowrap", overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                }}>
+                                  {p.name}
+                                </div>
+                              </div>
+                            );
+                          })}
+                          {progs.length > 3 && (
+                            <div style={{
+                              fontFamily: F.sans, fontSize: 11, color: C.muted,
+                              fontWeight: 600, padding: "1px 6px",
+                            }}>
+                              +{progs.length - 3} more
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ═══ DESKTOP WEEK VIEW ═══ */}
+        {calView === "week" && (<>
         {/* Panel header with week navigation */}
         <div className="skeddo-panel-header" style={{ marginBottom: 16 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -1432,6 +1632,7 @@ export default function ScheduleTab({ programs, kids, kidFilter, onKidFilter, on
             ))}
           </div>
         </div>
+        </>)}
       </div>
     );
   }
