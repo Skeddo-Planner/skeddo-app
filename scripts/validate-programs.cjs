@@ -569,6 +569,45 @@ for (const p of programs) {
   }
 }
 
+// ── Systemic check: Programs with 2025 start dates still marked Open ──
+// These are stale data — 2025 programs can't be Open in 2026
+for (const p of programs) {
+  if (p.startDate && p.startDate.startsWith("2025") && p.enrollmentStatus === "Open") {
+    if (FIX) {
+      p.enrollmentStatus = "Completed";
+      fixed++;
+    } else {
+      warn(String(p.id), 8, `2025 start date but status is Open — should be Completed`);
+    }
+  }
+}
+
+// ── Systemic check: Programs with past endDate not marked Completed ──
+const todayStr = TODAY.toISOString().split("T")[0];
+for (const p of programs) {
+  if (p.endDate && p.endDate < todayStr && p.enrollmentStatus !== "Completed" && p.enrollmentStatus !== "Cancelled" && p.enrollmentStatus !== "Deactivated") {
+    if (FIX) {
+      p.enrollmentStatus = "Completed";
+      fixed++;
+    } else {
+      warn(String(p.id), 8, `endDate ${p.endDate} is past but status is ${p.enrollmentStatus} — should be Completed`);
+    }
+  }
+}
+
+// ── Systemic check: Non-program entries (facility permits, fundraisers, etc.) ──
+const NON_PROGRAM_KEYWORDS = [
+  "permit renewal", "fundraiser", "fundraising", "tax clinic", "membership 20",
+  "bulkhead move", "school board |", "school use", "take out pos",
+  "shredathon", "no lanes available"
+];
+for (const p of programs) {
+  const name = (p.name || "").toLowerCase();
+  if (NON_PROGRAM_KEYWORDS.some(kw => name.includes(kw))) {
+    warn(String(p.id), 31, `Name "${p.name}" looks like a non-program entry (facility permit, fundraiser, etc.) — verify this is an actual children's program`);
+  }
+}
+
 // ══════════════════════════════════════════════════════════════════
 
 // ── Summary ──
