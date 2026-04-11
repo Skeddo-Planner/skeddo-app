@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { C, CATEGORIES, CAT_EMOJI, SEASON_TYPES, DAY_LENGTHS } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
@@ -8,6 +8,21 @@ import FilterOptions from "../components/FilterOptions";
 import { useDataFreshness } from "../hooks/useDataFreshness";
 import useIsDesktop from "../hooks/useIsDesktop";
 import { supabase } from "../lib/supabase";
+
+/* ─── Session-persisted state for filters ─── */
+// Keeps filter values in sessionStorage so they survive tab switches.
+const FILTER_KEY = "skeddo-discover-filters";
+
+function loadSessionFilters() {
+  try {
+    const raw = sessionStorage.getItem(FILTER_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+
+function saveSessionFilters(filters) {
+  try { sessionStorage.setItem(FILTER_KEY, JSON.stringify(filters)); } catch {}
+}
 // Programs URL — VITE_PROGRAMS_URL points to the slim Vercel Blob (no description,
 // stable across deploys). Falls back to the paginated /api/programs endpoint which
 // loads progressively: first 1 000 programs arrive immediately, the rest stream in
@@ -705,30 +720,48 @@ export default function DiscoverTab({
   }, [userSubmitted, fallbackPrograms]);
 
   const searchTrackRef = useRef(null);
-  const [search, setSearch] = useState("");
-  const [selectedCats, setSelectedCats] = useState(new Set());
-  const [selectedHoods, setSelectedHoods] = useState(new Set());
+
+  // Restore filters from sessionStorage so they persist across tab switches
+  const cached = useRef(loadSessionFilters()).current;
+
+  const [search, setSearch] = useState(cached.search || "");
+  const [selectedCats, setSelectedCats] = useState(new Set(cached.selectedCats || []));
+  const [selectedHoods, setSelectedHoods] = useState(new Set(cached.selectedHoods || []));
   const [expandedCities, setExpandedCities] = useState(new Set());
-  const [ageMin, setAgeMin] = useState("");
-  const [ageMax, setAgeMax] = useState("");
-  const [selectedCosts, setSelectedCosts] = useState(new Set());
-  const [costFilterMode, setCostFilterMode] = useState("total"); // "total" | "perHour"
-  const [selectedCostPerHour, setSelectedCostPerHour] = useState(new Set());
+  const [ageMin, setAgeMin] = useState(cached.ageMin ?? "");
+  const [ageMax, setAgeMax] = useState(cached.ageMax ?? "");
+  const [selectedCosts, setSelectedCosts] = useState(new Set(cached.selectedCosts || []));
+  const [costFilterMode, setCostFilterMode] = useState(cached.costFilterMode || "total");
+  const [selectedCostPerHour, setSelectedCostPerHour] = useState(new Set(cached.selectedCostPerHour || []));
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [activeDrawer, setActiveDrawer] = useState(null);
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
-  const [sortBy, setSortBy] = useState("relevance");
-  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "coming-soon", "upcoming", "likely-coming-soon"]));
-  const [selectedProviders, setSelectedProviders] = useState(new Set());
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(cached.showFavoritesOnly || false);
+  const [sortBy, setSortBy] = useState(cached.sortBy || "relevance");
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(cached.selectedRegStatuses || ["open", "coming-soon", "upcoming", "likely-coming-soon"]));
+  const [selectedProviders, setSelectedProviders] = useState(new Set(cached.selectedProviders || []));
   const [providerSearch, setProviderSearch] = useState("");
-  const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
-  const [selectedDayLengths, setSelectedDayLengths] = useState(new Set());
-  const [durationMin, setDurationMin] = useState(0);
-  const [durationMax, setDurationMax] = useState(10);
-  const [showBorderline, setShowBorderline] = useState(false);
+  const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set(cached.selectedActivityTypes || []));
+  const [selectedDayLengths, setSelectedDayLengths] = useState(new Set(cached.selectedDayLengths || []));
+  const [durationMin, setDurationMin] = useState(cached.durationMin ?? 0);
+  const [durationMax, setDurationMax] = useState(cached.durationMax ?? 10);
+  const [showBorderline, setShowBorderline] = useState(cached.showBorderline || false);
 
   /* Week filter state — NO week selected by default */
-  const [selectedWeeks, setSelectedWeeks] = useState(new Set());
+  const [selectedWeeks, setSelectedWeeks] = useState(new Set(cached.selectedWeeks || []));
+
+  // Persist filter state to sessionStorage whenever it changes
+  useEffect(() => {
+    saveSessionFilters({
+      search, selectedCats: [...selectedCats], selectedHoods: [...selectedHoods],
+      ageMin, ageMax, selectedCosts: [...selectedCosts], costFilterMode,
+      selectedCostPerHour: [...selectedCostPerHour], showFavoritesOnly, sortBy,
+      selectedRegStatuses: [...selectedRegStatuses], selectedProviders: [...selectedProviders],
+      selectedActivityTypes: [...selectedActivityTypes], selectedDayLengths: [...selectedDayLengths],
+      durationMin, durationMax, showBorderline, selectedWeeks: [...selectedWeeks],
+    });
+  }, [search, selectedCats, selectedHoods, ageMin, ageMax, selectedCosts, costFilterMode,
+    selectedCostPerHour, showFavoritesOnly, sortBy, selectedRegStatuses, selectedProviders,
+    selectedActivityTypes, selectedDayLengths, durationMin, durationMax, showBorderline, selectedWeeks]);
 
   const { dataVersion, lastCheckedLabel, isStale, isChecking, checkForUpdates } = useDataFreshness();
 
