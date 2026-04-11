@@ -531,19 +531,26 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
     // Share to selected circles (runs after modal closes, using captured values)
     if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
+      const kidNames = (form.kidIds || [])
+        .map((id) => (kids || []).find((k) => k.id === id)?.name)
+        .filter(Boolean);
       const activityData = [{
-        id: programId,
-        name: form.name.trim(),
-        provider: form.provider || "",
-        category: form.category || "Sports",
-        cost: form.cost ? Number(form.cost) : null,
+        programId: programId,
+        activityName: form.name.trim(),
+        providerName: form.provider || "",
+        childName: kidNames.join(", ") || "",
+        scheduleInfo: [form.days, form.times].filter(Boolean).join(" · "),
+        ageGroup: form.ageMin && form.ageMax ? `Ages ${form.ageMin}-${form.ageMax}` : "",
+        registrationUrl: form.registrationUrl || "",
+        location: form.location || "",
         startDate: form.startDate || "",
         endDate: form.endDate || "",
         status: form.status || "Exploring",
       }];
       const sharedBy = profile?.displayName || "Someone";
       for (const circleId of selectedCircleIds) {
-        circlesHook.shareActivities(circleId, activityData, sharedBy).catch(() => {});
+        circlesHook.shareActivities(circleId, activityData, sharedBy)
+          .catch((err) => console.warn("Failed to share to circle:", err.message || err));
       }
     }
 
@@ -634,19 +641,27 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
     // Share to selected circles BEFORE closing modal (Issue #7 fix)
     if (dirProgram.circleIds?.length > 0 && circlesHook?.shareActivities) {
+      const kidNames = (dirProgram.kidIds || [])
+        .map((id) => (kids || []).find((k) => k.id === id)?.name)
+        .filter(Boolean);
       for (const circleId of dirProgram.circleIds) {
         try {
           await circlesHook.shareActivities(circleId, [{
-            id: dirProgram.id || (dirProgram.name + "-" + dirProgram.provider),
-            name: dirProgram.name,
-            provider: dirProgram.provider,
-            category: dirProgram.category,
-            cost: dirProgram.cost,
-            startDate: dirProgram.startDate,
-            endDate: dirProgram.endDate,
+            programId: dirProgram.id || null,
+            activityName: dirProgram.name,
+            providerName: dirProgram.provider || "",
+            childName: kidNames.join(", ") || "",
+            scheduleInfo: [dirProgram.days, dirProgram.times].filter(Boolean).join(" · "),
+            ageGroup: dirProgram.ageMin && dirProgram.ageMax ? `Ages ${dirProgram.ageMin}-${dirProgram.ageMax}` : "",
+            registrationUrl: dirProgram.registrationUrl || "",
+            location: dirProgram.address || dirProgram.location || "",
+            startDate: dirProgram.startDate || "",
+            endDate: dirProgram.endDate || "",
             status: dirProgram.status || "Exploring",
           }], profile?.displayName || "Someone");
-        } catch { /* noop */ }
+        } catch (err) {
+          console.warn("Failed to share to circle:", err.message || err);
+        }
       }
     }
 
