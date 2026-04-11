@@ -47,26 +47,9 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
     return Object.keys(e).length === 0;
   }
 
-  async function handleSave() {
+  function handleSave() {
     if (!validate()) return;
-    onSave();
-    // Share to selected circles after saving
-    if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
-      for (const circleId of selectedCircleIds) {
-        try {
-          await circlesHook.shareActivities(circleId, [{
-            id: form.id || (form.name + "-" + (form.provider || "")),
-            name: form.name,
-            provider: form.provider || "",
-            category: form.category || "Sports",
-            cost: form.cost ? Number(form.cost) : null,
-            startDate: form.startDate || "",
-            endDate: form.endDate || "",
-            status: form.status || "Exploring",
-          }], profile?.displayName || "Someone");
-        } catch { /* noop */ }
-      }
-    }
+    onSave(selectedCircleIds);
   }
 
   const errorStyle = {
@@ -177,29 +160,33 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
           <Label>Days</Label>
           <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
             {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => {
-              const current = (form.days || "").toLowerCase();
-              const isSelected = current.includes(day.toLowerCase());
+              const allDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+              // Expand shorthands like "Mon-Fri" into individual days before checking
+              const expandDays = (raw) => {
+                return (raw || "").split(", ").filter(Boolean).flatMap((d) => {
+                  if (d === "Mon-Fri") return ["Mon", "Tue", "Wed", "Thu", "Fri"];
+                  return [d];
+                });
+              };
+              const currentDays = expandDays(form.days);
+              const isSelected = currentDays.some((d) => d.toLowerCase() === day.toLowerCase());
               return (
                 <button
                   key={day}
                   type="button"
                   onClick={() => {
-                    // Expand "Mon-Fri" shorthand to individual days before splitting
-                    let daysStr = form.days || "";
-                    if (daysStr.toLowerCase() === "mon-fri") daysStr = "Mon, Tue, Wed, Thu, Fri";
-                    const days = daysStr.split(", ").filter(Boolean);
+                    let days = expandDays(form.days);
                     if (isSelected) {
-                      update("days", days.filter((d) => d.toLowerCase() !== day.toLowerCase()).join(", "));
+                      days = days.filter((d) => d.toLowerCase() !== day.toLowerCase());
                     } else {
-                      const allDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-                      const newDays = [...days.filter((d) => allDays.some((ad) => ad.toLowerCase() === d.toLowerCase())), day];
-                      newDays.sort((a, b) => allDays.findIndex((d) => d.toLowerCase() === a.toLowerCase()) - allDays.findIndex((d) => d.toLowerCase() === b.toLowerCase()));
-                      // Use "Mon-Fri" shorthand when all weekdays selected
-                      if (newDays.length === 5 && ["Mon","Tue","Wed","Thu","Fri"].every((d) => newDays.some((nd) => nd.toLowerCase() === d.toLowerCase()))) {
-                        update("days", "Mon-Fri");
-                      } else {
-                        update("days", newDays.join(", "));
-                      }
+                      days = [...days.filter((d) => allDays.some((ad) => ad.toLowerCase() === d.toLowerCase())), day];
+                    }
+                    days.sort((a, b) => allDays.findIndex((d) => d.toLowerCase() === a.toLowerCase()) - allDays.findIndex((d) => d.toLowerCase() === b.toLowerCase()));
+                    // Use "Mon-Fri" shorthand when all weekdays selected
+                    if (days.length === 5 && ["Mon","Tue","Wed","Thu","Fri"].every((d) => days.some((nd) => nd.toLowerCase() === d.toLowerCase()))) {
+                      update("days", "Mon-Fri");
+                    } else {
+                      update("days", days.join(", "));
                     }
                   }}
                   style={{

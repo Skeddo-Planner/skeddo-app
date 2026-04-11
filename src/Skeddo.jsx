@@ -497,7 +497,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   /* ── Modal actions ── */
-  const handleSaveProgram = () => {
+  const handleSaveProgram = (selectedCircleIds = []) => {
     if (!form.name?.trim()) return;
     // Gate: must assign to at least one kid
     if (kids.length > 0 && (!form.kidIds || form.kidIds.length === 0)) {
@@ -505,15 +505,34 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       return;
     }
     const isNew = !form.id;
+    const programId = form.id || uid();
     saveProgram({
       ...form,
       name: form.name.trim(),
       cost: Number(form.cost) || 0,
       kidIds: form.kidIds || [],
-      id: form.id || uid(),
+      id: programId,
     });
     setModal(null);
     showToast(isNew ? "Program added" : "Program updated");
+
+    // Share to selected circles (runs after modal closes, using captured values)
+    if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
+      const activityData = [{
+        id: programId,
+        name: form.name.trim(),
+        provider: form.provider || "",
+        category: form.category || "Sports",
+        cost: form.cost ? Number(form.cost) : null,
+        startDate: form.startDate || "",
+        endDate: form.endDate || "",
+        status: form.status || "Exploring",
+      }];
+      const sharedBy = profile?.displayName || "Someone";
+      for (const circleId of selectedCircleIds) {
+        circlesHook.shareActivities(circleId, activityData, sharedBy).catch(() => {});
+      }
+    }
 
     // Notify founders when a user manually adds a new program
     // (so they can verify and add it to the directory for all users)
