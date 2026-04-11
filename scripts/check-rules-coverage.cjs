@@ -75,7 +75,9 @@ for (const m of validatorCode.matchAll(/\bRule\s+(\d+)\b/g)) {
 //   R47: Completed Programs Must Stay with "Completed" Status (reinforces R31)
 //   R49: Count-and-Compare Completeness After Every Provider Audit
 // R43, R46, R48 have partial data checks in validate-programs.cjs (covered there).
-const PROCESS_RULES = new Set([12, 13, 16, 17, 18, 19, 42, 44, 45, 47, 49]);
+// R40: Always Scrape Official Registration APIs Directly (audit-time enforcement by Claude)
+// R41: Include ALL Program Types (audit-time enforcement by Claude)
+const PROCESS_RULES = new Set([12, 13, 16, 17, 18, 19, 40, 41, 42, 44, 45, 47, 49]);
 
 // Rules enforced by other scripts in the pipeline (not validate-programs.cjs).
 // They still have full automation coverage — just in a different script.
