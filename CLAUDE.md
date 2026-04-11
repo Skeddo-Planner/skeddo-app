@@ -13,10 +13,13 @@ To ensure work reaches main, every task MUST:
    ```bash
    cd /c/Users/thoma/Skeddo/skeddo-app && git checkout main && git merge WORKTREE_BRANCH --no-verify
    ```
-2. Verify the commit is on main: `git log main --oneline -1`
-3. Report "Committed to main: [commit hash]" — never just "committed"
+2. Push main to GitHub: `git push`
+3. Sync staging with main: `bash sync-staging.sh`
+4. Verify the commit is on main: `git log main --oneline -1`
+5. Report "Committed to main: [commit hash]" — never just "committed"
 
 Work that isn't on main doesn't count. Tom cannot see worktree branches.
+Staging must always be synced — staging.skeddo.ca is used for testing before features go live.
 
 ## Staging Environment
 
@@ -40,6 +43,11 @@ feature/xyz  →  staging  →  main
 - **New features / data audits:** branch off `staging`, PR into `staging`
 - **Promote to production:** merge `staging` → `main` via `./promote-to-production.sh`
 - **Hotfixes:** branch off `main`, PR into `main` directly (bypass staging)
+- **After ANY push to main:** always sync staging so staging.skeddo.ca stays current:
+  ```bash
+  cd /c/Users/thoma/Skeddo/skeddo-app && bash sync-staging.sh
+  ```
+  This is MANDATORY. Staging must always be up to date with main.
 
 ### Committing in this repo
 
@@ -168,6 +176,7 @@ Coverage:   scripts/check-rules-coverage.cjs
 | `node scripts/auto-resolve-violations.cjs --all` | Attempt full resolution of all violations |
 | `node scripts/check-rules-coverage.cjs` | Verify doc ↔ validator coverage |
 | `node scripts/validate-urls.cjs --fix` | Fix broken registration URLs |
+| `bash sync-staging.sh` | Sync staging branch with main (run after every push to main) |
 | `node scripts/verify-programs.cjs --incremental --fix` | Cross-check live pages |
 | `node scripts/update-activenet-status.cjs --fix` | Refresh enrollment statuses from ActiveNet API (COV/BNB/WV/PC/LGY) |
 
