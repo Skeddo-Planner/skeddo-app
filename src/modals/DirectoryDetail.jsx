@@ -73,7 +73,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
 
   const [ageWarning, setAgeWarning] = useState(null);
 
-  const doAdd = async () => {
+  const doAdd = () => {
     const kidNames = selectedKidIds.map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
     setAddedKidNames(kidNames);
     // Pass circleIds to parent so sharing happens before modal closes (Issue #7 fix)
@@ -82,7 +82,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       cost: customCost !== "" ? Number(customCost) : (p.cost === "TBD" ? 0 : Number(p.cost) || 0),
       status: selectedStatus,
       kidIds: selectedKidIds,
-      circleIds: selectedCircleIds.length > 0 ? selectedCircleIds : undefined,
+      _circleIds: selectedCircleIds,
     });
     setShowAddForm(false);
     setJustAdded(true);
