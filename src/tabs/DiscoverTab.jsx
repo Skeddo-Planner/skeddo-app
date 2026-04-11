@@ -875,8 +875,13 @@ export default function DiscoverTab({
       }
 
       // Standard filters
-      if (selectedRegStatuses.size > 0 && !selectedRegStatuses.has(getRegistrationStatus(p))) return false;
-      if (showFavoritesOnly && !favorites.includes(p.id)) return false;
+      // When the favorites filter is active, skip registration-status filtering
+      // so ALL favorited programs are visible regardless of their status.
+      if (showFavoritesOnly) {
+        if (!favorites.includes(p.id)) return false;
+      } else {
+        if (selectedRegStatuses.size > 0 && !selectedRegStatuses.has(getRegistrationStatus(p))) return false;
+      }
       if (q) {
         const haystack = [p.name, p.provider].filter(Boolean).join(" ").toLowerCase();
         if (!haystack.includes(q)) return false;
