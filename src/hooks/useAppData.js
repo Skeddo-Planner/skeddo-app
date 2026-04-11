@@ -50,6 +50,7 @@ const programToDb = (p, userId) => ({
 
 const programFromDb = (row) => ({
   id: row.id,
+  ownerId: row.user_id,  // track who created this program (for co-parent visibility)
   name: row.name,
   provider: row.provider || "",
   category: row.category || "Sports",
@@ -264,11 +265,12 @@ export function useAppData(userId) {
           throw kidsErr;
         }
 
-        // Load programs
+        // Load programs — no user_id filter here; Supabase RLS returns both
+        // the user's own programs AND programs assigned to shared kids (via
+        // child_access). This is what makes co-parent program visibility work.
         const { data: programsData, error: programsErr } = await supabase
           .from("user_programs")
           .select("*")
-          .eq("user_id", userId)
           .order("created_at", { ascending: true });
 
         if (programsErr) {
@@ -381,6 +383,42 @@ export function useAppData(userId) {
     }
 
     loadFromSupabase();
+  }, [userId]);
+
+  // Realtime subscription: sync co-parent program changes (add/edit/delete)
+  // RLS ensures we only receive events for programs we're allowed to see.
+  useEffect(() => {
+    if (!userId) return;
+
+    const channel = supabase
+      .channel("co-parent-programs")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "user_programs" },
+        (payload) => {
+          // Ignore changes made by the current user (already reflected in local state)
+          if (payload.new?.user_id === userId && payload.eventType !== "DELETE") return;
+          if (payload.old?.user_id === userId && payload.eventType === "DELETE") return;
+
+          if (payload.eventType === "INSERT") {
+            const prog = programFromDb(payload.new);
+            setPrograms((prev) => {
+              if (prev.some((p) => p.id === prog.id)) return prev;
+              return [...prev, prog];
+            });
+          } else if (payload.eventType === "UPDATE") {
+            const prog = programFromDb(payload.new);
+            setPrograms((prev) =>
+              prev.map((p) => (p.id === prog.id ? prog : p))
+            );
+          } else if (payload.eventType === "DELETE") {
+            setPrograms((prev) => prev.filter((p) => p.id !== payload.old.id));
+          }
+        }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
   }, [userId]);
 
   function loadFromLocalStorage() {
@@ -634,7 +672,10 @@ export function useAppData(userId) {
 
     // Save to Supabase
     if (usingSupabase.current && userId) {
-      const row = programToDb(program, userId);
+      // Use the program's original owner if it's a co-parent shared program,
+      // otherwise use the current user (for new programs).
+      const ownerId = program.ownerId || userId;
+      const row = programToDb(program, ownerId);
       supabase.from("user_programs").upsert(row, { onConflict: "id" })
         .then(({ error }) => {
           if (error) {
