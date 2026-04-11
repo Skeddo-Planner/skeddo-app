@@ -595,6 +595,19 @@ for (const p of programs) {
   }
 }
 
+// ── Systemic check: Future programs marked Completed ──
+// Programs with startDate in the future shouldn't be Completed
+for (const p of programs) {
+  if (p.startDate && p.startDate > todayStr && p.enrollmentStatus === "Completed") {
+    if (FIX) {
+      p.enrollmentStatus = "Likely Coming Soon";
+      fixed++;
+    } else {
+      warn(String(p.id), 8, `startDate ${p.startDate} is future but status is Completed — should be Likely Coming Soon`);
+    }
+  }
+}
+
 // ── Systemic check: Non-program entries (facility permits, fundraisers, etc.) ──
 const NON_PROGRAM_KEYWORDS = [
   "permit renewal", "fundraiser", "fundraising", "tax clinic", "membership 20",
