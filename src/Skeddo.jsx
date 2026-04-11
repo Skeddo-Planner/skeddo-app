@@ -641,7 +641,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
     // Share to selected circles BEFORE closing modal (Issue #7 fix)
     if (dirProgram.circleIds?.length > 0 && circlesHook?.shareActivities) {
-      const kidNames = (dirProgram.kidIds || [])
+      const dirKidNames = (dirProgram.kidIds || [])
         .map((id) => (kids || []).find((k) => k.id === id)?.name)
         .filter(Boolean);
       for (const circleId of dirProgram.circleIds) {
@@ -650,7 +650,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             programId: dirProgram.id || null,
             activityName: dirProgram.name,
             providerName: dirProgram.provider || "",
-            childName: kidNames.join(", ") || "",
+            childName: dirKidNames.join(", ") || "",
             scheduleInfo: [dirProgram.days, dirProgram.times].filter(Boolean).join(" · "),
             ageGroup: dirProgram.ageMin && dirProgram.ageMax ? `Ages ${dirProgram.ageMin}-${dirProgram.ageMax}` : "",
             registrationUrl: dirProgram.registrationUrl || "",
