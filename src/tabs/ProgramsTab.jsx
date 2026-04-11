@@ -5,7 +5,7 @@ import ProgramCard from "../components/ProgramCard";
 import EmptyState from "../components/EmptyState";
 import KidFilterBar from "../components/KidFilterBar";
 import useIsDesktop from "../hooks/useIsDesktop";
-import { calcCostPerHour, fmtShortDate } from "../utils/helpers";
+import { calcCostPerHour, fmtShortDate, getActualDays } from "../utils/helpers";
 
 /* ─── Desktop sort arrow icon ─── */
 function SortArrow({ direction, active }) {
@@ -134,7 +134,7 @@ function DetailPanel({ program, kids, onClose, onCycleStatus, onSetStatus, onEdi
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 16px" }}>
         {[
           { label: "Dates", value: program.startDate ? `${fmtShortDate(program.startDate) || ""} \u2013 ${fmtShortDate(program.endDate) || ""}` : "\u2014" },
-          { label: "Days", value: program.days || "\u2014" },
+          { label: "Days", value: getActualDays(program.days, program.startDate, program.endDate) || "\u2014" },
           { label: "Time", value: program.times || "\u2014" },
           { label: "Age range", value: program.ageMin || program.ageMax ? `${program.ageMin || "?"}\u2013${program.ageMax || "?"}` : "\u2014" },
           { label: "Location", value: program.location || "\u2014" },
@@ -254,6 +254,29 @@ export default function ProgramsTab({
   const [sortCol, setSortCol] = useState("startDate");
   const [sortDir, setSortDir] = useState("asc");
   const [selectedId, setSelectedId] = useState(null);
+  const [selectMode, setSelectMode] = useState(false);
+  const [selectedIds, setSelectedIds] = useState(new Set());
+
+  const toggleSelect = (id) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  };
+  const selectAll = () => {
+    setSelectedIds(new Set(activePrograms.map((p) => p.id)));
+  };
+  const clearSelection = () => {
+    setSelectedIds(new Set());
+    setSelectMode(false);
+  };
+  const handleBulkDelete = () => {
+    if (selectedIds.size === 0) return;
+    if (!window.confirm(`Delete ${selectedIds.size} program${selectedIds.size > 1 ? "s" : ""}? This can't be undone.`)) return;
+    for (const id of selectedIds) { onDelete(id); }
+    clearSelection();
+  };
 
   // Split into active (current/upcoming) and past (completed) programs
   const today = new Date();
@@ -407,10 +430,32 @@ export default function ProgramsTab({
               )}
             </div>
           ) : (
+            <>
+            {/* Bulk action bar */}
+            {selectedIds.size > 0 && (
+              <div style={{
+                display: "flex", alignItems: "center", gap: 12, padding: "8px 16px",
+                background: "#FEF3E2", borderRadius: 10, marginBottom: 8,
+                fontFamily: "'Barlow', sans-serif", fontSize: 13,
+              }}>
+                <span style={{ fontWeight: 600, color: C.ink }}>{selectedIds.size} selected</span>
+                <button onClick={selectAll} style={{ background: "none", border: "none", color: C.seaGreen, fontWeight: 600, cursor: "pointer", fontSize: 13, fontFamily: "'Barlow', sans-serif" }}>Select all</button>
+                <button onClick={handleBulkDelete} style={{ background: C.lilac, color: "#fff", border: "none", borderRadius: 8, padding: "5px 14px", fontWeight: 700, cursor: "pointer", fontSize: 13, fontFamily: "'Barlow', sans-serif" }}>Delete {selectedIds.size}</button>
+                <button onClick={clearSelection} style={{ background: "none", border: "none", color: C.muted, cursor: "pointer", fontSize: 13, fontFamily: "'Barlow', sans-serif" }}>Cancel</button>
+              </div>
+            )}
             <div style={{ borderRadius: 12, overflow: "hidden", border: `0.5px solid rgba(27,36,50,0.08)` }}>
               <table className="skeddo-data-table" style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
                   <tr>
+                    {onDelete && <th style={{ width: 36, padding: "8px 4px" }}>
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.size > 0 && selectedIds.size === sortedPrograms.length}
+                        onChange={(e) => e.target.checked ? selectAll() : clearSelection()}
+                        style={{ cursor: "pointer", accentColor: C.seaGreen }}
+                      />
+                    </th>}
                     {columns.map((col) => (
                       <th
                         key={col.key}
@@ -441,9 +486,18 @@ export default function ProgramsTab({
                         key={p.id}
                         onClick={() => setSelectedId(isSelected ? null : p.id)}
                         style={{
-                          background: isSelected ? "rgba(45,159,111,0.04)" : undefined,
+                          background: selectedIds.has(p.id) ? "rgba(45,159,111,0.08)" : isSelected ? "rgba(45,159,111,0.04)" : undefined,
                         }}
                       >
+                        {onDelete && <td style={{ width: 36, padding: "8px 4px" }}>
+                          <input
+                            type="checkbox"
+                            checked={selectedIds.has(p.id)}
+                            onChange={() => toggleSelect(p.id)}
+                            onClick={(e) => e.stopPropagation()}
+                            style={{ cursor: "pointer", accentColor: C.seaGreen }}
+                          />
+                        </td>}
                         <td>
                           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: 500, color: C.ink }}>
                             {p.name}
@@ -458,7 +512,7 @@ export default function ProgramsTab({
                         <td style={{ fontSize: 12, color: C.muted }}>
                           {p.startDate ? `${fmtShortDate(p.startDate) || ""} \u2013 ${fmtShortDate(p.endDate) || ""}` : "\u2014"}
                         </td>
-                        <td style={{ fontSize: 12, color: C.muted }}>{p.days || "\u2014"}</td>
+                        <td style={{ fontSize: 12, color: C.muted }}>{getActualDays(p.days, p.startDate, p.endDate) || "\u2014"}</td>
                         <td><StatusBadge status={p.status} /></td>
                         <td style={{ textAlign: "right", fontWeight: 500 }}>
                           {p.cost ? `$${Number(p.cost).toLocaleString()}` : "\u2014"}
@@ -472,6 +526,7 @@ export default function ProgramsTab({
                 </tbody>
               </table>
             </div>
+            </>
           )}
         </div>
 

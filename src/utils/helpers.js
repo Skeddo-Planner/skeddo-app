@@ -33,6 +33,67 @@ export function fmtShortDate(dateStr) {
   return `${MONTHS[d.getMonth()]} ${d.getDate()}`;
 }
 
+/* ─── Stat holiday awareness for camp days ─── */
+// BC statutory holidays that affect summer camp schedules
+const BC_HOLIDAYS = [
+  "2026-01-01", // New Year's Day
+  "2026-02-16", // Family Day
+  "2026-04-03", // Good Friday
+  "2026-05-18", // Victoria Day
+  "2026-07-01", // Canada Day
+  "2026-08-03", // BC Day
+  "2026-09-07", // Labour Day
+  "2026-10-12", // Thanksgiving
+  "2026-11-11", // Remembrance Day
+  "2026-12-25", // Christmas Day
+];
+
+const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+/**
+ * Given a program's days string and date range, return the actual running days
+ * for that specific week (accounting for stat holidays).
+ * E.g., "Mon-Fri" during a week containing BC Day (Monday) → "Tue, Wed, Thu, Fri"
+ */
+export function getActualDays(daysStr, startDate, endDate) {
+  if (!daysStr || !startDate) return daysStr || "";
+
+  // Expand shorthand
+  let expanded = daysStr;
+  if (expanded.toLowerCase() === "mon-fri") expanded = "Mon, Tue, Wed, Thu, Fri";
+  if (expanded.toLowerCase() === "mon-sat") expanded = "Mon, Tue, Wed, Thu, Fri, Sat";
+
+  const programDays = expanded.split(/,\s*/).map(d => d.trim()).filter(Boolean);
+  if (programDays.length === 0) return daysStr;
+
+  // Find holidays that fall within this program's date range
+  const start = new Date(startDate + "T00:00:00");
+  const end = endDate ? new Date(endDate + "T00:00:00") : start;
+  if (isNaN(start)) return daysStr;
+
+  const holidayDays = new Set();
+  for (const h of BC_HOLIDAYS) {
+    const hd = new Date(h + "T00:00:00");
+    if (hd >= start && hd <= end) {
+      holidayDays.add(DAY_NAMES[hd.getDay()]);
+    }
+  }
+
+  if (holidayDays.size === 0) return daysStr;
+
+  // Remove holiday days from the program's schedule
+  const actualDays = programDays.filter(d => {
+    // Normalize: match "Mon" against holiday day names
+    const normalized = d.charAt(0).toUpperCase() + d.slice(1, 3).toLowerCase();
+    return !holidayDays.has(normalized);
+  });
+
+  if (actualDays.length === 0) return daysStr; // Don't return empty
+  if (actualDays.length === programDays.length) return daysStr; // No change
+
+  return actualDays.join(", ");
+}
+
 /* ─── Registration status logic ─── */
 export const REGISTRATION_STATUSES = [
   { key: "open", label: "Open for Registration", color: C.seaGreen, icon: "✓" },

@@ -28,9 +28,15 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const regStatus = getRegistrationStatus(p);
   const regInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
 
-  // Check if this program is already in the user's list (match by name + provider)
+  // Check if this exact program is already in the user's list
+  // Match on name + provider + dates + age group to avoid false positives
+  // (e.g., same camp offered in different weeks or for different age groups)
   const alreadyAdded = (userPrograms || []).some(
     (up) => up.name === p.name && up.provider === p.provider
+      && (up.startDate || "") === (p.startDate || "")
+      && (up.endDate || "") === (p.endDate || "")
+      && String(up.ageMin || "") === String(p.ageMin || "")
+      && String(up.ageMax || "") === String(p.ageMax || "")
   );
 
   const [showAddForm, setShowAddForm] = useState(false);
@@ -70,33 +76,14 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
   const doAdd = async () => {
     const kidNames = selectedKidIds.map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
     setAddedKidNames(kidNames);
+    // Pass circleIds to parent so sharing happens before modal closes (Issue #7 fix)
     onAddToSchedule({
       ...p,
       cost: customCost !== "" ? Number(customCost) : (p.cost === "TBD" ? 0 : Number(p.cost) || 0),
       status: selectedStatus,
       kidIds: selectedKidIds,
+      circleIds: selectedCircleIds.length > 0 ? selectedCircleIds : undefined,
     });
-    // Share to selected circles
-    if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
-      const newShared = new Set(sharedToCircles);
-      for (const circleId of selectedCircleIds) {
-        try {
-          await circlesHook.shareActivities(circleId, [{
-            id: p.id || (p.name + "-" + p.provider),
-            name: p.name,
-            provider: p.provider,
-            category: p.category,
-            cost: p.cost,
-            startDate: p.startDate,
-            endDate: p.endDate,
-            status: selectedStatus,
-          }], profile?.displayName || "Someone");
-          trackEvent("share_program_to_circle", { program_name: p.name, circle_name: circlesHook.circles.find((c) => c.id === circleId)?.name });
-          newShared.add(circleId);
-        } catch { /* noop */ }
-      }
-      setSharedToCircles(newShared);
-    }
     setShowAddForm(false);
     setJustAdded(true);
     setAgeWarning(null);

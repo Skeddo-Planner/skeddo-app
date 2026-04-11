@@ -615,6 +615,38 @@ export function useAppData(userId) {
     return list;
   }, [mergedPrograms, kidFilter, statusFilter, catFilter, searchQuery]);
 
+  /* ── Co-parent sync helper ── */
+  const syncToCoParents = useCallback(async (kidIds, action, programData) => {
+    if (!usingSupabase.current || !userId || !kidIds?.length) return;
+    try {
+      // Find co-parent user IDs who have access to any of these kids
+      const { data: accessRows } = await supabase
+        .from("child_access")
+        .select("user_id")
+        .in("child_id", kidIds)
+        .neq("user_id", userId);
+      if (!accessRows?.length) return;
+      const coParentIds = [...new Set(accessRows.map((r) => r.user_id))];
+
+      if (action === "upsert" && programData) {
+        // For each co-parent, upsert the same program under their user_id
+        for (const cpId of coParentIds) {
+          const row = programToDb(programData, cpId);
+          // Use the same program ID so updates sync correctly
+          await supabase.from("user_programs").upsert(row, { onConflict: "id" });
+        }
+      } else if (action === "delete" && programData?.id) {
+        // Delete the program for all co-parents too
+        for (const cpId of coParentIds) {
+          await supabase.from("user_programs").delete()
+            .eq("id", programData.id).eq("user_id", cpId);
+        }
+      }
+    } catch (err) {
+      console.warn("Co-parent sync error:", err);
+    }
+  }, [userId]);
+
   /* ══════════════════════════════════════════════
      CRUD: Programs
      ══════════════════════════════════════════════ */
@@ -635,17 +667,40 @@ export function useAppData(userId) {
     if (usingSupabase.current && userId) {
       const row = programToDb(program, userId);
       supabase.from("user_programs").upsert(row, { onConflict: "id" })
-        .then(({ error }) => { if (error) console.warn("Failed to save program:", error); else markSynced(); });
+        .then(({ error }) => {
+          if (error) console.warn("Failed to save program:", error);
+          else {
+            markSynced();
+            // Sync to co-parents who share access to the same kids (Issue #8)
+            if (program.kidIds?.length) syncToCoParents(program.kidIds, "upsert", program);
+          }
+        });
     }
-  }, [userId, markSynced]);
+  }, [userId, markSynced, syncToCoParents]);
 
   const deleteProgram = useCallback((id) => {
-    setPrograms((prev) => prev.filter((p) => p.id !== id));
+    // Capture program data before removing from state (needed for co-parent sync)
+    let deletedProgram = null;
+    setPrograms((prev) => {
+      deletedProgram = prev.find((p) => p.id === id) || null;
+      return prev.filter((p) => p.id !== id);
+    });
+    // Also remove from favorites to prevent stale references
+    setFavorites((prev) => prev.filter((fid) => fid !== id));
+    // Clean up any manual costs linked to this program (if any)
+    setManualCosts((prev) => prev.filter((c) => c.programId !== id));
     if (usingSupabase.current && userId) {
       supabase.from("user_programs").delete().eq("id", id)
-        .then(({ error }) => { if (error) console.warn("Failed to delete program:", error); else markSynced(); });
+        .then(({ error }) => {
+          if (error) console.warn("Failed to delete program:", error);
+          else {
+            markSynced();
+            // Sync deletion to co-parents (Issue #8)
+            if (deletedProgram?.kidIds?.length) syncToCoParents(deletedProgram.kidIds, "delete", deletedProgram);
+          }
+        });
     }
-  }, [userId, markSynced]);
+  }, [userId, markSynced, syncToCoParents]);
 
   const cycleStatus = useCallback((id) => {
     const order = ["Enrolled", "Waitlist", "Exploring"];

@@ -3,6 +3,7 @@ import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import EmptyState from "../components/EmptyState";
 import { trackEvent } from "../utils/analytics";
+import useIsDesktop from "../hooks/useIsDesktop";
 
 /* ─── Design tokens ─── */
 const SHADOW = "0 2px 8px rgba(27,36,50,0.07), 0 1px 3px rgba(27,36,50,0.04)";
@@ -38,13 +39,21 @@ function ShareIcon({ type, color, size = 18 }) {
   }
 }
 
-function ShareIcons({ shareText, shareUrl, onCopy, subject }) {
+function ShareIcons({ shareText, shareUrl, onCopy, subject, isDesktop }) {
   const fullText = shareText + "\n\n" + shareUrl;
   const actions = [
-    { label: "WhatsApp", type: "whatsapp", color: "#25D366", action: () => window.open(`https://wa.me/?text=${encodeURIComponent(fullText)}`, "_blank") },
-    { label: "Text", type: "text", color: C.blue, action: () => window.open(`sms:?body=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank") },
-    { label: "Email", type: "email", color: C.lilac, action: () => window.open(`mailto:?subject=${encodeURIComponent(subject || "Skeddo")}&body=${encodeURIComponent(fullText)}`, "_blank") },
+    // WhatsApp & Text only on mobile — these protocols don't work on desktop browsers
+    ...(!isDesktop ? [
+      { label: "WhatsApp", type: "whatsapp", color: "#25D366", action: () => window.open(`https://wa.me/?text=${encodeURIComponent(fullText)}`, "_blank") },
+      { label: "Text", type: "text", color: C.blue, action: () => window.open(`sms:?body=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank") },
+    ] : []),
+    { label: "Email", type: "email", color: C.lilac, action: () => { window.location.href = `mailto:?subject=${encodeURIComponent(subject || "Skeddo")}&body=${encodeURIComponent(fullText)}`; } },
     { label: "Copy", type: "copy", color: C.olive, action: onCopy },
+    // Social sharing for desktop
+    ...(isDesktop ? [
+      { label: "Facebook", type: "share", color: "#1877F2", action: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`, "_blank", "width=600,height=400") },
+      { label: "X", type: "share", color: "#000000", action: () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, "_blank", "width=600,height=400") },
+    ] : []),
     ...(navigator.share ? [{ label: "Share", type: "share", color: C.seaGreen, action: () => navigator.share({ title: subject || "Skeddo", text: shareText, url: shareUrl }).catch(() => {}) }] : []),
   ];
   return (
@@ -176,6 +185,7 @@ export default function CirclesTab({
     ensureReferralCode, getMembers, refreshPending, pendingCount,
   } = circlesHook;
 
+  const isDesktop = useIsDesktop();
   const [screen, setScreen] = useState("home"); // home | feed | share | create | join
   const [activeCircle, setActiveCircle] = useState(null);
   const [createName, setCreateName] = useState("");
@@ -243,6 +253,32 @@ export default function CirclesTab({
       counts[key] = (counts[key] || 0) + 1;
     });
     return counts;
+  }, [activeFeed]);
+
+  // Group feed items by week based on start_date (Issue #4)
+  const feedByWeek = useMemo(() => {
+    if (!activeFeed.length) return [];
+    const getWeekStart = (dateStr) => {
+      if (!dateStr) return "no-date";
+      const d = new Date(dateStr + "T00:00:00");
+      if (isNaN(d)) return "no-date";
+      const day = d.getDay(); // 0=Sun
+      const mon = new Date(d);
+      mon.setDate(d.getDate() - ((day + 6) % 7)); // Back to Monday
+      return mon.toISOString().slice(0, 10);
+    };
+    const groups = {};
+    activeFeed.forEach((item) => {
+      const weekKey = getWeekStart(item.start_date);
+      if (!groups[weekKey]) groups[weekKey] = [];
+      groups[weekKey].push(item);
+    });
+    // Sort weeks chronologically (no-date at end)
+    return Object.entries(groups).sort(([a], [b]) => {
+      if (a === "no-date") return 1;
+      if (b === "no-date") return -1;
+      return a.localeCompare(b);
+    });
   }, [activeFeed]);
 
   // Count new activities this week across all circles
@@ -907,11 +943,28 @@ export default function CirclesTab({
           )}
         </div>
 
-        {/* Feed cards */}
+        {/* Feed cards grouped by week (Issue #4) */}
         {activeFeed.length === 0 ? (
           <EmptyState icon={"\uD83D\uDCE8"} message="No shared activities yet. Tap '+ Share' to share your first activity with this circle." />
         ) : (
-          activeFeed.map((item) => {
+          feedByWeek.map(([weekKey, items]) => {
+            const weekLabel = weekKey === "no-date" ? "No Date Set" : (() => {
+              const d = new Date(weekKey + "T00:00:00");
+              const end = new Date(d); end.setDate(d.getDate() + 6);
+              const fmt = (dt) => dt.toLocaleDateString("en-CA", { month: "short", day: "numeric" });
+              return `Week of ${fmt(d)} – ${fmt(end)}`;
+            })();
+            return (
+              <div key={weekKey}>
+                <div style={{
+                  fontFamily: "'Poppins', sans-serif", fontSize: 13, fontWeight: 700,
+                  color: C.seaGreen, textTransform: "uppercase", letterSpacing: 0.5,
+                  padding: "16px 0 6px", borderBottom: `2px solid ${C.seaGreen}20`,
+                  marginBottom: 10,
+                }}>
+                  {weekLabel}
+                </div>
+                {items.map((item) => {
             const dupKey = `${item.activity_name}|||${item.provider_name}`.toLowerCase();
             const dupCount = duplicateCounts[dupKey] || 1;
             const isBookmarked = bookmarks.has(item.id);
@@ -1098,6 +1151,9 @@ export default function CirclesTab({
                 </div>
               </div>
             );
+          })}
+              </div>
+            );
           })
         )}
 
@@ -1140,6 +1196,7 @@ export default function CirclesTab({
                 shareUrl="https://skeddo.ca"
                 onCopy={() => { (navigator.clipboard ? navigator.clipboard.writeText(activeCircle.inviteCode) : Promise.reject()).catch(() => {}); showToast("Invite code copied!"); setShowInviteDrawer(false); }}
                 subject={`Join my Skeddo circle: ${activeCircle.name}`}
+                isDesktop={isDesktop}
               />
             </div>
           </>

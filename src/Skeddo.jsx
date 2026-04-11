@@ -497,7 +497,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     showToast("Kid removed");
   };
 
-  const handleAddToSchedule = (dirProgram) => {
+  const handleAddToSchedule = async (dirProgram) => {
     // Gate: must assign to at least one kid
     if (kids.length > 0 && (!dirProgram.kidIds || dirProgram.kidIds.length === 0)) {
       showToast("Please assign this program to at least one child");
@@ -525,6 +525,25 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       registrationUrl: dirProgram.registrationUrl || "",
       notes: "",
     });
+
+    // Share to selected circles BEFORE closing modal (Issue #7 fix)
+    if (dirProgram.circleIds?.length > 0 && circlesHook?.shareActivities) {
+      for (const circleId of dirProgram.circleIds) {
+        try {
+          await circlesHook.shareActivities(circleId, [{
+            id: dirProgram.id || (dirProgram.name + "-" + dirProgram.provider),
+            name: dirProgram.name,
+            provider: dirProgram.provider,
+            category: dirProgram.category,
+            cost: dirProgram.cost,
+            startDate: dirProgram.startDate,
+            endDate: dirProgram.endDate,
+            status: dirProgram.status || "Exploring",
+          }], profile?.displayName || "Someone");
+        } catch { /* noop */ }
+      }
+    }
+
     setModal(null);
     showToast("Added to your schedule");
   };

@@ -184,7 +184,10 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
                   key={day}
                   type="button"
                   onClick={() => {
-                    const days = (form.days || "").split(", ").filter(Boolean);
+                    // Expand "Mon-Fri" shorthand to individual days before splitting
+                    let daysStr = form.days || "";
+                    if (daysStr.toLowerCase() === "mon-fri") daysStr = "Mon, Tue, Wed, Thu, Fri";
+                    const days = daysStr.split(", ").filter(Boolean);
                     if (isSelected) {
                       update("days", days.filter((d) => d.toLowerCase() !== day.toLowerCase()).join(", "));
                     } else {
