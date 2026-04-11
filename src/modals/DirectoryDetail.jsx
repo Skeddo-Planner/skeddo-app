@@ -67,7 +67,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
 
   const [ageWarning, setAgeWarning] = useState(null);
 
-  const doAdd = async () => {
+  const doAdd = () => {
     const kidNames = selectedKidIds.map((id) => (kids || []).find((k) => k.id === id)?.name).filter(Boolean);
     setAddedKidNames(kidNames);
     onAddToSchedule({
@@ -75,33 +75,8 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       cost: customCost !== "" ? Number(customCost) : (p.cost === "TBD" ? 0 : Number(p.cost) || 0),
       status: selectedStatus,
       kidIds: selectedKidIds,
+      _circleIds: selectedCircleIds,
     });
-    // Share to selected circles
-    if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
-      const newShared = new Set(sharedToCircles);
-      for (const circleId of selectedCircleIds) {
-        try {
-          await circlesHook.shareActivities(circleId, [{
-            programId: p.id || null,
-            activityName: p.name,
-            providerName: p.provider || "",
-            childName: kidNames.join(", ") || "",
-            scheduleInfo: [p.days, p.times].filter(Boolean).join(" · "),
-            ageGroup: p.ageMin && p.ageMax ? `Ages ${p.ageMin}-${p.ageMax}` : "",
-            registrationUrl: p.registrationUrl || "",
-            location: p.location || "",
-            startDate: p.startDate || "",
-            endDate: p.endDate || "",
-            status: selectedStatus,
-          }], profile?.displayName || "Someone");
-          trackEvent("share_program_to_circle", { program_name: p.name, circle_name: circlesHook.circles.find((c) => c.id === circleId)?.name });
-          newShared.add(circleId);
-        } catch (err) {
-          console.warn("Failed to share to circle:", err.message || err);
-        }
-      }
-      setSharedToCircles(newShared);
-    }
     setShowAddForm(false);
     setJustAdded(true);
     setAgeWarning(null);

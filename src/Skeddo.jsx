@@ -510,7 +510,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   /* ── Modal actions ── */
-  const handleSaveProgram = () => {
+  const handleSaveProgram = (circleIds = []) => {
     if (!form.name?.trim()) return;
     // Gate: must assign to at least one kid
     if (kids.length > 0 && (!form.kidIds || form.kidIds.length === 0)) {
@@ -528,8 +528,31 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     setModal(null);
     showToast(isNew ? "Program added" : "Program updated");
 
+    // Share to selected circles (runs in parent so it survives modal unmount)
+    if (circleIds.length > 0 && circlesHook?.shareActivities) {
+      const kidNames = (form.kidIds || [])
+        .map((id) => kids.find((k) => k.id === id)?.name)
+        .filter(Boolean);
+      for (const circleId of circleIds) {
+        circlesHook.shareActivities(circleId, [{
+          programId: form.id || null,
+          activityName: form.name,
+          providerName: form.provider || "",
+          childName: kidNames.join(", ") || "",
+          scheduleInfo: [form.days, form.times].filter(Boolean).join(" · "),
+          ageGroup: form.ageMin && form.ageMax ? `Ages ${form.ageMin}-${form.ageMax}` : "",
+          registrationUrl: form.registrationUrl || "",
+          location: form.location || "",
+          startDate: form.startDate || "",
+          endDate: form.endDate || "",
+          status: form.status || "Exploring",
+        }], profile?.displayName || "Someone").catch((err) => {
+          console.warn("Failed to share to circle:", err.message || err);
+        });
+      }
+    }
+
     // Notify founders when a user manually adds a new program
-    // (so they can verify and add it to the directory for all users)
     if (isNew) {
       try {
         const token = session?.access_token;
@@ -557,7 +580,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
             userName: profile.displayName || "",
             userId: userId || "",
           }),
-        }).catch(() => {}); // fire-and-forget, don't block the user
+        }).catch(() => {});
       } catch {}
     }
   };
@@ -590,6 +613,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       showToast("Please assign this program to at least one child");
       return;
     }
+    const circleIds = dirProgram._circleIds || [];
     saveProgram({
       id: uid(),
       name: dirProgram.name,
@@ -612,8 +636,31 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       registrationUrl: dirProgram.registrationUrl || "",
       notes: "",
     });
-    setModal(null);
     showToast("Added to your schedule");
+
+    // Share to selected circles
+    if (circleIds.length > 0 && circlesHook?.shareActivities) {
+      const kidNames = (dirProgram.kidIds || [])
+        .map((id) => kids.find((k) => k.id === id)?.name)
+        .filter(Boolean);
+      for (const circleId of circleIds) {
+        circlesHook.shareActivities(circleId, [{
+          programId: dirProgram.id || null,
+          activityName: dirProgram.name,
+          providerName: dirProgram.provider || "",
+          childName: kidNames.join(", ") || "",
+          scheduleInfo: [dirProgram.days, dirProgram.times].filter(Boolean).join(" · "),
+          ageGroup: dirProgram.ageMin && dirProgram.ageMax ? `Ages ${dirProgram.ageMin}-${dirProgram.ageMax}` : "",
+          registrationUrl: dirProgram.registrationUrl || "",
+          location: dirProgram.location || "",
+          startDate: dirProgram.startDate || "",
+          endDate: dirProgram.endDate || "",
+          status: dirProgram.status || "Exploring",
+        }], profile?.displayName || "Someone").catch((err) => {
+          console.warn("Failed to share to circle:", err.message || err);
+        });
+      }
+    }
   };
 
   const handleNavigateToTab = (tabId, statusFilterVal, kidId) => {

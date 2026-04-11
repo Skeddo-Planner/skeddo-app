@@ -400,21 +400,21 @@ export function useAppData(userId) {
           { event: "*", schema: "public", table: "user_programs" },
           (payload) => {
             // Ignore changes made by the current user (already reflected in local state)
-            if (payload.new?.user_id === userId && payload.eventType !== "DELETE") return;
-            if (payload.old?.user_id === userId && payload.eventType === "DELETE") return;
+            if (payload.new?.user_id === userId && payload.event !== "DELETE") return;
+            if (payload.old?.user_id === userId && payload.event === "DELETE") return;
 
-            if (payload.eventType === "INSERT") {
+            if (payload.event === "INSERT") {
               const prog = programFromDb(payload.new);
               setPrograms((prev) => {
                 if (prev.some((p) => p.id === prog.id)) return prev;
                 return [...prev, prog];
               });
-            } else if (payload.eventType === "UPDATE") {
+            } else if (payload.event === "UPDATE") {
               const prog = programFromDb(payload.new);
               setPrograms((prev) =>
                 prev.map((p) => (p.id === prog.id ? prog : p))
               );
-            } else if (payload.eventType === "DELETE") {
+            } else if (payload.event === "DELETE") {
               setPrograms((prev) => prev.filter((p) => p.id !== payload.old.id));
             }
           }
