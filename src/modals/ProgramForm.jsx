@@ -52,19 +52,27 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
     onSave();
     // Share to selected circles after saving
     if (selectedCircleIds.length > 0 && circlesHook?.shareActivities) {
+      const kidNames = (form.kidIds || [])
+        .map((id) => (kids || []).find((k) => k.id === id)?.name)
+        .filter(Boolean);
       for (const circleId of selectedCircleIds) {
         try {
           await circlesHook.shareActivities(circleId, [{
-            id: form.id || (form.name + "-" + (form.provider || "")),
-            name: form.name,
-            provider: form.provider || "",
-            category: form.category || "Sports",
-            cost: form.cost ? Number(form.cost) : null,
+            programId: form.id || null,
+            activityName: form.name,
+            providerName: form.provider || "",
+            childName: kidNames.join(", ") || "",
+            scheduleInfo: [form.days, form.times].filter(Boolean).join(" · "),
+            ageGroup: form.ageMin && form.ageMax ? `Ages ${form.ageMin}-${form.ageMax}` : "",
+            registrationUrl: form.registrationUrl || "",
+            location: form.location || "",
             startDate: form.startDate || "",
             endDate: form.endDate || "",
             status: form.status || "Exploring",
           }], profile?.displayName || "Someone");
-        } catch { /* noop */ }
+        } catch (err) {
+          console.warn("Failed to share to circle:", err.message || err);
+        }
       }
     }
   }

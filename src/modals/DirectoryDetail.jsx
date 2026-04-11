@@ -82,18 +82,23 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
       for (const circleId of selectedCircleIds) {
         try {
           await circlesHook.shareActivities(circleId, [{
-            id: p.id || (p.name + "-" + p.provider),
-            name: p.name,
-            provider: p.provider,
-            category: p.category,
-            cost: p.cost,
-            startDate: p.startDate,
-            endDate: p.endDate,
+            programId: p.id || null,
+            activityName: p.name,
+            providerName: p.provider || "",
+            childName: kidNames.join(", ") || "",
+            scheduleInfo: [p.days, p.times].filter(Boolean).join(" · "),
+            ageGroup: p.ageMin && p.ageMax ? `Ages ${p.ageMin}-${p.ageMax}` : "",
+            registrationUrl: p.registrationUrl || "",
+            location: p.location || "",
+            startDate: p.startDate || "",
+            endDate: p.endDate || "",
             status: selectedStatus,
           }], profile?.displayName || "Someone");
           trackEvent("share_program_to_circle", { program_name: p.name, circle_name: circlesHook.circles.find((c) => c.id === circleId)?.name });
           newShared.add(circleId);
-        } catch { /* noop */ }
+        } catch (err) {
+          console.warn("Failed to share to circle:", err.message || err);
+        }
       }
       setSharedToCircles(newShared);
     }
