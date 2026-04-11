@@ -133,7 +133,7 @@ Coverage:   scripts/check-rules-coverage.cjs
 | R20  | "Coming Soon" requires a registrationDate |
 | R22  | Never guess or estimate — null + costNote when unknown |
 | R23  | Every program must be verified on the provider's live page |
-| R24  | Never use activekids.com or campscui.active.com URLs |
+| R24  | Never use activekids.com URLs (campscui.active.com is allowed) |
 | R28  | "Open" requires confirmed2026=true or an ActiveNet ID |
 | R30  | Deduplication must preserve unique time slots and age groups |
 | R31  | Triple-check before removing ANY program |
@@ -148,8 +148,14 @@ Coverage:   scripts/check-rules-coverage.cjs
   actual provider page
 - Never remove a program because registration is full, URL is broken, or price is unknown
   — use appropriate flags instead
-- Never use activekids.com or campscui.active.com as data sources
+- Never use activekids.com as a data source (campscui.active.com is a legitimate registration platform and is allowed)
 - Never skip `fill-computable-fields.cjs` — it must run before validate to prevent false violations
+- **Never set the `url` field to a provider homepage** (e.g. `https://example.com/`).
+  The `url` field MUST point to the provider's camp/program listing page at minimum,
+  and ideally to the specific program's detail or registration page. The validator now
+  enforces this as Rule 1b.
+- **Never batch-add programs from an API or spreadsheet without browser-verifying a sample** —
+  at least 10-15 programs must be checked against the live registration page before committing
 
 ## Key Scripts
 
@@ -163,6 +169,7 @@ Coverage:   scripts/check-rules-coverage.cjs
 | `node scripts/check-rules-coverage.cjs` | Verify doc ↔ validator coverage |
 | `node scripts/validate-urls.cjs --fix` | Fix broken registration URLs |
 | `node scripts/verify-programs.cjs --incremental --fix` | Cross-check live pages |
+| `node scripts/update-activenet-status.cjs --fix` | Refresh enrollment statuses from ActiveNet API (COV/BNB/WV/PC/LGY) |
 
 ### Quarantine file
 
@@ -188,7 +195,13 @@ chmod +x .husky/pre-commit   # Mac/Linux only
 
 ## One Click Deeper Audit Standard
 
-**REQUIRED TOOL: Always use Playwright browser (`mcp__playwright__browser_navigate`) for page navigation. Never use `WebFetch` or `WebSearch` to read registration page content** — they cannot render JavaScript and will silently miss program data on modern booking systems (ActiveNet, Jackrabbit, CourseStorm, etc.). Use `WebSearch` only to *find* a URL, then navigate to it with Playwright.
+**REQUIRED TOOL: Always use Chrome browser (Claude in Chrome MCP) for page navigation. Never use `WebFetch` or `WebSearch` to read registration page content** — they cannot render JavaScript and will silently miss program data on modern booking systems (ActiveNet, Jackrabbit, CourseStorm, etc.). Use `WebSearch` only to *find* a URL, then navigate to it with Chrome.
+
+**CRITICAL — URL QUALITY:** The `url` field is what parents click in Skeddo. It MUST point to the provider's program/camp listing page at minimum — **never a bare homepage** (`https://example.com/`). The validator now enforces this (Rule 1b). When adding or auditing any program:
+1. Navigate to the provider's website in Chrome
+2. Find the actual camp/program listing page (e.g., `/camps/`, `/summer-programs/`, `/register/`)
+3. Use THAT page's URL as the `url` field — not the homepage
+4. If the provider has individual program detail pages, use those for even better specificity
 
 When auditing or adding provider data, EVERY field must be verified against the provider's actual registration page. This means:
 

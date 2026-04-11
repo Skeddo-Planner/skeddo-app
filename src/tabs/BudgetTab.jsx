@@ -570,6 +570,59 @@ export default function BudgetTab({
           </div>
         )}
 
+        {/* Additional Costs list (desktop) */}
+        {visibleManualCosts.length > 0 && (
+          <div style={{ marginTop: 16, marginBottom: 0 }}>
+            <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, fontWeight: 600, color: C.muted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 8 }}>
+              Additional Costs
+            </div>
+            {visibleManualCosts.map((c) => {
+              const kid = kids.find((k) => k.id === c.kidId);
+              const isNegative = c.amount < 0;
+              return (
+                <div
+                  key={c.id}
+                  style={{
+                    background: C.white, borderRadius: 10,
+                    border: `0.5px solid rgba(27,36,50,0.08)`,
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "10px 14px", marginBottom: 4, cursor: "pointer",
+                  }}
+                  onClick={() => onEditCost && onEditCost(c)}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{
+                      width: 28, height: 28, borderRadius: 7, display: "flex", alignItems: "center", justifyContent: "center",
+                      background: isNegative ? "rgba(45,159,111,0.1)" : C.border,
+                      fontFamily: "'Barlow', sans-serif", fontSize: 12, fontWeight: 700,
+                      color: isNegative ? C.seaGreen : C.muted,
+                    }}>
+                      {isNegative ? "-" : "$"}
+                    </div>
+                    <div>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: 14, color: C.ink }}>
+                        {c.description}
+                      </div>
+                      <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>
+                        {c.category}{kid ? ` \u00B7 ${kid.name}` : ""}
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{
+                      fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700,
+                      color: isNegative ? C.seaGreen : C.ink,
+                    }}>
+                      {isNegative ? `-${fmt$(Math.abs(c.amount))}` : fmt$(c.amount)}
+                    </span>
+                    <span style={{ fontSize: 14, color: C.muted, lineHeight: 1 }}>&#9998;</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {/* Add cost button */}
         <button
           onClick={onAddCost}
@@ -1114,7 +1167,7 @@ export default function BudgetTab({
       </div>
 
       {/* ═══ MANUAL COSTS ═══ */}
-      {isPaid && visibleManualCosts.length > 0 && (
+      {visibleManualCosts.length > 0 && (
         <div style={{ marginBottom: 14 }}>
           <div style={{ ...labelStyle, marginBottom: 8 }}>Additional Costs</div>
           {visibleManualCosts.map((c) => {
@@ -1147,12 +1200,15 @@ export default function BudgetTab({
                     </div>
                   </div>
                 </div>
-                <span style={{
-                  fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700,
-                  color: isNegative ? C.seaGreen : C.ink,
-                }}>
-                  {isNegative ? `-${fmt$(Math.abs(c.amount))}` : fmt$(c.amount)}
-                </span>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{
+                    fontFamily: "'Poppins', sans-serif", fontSize: 15, fontWeight: 700,
+                    color: isNegative ? C.seaGreen : C.ink,
+                  }}>
+                    {isNegative ? `-${fmt$(Math.abs(c.amount))}` : fmt$(c.amount)}
+                  </span>
+                  <span style={{ fontSize: 14, color: C.muted, lineHeight: 1 }}>&#9998;</span>
+                </div>
               </div>
             );
           })}

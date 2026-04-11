@@ -53,6 +53,7 @@ const FREE_PROVIDERS = [
   "Gurdwara Sahib Sukh Sagar", "Khalsa School Canada",
   "Vancouver Aboriginal Friendship Centre", "UBC CEDAR Program", "I-SPARC",
   "BMWC", "YWCA BC", "City of Langley", "City of Port Coquitlam",
+  "City of Burnaby",
 ];
 
 // Municipal providers — many programs are genuinely free (drop-ins, open swims, etc.)
@@ -108,6 +109,22 @@ programs.forEach((p, idx) => {
     warn(id, 1, "Missing registrationUrl");
   } else if (p.registrationUrl && !p.registrationUrl.startsWith("http")) {
     warn(id, 1, `Invalid registrationUrl: ${p.registrationUrl}`);
+  }
+
+  // ── Rule 1b: Display URL (url field) must not be a generic homepage ──
+  // The url field is what parents see in Skeddo — it must point to the program page, not the provider homepage
+  if (p.url) {
+    try {
+      const parsed = new URL(p.url);
+      const pathOnly = parsed.pathname.replace(/\/+$/, "");
+      if (pathOnly === "" || pathOnly === "/home" || pathOnly === "/index.html") {
+        if (!HOMEPAGE_EXEMPT_DOMAINS.includes(parsed.hostname)) {
+          warn(id, 1, `url field is a generic homepage: ${p.url} — must point to program/camp page`);
+        }
+      }
+    } catch (e) {
+      // URL parse error
+    }
   }
 
   // ── Rule 32: Registration URL must lead to enrollment for THAT specific program ──
@@ -238,7 +255,10 @@ programs.forEach((p, idx) => {
   if (p.address) {
     const addr = p.address.trim();
     if (/^[A-Z][a-z]+, BC$/i.test(addr) || /^[A-Z][a-z]+, British Columbia$/i.test(addr)) {
-      warn(id, 11, `Vague address (city only): "${addr}"`);
+      // Exempt if addressNote explains why (e.g., outdoor programs with variable meeting locations)
+      if (!p.addressNote) {
+        warn(id, 11, `Vague address (city only): "${addr}"`);
+      }
     }
   }
 
@@ -546,6 +566,58 @@ for (const p of programs) {
 for (const p of programs) {
   if (p.isEstimate === true && p.confirmed2026 === true) {
     warn(String(p.id), 48, `isEstimate=true but confirmed2026=true — data confirmed from live page cannot be an estimate (R48)`);
+  }
+}
+
+// ── Systemic check: Programs with 2025 start dates still marked Open ──
+// These are stale data — 2025 programs can't be Open in 2026
+for (const p of programs) {
+  if (p.startDate && p.startDate.startsWith("2025") && p.enrollmentStatus === "Open") {
+    if (FIX) {
+      p.enrollmentStatus = "Completed";
+      fixed++;
+    } else {
+      warn(String(p.id), 8, `2025 start date but status is Open — should be Completed`);
+    }
+  }
+}
+
+// ── Systemic check: Programs with past endDate not marked Completed ──
+const todayStr = TODAY.toISOString().split("T")[0];
+for (const p of programs) {
+  if (p.endDate && p.endDate < todayStr && p.enrollmentStatus !== "Completed" && p.enrollmentStatus !== "Cancelled" && p.enrollmentStatus !== "Deactivated") {
+    if (FIX) {
+      p.enrollmentStatus = "Completed";
+      fixed++;
+    } else {
+      warn(String(p.id), 8, `endDate ${p.endDate} is past but status is ${p.enrollmentStatus} — should be Completed`);
+    }
+  }
+}
+
+// ── Systemic check: Future programs marked Completed ──
+// Programs with startDate in the future shouldn't be Completed
+for (const p of programs) {
+  if (p.startDate && p.startDate > todayStr && p.enrollmentStatus === "Completed") {
+    if (FIX) {
+      p.enrollmentStatus = "Likely Coming Soon";
+      fixed++;
+    } else {
+      warn(String(p.id), 8, `startDate ${p.startDate} is future but status is Completed — should be Likely Coming Soon`);
+    }
+  }
+}
+
+// ── Systemic check: Non-program entries (facility permits, fundraisers, etc.) ──
+const NON_PROGRAM_KEYWORDS = [
+  "permit renewal", "fundraiser", "fundraising", "tax clinic", "membership 20",
+  "bulkhead move", "school board |", "school use", "take out pos",
+  "shredathon", "no lanes available"
+];
+for (const p of programs) {
+  const name = (p.name || "").toLowerCase();
+  if (NON_PROGRAM_KEYWORDS.some(kw => name.includes(kw))) {
+    warn(String(p.id), 31, `Name "${p.name}" looks like a non-program entry (facility permit, fundraiser, etc.) — verify this is an actual children's program`);
   }
 }
 

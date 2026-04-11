@@ -64,6 +64,15 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/refresh-private.js
 
+      # ── Enrollment status refresh ─────────────────────────────────────────────
+
+      - name: Update ActiveNet enrollment statuses
+        # Checks all COV/BNB/WV/PC/LGY programs against the ActiveNet REST API
+        # to fix stale enrollment statuses (Open→Full, Open→Waitlist, etc.)
+        # This catches programs that fill up between data refreshes.
+        continue-on-error: true
+        run: node scripts/update-activenet-status.cjs --fix
+
       # ── Data quality validation ───────────────────────────────────────────────
 
       - name: Compute derived fields
@@ -281,6 +290,7 @@ Programs: ${PROGRAM_COUNT} total | Quarantined: ${QCOUNT} with unresolvable viol
           echo ""
           echo "Steps run:"
           echo "  1. Refresh:       ActiveNet (CoV), PerfectMind (Richmond), Private providers"
+          echo "  1b. Status:       ActiveNet enrollment status refresh (update-activenet-status.cjs)"
           echo "  2. Compute:       fill-computable-fields.cjs"
           echo "  3. Validate:      data quality rules (validate-programs.cjs --fix)"
           echo "  4. Auto-resolve:  offline + web resolution for changed programs"

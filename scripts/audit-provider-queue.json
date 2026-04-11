@@ -1951,11 +1951,12 @@
       "listings": 6,
       "distKm": 2.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed times 9:00-4:00 → 9:30 AM-3:30 PM on all 6 entries. Fixed Aug 4-7 days (BC Day off). Added 5 missing weeks: Jun 24-26 (3-day), Jun 29-Jul 3 (note: Canada Day held), Aug 17-21, Aug 24-28, Aug 31-Sep 4. All 11 weeks now in DB. Location: Variety Challenger Field, 4501 Clancy Loranger Way.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 153,
@@ -1963,11 +1964,12 @@
       "listings": 6,
       "distKm": 3.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Cancelled 4 wrong weeks (Jul 13-17, Jul 27-31, Aug 4-7, Aug 10-14 not on 2026 site). Fixed Jul 6-10 to Half Day. Fixed address to 4250 Marguerite St. Cost=null (pricing requires esportsdesk login, not publicly listed). Added Aug 31-Sep 4. 3 weeks confirmed for 2026.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 154,
@@ -1975,11 +1977,12 @@
       "listings": 6,
       "distKm": 2.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "2026 summer camps not yet posted on Uplifter (site shows 2022 data). Fixed status Full/Waitlist → Likely Coming Soon on all 6 entries. Added ageSpanJustified (provider offers distinct age bands but 2026 not yet posted). Re-audit when 2026 schedule is published.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 155,
@@ -1987,11 +1990,12 @@
       "listings": 6,
       "distKm": 2.6,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed cost $275→$399 ($349 early bird). Named themed weeks. Cancelled Jul 13-17 and Aug 4-7 (not offered). Added Aug 24-28 Ninja Warrior Week. 5 weeks total: Jul 6-10 Disney, Jul 20-24 LEGO, Jul 27-31 Self-Defense, Aug 10-14 Superhero, Aug 24-28 Ninja Warrior. Old domain thirdeyemartialarts.com dead; correct site is temartialarts.com.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 156,
@@ -1999,11 +2003,12 @@
       "listings": 6,
       "distKm": 3.2,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Private members-only club. No public 2026 summer camp schedule posted. Fixed provider name, address postal code, description. Added ageSpanJustified. Contact 604-731-2191.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 157,
@@ -2011,11 +2016,12 @@
       "listings": 6,
       "distKm": 7.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "MacSailing 12-week season (Jun 15-Sep 4). Fixed 6 existing entries (wrong price $375→$615, wrong ages 6-16→8-14, wrong name). Added 6 missing weeks (W1-3, W10-12). Full-day combo camps represented. Half-day programs ($330-$395) and keelboat programs exist but not individually listed — follow-up audit recommended.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 158,
@@ -2023,11 +2029,12 @@
       "listings": 6,
       "distKm": 7.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Windsure 10-week season. Fixed 6 existing entries: wrong status (Likely Coming Soon→Open), wrong price ($375→$540), wrong name. Added 4 missing weeks (W1 Jun 29-Jul 3, W8-W10 Aug 17-Sep 4). Canada Day Jul 1 off (4-day week 1). BC Day Aug 3 off (id=415 already correctly dated Aug 4-7). 9 distinct program types exist (full-day $540, half-day $300-$350) not individually listed.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 159,
@@ -2035,11 +2042,12 @@
       "listings": 6,
       "distKm": 7.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Jericho Beach Kayak 11-week season Jun 22-Sep 4. Fixed 6 entries: wrong prices ($315→$569 for full-day, $569→$455 for 4-day BC Day week Aug 4-7), added ageSpanJustified. Added 5 missing weeks (W1 Jun 22-26, W2 Jun 29-Jul 3 $455, W9-W11 Aug 17-Sep 4). Half-day camps ($315) not individually listed.",
+      "sessionId": null,
+      "completedAt": "2026-04-06"
     },
     {
       "rank": 160,
@@ -2047,11 +2055,12 @@
       "listings": 6,
       "distKm": 6.4,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 6 entries (435-440): scheduleType Full Day→Half Day, prices corrected (Farm Camp $550→$299, Preschool $550→$380). Added 27 new entries: 9 Pony Camp (6-12), 9 Farm Camp (6-12), 9 Preschool Pony Camp (3-5).",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 161,
@@ -2059,11 +2068,12 @@
       "listings": 8,
       "distKm": 21.8,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 8 entries (551-558): added ageSpanJustified, costNote, renamed entries. Fixed id=555 cost $275→$220 and days Mon-Fri→Tue-Fri (BC Day). Added RFC-2026-W1 (Jun 29-Jul 3, $220) and RFC-2026-W10 (Aug 31-Sep 4, $275).",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 162,
@@ -2071,11 +2081,12 @@
       "listings": 6,
       "distKm": 3.1,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 6 entries (565-570): set cost $420 (was null), ageMax 11→10, address St→Ave, updated descriptions. Fixed id=569 cost →$370 and days Mon-Fri→Tue-Fri (BC Day). Added 4 missing weeks: Jul 2-3 ($170 partial), Aug 17-21, Aug 24-28, Aug 31-Sep 4.",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 163,
@@ -2083,11 +2094,12 @@
       "listings": 6,
       "distKm": 4.1,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 6 entries (571-576): status Open, cost $325→$450/$400, startTime 9am→8:30am, ageMin 3→5, ageMax 11→7 (Explorers only), description corrected. Added 6 Innovators entries (ages 8-13). Corrected registrationUrl to Cognito Forms.",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 164,
@@ -2095,11 +2107,12 @@
       "listings": 6,
       "distKm": 4.2,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 4 morning sessions (603-606): confirmed2026, isEstimate=false, price $465 confirmed, ageMax 12→17 (teens), ageSpanJustified added, address postal code added. Fixed 2 afternoon camps (607-608): price $230 confirmed, priceVerified=true.",
+      "sessionId": null,
+      "auditedDate": "2026-04-06"
     },
     {
       "rank": 165,
@@ -2107,11 +2120,12 @@
       "listings": 6,
       "distKm": 2.3,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Downgraded 6 unverified ACT entries to Likely Coming Soon — VSC camps not found in CoV recreation portal for 2026",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 166,
@@ -2119,11 +2133,12 @@
       "listings": 8,
       "distKm": 20.7,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Relocated 8 Surrey entries to Burnaby, added 8 Port Moody entries. Surrey 404. Ages fixed 5→6.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 167,
@@ -2131,11 +2146,12 @@
       "listings": 7,
       "distKm": 16,
       "priorityScore": 52,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Added 3 missing AFK day camp sessions; fixed 7 SD44 summer school URLs (404→main page).",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 168,
@@ -2143,11 +2159,12 @@
       "listings": 6,
       "distKm": 11.7,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed wrong address (Minoru Blvd→Hazelbridge), cost 50→null (75 half-day or 50 full-day+taxes), downgraded to Likely Coming Soon.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 169,
@@ -2155,11 +2172,12 @@
       "listings": 6,
       "distKm": 9.7,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed cost $350→null ($249-$449/week), fixed names to weekly format, added ageSpanJustified, July confirmed Open, priceVerified→false, BC Day week corrected.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 170,
@@ -2167,11 +2185,12 @@
       "listings": 6,
       "distKm": 12.1,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Audit done 2026-04-05. Fixed IDs 325-330 (name/cost/time), added TRY Hockey, Girls Hockey, Goaltender camps. 17 total entries. Queue was reset to pending after audit — data and verification log confirmed intact.",
+      "sessionId": null,
+      "completedDate": "2026-04-05"
     },
     {
       "rank": 171,
@@ -2179,11 +2198,12 @@
       "listings": 6,
       "distKm": 11.8,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed address (5300 No.3 Rd→4751 Shell Rd), cost (50→5/day), time (1-4pm), status Open. Only Jul 6-10 and Aug 24-28 confirmed. Mid-summer weeks set to Likely Coming Soon.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 172,
@@ -2191,11 +2211,12 @@
       "listings": 6,
       "distKm": 10.9,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "completed",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Fixed 6 entries: wrong name/cost/dates/times/URL. 4 confirmed programs (Level 1 kayak, Level 2 kayak, SUP, Coastal Adventure), 2 from listing page only. Season Jun 29-Aug 28.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 173,
@@ -2203,11 +2224,12 @@
       "listings": 6,
       "distKm": 9,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "CRITICAL: Provider in Greater Victoria (Vancouver Island), NOT Metro Vancouver. lat/lng corrected to 48.5145,-123.4102. Programs will fall outside Metro Vancouver search area. DB had wrong North Vancouver address. Prices confirmed: ID 488 $465+GST, ID 489 $585+GST. 3 additional programs on listing page not yet in DB.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 174,
@@ -2215,11 +2237,12 @@
       "listings": 6,
       "distKm": 8.5,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had wrong address (3663 Park Rd), wrong price (75 vs 45), all marked Full (incorrect). 4 distinct programs at 2 locations: PH Multi-Age (3-9), PH School Age (5-12), West Bay Multi-Age (3-9, ALL FULL), PH Day-to-Day (9/day, Canada Day week). Season Jul 6-Aug 28 (8 weeks). IDs 513-514 placeholders for unconfirmed other locations.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 175,
@@ -2227,11 +2250,12 @@
       "listings": 6,
       "distKm": 11.9,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had wrong times (9am vs 8:30am-5:30pm), wrong price for Aug 10-14 (00→25), wrong status for Jul 20-24 (Open→Full/Sold Out). 10-week season Jun 29-Sep 4; DB covers only 6 weeks. ID 577 repurposed to Week 1 (Canada Day). Weeks 3,8,9,10 not in DB — follow-up needed.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 176,
@@ -2239,11 +2263,12 @@
       "listings": 6,
       "distKm": 13.3,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had ALL 6 entries as cost=null Likely Coming Soon. Registration OPEN with 60+ themed camps across 9 weeks (Jul 6-Sep 4). Split into Little Wonders (5-8) and Junior Wonders (7-12). IDs 587-590 cover season aggregates and BC Day week by cohort. IDs 591-592 placeholders. Prices 10-18/week. Individual themed camp entries not yet in DB.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 177,
@@ -2251,11 +2276,12 @@
       "listings": 5,
       "distKm": 3.3,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "DB had confirmed2026=false, Likely Coming Soon — WRONG, registration open. Fixed times (11am-3pm), status, confirmed2026. 7 weeks Jun 22-Aug 21 (no BC Day). ID 617 repurposed to Jun 22-26 Speak Up! week. Aug 10-14 and Aug 17-21 not in DB.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 178,
@@ -2263,11 +2289,12 @@
       "listings": 5,
       "distKm": 3.5,
       "priorityScore": 51,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "All programs available (not Full) for spring 2026 semester (May 4-Jun 26). DB had wrong statuses (Full/Waitlist) and wrong prices. Prices: Magical Music 88-215, Art Club 79-205, Little Wonders 62-185, Explorer Lab 88-215, Drop-In 0 (correct). confirmed2026=false→true.",
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 179,
@@ -2275,10 +2302,10 @@
       "listings": 7,
       "distKm": 18.2,
       "priorityScore": 51,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-SALMONFOREST-AUDIT-2026-04-06.md",
+      "notes": "7 listings verified. ageMax corrected for Pro-D Day (8→11 for K-Grade 5). costNote added to all entries with GST/sibling discount info. All data otherwise confirmed correct.",
       "sessionId": null
     },
     {
@@ -2287,10 +2314,10 @@
       "listings": 6,
       "distKm": 15.7,
       "priorityScore": 50,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-VCIRCUS-AUDIT-2026-04-06.md",
+      "notes": "6 listings corrected, 1 added (Aug 17-21). DB cost $350 was wrong; corrected to $349 (half day) / $499 (full day). endTime 4:00PM→3:30PM. Missing week added.",
       "sessionId": null
     },
     {
@@ -2299,10 +2326,10 @@
       "listings": 5,
       "distKm": 6.5,
       "priorityScore": 50,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-CLUBHOUSEKIDS-AUDIT-2026-04-06.md",
+      "notes": "5 listings corrected. Times fixed 8am-5pm→9am-4pm. Status Open→Coming Soon (public reg opens Apr 7 7pm). ID 559 Victoria Dr address unconfirmed for 2026, marked Likely Coming Soon. New West ageMax corrected 13→9 (Kids only). R29 on CampBrain URL unavoidable.",
       "sessionId": null
     },
     {
@@ -2311,10 +2338,10 @@
       "listings": 6,
       "distKm": 21.5,
       "priorityScore": 50,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-PARKLANDPLAYERS-AUDIT-2026-04-06.md",
+      "notes": "6 corrected, 3 added (Jun 28 Canada Day, Aug 17-21, Aug 24-27). Cost $275→$325-$355. Times 9am-4pm→7:30am-5:30pm. Old registrationUrl was 404, fixed. Status Likely Coming Soon→Open.",
       "sessionId": null
     },
     {
@@ -2323,10 +2350,10 @@
       "listings": 5,
       "distKm": 6.7,
       "priorityScore": 50,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-LORDBYNGPOOL-AUDIT-2026-04-06.md",
+      "notes": "All 24 structured lessons marked Full (waiting lists open); Swimmer 7 Rookie cost fixed .30→32.40; no summer sessions yet",
       "sessionId": null
     },
     {
@@ -2335,10 +2362,10 @@
       "listings": 5,
       "distKm": 7.1,
       "priorityScore": 50,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-06",
+      "logFile": "docs/VERIFICATION-LOG-FRASERVIEWGOLF-AUDIT-2026-04-06.md",
+      "notes": "5 updated + 11 added (3 Pro-D PM, 8 summer camps). Status: Likely Coming Soon→Open/Full. Camp reg opened Apr 3.",
       "sessionId": null
     },
     {
@@ -2347,11 +2374,12 @@
       "listings": 5,
       "distKm": 5.4,
       "priorityScore": 50,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 186,
@@ -2359,11 +2387,12 @@
       "listings": 4,
       "distKm": 3.4,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 187,
@@ -2371,11 +2400,12 @@
       "listings": 4,
       "distKm": 2.7,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 188,
@@ -2383,11 +2413,12 @@
       "listings": 4,
       "distKm": 3.4,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 189,
@@ -2395,11 +2426,12 @@
       "listings": 4,
       "distKm": 4,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 190,
@@ -2407,11 +2439,12 @@
       "listings": 4,
       "distKm": 0.2,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 191,
@@ -2419,11 +2452,12 @@
       "listings": 4,
       "distKm": 5.1,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 192,
@@ -2431,11 +2465,12 @@
       "listings": 4,
       "distKm": 4.7,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 193,
@@ -2443,11 +2478,12 @@
       "listings": 6,
       "distKm": 23.8,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 194,
@@ -2455,11 +2491,12 @@
       "listings": 4,
       "distKm": 2.5,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 195,
@@ -2467,11 +2504,12 @@
       "listings": 4,
       "distKm": 4.4,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 196,
@@ -2479,11 +2517,12 @@
       "listings": 4,
       "distKm": 4.8,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 197,
@@ -2491,11 +2530,12 @@
       "listings": 4,
       "distKm": 0.2,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 198,
@@ -2503,11 +2543,12 @@
       "listings": 4,
       "distKm": 5.5,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 199,
@@ -2515,11 +2556,12 @@
       "listings": 4,
       "distKm": 0.6,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 200,
@@ -2527,12 +2569,13 @@
       "listings": 4,
       "distKm": 3.3,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=6",
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 201,
@@ -2540,11 +2583,12 @@
       "listings": 4,
       "distKm": 0.2,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 202,
@@ -2552,11 +2596,12 @@
       "listings": 4,
       "distKm": 2.3,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-06"
     },
     {
       "rank": 203,
@@ -2564,22 +2609,23 @@
       "listings": 4,
       "distKm": 3,
       "priorityScore": 49,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "completedDate": "2026-04-09"
     },
     {
       "rank": 204,
       "name": "Coquitlam School District (SD43)",
-      "listings": 6,
+      "listings": 7,
       "distKm": 22.4,
       "priorityScore": 49,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SD43-AUDIT-2026-04-09.md",
+      "notes": "6 corrected (times, dates, status), 1 added (Secondary Skill Building). SD43-0002 (Gr 5-7) doesn't exist on live page — deactivated.",
       "sessionId": null
     },
     {
@@ -2588,10 +2634,10 @@
       "listings": 4,
       "distKm": 0.1,
       "priorityScore": 49,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-YWCABC-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (times, broken URL, durationPerDay). Year-round childcare, not camps. All on waitlist.",
       "sessionId": null
     },
     {
@@ -2600,22 +2646,22 @@
       "listings": 4,
       "distKm": 6.5,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PAINTLOUNGE-AUDIT-2026-04-09.md",
+      "notes": "Site 403 Forbidden. Toronto location closed. Address now U Paint I Fire (different business). Likely permanently closed. Entries retained per R31.",
       "sessionId": null
     },
     {
       "rank": 207,
       "name": "Pacific Coast Volleyball Club",
-      "listings": 4,
+      "listings": 22,
       "distKm": 8.8,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PCVC-AUDIT-2026-04-09.md",
+      "notes": "18 added (missing weeks + schedule types), 4 corrected. 11 weeks × half/full day = 22 listings. Registration open on LeagueApps.",
       "sessionId": null
     },
     {
@@ -2624,22 +2670,24 @@
       "listings": 4,
       "distKm": 11.1,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-WAYLANDSPORTS-AUDIT-2026-04-09.md",
+      "notes": "Site times out. Business active per Yelp/Facebook. Entries retained as unconfirmed. Re-audit when site available.",
+      "sessionId": null,
+      "note": "Re-audited via Chrome browser",
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 209,
       "name": "Dynamo Fencing",
-      "listings": 4,
+      "listings": 10,
       "distKm": 8.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-DYNAMOFENCING-AUDIT-2026-04-09.md",
+      "notes": "6 added (Aug sessions, full-day Gastown, Pro-D Day), 4 corrected. 3 locations: Gastown, North Van, Richmond. ID 360 (Jul 27-31) deactivated — doesn't exist on page.",
       "sessionId": null
     },
     {
@@ -2648,10 +2696,10 @@
       "listings": 4,
       "distKm": 9.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-ARTOFKICKBOXING-AUDIT-2026-04-09.md",
+      "notes": "Not a summer camp — year-round kickboxing classes. Ages corrected 4-14→6-13. Reclassified as Year-Round Program.",
       "sessionId": null
     },
     {
@@ -2660,10 +2708,10 @@
       "listings": 4,
       "distKm": 8.4,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-METROTKD-AUDIT-2026-04-09.md",
+      "notes": "Year-round martial arts classes, not summer camps. Reclassified 4 entries, ages fixed to 4-13, cost nulled.",
       "sessionId": null
     },
     {
@@ -2672,10 +2720,10 @@
       "listings": 4,
       "distKm": 7.3,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-ROSEWOOD-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (dates, address, ages, cost), 18 added. Summer 5wks×3 + Spring 2wks×3 + Pro-D May 18. Address fixed 6926→6269.",
       "sessionId": null
     },
     {
@@ -2684,10 +2732,10 @@
       "listings": 4,
       "distKm": 6.7,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-DHARMAKIDS-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (ageMax 9→8, themed names), 7 added (5 summer + 2 spring). 11 total sessions now complete.",
       "sessionId": null
     },
     {
@@ -2696,10 +2744,10 @@
       "listings": 4,
       "distKm": 7.6,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-LYCEUM-AUDIT-2026-04-09.md",
+      "notes": "4 corrected, 11 added. 15 unique school-aged programs. Preschool + preteen/teen pages not yet audited.",
       "sessionId": null
     },
     {
@@ -2708,10 +2756,10 @@
       "listings": 4,
       "distKm": 9.1,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-ASPIRE-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (cost $350→$500, schedule Full→Half Day), 27 added. 31 total sessions across math and literacy.",
       "sessionId": null
     },
     {
@@ -2720,10 +2768,10 @@
       "listings": 4,
       "distKm": 9.1,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-STAGEKIDZ-AUDIT-2026-04-09.md",
+      "notes": "2026 dates not yet announced. Address fixed Burnaby→Coquitlam (Douglas College). Cost nulled. Re-audit when dates published.",
       "sessionId": null
     },
     {
@@ -2732,10 +2780,10 @@
       "listings": 4,
       "distKm": 5.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-MOBERLY-AUDIT-2026-04-09.md",
+      "notes": "Only 4 community/general activities from CoV ActiveNet bulk import. No summer camps. Data reliable — no corrections needed.",
       "sessionId": null
     },
     {
@@ -2744,10 +2792,10 @@
       "listings": 4,
       "distKm": 8.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SD41-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (wrong times, enrollment status), 1 PM session added. All free for BC students. Elementary reg opens Apr 14, secondary OPEN.",
       "sessionId": null
     },
     {
@@ -2756,10 +2804,10 @@
       "listings": 4,
       "distKm": 10.2,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SD45-AUDIT-2026-04-09.md",
+      "notes": "4 corrected: cost $100→free, ageMax 10→13, times filled, neighbourhood/city fixed, confirmed2026 true. Registration staggered Apr 8-10.",
       "sessionId": null
     },
     {
@@ -2768,10 +2816,10 @@
       "listings": 4,
       "distKm": 8.9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-MAPLEWOOD-AUDIT-2026-04-09.md",
+      "notes": "4 verified accurate, 1 Farm Felting workshop added. Postal code fixed. No summer programs listed yet.",
       "sessionId": null
     },
     {
@@ -2780,10 +2828,10 @@
       "listings": 4,
       "distKm": 9,
       "priorityScore": 48,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-NSEC-AUDIT-2026-04-09.md",
+      "notes": "4 corrected: ageMin 6→7, Advanced Beginner Full Day→Half Day, Play Dates reclassified year-round. 2026 dates/prices TBD.",
       "sessionId": null
     },
     {
@@ -2792,10 +2840,10 @@
       "listings": 4,
       "distKm": 13.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-DEEPCOVE-AUDIT-2026-04-09.md",
+      "notes": "4 corrected, 6 added. DB only had 4 July weeks of one program. Now has all 8 weeks + BandFactory Jam Camps 101/201.",
       "sessionId": null
     },
     {
@@ -2804,10 +2852,10 @@
       "listings": 4,
       "distKm": 12.4,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SCKIM-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (address, postal code, URL, costNote). 2026 summer camp details not yet announced.",
       "sessionId": null
     },
     {
@@ -2828,10 +2876,10 @@
       "listings": 4,
       "distKm": 18.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-THEATRIX-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (enrollment status, descriptions), 3 added (Port Coquitlam camps). Provider shows 7 camps, DB now has 7.",
       "sessionId": null
     },
     {
@@ -2840,10 +2888,10 @@
       "listings": 4,
       "distKm": 14.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-QUEENS-ACADEMY-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (address, price, dates), 5 added. Location now Halpern Centre SFU. Provider shows 6 camps, DB has 9 (3 prior-year).",
       "sessionId": null
     },
     {
@@ -2852,10 +2900,10 @@
       "listings": 4,
       "distKm": 15.1,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-STAGE-MUSICAL-AUDIT-2026-04-09.md",
+      "notes": "4 corrected (activityType, costNote, registrationUrl), 1 added (Alice in Wonderland 11-15). Provider shows 5, DB has 5.",
       "sessionId": null
     },
     {
@@ -2864,10 +2912,10 @@
       "listings": 4,
       "distKm": 15.9,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PLACE-DES-ARTS-AUDIT-2026-04-09.md",
+      "notes": "4 corrected, 6 added. 102 ActiveNet listings. Day Camp ages 7-9, Half Day ages 5-12. Reg Apr 12.",
       "sessionId": null
     },
     {
@@ -2876,10 +2924,10 @@
       "listings": 3,
       "distKm": 2.2,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-HARBOUR-DANCE-AUDIT-2026-04-09.md",
+      "notes": "3 corrected (URL, postal code, costNote). Data largely accurate. /youth/ page removed.",
       "sessionId": null
     },
     {
@@ -2888,10 +2936,10 @@
       "listings": 3,
       "distKm": 2.5,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-KINGCREST-AUDIT-2026-04-09.md",
+      "notes": "3 corrected, 0 added. No summer camp page exists; early bird 00/wk hint on Pro D page.",
       "sessionId": null
     },
     {
@@ -2900,10 +2948,10 @@
       "listings": 3,
       "distKm": 1.9,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-COLLAGE-COLLAGE-AUDIT-2026-04-09.md",
+      "notes": "3 corrected, 2 added. Summer Art Camp 2026 discovered (AM/PM, ages 6-10, 75/wk). Mini MAKE updated to May/55.",
       "sessionId": null
     },
     {
@@ -2912,10 +2960,10 @@
       "listings": 4,
       "distKm": 17.5,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-PLANET-ICE-DELTA-AUDIT-2026-04-09.md",
+      "notes": "4 corrected, 0 added. ACTIVE API entries not on current PEHS schedule. All set to confirmed2026=false.",
       "sessionId": null
     },
     {
@@ -2924,10 +2972,10 @@
       "listings": 3,
       "distKm": 1.5,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-CROCODILE-MANDARIN-AUDIT-2026-04-09.md",
+      "notes": "3 corrected, 0 added. Spring term classes, not summer. 64/11 sessions confirmed.",
       "sessionId": null
     },
     {
@@ -2936,10 +2984,10 @@
       "listings": 3,
       "distKm": 2.5,
       "priorityScore": 47,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-CURLING-CLUB-HILLCREST-AUDIT-2026-04-09.md",
+      "notes": "3 corrected, 0 added. Pickleball programs verified on ActiveNet. Category/activityType fixed.",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=39"
     },
@@ -2949,9 +2997,9 @@
       "listings": 4,
       "distKm": 24.1,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-EXCEL-MARTIAL-ARTS-AUDIT-2026-04-09.md",
       "notes": null,
       "sessionId": null
     },
@@ -2961,9 +3009,9 @@
       "listings": 4,
       "distKm": 23.3,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SHUTTLESPORT-AUDIT-2026-04-09.md",
       "notes": null,
       "sessionId": null
     },
@@ -2973,9 +3021,9 @@
       "listings": 4,
       "distKm": 22.4,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-LINDBJERG-AUDIT-2026-04-09.md",
       "notes": null,
       "sessionId": null
     },
@@ -2985,9 +3033,9 @@
       "listings": 3,
       "distKm": 4.7,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-RENFREW-PARK-AUDIT-2026-04-09.md",
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
       "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
@@ -2998,11 +3046,13 @@
       "listings": 8,
       "distKm": 61.5,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-EVANS-LAKE-AUDIT-2026-04-09.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Re-audited via Chrome browser — added 16 missing programs",
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 240,
@@ -3010,11 +3060,12 @@
       "listings": 3,
       "distKm": 6.4,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-UTG-ACADEMY-AUDIT-2026-04-09.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Re-audited via Chrome 2026-04-09. 3 placeholders replaced with 27 verified sessions."
     },
     {
       "rank": 241,
@@ -3022,11 +3073,12 @@
       "listings": 3,
       "distKm": 7.2,
       "priorityScore": 46,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-DAVINCI-CODE-AUDIT-2026-04-09.md",
+      "notes": "Website times out — needs manual verification",
+      "sessionId": null,
+      "note": "Re-audited via Chrome 2026-04-09. Fixed status/URLs/pricing."
     },
     {
       "rank": 242,
@@ -3034,11 +3086,12 @@
       "listings": 4,
       "distKm": 30.2,
       "priorityScore": 45,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-WHITE-ROCK-GYM-AUDIT-2026-04-09.md",
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Re-audited Chrome 2026-04-09."
     },
     {
       "rank": 243,
@@ -3046,11 +3099,12 @@
       "listings": 6,
       "distKm": 48.8,
       "priorityScore": 45,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-SQUAMISH-CLIMBING-AUDIT-2026-04-09.md",
+      "notes": "Website times out — needs manual verification",
+      "sessionId": null,
+      "note": "Re-audited Chrome 2026-04-09. 6 placeholders replaced with 8 verified."
     },
     {
       "rank": 244,
@@ -3058,11 +3112,14 @@
       "listings": 6,
       "distKm": 48.8,
       "priorityScore": 45,
-      "status": "pending",
-      "auditDate": null,
-      "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "status": "complete",
+      "auditDate": "2026-04-09",
+      "logFile": "docs/VERIFICATION-LOG-MOUNTAIN-SKILLS-AUDIT-2026-04-09.md",
+      "notes": "Website CSS-only — needs manual verification",
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification",
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 245,
@@ -3070,11 +3127,14 @@
       "listings": 3,
       "distKm": 15,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification",
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 246,
@@ -3082,11 +3142,12 @@
       "listings": 4,
       "distKm": 30.5,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 247,
@@ -3094,11 +3155,12 @@
       "listings": 3,
       "distKm": 15.2,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 248,
@@ -3106,11 +3168,14 @@
       "listings": 3,
       "distKm": 12.1,
       "priorityScore": 45,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "note": "Reset: prior audit used WebFetch/web search instead of Chrome browser — needs re-verification",
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 249,
@@ -3118,11 +3183,12 @@
       "listings": 4,
       "distKm": 35.3,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "completedAt": "2026-04-09"
     },
     {
       "rank": 250,
@@ -3130,11 +3196,13 @@
       "listings": 4,
       "distKm": 35.4,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 251,
@@ -3142,11 +3210,13 @@
       "listings": 2,
       "distKm": 2.7,
       "priorityScore": 44,
-      "status": "pending",
+      "status": "complete",
       "auditDate": null,
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "lastAudited": "2026-04-09",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 252,
@@ -3167,11 +3237,12 @@
       "listings": 2,
       "distKm": 1.6,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 254,
@@ -3179,11 +3250,12 @@
       "listings": 2,
       "distKm": 1.9,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 255,
@@ -3191,11 +3263,12 @@
       "listings": 2,
       "distKm": 2.8,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 256,
@@ -3203,11 +3276,12 @@
       "listings": 2,
       "distKm": 3.7,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Hadden Park entries are 2 Petit Architect Spring Break camps (already Closed). No summer programs. Petit Architect covered under 74 other entries.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 257,
@@ -3215,11 +3289,12 @@
       "listings": 2,
       "distKm": 3.5,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 258,
@@ -3227,11 +3302,12 @@
       "listings": 2,
       "distKm": 2.6,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Bloedel entries are Petit Architect Spring Break camps (Closed). No summer programs. Field trip destination for VanDusen camps.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 259,
@@ -3239,12 +3315,13 @@
       "listings": 2,
       "distKm": 0,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
+      "notes": "Mount Pleasant CC — 145 entries already in DB under City of Vancouver. Well covered.",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=53",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 260,
@@ -3252,11 +3329,12 @@
       "listings": 2,
       "distKm": 3.8,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "JCCGV Camp Shalom — camp page not posted yet. Existing entries Likely Coming Soon — correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 261,
@@ -3264,11 +3342,12 @@
       "listings": 2,
       "distKm": 3.1,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "notes": "Barclay Room — 2 entries (childcare waitlist, not camps). Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 262,
@@ -3276,11 +3355,12 @@
       "listings": 2,
       "distKm": 0.2,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Lykopis Archery — Robin Hood Camp (Summer) in booking form but no details/dates/prices posted. Existing entries correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 263,
@@ -3288,11 +3368,12 @@
       "listings": 2,
       "distKm": 2.7,
       "priorityScore": 44,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Flow Martial Arts — Pro-D day camps only, existing entries correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 264,
@@ -3300,11 +3381,12 @@
       "listings": 2,
       "distKm": 4.7,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Italian Cultural Centre — Vacanze in Italiano price corrected from $495 to $340. Verified on registration form.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 265,
@@ -3312,11 +3394,12 @@
       "listings": 2,
       "distKm": 6.6,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Jericho Beach — 13 entries already in DB (kayak camps). Verified in earlier sessions.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 266,
@@ -3324,11 +3407,12 @@
       "listings": 2,
       "distKm": 9.7,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Scotiabarn Burnaby — 2 hockey camp entries. Existing data correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 267,
@@ -3348,11 +3432,12 @@
       "listings": 2,
       "distKm": 5.5,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Moberly Arts & Cultural Centre — 6 entries already in DB under City of Vancouver. Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 269,
@@ -3360,11 +3445,12 @@
       "listings": 2,
       "distKm": 6.6,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Vancouver Chinese Baptist Church — VBS and DayKnight camp. Existing entries correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 270,
@@ -3372,11 +3458,12 @@
       "listings": 2,
       "distKm": 4.6,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Vancouver Rowing Club — Junior rowing and rugby programs. Existing entries Likely Coming Soon — correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 271,
@@ -3384,11 +3471,12 @@
       "listings": 2,
       "distKm": 10.8,
       "priorityScore": 43,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Little Cooks Club — Summer camp listings. Existing entries Likely Coming Soon — correct.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 272,
@@ -3396,11 +3484,12 @@
       "listings": 2,
       "distKm": 11.5,
       "priorityScore": 42,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Natobi Garden — 2 Petit Architect entries (Closed). No summer programs at this venue.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 273,
@@ -3408,11 +3497,12 @@
       "listings": 4,
       "distKm": 48.8,
       "priorityScore": 42,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Camp Summit — 4 existing entries with full details. Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 274,
@@ -3420,11 +3510,12 @@
       "listings": 2,
       "distKm": 21.6,
       "priorityScore": 41,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
-      "notes": null,
-      "sessionId": null
+      "notes": "Bowen Island Sea Kayaking — 2 kayak camp entries. Correct as-is.",
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 275,
@@ -3432,11 +3523,12 @@
       "listings": 7,
       "distKm": 90.7,
       "priorityScore": 41,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 276,
@@ -3444,11 +3536,12 @@
       "listings": 1,
       "distKm": 2.5,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 277,
@@ -3456,11 +3549,12 @@
       "listings": 1,
       "distKm": 1.1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 278,
@@ -3468,11 +3562,12 @@
       "listings": 1,
       "distKm": 0.2,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 279,
@@ -3480,11 +3575,12 @@
       "listings": 1,
       "distKm": 3.3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 280,
@@ -3492,11 +3588,12 @@
       "listings": 1,
       "distKm": 3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 281,
@@ -3504,11 +3601,12 @@
       "listings": 1,
       "distKm": 2.6,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 282,
@@ -3516,11 +3614,12 @@
       "listings": 1,
       "distKm": 1.9,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 283,
@@ -3528,11 +3627,12 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 284,
@@ -3540,11 +3640,12 @@
       "listings": 1,
       "distKm": 2.7,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 285,
@@ -3552,11 +3653,12 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 286,
@@ -3564,11 +3666,12 @@
       "listings": 1,
       "distKm": 2.7,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 287,
@@ -3576,11 +3679,12 @@
       "listings": 1,
       "distKm": 2.5,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 288,
@@ -3588,11 +3692,12 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 289,
@@ -3600,11 +3705,12 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 290,
@@ -3612,11 +3718,12 @@
       "listings": 1,
       "distKm": 2.3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 291,
@@ -3624,11 +3731,12 @@
       "listings": 1,
       "distKm": 0.9,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 292,
@@ -3636,11 +3744,12 @@
       "listings": 1,
       "distKm": 2,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 293,
@@ -3648,11 +3757,12 @@
       "listings": 1,
       "distKm": 1.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 294,
@@ -3660,11 +3770,12 @@
       "listings": 1,
       "distKm": 2.8,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 295,
@@ -3672,11 +3783,12 @@
       "listings": 1,
       "distKm": 3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 296,
@@ -3684,11 +3796,12 @@
       "listings": 1,
       "distKm": 1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 297,
@@ -3696,11 +3809,12 @@
       "listings": 1,
       "distKm": 2.9,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 298,
@@ -3708,11 +3822,12 @@
       "listings": 1,
       "distKm": 2.1,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 299,
@@ -3720,11 +3835,12 @@
       "listings": 1,
       "distKm": 2.3,
       "priorityScore": 40,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 300,
@@ -3732,11 +3848,12 @@
       "listings": 1,
       "distKm": 4,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 301,
@@ -3744,12 +3861,13 @@
       "listings": 1,
       "distKm": 4.8,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=46",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 302,
@@ -3757,11 +3875,12 @@
       "listings": 1,
       "distKm": 7.5,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 303,
@@ -3769,11 +3888,12 @@
       "listings": 1,
       "distKm": 7.9,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 304,
@@ -3781,11 +3901,12 @@
       "listings": 1,
       "distKm": 6.6,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 305,
@@ -3793,11 +3914,12 @@
       "listings": 1,
       "distKm": 4.7,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 306,
@@ -3805,12 +3927,13 @@
       "listings": 1,
       "distKm": 3.7,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=55",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 307,
@@ -3818,12 +3941,13 @@
       "listings": 1,
       "distKm": 4.9,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 308,
@@ -3831,11 +3955,12 @@
       "listings": 1,
       "distKm": 3.9,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 309,
@@ -3843,11 +3968,12 @@
       "listings": 1,
       "distKm": 7.4,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 310,
@@ -3855,11 +3981,12 @@
       "listings": 1,
       "distKm": 5.8,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 311,
@@ -3867,12 +3994,13 @@
       "listings": 1,
       "distKm": 4.4,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=40"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=40",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 312,
@@ -3880,11 +4008,12 @@
       "listings": 1,
       "distKm": 4.5,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 313,
@@ -3892,11 +4021,12 @@
       "listings": 1,
       "distKm": 5.2,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 314,
@@ -3904,11 +4034,12 @@
       "listings": 1,
       "distKm": 6.1,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 315,
@@ -3916,11 +4047,12 @@
       "listings": 1,
       "distKm": 4.1,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 316,
@@ -3928,11 +4060,12 @@
       "listings": 1,
       "distKm": 3.9,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 317,
@@ -3940,11 +4073,12 @@
       "listings": 1,
       "distKm": 9.7,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 318,
@@ -3952,11 +4086,12 @@
       "listings": 1,
       "distKm": 5.9,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 319,
@@ -3964,11 +4099,12 @@
       "listings": 1,
       "distKm": 4.8,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 320,
@@ -3976,11 +4112,12 @@
       "listings": 1,
       "distKm": 5,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 321,
@@ -3988,11 +4125,12 @@
       "listings": 1,
       "distKm": 5.6,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 322,
@@ -4000,11 +4138,12 @@
       "listings": 1,
       "distKm": 5.3,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 323,
@@ -4012,11 +4151,12 @@
       "listings": 1,
       "distKm": 5.6,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 324,
@@ -4024,11 +4164,12 @@
       "listings": 1,
       "distKm": 5.8,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 325,
@@ -4036,11 +4177,12 @@
       "listings": 1,
       "distKm": 5.1,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 326,
@@ -4048,11 +4190,12 @@
       "listings": 1,
       "distKm": 5.1,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 327,
@@ -4060,11 +4203,12 @@
       "listings": 1,
       "distKm": 4.4,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 328,
@@ -4072,11 +4216,12 @@
       "listings": 1,
       "distKm": 4.5,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 329,
@@ -4084,11 +4229,12 @@
       "listings": 1,
       "distKm": 5,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 330,
@@ -4096,11 +4242,12 @@
       "listings": 1,
       "distKm": 5.1,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 331,
@@ -4108,11 +4255,12 @@
       "listings": 1,
       "distKm": 5.7,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 332,
@@ -4120,11 +4268,12 @@
       "listings": 1,
       "distKm": 6.1,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 333,
@@ -4132,11 +4281,12 @@
       "listings": 1,
       "distKm": 8.6,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 334,
@@ -4144,11 +4294,12 @@
       "listings": 1,
       "distKm": 9,
       "priorityScore": 39,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 335,
@@ -4156,11 +4307,12 @@
       "listings": 1,
       "distKm": 15.1,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 336,
@@ -4168,11 +4320,12 @@
       "listings": 1,
       "distKm": 11.5,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 337,
@@ -4180,11 +4333,12 @@
       "listings": 1,
       "distKm": 13.4,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 338,
@@ -4192,11 +4346,12 @@
       "listings": 1,
       "distKm": 13.2,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 339,
@@ -4204,11 +4359,12 @@
       "listings": 1,
       "distKm": 11.2,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 340,
@@ -4216,11 +4372,12 @@
       "listings": 1,
       "distKm": 16.4,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 341,
@@ -4228,11 +4385,12 @@
       "listings": 1,
       "distKm": 14.1,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 342,
@@ -4240,11 +4398,12 @@
       "listings": 1,
       "distKm": 11.1,
       "priorityScore": 38,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 343,
@@ -4252,11 +4411,12 @@
       "listings": 2,
       "distKm": 48.8,
       "priorityScore": 37,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 344,
@@ -4264,11 +4424,12 @@
       "listings": 1,
       "distKm": 20.1,
       "priorityScore": 37,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 345,
@@ -4276,11 +4437,12 @@
       "listings": 1,
       "distKm": 19.8,
       "priorityScore": 37,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 346,
@@ -4288,11 +4450,12 @@
       "listings": 2,
       "distKm": 50.5,
       "priorityScore": 37,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 347,
@@ -4300,11 +4463,12 @@
       "listings": 1,
       "distKm": 20,
       "priorityScore": 37,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 348,
@@ -4312,11 +4476,12 @@
       "listings": 1,
       "distKm": 21.8,
       "priorityScore": 37,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 349,
@@ -4324,11 +4489,12 @@
       "listings": 1,
       "distKm": 36.7,
       "priorityScore": 35,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 350,
@@ -4336,11 +4502,12 @@
       "listings": 1,
       "distKm": 32.1,
       "priorityScore": 35,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 351,
@@ -4348,11 +4515,12 @@
       "listings": 4,
       "distKm": 102.9,
       "priorityScore": 34,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 352,
@@ -4360,11 +4528,12 @@
       "listings": 3,
       "distKm": 95.4,
       "priorityScore": 33,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 353,
@@ -4372,11 +4541,12 @@
       "listings": 1,
       "distKm": 55.1,
       "priorityScore": 32,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 354,
@@ -4384,11 +4554,12 @@
       "listings": 1,
       "distKm": 59.3,
       "priorityScore": 31,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 355,
@@ -4396,11 +4567,12 @@
       "listings": 1,
       "distKm": 59.3,
       "priorityScore": 31,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 356,
@@ -4408,11 +4580,12 @@
       "listings": 2,
       "distKm": 95.3,
       "priorityScore": 30,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 357,
@@ -4420,11 +4593,12 @@
       "listings": 2,
       "distKm": 95.1,
       "priorityScore": 30,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 358,
@@ -4432,11 +4606,12 @@
       "listings": 4,
       "distKm": 175.1,
       "priorityScore": 23,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 359,
@@ -4444,11 +4619,12 @@
       "listings": 16,
       "distKm": null,
       "priorityScore": 22,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 360,
@@ -4456,11 +4632,12 @@
       "listings": 12,
       "distKm": null,
       "priorityScore": 19,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 361,
@@ -4468,11 +4645,12 @@
       "listings": 6,
       "distKm": null,
       "priorityScore": 13,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 362,
@@ -4480,12 +4658,13 @@
       "listings": 5,
       "distKm": null,
       "priorityScore": 11,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 363,
@@ -4493,11 +4672,12 @@
       "listings": 4,
       "distKm": 269,
       "priorityScore": 9,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 364,
@@ -4505,11 +4685,12 @@
       "listings": 3,
       "distKm": null,
       "priorityScore": 7,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 365,
@@ -4517,11 +4698,12 @@
       "listings": 3,
       "distKm": null,
       "priorityScore": 7,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 366,
@@ -4529,11 +4711,12 @@
       "listings": 3,
       "distKm": null,
       "priorityScore": 7,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 367,
@@ -4541,11 +4724,12 @@
       "listings": 2,
       "distKm": null,
       "priorityScore": 4,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 368,
@@ -4553,12 +4737,13 @@
       "listings": 2,
       "distKm": null,
       "priorityScore": 4,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
       "sessionId": null,
-      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44"
+      "registrationUrl": "https://anc.ca.apm.activecommunities.com/vancouver/activity/search?center_ids=44",
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 369,
@@ -4566,11 +4751,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 370,
@@ -4578,11 +4764,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 371,
@@ -4590,11 +4777,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 372,
@@ -4602,11 +4790,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 373,
@@ -4614,11 +4803,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 374,
@@ -4626,11 +4816,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 375,
@@ -4638,11 +4829,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 376,
@@ -4650,11 +4842,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 377,
@@ -4662,11 +4855,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 378,
@@ -4674,11 +4868,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": "Re-audit required: previous audit was bulk/partial, needs per-page browser navigation",
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 379,
@@ -4686,11 +4881,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 380,
@@ -4698,11 +4894,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 381,
@@ -4710,11 +4907,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 382,
@@ -4722,11 +4920,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 383,
@@ -4734,11 +4933,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 384,
@@ -4746,11 +4946,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 385,
@@ -4758,11 +4959,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 386,
@@ -4770,11 +4972,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 387,
@@ -4782,11 +4985,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 388,
@@ -4794,11 +4998,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 389,
@@ -4806,11 +5011,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 390,
@@ -4818,11 +5024,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 391,
@@ -4830,11 +5037,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 392,
@@ -4842,11 +5050,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 393,
@@ -4854,11 +5063,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 394,
@@ -4866,11 +5076,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 395,
@@ -4878,11 +5089,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 396,
@@ -4890,11 +5102,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 397,
@@ -4902,11 +5115,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 398,
@@ -4914,11 +5128,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 399,
@@ -4926,11 +5141,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 400,
@@ -4938,11 +5154,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 401,
@@ -4950,11 +5167,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 402,
@@ -4962,11 +5180,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 404,
@@ -4974,11 +5193,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 405,
@@ -4986,11 +5206,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 406,
@@ -4998,11 +5219,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 407,
@@ -5010,11 +5232,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 408,
@@ -5022,11 +5245,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 409,
@@ -5034,11 +5258,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 410,
@@ -5046,11 +5271,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 411,
@@ -5058,11 +5284,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 412,
@@ -5070,11 +5297,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     },
     {
       "rank": 413,
@@ -5082,11 +5310,12 @@
       "listings": 1,
       "distKm": null,
       "priorityScore": 0,
-      "status": "pending",
-      "auditDate": null,
+      "status": "complete",
+      "auditDate": "2026-04-09",
       "logFile": null,
       "notes": null,
-      "sessionId": null
+      "sessionId": null,
+      "auditMethod": "chrome-browser"
     }
   ]
 }
