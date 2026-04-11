@@ -69,16 +69,17 @@ The CRITICAL section above (always commit to main) applies to **Claude worktree 
 git pull   # Always pull first — two founders work from different machines (Rule 19)
 ```
 
-### Check the Submission Queue (Automatic)
+### MANDATORY: Check the Submission Queue
 
-After pulling, check if `src/data/submission-queue.json` exists and has entries.
-If it does, **process it between tasks** (or immediately if no other work is pending):
+After pulling, **you MUST check** if `src/data/submission-queue.json` has entries:
 
 ```bash
 node -e "const q=JSON.parse(require('fs').readFileSync('src/data/submission-queue.json'));console.log(q.submissions.length+' submissions awaiting verification')" 2>/dev/null || echo "No submission queue"
 ```
 
-**Processing each submission requires browser verification — see "Processing the Submission Queue" below.**
+If there are entries, **process them before any other work** unless Tom gives you an explicit task first. These are real parents who submitted programs they want to see in Skeddo — they should not wait.
+
+**Processing requires full browser verification — see "Processing the Submission Queue" below.**
 
 ## After ANY Change to src/data/programs.json
 
@@ -233,12 +234,14 @@ User-submitted programs flow through this pipeline:
 ### When to process
 
 - Check `src/data/submission-queue.json` at session start (see "Before Every Session")
-- Process entries **between tasks** or when no other work is pending
-- If Tom gives you a task, do that first — process the queue afterward
+- **Process submissions before any other work** unless Tom gives an explicit task first
+- These are real parents who submitted programs — do not defer or skip
 
 ### How to process each submission
 
-For EVERY entry in the queue, you MUST:
+For EVERY entry in the queue, you MUST complete ALL of the following steps. No shortcuts.
+
+#### Step 1: Browser-verify the submitted program
 
 1. **Navigate to the registration URL** using Chrome browser (Claude in Chrome MCP)
 2. **Verify every field** against the live registration page:
@@ -249,23 +252,48 @@ For EVERY entry in the queue, you MUST:
    - description, activityType, tags, city, lat/lng, indoorOutdoor, campType
    - enrollmentStatus (check if actually open for registration)
    - costNote (per week? per session? sibling discounts?)
-4. **Generate a proper program ID** following the pattern: `provider-slug-location-weekN`
-5. **Add to programs.json** and run the full validation pipeline:
+4. **Use the live page data as source of truth** — if the user's submission differs from
+   what's on the page, trust the page, not the submission
+
+#### Step 2: Full provider sweep (MANDATORY)
+
+After verifying the submitted program, **audit the provider's entire program listing** for
+programs we don't already have in our database. This is critical — if a parent submitted
+one program from a provider, there are likely others we're missing.
+
+1. **Navigate the provider's full site** — click every dropdown, expand every category,
+   check every location tab, scroll through all listings (follow the "Mandatory Audit
+   Patterns" below)
+2. **Cross-reference against programs.json** — search for the provider name to see what
+   we already have: `node -e "const p=JSON.parse(require('fs').readFileSync('src/data/programs.json'));console.log(p.filter(x=>x.provider?.toLowerCase().includes('PROVIDER_NAME')).length+' existing programs')"`
+3. **Add every missing program** with full field-by-field browser verification — one
+   listing per unique program (different age groups, skill levels, time slots, and
+   locations are separate entries)
+4. **Count and verify completeness** — compare total programs on the provider's site
+   vs what we have. Document: "Provider shows X programs, we had Y, added Z new ones"
+5. **Apply the One Click Deeper Audit Standard** (below) to every new program
+
+#### Step 3: Add to database and update status
+
+1. **Generate proper program IDs** following the pattern: `provider-slug-location-weekN`
+2. **Add all verified programs to programs.json** and run the full validation pipeline:
    ```bash
    node scripts/fill-computable-fields.cjs
    node scripts/validate-programs.cjs --fix
-   node scripts/auto-resolve-violations.cjs --offline --ids=<new-id>
+   node scripts/auto-resolve-violations.cjs --offline --ids=<new-ids>
    ```
-6. **Update the submission status** in Supabase:
+3. **Update the submission status** in Supabase:
    - Approved: update `program_submissions` set `status='approved'`, `reviewed_at=now()`
    - Rejected (program doesn't exist, spam, etc.): set `status='rejected'`, `reviewed_at=now()`
-7. **Remove the entry** from `submission-queue.json`
-8. **Commit** the updated programs.json and submission-queue.json
+4. **Remove the entry** from `submission-queue.json`
+5. **Commit** the updated programs.json and submission-queue.json with a message like:
+   `feat: add [Provider] programs from user submission + provider sweep (N new programs)`
 
 ### If browser verification fails
 
-- Registration URL is dead or doesn't match → **reject** the submission
-- Program exists but details differ from what user submitted → use the **live page data**, not the user's submission
+- Registration URL is dead or doesn't match → **reject** the submission, but still
+  search for the provider by name to see if they have a different URL
+- Program exists but details differ from submission → use the **live page data**
 - Program is from a prior year / not yet open → add with `enrollmentStatus: "Likely Coming Soon"` and `confirmed2026: false`
 - Cannot find the program on the provider's site at all → **reject** with reason
 
