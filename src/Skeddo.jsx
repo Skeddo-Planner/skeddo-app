@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
+import lazyWithReload from "./utils/lazyWithReload";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { C } from "./constants/brand";
 import { uid } from "./constants/sampleData";
@@ -16,26 +17,27 @@ import AuthPage from "./pages/AuthPage";
 // Lazy-loaded tabs — split into separate chunks so the landing page bundle
 // stays small. Each tab is only fetched when the user first navigates to it
 // (or, for DiscoverTab, on first app mount after login).
-const HomeTab         = lazy(() => import("./tabs/HomeTab"));
-const DiscoverTab     = lazy(() => import("./tabs/DiscoverTab"));
-const ScheduleTab     = lazy(() => import("./tabs/ScheduleTab"));
-const ProgramsTab     = lazy(() => import("./tabs/ProgramsTab"));
-const BudgetTab       = lazy(() => import("./tabs/BudgetTab"));
-const CirclesTab      = lazy(() => import("./tabs/CirclesTab"));
+const HomeTab         = lazyWithReload(() => import("./tabs/HomeTab"));
+const DiscoverTab     = lazyWithReload(() => import("./tabs/DiscoverTab"));
+const ScheduleTab     = lazyWithReload(() => import("./tabs/ScheduleTab"));
+const ProgramsTab     = lazyWithReload(() => import("./tabs/ProgramsTab"));
+const BudgetTab       = lazyWithReload(() => import("./tabs/BudgetTab"));
+const CirclesTab      = lazyWithReload(() => import("./tabs/CirclesTab"));
 
 // Lazy-loaded modals & pages — only fetched when opened
-const ProgramDetail      = lazy(() => import("./modals/ProgramDetail"));
-const DirectoryDetail    = lazy(() => import("./modals/DirectoryDetail"));
-const ProgramForm        = lazy(() => import("./modals/ProgramForm"));
-const KidForm            = lazy(() => import("./modals/KidForm"));
-const ManualCostForm     = lazy(() => import("./modals/ManualCostForm"));
-const ProfileModal       = lazy(() => import("./modals/ProfileModal"));
-const OnboardingFlow     = lazy(() => import("./onboarding/OnboardingFlow"));
-const InfoPage           = lazy(() => import("./pages/InfoPages"));
-const InviteModal        = lazy(() => import("./modals/InviteModal"));
-const ChildSettingsModal = lazy(() => import("./modals/ChildSettingsModal"));
-const InviteAcceptPage   = lazy(() => import("./pages/InviteAcceptPage"));
-const DirectoryPage      = lazy(() => import("./pages/DirectoryPage"));
+const ProgramDetail      = lazyWithReload(() => import("./modals/ProgramDetail"));
+const DirectoryDetail    = lazyWithReload(() => import("./modals/DirectoryDetail"));
+const ProgramForm        = lazyWithReload(() => import("./modals/ProgramForm"));
+const KidForm            = lazyWithReload(() => import("./modals/KidForm"));
+const ManualCostForm     = lazyWithReload(() => import("./modals/ManualCostForm"));
+const ProfileModal       = lazyWithReload(() => import("./modals/ProfileModal"));
+const OnboardingFlow     = lazyWithReload(() => import("./onboarding/OnboardingFlow"));
+const InfoPage           = lazyWithReload(() => import("./pages/InfoPages"));
+const InviteModal        = lazyWithReload(() => import("./modals/InviteModal"));
+const ChildSettingsModal = lazyWithReload(() => import("./modals/ChildSettingsModal"));
+const InviteAcceptPage   = lazyWithReload(() => import("./pages/InviteAcceptPage"));
+const DirectoryPage      = lazyWithReload(() => import("./pages/DirectoryPage"));
+const BlogPage           = lazyWithReload(() => import("./pages/BlogPage"));
 
 import { trackEvent, trackPageView } from "./utils/analytics";
 import { usePushNotifications } from "./hooks/usePushNotifications";
@@ -228,13 +230,24 @@ export default function Skeddo() {
           <DirectoryPage onNavigate={navigateTo} />
         </Suspense>
       } />
+      <Route path="/blog" element={
+        <Suspense fallback={null}>
+          <BlogPage onNavigate={navigateTo} />
+        </Suspense>
+      } />
+      <Route path="/blog/:slug" element={
+        <Suspense fallback={null}>
+          <BlogPage onNavigate={navigateTo} />
+        </Suspense>
+      } />
       <Route path="*" element={null} />
     </Routes>
   );
 
   // Render public pages at their URL regardless of auth state
   const isPublicPage = ["/about", "/privacy", "/help"].includes(location.pathname)
-    || location.pathname.startsWith("/camps");
+    || location.pathname.startsWith("/camps")
+    || location.pathname.startsWith("/blog");
   if (isPublicPage) {
     // Update document title for SEO (directory pages set their own titles)
     const titles = { "/about": "About Skeddo — Kids Camp Planner for Vancouver Families", "/privacy": "Privacy Policy & Terms — Skeddo", "/help": "Help & Contact — Skeddo" };

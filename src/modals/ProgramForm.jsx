@@ -161,12 +161,14 @@ export default function ProgramForm({ form, setForm, kids, isEdit, onSave, onClo
           <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
             {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => {
               const allDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-              // Expand shorthands like "Mon-Fri" into individual days before checking
+              // Expand shorthand like "Mon-Fri" into individual days
               const expandDays = (raw) => {
-                return (raw || "").split(", ").filter(Boolean).flatMap((d) => {
-                  if (d === "Mon-Fri") return ["Mon", "Tue", "Wed", "Thu", "Fri"];
-                  return [d];
-                });
+                if (!raw) return [];
+                const normalized = raw.trim();
+                if (/^mon\s*-\s*fri$/i.test(normalized)) return ["Mon", "Tue", "Wed", "Thu", "Fri"];
+                if (/^mon\s*-\s*sat$/i.test(normalized)) return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                if (/^mon\s*-\s*sun$/i.test(normalized)) return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+                return normalized.split(",").map((d) => d.trim()).filter(Boolean);
               };
               const currentDays = expandDays(form.days);
               const isSelected = currentDays.some((d) => d.toLowerCase() === day.toLowerCase());

@@ -31,13 +31,24 @@ export function useCircles(userId, session) {
       setLoading(true);
       try {
         // Get user's circle memberships (approved + pending)
-        const { data: memberships } = await supabase
+        const { data: memberships, error: memberErr } = await supabase
           .from("circle_memberships")
           .select("circle_id, role, status, circles(id, name, emoji, created_by, invite_code)")
           .eq("user_id", userId)
           .in("status", ["approved", "pending"]);
 
+        if (memberErr) {
+          console.error("❌ Failed to load circle memberships:", memberErr.message, memberErr.code);
+        }
+
         if (memberships) {
+          // Warn if any memberships have null circle data (RLS issue or missing circle)
+          const brokenMemberships = memberships.filter((m) => m.status === "approved" && !m.circles);
+          if (brokenMemberships.length > 0) {
+            console.error("⚠️ Circle memberships with missing circle data (possible RLS issue):",
+              brokenMemberships.map((m) => m.circle_id));
+          }
+
           const approvedCircles = memberships
             .filter((m) => m.status === "approved" && m.circles)
             .map((m) => ({

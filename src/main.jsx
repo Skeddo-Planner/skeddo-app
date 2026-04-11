@@ -7,6 +7,10 @@ import App from './Skeddo.jsx'
 
 const isStaging = import.meta.env.VITE_ENV === 'staging'
 
+// Clear the stale-chunk reload flag on successful app boot so future
+// deployments can trigger a fresh reload if needed.
+sessionStorage.removeItem('skeddo-chunk-reload')
+
 Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN,
   integrations: [

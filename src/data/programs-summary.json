@@ -1,34 +1,3 @@
 {
-  "totalPrograms": 14175,
-  "uniqueCategories": 22,
-  "categories": [
-    "Academic",
-    "Academic & Language",
-    "Arts",
-    "Cultural",
-    "Day Camp",
-    "Education",
-    "Faith-Based",
-    "General",
-    "Health & Wellness",
-    "Language",
-    "Leadership",
-    "Life Skills",
-    "Multi",
-    "Multi-Activity",
-    "Multi-Activity Camps",
-    "Music",
-    "Outdoor",
-    "Outdoors",
-    "Performing Arts",
-    "STEM",
-    "Sports",
-    "Sports & Fitness"
-  ],
-  "uniqueNeighbourhoods": 150,
-  "uniqueProviders": 449,
-  "totalProviders": 449,
-  "uniqueCampTypes": 28,
-  "dataSource": "Direct from providers — no marketplace intermediaries",
-  "lastUpdated": "2026-04-04"
+  "totalPrograms": 15837
 }

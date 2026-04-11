@@ -373,7 +373,8 @@ export function useAppData(userId) {
         initialLoadDone.current = true;
 
       } catch (err) {
-        console.warn("Falling back to localStorage:", err);
+        console.error("❌ Supabase load failed, falling back to localStorage:", err.message || err);
+        console.error("   Supabase URL:", supabase?.supabaseUrl || "unknown");
         usingSupabase.current = false;
         loadFromLocalStorage();
       }
@@ -668,8 +669,10 @@ export function useAppData(userId) {
       const row = programToDb(program, userId);
       supabase.from("user_programs").upsert(row, { onConflict: "id" })
         .then(({ error }) => {
-          if (error) console.warn("Failed to save program:", error);
-          else {
+          if (error) {
+            console.error("❌ Failed to save program to Supabase:", error.message, error.code, error.details);
+            console.error("   Program:", program.name, "| User:", userId);
+          } else {
             markSynced();
             // Sync to co-parents who share access to the same kids (Issue #8)
             if (program.kidIds?.length) syncToCoParents(program.kidIds, "upsert", program);
