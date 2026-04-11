@@ -1,0 +1,238 @@
+{
+  "totalPrograms": 15837,
+  "totalProviders": 429,
+  "freePrograms": 281,
+  "lowCostPrograms": 3729,
+  "medianCost": 295,
+  "avgCost": 316,
+  "maxCost": 5700,
+  "programsByArea": [
+    {
+      "name": "Vancouver",
+      "count": 7416
+    },
+    {
+      "name": "Burnaby",
+      "count": 2415
+    },
+    {
+      "name": "West Vancouver",
+      "count": 1887
+    },
+    {
+      "name": "North Vancouver",
+      "count": 1341
+    },
+    {
+      "name": "Richmond",
+      "count": 705
+    },
+    {
+      "name": "Coquitlam",
+      "count": 446
+    },
+    {
+      "name": "Port Coquitlam",
+      "count": 261
+    },
+    {
+      "name": "Langley",
+      "count": 245
+    },
+    {
+      "name": "White Rock",
+      "count": 238
+    },
+    {
+      "name": "Delta",
+      "count": 158
+    },
+    {
+      "name": "Surrey",
+      "count": 151
+    },
+    {
+      "name": "Whistler",
+      "count": 109
+    },
+    {
+      "name": "New Westminster",
+      "count": 85
+    },
+    {
+      "name": "Squamish",
+      "count": 57
+    },
+    {
+      "name": "Maple Ridge",
+      "count": 36
+    },
+    {
+      "name": "Port Moody",
+      "count": 16
+    },
+    {
+      "name": "Sunshine Coast",
+      "count": 8
+    },
+    {
+      "name": "Hope",
+      "count": 6
+    },
+    {
+      "name": "Kelowna",
+      "count": 4
+    },
+    {
+      "name": "Sooke",
+      "count": 4
+    },
+    {
+      "name": "Pitt Meadows",
+      "count": 4
+    },
+    {
+      "name": "Sechelt",
+      "count": 3
+    },
+    {
+      "name": "Bowen Island",
+      "count": 2
+    },
+    {
+      "name": "Mission",
+      "count": 2
+    },
+    {
+      "name": "Abbotsford",
+      "count": 2
+    }
+  ],
+  "topCategories": [
+    {
+      "name": "Sports",
+      "count": 8479
+    },
+    {
+      "name": "General",
+      "count": 1630
+    },
+    {
+      "name": "Arts",
+      "count": 1221
+    },
+    {
+      "name": "STEM",
+      "count": 750
+    },
+    {
+      "name": "Multi-Activity",
+      "count": 690
+    },
+    {
+      "name": "Music",
+      "count": 659
+    },
+    {
+      "name": "Performing Arts",
+      "count": 549
+    },
+    {
+      "name": "Academic",
+      "count": 370
+    },
+    {
+      "name": "Outdoor",
+      "count": 339
+    },
+    {
+      "name": "Life Skills",
+      "count": 211
+    }
+  ],
+  "topProviders": [
+    {
+      "name": "Pedalheads",
+      "count": 6403
+    },
+    {
+      "name": "City of Vancouver - Kerrisdale Cmty Centre",
+      "count": 538
+    },
+    {
+      "name": "City of Vancouver - Hillcrest Cmty Centre",
+      "count": 372
+    },
+    {
+      "name": "North Vancouver Recreation Commission (NVRC)",
+      "count": 328
+    },
+    {
+      "name": "City of Vancouver - Killarney Cmty Centre",
+      "count": 287
+    },
+    {
+      "name": "City of Vancouver - Dunbar Cmty Centre",
+      "count": 227
+    },
+    {
+      "name": "City of Vancouver - Trout Lake Cmty Centre",
+      "count": 221
+    },
+    {
+      "name": "City of Vancouver - West Point Grey Cmty Centre - Aberthau",
+      "count": 221
+    },
+    {
+      "name": "City of Vancouver - Roundhouse Cmty Arts and Rec Centre",
+      "count": 204
+    },
+    {
+      "name": "Pear Tree Education",
+      "count": 190
+    },
+    {
+      "name": "Lights Up Musical Theatre",
+      "count": 152
+    },
+    {
+      "name": "District of West Vancouver",
+      "count": 140
+    },
+    {
+      "name": "City of Vancouver - Douglas Park Cmty Centre",
+      "count": 140
+    },
+    {
+      "name": "City of Vancouver - Mount Pleasant Cmty Centre",
+      "count": 136
+    },
+    {
+      "name": "Arts Umbrella",
+      "count": 135
+    },
+    {
+      "name": "UBC Geering Up",
+      "count": 130
+    },
+    {
+      "name": "City of Burnaby - Bonsor Recreation Complex",
+      "count": 120
+    },
+    {
+      "name": "UBC Recreation",
+      "count": 119
+    },
+    {
+      "name": "City of Vancouver - Hastings Cmty Centre",
+      "count": 115
+    },
+    {
+      "name": "Access2Innovate / Mulgrave",
+      "count": 107
+    }
+  ],
+  "preschoolPrograms": 8738,
+  "schoolAgePrograms": 6732,
+  "teenPrograms": 341
+}

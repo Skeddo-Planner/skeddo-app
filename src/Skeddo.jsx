@@ -36,6 +36,7 @@ const InviteModal        = lazy(() => import("./modals/InviteModal"));
 const ChildSettingsModal = lazy(() => import("./modals/ChildSettingsModal"));
 const InviteAcceptPage   = lazy(() => import("./pages/InviteAcceptPage"));
 const DirectoryPage      = lazy(() => import("./pages/DirectoryPage"));
+const BlogPage           = lazy(() => import("./pages/BlogPage"));
 
 import { trackEvent, trackPageView } from "./utils/analytics";
 import { usePushNotifications } from "./hooks/usePushNotifications";
@@ -228,13 +229,24 @@ export default function Skeddo() {
           <DirectoryPage onNavigate={navigateTo} />
         </Suspense>
       } />
+      <Route path="/blog" element={
+        <Suspense fallback={null}>
+          <BlogPage onNavigate={navigateTo} />
+        </Suspense>
+      } />
+      <Route path="/blog/:slug" element={
+        <Suspense fallback={null}>
+          <BlogPage onNavigate={navigateTo} />
+        </Suspense>
+      } />
       <Route path="*" element={null} />
     </Routes>
   );
 
   // Render public pages at their URL regardless of auth state
   const isPublicPage = ["/about", "/privacy", "/help"].includes(location.pathname)
-    || location.pathname.startsWith("/camps");
+    || location.pathname.startsWith("/camps")
+    || location.pathname.startsWith("/blog");
   if (isPublicPage) {
     // Update document title for SEO (directory pages set their own titles)
     const titles = { "/about": "About Skeddo — Kids Camp Planner for Vancouver Families", "/privacy": "Privacy Policy & Terms — Skeddo", "/help": "Help & Contact — Skeddo" };

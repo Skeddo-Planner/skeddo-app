@@ -203,6 +203,16 @@ function SiteHeader({ isDesktop, onNavigate }) {
         }}>
           Browse Camps
         </Link>
+        <Link to="/blog" style={{
+          fontFamily: font,
+          fontSize: 14,
+          fontWeight: 600,
+          color: C.ink,
+          textDecoration: "none",
+          padding: "8px 12px",
+        }}>
+          Guides
+        </Link>
         <a
           href="/signin"
           onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
@@ -256,6 +266,7 @@ function SiteFooter({ isDesktop }) {
     }}>
       <nav style={{ display: "flex", justifyContent: "center", gap: isDesktop ? 24 : 16, marginBottom: 10, flexWrap: "wrap" }}>
         <Link to="/camps" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Browse Camps</Link>
+        <Link to="/blog" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Guides</Link>
         <Link to="/about" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>About</Link>
         <Link to="/privacy" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Privacy & Terms</Link>
         <Link to="/help" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Help & Contact</Link>
