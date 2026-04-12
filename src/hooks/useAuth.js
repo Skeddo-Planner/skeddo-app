@@ -90,10 +90,22 @@ export function useAuth() {
     return data;
   }, []);
 
+  const signInWithGoogle = useCallback(async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin,
+      },
+    });
+    if (error) throw error;
+    trackEvent("sign_up", { method: "google" });
+    return data;
+  }, []);
+
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
   }, []);
 
-  return { user, session, loading, signUp, signIn, signOut, passwordRecovery, clearPasswordRecovery };
+  return { user, session, loading, signUp, signIn, signInWithGoogle, signOut, passwordRecovery, clearPasswordRecovery };
 }

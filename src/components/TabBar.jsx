@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 
@@ -68,6 +69,21 @@ const TABS = [
 ];
 
 export default function TabBar({ tab, setTab, badges }) {
+  // Hide tab bar when iOS virtual keyboard is open to prevent it floating above keyboard
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+  useEffect(() => {
+    if (!window.visualViewport) return;
+    const vv = window.visualViewport;
+    const threshold = 150; // keyboard is ~250px+ tall
+    const handleResize = () => {
+      setKeyboardOpen(window.innerHeight - vv.height > threshold);
+    };
+    vv.addEventListener("resize", handleResize);
+    return () => vv.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (keyboardOpen) return null;
+
   return (
     <nav style={s.tabBar} className="skeddo-tabbar">
       {TABS.map((t) => {

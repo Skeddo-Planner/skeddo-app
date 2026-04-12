@@ -1,6 +1,48 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
+
+function CopyLinkButton({ url }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      onClick={() => {
+        navigator.clipboard?.writeText(url).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        });
+      }}
+      style={{
+        background: "#EA580C",
+        color: "#fff",
+        border: "none",
+        borderRadius: 8,
+        padding: "8px 16px",
+        fontSize: 13,
+        fontWeight: 700,
+        fontFamily: "'Barlow', sans-serif",
+        cursor: "pointer",
+        width: "100%",
+      }}
+    >
+      {copied ? "Copied! Now paste in your browser" : "Copy Link to Open in Browser"}
+    </button>
+  );
+}
+
+/** Detect in-app browsers that lack full browser capabilities */
+function detectInAppBrowser() {
+  const ua = navigator.userAgent || "";
+  if (/FBAN|FBAV/i.test(ua)) return "Facebook";
+  if (/Instagram/i.test(ua)) return "Instagram";
+  if (/LinkedIn/i.test(ua)) return "LinkedIn";
+  if (/Twitter|TwitterAndroid/i.test(ua)) return "Twitter";
+  if (/Snapchat/i.test(ua)) return "Snapchat";
+  if (/MicroMessenger/i.test(ua)) return "WeChat";
+  // Generic WebView detection
+  if (/wv\)/.test(ua) || /; wv\b/.test(ua)) return "WebView";
+  return null;
+}
 
 export default function InviteAcceptPage({ inviteCode, session, onAccept, onSignIn, onSignUp }) {
   const [loading, setLoading] = useState(false);
@@ -58,6 +100,9 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
     inviteMessage = "You've been invited to help manage a child's schedule on Skeddo.";
   }
 
+  const inAppBrowser = useMemo(() => detectInAppBrowser(), []);
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
   // Pill button style — auto width, not stretched
   const pillBtn = {
     ...s.primaryBtn,
@@ -90,6 +135,30 @@ export default function InviteAcceptPage({ inviteCode, session, onAccept, onSign
         alt="Skeddo"
         style={{ height: 56, width: "auto", borderRadius: 10, marginBottom: 24 }}
       />
+
+      {/* In-app browser warning — auth often breaks in Instagram/Facebook WebViews */}
+      {inAppBrowser && (
+        <div style={{
+          background: "#FFF7ED",
+          border: "1px solid #FDBA74",
+          borderRadius: 12,
+          padding: "14px 16px",
+          marginBottom: 20,
+          maxWidth: 320,
+          width: "100%",
+        }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#9A3412", marginBottom: 6 }}>
+            Open in {isIOS ? "Safari" : "Chrome"} for the best experience
+          </div>
+          <div style={{ fontSize: 13, color: "#9A3412", lineHeight: 1.5, marginBottom: 10 }}>
+            {inAppBrowser}'s built-in browser may have trouble with sign-in.
+            {isIOS
+              ? " Tap the \u2026 menu, then \"Open in Safari\"."
+              : " Tap the \u22EE menu, then \"Open in Chrome\"."}
+          </div>
+          <CopyLinkButton url={window.location.href} />
+        </div>
+      )}
 
       {success ? (
         <>

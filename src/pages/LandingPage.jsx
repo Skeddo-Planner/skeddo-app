@@ -169,10 +169,9 @@ export default function LandingPage({ onNavigate }) {
               Browse kids activities, track registrations, and stay on budget.
             </p>
 
-            <div style={{ display: "flex", gap: 12, marginBottom: 40 }}>
-              <a
-                href="/signup"
-                onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
+            <div style={{ display: "flex", gap: 12, marginBottom: 16 }}>
+              <Link
+                to="/camps"
                 style={{
                   ...s.primaryBtn,
                   padding: "14px 28px",
@@ -182,11 +181,11 @@ export default function LandingPage({ onNavigate }) {
                   textAlign: "center",
                 }}
               >
-                Get Started — It's Free
-              </a>
+                Browse {countLabel} Programs
+              </Link>
               <a
-                href="/signin"
-                onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
+                href="/signup"
+                onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
                 style={{
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: 15,
@@ -201,8 +200,31 @@ export default function LandingPage({ onNavigate }) {
                   textAlign: "center",
                 }}
               >
-                Log In
+                Get Started Free
               </a>
+            </div>
+
+            {/* Social proof */}
+            <div style={{
+              display: "flex", alignItems: "center", gap: 10, marginBottom: 32,
+              fontSize: 13, color: C.muted, fontWeight: 500,
+            }}>
+              <div style={{
+                display: "flex", alignItems: "center",
+              }}>
+                {[C.seaGreen, C.blue, C.olive, "#E74C3C"].map((color, i) => (
+                  <div key={i} style={{
+                    width: 24, height: 24, borderRadius: "50%",
+                    background: color, border: "2px solid white",
+                    marginLeft: i > 0 ? -8 : 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 10, color: "#fff", fontWeight: 700,
+                  }}>
+                    {["T", "S", "M", "J"][i]}
+                  </div>
+                ))}
+              </div>
+              <span>Trusted by Vancouver families planning summer 2026</span>
             </div>
 
             {/* Feature list */}
@@ -295,10 +317,9 @@ export default function LandingPage({ onNavigate }) {
               The family planner for busy parents in Vancouver &amp; the Lower Mainland. Browse kids activities, track registrations, and stay on budget.
             </p>
 
-            <div style={{ maxWidth: 300, margin: "0 auto 40px" }}>
-              <a
-                href="/signup"
-                onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
+            <div style={{ maxWidth: 300, margin: "0 auto 16px" }}>
+              <Link
+                to="/camps"
                 style={{
                   ...s.primaryBtn,
                   display: "block",
@@ -311,11 +332,11 @@ export default function LandingPage({ onNavigate }) {
                   textDecoration: "none",
                 }}
               >
-                Get Started — It's Free
-              </a>
+                Browse {countLabel} Programs
+              </Link>
               <a
-                href="/signin"
-                onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
+                href="/signup"
+                onClick={(e) => { e.preventDefault(); onNavigate("signup"); }}
                 style={{
                   ...s.secondaryBtn,
                   display: "block",
@@ -329,8 +350,29 @@ export default function LandingPage({ onNavigate }) {
                   textDecoration: "none",
                 }}
               >
-                Log In
+                Get Started Free
               </a>
+            </div>
+
+            {/* Social proof */}
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "center",
+              gap: 8, marginBottom: 32, fontSize: 13, color: C.muted, fontWeight: 500,
+            }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                {[C.seaGreen, C.blue, C.olive, "#E74C3C"].map((color, i) => (
+                  <div key={i} style={{
+                    width: 22, height: 22, borderRadius: "50%",
+                    background: color, border: "2px solid white",
+                    marginLeft: i > 0 ? -7 : 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 9, color: "#fff", fontWeight: 700,
+                  }}>
+                    {["T", "S", "M", "J"][i]}
+                  </div>
+                ))}
+              </div>
+              <span>Trusted by Vancouver families</span>
             </div>
           </div>
 
