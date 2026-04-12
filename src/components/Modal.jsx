@@ -50,13 +50,23 @@ export default function Modal({ onClose, children, centered }) {
     const firstFocusable = modal.querySelector(focusableSelector);
     if (firstFocusable) firstFocusable.focus();
 
-    // Prevent body scrolling while modal is open
+    // Prevent body scrolling while modal is open (iOS Safari needs position:fixed too)
     const prevOverflow = document.body.style.overflow;
+    const prevPosition = document.body.style.position;
+    const prevWidth = document.body.style.width;
+    const scrollY = window.scrollY;
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${scrollY}px`;
 
     return () => {
       document.removeEventListener("keydown", handleTab);
       document.body.style.overflow = prevOverflow;
+      document.body.style.position = prevPosition;
+      document.body.style.width = prevWidth;
+      document.body.style.top = "";
+      window.scrollTo(0, scrollY);
     };
   }, []);
 

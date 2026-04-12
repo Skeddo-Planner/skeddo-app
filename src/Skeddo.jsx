@@ -527,6 +527,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       id: programId,
     });
     setModal(null);
+    if (isNew) maybeShowBudgetPrompt();
     showToast(isNew ? "Program added" : "Program updated");
 
     // Share to selected circles (runs in parent so it survives modal unmount)
@@ -637,6 +638,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       registrationUrl: dirProgram.registrationUrl || "",
       notes: "",
     });
+    maybeShowBudgetPrompt();
     showToast("Added to your schedule");
 
     // Share to selected circles
@@ -673,6 +675,26 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
     if (kidId) setKidFilter(kidId);
     // Send virtual page_view to GA4 so SPA tab changes appear in Pages and Screens
     trackPageView(`/${tabId}`, `Skeddo - ${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`);
+  };
+
+  // Budget feature discovery prompt — show once after the user's first listing
+  const [showBudgetPrompt, setShowBudgetPrompt] = useState(false);
+  const budgetPromptShown = useRef(
+    localStorage.getItem("skeddo_budget_prompt_shown") === "true"
+  );
+
+  const maybeShowBudgetPrompt = () => {
+    if (budgetPromptShown.current) return;
+    // Check if this was the user's first program (just went from 0 to 1)
+    // programs is the current state — it should now have 1 item
+    if (programs.length === 0) {
+      // Will be 1 after this save completes (state update pending)
+      setTimeout(() => {
+        setShowBudgetPrompt(true);
+        budgetPromptShown.current = true;
+        localStorage.setItem("skeddo_budget_prompt_shown", "true");
+      }, 1500);
+    }
   };
 
   const handleFindAlternatives = (program) => {
@@ -1444,6 +1466,57 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
               >
                 Leave
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Budget feature discovery prompt — shown once after first listing */}
+      {showBudgetPrompt && (
+        <div style={{
+          position: "fixed", bottom: 90, left: "50%", transform: "translateX(-50%)",
+          width: "calc(100% - 32px)", maxWidth: 360,
+          background: C.white, borderRadius: 14,
+          boxShadow: "0 8px 32px rgba(27,36,50,0.18), 0 2px 8px rgba(27,36,50,0.08)",
+          padding: "16px 18px", zIndex: 9998,
+          animation: "fadeIn 0.3s ease",
+        }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+            <span style={{ fontSize: 24, flexShrink: 0 }}>&#128176;</span>
+            <div style={{ flex: 1 }}>
+              <div style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 15, fontWeight: 700,
+                color: C.ink, marginBottom: 4,
+              }}>
+                Track your summer budget
+              </div>
+              <div style={{
+                fontFamily: "'Barlow', sans-serif", fontSize: 13,
+                color: C.muted, lineHeight: 1.5, marginBottom: 10,
+              }}>
+                Set a spending goal and see costs per kid as you add programs.
+              </div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={() => { setShowBudgetPrompt(false); setTab("budget"); }}
+                  style={{
+                    ...s.primaryBtn, padding: "8px 16px", fontSize: 13,
+                    borderRadius: 8, flex: "none",
+                  }}
+                >
+                  Set Budget
+                </button>
+                <button
+                  onClick={() => setShowBudgetPrompt(false)}
+                  style={{
+                    background: "none", border: "none",
+                    fontFamily: "'Barlow', sans-serif", fontSize: 13,
+                    fontWeight: 600, color: C.muted, cursor: "pointer",
+                  }}
+                >
+                  Maybe later
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,12 +1,27 @@
 /* Skeddo global reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0; }
+body { background: #F8F9FA; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0; touch-action: manipulation; }
 
 /* Force light color scheme — prevents browser dark mode from affecting form controls */
 :root { color-scheme: light; }
 
 /* iOS momentum scrolling for overflow containers */
 .scroll-touch { -webkit-overflow-scrolling: touch; }
+
+/* iOS: prevent tap-highlight flash on interactive elements */
+button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }
+
+/* iOS: prevent text size inflation in landscape */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* iOS: hide tab bar when virtual keyboard is open (fixed bottom bar jumps) */
+@supports (-webkit-touch-callout: none) {
+  /* When the visual viewport shrinks (keyboard open), hide the tab bar */
+  .skeddo-tabbar {
+    /* Only fixed positioning — iOS handles safe-area via env() already */
+    transition: opacity 0.15s ease;
+  }
+}
 
 /* dvh fallback for browsers that don't support it — 100vh works fine for minHeight */
 @supports not (min-height: 100dvh) {

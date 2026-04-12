@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import useIsDesktop from "../hooks/useIsDesktop";
+import usePageMeta from "../hooks/usePageMeta";
 import { BLOG_POSTS, getBlogPost } from "../data/blog-posts";
 
 /* ── Shared styles ── */
@@ -225,12 +226,11 @@ function BlogFooter() {
 function BlogIndex({ onNavigate }) {
   const isDesktop = useIsDesktop();
 
-  useEffect(() => {
-    document.title = "Vancouver Camp Guides & Tips for Parents | Skeddo";
-    // Update meta description for SEO
-    let meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Planning tips, camp guides, and cost breakdowns for parents in Vancouver and the Lower Mainland. Free resources from Skeddo.");
-  }, []);
+  usePageMeta({
+    title: "Vancouver Camp Guides & Tips for Parents | Skeddo",
+    description: "Planning tips, camp guides, and cost breakdowns for parents in Vancouver and the Lower Mainland. Free resources from Skeddo.",
+    canonical: "https://skeddo.ca/blog",
+  });
 
   const publishedPosts = BLOG_POSTS.filter(p => p.published);
 
@@ -328,13 +328,13 @@ function BlogPost({ onNavigate }) {
 
   const post = getBlogPost(slug);
 
+  usePageMeta({
+    title: post ? `${post.seoTitle} | Skeddo` : undefined,
+    description: post?.seoDescription,
+    canonical: post ? `https://skeddo.ca/blog/${post.slug}` : undefined,
+  });
+
   useEffect(() => {
-    if (post) {
-      document.title = `${post.seoTitle} | Skeddo`;
-      // Update meta description for SEO
-      let meta = document.querySelector('meta[name="description"]');
-      if (meta) meta.setAttribute("content", post.seoDescription);
-    }
     window.scrollTo(0, 0);
   }, [post]);
 
