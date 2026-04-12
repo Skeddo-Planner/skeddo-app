@@ -248,9 +248,14 @@ export default function Skeddo() {
     || location.pathname.startsWith("/camps")
     || location.pathname.startsWith("/blog");
   if (isPublicPage) {
-    // Update document title for SEO (directory pages set their own titles)
+    // Update document title + canonical for SEO (directory/blog pages set their own via usePageMeta)
     const titles = { "/about": "About Skeddo — Kids Camp Planner for Vancouver Families", "/privacy": "Privacy Policy & Terms — Skeddo", "/help": "Help & Contact — Skeddo" };
-    if (titles[location.pathname]) document.title = titles[location.pathname];
+    if (titles[location.pathname]) {
+      document.title = titles[location.pathname];
+      // Set canonical so Google doesn't treat these as duplicates of the homepage
+      let link = document.querySelector('link[rel="canonical"]');
+      if (link) link.setAttribute("href", `https://skeddo.ca${location.pathname}`);
+    }
     return publicInfoRoutes;
   }
 
@@ -258,6 +263,8 @@ export default function Skeddo() {
   if (!user) {
     if (authPage === "signin" || authPage === "signup") {
       document.title = authPage === "signin" ? "Sign In — Skeddo" : "Get Started Free — Skeddo";
+      const link = document.querySelector('link[rel="canonical"]');
+      if (link) link.setAttribute("href", `https://skeddo.ca/${authPage}`);
       return (
         <AuthPage
           mode={authPage}
