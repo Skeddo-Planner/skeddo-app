@@ -55,21 +55,21 @@ function run() {
     });
   }
 
-  // Blog pages
-  urls.push({
-    loc: "https://skeddo.ca/blog",
-    lastmod: today,
-    changefreq: "weekly",
-    priority: "0.8",
-  });
-  for (const slug of BLOG_SLUGS) {
-    urls.push({
-      loc: `https://skeddo.ca/blog/${slug}`,
-      lastmod: today,
-      changefreq: "monthly",
-      priority: "0.8",
-    });
-  }
+  // Blog pages — hidden from sitemap until posts are refined
+  // urls.push({
+  //   loc: "https://skeddo.ca/blog",
+  //   lastmod: today,
+  //   changefreq: "weekly",
+  //   priority: "0.8",
+  // });
+  // for (const slug of BLOG_SLUGS) {
+  //   urls.push({
+  //     loc: `https://skeddo.ca/blog/${slug}`,
+  //     lastmod: today,
+  //     changefreq: "monthly",
+  //     priority: "0.8",
+  //   });
+  // }
 
   // Category pages
   for (const cat of data.categories) {
