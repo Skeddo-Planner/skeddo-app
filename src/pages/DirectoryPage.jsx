@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { C } from "../constants/brand";
 import useIsDesktop from "../hooks/useIsDesktop";
+import usePageMeta from "../hooks/usePageMeta";
 
 /**
  * Public directory pages for SEO.
@@ -288,7 +289,7 @@ function CTASection({ isDesktop }) {
   );
 }
 
-function ProgramTable({ programs, isDesktop, showProvider = true }) {
+function ProgramTable({ programs, isDesktop, showProvider = true, onSelectProgram }) {
   if (!programs || programs.length === 0) return null;
   return (
     <div style={{ overflowX: "auto" }}>
@@ -310,23 +311,29 @@ function ProgramTable({ programs, isDesktop, showProvider = true }) {
         </thead>
         <tbody>
           {programs.map((p, i) => (
-            <tr key={i} style={{ borderBottom: `1px solid ${C.border}` }}>
+            <tr
+              key={i}
+              style={{ borderBottom: `1px solid ${C.border}`, cursor: onSelectProgram ? "pointer" : "default" }}
+              onClick={() => onSelectProgram?.(p)}
+              onMouseEnter={(e) => { if (onSelectProgram) e.currentTarget.style.background = "#F8F9FA"; }}
+              onMouseLeave={(e) => { if (onSelectProgram) e.currentTarget.style.background = ""; }}
+            >
               <td style={{ padding: "10px 12px", color: C.ink, fontWeight: 600 }}>{p.name}</td>
               {showProvider && <td style={{ padding: "10px 12px", color: "#4A6FA5" }}>{p.provider}</td>}
               <td style={{ padding: "10px 12px", color: "#4A6FA5" }}>
-                {p.ageMin != null ? `${p.ageMin}–${p.ageMax}` : "—"}
+                {p.ageMin != null ? `${p.ageMin}\u2013${p.ageMax}` : "\u2014"}
               </td>
               <td style={{ padding: "10px 12px", color: C.ink }}>
                 {p.cost != null ? `$${p.cost}` : "See provider"}
               </td>
               {isDesktop && (
                 <td style={{ padding: "10px 12px", color: "#4A6FA5" }}>
-                  {p.dayLength || "—"}
+                  {p.dayLength || "\u2014"}
                 </td>
               )}
               {isDesktop && (
                 <td style={{ padding: "10px 12px", color: "#4A6FA5" }}>
-                  {p.neighbourhood || p.city || "—"}
+                  {p.neighbourhood || p.city || "\u2014"}
                 </td>
               )}
             </tr>
@@ -387,9 +394,35 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
     return data.providers.filter(p => p.programCount >= 10).slice(0, 18);
   }, [data]);
 
+  usePageMeta({
+    title: "Browse Kids Camps & Programs in Vancouver | Skeddo",
+    description: `Browse ${data?.totalPrograms?.toLocaleString() || "6,700"}+ kids camps, classes, and summer programs across Vancouver and the Lower Mainland. Filter by age, category, and neighbourhood.`,
+    canonical: "https://skeddo.ca/camps",
+  });
+
+  // JSON-LD ItemList for SEO
   useEffect(() => {
-    document.title = "Browse Kids Camps & Programs in Vancouver | Skeddo";
-  }, []);
+    if (!data) return;
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Kids Camps & Programs in Vancouver",
+      description: `Browse ${data.totalPrograms}+ kids activities across ${data.totalAreas} areas from ${data.totalProviders}+ providers.`,
+      numberOfItems: data.totalPrograms,
+      itemListElement: topCategories.slice(0, 8).map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${c.name} Programs`,
+        url: `https://skeddo.ca/camps/category/${c.slug}`,
+      })),
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(jsonLd);
+    script.id = "directory-jsonld";
+    document.head.appendChild(script);
+    return () => { script.remove(); };
+  }, [data, topCategories]);
 
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
 
@@ -532,16 +565,17 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
 // ── Page: Category Detail (/camps/category/:slug) ──
 
 function CategoryPage({ data, slug, isDesktop, onNavigate }) {
+  const [selectedProgram, setSelectedProgram] = useState(null);
   const category = useMemo(() => {
     if (!data) return null;
     return data.categories.find((c) => c.slug === slug);
   }, [data, slug]);
 
-  useEffect(() => {
-    if (category) {
-      document.title = `${category.name} Camps & Programs for Kids in Vancouver | Skeddo`;
-    }
-  }, [category]);
+  usePageMeta({
+    title: category ? `${category.name} Camps & Programs for Kids in Vancouver | Skeddo` : undefined,
+    description: category ? `Browse ${category.programCount.toLocaleString()} ${category.name.toLowerCase()} programs for kids across the Lower Mainland from ${category.providers.length} providers.` : undefined,
+    canonical: category ? `https://skeddo.ca/camps/category/${slug}` : undefined,
+  });
 
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
   if (!category) return <NotFound isDesktop={isDesktop} onNavigate={onNavigate} />;
@@ -613,11 +647,12 @@ function CategoryPage({ data, slug, isDesktop, onNavigate }) {
 
         {/* Sample programs */}
         <h2 style={sectionTitle}>Sample Programs</h2>
-        <ProgramTable programs={category.samplePrograms} isDesktop={isDesktop} showProvider={true} />
+        <ProgramTable programs={category.samplePrograms} isDesktop={isDesktop} showProvider={true} onSelectProgram={setSelectedProgram} />
         <p style={{ fontSize: 14, color: "#4A6FA5", marginTop: 12 }}>
           Showing {category.samplePrograms.length} of {category.programCount.toLocaleString()} programs.
           Sign up to browse and filter all programs.
         </p>
+        {selectedProgram && <PublicProgramDetail program={selectedProgram} onClose={() => setSelectedProgram(null)} onNavigate={onNavigate} />}
 
         {/* Providers in this category */}
         <h2 style={sectionTitle}>Providers Offering {category.name}</h2>
@@ -661,16 +696,17 @@ function CategoryPage({ data, slug, isDesktop, onNavigate }) {
 // ── Page: Area Detail (/camps/area/:slug) ──
 
 function AreaPage({ data, slug, isDesktop, onNavigate }) {
+  const [selectedProgram, setSelectedProgram] = useState(null);
   const area = useMemo(() => {
     if (!data) return null;
     return data.areas.find((a) => a.slug === slug);
   }, [data, slug]);
 
-  useEffect(() => {
-    if (area) {
-      document.title = `Kids Camps & Programs in ${area.name} | Skeddo`;
-    }
-  }, [area]);
+  usePageMeta({
+    title: area ? `Kids Camps & Programs in ${area.name} | Skeddo` : undefined,
+    description: area ? `Browse ${area.programCount.toLocaleString()} kids programs in ${area.name}. Find camps, classes, and activities from ${area.providers.length} local providers.` : undefined,
+    canonical: area ? `https://skeddo.ca/camps/area/${slug}` : undefined,
+  });
 
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
   if (!area) return <NotFound isDesktop={isDesktop} onNavigate={onNavigate} />;
@@ -734,11 +770,12 @@ function AreaPage({ data, slug, isDesktop, onNavigate }) {
 
         {/* Sample programs */}
         <h2 style={sectionTitle}>Sample Programs in {area.name}</h2>
-        <ProgramTable programs={area.samplePrograms} isDesktop={isDesktop} showProvider={true} />
+        <ProgramTable programs={area.samplePrograms} isDesktop={isDesktop} showProvider={true} onSelectProgram={setSelectedProgram} />
         <p style={{ fontSize: 14, color: "#4A6FA5", marginTop: 12 }}>
           Showing {area.samplePrograms.length} of {area.programCount.toLocaleString()} programs.
           Sign up to browse and filter all programs.
         </p>
+        {selectedProgram && <PublicProgramDetail program={selectedProgram} onClose={() => setSelectedProgram(null)} onNavigate={onNavigate} />}
 
         {/* Providers */}
         <h2 style={sectionTitle}>Providers in {area.name}</h2>
@@ -769,17 +806,18 @@ function AreaPage({ data, slug, isDesktop, onNavigate }) {
 // ── Page: Provider Detail (/camps/provider/:slug) ──
 
 function ProviderPage({ data, slug, isDesktop, onNavigate }) {
+  const [selectedProgram, setSelectedProgram] = useState(null);
   const provider = useMemo(() => {
     if (!data) return null;
     return data.providers.find((p) => p.slug === slug);
   }, [data, slug]);
 
-  useEffect(() => {
-    if (provider) {
-      const cityStr = provider.cities.length > 0 ? ` in ${provider.cities[0]}` : "";
-      document.title = `${provider.name} — Kids Camps & Programs${cityStr} | Skeddo`;
-    }
-  }, [provider]);
+  const cityStr = provider?.cities?.length > 0 ? ` in ${provider.cities[0]}` : "";
+  usePageMeta({
+    title: provider ? `${provider.name} -- Kids Camps & Programs${cityStr} | Skeddo` : undefined,
+    description: provider ? `Browse ${provider.programCount.toLocaleString()} kids programs from ${provider.name}${cityStr}. See schedules, prices, and ages.` : undefined,
+    canonical: provider ? `https://skeddo.ca/camps/provider/${slug}` : undefined,
+  });
 
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
   if (!provider) return <NotFound isDesktop={isDesktop} onNavigate={onNavigate} />;
@@ -868,11 +906,12 @@ function ProviderPage({ data, slug, isDesktop, onNavigate }) {
 
         {/* Sample programs */}
         <h2 style={sectionTitle}>Sample Programs</h2>
-        <ProgramTable programs={provider.samplePrograms} isDesktop={isDesktop} showProvider={false} />
+        <ProgramTable programs={provider.samplePrograms} isDesktop={isDesktop} showProvider={false} onSelectProgram={setSelectedProgram} />
         <p style={{ fontSize: 14, color: "#4A6FA5", marginTop: 12 }}>
           Showing {provider.samplePrograms.length} of {provider.programCount.toLocaleString()} programs.
           Sign up to browse and filter all {provider.name} programs.
         </p>
+        {selectedProgram && <PublicProgramDetail program={selectedProgram} onClose={() => setSelectedProgram(null)} onNavigate={onNavigate} />}
 
         {/* Areas */}
         {provider.cities.length > 0 && (
@@ -933,6 +972,156 @@ function NotFound({ isDesktop, onNavigate }) {
         </Link>
       </div>
       <SiteFooter isDesktop={isDesktop} />
+    </div>
+  );
+}
+
+/** Read-only program detail for unauthenticated users */
+function PublicProgramDetail({ program, onClose, onNavigate }) {
+  const p = program;
+  const fmtDollars = (v) => v != null ? `$${Number(v).toLocaleString()}` : null;
+
+  return (
+    <div
+      style={{
+        position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+        background: "rgba(27,36,50,0.4)", zIndex: 200,
+        display: "flex", alignItems: "flex-end", justifyContent: "center",
+        animation: "fadeBg 0.2s ease",
+      }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div style={{
+        background: "#fff", borderRadius: "20px 20px 0 0",
+        padding: "24px 20px 32px", width: "100%", maxWidth: 600,
+        maxHeight: "88vh", overflowY: "auto",
+        animation: "slideIn 0.25s cubic-bezier(0.22, 0.61, 0.36, 1)",
+        position: "relative",
+      }}>
+        <button onClick={onClose} aria-label="Close" style={{
+          position: "absolute", top: 16, right: 16, background: "none",
+          border: "none", fontSize: 22, color: "#4A6FA5", cursor: "pointer",
+          padding: 8, minWidth: 40, minHeight: 40,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          borderRadius: 8, lineHeight: 1, zIndex: 1,
+        }}>&times;</button>
+
+        {/* Category */}
+        <div style={{
+          fontFamily: font, fontSize: 11, fontWeight: 700,
+          color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1, marginBottom: 2,
+        }}>
+          {p.category}
+        </div>
+
+        {/* Name */}
+        <h3 style={{
+          fontFamily: headFont, fontSize: 22, color: C.ink,
+          lineHeight: 1.2, marginBottom: 4, paddingRight: 40,
+        }}>
+          {p.name}
+        </h3>
+
+        {/* Provider */}
+        <div style={{ fontFamily: font, fontSize: 14, color: "#4A6FA5", marginBottom: 16 }}>
+          {p.provider}
+        </div>
+
+        {/* Description */}
+        {p.description && (
+          <p style={{ fontFamily: font, fontSize: 14, color: C.ink, lineHeight: 1.7, marginBottom: 16 }}>
+            {p.description}
+          </p>
+        )}
+
+        {/* Details grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
+          {fmtDollars(p.cost) && (
+            <div>
+              <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Price</div>
+              <div style={{ fontFamily: font, fontSize: 16, fontWeight: 600, color: C.ink, marginTop: 2 }}>{fmtDollars(p.cost)}</div>
+              {p.costNote && <div style={{ fontSize: 12, color: "#4A6FA5" }}>{p.costNote}</div>}
+            </div>
+          )}
+          {(p.ageMin != null || p.ageMax != null) && (
+            <div>
+              <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Ages</div>
+              <div style={{ fontFamily: font, fontSize: 16, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.ageMin}\u2013{p.ageMax} years</div>
+            </div>
+          )}
+          {p.days && (
+            <div>
+              <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Days</div>
+              <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.days}</div>
+            </div>
+          )}
+          {(p.startTime || p.endTime) && (
+            <div>
+              <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Time</div>
+              <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.startTime}\u2013{p.endTime}</div>
+            </div>
+          )}
+          {p.startDate && (
+            <div>
+              <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Dates</div>
+              <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginTop: 2 }}>
+                {p.startDate}{p.endDate ? ` \u2013 ${p.endDate}` : ""}
+              </div>
+            </div>
+          )}
+          {(p.neighbourhood || p.city) && (
+            <div>
+              <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Area</div>
+              <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginTop: 2 }}>
+                {p.neighbourhood || p.city}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Registration link */}
+        {p.registrationUrl && (
+          <a
+            href={p.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block", width: "100%", textAlign: "center",
+              fontFamily: font, fontSize: 15, fontWeight: 700,
+              color: "#fff", background: C.seaGreen, border: "none",
+              borderRadius: 10, padding: "14px 16px",
+              textDecoration: "none", marginBottom: 10,
+            }}
+          >
+            View Registration Page
+          </a>
+        )}
+
+        {/* Sign up CTA */}
+        <div style={{
+          background: `${C.seaGreen}08`, borderRadius: 12,
+          padding: "14px 16px", textAlign: "center",
+          border: `1px solid ${C.seaGreen}20`,
+        }}>
+          <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginBottom: 6 }}>
+            Save this to your planner
+          </div>
+          <div style={{ fontFamily: font, fontSize: 13, color: "#4A6FA5", marginBottom: 10 }}>
+            Track registrations, compare costs, and coordinate with your family.
+          </div>
+          <button
+            onClick={() => { onClose(); onNavigate("signup"); }}
+            style={{
+              fontFamily: font, fontSize: 14, fontWeight: 700,
+              color: C.seaGreen, background: "none",
+              border: `1.5px solid ${C.seaGreen}`, borderRadius: 8,
+              padding: "8px 20px", cursor: "pointer",
+            }}
+          >
+            Get Started Free
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

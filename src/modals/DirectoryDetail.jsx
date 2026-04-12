@@ -574,20 +574,40 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
 
       {/* Add to schedule flow */}
       {!showAddForm ? (
-        <button
-          style={{
-            ...s.primaryBtn,
-            width: "100%",
-            marginTop: 20,
-            padding: "14px 16px",
-            fontSize: 15,
-            textAlign: "center",
-            flex: "none",
-          }}
-          onClick={() => setShowAddForm(true)}
-        >
-          {alreadyAdded ? "Add Again" : "Add to My Schedule"}
-        </button>
+        <div style={{
+          position: "sticky",
+          bottom: -24,
+          marginLeft: -20,
+          marginRight: -20,
+          padding: "12px 20px 24px",
+          background: "linear-gradient(to bottom, transparent 0%, white 20%)",
+          zIndex: 2,
+        }}>
+          <button
+            style={{
+              ...s.primaryBtn,
+              width: "100%",
+              padding: "14px 16px",
+              fontSize: 15,
+              textAlign: "center",
+              flex: "none",
+            }}
+            onClick={() => setShowAddForm(true)}
+          >
+            {alreadyAdded ? "Add Again" : "Save to My Planner"}
+          </button>
+          {!alreadyAdded && (
+            <div style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 12,
+              color: C.muted,
+              textAlign: "center",
+              marginTop: 6,
+            }}>
+              Track status, assign to kids, and budget in one place
+            </div>
+          )}
+        </div>
       ) : (
         <div
           style={{
