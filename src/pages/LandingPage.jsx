@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import useIsDesktop from "../hooks/useIsDesktop";
+import usePageMeta from "../hooks/usePageMeta";
 import heroImg from "../assets/hero.png";
 
 const BASE_FEATURES = [
@@ -39,6 +40,12 @@ export default function LandingPage({ onNavigate }) {
     }).catch(() => {});
   }, []);
 
+  usePageMeta({
+    title: "Skeddo — Kids Activities & Summer Camp Planner | Vancouver & Lower Mainland",
+    description: "Plan your kids' summer camps and activities across Vancouver and the Lower Mainland. Browse thousands of programs, track registrations and waitlists, and budget across all your kids — free for families.",
+    canonical: "https://skeddo.ca/",
+  });
+
   const countLabel = programCount
     ? `${programCount.toLocaleString()}+`
     : "...";
@@ -51,6 +58,91 @@ export default function LandingPage({ onNavigate }) {
 
   return (
     <div style={{ background: C.cream, minHeight: "100dvh" }}>
+      {/* SoftwareApplication structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "Skeddo",
+            applicationCategory: "LifestyleApplication",
+            operatingSystem: "Web",
+            description: "Free family planner for kids' camps and activities in Vancouver and the Lower Mainland. Browse programs, track registrations, and manage your budget.",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "CAD",
+            },
+            author: {
+              "@type": "Organization",
+              name: "Mended with Gold Inc.",
+              url: "https://skeddo.ca",
+            },
+          }),
+        }}
+      />
+      {/* FAQPage structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "What is Skeddo?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Skeddo is a free family planner that helps parents in Vancouver and the Lower Mainland browse kids' camps and activities, track registrations and waitlists, and manage their budget across all their children.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How much does Skeddo cost?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Skeddo is completely free for families. There are no hidden fees or premium tiers.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What areas does Skeddo cover?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Skeddo covers kids' activities and summer programs from 150+ providers across Vancouver, Burnaby, North Vancouver, West Vancouver, Richmond, New Westminster, Coquitlam, and the rest of the Lower Mainland.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How many programs are listed on Skeddo?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Skeddo lists over 6,000 kids' programs including summer camps, sports, arts, STEM, and multi-activity camps from providers like City of Vancouver community centres, Pedalheads, Science World, and more.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+      {/* WebSite structured data for sitelinks search */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Skeddo",
+            url: "https://skeddo.ca",
+            description: "Kids' camps and activities planner for Vancouver and the Lower Mainland.",
+            publisher: {
+              "@type": "Organization",
+              name: "Mended with Gold Inc.",
+            },
+          }),
+        }}
+      />
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: ${C.cream}; }
