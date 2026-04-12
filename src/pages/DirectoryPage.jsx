@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { C, CATEGORIES } from "../constants/brand";
+import { C } from "../constants/brand";
 import useIsDesktop from "../hooks/useIsDesktop";
 import usePageMeta from "../hooks/usePageMeta";
 
@@ -402,10 +402,12 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
     return [...cities].sort();
   }, [allPrograms]);
 
-  // Category options from CATEGORIES constant
+  // Category options derived from actual program data
   const catOptions = useMemo(() => {
-    return CATEGORIES.filter((c) => c !== "All");
-  }, []);
+    const cats = {};
+    allPrograms.forEach((p) => { if (p.category) cats[p.category] = (cats[p.category] || 0) + 1; });
+    return Object.entries(cats).sort((a, b) => b[1] - a[1]).map(([name]) => name);
+  }, [allPrograms]);
 
   // Filter programs
   const filtered = useMemo(() => {
@@ -664,7 +666,7 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
                     <span style={{ fontWeight: 700, color: C.seaGreen }}>${Number(p.cost).toLocaleString()}</span>
                   )}
                   {p.ageMin != null && (
-                    <span>Ages {p.ageMin}\u2013{p.ageMax}</span>
+                    <span>Ages {p.ageMin}&ndash;{p.ageMax}</span>
                   )}
                   {(p.neighbourhood || p.city) && (
                     <span style={{ color: "#4A6FA5" }}>{p.neighbourhood || p.city}</span>
