@@ -36,7 +36,7 @@ export default function LandingPage({ onNavigate }) {
     import("../data/programs-summary.json").then((m) => {
       const rounded = Math.floor(m.default.totalPrograms / 1000) * 1000;
       setProgramCount(rounded);
-    });
+    }).catch(() => {});
   }, []);
 
   const countLabel = programCount
