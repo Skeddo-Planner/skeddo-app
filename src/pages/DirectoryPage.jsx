@@ -1,6 +1,6 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { C } from "../constants/brand";
+import { C, CATEGORIES } from "../constants/brand";
 import useIsDesktop from "../hooks/useIsDesktop";
 import usePageMeta from "../hooks/usePageMeta";
 
@@ -28,6 +28,25 @@ function useDirectoryData() {
   }, []);
   return data;
 }
+
+// Lazy-load all programs from the slim Vercel Blob (same source as the in-app Discover tab)
+const PROGRAMS_BLOB_URL = import.meta.env.VITE_PROGRAMS_URL || null;
+let _cachedAllPrograms = null;
+function useAllPrograms() {
+  const [programs, setPrograms] = useState(_cachedAllPrograms || []);
+  const [loading, setLoading] = useState(!_cachedAllPrograms);
+  useEffect(() => {
+    if (_cachedAllPrograms) return;
+    if (!PROGRAMS_BLOB_URL) { setLoading(false); return; }
+    fetch(PROGRAMS_BLOB_URL)
+      .then((r) => r.json())
+      .then((data) => { _cachedAllPrograms = data; setPrograms(data); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+  return { programs, loading };
+}
+
+const PAGE_SIZE = 30;
 
 // ── Shared styles ──
 const font = "'Barlow', sans-serif";
@@ -365,12 +384,63 @@ function StatsRow({ items, isDesktop }) {
 // ── Page: Main Directory (/camps) ──
 
 function DirectoryHome({ data, isDesktop, onNavigate }) {
-  // Merge similar categories for display
+  const { programs: allPrograms, loading: programsLoading } = useAllPrograms();
+  const [selectedProgram, setSelectedProgram] = useState(null);
+
+  // Search & filter state
+  const [search, setSearch] = useState("");
+  const [selectedCat, setSelectedCat] = useState("");
+  const [ageFilter, setAgeFilter] = useState("");
+  const [areaFilter, setAreaFilter] = useState("");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const resultsRef = useRef(null);
+
+  // Extract unique areas from programs for the filter dropdown
+  const areaOptions = useMemo(() => {
+    const cities = new Set();
+    allPrograms.forEach((p) => { if (p.city) cities.add(p.city); });
+    return [...cities].sort();
+  }, [allPrograms]);
+
+  // Category options from CATEGORIES constant
+  const catOptions = useMemo(() => {
+    return CATEGORIES.filter((c) => c !== "All");
+  }, []);
+
+  // Filter programs
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase().trim();
+    const age = ageFilter ? parseInt(ageFilter) : null;
+    return allPrograms.filter((p) => {
+      // Only show programs with open-ish statuses
+      const status = (p.enrollmentStatus || "").toLowerCase();
+      if (status === "completed" || status === "cancelled") return false;
+      // Search
+      if (q && !p.name?.toLowerCase().includes(q) && !p.provider?.toLowerCase().includes(q)
+        && !p.neighbourhood?.toLowerCase().includes(q) && !p.activityType?.toLowerCase().includes(q)) return false;
+      // Category
+      if (selectedCat && p.category !== selectedCat) return false;
+      // Age
+      if (age !== null) {
+        if (p.ageMin != null && p.ageMax != null && (age < p.ageMin || age > p.ageMax)) return false;
+      }
+      // Area
+      if (areaFilter && p.city !== areaFilter) return false;
+      return true;
+    });
+  }, [allPrograms, search, selectedCat, ageFilter, areaFilter]);
+
+  // Reset visible count when filters change
+  useEffect(() => { setVisibleCount(PAGE_SIZE); }, [search, selectedCat, ageFilter, areaFilter]);
+
+  const visiblePrograms = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
+  // Merge similar categories for browse-by section
   const topCategories = useMemo(() => {
     if (!data) return [];
     const merged = {};
     for (const c of data.categories) {
-      // Normalize category names for display grouping
       const key = c.slug;
       if (!merged[key]) merged[key] = { ...c, providers: [...c.providers] };
       else {
@@ -382,16 +452,6 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
       .filter(c => c.programCount >= 10)
       .sort((a, b) => b.programCount - a.programCount)
       .slice(0, 12);
-  }, [data]);
-
-  const topAreas = useMemo(() => {
-    if (!data) return [];
-    return data.areas.filter(a => a.programCount >= 20).slice(0, 12);
-  }, [data]);
-
-  const topProviders = useMemo(() => {
-    if (!data) return [];
-    return data.providers.filter(p => p.programCount >= 10).slice(0, 18);
   }, [data]);
 
   usePageMeta({
@@ -473,13 +533,25 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
     return () => { scripts.forEach(s => s.remove()); };
   }, [data, topCategories]);
 
+  const hasActiveFilters = search || selectedCat || ageFilter || areaFilter;
+
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
+
+  const selectStyle = {
+    fontFamily: font, fontSize: 14, padding: "10px 12px",
+    borderRadius: 10, border: `1.5px solid ${C.border}`,
+    background: C.white, color: C.ink, outline: "none",
+    minWidth: 0, flex: "1 1 120px", appearance: "none",
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%234A6FA5' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")`,
+    backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center",
+    paddingRight: 28,
+  };
 
   return (
     <div style={pageWrap(isDesktop)}>
       <SiteHeader isDesktop={isDesktop} onNavigate={onNavigate} />
 
-      {/* Hero */}
+      {/* Hero with search */}
       <div style={heroStyle(isDesktop)}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <h1 style={heroTitle(isDesktop)}>
@@ -487,100 +559,240 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
           </h1>
           <p style={heroSub}>
             Find summer camps, classes, and activities for kids across Vancouver and the Lower Mainland.
-            Filter by age, category, neighbourhood, and price — all from {data.totalProviders}+ local providers.
           </p>
-          <StatsRow items={[
-            ["Programs", `${data.totalPrograms.toLocaleString()}+`],
-            ["Providers", `${data.totalProviders}+`],
-            ["Areas", `${data.totalAreas}`],
-          ]} isDesktop={isDesktop} />
+
+          {/* Search bar in hero */}
+          <div style={{
+            marginTop: 20,
+            display: "flex",
+            gap: 8,
+            maxWidth: 600,
+          }}>
+            <input
+              type="text"
+              placeholder="Search camps, providers, activities..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={{
+                flex: 1,
+                fontFamily: font, fontSize: 15, padding: "12px 16px",
+                borderRadius: 10, border: "none",
+                outline: "none", background: "rgba(255,255,255,0.95)",
+                color: C.ink,
+              }}
+            />
+          </div>
         </div>
       </div>
 
       <div style={container(isDesktop)}>
-        {/* Categories */}
-        <h2 style={sectionTitle}>Browse by Category</h2>
-        <div style={cardGrid(isDesktop)}>
-          {topCategories.map((c) => (
-            <Link key={c.slug} to={`/camps/category/${c.slug}`} style={card}>
-              <div style={cardTitle}>{c.name}</div>
-              <div style={cardMeta}>
-                {c.programCount.toLocaleString()} programs · {c.providers.length} providers
-              </div>
-            </Link>
-          ))}
+        {/* Filter bar */}
+        <div ref={resultsRef} style={{
+          display: "flex", flexWrap: "wrap", gap: 8,
+          marginTop: 20, marginBottom: 16, alignItems: "center",
+        }}>
+          <select value={selectedCat} onChange={(e) => setSelectedCat(e.target.value)} style={selectStyle}>
+            <option value="">All Categories</option>
+            {catOptions.map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
+          <select value={ageFilter} onChange={(e) => setAgeFilter(e.target.value)} style={selectStyle}>
+            <option value="">Any Age</option>
+            {[3,4,5,6,7,8,9,10,11,12,13,14,15,16].map((a) => (
+              <option key={a} value={a}>{a} years old</option>
+            ))}
+          </select>
+          <select value={areaFilter} onChange={(e) => setAreaFilter(e.target.value)} style={selectStyle}>
+            <option value="">All Areas</option>
+            {areaOptions.map((a) => <option key={a} value={a}>{a}</option>)}
+          </select>
+          {hasActiveFilters && (
+            <button
+              onClick={() => { setSearch(""); setSelectedCat(""); setAgeFilter(""); setAreaFilter(""); }}
+              style={{
+                fontFamily: font, fontSize: 13, fontWeight: 600,
+                color: "#E74C3C", background: "none", border: "none",
+                cursor: "pointer", padding: "8px 4px",
+              }}
+            >
+              Clear filters
+            </button>
+          )}
         </div>
 
-        {/* Areas */}
-        <h2 style={sectionTitle}>Browse by Area</h2>
-        <div style={cardGrid(isDesktop)}>
-          {topAreas.map((a) => (
-            <Link key={a.slug} to={`/camps/area/${a.slug}`} style={card}>
-              <div style={cardTitle}>{a.name}</div>
-              <div style={cardMeta}>
-                {a.programCount.toLocaleString()} programs · {a.providers.length} providers
-              </div>
-              {a.neighbourhoods.length > 0 && (
-                <div style={{ marginTop: 6 }}>
-                  {a.neighbourhoods.slice(0, 4).map((n) => (
-                    <span key={n} style={pillStyle}>{n}</span>
-                  ))}
-                  {a.neighbourhoods.length > 4 && (
-                    <span style={{ ...pillStyle, background: "rgba(27,36,50,0.06)", color: C.ink }}>
-                      +{a.neighbourhoods.length - 4} more
-                    </span>
+        {/* Results count */}
+        <div style={{ fontSize: 14, color: "#4A6FA5", fontWeight: 600, marginBottom: 12 }}>
+          {programsLoading ? "Loading programs..." : `${filtered.length.toLocaleString()} programs found`}
+        </div>
+
+        {/* Program cards */}
+        {!programsLoading && visiblePrograms.length > 0 && (
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isDesktop ? "1fr 1fr 1fr" : "1fr",
+            gap: 12,
+          }}>
+            {visiblePrograms.map((p, i) => (
+              <div
+                key={p.id || i}
+                onClick={() => setSelectedProgram(p)}
+                style={{
+                  background: C.white, borderRadius: 14, padding: "16px 18px",
+                  boxShadow: "0 2px 8px rgba(27,36,50,0.07)",
+                  cursor: "pointer",
+                  transition: "box-shadow 0.15s, transform 0.15s",
+                  display: "flex", flexDirection: "column", gap: 6,
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 6px 20px rgba(27,36,50,0.13)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(27,36,50,0.07)"; e.currentTarget.style.transform = "translateY(0)"; }}
+              >
+                {/* Category pill */}
+                <div style={{
+                  fontSize: 11, fontWeight: 700, color: "#4A6FA5",
+                  textTransform: "uppercase", letterSpacing: 0.8,
+                }}>
+                  {p.category}
+                </div>
+                {/* Name */}
+                <div style={{ fontFamily: headFont, fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.3 }}>
+                  {p.name}
+                </div>
+                {/* Provider */}
+                <div style={{ fontSize: 13, color: "#4A6FA5" }}>{p.provider}</div>
+                {/* Details row */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 13, color: C.ink, marginTop: 2 }}>
+                  {p.cost != null && (
+                    <span style={{ fontWeight: 700, color: C.seaGreen }}>${Number(p.cost).toLocaleString()}</span>
+                  )}
+                  {p.ageMin != null && (
+                    <span>Ages {p.ageMin}\u2013{p.ageMax}</span>
+                  )}
+                  {(p.neighbourhood || p.city) && (
+                    <span style={{ color: "#4A6FA5" }}>{p.neighbourhood || p.city}</span>
                   )}
                 </div>
-              )}
-            </Link>
+                {/* Schedule info */}
+                {(p.dayLength || p.days) && (
+                  <div style={{ fontSize: 12, color: "#4A6FA5" }}>
+                    {p.dayLength}{p.days ? ` · ${p.days}` : ""}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Load more */}
+        {hasMore && (
+          <div style={{ textAlign: "center", marginTop: 20 }}>
+            <button
+              onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
+              style={{
+                fontFamily: font, fontSize: 15, fontWeight: 700,
+                color: C.seaGreen, background: C.white,
+                border: `1.5px solid ${C.seaGreen}`, borderRadius: 10,
+                padding: "12px 32px", cursor: "pointer",
+              }}
+            >
+              Load More ({(filtered.length - visibleCount).toLocaleString()} remaining)
+            </button>
+          </div>
+        )}
+
+        {/* No results */}
+        {!programsLoading && filtered.length === 0 && hasActiveFilters && (
+          <div style={{ textAlign: "center", padding: "40px 20px", color: "#4A6FA5" }}>
+            <div style={{ fontSize: 32, marginBottom: 8 }}>&#x1F50D;</div>
+            <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>No programs match your filters</div>
+            <div style={{ fontSize: 14, marginBottom: 16 }}>Try broadening your search or clearing some filters.</div>
+            <button
+              onClick={() => { setSearch(""); setSelectedCat(""); setAgeFilter(""); setAreaFilter(""); }}
+              style={{
+                fontFamily: font, fontSize: 14, fontWeight: 700,
+                color: C.seaGreen, background: "none",
+                border: `1.5px solid ${C.seaGreen}`, borderRadius: 8,
+                padding: "8px 20px", cursor: "pointer",
+              }}
+            >
+              Clear All Filters
+            </button>
+          </div>
+        )}
+
+        {/* Browse by category — shown below results */}
+        <h2 style={{ ...sectionTitle, marginTop: 40 }}>Browse by Category</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
+          {topCategories.map((c) => (
+            <button
+              key={c.slug}
+              onClick={() => { setSelectedCat(c.name); resultsRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+              style={{
+                fontFamily: font, fontSize: 13, fontWeight: 600,
+                color: selectedCat === c.name ? "#fff" : C.ink,
+                background: selectedCat === c.name ? C.seaGreen : C.white,
+                border: `1px solid ${selectedCat === c.name ? C.seaGreen : C.border}`,
+                borderRadius: 20, padding: "8px 16px", cursor: "pointer",
+                transition: "all 0.15s",
+              }}
+            >
+              {c.name} ({c.programCount.toLocaleString()})
+            </button>
           ))}
         </div>
 
-        {/* Providers */}
-        <h2 style={sectionTitle}>Popular Providers</h2>
-        <div style={cardGrid(isDesktop)}>
-          {topProviders.map((p) => (
-            <Link key={p.slug} to={`/camps/provider/${p.slug}`} style={card}>
-              <div style={cardTitle}>{p.name}</div>
-              <div style={cardMeta}>
-                {p.programCount.toLocaleString()} programs
-                {p.cities.length > 0 && ` · ${p.cities.slice(0, 2).join(", ")}`}
-              </div>
-              <div style={{ marginTop: 4 }}>
-                {p.categories.slice(0, 3).map((cat) => (
-                  <span key={cat} style={pillStyle}>{cat}</span>
-                ))}
-              </div>
-            </Link>
+        {/* Browse by area */}
+        <h2 style={sectionTitle}>Browse by Area</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
+          {(data?.areas || []).filter(a => a.programCount >= 20).slice(0, 15).map((a) => (
+            <button
+              key={a.slug}
+              onClick={() => { setAreaFilter(a.name); resultsRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+              style={{
+                fontFamily: font, fontSize: 13, fontWeight: 600,
+                color: areaFilter === a.name ? "#fff" : C.ink,
+                background: areaFilter === a.name ? C.seaGreen : C.white,
+                border: `1px solid ${areaFilter === a.name ? C.seaGreen : C.border}`,
+                borderRadius: 20, padding: "8px 16px", cursor: "pointer",
+                transition: "all 0.15s",
+              }}
+            >
+              {a.name} ({a.programCount.toLocaleString()})
+            </button>
           ))}
         </div>
 
-        {/* SEO content */}
-        <div style={{ marginTop: 40, background: C.white, borderRadius: 14, padding: isDesktop ? "28px 32px" : "20px", boxShadow: "0 2px 8px rgba(27,36,50,0.07)" }}>
-          <h2 style={{ ...sectionTitle, marginTop: 0 }}>About the Skeddo Camp Directory</h2>
-          <p style={{ fontSize: 15, color: C.ink, lineHeight: 1.7, marginBottom: 12 }}>
-            Skeddo is the most comprehensive directory of kids camps and programs in Vancouver and the Lower Mainland.
-            We list activities from {data.totalProviders}+ providers including community centres, private camps, arts organizations, and sports clubs.
-          </p>
-          <p style={{ fontSize: 15, color: C.ink, lineHeight: 1.7, marginBottom: 12 }}>
-            Whether you're looking for summer camps, spring break programs, after-school activities, or weekend classes,
-            Skeddo makes it easy to find the right fit for your family. Filter by your child's age, your neighbourhood,
-            activity type, budget, and schedule.
-          </p>
-          <p style={{ fontSize: 15, color: "#4A6FA5", lineHeight: 1.7 }}>
-            All program data is sourced directly from provider websites and verified regularly. Skeddo is free for families.
-          </p>
-        </div>
-
-        {/* Planning Guides — internal links for SEO */}
+        {/* CTA — sign up to save */}
         <div style={{
-          background: "#fff",
-          borderRadius: 16,
-          padding: isDesktop ? "28px 32px" : "20px 20px",
-          marginBottom: 32,
-          boxShadow: "0 2px 8px rgba(27,36,50,0.06)",
+          background: `linear-gradient(135deg, ${C.seaGreen}12, #4A6FA512)`,
+          border: `1.5px solid ${C.seaGreen}25`,
+          borderRadius: 16, padding: "24px 20px", textAlign: "center",
+          marginTop: 32, marginBottom: 24,
         }}>
-          <h2 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 20, fontWeight: 700, color: C.ink, marginBottom: 16 }}>
+          <h3 style={{ fontFamily: headFont, fontSize: 20, fontWeight: 700, color: C.ink, marginBottom: 8 }}>
+            Found something you like?
+          </h3>
+          <p style={{ fontSize: 15, color: "#4A6FA5", lineHeight: 1.6, marginBottom: 16, maxWidth: 480, margin: "0 auto 16px" }}>
+            Create a free account to save programs, track registrations, and manage your family's schedule and budget.
+          </p>
+          <button
+            onClick={() => onNavigate("signup")}
+            style={{
+              fontFamily: font, fontSize: 15, fontWeight: 700,
+              color: "#fff", background: C.seaGreen,
+              border: "none", borderRadius: 10,
+              padding: "12px 32px", cursor: "pointer",
+            }}
+          >
+            Get Started Free
+          </button>
+        </div>
+
+        {/* Planning Guides */}
+        <div style={{
+          background: "#fff", borderRadius: 16,
+          padding: isDesktop ? "28px 32px" : "20px 20px",
+          marginBottom: 32, boxShadow: "0 2px 8px rgba(27,36,50,0.06)",
+        }}>
+          <h2 style={{ fontFamily: headFont, fontSize: 20, fontWeight: 700, color: C.ink, marginBottom: 16 }}>
             Planning Resources for Parents
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: isDesktop ? "1fr 1fr" : "1fr", gap: 10 }}>
@@ -602,9 +814,10 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
             ))}
           </div>
         </div>
-
-        <CTASection isDesktop={isDesktop} />
       </div>
+
+      {/* Program detail modal */}
+      {selectedProgram && <PublicProgramDetail program={selectedProgram} onClose={() => setSelectedProgram(null)} onNavigate={onNavigate} />}
 
       <SiteFooter isDesktop={isDesktop} />
     </div>
