@@ -17,10 +17,13 @@
 name: Weekly Verify Programs
 
 on:
-  schedule:
-    # Sunday 8 AM PST = 16:00 UTC (also runs at 9 AM PDT during summer — acceptable)
-    # Daily refresh runs at 14:00 UTC — this is safely 2 hours later on Sunday.
-    - cron: '0 16 * * 0'
+  # Cron schedule disabled — the incremental verify scripts require live page
+  # access that works better in interactive Claude sessions. The cron was
+  # generating "No jobs were run" notification emails without producing value.
+  # Re-enable if the scripts gain offline-only verification capabilities.
+  #
+  # schedule:
+  #   - cron: '0 16 * * 0'
   workflow_dispatch: # Manual trigger from GitHub Actions UI
 
 jobs:
