@@ -11,7 +11,6 @@ import Header from "./components/Header";
 import TabBar from "./components/TabBar";
 import DesktopSidebar from "./components/DesktopSidebar";
 import useIsDesktop from "./hooks/useIsDesktop";
-import LandingPage from "./pages/LandingPage";
 import AuthPage from "./pages/AuthPage";
 
 // Lazy-loaded tabs — split into separate chunks so the landing page bundle
@@ -268,9 +267,10 @@ export default function Skeddo() {
         />
       );
     }
-    // Default: landing page
-    document.title = "Skeddo — Kids Activities & Summer Camp Planner | Vancouver & Lower Mainland";
-    return <LandingPage onNavigate={navigateTo} />;
+    // Default: send new visitors straight to the directory so they can browse
+    // programs without signing up. The "Save to Planner" action gates signup.
+    navigate("/camps", { replace: true });
+    return null;
   }
 
   /* ── Authenticated — show the app ── */
