@@ -26,6 +26,9 @@ on:
   #   - cron: '0 16 * * 0'
   workflow_dispatch: # Manual trigger from GitHub Actions UI
 
+permissions:
+  contents: write
+
 jobs:
   weekly-verify:
     runs-on: ubuntu-latest
@@ -72,11 +75,14 @@ jobs:
           else
             git add src/data/programs.json
             git add scripts/verify-state.json 2>/dev/null || true
-            git commit -m "chore: weekly deep verification fixes [skip ci]
+            git commit -m "$(cat <<EOF
+          chore: weekly deep verification fixes [skip ci]
 
-Auto-applied by weekly pipeline (Sunday 8 AM Pacific):
-- verify-programs.cjs --incremental --fix (full 7-day backlog)
-- validate-urls.cjs --fix --limit=1000 (URL resolution)"
+          Auto-applied by weekly pipeline (Sunday 8 AM Pacific):
+          - verify-programs.cjs --incremental --fix (full 7-day backlog)
+          - validate-urls.cjs --fix --limit=1000 (URL resolution)
+          EOF
+          )"
             git push
           fi
 

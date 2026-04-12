@@ -223,6 +223,7 @@ function SiteHeader({ isDesktop, onNavigate }) {
         }}>
           Browse Camps
         </Link>
+        {/* Blog/Guides link hidden until posts are refined
         <Link to="/blog" style={{
           fontFamily: font,
           fontSize: 14,
@@ -233,6 +234,7 @@ function SiteHeader({ isDesktop, onNavigate }) {
         }}>
           Guides
         </Link>
+        */}
         <a
           href="/signin"
           onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
@@ -286,7 +288,6 @@ function SiteFooter({ isDesktop }) {
     }}>
       <nav style={{ display: "flex", justifyContent: "center", gap: isDesktop ? 24 : 16, marginBottom: 10, flexWrap: "wrap" }}>
         <Link to="/camps" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Browse Camps</Link>
-        <Link to="/blog" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Guides</Link>
         <Link to="/about" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>About</Link>
         <Link to="/privacy" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Privacy & Terms</Link>
         <Link to="/help" style={{ color: "#4A6FA5", textDecoration: "none", fontWeight: 600 }}>Help & Contact</Link>
@@ -789,33 +790,7 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
         </div>
 
         {/* Planning Guides */}
-        <div style={{
-          background: "#fff", borderRadius: 16,
-          padding: isDesktop ? "28px 32px" : "20px 20px",
-          marginBottom: 32, boxShadow: "0 2px 8px rgba(27,36,50,0.06)",
-        }}>
-          <h2 style={{ fontFamily: headFont, fontSize: 20, fontWeight: 700, color: C.ink, marginBottom: 16 }}>
-            Planning Resources for Parents
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: isDesktop ? "1fr 1fr" : "1fr", gap: 10 }}>
-            {[
-              { to: "/blog/best-summer-camps-vancouver-2026", icon: "\u2B50", label: "Best Summer Camps 2026" },
-              { to: "/blog/vancouver-camp-costs-2026", icon: "\uD83D\uDCB0", label: "Camp Costs: What to Expect" },
-              { to: "/blog/free-low-cost-camps-vancouver", icon: "\uD83C\uDF1F", label: "Free & Low-Cost Camps" },
-              { to: "/blog/how-to-choose-summer-camp", icon: "\uD83E\uDDE9", label: "How to Choose a Camp" },
-            ].map(({ to, icon, label }) => (
-              <Link key={to} to={to} style={{
-                display: "flex", alignItems: "center", gap: 10,
-                padding: "10px 14px", borderRadius: 10,
-                background: `${C.seaGreen}08`, textDecoration: "none",
-                border: `1px solid ${C.border}`,
-              }}>
-                <span style={{ fontSize: 20 }}>{icon}</span>
-                <span style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink }}>{label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Planning Resources widget hidden until blog posts are refined */}
       </div>
 
       {/* Program detail modal */}
