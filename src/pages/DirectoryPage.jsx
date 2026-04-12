@@ -400,28 +400,77 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
     canonical: "https://skeddo.ca/camps",
   });
 
-  // JSON-LD ItemList for SEO
+  // JSON-LD structured data for SEO
   useEffect(() => {
     if (!data) return;
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      name: "Kids Camps & Programs in Vancouver",
-      description: `Browse ${data.totalPrograms}+ kids activities across ${data.totalAreas} areas from ${data.totalProviders}+ providers.`,
-      numberOfItems: data.totalPrograms,
-      itemListElement: topCategories.slice(0, 8).map((c, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: `${c.name} Programs`,
-        url: `https://skeddo.ca/camps/category/${c.slug}`,
-      })),
-    };
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(jsonLd);
-    script.id = "directory-jsonld";
-    document.head.appendChild(script);
-    return () => { script.remove(); };
+    const schemas = [
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Kids Camps & Programs in Vancouver",
+        description: `Browse ${data.totalPrograms}+ kids activities across ${data.totalAreas} areas from ${data.totalProviders}+ providers.`,
+        numberOfItems: data.totalPrograms,
+        itemListElement: topCategories.slice(0, 8).map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: `${c.name} Programs`,
+          url: `https://skeddo.ca/camps/category/${c.slug}`,
+        })),
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Skeddo",
+        url: "https://skeddo.ca",
+        description: "Kids' camps and activities planner for Vancouver and the Lower Mainland.",
+        publisher: { "@type": "Organization", name: "Mended with Gold Inc." },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Skeddo",
+        applicationCategory: "LifestyleApplication",
+        operatingSystem: "Web",
+        description: "Free family planner for kids' camps and activities in Vancouver and the Lower Mainland. Browse programs, track registrations, and manage your budget.",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "CAD" },
+        author: { "@type": "Organization", name: "Mended with Gold Inc.", url: "https://skeddo.ca" },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What is Skeddo?",
+            acceptedAnswer: { "@type": "Answer", text: "Skeddo is a free family planner that helps parents in Vancouver and the Lower Mainland browse kids' camps and activities, track registrations and waitlists, and manage their budget across all their children." },
+          },
+          {
+            "@type": "Question",
+            name: "How much does Skeddo cost?",
+            acceptedAnswer: { "@type": "Answer", text: "Skeddo is completely free for families. There are no hidden fees or premium tiers." },
+          },
+          {
+            "@type": "Question",
+            name: "What areas does Skeddo cover?",
+            acceptedAnswer: { "@type": "Answer", text: "Skeddo covers kids' activities and summer programs from 150+ providers across Vancouver, Burnaby, North Vancouver, West Vancouver, Richmond, New Westminster, Coquitlam, and the rest of the Lower Mainland." },
+          },
+          {
+            "@type": "Question",
+            name: "How many programs are listed on Skeddo?",
+            acceptedAnswer: { "@type": "Answer", text: `Skeddo lists over ${data.totalPrograms.toLocaleString()} kids' programs including summer camps, sports, arts, STEM, and multi-activity camps from ${data.totalProviders}+ local providers.` },
+          },
+        ],
+      },
+    ];
+    const scripts = schemas.map((s, i) => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(s);
+      script.id = `directory-jsonld-${i}`;
+      document.head.appendChild(script);
+      return script;
+    });
+    return () => { scripts.forEach(s => s.remove()); };
   }, [data, topCategories]);
 
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
