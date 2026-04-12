@@ -1,4 +1,4 @@
-# Skeddo — Auto-refresh + validate program data from all sources
+# Skeddo -- Auto-refresh + validate program data from all sources
 #
 # Runs daily at 6 AM Pacific (2 PM UTC) and can also be triggered manually.
 # Pipeline:
@@ -7,14 +7,14 @@
 #   3. Refresh data from private providers (web scraping)
 #   4. Validate data quality rules (validate-programs.cjs)
 #   5. Auto-resolve violations on newly changed programs (auto-resolve-violations.cjs)
-#   6. Validate URLs — fix broken links (validate-urls.cjs)
+#   6. Validate URLs -- fix broken links (validate-urls.cjs)
 #   7. Incremental source-of-truth verification (verify-programs.cjs)
 #   8. Quarantine programs that still have violations after all auto-fixes
 #   9. Commit any auto-fixed programs.json changes back to the repo
 #
-# Required repository secrets (set in GitHub → Settings → Secrets):
-#   SUPABASE_URL              — Your Supabase project URL
-#   SUPABASE_SERVICE_ROLE_KEY — Your Supabase service role key (NOT the anon key)
+# Required repository secrets (set in GitHub > Settings > Secrets):
+#   SUPABASE_URL              - Your Supabase project URL
+#   SUPABASE_SERVICE_ROLE_KEY - Your Supabase service role key (NOT the anon key)
 
 name: Refresh Programs
 
@@ -44,7 +44,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # ── Data refresh ──────────────────────────────────────────────────────────
+      # -- Data refresh --
 
       - name: Refresh City of Vancouver (ActiveNet)
         env:
@@ -64,16 +64,16 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/refresh-private.js
 
-      # ── Enrollment status refresh ─────────────────────────────────────────────
+      # -- Enrollment status refresh --
 
       - name: Update ActiveNet enrollment statuses
         # Checks all COV/BNB/WV/PC/LGY programs against the ActiveNet REST API
-        # to fix stale enrollment statuses (Open→Full, Open→Waitlist, etc.)
+        # to fix stale enrollment statuses (Open->Full, Open->Waitlist, etc.)
         # This catches programs that fill up between data refreshes.
         continue-on-error: true
         run: node scripts/update-activenet-status.cjs --fix
 
-      # ── Data quality validation ───────────────────────────────────────────────
+      # -- Data quality validation --
 
       - name: Compute derived fields
         # Fill in scheduleType, dayLength, durationPerDay, etc. from existing data
@@ -202,21 +202,21 @@ jobs:
           fi
 
       - name: Validate and fix broken URLs
-        # Checks every registrationUrl — fixes 404s, homepage redirects, client errors.
+        # Checks every registrationUrl -- fixes 404s, homepage redirects, client errors.
         # Uses --limit=500 to stay well within the 60-minute job timeout on a daily run.
         # Run manually with no --limit for a full audit: node scripts/validate-urls.cjs --fix
         continue-on-error: true
         run: node scripts/validate-urls.cjs --fix --limit=500
 
       - name: Incremental source-of-truth verification
-        # Checks programs not verified in the last 7 days — cross-checks name, price, and
+        # Checks programs not verified in the last 7 days -- cross-checks name, price, and
         # enrollment status against the live registration page.
-        # Uses --limit=200 to keep this step under ~5 minutes (200 × 750ms ≈ 2.5 min + overhead).
+        # Uses --limit=200 to keep this step under ~5 minutes (200 x 750ms ~ 2.5 min + overhead).
         # Full audit: node scripts/verify-programs.cjs --audit --fix
         continue-on-error: true
         run: node scripts/verify-programs.cjs --incremental --fix --limit=200
 
-      # ── Resolve quarantined programs (opportunistic) ───────────────────────────
+      # -- Resolve quarantined programs (opportunistic) --
 
       - name: Attempt to resolve previously quarantined programs
         # Try web-based resolution for programs in the quarantine file.
@@ -245,7 +245,7 @@ jobs:
             node scripts/auto-resolve-violations.cjs "--ids=${QIDS}" || true
           fi
 
-      # ── Commit auto-fixes back to repo ───────────────────────────────────────
+      # -- Commit auto-fixes back to repo --
 
       - name: Commit auto-fixed programs.json (if changed)
         run: |
@@ -258,7 +258,7 @@ jobs:
           git add src/data/quarantined-programs.json 2>/dev/null || true
 
           if git diff --cached --quiet; then
-            echo "No changes to commit — nothing changed."
+            echo "No changes to commit -- nothing changed."
           else
             # Build summary for commit message
             PROGRAM_COUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('src/data/programs.json')).length)" 2>/dev/null || echo "?")
@@ -281,7 +281,7 @@ Programs: ${PROGRAM_COUNT} total | Quarantined: ${QCOUNT} with unresolvable viol
             git push
           fi
 
-      # ── Report ────────────────────────────────────────────────────────────────
+      # -- Report --
 
       - name: Report results
         if: always()
@@ -296,7 +296,7 @@ Programs: ${PROGRAM_COUNT} total | Quarantined: ${QCOUNT} with unresolvable viol
           echo "  4. Auto-resolve:  offline + web resolution for changed programs"
           echo "  5. Validate URLs: URL resolution (validate-urls.cjs --limit=500)"
           echo "  6. Verify:        incremental source-of-truth (verify-programs.cjs --limit=200)"
-          echo "  7. Quarantine:    programs with unresolvable violations → src/data/quarantined-programs.json"
+          echo "  7. Quarantine:    programs with unresolvable violations -> src/data/quarantined-programs.json"
           echo ""
           if [ -f "src/data/quarantined-programs.json" ]; then
             QCOUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('src/data/quarantined-programs.json')).programs.length)" 2>/dev/null || echo "?")

@@ -1,4 +1,4 @@
-# Skeddo — Process user-submitted programs
+# Skeddo -- Process user-submitted programs
 #
 # Runs twice daily (8 AM and 6 PM Pacific) and can be triggered manually.
 # Pipeline:
@@ -13,8 +13,8 @@
 # then adds verified programs to programs.json.
 #
 # Required repository secrets:
-#   SUPABASE_URL              — Supabase project URL
-#   SUPABASE_SERVICE_ROLE_KEY — Supabase service role key
+#   SUPABASE_URL              - Supabase project URL
+#   SUPABASE_SERVICE_ROLE_KEY - Supabase service role key
 
 name: Process Submissions
 
@@ -67,6 +67,6 @@ jobs:
               console.log(q.submissions.length);
             " 2>/dev/null || echo "?")
 
-            git commit -m "chore: process user submissions — ${QUEUE_COUNT} awaiting verification [skip ci]"
+            git commit -m "chore: process user submissions -- ${QUEUE_COUNT} awaiting verification [skip ci]"
             git push
           fi
