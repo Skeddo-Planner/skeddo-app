@@ -769,7 +769,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         onLogoClick={() => { setTab("home"); setInfoPage(null); }}
         onSignOut={onSignOut}
         unreadCount={childAccess.unreadCount}
-        onOpenActivity={() => { childAccess.markActivityViewed(); setTab("home"); }}
+        activityLog={childAccess.activityLog}
+        onOpenActivity={() => { childAccess.markActivityViewed(); }}
         onInviteCoParent={handleInviteCoParent}
         tab={tab}
         setTab={(t) => handleNavigateToTab(t)}

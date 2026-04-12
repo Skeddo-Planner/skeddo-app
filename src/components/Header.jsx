@@ -3,6 +3,18 @@ import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import useIsDesktop from "../hooks/useIsDesktop";
 
+function formatTimeAgo(date) {
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+  if (seconds < 60) return "just now";
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes}m ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days}d ago`;
+  return date.toLocaleDateString("en-CA", { month: "short", day: "numeric" });
+}
+
 const MENU_ITEMS = [
   { id: "profile", label: "Profile", icon: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2|M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8" },
   { id: "about", label: "About Skeddo", icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8" },
@@ -41,11 +53,25 @@ function MenuIcon({ pathData, circle, color, size = 18 }) {
   );
 }
 
-export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onInviteCoParent, tab, setTab, badges }) {
+export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onInviteCoParent, tab, setTab, badges, activityLog = [] }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [notifOpen, setNotifOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const notifRef = useRef(null);
   const isDesktop = useIsDesktop();
+
+  /* Close notification dropdown on outside click */
+  useEffect(() => {
+    if (!notifOpen) return;
+    const handler = (e) => {
+      if (notifRef.current && !notifRef.current.contains(e.target)) {
+        setNotifOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [notifOpen]);
 
   /* Close dropdown on outside click */
   useEffect(() => {
@@ -174,33 +200,98 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               })}
             </nav>
 
-            {/* Right: user name + avatar + dropdown */}
+            {/* Right: notifications + user name + avatar + dropdown */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0, position: "relative" }} ref={dropdownRef}>
-              <button
-                onClick={onOpenActivity}
-                style={{
-                  width: 32, height: 32, borderRadius: 8,
-                  background: "transparent", border: "none",
-                  cursor: "pointer", display: "flex", alignItems: "center",
-                  justifyContent: "center", position: "relative", flexShrink: 0,
-                }}
-                aria-label={unreadCount > 0 ? `${unreadCount} new activity updates` : "Activity"}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                </svg>
-                {unreadCount > 0 && (
-                  <span style={{
-                    position: "absolute", top: 0, right: 0, width: 14, height: 14,
-                    borderRadius: "50%", background: C.danger, color: "#fff",
-                    fontSize: 8, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
-                    display: "flex", alignItems: "center", justifyContent: "center",
+              <div style={{ position: "relative" }} ref={notifRef}>
+                <button
+                  onClick={() => { setNotifOpen((v) => !v); setDropdownOpen(false); if (!notifOpen) onOpenActivity(); }}
+                  style={{
+                    width: 32, height: 32, borderRadius: 8,
+                    background: notifOpen ? `${C.seaGreen}12` : "transparent", border: "none",
+                    cursor: "pointer", display: "flex", alignItems: "center",
+                    justifyContent: "center", position: "relative", flexShrink: 0,
+                  }}
+                  aria-label={unreadCount > 0 ? `${unreadCount} new activity updates` : "Activity"}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={notifOpen ? C.seaGreen : C.muted} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                  </svg>
+                  {unreadCount > 0 && (
+                    <span style={{
+                      position: "absolute", top: 0, right: 0, width: 14, height: 14,
+                      borderRadius: "50%", background: C.danger, color: "#fff",
+                      fontSize: 8, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      {unreadCount > 9 ? "9+" : unreadCount}
+                    </span>
+                  )}
+                </button>
+
+                {/* Notification dropdown */}
+                {notifOpen && (
+                  <div style={{
+                    position: "absolute", top: "100%", right: 0, marginTop: 8,
+                    width: 320, maxHeight: 400, overflowY: "auto",
+                    background: "#fff", borderRadius: 14,
+                    boxShadow: "0 8px 32px rgba(27,36,50,0.18), 0 2px 8px rgba(27,36,50,0.08)",
+                    border: `1px solid ${C.border}`, zIndex: 200,
+                    fontFamily: "'Barlow', sans-serif",
                   }}>
-                    {unreadCount > 9 ? "9+" : unreadCount}
-                  </span>
+                    <div style={{
+                      padding: "14px 16px 10px", borderBottom: `1px solid ${C.border}`,
+                      fontSize: 14, fontWeight: 700, color: C.ink,
+                    }}>
+                      Notifications
+                    </div>
+                    {activityLog.length === 0 ? (
+                      <div style={{ padding: "32px 16px", textAlign: "center", color: C.muted, fontSize: 14 }}>
+                        No notifications yet. Activity from co-parents will appear here.
+                      </div>
+                    ) : (
+                      activityLog.map((entry, i) => {
+                        const time = new Date(entry.created_at);
+                        const ago = formatTimeAgo(time);
+                        const details = entry.details || {};
+                        return (
+                          <div
+                            key={entry.id || i}
+                            style={{
+                              padding: "12px 16px",
+                              borderBottom: i < activityLog.length - 1 ? `1px solid ${C.border}` : "none",
+                              fontSize: 13, lineHeight: 1.5, color: C.ink,
+                            }}
+                          >
+                            <div style={{ fontWeight: 600, marginBottom: 2 }}>
+                              {details.userName || "Someone"}{" "}
+                              <span style={{ fontWeight: 400, color: C.muted }}>
+                                {entry.action === "add_program" && "added a program"}
+                                {entry.action === "remove_program" && "removed a program"}
+                                {entry.action === "status_change" && `changed status to ${details.newStatus || "..."}`}
+                                {!["add_program", "remove_program", "status_change"].includes(entry.action) && (entry.action || "made a change")}
+                              </span>
+                            </div>
+                            {details.programName && (
+                              <div style={{ fontSize: 13, fontWeight: 600, color: C.seaGreen }}>
+                                {details.programName}
+                              </div>
+                            )}
+                            {details.childName && (
+                              <div style={{ fontSize: 12, color: C.muted }}>
+                                for {details.childName}
+                              </div>
+                            )}
+                            <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                              {ago}
+                            </div>
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
                 )}
-              </button>
+              </div>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 style={{
@@ -299,31 +390,96 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               {/* Notification bell */}
-              <button
-                onClick={onOpenActivity}
-                style={{
-                  width: 40, height: 40, borderRadius: 10,
-                  background: "rgba(255,255,255,0.12)", border: "none",
-                  cursor: "pointer", display: "flex", alignItems: "center",
-                  justifyContent: "center", position: "relative", flexShrink: 0,
-                }}
-                aria-label={unreadCount > 0 ? `${unreadCount} new activity updates` : "Activity"}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                </svg>
-                {unreadCount > 0 && (
-                  <span style={{
-                    position: "absolute", top: 4, right: 4, width: 16, height: 16,
-                    borderRadius: "50%", background: C.danger, color: "#fff",
-                    fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
-                    display: "flex", alignItems: "center", justifyContent: "center",
+              <div style={{ position: "relative" }} ref={notifRef}>
+                <button
+                  onClick={() => { setNotifOpen((v) => !v); if (!notifOpen) onOpenActivity(); }}
+                  style={{
+                    width: 40, height: 40, borderRadius: 10,
+                    background: notifOpen ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.12)", border: "none",
+                    cursor: "pointer", display: "flex", alignItems: "center",
+                    justifyContent: "center", position: "relative", flexShrink: 0,
+                  }}
+                  aria-label={unreadCount > 0 ? `${unreadCount} new activity updates` : "Activity"}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                  </svg>
+                  {unreadCount > 0 && (
+                    <span style={{
+                      position: "absolute", top: 4, right: 4, width: 16, height: 16,
+                      borderRadius: "50%", background: C.danger, color: "#fff",
+                      fontSize: 9, fontWeight: 700, fontFamily: "'Barlow', sans-serif",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      {unreadCount > 9 ? "9+" : unreadCount}
+                    </span>
+                  )}
+                </button>
+
+                {/* Mobile notification dropdown */}
+                {notifOpen && (
+                  <div style={{
+                    position: "absolute", top: "100%", right: 0, marginTop: 8,
+                    width: 300, maxHeight: 360, overflowY: "auto",
+                    background: "#fff", borderRadius: 14,
+                    boxShadow: "0 8px 32px rgba(27,36,50,0.18), 0 2px 8px rgba(27,36,50,0.08)",
+                    border: `1px solid ${C.border}`, zIndex: 200,
+                    fontFamily: "'Barlow', sans-serif",
                   }}>
-                    {unreadCount > 9 ? "9+" : unreadCount}
-                  </span>
+                    <div style={{
+                      padding: "14px 16px 10px", borderBottom: `1px solid ${C.border}`,
+                      fontSize: 14, fontWeight: 700, color: C.ink,
+                    }}>
+                      Notifications
+                    </div>
+                    {activityLog.length === 0 ? (
+                      <div style={{ padding: "32px 16px", textAlign: "center", color: C.muted, fontSize: 14 }}>
+                        No notifications yet. Activity from co-parents will appear here.
+                      </div>
+                    ) : (
+                      activityLog.map((entry, i) => {
+                        const time = new Date(entry.created_at);
+                        const ago = formatTimeAgo(time);
+                        const details = entry.details || {};
+                        return (
+                          <div
+                            key={entry.id || i}
+                            style={{
+                              padding: "12px 16px",
+                              borderBottom: i < activityLog.length - 1 ? `1px solid ${C.border}` : "none",
+                              fontSize: 13, lineHeight: 1.5, color: C.ink,
+                            }}
+                          >
+                            <div style={{ fontWeight: 600, marginBottom: 2 }}>
+                              {details.userName || "Someone"}{" "}
+                              <span style={{ fontWeight: 400, color: C.muted }}>
+                                {entry.action === "add_program" && "added a program"}
+                                {entry.action === "remove_program" && "removed a program"}
+                                {entry.action === "status_change" && `changed status to ${details.newStatus || "..."}`}
+                                {!["add_program", "remove_program", "status_change"].includes(entry.action) && (entry.action || "made a change")}
+                              </span>
+                            </div>
+                            {details.programName && (
+                              <div style={{ fontSize: 13, fontWeight: 600, color: C.seaGreen }}>
+                                {details.programName}
+                              </div>
+                            )}
+                            {details.childName && (
+                              <div style={{ fontSize: 12, color: C.muted }}>
+                                for {details.childName}
+                              </div>
+                            )}
+                            <div style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+                              {ago}
+                            </div>
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
                 )}
-              </button>
+              </div>
               <button
                 onClick={() => setMenuOpen(true)}
                 style={{
