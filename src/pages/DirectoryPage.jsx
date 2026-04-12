@@ -1,8 +1,107 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { C } from "../constants/brand";
+import { C, CATEGORIES, CAT_EMOJI } from "../constants/brand";
 import useIsDesktop from "../hooks/useIsDesktop";
 import usePageMeta from "../hooks/usePageMeta";
+import FilterDrawer from "../components/FilterDrawer";
+import FilterOptions from "../components/FilterOptions";
+import {
+  REGISTRATION_STATUSES,
+  getRegistrationStatus,
+  sortPrograms,
+  calcCostPerHour,
+} from "../utils/helpers";
+
+/* ─── Filter constants (shared with DiscoverTab) ─── */
+
+const COST_RANGES = [
+  { label: "Any price", min: 0, max: Infinity },
+  { label: "Free", min: 0, max: 0 },
+  { label: "Inquire for pricing", min: -1, max: -1 },
+  { label: "Under $100", min: 0.01, max: 100 },
+  { label: "$100 - $250", min: 100, max: 250 },
+  { label: "$250 - $500", min: 250, max: 500 },
+  { label: "$500+", min: 500, max: Infinity },
+];
+
+const COST_PER_HOUR_RANGES = [
+  { label: "Any $/hr", min: 0, max: Infinity },
+  { label: "Under $5/hr", min: 0.01, max: 5 },
+  { label: "$5 - $10/hr", min: 5, max: 10 },
+  { label: "$10 - $15/hr", min: 10, max: 15 },
+  { label: "$15 - $20/hr", min: 15, max: 20 },
+  { label: "$20+/hr", min: 20, max: Infinity },
+];
+
+const SORT_OPTIONS = [
+  { key: "relevance", label: "Relevance" },
+  { key: "price-asc", label: "Price: Low to High" },
+  { key: "price-desc", label: "Price: High to Low" },
+  { key: "az", label: "A-Z" },
+];
+
+const SUMMER_WEEKS = [
+  { id: "w1", label: "Week 1", dateRange: "Jun 29 \u2013 Jul 3", monday: new Date(2026, 5, 29), friday: new Date(2026, 6, 3), statHolidays: [2], note: "Canada Day Jul 1" },
+  { id: "w2", label: "Week 2", dateRange: "Jul 6 \u2013 Jul 10", monday: new Date(2026, 6, 6), friday: new Date(2026, 6, 10), statHolidays: [] },
+  { id: "w3", label: "Week 3", dateRange: "Jul 13 \u2013 Jul 17", monday: new Date(2026, 6, 13), friday: new Date(2026, 6, 17), statHolidays: [] },
+  { id: "w4", label: "Week 4", dateRange: "Jul 20 \u2013 Jul 24", monday: new Date(2026, 6, 20), friday: new Date(2026, 6, 24), statHolidays: [] },
+  { id: "w5", label: "Week 5", dateRange: "Jul 27 \u2013 Jul 31", monday: new Date(2026, 6, 27), friday: new Date(2026, 6, 31), statHolidays: [] },
+  { id: "w6", label: "Week 6", dateRange: "Aug 3 \u2013 Aug 7", monday: new Date(2026, 7, 3), friday: new Date(2026, 7, 7), statHolidays: [0], note: "BC Day Aug 3" },
+  { id: "w7", label: "Week 7", dateRange: "Aug 10 \u2013 Aug 14", monday: new Date(2026, 7, 10), friday: new Date(2026, 7, 14), statHolidays: [] },
+  { id: "w8", label: "Week 8", dateRange: "Aug 17 \u2013 Aug 21", monday: new Date(2026, 7, 17), friday: new Date(2026, 7, 21), statHolidays: [] },
+  { id: "w9", label: "Week 9", dateRange: "Aug 24 \u2013 Aug 28", monday: new Date(2026, 7, 24), friday: new Date(2026, 7, 28), statHolidays: [] },
+  { id: "w10", label: "Week 10", dateRange: "Aug 31 \u2013 Sep 4", monday: new Date(2026, 7, 31), friday: new Date(2026, 8, 4), statHolidays: [], note: "Last week before school" },
+];
+
+const CITY_NEIGHBOURHOODS = [
+  { city: "Vancouver", neighbourhoods: ["Arbutus Ridge","Cambie","Chinatown","Coal Harbour","Commercial Drive","Downtown","Dunbar","Dunbar-Southlands","East Vancouver","Fairview","Fraserview","Grandview-Woodland","Granville Island","Hastings Park","Hastings-Sunrise","Kensington-Cedar Cottage","Kerrisdale","Killarney","Kitsilano","Main Street","Marpole","Mount Pleasant","Oakridge","Point Grey","Renfrew-Collingwood","Riley Park","Shaughnessy","South Cambie","South Vancouver","Stanley Park","Strathcona","Sunset","UBC","University Endowment Lands","Victoria-Fraserview","West End","West Point Grey","Yaletown"] },
+  { city: "Burnaby", neighbourhoods: ["Brentwood","Burnaby Heights","Burnaby Mountain","Capitol Hill","Cariboo","Central Park","Deer Lake","Edmonds","Kensington","Lougheed","Metrotown","North Burnaby","SFU / UniverCity","South Slope","Sperling-Duthie"] },
+  { city: "North Vancouver", neighbourhoods: ["Central Lonsdale","Deep Cove","Delbrook","Dollarton","Heights","Lower Capilano","Lower Lonsdale","Lynn Creek","Lynn Valley","Maplewood","Mount Seymour","Seymour","Upper Lonsdale"] },
+  { city: "West Vancouver", neighbourhoods: ["Ambleside","British Properties","Gleneagles","West Vancouver"] },
+  { city: "Richmond", neighbourhoods: ["Aberdeen","Bridgeport","Broadmoor","City Centre","East Cambie","East Richmond","Ironwood","Sea Island","South Arm","Steveston","Thompson"] },
+  { city: "New Westminster", neighbourhoods: ["Downtown New West","Downtown New Westminster","Moody Park","Queens Park","Queensborough"] },
+  { city: "Surrey", neighbourhoods: ["Cloverdale","Fleetwood","Green Timbers","Guildford","Newton","Panorama","South Surrey","Surrey City Centre","Whalley"] },
+  { city: "Coquitlam", neighbourhoods: ["Burquitlam","Central Coquitlam","Maillardville"] },
+  { city: "Port Coquitlam", neighbourhoods: ["Central Port Coquitlam","Port Coquitlam"] },
+  { city: "Port Moody", neighbourhoods: ["Ioco","Port Moody"] },
+  { city: "Maple Ridge", neighbourhoods: ["Maple Ridge","Town Centre"] },
+  { city: "Delta", neighbourhoods: ["Delta","North Delta"] },
+  { city: "Langley", neighbourhoods: ["Langley"] },
+  { city: "White Rock", neighbourhoods: ["White Rock"] },
+  { city: "Squamish", neighbourhoods: ["Squamish"] },
+];
+
+function programOverlapsWeek(program, weekMonday, weekFriday) {
+  if (!program.startDate) return false;
+  const pStart = new Date(program.startDate + "T00:00:00");
+  const pEnd = program.endDate ? new Date(program.endDate + "T00:00:00") : pStart;
+  return pStart <= weekFriday && pEnd >= weekMonday;
+}
+
+function FilterChip({ label, count, active, onClick }) {
+  return (
+    <button onClick={onClick} style={{
+      display: "flex", alignItems: "center", gap: 5,
+      padding: "6px 12px", borderRadius: 20,
+      border: active ? `1.5px solid ${C.ink}` : "1.5px solid rgba(27,36,50,0.15)",
+      background: active ? C.ink : "#FFFFFF",
+      color: active ? "#FFFFFF" : C.ink,
+      fontFamily: "'Barlow', sans-serif", fontSize: 14, fontWeight: active ? 600 : 500,
+      cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
+      boxShadow: active ? "none" : "0 1px 3px rgba(27,36,50,0.04)",
+      minHeight: 36,
+    }}>
+      {label}
+      {count > 0 && (
+        <span style={{
+          background: active ? "#FFF" : C.seaGreen, color: active ? C.ink : "#fff",
+          fontSize: 9, fontWeight: 700, width: 16, height: 16, borderRadius: 8,
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>{count}</span>
+      )}
+    </button>
+  );
+}
 
 /**
  * Public directory pages for SEO.
@@ -388,74 +487,207 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
   const { programs: allPrograms, loading: programsLoading } = useAllPrograms();
   const [selectedProgram, setSelectedProgram] = useState(null);
 
-  // Search & filter state
+  // Full filter state (matching DiscoverTab)
   const [search, setSearch] = useState("");
-  const [selectedCat, setSelectedCat] = useState("");
-  const [ageFilter, setAgeFilter] = useState("");
-  const [areaFilter, setAreaFilter] = useState("");
+  const [selectedCats, setSelectedCats] = useState(new Set());
+  const [selectedActivityTypes, setSelectedActivityTypes] = useState(new Set());
+  const [selectedHoods, setSelectedHoods] = useState(new Set());
+  const [expandedCities, setExpandedCities] = useState(new Set());
+  const [ageMin, setAgeMin] = useState("");
+  const [ageMax, setAgeMax] = useState("");
+  const [selectedCosts, setSelectedCosts] = useState(new Set());
+  const [costFilterMode, setCostFilterMode] = useState("total");
+  const [selectedCostPerHour, setSelectedCostPerHour] = useState(new Set());
+  const [selectedProviders, setSelectedProviders] = useState(new Set());
+  const [providerSearch, setProviderSearch] = useState("");
+  const [selectedRegStatuses, setSelectedRegStatuses] = useState(new Set(["open", "coming-soon", "upcoming", "likely-coming-soon"]));
+  const [selectedWeeks, setSelectedWeeks] = useState(new Set());
+  const [durationMin, setDurationMin] = useState(0);
+  const [durationMax, setDurationMax] = useState(10);
+  const [sortBy, setSortBy] = useState("relevance");
+  const [activeDrawer, setActiveDrawer] = useState(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const resultsRef = useRef(null);
 
-  // Extract unique areas from programs for the filter dropdown
-  const areaOptions = useMemo(() => {
-    const cities = new Set();
-    allPrograms.forEach((p) => { if (p.city) cities.add(p.city); });
-    return [...cities].sort();
+  // Derived data
+  const allProviders = useMemo(() => {
+    return [...new Set(allPrograms.map((p) => p.provider))].sort((a, b) =>
+      a.localeCompare(b, "en", { sensitivity: "base" })
+    );
   }, [allPrograms]);
 
-  // Category options derived from actual program data
-  const catOptions = useMemo(() => {
-    const cats = {};
-    allPrograms.forEach((p) => { if (p.category) cats[p.category] = (cats[p.category] || 0) + 1; });
-    return Object.entries(cats).sort((a, b) => b[1] - a[1]).map(([name]) => name);
-  }, [allPrograms]);
+  const availableActivityTypes = useMemo(() => {
+    const types = new Set();
+    allPrograms.forEach((p) => {
+      if (selectedCats.size === 0 || selectedCats.has(p.category)) {
+        if (p.activityType) types.add(p.activityType);
+      }
+    });
+    return [...types].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
+  }, [selectedCats, allPrograms]);
 
-  // Filter programs
+  useEffect(() => {
+    setSelectedActivityTypes((prev) => {
+      if (prev.size === 0) return prev;
+      const validTypes = new Set(availableActivityTypes);
+      const pruned = new Set([...prev].filter((t) => validTypes.has(t)));
+      return pruned.size === prev.size ? prev : pruned;
+    });
+  }, [availableActivityTypes]);
+
+  const toggleInSet = (setter, value) => {
+    setter((prev) => {
+      const next = new Set(prev);
+      if (next.has(value)) next.delete(value);
+      else next.add(value);
+      setVisibleCount(PAGE_SIZE);
+      return next;
+    });
+  };
+
+  const toggleHood = (hood) => {
+    setSelectedHoods((prev) => {
+      const next = new Set(prev);
+      if (next.has(hood)) next.delete(hood); else next.add(hood);
+      setVisibleCount(PAGE_SIZE);
+      return next;
+    });
+  };
+  const toggleCity = (cityObj) => {
+    setSelectedHoods((prev) => {
+      const next = new Set(prev);
+      const allSelected = cityObj.neighbourhoods.every((n) => next.has(n));
+      if (allSelected) cityObj.neighbourhoods.forEach((n) => next.delete(n));
+      else cityObj.neighbourhoods.forEach((n) => next.add(n));
+      setVisibleCount(PAGE_SIZE);
+      return next;
+    });
+  };
+  const toggleCityExpand = (city) => {
+    setExpandedCities((prev) => {
+      const next = new Set(prev);
+      if (next.has(city)) next.delete(city); else next.add(city);
+      return next;
+    });
+  };
+
+  const clearAllFilters = () => {
+    setSearch("");
+    setSelectedCats(new Set());
+    setSelectedActivityTypes(new Set());
+    setSelectedHoods(new Set());
+    setAgeMin("");
+    setAgeMax("");
+    setSelectedCosts(new Set());
+    setSelectedCostPerHour(new Set());
+    setCostFilterMode("total");
+    setSelectedProviders(new Set());
+    setProviderSearch("");
+    setSelectedRegStatuses(new Set(["open", "coming-soon", "upcoming", "likely-coming-soon"]));
+    setSelectedWeeks(new Set());
+    setDurationMin(0);
+    setDurationMax(10);
+    setSortBy("relevance");
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  const totalActiveFilters = useMemo(() => {
+    let count = 0;
+    if (selectedCats.size > 0) count++;
+    if (ageMin || ageMax) count++;
+    if (selectedCosts.size > 0 || selectedCostPerHour.size > 0) count++;
+    if (selectedHoods.size > 0) count++;
+    if (selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))) count++;
+    if (durationMin > 0 || durationMax < 10) count++;
+    if (selectedActivityTypes.size > 0) count++;
+    if (selectedProviders.size > 0) count++;
+    if (sortBy !== "relevance") count++;
+    if (search) count++;
+    if (selectedWeeks.size > 0) count++;
+    return count;
+  }, [selectedCats, ageMin, ageMax, selectedCosts, selectedCostPerHour, selectedHoods, selectedRegStatuses, durationMin, durationMax, selectedActivityTypes, selectedProviders, sortBy, search, selectedWeeks]);
+
+  // Filter programs (matching DiscoverTab logic)
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    const age = ageFilter ? parseInt(ageFilter) : null;
+    const minAge = ageMin ? Number(ageMin) : null;
+    const maxAge = ageMax ? Number(ageMax) : null;
+    const costRanges = selectedCosts.size > 0
+      ? [...selectedCosts].map((i) => COST_RANGES[i])
+      : null;
+    const cphRanges = selectedCostPerHour.size > 0
+      ? [...selectedCostPerHour].map((i) => COST_PER_HOUR_RANGES[i])
+      : null;
+
     return allPrograms.filter((p) => {
-      // Only show programs with open-ish statuses
-      const status = (p.enrollmentStatus || "").toLowerCase();
-      if (status === "completed" || status === "cancelled") return false;
-      // Search
-      if (q && !p.name?.toLowerCase().includes(q) && !p.provider?.toLowerCase().includes(q)
-        && !p.neighbourhood?.toLowerCase().includes(q) && !p.activityType?.toLowerCase().includes(q)) return false;
-      // Category
-      if (selectedCat && p.category !== selectedCat) return false;
-      // Age
-      if (age !== null) {
-        if (p.ageMin != null && p.ageMax != null && (age < p.ageMin || age > p.ageMax)) return false;
+      // Week filter
+      if (selectedWeeks.size > 0) {
+        const matchesAnyWeek = [...selectedWeeks].some((wId) => {
+          const week = SUMMER_WEEKS.find((w) => w.id === wId);
+          return week && programOverlapsWeek(p, week.monday, week.friday);
+        });
+        if (!matchesAnyWeek) return false;
       }
-      // Area
-      if (areaFilter && p.city !== areaFilter) return false;
+      // Status
+      if (selectedRegStatuses.size > 0 && !selectedRegStatuses.has(getRegistrationStatus(p))) return false;
+      // Search
+      if (q) {
+        const haystack = [p.name, p.provider, p.neighbourhood, p.activityType].filter(Boolean).join(" ").toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
+      // Category
+      if (selectedCats.size > 0 && !selectedCats.has(p.category)) return false;
+      if (selectedActivityTypes.size > 0 && !selectedActivityTypes.has(p.activityType)) return false;
+      // Provider
+      if (selectedProviders.size > 0 && !selectedProviders.has(p.provider)) return false;
+      // Neighbourhood
+      if (selectedHoods.size > 0 && !selectedHoods.has(p.neighbourhood)) return false;
+      // Age
+      if (minAge != null && p.ageMax != null && p.ageMax < minAge) return false;
+      if (maxAge != null && p.ageMin != null && p.ageMin > maxAge) return false;
+      // Cost
+      if (costRanges) {
+        const cost = typeof p.cost === "number" ? p.cost : null;
+        if (!costRanges.some((range) => {
+          if (range.min === -1 && range.max === -1) return cost === null;
+          if (range.max === 0) return cost === 0;
+          if (range.min === 0 && range.max === Infinity) return true;
+          if (cost === null) return false;
+          return cost >= range.min && cost <= range.max;
+        })) return false;
+      }
+      if (cphRanges) {
+        const cph = calcCostPerHour(p);
+        if (!cphRanges.some((range) => {
+          if (range.min === 0 && range.max === Infinity) return true;
+          if (cph === null) return false;
+          return cph >= range.min && cph <= range.max;
+        })) return false;
+      }
+      // Duration
+      if (durationMin > 0 || durationMax < 10) {
+        const dur = p.durationPerDay;
+        if (dur == null) return durationMin === 0;
+        if (dur < durationMin || dur > durationMax) return false;
+      }
       return true;
     });
-  }, [allPrograms, search, selectedCat, ageFilter, areaFilter]);
+  }, [allPrograms, search, selectedCats, selectedActivityTypes, selectedHoods, ageMin, ageMax, selectedCosts, selectedCostPerHour, selectedRegStatuses, selectedProviders, selectedWeeks, durationMin, durationMax]);
 
-  // Reset visible count when filters change
-  useEffect(() => { setVisibleCount(PAGE_SIZE); }, [search, selectedCat, ageFilter, areaFilter]);
+  // Sort
+  const sortedPrograms = useMemo(() => {
+    if (sortBy !== "relevance") return sortPrograms(filtered, sortBy);
+    const statusOrder = { "open": 0, "coming-soon": 1, "upcoming": 2, "likely-coming-soon": 3, "full-waitlist": 4, "in-progress": 5, "completed": 6 };
+    return [...filtered].sort((a, b) => {
+      const aStatus = statusOrder[getRegistrationStatus(a)] ?? 6;
+      const bStatus = statusOrder[getRegistrationStatus(b)] ?? 6;
+      if (aStatus !== bStatus) return aStatus - bStatus;
+      return (a.name || "").localeCompare(b.name || "");
+    });
+  }, [filtered, sortBy]);
 
-  const visiblePrograms = filtered.slice(0, visibleCount);
-  const hasMore = visibleCount < filtered.length;
-
-  // Merge similar categories for browse-by section
-  const topCategories = useMemo(() => {
-    if (!data) return [];
-    const merged = {};
-    for (const c of data.categories) {
-      const key = c.slug;
-      if (!merged[key]) merged[key] = { ...c, providers: [...c.providers] };
-      else {
-        merged[key].programCount += c.programCount;
-        for (const p of c.providers) if (!merged[key].providers.includes(p)) merged[key].providers.push(p);
-      }
-    }
-    return Object.values(merged)
-      .filter(c => c.programCount >= 10)
-      .sort((a, b) => b.programCount - a.programCount)
-      .slice(0, 12);
-  }, [data]);
+  const visiblePrograms = sortedPrograms.slice(0, visibleCount);
+  const hasMore = visibleCount < sortedPrograms.length;
 
   usePageMeta({
     title: "Browse Kids Camps & Programs in Vancouver | Skeddo",
@@ -466,6 +698,7 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
   // JSON-LD structured data for SEO
   useEffect(() => {
     if (!data) return;
+    const topCats = [...data.categories].sort((a, b) => b.programCount - a.programCount).slice(0, 8);
     const schemas = [
       {
         "@context": "https://schema.org",
@@ -473,7 +706,7 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
         name: "Kids Camps & Programs in Vancouver",
         description: `Browse ${data.totalPrograms}+ kids activities across ${data.totalAreas} areas from ${data.totalProviders}+ providers.`,
         numberOfItems: data.totalPrograms,
-        itemListElement: topCategories.slice(0, 8).map((c, i) => ({
+        itemListElement: topCats.map((c, i) => ({
           "@type": "ListItem",
           position: i + 1,
           name: `${c.name} Programs`,
@@ -534,20 +767,15 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
       return script;
     });
     return () => { scripts.forEach(s => s.remove()); };
-  }, [data, topCategories]);
-
-  const hasActiveFilters = search || selectedCat || ageFilter || areaFilter;
+  }, [data]);
 
   if (!data) return <div style={{ padding: 40, textAlign: "center" }}>Loading...</div>;
 
-  const selectStyle = {
+  const inputStyle = {
     fontFamily: font, fontSize: 14, padding: "10px 12px",
     borderRadius: 10, border: `1.5px solid ${C.border}`,
     background: C.white, color: C.ink, outline: "none",
-    minWidth: 0, flex: "1 1 120px", appearance: "none",
-    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%234A6FA5' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")`,
-    backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center",
-    paddingRight: 28,
+    width: 70, textAlign: "center",
   };
 
   return (
@@ -565,23 +793,16 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
           </p>
 
           {/* Search bar in hero */}
-          <div style={{
-            marginTop: 20,
-            display: "flex",
-            gap: 8,
-            maxWidth: 600,
-          }}>
+          <div style={{ marginTop: 20, display: "flex", gap: 8, maxWidth: 600 }}>
             <input
               type="text"
               placeholder="Search camps, providers, activities..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => { setSearch(e.target.value); setVisibleCount(PAGE_SIZE); }}
               style={{
-                flex: 1,
-                fontFamily: font, fontSize: 15, padding: "12px 16px",
-                borderRadius: 10, border: "none",
-                outline: "none", background: "rgba(255,255,255,0.95)",
-                color: C.ink,
+                flex: 1, fontFamily: font, fontSize: 15, padding: "12px 16px",
+                borderRadius: 10, border: "none", outline: "none",
+                background: "rgba(255,255,255,0.95)", color: C.ink,
               }}
             />
           </div>
@@ -589,42 +810,33 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
       </div>
 
       <div style={container(isDesktop)}>
-        {/* Filter bar */}
+        {/* Filter chips — matching DiscoverTab */}
         <div ref={resultsRef} style={{
-          display: "flex", flexWrap: "wrap", gap: 8,
-          marginTop: 20, marginBottom: 16, alignItems: "center",
+          display: "flex", gap: 6, overflowX: "auto", padding: "16px 0 8px",
+          scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch",
+          ...(isDesktop ? { flexWrap: "wrap" } : {}),
         }}>
-          <select value={selectedCat} onChange={(e) => setSelectedCat(e.target.value)} style={selectStyle}>
-            <option value="">All Categories</option>
-            {catOptions.map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-          <select value={ageFilter} onChange={(e) => setAgeFilter(e.target.value)} style={selectStyle}>
-            <option value="">Any Age</option>
-            {[3,4,5,6,7,8,9,10,11,12,13,14,15,16].map((a) => (
-              <option key={a} value={a}>{a} years old</option>
-            ))}
-          </select>
-          <select value={areaFilter} onChange={(e) => setAreaFilter(e.target.value)} style={selectStyle}>
-            <option value="">All Areas</option>
-            {areaOptions.map((a) => <option key={a} value={a}>{a}</option>)}
-          </select>
-          {hasActiveFilters && (
-            <button
-              onClick={() => { setSearch(""); setSelectedCat(""); setAgeFilter(""); setAreaFilter(""); }}
-              style={{
-                fontFamily: font, fontSize: 13, fontWeight: 600,
-                color: "#E74C3C", background: "none", border: "none",
-                cursor: "pointer", padding: "8px 4px",
-              }}
-            >
-              Clear filters
-            </button>
+          <FilterChip label="Week" count={selectedWeeks.size} active={selectedWeeks.size > 0} onClick={() => setActiveDrawer("week")} />
+          <FilterChip label="Category" count={selectedCats.size + selectedActivityTypes.size} active={selectedCats.size > 0 || selectedActivityTypes.size > 0} onClick={() => setActiveDrawer("category")} />
+          <FilterChip label="Age" count={ageMin || ageMax ? 1 : 0} active={!!(ageMin || ageMax)} onClick={() => setActiveDrawer("age")} />
+          <FilterChip label="Cost" count={selectedCosts.size + selectedCostPerHour.size} active={selectedCosts.size > 0 || selectedCostPerHour.size > 0} onClick={() => setActiveDrawer("cost")} />
+          <FilterChip label="Provider" count={selectedProviders.size} active={selectedProviders.size > 0} onClick={() => setActiveDrawer("provider")} />
+          <FilterChip label="Area" count={selectedHoods.size} active={selectedHoods.size > 0} onClick={() => setActiveDrawer("neighbourhood")} />
+          <FilterChip label="Duration" count={durationMin > 0 || durationMax < 10 ? 1 : 0} active={durationMin > 0 || durationMax < 10} onClick={() => setActiveDrawer("duration")} />
+          <FilterChip label="Status" count={selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon")) ? selectedRegStatuses.size : 0} active={selectedRegStatuses.size > 0 && !(selectedRegStatuses.size === 4 && selectedRegStatuses.has("open") && selectedRegStatuses.has("coming-soon") && selectedRegStatuses.has("upcoming") && selectedRegStatuses.has("likely-coming-soon"))} onClick={() => setActiveDrawer("status")} />
+          <FilterChip label="Sort" active={sortBy !== "relevance"} onClick={() => setActiveDrawer("sort")} />
+          {totalActiveFilters > 0 && (
+            <button onClick={clearAllFilters} style={{
+              background: "none", border: "none", color: C.olive,
+              fontFamily: font, fontSize: 13, fontWeight: 600,
+              cursor: "pointer", whiteSpace: "nowrap", padding: "6px 8px",
+            }}>Clear all</button>
           )}
         </div>
 
         {/* Results count */}
         <div style={{ fontSize: 14, color: "#4A6FA5", fontWeight: 600, marginBottom: 12 }}>
-          {programsLoading ? "Loading programs..." : `${filtered.length.toLocaleString()} programs found`}
+          {programsLoading ? "Loading programs..." : `${sortedPrograms.length.toLocaleString()} programs found`}
         </div>
 
         {/* Program cards */}
@@ -634,53 +846,57 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
             gridTemplateColumns: isDesktop ? "1fr 1fr 1fr" : "1fr",
             gap: 12,
           }}>
-            {visiblePrograms.map((p, i) => (
-              <div
-                key={p.id || i}
-                onClick={() => setSelectedProgram(p)}
-                style={{
-                  background: C.white, borderRadius: 14, padding: "16px 18px",
-                  boxShadow: "0 2px 8px rgba(27,36,50,0.07)",
-                  cursor: "pointer",
-                  transition: "box-shadow 0.15s, transform 0.15s",
-                  display: "flex", flexDirection: "column", gap: 6,
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 6px 20px rgba(27,36,50,0.13)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(27,36,50,0.07)"; e.currentTarget.style.transform = "translateY(0)"; }}
-              >
-                {/* Category pill */}
-                <div style={{
-                  fontSize: 11, fontWeight: 700, color: "#4A6FA5",
-                  textTransform: "uppercase", letterSpacing: 0.8,
-                }}>
-                  {p.category}
-                </div>
-                {/* Name */}
-                <div style={{ fontFamily: headFont, fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.3 }}>
-                  {p.name}
-                </div>
-                {/* Provider */}
-                <div style={{ fontSize: 13, color: "#4A6FA5" }}>{p.provider}</div>
-                {/* Details row */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 13, color: C.ink, marginTop: 2 }}>
-                  {p.cost != null && (
-                    <span style={{ fontWeight: 700, color: C.seaGreen }}>${Number(p.cost).toLocaleString()}</span>
-                  )}
-                  {p.ageMin != null && (
-                    <span>Ages {p.ageMin}&ndash;{p.ageMax}</span>
-                  )}
-                  {(p.neighbourhood || p.city) && (
-                    <span style={{ color: "#4A6FA5" }}>{p.neighbourhood || p.city}</span>
-                  )}
-                </div>
-                {/* Schedule info */}
-                {(p.dayLength || p.days) && (
-                  <div style={{ fontSize: 12, color: "#4A6FA5" }}>
-                    {p.dayLength}{p.days ? ` · ${p.days}` : ""}
+            {visiblePrograms.map((p, i) => {
+              const regStatus = getRegistrationStatus(p);
+              const statusInfo = REGISTRATION_STATUSES.find((s) => s.key === regStatus) || REGISTRATION_STATUSES[0];
+              return (
+                <div
+                  key={p.id || i}
+                  onClick={() => setSelectedProgram(p)}
+                  style={{
+                    background: C.white, borderRadius: 14, padding: "16px 18px",
+                    boxShadow: "0 2px 8px rgba(27,36,50,0.07)",
+                    cursor: "pointer",
+                    transition: "box-shadow 0.15s, transform 0.15s",
+                    display: "flex", flexDirection: "column", gap: 6,
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 6px 20px rgba(27,36,50,0.13)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(27,36,50,0.07)"; e.currentTarget.style.transform = "translateY(0)"; }}
+                >
+                  {/* Category + status row */}
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 0.8 }}>
+                      {p.category}
+                    </div>
+                    {regStatus !== "open" && (
+                      <span style={{ fontSize: 11, fontWeight: 600, color: statusInfo.color || C.muted }}>
+                        {statusInfo.icon} {statusInfo.label}
+                      </span>
+                    )}
                   </div>
-                )}
-              </div>
-            ))}
+                  <div style={{ fontFamily: headFont, fontSize: 15, fontWeight: 700, color: C.ink, lineHeight: 1.3 }}>
+                    {p.name}
+                  </div>
+                  <div style={{ fontSize: 13, color: "#4A6FA5" }}>{p.provider}</div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 13, color: C.ink, marginTop: 2 }}>
+                    {p.cost != null && (
+                      <span style={{ fontWeight: 700, color: C.seaGreen }}>${Number(p.cost).toLocaleString()}</span>
+                    )}
+                    {p.ageMin != null && (
+                      <span>Ages {p.ageMin}&ndash;{p.ageMax}</span>
+                    )}
+                    {(p.neighbourhood || p.city) && (
+                      <span style={{ color: "#4A6FA5" }}>{p.neighbourhood || p.city}</span>
+                    )}
+                  </div>
+                  {(p.dayLength || p.days) && (
+                    <div style={{ fontSize: 12, color: "#4A6FA5" }}>
+                      {p.dayLength}{p.days ? ` \u00B7 ${p.days}` : ""}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
 
@@ -696,72 +912,25 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
                 padding: "12px 32px", cursor: "pointer",
               }}
             >
-              Load More ({(filtered.length - visibleCount).toLocaleString()} remaining)
+              Load More ({(sortedPrograms.length - visibleCount).toLocaleString()} remaining)
             </button>
           </div>
         )}
 
         {/* No results */}
-        {!programsLoading && filtered.length === 0 && hasActiveFilters && (
+        {!programsLoading && sortedPrograms.length === 0 && totalActiveFilters > 0 && (
           <div style={{ textAlign: "center", padding: "40px 20px", color: "#4A6FA5" }}>
             <div style={{ fontSize: 32, marginBottom: 8 }}>&#x1F50D;</div>
             <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>No programs match your filters</div>
             <div style={{ fontSize: 14, marginBottom: 16 }}>Try broadening your search or clearing some filters.</div>
-            <button
-              onClick={() => { setSearch(""); setSelectedCat(""); setAgeFilter(""); setAreaFilter(""); }}
-              style={{
-                fontFamily: font, fontSize: 14, fontWeight: 700,
-                color: C.seaGreen, background: "none",
-                border: `1.5px solid ${C.seaGreen}`, borderRadius: 8,
-                padding: "8px 20px", cursor: "pointer",
-              }}
-            >
-              Clear All Filters
-            </button>
+            <button onClick={clearAllFilters} style={{
+              fontFamily: font, fontSize: 14, fontWeight: 700,
+              color: C.seaGreen, background: "none",
+              border: `1.5px solid ${C.seaGreen}`, borderRadius: 8,
+              padding: "8px 20px", cursor: "pointer",
+            }}>Clear All Filters</button>
           </div>
         )}
-
-        {/* Browse by category — shown below results */}
-        <h2 style={{ ...sectionTitle, marginTop: 40 }}>Browse by Category</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
-          {topCategories.map((c) => (
-            <button
-              key={c.slug}
-              onClick={() => { setSelectedCat(c.name); resultsRef.current?.scrollIntoView({ behavior: "smooth" }); }}
-              style={{
-                fontFamily: font, fontSize: 13, fontWeight: 600,
-                color: selectedCat === c.name ? "#fff" : C.ink,
-                background: selectedCat === c.name ? C.seaGreen : C.white,
-                border: `1px solid ${selectedCat === c.name ? C.seaGreen : C.border}`,
-                borderRadius: 20, padding: "8px 16px", cursor: "pointer",
-                transition: "all 0.15s",
-              }}
-            >
-              {c.name} ({c.programCount.toLocaleString()})
-            </button>
-          ))}
-        </div>
-
-        {/* Browse by area */}
-        <h2 style={sectionTitle}>Browse by Area</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
-          {(data?.areas || []).filter(a => a.programCount >= 20).slice(0, 15).map((a) => (
-            <button
-              key={a.slug}
-              onClick={() => { setAreaFilter(a.name); resultsRef.current?.scrollIntoView({ behavior: "smooth" }); }}
-              style={{
-                fontFamily: font, fontSize: 13, fontWeight: 600,
-                color: areaFilter === a.name ? "#fff" : C.ink,
-                background: areaFilter === a.name ? C.seaGreen : C.white,
-                border: `1px solid ${areaFilter === a.name ? C.seaGreen : C.border}`,
-                borderRadius: 20, padding: "8px 16px", cursor: "pointer",
-                transition: "all 0.15s",
-              }}
-            >
-              {a.name} ({a.programCount.toLocaleString()})
-            </button>
-          ))}
-        </div>
 
         {/* CTA — sign up to save */}
         <div style={{
@@ -792,6 +961,362 @@ function DirectoryHome({ data, isDesktop, onNavigate }) {
         {/* Planning Guides */}
         {/* Planning Resources widget hidden until blog posts are refined */}
       </div>
+
+      {/* ─── Filter Drawers ─── */}
+
+      {/* Week Drawer */}
+      <FilterDrawer open={activeDrawer === "week"} onClose={() => setActiveDrawer(null)} title="Week"
+        onClear={() => { setSelectedWeeks(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {SUMMER_WEEKS.map((week) => {
+            const isSelected = selectedWeeks.has(week.id);
+            return (
+              <div key={week.id} onClick={() => toggleInSet(setSelectedWeeks, week.id)} style={{
+                padding: "14px 16px", display: "flex", alignItems: "center", gap: 12,
+                cursor: "pointer", borderRadius: 10,
+                background: isSelected ? C.ink + "08" : "transparent",
+                borderBottom: `1px solid ${C.border}`,
+              }}>
+                <span style={{
+                  width: 20, height: 20, borderRadius: 4,
+                  border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                  background: isSelected ? C.seaGreen : "transparent",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 12, color: "#fff", flexShrink: 0,
+                }}>{isSelected ? "\u2713" : ""}</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{
+                    fontFamily: font, fontSize: 15, fontWeight: isSelected ? 600 : 400, color: C.ink,
+                  }}>
+                    {week.label}: {week.dateRange}
+                  </div>
+                  {week.note && (
+                    <div style={{ fontFamily: font, fontSize: 12, color: C.blue, marginTop: 2 }}>
+                      {week.note}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </FilterDrawer>
+
+      {/* Sort Drawer */}
+      <FilterDrawer open={activeDrawer === "sort"} onClose={() => setActiveDrawer(null)} title="Sort by">
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          {SORT_OPTIONS.map((opt) => (
+            <button
+              key={opt.key}
+              onClick={() => { setSortBy(opt.key); setVisibleCount(PAGE_SIZE); setActiveDrawer(null); }}
+              style={{
+                padding: "12px 16px", borderRadius: 10, border: "none",
+                background: sortBy === opt.key ? C.ink : "transparent",
+                color: sortBy === opt.key ? "#fff" : C.ink,
+                fontFamily: font, fontSize: 15, fontWeight: sortBy === opt.key ? 600 : 400,
+                textAlign: "left", cursor: "pointer", minHeight: 44,
+                display: "flex", alignItems: "center", gap: 10,
+              }}
+            >
+              {sortBy === opt.key && <span>{"\u2713"}</span>}
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </FilterDrawer>
+
+      {/* Category Drawer */}
+      <FilterDrawer open={activeDrawer === "category"} onClose={() => setActiveDrawer(null)} title="Category"
+        onClear={() => { setSelectedCats(new Set()); setSelectedActivityTypes(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        {(() => {
+          const catTypeMap = {};
+          allPrograms.forEach((p) => {
+            if (!p.category || !p.activityType || p.activityType === "General") return;
+            if (!catTypeMap[p.category]) catTypeMap[p.category] = {};
+            catTypeMap[p.category][p.activityType] = (catTypeMap[p.category][p.activityType] || 0) + 1;
+          });
+          return CATEGORIES.map((cat) => {
+            const isCatSelected = selectedCats.has(cat);
+            const subTypes = catTypeMap[cat] ? Object.entries(catTypeMap[cat]).sort((a, b) => b[1] - a[1]) : [];
+            const activeSubCount = subTypes.filter(([t]) => selectedActivityTypes.has(t)).length;
+            return (
+              <div key={cat} style={{ borderBottom: `1px solid ${C.border}` }}>
+                <div onClick={() => toggleInSet(setSelectedCats, cat)} style={{
+                  padding: "12px 14px", display: "flex", alignItems: "center", gap: 10,
+                  cursor: "pointer", background: isCatSelected ? C.ink + "08" : "transparent",
+                }}>
+                  <span style={{
+                    width: 20, height: 20, borderRadius: 4,
+                    border: `2px solid ${isCatSelected ? C.seaGreen : C.border}`,
+                    background: isCatSelected ? C.seaGreen : "transparent",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 12, color: "#fff", flexShrink: 0,
+                  }}>{isCatSelected ? "\u2713" : ""}</span>
+                  <span style={{ fontFamily: font, fontSize: 15, fontWeight: isCatSelected ? 600 : 400, color: C.ink, flex: 1 }}>
+                    {CAT_EMOJI[cat] || ""} {cat}
+                  </span>
+                  {activeSubCount > 0 && (
+                    <span style={{ background: C.seaGreen, color: "#fff", fontSize: 10, fontWeight: 700, width: 18, height: 18, borderRadius: 9, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {activeSubCount}
+                    </span>
+                  )}
+                  {subTypes.length > 0 && (
+                    <span style={{ fontSize: 12, color: C.muted, transition: "transform 0.15s", transform: isCatSelected ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"\u25B6"}</span>
+                  )}
+                </div>
+                {isCatSelected && subTypes.length > 0 && (
+                  <div style={{ padding: "0 0 8px 44px" }}>
+                    {subTypes.map(([type, count]) => {
+                      const isTypeSelected = selectedActivityTypes.has(type);
+                      return (
+                        <div key={type} onClick={() => toggleInSet(setSelectedActivityTypes, type)} style={{
+                          padding: "8px 12px", display: "flex", alignItems: "center", gap: 8,
+                          cursor: "pointer", borderRadius: 8,
+                          background: isTypeSelected ? C.seaGreen + "10" : "transparent",
+                        }}>
+                          <span style={{
+                            width: 16, height: 16, borderRadius: 3,
+                            border: `2px solid ${isTypeSelected ? C.seaGreen : C.border}`,
+                            background: isTypeSelected ? C.seaGreen : "transparent",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: 10, color: "#fff", flexShrink: 0,
+                          }}>{isTypeSelected ? "\u2713" : ""}</span>
+                          <span style={{ fontFamily: font, fontSize: 14, color: isTypeSelected ? C.ink : C.muted, fontWeight: isTypeSelected ? 600 : 400, flex: 1 }}>
+                            {type}
+                          </span>
+                          <span style={{ fontFamily: font, fontSize: 12, color: C.muted }}>{count}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          });
+        })()}
+      </FilterDrawer>
+
+      {/* Age Drawer */}
+      <FilterDrawer open={activeDrawer === "age"} onClose={() => setActiveDrawer(null)} title="Age Range"
+        onClear={() => { setAgeMin(""); setAgeMax(""); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ padding: "8px 0 16px" }}>
+          <div style={{ fontFamily: font, fontSize: 14, color: C.muted, marginBottom: 12 }}>
+            Show programs suitable for children aged:
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: font, fontSize: 12, color: C.muted, marginBottom: 4 }}>Min age</div>
+              <input type="number" min="0" max="18" value={ageMin}
+                onChange={(e) => { setAgeMin(e.target.value); setVisibleCount(PAGE_SIZE); }}
+                placeholder="Any"
+                style={inputStyle} />
+            </div>
+            <span style={{ fontFamily: font, fontSize: 16, color: C.muted, marginTop: 16 }}>&ndash;</span>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: font, fontSize: 12, color: C.muted, marginBottom: 4 }}>Max age</div>
+              <input type="number" min="0" max="18" value={ageMax}
+                onChange={(e) => { setAgeMax(e.target.value); setVisibleCount(PAGE_SIZE); }}
+                placeholder="Any"
+                style={inputStyle} />
+            </div>
+          </div>
+        </div>
+      </FilterDrawer>
+
+      {/* Cost Drawer */}
+      <FilterDrawer open={activeDrawer === "cost"} onClose={() => setActiveDrawer(null)} title="Cost"
+        onClear={() => { setSelectedCosts(new Set()); setSelectedCostPerHour(new Set()); setCostFilterMode("total"); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ display: "flex", background: C.ink + "0A", borderRadius: 10, padding: 3, marginBottom: 12 }}>
+          {[{ id: "total", l: "Total cost" }, { id: "perHour", l: "$/hr" }].map((m) => (
+            <button key={m.id} onClick={() => {
+              setCostFilterMode(m.id);
+              if (m.id === "total") setSelectedCostPerHour(new Set());
+              else setSelectedCosts(new Set());
+            }} style={{
+              flex: 1, padding: "7px 12px", borderRadius: 8, border: "none",
+              background: costFilterMode === m.id ? C.seaGreen + "18" : "transparent",
+              color: costFilterMode === m.id ? C.seaGreen : C.muted,
+              fontFamily: font, fontSize: 13, fontWeight: 600, cursor: "pointer",
+            }}>{m.l}</button>
+          ))}
+        </div>
+        {costFilterMode === "total" ? (
+          <FilterOptions
+            options={COST_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
+            selected={selectedCosts}
+            onToggle={(id) => toggleInSet(setSelectedCosts, id)}
+          />
+        ) : (
+          <FilterOptions
+            options={COST_PER_HOUR_RANGES.slice(1).map((r, i) => ({ id: i + 1, label: r.label }))}
+            selected={selectedCostPerHour}
+            onToggle={(id) => toggleInSet(setSelectedCostPerHour, id)}
+          />
+        )}
+      </FilterDrawer>
+
+      {/* Provider Drawer */}
+      <FilterDrawer open={activeDrawer === "provider"} onClose={() => setActiveDrawer(null)} title="Provider"
+        onClear={() => { setSelectedProviders(new Set()); setProviderSearch(""); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <>
+          {selectedProviders.size > 0 && (
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+              {[...selectedProviders].sort().map((prov) => (
+                <button key={prov} onClick={() => toggleInSet(setSelectedProviders, prov)} style={{
+                  fontFamily: font, fontSize: 14, fontWeight: 600,
+                  background: C.ink, color: "#fff", border: "none", borderRadius: 20,
+                  padding: "6px 12px", cursor: "pointer", display: "flex", alignItems: "center", gap: 4,
+                }}>
+                  {prov} <span style={{ fontSize: 14, lineHeight: 1 }}>&times;</span>
+                </button>
+              ))}
+            </div>
+          )}
+          <div style={{ position: "relative", marginBottom: 12 }}>
+            <input style={{
+              fontFamily: font, fontSize: 14, padding: "10px 12px 10px 32px",
+              borderRadius: 10, border: `1.5px solid ${C.border}`,
+              background: C.white, color: C.ink, outline: "none", width: "100%", boxSizing: "border-box",
+            }}
+              placeholder="Search providers..."
+              value={providerSearch}
+              onChange={(e) => setProviderSearch(e.target.value)} />
+            <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14, color: C.muted, pointerEvents: "none" }}>
+              &#x1F50D;
+            </span>
+          </div>
+          <div style={{ maxHeight: 400, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
+            {allProviders
+              .filter((prov) => prov.toLowerCase().includes(providerSearch.toLowerCase().trim()))
+              .map((prov) => {
+                const isSelected = selectedProviders.has(prov);
+                return (
+                  <div key={prov} onClick={() => toggleInSet(setSelectedProviders, prov)}
+                    role="option" aria-selected={isSelected}
+                    style={{
+                      padding: "10px 12px", fontFamily: font, fontSize: 14,
+                      color: isSelected ? C.ink : C.muted, fontWeight: isSelected ? 600 : 400,
+                      cursor: "pointer", display: "flex", alignItems: "center", gap: 10,
+                      borderBottom: `1px solid ${C.border}`, background: isSelected ? C.ink + "08" : "transparent",
+                    }}>
+                    <span style={{
+                      width: 18, height: 18, borderRadius: 4,
+                      border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                      background: isSelected ? C.seaGreen : "transparent",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: 11, color: C.white, flexShrink: 0,
+                    }}>{isSelected ? "\u2713" : ""}</span>
+                    {prov}
+                  </div>
+                );
+              })}
+            {allProviders.filter((prov) => prov.toLowerCase().includes(providerSearch.toLowerCase().trim())).length === 0 && (
+              <div style={{ padding: 12, fontFamily: font, fontSize: 14, color: C.muted, textAlign: "center" }}>
+                No providers found
+              </div>
+            )}
+          </div>
+        </>
+      </FilterDrawer>
+
+      {/* Neighbourhood Drawer */}
+      <FilterDrawer open={activeDrawer === "neighbourhood"} onClose={() => setActiveDrawer(null)} title="Neighbourhoods"
+        onClear={() => { setSelectedHoods(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ background: C.cream, borderRadius: 10, border: `1px solid ${C.border}`, overflow: "hidden" }}>
+          {CITY_NEIGHBOURHOODS.map((cityObj) => {
+            const isExpanded = expandedCities.has(cityObj.city);
+            const selectedInCity = cityObj.neighbourhoods.filter((n) => selectedHoods.has(n)).length;
+            const allInCitySelected = selectedInCity === cityObj.neighbourhoods.length;
+            const someInCitySelected = selectedInCity > 0 && !allInCitySelected;
+            return (
+              <div key={cityObj.city}>
+                <div style={{
+                  display: "flex", alignItems: "center", gap: 8,
+                  padding: "10px 12px", borderBottom: `1px solid ${C.border}`, cursor: "pointer",
+                }} onClick={() => toggleCityExpand(cityObj.city)} role="button" tabIndex={0}
+                  aria-expanded={isExpanded} aria-label={`${isExpanded ? "Collapse" : "Expand"} ${cityObj.city} neighbourhoods`}>
+                  <span style={{ fontSize: 11, color: C.muted, transition: "transform 0.15s", transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)", display: "inline-block" }}>{"\u25B6"}</span>
+                  <span style={{ flex: 1, fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink }}>
+                    {cityObj.city}
+                    {someInCitySelected && <span style={{ color: C.muted, fontWeight: 400 }}> ({selectedInCity}/{cityObj.neighbourhoods.length})</span>}
+                  </span>
+                  <button onClick={(e) => { e.stopPropagation(); toggleCity(cityObj); }}
+                    aria-label={allInCitySelected ? `Deselect all ${cityObj.city}` : `Select all ${cityObj.city}`}
+                    style={{
+                      fontFamily: font, fontSize: 11, fontWeight: 700,
+                      color: allInCitySelected ? C.danger : C.seaGreen,
+                      background: allInCitySelected ? C.dangerBg : C.seaGreen + "12",
+                      border: "none", borderRadius: 6, padding: "3px 8px", cursor: "pointer", whiteSpace: "nowrap",
+                    }}>
+                    {allInCitySelected ? "Deselect All" : "Select All"}
+                  </button>
+                </div>
+                {isExpanded && (
+                  <div style={{ padding: "4px 12px 4px 28px" }}>
+                    {cityObj.neighbourhoods.sort().map((hood) => {
+                      const isSelected = selectedHoods.has(hood);
+                      return (
+                        <label key={hood} style={{
+                          display: "flex", alignItems: "center", gap: 8, padding: "6px 0", cursor: "pointer",
+                          fontFamily: font, fontSize: 14,
+                          color: isSelected ? C.ink : C.muted, fontWeight: isSelected ? 600 : 400,
+                        }}>
+                          <span style={{
+                            width: 18, height: 18, borderRadius: 4,
+                            border: `2px solid ${isSelected ? C.seaGreen : C.border}`,
+                            background: isSelected ? C.seaGreen : "transparent",
+                            display: "flex", alignItems: "center", justifyContent: "center",
+                            fontSize: 11, color: C.white, flexShrink: 0, transition: "all 0.12s",
+                          }} onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>
+                            {isSelected ? "\u2713" : ""}
+                          </span>
+                          <span onClick={(e) => { e.preventDefault(); toggleHood(hood); }}>{hood}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </FilterDrawer>
+
+      {/* Status Drawer */}
+      <FilterDrawer open={activeDrawer === "status"} onClose={() => setActiveDrawer(null)} title="Registration Status"
+        onClear={() => { setSelectedRegStatuses(new Set()); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <FilterOptions
+          options={REGISTRATION_STATUSES.map((st) => ({ id: st.key, label: `${st.icon} ${st.label}` }))}
+          selected={selectedRegStatuses}
+          onToggle={(id) => toggleInSet(setSelectedRegStatuses, id)}
+        />
+      </FilterDrawer>
+
+      {/* Duration Drawer */}
+      <FilterDrawer open={activeDrawer === "duration"} onClose={() => setActiveDrawer(null)} title="Duration (hours per day)"
+        onClear={() => { setDurationMin(0); setDurationMax(10); setVisibleCount(PAGE_SIZE); }} onApply={() => setActiveDrawer(null)}>
+        <div style={{ padding: "8px 0 16px" }}>
+          <div style={{ fontFamily: font, fontSize: 16, color: C.ink, fontWeight: 700, textAlign: "center", marginBottom: 16 }}>
+            {durationMin === 0 && durationMax === 10 ? "Any duration" : `${durationMin}h \u2013 ${durationMax}h per day`}
+          </div>
+          <div style={{ padding: "0 4px" }}>
+            <div style={{ fontFamily: font, fontSize: 14, color: C.muted, marginBottom: 6 }}>Minimum: {durationMin}h</div>
+            <input type="range" min="0" max="10" step="0.5" value={durationMin}
+              onChange={(e) => { const v = parseFloat(e.target.value); setDurationMin(Math.min(v, durationMax)); setVisibleCount(PAGE_SIZE); }}
+              style={{ width: "100%", accentColor: C.seaGreen }} />
+            <div style={{ fontFamily: font, fontSize: 14, color: C.muted, marginBottom: 6, marginTop: 14 }}>Maximum: {durationMax}h</div>
+            <input type="range" min="0" max="10" step="0.5" value={durationMax}
+              onChange={(e) => { const v = parseFloat(e.target.value); setDurationMax(Math.max(v, durationMin)); setVisibleCount(PAGE_SIZE); }}
+              style={{ width: "100%", accentColor: C.seaGreen }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 12, color: C.muted, marginTop: 4, padding: "0 2px" }}>
+            <span>0h</span><span>2h</span><span>4h</span><span>6h</span><span>8h</span><span>10h</span>
+          </div>
+          <div style={{ fontFamily: font, fontSize: 13, color: C.muted, marginTop: 16, lineHeight: 1.5 }}>
+            Duration includes before-care and after-care hours when available. Programs without time data are shown when minimum is 0.
+          </div>
+        </div>
+      </FilterDrawer>
 
       {/* Program detail modal */}
       {selectedProgram && <PublicProgramDetail program={selectedProgram} onClose={() => setSelectedProgram(null)} onNavigate={onNavigate} />}
@@ -1285,7 +1810,7 @@ function PublicProgramDetail({ program, onClose, onNavigate }) {
           {(p.ageMin != null || p.ageMax != null) && (
             <div>
               <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Ages</div>
-              <div style={{ fontFamily: font, fontSize: 16, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.ageMin}\u2013{p.ageMax} years</div>
+              <div style={{ fontFamily: font, fontSize: 16, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.ageMin}&ndash;{p.ageMax} years</div>
             </div>
           )}
           {p.days && (
@@ -1297,7 +1822,7 @@ function PublicProgramDetail({ program, onClose, onNavigate }) {
           {(p.startTime || p.endTime) && (
             <div>
               <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: "#4A6FA5", textTransform: "uppercase", letterSpacing: 1 }}>Time</div>
-              <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.startTime}\u2013{p.endTime}</div>
+              <div style={{ fontFamily: font, fontSize: 14, fontWeight: 600, color: C.ink, marginTop: 2 }}>{p.startTime}&ndash;{p.endTime}</div>
             </div>
           )}
           {p.startDate && (
