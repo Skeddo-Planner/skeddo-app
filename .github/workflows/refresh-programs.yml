@@ -24,6 +24,9 @@ on:
     - cron: '0 14 * * *'
   workflow_dispatch: # Manual trigger from GitHub Actions UI
 
+permissions:
+  contents: write
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -268,16 +271,19 @@ jobs:
               console.log(JSON.parse(fs.readFileSync('src/data/quarantined-programs.json')).programs.length);
             " 2>/dev/null || echo "0")
 
-            git commit -m "chore: auto-fix data quality issues [skip ci]
+            git commit -m "$(cat <<EOF
+          chore: auto-fix data quality issues [skip ci]
 
-Auto-applied by daily pipeline:
-- fill-computable-fields.cjs (computed field inference)
-- validate-programs.cjs --fix (data quality rules)
-- auto-resolve-violations.cjs (R2/R7/R11/R29/R32 resolution)
-- validate-urls.cjs --fix (broken URL resolution)
-- verify-programs.cjs --incremental --fix (source-of-truth verification)
+          Auto-applied by daily pipeline:
+          - fill-computable-fields.cjs (computed field inference)
+          - validate-programs.cjs --fix (data quality rules)
+          - auto-resolve-violations.cjs (R2/R7/R11/R29/R32 resolution)
+          - validate-urls.cjs --fix (broken URL resolution)
+          - verify-programs.cjs --incremental --fix (source-of-truth verification)
 
-Programs: ${PROGRAM_COUNT} total | Quarantined: ${QCOUNT} with unresolvable violations"
+          Programs: ${PROGRAM_COUNT} total | Quarantined: ${QCOUNT} with unresolvable violations
+          EOF
+          )"
             git push
           fi
 
