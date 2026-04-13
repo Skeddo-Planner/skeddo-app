@@ -53,7 +53,7 @@ function MenuIcon({ pathData, circle, color, size = 18 }) {
   );
 }
 
-export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onInviteCoParent, tab, setTab, badges, activityLog = [] }) {
+export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onDismissActivity, onDismissAllActivity, onInviteCoParent, tab, setTab, badges, activityLog = [] }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
@@ -242,8 +242,23 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     <div style={{
                       padding: "14px 16px 10px", borderBottom: `1px solid ${C.border}`,
                       fontSize: 14, fontWeight: 700, color: C.ink,
+                      display: "flex", alignItems: "center", justifyContent: "space-between",
                     }}>
                       Notifications
+                      {activityLog.length > 0 && onDismissAllActivity && (
+                        <button
+                          onClick={(e) => { e.stopPropagation(); onDismissAllActivity(); }}
+                          style={{
+                            background: "none", border: "none", cursor: "pointer",
+                            fontSize: 12, color: C.muted, fontFamily: "'Barlow', sans-serif",
+                            padding: "2px 6px", borderRadius: 6,
+                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.color = C.ink; e.currentTarget.style.background = C.bg; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.color = C.muted; e.currentTarget.style.background = "none"; }}
+                        >
+                          Clear all
+                        </button>
+                      )}
                     </div>
                     {activityLog.length === 0 ? (
                       <div style={{ padding: "32px 16px", textAlign: "center", color: C.muted, fontSize: 14 }}>
@@ -261,9 +276,26 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                               padding: "12px 16px",
                               borderBottom: i < activityLog.length - 1 ? `1px solid ${C.border}` : "none",
                               fontSize: 13, lineHeight: 1.5, color: C.ink,
+                              position: "relative",
                             }}
                           >
-                            <div style={{ fontWeight: 600, marginBottom: 2 }}>
+                            {onDismissActivity && (
+                              <button
+                                onClick={(e) => { e.stopPropagation(); onDismissActivity(entry.id); }}
+                                title="Dismiss"
+                                style={{
+                                  position: "absolute", top: 8, right: 10,
+                                  background: "none", border: "none", cursor: "pointer",
+                                  fontSize: 15, color: C.muted, lineHeight: 1,
+                                  padding: "2px 5px", borderRadius: 4,
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.color = C.ink; e.currentTarget.style.background = C.bg; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.color = C.muted; e.currentTarget.style.background = "none"; }}
+                              >
+                                ✕
+                              </button>
+                            )}
+                            <div style={{ fontWeight: 600, marginBottom: 2, paddingRight: 24 }}>
                               {details.userName || entry.user_name || "Someone"}{" "}
                               <span style={{ fontWeight: 400, color: C.muted }}>
                                 {(entry.action === "added" && details.type === "access_granted") && "joined as a co-parent"}
@@ -433,8 +465,23 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                     <div style={{
                       padding: "14px 16px 10px", borderBottom: `1px solid ${C.border}`,
                       fontSize: 14, fontWeight: 700, color: C.ink,
+                      display: "flex", alignItems: "center", justifyContent: "space-between",
                     }}>
                       Notifications
+                      {activityLog.length > 0 && onDismissAllActivity && (
+                        <button
+                          onClick={(e) => { e.stopPropagation(); onDismissAllActivity(); }}
+                          style={{
+                            background: "none", border: "none", cursor: "pointer",
+                            fontSize: 12, color: C.muted, fontFamily: "'Barlow', sans-serif",
+                            padding: "2px 6px", borderRadius: 6,
+                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.color = C.ink; e.currentTarget.style.background = C.bg; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.color = C.muted; e.currentTarget.style.background = "none"; }}
+                        >
+                          Clear all
+                        </button>
+                      )}
                     </div>
                     {activityLog.length === 0 ? (
                       <div style={{ padding: "32px 16px", textAlign: "center", color: C.muted, fontSize: 14 }}>
@@ -452,9 +499,26 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                               padding: "12px 16px",
                               borderBottom: i < activityLog.length - 1 ? `1px solid ${C.border}` : "none",
                               fontSize: 13, lineHeight: 1.5, color: C.ink,
+                              position: "relative",
                             }}
                           >
-                            <div style={{ fontWeight: 600, marginBottom: 2 }}>
+                            {onDismissActivity && (
+                              <button
+                                onClick={(e) => { e.stopPropagation(); onDismissActivity(entry.id); }}
+                                title="Dismiss"
+                                style={{
+                                  position: "absolute", top: 8, right: 10,
+                                  background: "none", border: "none", cursor: "pointer",
+                                  fontSize: 15, color: C.muted, lineHeight: 1,
+                                  padding: "2px 5px", borderRadius: 4,
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.color = C.ink; e.currentTarget.style.background = C.bg; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.color = C.muted; e.currentTarget.style.background = "none"; }}
+                              >
+                                ✕
+                              </button>
+                            )}
+                            <div style={{ fontWeight: 600, marginBottom: 2, paddingRight: 24 }}>
                               {details.userName || entry.user_name || "Someone"}{" "}
                               <span style={{ fontWeight: 400, color: C.muted }}>
                                 {(entry.action === "added" && details.type === "access_granted") && "joined as a co-parent"}

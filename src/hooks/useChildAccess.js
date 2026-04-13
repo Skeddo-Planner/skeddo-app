@@ -203,6 +203,29 @@ export function useChildAccess(userId, session) {
     try { localStorage.setItem("skeddo-activity-last-viewed", now); } catch {}
   }, []);
 
+  /* ── Dismiss a single activity notification ── */
+  const dismissActivity = useCallback(
+    async (entryId) => {
+      if (!entryId) return;
+      setActivityLog((prev) => prev.filter((e) => e.id !== entryId));
+      setUnreadCount((prev) => Math.max(0, prev - 1));
+      await supabase.from("activity_log").delete().eq("id", entryId);
+    },
+    []
+  );
+
+  /* ── Dismiss all activity notifications ── */
+  const dismissAllActivity = useCallback(
+    async () => {
+      const ids = activityLog.map((e) => e.id).filter(Boolean);
+      if (ids.length === 0) return;
+      setActivityLog([]);
+      setUnreadCount(0);
+      await supabase.from("activity_log").delete().in("id", ids);
+    },
+    [activityLog]
+  );
+
   /* ── Log an activity (called when user adds/edits/removes a program) ── */
   const logActivity = useCallback(
     async (programId, childId, action, details = {}, userName = "") => {
@@ -230,6 +253,8 @@ export function useChildAccess(userId, session) {
     revokeInvite,
     removeAccess,
     markActivityViewed,
+    dismissActivity,
+    dismissAllActivity,
     logActivity,
   };
 }
