@@ -322,7 +322,6 @@ function SiteHeader({ isDesktop, onNavigate }) {
         }}>
           Browse Camps
         </Link>
-        {/* Blog/Guides link hidden until posts are refined
         <Link to="/blog" style={{
           fontFamily: font,
           fontSize: 14,
@@ -333,7 +332,6 @@ function SiteHeader({ isDesktop, onNavigate }) {
         }}>
           Guides
         </Link>
-        */}
         <a
           href="/signin"
           onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}

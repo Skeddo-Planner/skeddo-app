@@ -182,7 +182,16 @@ export default function LandingPage({ onNavigate }) {
             }}>
               Browse Camps
             </Link>
-            {/* Guides link hidden until blog posts are refined */}
+            <Link to="/blog" style={{
+              fontFamily: "'Barlow', sans-serif",
+              fontSize: 14,
+              fontWeight: 600,
+              color: C.ink,
+              textDecoration: "none",
+              padding: "8px 12px",
+            }}>
+              Guides
+            </Link>
             <a
               href="/signin"
               onClick={(e) => { e.preventDefault(); onNavigate("signin"); }}
