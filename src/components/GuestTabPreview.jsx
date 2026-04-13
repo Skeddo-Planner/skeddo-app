@@ -116,7 +116,7 @@ function SchedulePreview() {
         </div>
       </div>
       <p style={{ fontFamily: "'Barlow', sans-serif", fontSize: 14, color: C.muted, margin: "0 0 6px" }}>
-        Week of July 7 \u2013 July 11, 2026
+        Week of July 7 {"\u2013"} July 11, 2026
       </p>
 
       {/* Kid legend */}
@@ -237,7 +237,7 @@ function ProgramsPreview() {
         <span style={{ fontSize: 20 }}>{"\uD83D\uDD14"}</span>
         <div>
           <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: "#92400E" }}>Registration opening soon</div>
-          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#B45309" }}>Science Explorers opens May 1 \u2022 Dance Camp opens Apr 20</div>
+          <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: "#B45309" }}>Science Explorers opens May 1 {"\u2022"} Dance Camp opens Apr 20</div>
         </div>
       </div>
 
@@ -267,10 +267,10 @@ function ProgramsPreview() {
                 }}>{STATUS_ICONS[p.status]} {p.status}</span>
               </div>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted, marginTop: 2 }}>
-                {p.provider} \u2022 {p.kid}
+                {p.provider} {"\u2022"} {p.kid}
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 4 }}>
-                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>{p.dates} \u2022 {p.days}</span>
+                <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 12, color: C.muted }}>{p.dates} {"\u2022"} {p.days}</span>
                 <span style={{ fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700, color: C.ink }}>{p.cost}</span>
               </div>
               <div style={{ fontFamily: "'Barlow', sans-serif", fontSize: 11, color: C.muted, marginTop: 3, fontStyle: "italic" }}>{p.regDate}</div>
@@ -582,7 +582,7 @@ export default function GuestTabPreview({ tabId, onSignUp }) {
             fontFamily: "'Barlow', sans-serif", fontSize: 13, color: C.muted,
             margin: "12px 0 0",
           }}>
-            100% free \u2022 No credit card \u2022 Takes 30 seconds
+            100% free {"\u2022"} No credit card {"\u2022"} Takes 30 seconds
           </p>
         </div>
       </div>
