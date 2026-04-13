@@ -6,8 +6,10 @@ import TabBar from "./TabBar";
 import GuestTabPreview from "./GuestTabPreview";
 import useIsDesktop from "../hooks/useIsDesktop";
 import lazyWithReload from "../utils/lazyWithReload";
+import { trackEvent } from "../utils/analytics";
 
 const DiscoverTab = lazyWithReload(() => import("../tabs/DiscoverTab"));
+const DirectoryDetail = lazyWithReload(() => import("../modals/DirectoryDetail"));
 
 const VALID_TABS = new Set(["discover", "schedule", "programs", "circles", "budget"]);
 const GATED_TABS = new Set(["schedule", "programs", "circles", "budget"]);
@@ -18,6 +20,7 @@ const GATED_TABS = new Set(["schedule", "programs", "circles", "budget"]);
  */
 export default function GuestAppShell({ onNavigate }) {
   const isDesktop = useIsDesktop();
+  const [modal, setModal] = useState(null);
 
   // Tab routing — default to "discover" (Search) for guests
   const hashTab = window.location.hash.replace("#", "");
@@ -45,6 +48,11 @@ export default function GuestAppShell({ onNavigate }) {
   const handleSignUp = () => onNavigate("signup");
   const handleSignIn = () => onNavigate("signin");
 
+  const openDirectoryDetail = useCallback((p) => {
+    trackEvent("view_program", { program_name: p.name, provider: p.provider || "" });
+    setModal({ type: "directoryDetail", data: p });
+  }, []);
+
   const renderTabContent = () => {
     if (tab === "discover") {
       return (
@@ -57,7 +65,7 @@ export default function GuestAppShell({ onNavigate }) {
               toggleFavorite={() => {}}
               isFavorite={() => false}
               onAddToSchedule={handleSignUp}
-              onOpenDirectoryDetail={() => {}}
+              onOpenDirectoryDetail={openDirectoryDetail}
               planAccess={{ effectivePlan: "free", isTestMode: false, canUse: () => true }}
               kidFilter={null}
               onKidFilter={() => {}}
@@ -107,6 +115,21 @@ export default function GuestAppShell({ onNavigate }) {
           </>
         )}
       </Suspense>
+
+      {modal?.type === "directoryDetail" && (
+        <Suspense fallback={null}>
+          <DirectoryDetail
+            program={modal.data}
+            userPrograms={[]}
+            kids={[]}
+            onAddToSchedule={handleSignUp}
+            onClose={() => setModal(null)}
+            selectedKid={null}
+            circlesHook={null}
+            profile={null}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }
