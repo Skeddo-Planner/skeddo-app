@@ -97,15 +97,17 @@ async function main() {
 
   const [slimBlob, fullBlob] = await Promise.all([
     put("programs-slim.json", JSON.stringify(slim), {
-      access:         "public",
-      contentType:    "application/json",
-      allowOverwrite: true,
+      access:           "public",
+      contentType:      "application/json",
+      addRandomSuffix:  false,
+      allowOverwrite:   true,
       token,
     }),
     put("programs.json", JSON.stringify(programs), {
-      access:         "public",
-      contentType:    "application/json",
-      allowOverwrite: true,
+      access:           "public",
+      contentType:      "application/json",
+      addRandomSuffix:  false,
+      allowOverwrite:   true,
       token,
     }),
   ]);
