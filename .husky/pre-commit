@@ -87,6 +87,18 @@ if [ "$PROGRAMS_CHANGED" = "true" ]; then
     # pre-commit-validate.cjs already printed the detailed error
     EXIT_CODE=1
   fi
+
+  # ── Auto-rebuild directory index so /camps page stays in sync ──
+  if [ $EXIT_CODE -eq 0 ]; then
+    echo ""
+    echo "🔄 Rebuilding directory-index.json..."
+    if node "$ROOT/scripts/generate-directory-data.cjs" 2>&1; then
+      git add "$ROOT/src/data/directory-index.json"
+      echo "✅ Directory index rebuilt and staged."
+    else
+      echo "⚠️  Directory index rebuild failed (non-blocking)."
+    fi
+  fi
 fi
 
 # ── Check 2: Rules doc changed but validator was NOT touched ─────────────────
