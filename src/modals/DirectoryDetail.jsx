@@ -10,7 +10,7 @@ import {
 import { computeEligibility, getEligibilityLabel } from "../utils/ageEligibility";
 import { trackEvent } from "../utils/analytics";
 
-export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid, circlesHook, profile }) {
+export default function DirectoryDetail({ program, userPrograms, kids, onAddToSchedule, onClose, selectedKid, circlesHook, profile, isGuest }) {
   // description is stripped from the slim list load; fetch it lazily when missing.
   const [description, setDescription] = useState(
     "description" in program ? program.description : undefined
@@ -592,7 +592,7 @@ export default function DirectoryDetail({ program, userPrograms, kids, onAddToSc
               textAlign: "center",
               flex: "none",
             }}
-            onClick={() => setShowAddForm(true)}
+            onClick={() => isGuest ? onAddToSchedule() : setShowAddForm(true)}
           >
             {alreadyAdded ? "Add Again" : "Save to My Planner"}
           </button>

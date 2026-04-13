@@ -127,6 +127,7 @@ export default function GuestAppShell({ onNavigate }) {
             selectedKid={null}
             circlesHook={null}
             profile={null}
+            isGuest={true}
           />
         </Suspense>
       )}
