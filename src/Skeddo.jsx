@@ -803,6 +803,8 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
         unreadCount={childAccess.unreadCount}
         activityLog={childAccess.activityLog}
         onOpenActivity={() => { childAccess.markActivityViewed(); }}
+        onDismissActivity={childAccess.dismissActivity}
+        onDismissAllActivity={childAccess.dismissAllActivity}
         onInviteCoParent={handleInviteCoParent}
         tab={tab}
         setTab={(t) => handleNavigateToTab(t)}
