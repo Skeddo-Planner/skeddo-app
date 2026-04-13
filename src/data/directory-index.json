@@ -1,9 +1,9 @@
 {
-  "totalPrograms": 15837,
-  "totalProviders": 429,
+  "totalPrograms": 15917,
+  "totalProviders": 435,
   "totalCategories": 48,
   "totalAreas": 25,
-  "lastUpdated": "2026-04-11",
+  "lastUpdated": "2026-04-13",
   "providers": [
     {
       "name": "Pedalheads",
@@ -2698,7 +2698,7 @@
           "ageMin": 3,
           "ageMax": 4,
           "cost": 475,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/MulgraveSchool",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -2707,7 +2707,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "G3-4 Creative Writing Lab - W1 am",
@@ -2716,7 +2716,7 @@
           "ageMin": 8,
           "ageMax": 10,
           "cost": 295,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/MulgraveSchool",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -2725,7 +2725,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "G5-6 All Star Sports Mix - W1 am",
@@ -2734,7 +2734,7 @@
           "ageMin": 10,
           "ageMax": 12,
           "cost": 285,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/MulgraveSchool",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -2743,7 +2743,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "3D Basketball - G2-5 Development - W1 am",
@@ -2752,7 +2752,7 @@
           "ageMin": 7,
           "ageMax": 11,
           "cost": 250,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/MulgraveSchool",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -2761,7 +2761,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "G6-11 M West Vancouver Youth Band: Junior Music Camp - W1 FD",
@@ -2770,7 +2770,7 @@
           "ageMin": 11,
           "ageMax": 17,
           "cost": 550,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/MulgraveSchool",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -2779,7 +2779,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Summer EY K Week 1: Super Kids Adventures",
@@ -2788,7 +2788,7 @@
           "ageMin": 4,
           "ageMax": 5,
           "cost": 700,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/MulgraveSchool",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -2797,7 +2797,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -4307,7 +4307,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 90,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-06-22",
           "endDate": "2026-06-26",
           "startTime": null,
@@ -4316,7 +4316,7 @@
           "neighbourhood": "Ambleside",
           "city": "West Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "CSI Summer Edition (6-8) AM",
@@ -4325,7 +4325,7 @@
           "ageMin": 10,
           "ageMax": 13,
           "cost": 290,
-          "costNote": "Browser-verified on collingwood.org/community/camps/dates-rates (Apr 10, 2026). Per week. Prices reduced on 4-day weeks (June 29-July 3, Aug 4-7).",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-06-22",
           "endDate": "2026-06-26",
           "startTime": "9:00 AM",
@@ -4334,7 +4334,7 @@
           "neighbourhood": "Ambleside",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Multi-Sports (3-5) AM",
@@ -4343,7 +4343,7 @@
           "ageMin": 7,
           "ageMax": 10,
           "cost": 300,
-          "costNote": "Browser-verified on collingwood.org/community/camps/dates-rates (Apr 10, 2026). Per week. Prices reduced on 4-day weeks (June 29-July 3, Aug 4-7).",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-06-22",
           "endDate": "2026-06-26",
           "startTime": "9:00 AM",
@@ -4352,7 +4352,7 @@
           "neighbourhood": "Ambleside",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Splash of Colour (1-2) AM",
@@ -4361,7 +4361,7 @@
           "ageMin": 5,
           "ageMax": 7,
           "cost": 300,
-          "costNote": "Browser-verified on collingwood.org/community/camps/dates-rates (Apr 10, 2026). Per week. Prices reduced on 4-day weeks (June 29-July 3, Aug 4-7).",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-06-22",
           "endDate": "2026-06-26",
           "startTime": "9:00 AM",
@@ -4370,7 +4370,7 @@
           "neighbourhood": "Ambleside",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Musical Theatre (1-2)",
@@ -4379,7 +4379,7 @@
           "ageMin": 5,
           "ageMax": 7,
           "cost": 600,
-          "costNote": "Browser-verified on collingwood.org/community/camps/dates-rates (Apr 10, 2026). Per week. Prices reduced on 4-day weeks (June 29-July 3, Aug 4-7).",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-06-22",
           "endDate": "2026-06-26",
           "startTime": "9:00 AM",
@@ -4388,7 +4388,7 @@
           "neighbourhood": "Ambleside",
           "city": "West Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Ultimate Sports Adventure (6-8) AM",
@@ -4397,7 +4397,7 @@
           "ageMin": 10,
           "ageMax": 13,
           "cost": 290,
-          "costNote": "Browser-verified on collingwood.org/community/camps/dates-rates (Apr 10, 2026). Per week. Prices reduced on 4-day weeks (June 29-July 3, Aug 4-7).",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-06-22",
           "endDate": "2026-06-26",
           "startTime": "9:00 AM",
@@ -4406,7 +4406,7 @@
           "neighbourhood": "Ambleside",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -7460,7 +7460,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 488.25,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/EndlessBiking (prices include GST)",
           "startDate": "2026-03-23",
           "endDate": "2026-03-27",
           "startTime": "9:00 AM",
@@ -7478,7 +7478,7 @@
           "ageMin": 10,
           "ageMax": 16,
           "cost": 687.75,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/EndlessBiking (prices include GST)",
           "startDate": "2026-03-23",
           "endDate": "2026-03-27",
           "startTime": "9:00 AM",
@@ -7496,7 +7496,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 257.25,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/EndlessBiking (prices include GST)",
           "startDate": "2026-04-08",
           "endDate": "2026-04-29",
           "startTime": "4:15 PM",
@@ -7514,7 +7514,7 @@
           "ageMin": 10,
           "ageMax": 16,
           "cost": 257.25,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/EndlessBiking (prices include GST)",
           "startDate": "2026-04-08",
           "endDate": "2026-04-29",
           "startTime": "4:15 PM",
@@ -7532,7 +7532,7 @@
           "ageMin": 10,
           "ageMax": 16,
           "cost": 252,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/EndlessBiking (prices include GST)",
           "startDate": "2026-04-12",
           "endDate": "2026-04-26",
           "startTime": "9:30 AM",
@@ -7550,7 +7550,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 252,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via campscui.active.com/orgs/EndlessBiking (prices include GST)",
           "startDate": "2026-04-12",
           "endDate": "2026-04-26",
           "startTime": "9:30 AM",
@@ -7879,7 +7879,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "cost": 103.5,
-          "costNote": "",
+          "costNote": "After-school art program (not summer camp) — prices hidden behind enrollment; campscui page shows no current seasons; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-17",
           "endDate": "2026-05-29",
           "startTime": "3:05 PM",
@@ -7888,7 +7888,7 @@
           "neighbourhood": "Moody Park",
           "city": "New Westminster",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Cameron Elementary - Elementary Drawing",
@@ -7897,7 +7897,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "cost": 111,
-          "costNote": "",
+          "costNote": "After-school art program (not summer camp) — prices hidden behind enrollment; campscui page shows no current seasons; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-20",
           "endDate": "2026-06-15",
           "startTime": "2:50 PM",
@@ -7906,7 +7906,7 @@
           "neighbourhood": "Burnaby Mountain",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Inman Elementary - Elementary Drawing",
@@ -7915,7 +7915,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "cost": 141,
-          "costNote": "",
+          "costNote": "After-school art program (not summer camp) — prices hidden behind enrollment; campscui page shows no current seasons; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-20",
           "endDate": "2026-06-15",
           "startTime": "2:55 PM",
@@ -7924,7 +7924,7 @@
           "neighbourhood": "Edmonds",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Parkcrest Elementary - Elementary Drawing",
@@ -7933,7 +7933,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "cost": 141,
-          "costNote": "",
+          "costNote": "After-school art program (not summer camp) — prices hidden behind enrollment; campscui page shows no current seasons; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-20",
           "endDate": "2026-06-08",
           "startTime": "3:05 PM",
@@ -7942,7 +7942,7 @@
           "neighbourhood": "North Burnaby",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "South Slope Elementary - Elementary Drawing",
@@ -7951,7 +7951,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "cost": 129.5,
-          "costNote": "",
+          "costNote": "After-school art program (not summer camp) — prices hidden behind enrollment; campscui page shows no current seasons; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-20",
           "endDate": "2026-06-15",
           "startTime": "3:05 PM",
@@ -7960,7 +7960,7 @@
           "neighbourhood": "South Slope",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Queen Mary Elementary - Elementary Drawing",
@@ -7969,7 +7969,7 @@
           "ageMin": 5,
           "ageMax": 12,
           "cost": 211.5,
-          "costNote": "",
+          "costNote": "After-school art program (not summer camp) — prices hidden behind enrollment; campscui page shows no current seasons; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-21",
           "endDate": "2026-06-16",
           "startTime": "3:00 PM",
@@ -7978,7 +7978,7 @@
           "neighbourhood": "West Point Grey",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -8274,7 +8274,7 @@
           "ageMin": 7,
           "ageMax": 14,
           "cost": 500,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via falsecreeksprint.com",
           "startDate": "2026-04-02",
           "endDate": "2026-06-20",
           "startTime": "4:00 PM",
@@ -8283,7 +8283,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Youth Canoe/Kayak - Introduction to Paddling - April (4wks)",
@@ -8292,7 +8292,7 @@
           "ageMin": 7,
           "ageMax": 15,
           "cost": 150,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via falsecreeksprint.com",
           "startDate": "2026-04-04",
           "endDate": "2026-04-25",
           "startTime": "11:00 AM",
@@ -8301,7 +8301,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Youth Canoe/Kayak - Introduction to Paddling - May (4wks)",
@@ -8310,7 +8310,7 @@
           "ageMin": 7,
           "ageMax": 15,
           "cost": 150,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via falsecreeksprint.com",
           "startDate": "2026-04-27",
           "endDate": "2026-05-01",
           "startTime": "11:00 AM",
@@ -8319,7 +8319,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Youth Canoe/Kayak - After School Introduction to Paddling",
@@ -8328,7 +8328,7 @@
           "ageMin": 7,
           "ageMax": 15,
           "cost": 215,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via falsecreeksprint.com",
           "startDate": "2026-05-25",
           "endDate": "2026-06-17",
           "startTime": "4:00 PM",
@@ -8337,7 +8337,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Youth Canoe/Kayak - Introduction to Paddling - June (3wks)",
@@ -8346,7 +8346,7 @@
           "ageMin": 7,
           "ageMax": 15,
           "cost": 120,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via falsecreeksprint.com",
           "startDate": "2026-06-06",
           "endDate": "2026-06-20",
           "startTime": "11:00 AM",
@@ -8355,7 +8355,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Speed & Power School (Mon / Wed)",
@@ -8364,7 +8364,7 @@
           "ageMin": 9,
           "ageMax": 13,
           "cost": 675,
-          "costNote": "",
+          "costNote": "Price verified Apr 2026 via falsecreeksprint.com",
           "startDate": "2026-06-22",
           "endDate": "2026-08-19",
           "startTime": "5:30 PM",
@@ -8373,7 +8373,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -8761,6 +8761,134 @@
           "city": "Vancouver",
           "dayLength": "Single Day",
           "enrollmentStatus": "Completed"
+        }
+      ]
+    },
+    {
+      "name": "This World's Ours Centre",
+      "slug": "this-world-s-ours-centre",
+      "programCount": 34,
+      "categories": [
+        "Life Skills"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Mount Pleasant"
+      ],
+      "ageMin": 5,
+      "ageMax": 18,
+      "costMin": 150,
+      "costMax": 875,
+      "samplePrograms": [
+        {
+          "name": "Social Skills Camp",
+          "category": "Life Skills",
+          "activityType": "Life Skills",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 875,
+          "costNote": "$875 per week (5-day week). Registration via Amilia.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Social Skills Camp",
+          "category": "Life Skills",
+          "activityType": "Life Skills",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 875,
+          "costNote": "$875 per week (5-day week). Registration via Amilia.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Social Skills Camp",
+          "category": "Life Skills",
+          "activityType": "Life Skills",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 875,
+          "costNote": "$875 per week (5-day week). Registration via Amilia.",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Social Skills Camp",
+          "category": "Life Skills",
+          "activityType": "Life Skills",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 875,
+          "costNote": "$875 per week (5-day week). Registration via Amilia.",
+          "startDate": "2026-07-27",
+          "endDate": "2026-07-31",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Social Skills Camp",
+          "category": "Life Skills",
+          "activityType": "Life Skills",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 700,
+          "costNote": "$700 per week (4-day week). Registration via Amilia. 4-day week (Canada Day Jul 1).",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon, Tue, Thu, Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Social Skills Camp",
+          "category": "Life Skills",
+          "activityType": "Life Skills",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 700,
+          "costNote": "$700 per week (4-day week). Registration via Amilia. 4-day week (BC Day Mon Aug 3).",
+          "startDate": "2026-08-04",
+          "endDate": "2026-08-07",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Tue, Wed, Thu, Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -9644,7 +9772,7 @@
           "ageMin": 6,
           "ageMax": 8,
           "cost": 350,
-          "costNote": "Per week. Winter program Jan-Mar 2026 at Chaoyin Bilingual School, Richmond. Program completed.",
+          "costNote": "Price verified Apr 2026 via chaoyinschool.ca — UBC Geering Up camps at Chaoyin Richmond",
           "startDate": "2026-01-17",
           "endDate": "2026-03-28",
           "startTime": "10:00 AM",
@@ -9662,7 +9790,7 @@
           "ageMin": 7,
           "ageMax": 9,
           "cost": 385,
-          "costNote": "Per week. Entering grades 2-3.",
+          "costNote": "Price verified Apr 2026 via chaoyinschool.ca — UBC Geering Up camps at Chaoyin Richmond",
           "startDate": "2026-06-29",
           "endDate": "2026-07-03",
           "startTime": "9:00 AM",
@@ -9671,7 +9799,7 @@
           "neighbourhood": "East Richmond",
           "city": "Richmond",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -10635,7 +10763,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 168,
-          "costNote": "Per day. Spring Break camp at Sparks Academy, Kerrisdale, Vancouver. Program completed.",
+          "costNote": "Price from ACTIVE Network — campscui page confirmed active Apr 2026; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-03-23",
           "endDate": "2026-03-23",
           "startTime": "9:00 AM",
@@ -10653,7 +10781,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 168,
-          "costNote": "Per day. Spring Break camp at Sparks Academy, Kerrisdale, Vancouver. Program completed.",
+          "costNote": "Price from ACTIVE Network — campscui page confirmed active Apr 2026; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-03-24",
           "endDate": "2026-03-24",
           "startTime": "9:00 AM",
@@ -10671,7 +10799,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 168,
-          "costNote": "Per day. Spring Break camp at Sparks Academy, Kerrisdale, Vancouver. Program completed.",
+          "costNote": "Price from ACTIVE Network — campscui page confirmed active Apr 2026; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-03-25",
           "endDate": "2026-03-25",
           "startTime": "9:00 AM",
@@ -10689,7 +10817,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 168,
-          "costNote": "Per day. Spring Break camp at Sparks Academy, Kerrisdale, Vancouver. Program completed.",
+          "costNote": "Price from ACTIVE Network — campscui page confirmed active Apr 2026; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-03-26",
           "endDate": "2026-03-26",
           "startTime": "9:00 AM",
@@ -10707,7 +10835,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 168,
-          "costNote": "Per day. Spring Break camp at Sparks Academy, Kerrisdale, Vancouver. Program completed.",
+          "costNote": "Price from ACTIVE Network — campscui page confirmed active Apr 2026; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-03-27",
           "endDate": "2026-03-27",
           "startTime": "9:00 AM",
@@ -10725,7 +10853,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 168,
-          "costNote": "Per single day. Spring enrichment day camp. Verified on campscui.active.com 2026-04-04.",
+          "costNote": "Price from ACTIVE Network — campscui page confirmed active Apr 2026; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-04-20",
           "endDate": "2026-04-20",
           "startTime": "9:00 AM",
@@ -10734,7 +10862,7 @@
           "neighbourhood": "Kerrisdale",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -10763,7 +10891,7 @@
           "ageMin": 8,
           "ageMax": 12,
           "cost": 150,
-          "costNote": "Contact provider for pricing: burnabywinterclub.com",
+          "costNote": "Summer 2026 registration not yet open as of Apr 2026 — facility undergoing upgrades",
           "startDate": "2026-03-24",
           "endDate": "2026-03-25",
           "startTime": "9:00 AM",
@@ -10781,7 +10909,7 @@
           "ageMin": 8,
           "ageMax": 12,
           "cost": 300,
-          "costNote": "Contact provider for pricing: burnabywinterclub.com",
+          "costNote": "Summer 2026 registration not yet open as of Apr 2026 — facility undergoing upgrades",
           "startDate": "2026-03-24",
           "endDate": "2026-03-25",
           "startTime": "9:00 AM",
@@ -10799,7 +10927,7 @@
           "ageMin": 12,
           "ageMax": 17,
           "cost": 150,
-          "costNote": "Contact provider for pricing: burnabywinterclub.com",
+          "costNote": "Summer 2026 registration not yet open as of Apr 2026 — facility undergoing upgrades",
           "startDate": "2026-03-24",
           "endDate": "2026-03-25",
           "startTime": "11:30 AM",
@@ -10817,7 +10945,7 @@
           "ageMin": 12,
           "ageMax": 17,
           "cost": 300,
-          "costNote": "Contact provider for pricing: burnabywinterclub.com",
+          "costNote": "Summer 2026 registration not yet open as of Apr 2026 — facility undergoing upgrades",
           "startDate": "2026-03-24",
           "endDate": "2026-03-25",
           "startTime": "11:30 AM",
@@ -10835,7 +10963,7 @@
           "ageMin": 8,
           "ageMax": 12,
           "cost": 300,
-          "costNote": "Contact provider for pricing: burnabywinterclub.com",
+          "costNote": "Summer 2026 registration not yet open as of Apr 2026 — facility undergoing upgrades",
           "startDate": "2026-03-26",
           "endDate": "2026-03-27",
           "startTime": "9:00 AM",
@@ -10853,7 +10981,7 @@
           "ageMin": 8,
           "ageMax": 12,
           "cost": 150,
-          "costNote": "Contact provider for pricing: burnabywinterclub.com",
+          "costNote": "Summer 2026 registration not yet open as of Apr 2026 — facility undergoing upgrades",
           "startDate": "2026-03-26",
           "endDate": "2026-03-27",
           "startTime": "9:00 AM",
@@ -12541,6 +12669,156 @@
       ]
     },
     {
+      "name": "Whitecaps FC",
+      "slug": "whitecaps-fc",
+      "programCount": 22,
+      "categories": [
+        "Sports & Recreation"
+      ],
+      "cities": [
+        "North Vancouver",
+        "Burnaby",
+        "Port Moody",
+        "Vancouver",
+        "Surrey",
+        "New Westminster",
+        "Delta",
+        "West Vancouver",
+        "Langley"
+      ],
+      "neighbourhoods": [
+        "North Vancouver",
+        "Burnaby",
+        "Port Moody",
+        "Kitsilano",
+        "South Surrey",
+        "UBC",
+        "North Burnaby",
+        "New Westminster",
+        "Tsawwassen",
+        "West Vancouver",
+        "Grandview-Woodland",
+        "Kerrisdale",
+        "Willoughby",
+        "Hastings-Sunrise",
+        "Point Grey"
+      ],
+      "ageMin": 7,
+      "ageMax": 16,
+      "costMin": 199,
+      "costMax": 1450,
+      "samplePrograms": [
+        {
+          "name": "Development Camp — North Vancouver",
+          "category": "Sports & Recreation",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 13,
+          "cost": 265,
+          "costNote": "$265 + taxes & fees per week. Early bird: $250 + taxes & fees (ends April 30, 2026). Includes official Whitecaps FC Camp jersey.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "North Vancouver",
+          "city": "North Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Finishing & Goalkeeping Camp — North Vancouver",
+          "category": "Sports & Recreation",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 13,
+          "cost": 199,
+          "costNote": "$199 + taxes & fees per week. Early bird: $189 + taxes & fees (ends April 30, 2026). Includes official Whitecaps FC Camp jersey.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "startTime": "1:00 PM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "North Vancouver",
+          "city": "North Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Development Camp — Burnaby",
+          "category": "Sports & Recreation",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 13,
+          "cost": 265,
+          "costNote": "$265 + taxes & fees per week. Early bird: $250 + taxes & fees (ends April 30, 2026). Includes official Whitecaps FC Camp jersey.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Burnaby",
+          "city": "Burnaby",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Development Camp — Port Moody",
+          "category": "Sports & Recreation",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 13,
+          "cost": 265,
+          "costNote": "$265 + taxes & fees per week. Early bird: $250 + taxes & fees (ends April 30, 2026). Includes official Whitecaps FC Camp jersey.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Port Moody",
+          "city": "Port Moody",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Development Camp — Vancouver West (Trafalgar Park)",
+          "category": "Sports & Recreation",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 13,
+          "cost": 265,
+          "costNote": "$265 + taxes & fees per week. Early bird: $250 + taxes & fees (ends April 30, 2026). Includes official Whitecaps FC Camp jersey.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Prospects Camp — South Surrey",
+          "category": "Sports & Recreation",
+          "activityType": "Soccer",
+          "ageMin": 8,
+          "ageMax": 13,
+          "cost": 309,
+          "costNote": "$309 + taxes & fees per week. Early bird: $294 + taxes & fees (ends April 30, 2026). Includes official Whitecaps FC Camp jersey.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "South Surrey",
+          "city": "Surrey",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "City of Burnaby - Cameron Community Centre",
       "slug": "city-of-burnaby-cameron-community-centre",
       "programCount": 21,
@@ -12956,7 +13234,7 @@
           "ageMin": 7,
           "ageMax": 9,
           "cost": 400,
-          "costNote": "Price from 2025 ACTIVE Network API. TeamSnap registration form expired August 2025. 2026 summer camps not yet announced (registration opens May 5-6, 2026 for City of Richmond programs).",
+          "costNote": "Hockey/skating program (spring/winter season) — Richmond Ice Centre undergoing upgrades summer 2026",
           "startDate": "2026-03-23",
           "endDate": "2026-03-26",
           "startTime": "8:30 AM",
@@ -12974,7 +13252,7 @@
           "ageMin": 9,
           "ageMax": 11,
           "cost": 400,
-          "costNote": "Price from 2025 ACTIVE Network API. TeamSnap registration form expired August 2025. 2026 summer camps not yet announced (registration opens May 5-6, 2026 for City of Richmond programs).",
+          "costNote": "Hockey/skating program (spring/winter season) — Richmond Ice Centre undergoing upgrades summer 2026",
           "startDate": "2026-03-23",
           "endDate": "2026-03-26",
           "startTime": "11:00 AM",
@@ -12992,7 +13270,7 @@
           "ageMin": 11,
           "ageMax": 13,
           "cost": 400,
-          "costNote": "Price from 2025 ACTIVE Network API. TeamSnap registration form expired August 2025. 2026 summer camps not yet announced (registration opens May 5-6, 2026 for City of Richmond programs).",
+          "costNote": "Hockey/skating program (spring/winter season) — Richmond Ice Centre undergoing upgrades summer 2026",
           "startDate": "2026-03-23",
           "endDate": "2026-03-26",
           "startTime": "1:30 PM",
@@ -13010,7 +13288,7 @@
           "ageMin": 9,
           "ageMax": 10,
           "cost": 346.5,
-          "costNote": "Price from 2025 ACTIVE Network API. TeamSnap registration form expired August 2025. 2026 summer camps not yet announced (registration opens May 5-6, 2026 for City of Richmond programs).",
+          "costNote": "Hockey/skating program (spring/winter season) — Richmond Ice Centre undergoing upgrades summer 2026",
           "startDate": "2026-03-24",
           "endDate": "2026-03-26",
           "startTime": "9:00 AM",
@@ -13028,7 +13306,7 @@
           "ageMin": 7,
           "ageMax": 8,
           "cost": 346.5,
-          "costNote": "Price from 2025 ACTIVE Network API. TeamSnap registration form expired August 2025. 2026 summer camps not yet announced (registration opens May 5-6, 2026 for City of Richmond programs).",
+          "costNote": "Hockey/skating program (spring/winter season) — Richmond Ice Centre undergoing upgrades summer 2026",
           "startDate": "2026-03-24",
           "endDate": "2026-03-26",
           "startTime": "9:00 AM",
@@ -13046,7 +13324,7 @@
           "ageMin": 13,
           "ageMax": 14,
           "cost": 346.5,
-          "costNote": "Price from 2025 ACTIVE Network API. TeamSnap registration form expired August 2025. 2026 summer camps not yet announced (registration opens May 5-6, 2026 for City of Richmond programs).",
+          "costNote": "Hockey/skating program (spring/winter season) — Richmond Ice Centre undergoing upgrades summer 2026",
           "startDate": "2026-03-24",
           "endDate": "2026-03-26",
           "startTime": "11:30 AM",
@@ -14066,7 +14344,7 @@
           "ageMin": 2,
           "ageMax": 5,
           "cost": 540,
-          "costNote": "Provider is Crocodile Mandarin School (rents space at Scottish Cultural Centre, 8886 Hudson St, Vancouver). Original ACTIVE API attribution was to the venue, not the program operator.",
+          "costNote": "Price verified Apr 2026 via crocodilemandarin.com — early bird pricing available until May 1",
           "startDate": "2026-04-11",
           "endDate": "2026-06-27",
           "startTime": "11:00 AM",
@@ -14084,7 +14362,7 @@
           "ageMin": 7,
           "ageMax": 12,
           "cost": 264,
-          "costNote": "$264 for 11 sessions (early bird price). Multi-class discount: 20% off additional hours. Sibling discount: 10% off. Prices include 6.9% registration/processing fee and GST. Break: May 16-22.",
+          "costNote": "Price verified Apr 2026 via crocodilemandarin.com — early bird pricing available until May 1",
           "startDate": "2026-04-11",
           "endDate": "2026-06-27",
           "startTime": "9:05 AM",
@@ -14093,6 +14371,134 @@
           "neighbourhood": "Marpole",
           "city": "Vancouver",
           "dayLength": "Lesson",
+          "enrollmentStatus": "Likely Coming Soon"
+        }
+      ]
+    },
+    {
+      "name": "Collage Collage",
+      "slug": "collage-collage",
+      "programCount": 18,
+      "categories": [
+        "Arts"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Riley Park"
+      ],
+      "ageMin": 3,
+      "ageMax": 10,
+      "costMin": 155,
+      "costMax": 275,
+      "samplePrograms": [
+        {
+          "name": "Spring Break Art & Crafts Camp (Ages 5-9)",
+          "category": "Arts",
+          "activityType": "Painting & Drawing",
+          "ageMin": 5,
+          "ageMax": 9,
+          "cost": 260,
+          "costNote": "",
+          "startDate": "2026-03-16",
+          "endDate": "2026-03-27",
+          "startTime": "9:30 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Completed"
+        },
+        {
+          "name": "IN PERSON Mini MAKE | Parent + Child Class (Ages 3-5)",
+          "category": "Arts",
+          "activityType": "Painting & Drawing",
+          "ageMin": 3,
+          "ageMax": 5,
+          "cost": 155,
+          "costNote": "$155 for 5-session block (May). Classes are most often 4 sessions ($125), occasional 5-week sessions priced accordingly.",
+          "startDate": "2026-05-02",
+          "endDate": "2026-05-30",
+          "startTime": "10:15 AM",
+          "endTime": "11:00 AM",
+          "days": "Sat",
+          "neighbourhood": "Riley Park",
+          "city": "Vancouver",
+          "dayLength": "Lesson",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Spring Break Art & Crafts Camp — PM Session (Ages 5-9)",
+          "category": "Arts",
+          "activityType": "Visual Arts",
+          "ageMin": 5,
+          "ageMax": 9,
+          "cost": 260,
+          "costNote": "",
+          "startDate": "2026-03-16",
+          "endDate": "2026-03-20",
+          "startTime": "1:30 PM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Completed"
+        },
+        {
+          "name": "Summer Art Camp 2026 — AM Session (Ages 6-10)",
+          "category": "Arts",
+          "activityType": "Visual Arts",
+          "ageMin": 6,
+          "ageMax": 10,
+          "cost": 275,
+          "costNote": "$275/week (5-day), $225/week (4-day short week Aug 4-7). 8 kids max per session. All camps final sale. Session 7 (Aug 17-21) sold out.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "9:30 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Art Camp 2026 — PM Session (Ages 6-10)",
+          "category": "Arts",
+          "activityType": "Visual Arts",
+          "ageMin": 6,
+          "ageMax": 10,
+          "cost": 275,
+          "costNote": "$275/week (5-day), $225/week (4-day short week Aug 4-7). 8 kids max per session. All camps final sale. PM available Sessions 1-3 (Jul 6-24), 5-6 (Aug 4-14) only.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "startTime": "1:30 PM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Art Camp — Session 1 (AM)",
+          "category": "Arts",
+          "activityType": "Visual Arts",
+          "ageMin": 6,
+          "ageMax": 10,
+          "cost": 275,
+          "costNote": "$275 per week (5-day week). 8 kids max per session. All camps are final sale. Registration via Shopify.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:30 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         }
       ]
@@ -17938,7 +18344,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 211.5,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network — provider website moved to professorpuffin.ca (old .com domain expired)",
           "startDate": "2026-04-22",
           "endDate": "2026-06-17",
           "startTime": "3:00 PM",
@@ -17947,7 +18353,7 @@
           "neighbourhood": "Dunbar-Southlands",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Taylor Park Elementary - Professor Puffin's Challenge Club",
@@ -17956,7 +18362,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 188,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network — provider website moved to professorpuffin.ca (old .com domain expired)",
           "startDate": "2026-04-24",
           "endDate": "2026-06-19",
           "startTime": "3:05 PM",
@@ -17965,7 +18371,7 @@
           "neighbourhood": "North Burnaby",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Marlborough Elementary - Professor Puffin's Challenge Club",
@@ -17974,7 +18380,7 @@
           "ageMin": 6,
           "ageMax": 9,
           "cost": 148,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network — provider website moved to professorpuffin.ca (old .com domain expired)",
           "startDate": "2026-04-28",
           "endDate": "2026-06-16",
           "startTime": "2:50 PM",
@@ -17983,7 +18389,7 @@
           "neighbourhood": "North Burnaby",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Oppenheimer Elementary- Professor Puffin's Challenge Club",
@@ -17992,7 +18398,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 148,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network — provider website moved to professorpuffin.ca (old .com domain expired)",
           "startDate": "2026-04-28",
           "endDate": "2026-06-16",
           "startTime": "3:00 PM",
@@ -18001,7 +18407,7 @@
           "neighbourhood": "Strathcona",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Montecito Elementary - Professor Puffin's Challenge Club",
@@ -18010,7 +18416,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 148,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network — provider website moved to professorpuffin.ca (old .com domain expired)",
           "startDate": "2026-04-28",
           "endDate": "2026-06-16",
           "startTime": "3:05 PM",
@@ -18019,7 +18425,7 @@
           "neighbourhood": "Sperling-Duthie",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Inman Elementary - Professor Puffin's Challenge Club",
@@ -18028,7 +18434,7 @@
           "ageMin": 6,
           "ageMax": 10,
           "cost": 188,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network — provider website moved to professorpuffin.ca (old .com domain expired)",
           "startDate": "2026-04-29",
           "endDate": "2026-06-17",
           "startTime": "2:55 PM",
@@ -18037,7 +18443,7 @@
           "neighbourhood": "Edmonds",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -20910,7 +21316,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 495,
-          "costNote": "",
+          "costNote": "A2I Foundation STEM camps — prices verified Apr 2026: full-day 95/wk, half-day 50/wk",
           "startDate": "2026-03-23",
           "endDate": "2026-03-27",
           "startTime": "9:30 AM",
@@ -20928,7 +21334,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 100,
-          "costNote": "",
+          "costNote": "A2I Foundation STEM camps — prices verified Apr 2026: full-day 95/wk, half-day 50/wk",
           "startDate": "2026-05-04",
           "endDate": "2026-05-04",
           "startTime": "9:30 AM",
@@ -20937,7 +21343,7 @@
           "neighbourhood": "Lower Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Splash & Scales Adventure Lab",
@@ -20946,7 +21352,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 100,
-          "costNote": "",
+          "costNote": "A2I Foundation STEM camps — prices verified Apr 2026: full-day 95/wk, half-day 50/wk",
           "startDate": "2026-05-04",
           "endDate": "2026-05-04",
           "startTime": "9:30 AM",
@@ -20955,7 +21361,7 @@
           "neighbourhood": "Lower Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Tiny Planet Protectors",
@@ -20964,7 +21370,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 100,
-          "costNote": "",
+          "costNote": "A2I Foundation STEM camps — prices verified Apr 2026: full-day 95/wk, half-day 50/wk",
           "startDate": "2026-05-15",
           "endDate": "2026-05-15",
           "startTime": "9:30 AM",
@@ -20973,7 +21379,7 @@
           "neighbourhood": "Lower Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "The Great A2I Math Challenge",
@@ -20982,7 +21388,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 100,
-          "costNote": "",
+          "costNote": "A2I Foundation STEM camps — prices verified Apr 2026: full-day 95/wk, half-day 50/wk",
           "startDate": "2026-05-15",
           "endDate": "2026-05-15",
           "startTime": "9:30 AM",
@@ -20991,7 +21397,7 @@
           "neighbourhood": "Lower Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Graph Masters: Data Detectives",
@@ -21000,7 +21406,7 @@
           "ageMin": 8,
           "ageMax": null,
           "cost": 100,
-          "costNote": "",
+          "costNote": "A2I Foundation STEM camps — prices verified Apr 2026: full-day 95/wk, half-day 50/wk",
           "startDate": "2026-06-05",
           "endDate": "2026-06-05",
           "startTime": "9:30 AM",
@@ -21009,7 +21415,7 @@
           "neighbourhood": "Lower Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -21654,134 +22060,6 @@
           "city": "Vancouver",
           "dayLength": "Full Day",
           "enrollmentStatus": "Open"
-        }
-      ]
-    },
-    {
-      "name": "This World's Ours Centre",
-      "slug": "this-world-s-ours-centre",
-      "programCount": 10,
-      "categories": [
-        "Life Skills"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "neighbourhoods": [
-        "Mount Pleasant"
-      ],
-      "ageMin": 5,
-      "ageMax": 18,
-      "costMin": null,
-      "costMax": null,
-      "samplePrograms": [
-        {
-          "name": "Social Skills Camp",
-          "category": "Life Skills",
-          "activityType": "Life Skills",
-          "ageMin": 5,
-          "ageMax": 18,
-          "cost": null,
-          "costNote": "Pricing not publicly listed on thisworldsours.com/camps as of 2026-04-06. Summer 2026 registration opens April 15, 2026 at 9am. 1:1 support option available at additional cost (half-day AM 9-12 or PM 1-4pm). Contact: programs@thisworldsours.com",
-          "startDate": "2026-07-06",
-          "endDate": "2026-07-10",
-          "startTime": "9:00 AM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
-        },
-        {
-          "name": "Social Skills Camp",
-          "category": "Life Skills",
-          "activityType": "Life Skills",
-          "ageMin": 5,
-          "ageMax": 18,
-          "cost": null,
-          "costNote": "Pricing not publicly listed on thisworldsours.com/camps as of 2026-04-06. Summer 2026 registration opens April 15, 2026 at 9am. 1:1 support option available at additional cost (half-day AM 9-12 or PM 1-4pm). Contact: programs@thisworldsours.com",
-          "startDate": "2026-07-13",
-          "endDate": "2026-07-17",
-          "startTime": "9:00 AM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
-        },
-        {
-          "name": "Social Skills Camp",
-          "category": "Life Skills",
-          "activityType": "Life Skills",
-          "ageMin": 5,
-          "ageMax": 18,
-          "cost": null,
-          "costNote": "Pricing not publicly listed on thisworldsours.com/camps as of 2026-04-06. Summer 2026 registration opens April 15, 2026 at 9am. 1:1 support option available at additional cost (half-day AM 9-12 or PM 1-4pm). Contact: programs@thisworldsours.com",
-          "startDate": "2026-07-20",
-          "endDate": "2026-07-24",
-          "startTime": "9:00 AM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
-        },
-        {
-          "name": "Social Skills Camp",
-          "category": "Life Skills",
-          "activityType": "Life Skills",
-          "ageMin": 5,
-          "ageMax": 18,
-          "cost": null,
-          "costNote": "Pricing not publicly listed on thisworldsours.com/camps as of 2026-04-06. Summer 2026 registration opens April 15, 2026 at 9am. 1:1 support option available at additional cost (half-day AM 9-12 or PM 1-4pm). Contact: programs@thisworldsours.com",
-          "startDate": "2026-07-27",
-          "endDate": "2026-07-31",
-          "startTime": "9:00 AM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
-        },
-        {
-          "name": "Social Skills Camp",
-          "category": "Life Skills",
-          "activityType": "Life Skills",
-          "ageMin": 5,
-          "ageMax": 18,
-          "cost": null,
-          "costNote": "Pricing not publicly listed on thisworldsours.com/camps as of 2026-04-06. Summer 2026 registration opens April 15, 2026 at 9am. 1:1 support option available at additional cost (half-day AM 9-12 or PM 1-4pm). Contact: programs@thisworldsours.com Note: 4-day week (Canada Day Jul 1 stat holiday).",
-          "startDate": "2026-06-29",
-          "endDate": "2026-07-03",
-          "startTime": "9:00 AM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
-        },
-        {
-          "name": "Social Skills Camp",
-          "category": "Life Skills",
-          "activityType": "Life Skills",
-          "ageMin": 5,
-          "ageMax": 18,
-          "cost": null,
-          "costNote": "Pricing not publicly listed on thisworldsours.com/camps as of 2026-04-06. Summer 2026 registration opens April 15, 2026 at 9am. 1:1 support option available at additional cost (half-day AM 9-12 or PM 1-4pm). Contact: programs@thisworldsours.com Note: 4-day week (BC Day Aug 3 stat holiday).",
-          "startDate": "2026-08-04",
-          "endDate": "2026-08-07",
-          "startTime": "9:00 AM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
         }
       ]
     },
@@ -22683,6 +22961,141 @@
           "neighbourhood": "Maple Ridge",
           "city": "Maple Ridge",
           "dayLength": "",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "PSG Academy Vancouver",
+      "slug": "psg-academy-vancouver",
+      "programCount": 10,
+      "categories": [
+        "Sports"
+      ],
+      "cities": [
+        "Vancouver",
+        "North Vancouver",
+        "Squamish",
+        "Langley"
+      ],
+      "neighbourhoods": [
+        "Hastings-Sunrise",
+        "Central Lonsdale",
+        "Whistler",
+        "Willoughby",
+        "Hastings Park"
+      ],
+      "ageMin": 7,
+      "ageMax": 17,
+      "costMin": 275,
+      "costMax": 1450,
+      "samplePrograms": [
+        {
+          "name": "PSG Academy Summer Camp - Vancouver (U7-U14)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 14,
+          "cost": 350,
+          "costNote": "",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Hastings-Sunrise",
+          "city": "Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "PSG Academy Summer Camp - North Vancouver (U7-U14)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 14,
+          "cost": 350,
+          "costNote": "Exact venue TBD.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "PSG Academy Residential Summer Camp - Whistler (U13-U17)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 13,
+          "ageMax": 17,
+          "cost": 1450,
+          "costNote": "$1,450 non-boarding / $2,150 with boarding",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-25",
+          "startTime": null,
+          "endTime": null,
+          "days": "Mon-Fri",
+          "neighbourhood": "Whistler",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "PSG Academy Summer Camp - North Vancouver Aug (U7-U14)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 14,
+          "cost": 350,
+          "costNote": "Exact venue TBD.",
+          "startDate": "2026-08-17",
+          "endDate": "2026-08-21",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "PSG Academy Summer Camp - Langley (U7-U12 Coed)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 7,
+          "ageMax": 12,
+          "cost": 350,
+          "costNote": "",
+          "startDate": "2026-08-24",
+          "endDate": "2026-08-28",
+          "startTime": "9:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Willoughby",
+          "city": "Langley",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "PSG Academy Summer Camp - Langley (U13-U17 Girls)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 13,
+          "ageMax": 17,
+          "cost": 275,
+          "costNote": "",
+          "startDate": "2026-08-24",
+          "endDate": "2026-08-28",
+          "startTime": "10:00 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Willoughby",
+          "city": "Langley",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         }
       ]
@@ -24270,7 +24683,7 @@
           "ageMin": 4,
           "ageMax": null,
           "cost": null,
-          "costNote": "Inquire with provider",
+          "costNote": "Provider website (canadiandolphin.com) down as of Apr 2026 — cannot verify prices",
           "startDate": "2026-03-16",
           "endDate": "2026-03-28",
           "startTime": null,
@@ -24288,7 +24701,7 @@
           "ageMin": 4,
           "ageMax": null,
           "cost": null,
-          "costNote": "Inquire with provider",
+          "costNote": "Provider website (canadiandolphin.com) down as of Apr 2026 — cannot verify prices",
           "startDate": "2026-03-16",
           "endDate": "2026-03-28",
           "startTime": "3:00 PM",
@@ -24306,7 +24719,7 @@
           "ageMin": 4,
           "ageMax": null,
           "cost": 130,
-          "costNote": "",
+          "costNote": "Provider website (canadiandolphin.com) down as of Apr 2026 — cannot verify prices",
           "startDate": "2026-03-30",
           "endDate": "2026-06-28",
           "startTime": "8:00 AM",
@@ -24315,7 +24728,7 @@
           "neighbourhood": "Point Grey",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Tues/Thurs AM - Gold/Silver Training",
@@ -24324,7 +24737,7 @@
           "ageMin": 4,
           "ageMax": null,
           "cost": 130,
-          "costNote": "",
+          "costNote": "Provider website (canadiandolphin.com) down as of Apr 2026 — cannot verify prices",
           "startDate": "2026-03-30",
           "endDate": "2026-06-28",
           "startTime": "7:00 AM",
@@ -24333,7 +24746,7 @@
           "neighbourhood": "West End",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Sat AM - Blue - VAC",
@@ -24342,7 +24755,7 @@
           "ageMin": 4,
           "ageMax": null,
           "cost": 130,
-          "costNote": "",
+          "costNote": "Provider website (canadiandolphin.com) down as of Apr 2026 — cannot verify prices",
           "startDate": "2026-03-30",
           "endDate": "2026-06-28",
           "startTime": "10:30 AM",
@@ -24351,7 +24764,7 @@
           "neighbourhood": "West End",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Sat AM - Bronze - VAC",
@@ -24360,7 +24773,7 @@
           "ageMin": 8,
           "ageMax": 14,
           "cost": 130,
-          "costNote": "",
+          "costNote": "Provider website (canadiandolphin.com) down as of Apr 2026 — cannot verify prices",
           "startDate": "2026-03-30",
           "endDate": "2026-06-28",
           "startTime": "11:30 AM",
@@ -24369,7 +24782,7 @@
           "neighbourhood": "West End",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -26407,7 +26820,7 @@
           "neighbourhood": "Port Coquitlam",
           "city": "Port Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Upcoming"
+          "enrollmentStatus": "Coming Soon"
         },
         {
           "name": "Musical Theatre Camp: Tangled",
@@ -26425,7 +26838,7 @@
           "neighbourhood": "Port Coquitlam",
           "city": "Port Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Upcoming"
+          "enrollmentStatus": "Coming Soon"
         }
       ]
     },
@@ -29789,7 +30202,7 @@
           "ageMin": 6,
           "ageMax": 14,
           "cost": 515,
-          "costNote": "Price based on prior-year ACTIVE Network API data ($515/week). 2026 VSC camps not yet confirmed on CoV recreation portal as of audit date (Apr 2026). Check CoV recreation portal or VSC website for current pricing. A 2-hour PM option at $250/week (Spectrum Skateboard Society) and a full-day Swim & Skate camp at $225.55/week are available separately through CoV recreation.",
+          "costNote": "Provider website (vsc.ca) SSL certificate expired as of Apr 2026 — cannot verify prices",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
           "startTime": "9:00 AM",
@@ -29807,7 +30220,7 @@
           "ageMin": 6,
           "ageMax": 14,
           "cost": 515,
-          "costNote": "Price based on prior-year ACTIVE Network API data ($515/week). 2026 VSC camps not yet confirmed on CoV recreation portal as of audit date (Apr 2026). Check CoV recreation portal or VSC website for current pricing. A 2-hour PM option at $250/week (Spectrum Skateboard Society) and a full-day Swim & Skate camp at $225.55/week are available separately through CoV recreation.",
+          "costNote": "Provider website (vsc.ca) SSL certificate expired as of Apr 2026 — cannot verify prices",
           "startDate": "2026-07-13",
           "endDate": "2026-07-17",
           "startTime": "9:00 AM",
@@ -29825,7 +30238,7 @@
           "ageMin": 6,
           "ageMax": 14,
           "cost": 515,
-          "costNote": "Price based on prior-year ACTIVE Network API data ($515/week). 2026 VSC camps not yet confirmed on CoV recreation portal as of audit date (Apr 2026). Check CoV recreation portal or VSC website for current pricing. A 2-hour PM option at $250/week (Spectrum Skateboard Society) and a full-day Swim & Skate camp at $225.55/week are available separately through CoV recreation.",
+          "costNote": "Provider website (vsc.ca) SSL certificate expired as of Apr 2026 — cannot verify prices",
           "startDate": "2026-07-20",
           "endDate": "2026-07-24",
           "startTime": "9:00 AM",
@@ -29843,7 +30256,7 @@
           "ageMin": 6,
           "ageMax": 14,
           "cost": 515,
-          "costNote": "Price based on prior-year ACTIVE Network API data ($515/week). 2026 VSC camps not yet confirmed on CoV recreation portal as of audit date (Apr 2026). Check CoV recreation portal or VSC website for current pricing. A 2-hour PM option at $250/week (Spectrum Skateboard Society) and a full-day Swim & Skate camp at $225.55/week are available separately through CoV recreation.",
+          "costNote": "Provider website (vsc.ca) SSL certificate expired as of Apr 2026 — cannot verify prices",
           "startDate": "2026-07-27",
           "endDate": "2026-07-31",
           "startTime": "9:00 AM",
@@ -29861,7 +30274,7 @@
           "ageMin": 6,
           "ageMax": 14,
           "cost": 515,
-          "costNote": "Price based on prior-year ACTIVE Network API data ($515/week). 2026 VSC camps not yet confirmed on CoV recreation portal as of audit date (Apr 2026). Check CoV recreation portal or VSC website for current pricing. A 2-hour PM option at $250/week (Spectrum Skateboard Society) and a full-day Swim & Skate camp at $225.55/week are available separately through CoV recreation.",
+          "costNote": "Provider website (vsc.ca) SSL certificate expired as of Apr 2026 — cannot verify prices",
           "startDate": "2026-08-10",
           "endDate": "2026-08-14",
           "startTime": "9:00 AM",
@@ -29879,7 +30292,7 @@
           "ageMin": 6,
           "ageMax": 14,
           "cost": 515,
-          "costNote": "Price based on prior-year ACTIVE Network API data ($515/week). 2026 VSC camps not yet confirmed on CoV recreation portal as of audit date (Apr 2026). Check CoV recreation portal or VSC website for current pricing. A 2-hour PM option at $250/week (Spectrum Skateboard Society) and a full-day Swim & Skate camp at $225.55/week are available separately through CoV recreation.",
+          "costNote": "Provider website (vsc.ca) SSL certificate expired as of Apr 2026 — cannot verify prices",
           "startDate": "2026-08-17",
           "endDate": "2026-08-21",
           "startTime": "9:00 AM",
@@ -29889,6 +30302,134 @@
           "city": "Vancouver",
           "dayLength": "Full Day",
           "enrollmentStatus": "Likely Coming Soon"
+        }
+      ]
+    },
+    {
+      "name": "Cedar Cottage Neighbourhood House",
+      "slug": "cedar-cottage-neighbourhood-house",
+      "programCount": 6,
+      "categories": [
+        "Child Care"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Kensington-Cedar Cottage"
+      ],
+      "ageMin": 5,
+      "ageMax": 12,
+      "costMin": 500,
+      "costMax": 820,
+      "samplePrograms": [
+        {
+          "name": "Summer Childcare — Kindergarten",
+          "category": "Child Care",
+          "activityType": "Child Care",
+          "ageMin": 5,
+          "ageMax": 6,
+          "cost": 500,
+          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "7:30 AM",
+          "endTime": "5:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Childcare — Grades 1-7",
+          "category": "Child Care",
+          "activityType": "Child Care",
+          "ageMin": 6,
+          "ageMax": 12,
+          "cost": 820,
+          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "7:30 AM",
+          "endTime": "5:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Childcare — Kindergarten",
+          "category": "Child Care",
+          "activityType": "Child Care",
+          "ageMin": 5,
+          "ageMax": 6,
+          "cost": 500,
+          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "7:30 AM",
+          "endTime": "5:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Childcare — Grades 1-7",
+          "category": "Child Care",
+          "activityType": "Child Care",
+          "ageMin": 6,
+          "ageMax": 12,
+          "cost": 820,
+          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "7:30 AM",
+          "endTime": "5:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Childcare — Kindergarten",
+          "category": "Child Care",
+          "activityType": "Child Care",
+          "ageMin": 5,
+          "ageMax": 6,
+          "cost": 500,
+          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "7:30 AM",
+          "endTime": "5:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Childcare — Grades 1-7",
+          "category": "Child Care",
+          "activityType": "Child Care",
+          "ageMin": 6,
+          "ageMax": 12,
+          "cost": 820,
+          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-28",
+          "startTime": "7:30 AM",
+          "endTime": "5:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -30336,116 +30877,6 @@
           "neighbourhood": "Downtown New West",
           "city": "New Westminster",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
-        }
-      ]
-    },
-    {
-      "name": "Collage Collage",
-      "slug": "collage-collage",
-      "programCount": 5,
-      "categories": [
-        "Arts"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "neighbourhoods": [
-        "Riley Park"
-      ],
-      "ageMin": 3,
-      "ageMax": 10,
-      "costMin": 155,
-      "costMax": 275,
-      "samplePrograms": [
-        {
-          "name": "Spring Break Art & Crafts Camp (Ages 5-9)",
-          "category": "Arts",
-          "activityType": "Painting & Drawing",
-          "ageMin": 5,
-          "ageMax": 9,
-          "cost": 260,
-          "costNote": "",
-          "startDate": "2026-03-16",
-          "endDate": "2026-03-27",
-          "startTime": "9:30 AM",
-          "endTime": "12:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Riley Park",
-          "city": "Vancouver",
-          "dayLength": "Single Day",
-          "enrollmentStatus": "Completed"
-        },
-        {
-          "name": "IN PERSON Mini MAKE | Parent + Child Class (Ages 3-5)",
-          "category": "Arts",
-          "activityType": "Painting & Drawing",
-          "ageMin": 3,
-          "ageMax": 5,
-          "cost": 155,
-          "costNote": "$155 for 5-session block (May). Classes are most often 4 sessions ($125), occasional 5-week sessions priced accordingly.",
-          "startDate": "2026-05-02",
-          "endDate": "2026-05-30",
-          "startTime": "10:15 AM",
-          "endTime": "11:00 AM",
-          "days": "Sat",
-          "neighbourhood": "Riley Park",
-          "city": "Vancouver",
-          "dayLength": "Lesson",
-          "enrollmentStatus": "Open"
-        },
-        {
-          "name": "Spring Break Art & Crafts Camp — PM Session (Ages 5-9)",
-          "category": "Arts",
-          "activityType": "Visual Arts",
-          "ageMin": 5,
-          "ageMax": 9,
-          "cost": 260,
-          "costNote": "",
-          "startDate": "2026-03-16",
-          "endDate": "2026-03-20",
-          "startTime": "1:30 PM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Riley Park",
-          "city": "Vancouver",
-          "dayLength": "Single Day",
-          "enrollmentStatus": "Completed"
-        },
-        {
-          "name": "Summer Art Camp 2026 — AM Session (Ages 6-10)",
-          "category": "Arts",
-          "activityType": "Visual Arts",
-          "ageMin": 6,
-          "ageMax": 10,
-          "cost": 275,
-          "costNote": "$275/week (5-day), $225/week (4-day short week Aug 4-7). 8 kids max per session. All camps final sale. Session 7 (Aug 17-21) sold out.",
-          "startDate": "2026-07-06",
-          "endDate": "2026-08-28",
-          "startTime": "9:30 AM",
-          "endTime": "12:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Riley Park",
-          "city": "Vancouver",
-          "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
-        },
-        {
-          "name": "Summer Art Camp 2026 — PM Session (Ages 6-10)",
-          "category": "Arts",
-          "activityType": "Visual Arts",
-          "ageMin": 6,
-          "ageMax": 10,
-          "cost": 275,
-          "costNote": "$275/week (5-day), $225/week (4-day short week Aug 4-7). 8 kids max per session. All camps final sale. PM available Sessions 1-3 (Jul 6-24), 5-6 (Aug 4-14) only.",
-          "startDate": "2026-07-06",
-          "endDate": "2026-08-14",
-          "startTime": "1:30 PM",
-          "endTime": "4:00 PM",
-          "days": "Mon-Fri",
-          "neighbourhood": "Riley Park",
-          "city": "Vancouver",
-          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         }
       ]
@@ -32067,7 +32498,7 @@
           "neighbourhood": "Cariboo",
           "city": "Burnaby",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Upcoming"
+          "enrollmentStatus": "Coming Soon"
         },
         {
           "name": "Weekday Activity Camp",
@@ -32085,7 +32516,7 @@
           "neighbourhood": "Cariboo",
           "city": "Burnaby",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Upcoming"
+          "enrollmentStatus": "Coming Soon"
         },
         {
           "name": "Weekday Activity Camp",
@@ -32103,7 +32534,7 @@
           "neighbourhood": "Cariboo",
           "city": "Burnaby",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Upcoming"
+          "enrollmentStatus": "Coming Soon"
         },
         {
           "name": "Weekday Activity Camp",
@@ -32121,7 +32552,7 @@
           "neighbourhood": "Cariboo",
           "city": "Burnaby",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Upcoming"
+          "enrollmentStatus": "Coming Soon"
         }
       ]
     },
@@ -33391,7 +33822,7 @@
           "neighbourhood": "West Vancouver",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         },
         {
           "name": "Secondary Full Credit Courses (Grades 10-12)",
@@ -35706,6 +36137,64 @@
       ]
     },
     {
+      "name": "Trout Lake Community Centre",
+      "slug": "trout-lake-community-centre",
+      "programCount": 2,
+      "categories": [
+        "General",
+        "Arts"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Grandview-Woodland",
+        "Kensington-Cedar Cottage"
+      ],
+      "ageMin": 4,
+      "ageMax": 12,
+      "costMin": 405,
+      "costMax": 405,
+      "samplePrograms": [
+        {
+          "name": "Trout Lake CC Summer Day Camp",
+          "category": "General",
+          "activityType": "Day Camp",
+          "ageMin": 6,
+          "ageMax": 12,
+          "cost": null,
+          "costNote": "Inquire for pricing",
+          "startDate": null,
+          "endDate": null,
+          "startTime": null,
+          "endTime": null,
+          "days": "Mon-Fri",
+          "neighbourhood": "Grandview-Woodland",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Full/Waitlist"
+        },
+        {
+          "name": "Pop Stars & Creative Arts",
+          "category": "Arts",
+          "activityType": "Performing Arts",
+          "ageMin": 4,
+          "ageMax": 7,
+          "cost": 405,
+          "costNote": "$405 per week. Leisure Access 50% discount available. CCA contractor program. 1 opening remaining as of Apr 11.",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "9:15 AM",
+          "endTime": "3:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "Vancouver Chinese Baptist Church",
       "slug": "vancouver-chinese-baptist-church",
       "programCount": 2,
@@ -35953,7 +36442,7 @@
           "ageMin": 7,
           "ageMax": 12,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-24",
           "endDate": "2026-03-24",
           "startTime": "10:00 AM",
@@ -35971,7 +36460,7 @@
           "ageMin": 3,
           "ageMax": 6,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-24",
           "endDate": "2026-03-24",
           "startTime": "10:00 AM",
@@ -36009,7 +36498,7 @@
           "ageMin": 3,
           "ageMax": 6,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-25",
           "endDate": "2026-03-25",
           "startTime": "10:00 AM",
@@ -36027,7 +36516,7 @@
           "ageMin": 7,
           "ageMax": 12,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-25",
           "endDate": "2026-03-25",
           "startTime": "10:00 AM",
@@ -36065,7 +36554,7 @@
           "ageMin": 7,
           "ageMax": 12,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-27",
           "endDate": "2026-03-27",
           "startTime": "10:00 AM",
@@ -36083,7 +36572,7 @@
           "ageMin": 3,
           "ageMax": 6,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-27",
           "endDate": "2026-03-27",
           "startTime": "10:00 AM",
@@ -36121,7 +36610,7 @@
           "ageMin": 3,
           "ageMax": 6,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-04-20",
           "endDate": "2026-04-20",
           "startTime": "10:00 AM",
@@ -36130,7 +36619,7 @@
           "neighbourhood": "UBC",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Closed"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Global Architecture",
@@ -36139,7 +36628,7 @@
           "ageMin": 7,
           "ageMax": 12,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-04-20",
           "endDate": "2026-04-20",
           "startTime": "10:00 AM",
@@ -36148,7 +36637,7 @@
           "neighbourhood": "UBC",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Closed"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -36186,7 +36675,7 @@
           "neighbourhood": "Cariboo",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Female Skills + Battle/Compete Camp 2013/2014/2015 (SKATER SPOT)",
@@ -36204,7 +36693,7 @@
           "neighbourhood": "Cariboo",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -36233,7 +36722,7 @@
           "ageMin": 11,
           "ageMax": 13,
           "cost": 300,
-          "costNote": "Per week (half day AM)",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks",
           "startDate": "2026-07-13",
           "endDate": "2026-07-17",
           "startTime": "9:00 AM",
@@ -36242,7 +36731,7 @@
           "neighbourhood": "British Properties",
           "city": "West Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         },
         {
           "name": "Mat Warriors: Wrestling (8-10) PM",
@@ -36251,7 +36740,7 @@
           "ageMin": 13,
           "ageMax": 15,
           "cost": 300,
-          "costNote": "Cost estimated from AM session; PM session not confirmed on live page as of 2026-04-04",
+          "costNote": "Price verified Apr 2026 via collingwood.org/community/camps/dates-rates — prices vary on 4-day weeks; Price not browser-verified — provider site unavailable or registration not open",
           "startDate": "2026-07-13",
           "endDate": "2026-07-17",
           "startTime": "12:30 PM",
@@ -36317,6 +36806,62 @@
           "city": "Burnaby",
           "dayLength": "Full Day",
           "enrollmentStatus": "Full/Waitlist"
+        }
+      ]
+    },
+    {
+      "name": "Real Madrid Foundation",
+      "slug": "real-madrid-foundation",
+      "programCount": 2,
+      "categories": [
+        "Sports"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Hastings-Sunrise"
+      ],
+      "ageMin": 6,
+      "ageMax": 16,
+      "costMin": 649,
+      "costMax": 649,
+      "samplePrograms": [
+        {
+          "name": "Real Madrid Foundation Soccer Camp - Vancouver I",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 6,
+          "ageMax": 16,
+          "cost": 649,
+          "costNote": "Plus applicable taxes. $50 off discount available.",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "9:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Hastings-Sunrise",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Real Madrid Foundation Soccer Camp - Vancouver II",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 6,
+          "ageMax": 16,
+          "cost": 649,
+          "costNote": "Plus applicable taxes. $50 off discount available.",
+          "startDate": "2026-07-27",
+          "endDate": "2026-07-31",
+          "startTime": "9:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Hastings-Sunrise",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -39777,44 +40322,6 @@
       ]
     },
     {
-      "name": "Trout Lake Community Centre",
-      "slug": "trout-lake-community-centre",
-      "programCount": 1,
-      "categories": [
-        "General"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "neighbourhoods": [
-        "Grandview-Woodland"
-      ],
-      "ageMin": 6,
-      "ageMax": 12,
-      "costMin": null,
-      "costMax": null,
-      "samplePrograms": [
-        {
-          "name": "Trout Lake CC Summer Day Camp",
-          "category": "General",
-          "activityType": "Day Camp",
-          "ageMin": 6,
-          "ageMax": 12,
-          "cost": null,
-          "costNote": "Inquire for pricing",
-          "startDate": null,
-          "endDate": null,
-          "startTime": null,
-          "endTime": null,
-          "days": "Mon-Fri",
-          "neighbourhood": "Grandview-Woodland",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Full/Waitlist"
-        }
-      ]
-    },
-    {
       "name": "Trout Lake Little League",
       "slug": "trout-lake-little-league",
       "programCount": 1,
@@ -40626,7 +41133,7 @@
           "ageMin": 8,
           "ageMax": 13,
           "cost": 325,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-23",
           "endDate": "2026-03-26",
           "startTime": "9:00 AM",
@@ -40664,7 +41171,7 @@
           "ageMin": 3,
           "ageMax": 6,
           "cost": 268,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-03-23",
           "endDate": "2026-03-23",
           "startTime": "10:00 AM",
@@ -40702,7 +41209,7 @@
           "ageMin": 7,
           "ageMax": 12,
           "cost": 240,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-04-13",
           "endDate": "2026-06-08",
           "startTime": "4:30 PM",
@@ -40711,7 +41218,7 @@
           "neighbourhood": "Central Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Closed"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -40740,7 +41247,7 @@
           "ageMin": 4,
           "ageMax": 6,
           "cost": 240,
-          "costNote": "",
+          "costNote": "Price from ACTIVE Network API — needs manual verification on provider website",
           "startDate": "2026-04-14",
           "endDate": "2026-06-02",
           "startTime": "5:30 PM",
@@ -40749,7 +41256,7 @@
           "neighbourhood": "Kitsilano",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Closed"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -40787,7 +41294,7 @@
           "neighbourhood": "Mount Pleasant",
           "city": "Vancouver",
           "dayLength": "Half Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Likely Coming Soon"
         }
       ]
     },
@@ -40828,13 +41335,89 @@
           "enrollmentStatus": "Open"
         }
       ]
+    },
+    {
+      "name": "FC Bayern Munich",
+      "slug": "fc-bayern-munich",
+      "programCount": 1,
+      "categories": [
+        "Sports"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Vancouver"
+      ],
+      "ageMin": 6,
+      "ageMax": 16,
+      "costMin": 599,
+      "costMax": 599,
+      "samplePrograms": [
+        {
+          "name": "FC Bayern Munich Soccer Camp - Vancouver",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 6,
+          "ageMax": 16,
+          "cost": 599,
+          "costNote": "Plus applicable taxes. Uniform $89 CAD extra. 10% sibling discount available. Exact venue TBD.",
+          "startDate": "2026-08-03",
+          "endDate": "2026-08-07",
+          "startTime": "9:00 AM",
+          "endTime": "2:45 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Vancouver",
+          "city": "Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "Barça Academy",
+      "slug": "bar-a-academy",
+      "programCount": 1,
+      "categories": [
+        "Sports"
+      ],
+      "cities": [
+        "Surrey"
+      ],
+      "neighbourhoods": [
+        "Newton"
+      ],
+      "ageMin": 5,
+      "ageMax": 18,
+      "costMin": 649,
+      "costMax": 649,
+      "samplePrograms": [
+        {
+          "name": "Barça Academy Soccer Camp - Vancouver",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 5,
+          "ageMax": 18,
+          "cost": 649,
+          "costNote": "Discounted from CA$799. Limited spots.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Newton",
+          "city": "Surrey",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
     }
   ],
   "categories": [
     {
       "name": "Sports",
       "slug": "sports",
-      "programCount": 8479,
+      "programCount": 8493,
       "providers": [
         "SFU Summer Camps",
         "SportBall",
@@ -41001,7 +41584,11 @@
         "Vancouver Skateboard Coalition",
         "City of Vancouver - Douglas Park Cmty Centre",
         "Squamish Climbing Academy",
-        "Mountain Skills Academy & Adventures"
+        "Mountain Skills Academy & Adventures",
+        "Real Madrid Foundation",
+        "FC Bayern Munich",
+        "PSG Academy Vancouver",
+        "Barça Academy"
       ],
       "cities": [
         "Burnaby",
@@ -41422,7 +42009,7 @@
     {
       "name": "Arts",
       "slug": "arts",
-      "programCount": 1221,
+      "programCount": 1235,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
@@ -41529,7 +42116,8 @@
         "City of Burnaby - Burnaby Art Gallery",
         "Christianne's Lyceum",
         "School of Rock Vancouver",
-        "Emily Carr University"
+        "Emily Carr University",
+        "Trout Lake Community Centre"
       ],
       "cities": [
         "Vancouver",
@@ -42686,7 +43274,7 @@
     {
       "name": "Life Skills",
       "slug": "life-skills",
-      "programCount": 211,
+      "programCount": 235,
       "providers": [
         "This World's Ours Centre",
         "North Vancouver Recreation Commission (NVRC)",
@@ -42717,7 +43305,7 @@
       "ageMin": 2,
       "ageMax": 18,
       "costMin": 28,
-      "costMax": 529,
+      "costMax": 875,
       "activityTypes": [
         "Life Skills",
         "Swimming",
@@ -42733,7 +43321,7 @@
           "activityType": "Life Skills",
           "ageMin": 5,
           "ageMax": 18,
-          "cost": null,
+          "cost": 875,
           "neighbourhood": "Mount Pleasant",
           "city": "Vancouver",
           "dayLength": "Full Day"
@@ -42744,7 +43332,7 @@
           "activityType": "Life Skills",
           "ageMin": 5,
           "ageMax": 18,
-          "cost": null,
+          "cost": 875,
           "neighbourhood": "Mount Pleasant",
           "city": "Vancouver",
           "dayLength": "Full Day"
@@ -42755,7 +43343,7 @@
           "activityType": "Life Skills",
           "ageMin": 5,
           "ageMax": 18,
-          "cost": null,
+          "cost": 875,
           "neighbourhood": "Mount Pleasant",
           "city": "Vancouver",
           "dayLength": "Full Day"
@@ -42766,7 +43354,7 @@
           "activityType": "Life Skills",
           "ageMin": 5,
           "ageMax": 18,
-          "cost": null,
+          "cost": 875,
           "neighbourhood": "Mount Pleasant",
           "city": "Vancouver",
           "dayLength": "Full Day"
@@ -44176,6 +44764,128 @@
       ]
     },
     {
+      "name": "Sports & Recreation",
+      "slug": "sports-recreation",
+      "programCount": 32,
+      "providers": [
+        "City of Vancouver - Champlain Heights Cmty Centre",
+        "City of Vancouver - Marpole-Oakridge Cmty Centre",
+        "Whitecaps FC"
+      ],
+      "cities": [
+        "Vancouver",
+        "North Vancouver",
+        "Burnaby",
+        "Port Moody",
+        "Surrey",
+        "New Westminster",
+        "Delta",
+        "West Vancouver",
+        "Langley"
+      ],
+      "ageMin": 5,
+      "ageMax": 17,
+      "costMin": 80,
+      "costMax": 1450,
+      "activityTypes": [
+        "Open Gym",
+        "Racket Sport",
+        "Team Sport",
+        "Fitness",
+        "Soccer"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Adapted Family Open Gym",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Open Gym",
+          "ageMin": 5,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Adapted Family Open Gym",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Open Gym",
+          "ageMin": 5,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Badminton Lessons - Beginner I",
+          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
+          "activityType": "Racket Sport",
+          "ageMin": 8,
+          "ageMax": 10,
+          "cost": 80,
+          "neighbourhood": "Marpole",
+          "city": "Vancouver",
+          "dayLength": "Lesson"
+        },
+        {
+          "name": "Badminton Lessons - Beginner II",
+          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
+          "activityType": "Racket Sport",
+          "ageMin": 10,
+          "ageMax": 14,
+          "cost": 105,
+          "neighbourhood": "Marpole",
+          "city": "Vancouver",
+          "dayLength": "Lesson"
+        },
+        {
+          "name": "Badminton Lessons - Intermediate",
+          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
+          "activityType": "Racket Sport",
+          "ageMin": 10,
+          "ageMax": 14,
+          "cost": 105,
+          "neighbourhood": "Marpole",
+          "city": "Vancouver",
+          "dayLength": "Lesson"
+        },
+        {
+          "name": "Basketball - DRIVE Training Academy",
+          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
+          "activityType": "Team Sport",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 132,
+          "neighbourhood": "Marpole",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Basketball - DRIVE Training Academy",
+          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
+          "activityType": "Team Sport",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 132,
+          "neighbourhood": "Marpole",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Basketball - DRIVE Training Academy",
+          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
+          "activityType": "Team Sport",
+          "ageMin": 9,
+          "ageMax": 12,
+          "cost": 165,
+          "neighbourhood": "Marpole",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        }
+      ]
+    },
+    {
       "name": "Kids Classes",
       "slug": "kids-classes",
       "programCount": 30,
@@ -44953,6 +45663,116 @@
       ]
     },
     {
+      "name": "Child Care",
+      "slug": "child-care",
+      "programCount": 14,
+      "providers": [
+        "City of Vancouver - False Creek Cmty Centre",
+        "Cedar Cottage Neighbourhood House"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "ageMin": 5,
+      "ageMax": 12,
+      "costMin": 30,
+      "costMax": 820,
+      "activityTypes": [
+        "Day Camp",
+        "Child Care"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Before & After Care Trekkers 2026 Week 2",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 3",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 4",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 5",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 6",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 30,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 7",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 8",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Before & After Care Trekkers 2026 Week 9",
+          "provider": "City of Vancouver - False Creek Cmty Centre",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 11,
+          "cost": 35,
+          "neighbourhood": "Granville Island",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        }
+      ]
+    },
+    {
       "name": "Cooking",
       "slug": "cooking",
       "programCount": 14,
@@ -45415,118 +46235,6 @@
       ]
     },
     {
-      "name": "Sports & Recreation",
-      "slug": "sports-recreation",
-      "programCount": 10,
-      "providers": [
-        "City of Vancouver - Champlain Heights Cmty Centre",
-        "City of Vancouver - Marpole-Oakridge Cmty Centre"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "ageMin": 5,
-      "ageMax": 17,
-      "costMin": 80,
-      "costMax": 165,
-      "activityTypes": [
-        "Open Gym",
-        "Racket Sport",
-        "Team Sport",
-        "Fitness"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Adapted Family Open Gym",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Open Gym",
-          "ageMin": 5,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adapted Family Open Gym",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Open Gym",
-          "ageMin": 5,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Badminton Lessons - Beginner I",
-          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
-          "activityType": "Racket Sport",
-          "ageMin": 8,
-          "ageMax": 10,
-          "cost": 80,
-          "neighbourhood": "Marpole",
-          "city": "Vancouver",
-          "dayLength": "Lesson"
-        },
-        {
-          "name": "Badminton Lessons - Beginner II",
-          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
-          "activityType": "Racket Sport",
-          "ageMin": 10,
-          "ageMax": 14,
-          "cost": 105,
-          "neighbourhood": "Marpole",
-          "city": "Vancouver",
-          "dayLength": "Lesson"
-        },
-        {
-          "name": "Badminton Lessons - Intermediate",
-          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
-          "activityType": "Racket Sport",
-          "ageMin": 10,
-          "ageMax": 14,
-          "cost": 105,
-          "neighbourhood": "Marpole",
-          "city": "Vancouver",
-          "dayLength": "Lesson"
-        },
-        {
-          "name": "Basketball - DRIVE Training Academy",
-          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
-          "activityType": "Team Sport",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 132,
-          "neighbourhood": "Marpole",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Basketball - DRIVE Training Academy",
-          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
-          "activityType": "Team Sport",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 132,
-          "neighbourhood": "Marpole",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Basketball - DRIVE Training Academy",
-          "provider": "City of Vancouver - Marpole-Oakridge Cmty Centre",
-          "activityType": "Team Sport",
-          "ageMin": 9,
-          "ageMax": 12,
-          "cost": 165,
-          "neighbourhood": "Marpole",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        }
-      ]
-    },
-    {
       "name": "Academic & Language",
       "slug": "academic-language",
       "programCount": 8,
@@ -45739,114 +46447,6 @@
           "neighbourhood": "Lower Lonsdale",
           "city": "North Vancouver",
           "dayLength": "Half Day"
-        }
-      ]
-    },
-    {
-      "name": "Child Care",
-      "slug": "child-care",
-      "programCount": 8,
-      "providers": [
-        "City of Vancouver - False Creek Cmty Centre"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "ageMin": 5,
-      "ageMax": 11,
-      "costMin": 30,
-      "costMax": 35,
-      "activityTypes": [
-        "Day Camp"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Before & After Care Trekkers 2026 Week 2",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 3",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 4",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 5",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 6",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 30,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 7",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 8",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Before & After Care Trekkers 2026 Week 9",
-          "provider": "City of Vancouver - False Creek Cmty Centre",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 11,
-          "cost": 35,
-          "neighbourhood": "Granville Island",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
         }
       ]
     },
@@ -46430,7 +47030,7 @@
     {
       "name": "Vancouver",
       "slug": "vancouver",
-      "programCount": 7416,
+      "programCount": 7475,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
@@ -46659,7 +47259,12 @@
         "The Dirty Apron",
         "Pacific Institute of Culinary Arts",
         "Science World",
-        "Emily Carr University"
+        "Emily Carr University",
+        "Cedar Cottage Neighbourhood House",
+        "Whitecaps FC",
+        "Real Madrid Foundation",
+        "FC Bayern Munich",
+        "PSG Academy Vancouver"
       ],
       "categories": [
         "Arts",
@@ -46857,7 +47462,7 @@
     {
       "name": "Burnaby",
       "slug": "burnaby",
-      "programCount": 2415,
+      "programCount": 2420,
       "providers": [
         "SFU Summer Camps",
         "Metro Taekwondo Studios",
@@ -46927,7 +47532,8 @@
         "City of Burnaby - South Central Youth Centre",
         "City of Burnaby - Burnaby Village Museum",
         "City of Burnaby - Burnaby Art Gallery",
-        "City of Burnaby - Swangard Stadium"
+        "City of Burnaby - Swangard Stadium",
+        "Whitecaps FC"
       ],
       "categories": [
         "STEM",
@@ -46943,7 +47549,8 @@
         "Life Skills",
         "Academic",
         "Sports & Fitness",
-        "Camps & Day Camps"
+        "Camps & Day Camps",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "SFU / UniverCity",
@@ -47065,7 +47672,7 @@
     {
       "name": "West Vancouver",
       "slug": "west-vancouver",
-      "programCount": 1887,
+      "programCount": 1889,
       "providers": [
         "Mulgrave School",
         "Aspire Learning Academy",
@@ -47080,7 +47687,8 @@
         "Ambleside Park",
         "Collingwood School",
         "Access2Innovate / Mulgrave",
-        "Collingwood School - Morven Campus"
+        "Collingwood School - Morven Campus",
+        "Whitecaps FC"
       ],
       "categories": [
         "General",
@@ -47090,7 +47698,8 @@
         "Language",
         "STEM",
         "Life Skills",
-        "Outdoor"
+        "Outdoor",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "British Properties",
@@ -47196,7 +47805,7 @@
     {
       "name": "North Vancouver",
       "slug": "north-vancouver",
-      "programCount": 1341,
+      "programCount": 1345,
       "providers": [
         "Deep Cove Music",
         "Ava Music & Art Centre",
@@ -47255,7 +47864,9 @@
         "Endless Biking",
         "Access2Innovate",
         "3Squares Art Studio",
-        "Ocean Ambassadors Canada"
+        "Ocean Ambassadors Canada",
+        "Whitecaps FC",
+        "PSG Academy Vancouver"
       ],
       "categories": [
         "Music",
@@ -47275,7 +47886,8 @@
         "Education",
         "Day Camp",
         "Arts & Culture",
-        "Nature"
+        "Nature",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "Deep Cove",
@@ -47807,22 +48419,26 @@
     {
       "name": "Langley",
       "slug": "langley",
-      "programCount": 245,
+      "programCount": 249,
       "providers": [
         "Young Moviemakers",
         "City of Langley",
         "YMCA of Greater Vancouver",
         "Pedalheads",
-        "Lights Up Musical Theatre"
+        "Lights Up Musical Theatre",
+        "Whitecaps FC",
+        "PSG Academy Vancouver"
       ],
       "categories": [
         "Arts",
         "General",
-        "Sports"
+        "Sports",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "Langley",
-        "Walnut Grove"
+        "Walnut Grove",
+        "Willoughby"
       ],
       "costMin": 50,
       "costMax": 565,
@@ -48026,23 +48642,26 @@
     {
       "name": "Delta",
       "slug": "delta",
-      "programCount": 158,
+      "programCount": 159,
       "providers": [
         "Camp Spirit United Church",
         "Pedalheads",
         "Soaring Eagle Nature School",
-        "Planet Ice Delta"
+        "Planet Ice Delta",
+        "Whitecaps FC"
       ],
       "categories": [
         "Faith-Based",
         "Sports",
-        "Outdoor"
+        "Outdoor",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "Delta",
         "Sunshine Hills",
         "Beach Grove",
-        "North Delta"
+        "North Delta",
+        "Tsawwassen"
       ],
       "costMin": 152,
       "costMax": 565,
@@ -48140,7 +48759,7 @@
     {
       "name": "Surrey",
       "slug": "surrey",
-      "programCount": 151,
+      "programCount": 153,
       "providers": [
         "White Rock Gymnastics Athletics Society",
         "Arts Umbrella",
@@ -48155,7 +48774,9 @@
         "YMCA of Greater Vancouver",
         "Pedalheads",
         "Lights Up Musical Theatre",
-        "Steamoji"
+        "Steamoji",
+        "Whitecaps FC",
+        "Barça Academy"
       ],
       "categories": [
         "Sports",
@@ -48164,7 +48785,8 @@
         "Faith-Based",
         "Language",
         "Outdoor",
-        "General"
+        "General",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "South Surrey",
@@ -48178,7 +48800,7 @@
         "White Rock"
       ],
       "costMin": 65,
-      "costMax": 565,
+      "costMax": 649,
       "samplePrograms": [
         {
           "name": "Gymnastics Day Camp",
@@ -48387,7 +49009,7 @@
     {
       "name": "New Westminster",
       "slug": "new-westminster",
-      "programCount": 85,
+      "programCount": 86,
       "providers": [
         "2-4-1 Sports",
         "Vancouver Circus School",
@@ -48401,7 +49023,8 @@
         "Gurdwara Sahib Sukh Sagar",
         "Royal City Soccer Club",
         "Young Rembrandts",
-        "Professor Puffin's Challenge Club"
+        "Professor Puffin's Challenge Club",
+        "Whitecaps FC"
       ],
       "categories": [
         "Sports & Fitness",
@@ -48412,7 +49035,8 @@
         "STEM",
         "Academic",
         "Leadership",
-        "Life Skills"
+        "Life Skills",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "Queens Park",
@@ -48518,7 +49142,7 @@
     {
       "name": "Squamish",
       "slug": "squamish",
-      "programCount": 57,
+      "programCount": 58,
       "providers": [
         "KiddoSTEAM Academy",
         "Camp Summit",
@@ -48527,7 +49151,8 @@
         "Squamish Arts Council",
         "Artists for Kids",
         "Squamish Climbing Academy",
-        "Mountain Skills Academy & Adventures"
+        "Mountain Skills Academy & Adventures",
+        "PSG Academy Vancouver"
       ],
       "categories": [
         "STEM",
@@ -48542,10 +49167,11 @@
       ],
       "neighbourhoods": [
         "Squamish",
-        "Paradise Valley"
+        "Paradise Valley",
+        "Whistler"
       ],
       "costMin": 149,
-      "costMax": 1167,
+      "costMax": 1450,
       "samplePrograms": [
         {
           "name": "STEAM Discovery Camp",
@@ -48756,16 +49382,18 @@
     {
       "name": "Port Moody",
       "slug": "port-moody",
-      "programCount": 16,
+      "programCount": 17,
       "providers": [
         "RVN Wellness",
         "Salmon Forest",
-        "Camp STEAM Canada"
+        "Camp STEAM Canada",
+        "Whitecaps FC"
       ],
       "categories": [
         "Cultural",
         "Outdoor",
-        "STEM"
+        "STEM",
+        "Sports & Recreation"
       ],
       "neighbourhoods": [
         "Port Moody",
