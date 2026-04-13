@@ -1,6 +1,6 @@
 {
-  "totalPrograms": 15929,
-  "totalProviders": 436,
+  "totalPrograms": 15948,
+  "totalProviders": 438,
   "totalCategories": 48,
   "totalAreas": 26,
   "lastUpdated": "2026-04-13",
@@ -17503,6 +17503,123 @@
       ]
     },
     {
+      "name": "Camp Jubilee",
+      "slug": "camp-jubilee",
+      "programCount": 15,
+      "categories": [
+        "Outdoors",
+        "Leadership"
+      ],
+      "cities": [
+        "North Vancouver"
+      ],
+      "neighbourhoods": [
+        "Indian Arm"
+      ],
+      "ageMin": 8,
+      "ageMax": 18,
+      "costMin": 175,
+      "costMax": 1549,
+      "samplePrograms": [
+        {
+          "name": "Summer Camp Session 1",
+          "category": "Outdoors",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 8,
+          "ageMax": 15,
+          "cost": 779,
+          "costNote": "$779 + GST. Space very limited. Financial assistance available.",
+          "startDate": "2026-07-03",
+          "endDate": "2026-07-08",
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+          "neighbourhood": "Indian Arm",
+          "city": "North Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Camp Session 2",
+          "category": "Outdoors",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 8,
+          "ageMax": 15,
+          "cost": 779,
+          "costNote": "$779 + GST. Over 3/4 full. Financial assistance available.",
+          "startDate": "2026-07-10",
+          "endDate": "2026-07-15",
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+          "neighbourhood": "Indian Arm",
+          "city": "North Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Camp Session 3",
+          "category": "Outdoors",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 8,
+          "ageMax": 15,
+          "cost": 779,
+          "costNote": "$779 + GST. Session full — register for waitlist. Financial assistance available.",
+          "startDate": "2026-07-17",
+          "endDate": "2026-07-22",
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+          "neighbourhood": "Indian Arm",
+          "city": "North Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        },
+        {
+          "name": "Summer Camp Session 4",
+          "category": "Outdoors",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 8,
+          "ageMax": 15,
+          "cost": 779,
+          "costNote": "$779 + GST. Space very limited. Financial assistance available.",
+          "startDate": "2026-07-24",
+          "endDate": "2026-07-29",
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+          "neighbourhood": "Indian Arm",
+          "city": "North Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Summer Camp Session 5",
+          "category": "Outdoors",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 8,
+          "ageMax": 15,
+          "cost": 779,
+          "costNote": "$779 + GST. Session full — register for waitlist. Financial assistance available.",
+          "startDate": "2026-07-31",
+          "endDate": "2026-08-05",
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+          "neighbourhood": "Indian Arm",
+          "city": "North Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        },
+        {
+          "name": "Summer Camp Session 6",
+          "category": "Outdoors",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 8,
+          "ageMax": 15,
+          "cost": 779,
+          "costNote": "$779 + GST. Session full — register for waitlist. Financial assistance available.",
+          "startDate": "2026-08-07",
+          "endDate": "2026-08-12",
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+          "neighbourhood": "Indian Arm",
+          "city": "North Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        }
+      ]
+    },
+    {
       "name": "Boogaloo Academy",
       "slug": "boogaloo-academy",
       "programCount": 14,
@@ -34574,6 +34691,98 @@
       ]
     },
     {
+      "name": "Ethos Lab",
+      "slug": "ethos-lab",
+      "programCount": 4,
+      "categories": [
+        "STEM"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Mount Pleasant"
+      ],
+      "ageMin": 10,
+      "ageMax": 18,
+      "costMin": 500,
+      "costMax": 650,
+      "samplePrograms": [
+        {
+          "name": "Life Sciences Lab",
+          "category": "STEM",
+          "activityType": "STEM",
+          "ageMin": 10,
+          "ageMax": 12,
+          "cost": 650,
+          "costNote": "$650 per week. Scholarships available — email community@ethoslab.ca.",
+          "startDate": "2026-07-15",
+          "endDate": "2026-07-19",
+          "startTime": "10:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon, Tue, Wed, Thu, Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Virtual Reality Lab (Week 1)",
+          "category": "STEM",
+          "activityType": "STEM",
+          "ageMin": 13,
+          "ageMax": 18,
+          "cost": 650,
+          "costNote": "$650 per week. Scholarships available — email community@ethoslab.ca. Hosted at Centre for Digital Media.",
+          "startDate": "2026-07-15",
+          "endDate": "2026-07-19",
+          "startTime": "10:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon, Tue, Wed, Thu, Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Virtual Reality Lab (Week 2)",
+          "category": "STEM",
+          "activityType": "STEM",
+          "ageMin": 13,
+          "ageMax": 18,
+          "cost": 650,
+          "costNote": "$650 per week. Scholarships available — email community@ethoslab.ca. Hosted at Centre for Digital Media.",
+          "startDate": "2026-07-22",
+          "endDate": "2026-07-26",
+          "startTime": "10:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon, Tue, Wed, Thu, Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Atlanthos Lab (Dungeons & Dragons)",
+          "category": "STEM",
+          "activityType": "Arts",
+          "ageMin": 13,
+          "ageMax": 18,
+          "cost": 500,
+          "costNote": "$500 per week. Scholarships available — email community@ethoslab.ca.",
+          "startDate": "2026-07-29",
+          "endDate": "2026-08-02",
+          "startTime": "10:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon, Tue, Wed, Thu, Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "2-4-1 Sports",
       "slug": "2-4-1-sports",
       "programCount": 3,
@@ -42473,7 +42682,7 @@
     {
       "name": "STEM",
       "slug": "stem",
-      "programCount": 750,
+      "programCount": 754,
       "providers": [
         "Musicworks Canada",
         "BrainSTEM Learning Canada",
@@ -42528,7 +42737,8 @@
         "Petit Architect",
         "Access2Innovate / Mulgrave",
         "UTG Academy",
-        "Science World"
+        "Science World",
+        "Ethos Lab"
       ],
       "cities": [
         "Vancouver",
@@ -42568,7 +42778,8 @@
         "Arts & Crafts",
         "Robotics",
         "Digital Art",
-        "STEM Camp"
+        "STEM Camp",
+        "Arts"
       ],
       "samplePrograms": [
         {
@@ -44218,6 +44429,121 @@
       ]
     },
     {
+      "name": "Outdoors",
+      "slug": "outdoors",
+      "programCount": 52,
+      "providers": [
+        "Grouse Mountain",
+        "Camp Summit",
+        "Epic Camps",
+        "Camp Jubilee"
+      ],
+      "cities": [
+        "North Vancouver",
+        "Squamish",
+        "Whistler"
+      ],
+      "ageMin": 4,
+      "ageMax": 19,
+      "costMin": 175,
+      "costMax": 5700,
+      "activityTypes": [
+        "Outdoor Adventure",
+        "Hiking",
+        "Overnight Camp"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Pathfinders Adventure Camp — Week A: Adventure is Calling",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 336,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week B: Mountain Explorers & Survival",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 420,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week C: Nature Detectives",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 420,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week D: Adventure is Calling",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 420,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week E: Mountain Explorers & Survival",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 420,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week F: Nature Detectives",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 336,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week G: Adventure is Calling",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 420,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Pathfinders Adventure Camp — Week H: Mountain Explorers & Survival",
+          "provider": "Grouse Mountain",
+          "activityType": "Outdoor Adventure",
+          "ageMin": 6,
+          "ageMax": 8,
+          "cost": 420,
+          "neighbourhood": "Central Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day"
+        }
+      ]
+    },
+    {
       "name": "Education",
       "slug": "education",
       "programCount": 46,
@@ -44461,120 +44787,6 @@
           "neighbourhood": "Kerrisdale",
           "city": "Vancouver",
           "dayLength": "Single Day"
-        }
-      ]
-    },
-    {
-      "name": "Outdoors",
-      "slug": "outdoors",
-      "programCount": 43,
-      "providers": [
-        "Grouse Mountain",
-        "Camp Summit",
-        "Epic Camps"
-      ],
-      "cities": [
-        "North Vancouver",
-        "Squamish",
-        "Whistler"
-      ],
-      "ageMin": 4,
-      "ageMax": 19,
-      "costMin": 336,
-      "costMax": 5700,
-      "activityTypes": [
-        "Outdoor Adventure",
-        "Hiking",
-        "Overnight Camp"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Pathfinders Adventure Camp — Week A: Adventure is Calling",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 336,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week B: Mountain Explorers & Survival",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 420,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week C: Nature Detectives",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 420,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week D: Adventure is Calling",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 420,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week E: Mountain Explorers & Survival",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 420,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week F: Nature Detectives",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 336,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week G: Adventure is Calling",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 420,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Pathfinders Adventure Camp — Week H: Mountain Explorers & Survival",
-          "provider": "Grouse Mountain",
-          "activityType": "Outdoor Adventure",
-          "ageMin": 6,
-          "ageMax": 8,
-          "cost": 420,
-          "neighbourhood": "Central Lonsdale",
-          "city": "North Vancouver",
-          "dayLength": "Full Day"
         }
       ]
     },
@@ -45743,6 +45955,119 @@
       ]
     },
     {
+      "name": "Leadership",
+      "slug": "leadership",
+      "programCount": 15,
+      "providers": [
+        "Douglas College",
+        "The Youth Excellence Society (The YES)",
+        "Camp Jubilee"
+      ],
+      "cities": [
+        "Coquitlam",
+        "New Westminster",
+        "Lake Cowichan",
+        "North Vancouver"
+      ],
+      "ageMin": 10,
+      "ageMax": 18,
+      "costMin": 160,
+      "costMax": 1549,
+      "activityTypes": [
+        "Leadership"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Douglas College Student Leadership Camp",
+          "provider": "Douglas College",
+          "activityType": "Leadership",
+          "ageMin": 10,
+          "ageMax": 14,
+          "cost": 160,
+          "neighbourhood": "Westwood Plateau",
+          "city": "Coquitlam",
+          "dayLength": "Half Day"
+        },
+        {
+          "name": "Douglas College Student Leadership Camp",
+          "provider": "Douglas College",
+          "activityType": "Leadership",
+          "ageMin": 10,
+          "ageMax": 14,
+          "cost": 160,
+          "neighbourhood": "Downtown New Westminster",
+          "city": "New Westminster",
+          "dayLength": "Half Day"
+        },
+        {
+          "name": "YES Camp Pathways A",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Roots A",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Roots B",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Pathways B",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Pathways C",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Roots C",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        }
+      ]
+    },
+    {
       "name": "General/Other",
       "slug": "general-other",
       "programCount": 14,
@@ -46420,117 +46745,6 @@
           "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
           "dayLength": "Single Day"
-        }
-      ]
-    },
-    {
-      "name": "Leadership",
-      "slug": "leadership",
-      "programCount": 9,
-      "providers": [
-        "Douglas College",
-        "The Youth Excellence Society (The YES)"
-      ],
-      "cities": [
-        "Coquitlam",
-        "New Westminster",
-        "Lake Cowichan"
-      ],
-      "ageMin": 10,
-      "ageMax": 18,
-      "costMin": 160,
-      "costMax": 1100,
-      "activityTypes": [
-        "Leadership"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Douglas College Student Leadership Camp",
-          "provider": "Douglas College",
-          "activityType": "Leadership",
-          "ageMin": 10,
-          "ageMax": 14,
-          "cost": 160,
-          "neighbourhood": "Westwood Plateau",
-          "city": "Coquitlam",
-          "dayLength": "Half Day"
-        },
-        {
-          "name": "Douglas College Student Leadership Camp",
-          "provider": "Douglas College",
-          "activityType": "Leadership",
-          "ageMin": 10,
-          "ageMax": 14,
-          "cost": 160,
-          "neighbourhood": "Downtown New Westminster",
-          "city": "New Westminster",
-          "dayLength": "Half Day"
-        },
-        {
-          "name": "YES Camp Pathways A",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 16,
-          "ageMax": 18,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Roots A",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 14,
-          "ageMax": 16,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Roots B",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 14,
-          "ageMax": 16,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Pathways B",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 16,
-          "ageMax": 18,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Pathways C",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 16,
-          "ageMax": 18,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Roots C",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 14,
-          "ageMax": 16,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
         }
       ]
     },
@@ -47287,7 +47501,7 @@
     {
       "name": "Vancouver",
       "slug": "vancouver",
-      "programCount": 7480,
+      "programCount": 7484,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
@@ -47521,7 +47735,8 @@
         "Whitecaps FC",
         "Real Madrid Foundation",
         "FC Bayern Munich",
-        "PSG Academy Vancouver"
+        "PSG Academy Vancouver",
+        "Ethos Lab"
       ],
       "categories": [
         "Arts",
@@ -48062,7 +48277,7 @@
     {
       "name": "North Vancouver",
       "slug": "north-vancouver",
-      "programCount": 1345,
+      "programCount": 1360,
       "providers": [
         "Deep Cove Music",
         "Ava Music & Art Centre",
@@ -48123,7 +48338,8 @@
         "3Squares Art Studio",
         "Ocean Ambassadors Canada",
         "Whitecaps FC",
-        "PSG Academy Vancouver"
+        "PSG Academy Vancouver",
+        "Camp Jubilee"
       ],
       "categories": [
         "Music",
@@ -48144,7 +48360,8 @@
         "Day Camp",
         "Arts & Culture",
         "Nature",
-        "Sports & Recreation"
+        "Sports & Recreation",
+        "Leadership"
       ],
       "neighbourhoods": [
         "Deep Cove",
@@ -48168,10 +48385,11 @@
         "Capilano",
         "Grand Boulevard",
         "Edgemont",
-        "Mt Seymour / Deep Cove"
+        "Mt Seymour / Deep Cove",
+        "Indian Arm"
       ],
       "costMin": 30,
-      "costMax": 950,
+      "costMax": 1549,
       "samplePrograms": [
         {
           "name": "Summer Arts Day Camp",

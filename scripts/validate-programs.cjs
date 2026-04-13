@@ -88,6 +88,7 @@ const HOMEPAGE_EXEMPT_DOMAINS = [
   "www.burnabywinterclub.com",
   // CampBrain registration portals (root URL = full program catalog)
   "campmclean.campbrainregistration.com",
+  "campjubilee.campbrainregistration.com",
 ];
 
 // Guard: exempt list must stay small — if it grows, URLs need fixing, not exempting
