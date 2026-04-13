@@ -172,6 +172,7 @@ export default function HomeTab({
   profile,
   circlesHook,
   childAccess,
+  onOpenProfile,
 }) {
   const isDesktop = useIsDesktop();
   const allPrograms = useMemo(() => [...enrolledPrograms, ...waitlistPrograms, ...exploringPrograms], [enrolledPrograms, waitlistPrograms, exploringPrograms]);
@@ -693,7 +694,7 @@ export default function HomeTab({
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button
-            onClick={() => window.open("mailto:skeddo.planner@gmail.com?subject=Bug%20Report", "_blank")}
+            onClick={() => onOpenProfile && onOpenProfile("bug")}
             style={{
               flex: 1, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)",
               borderRadius: 10, padding: "10px 12px", cursor: "pointer",
@@ -709,7 +710,7 @@ export default function HomeTab({
             Report Bug
           </button>
           <button
-            onClick={() => window.open("mailto:skeddo.planner@gmail.com?subject=Feedback", "_blank")}
+            onClick={() => onOpenProfile && onOpenProfile("feedback")}
             style={{
               flex: 1, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)",
               borderRadius: 10, padding: "10px 12px", cursor: "pointer",

@@ -796,7 +796,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
 
       <Header
         displayName={profile.displayName}
-        onOpenProfile={() => setModal({ type: "profile" })}
+        onOpenProfile={(section) => setModal({ type: "profile", feedbackType: section || null })}
         onOpenPage={(pageId) => setInfoPage(pageId)}
         onLogoClick={() => { setTab("home"); setInfoPage(null); }}
         onSignOut={onSignOut}
@@ -865,6 +865,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 profile={profile}
                 circlesHook={circlesHook}
                 childAccess={childAccess}
+                onOpenProfile={(section) => setModal({ type: "profile", feedbackType: section || null })}
               />
             )}
 
@@ -986,6 +987,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
                 profile={profile}
                 circlesHook={circlesHook}
                 childAccess={childAccess}
+                onOpenProfile={(section) => setModal({ type: "profile", feedbackType: section || null })}
               />
             )}
 
@@ -1435,6 +1437,7 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
           onEditKid={openEditKid}
           onDeleteKid={deleteKid}
           onAddKid={openAddKid}
+          initialFeedbackType={modal?.feedbackType || null}
         />
       )}
 
