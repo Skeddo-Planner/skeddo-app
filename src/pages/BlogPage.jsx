@@ -416,8 +416,6 @@ function BlogPost({ onNavigate }) {
           {post.content(ctx)}
         </article>
 
-        <CTABox />
-
         {/* Related posts */}
         {post.related && post.related.length > 0 && (
           <div style={{ marginTop: 40 }}>
