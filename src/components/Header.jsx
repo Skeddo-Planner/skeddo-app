@@ -53,7 +53,7 @@ function MenuIcon({ pathData, circle, color, size = 18 }) {
   );
 }
 
-export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onDismissActivity, onDismissAllActivity, onInviteCoParent, tab, setTab, badges, activityLog = [] }) {
+export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoClick, onSignOut, unreadCount, onOpenActivity, onDismissActivity, onDismissAllActivity, onInviteCoParent, tab, setTab, badges, activityLog = [], isGuest, onSignIn, onSignUp }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
@@ -200,7 +200,39 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               })}
             </nav>
 
-            {/* Right: notifications + user name + avatar + dropdown */}
+            {/* Right side */}
+            {isGuest ? (
+              /* ─── Guest: Sign In / Sign Up buttons ─── */
+              <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+                <button
+                  onClick={onSignIn}
+                  style={{
+                    fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                    color: C.ink, background: "none", border: `1px solid ${C.border}`,
+                    borderRadius: 8, padding: "7px 16px", cursor: "pointer",
+                    transition: "background 0.15s",
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = C.cream}
+                  onMouseLeave={(e) => e.currentTarget.style.background = "none"}
+                >
+                  Log in
+                </button>
+                <button
+                  onClick={onSignUp}
+                  style={{
+                    fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+                    color: "#fff", background: C.seaGreen, border: "none",
+                    borderRadius: 8, padding: "8px 18px", cursor: "pointer",
+                    transition: "background 0.15s",
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = "#247F59"}
+                  onMouseLeave={(e) => e.currentTarget.style.background = C.seaGreen}
+                >
+                  Sign up free
+                </button>
+              </div>
+            ) : (
+            /* ─── Authenticated: notifications + user name + avatar + dropdown ─── */
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0, position: "relative" }} ref={dropdownRef}>
               <div style={{ position: "relative" }} ref={notifRef}>
                 <button
@@ -403,6 +435,7 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 </div>
               )}
             </div>
+            )}
           </>
         ) : (
           /* ─── Mobile header (unchanged) ─── */
@@ -424,6 +457,33 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
               </div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              {isGuest ? (
+                /* ─── Guest mobile: compact auth buttons ─── */
+                <>
+                  <button
+                    onClick={onSignIn}
+                    style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 600,
+                      color: "#fff", background: "rgba(255,255,255,0.15)",
+                      border: "1px solid rgba(255,255,255,0.3)",
+                      borderRadius: 8, padding: "7px 12px", cursor: "pointer",
+                    }}
+                  >
+                    Log in
+                  </button>
+                  <button
+                    onClick={onSignUp}
+                    style={{
+                      fontFamily: "'Barlow', sans-serif", fontSize: 13, fontWeight: 700,
+                      color: "#fff", background: C.seaGreen, border: "none",
+                      borderRadius: 8, padding: "8px 14px", cursor: "pointer",
+                    }}
+                  >
+                    Sign up
+                  </button>
+                </>
+              ) : (
+              <>
               {/* Notification bell */}
               <div style={{ position: "relative" }} ref={notifRef}>
                 <button
@@ -564,6 +624,8 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                 <span style={{ width: 18, height: 2, background: "#FFFFFF", borderRadius: 1 }} />
                 <span style={{ width: 18, height: 2, background: "#FFFFFF", borderRadius: 1 }} />
               </button>
+              </>
+              )}
             </div>
           </div>
         )}

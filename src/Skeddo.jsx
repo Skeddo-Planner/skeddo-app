@@ -10,6 +10,7 @@ import { useAuth } from "./hooks/useAuth";
 import Header from "./components/Header";
 import TabBar from "./components/TabBar";
 import DesktopSidebar from "./components/DesktopSidebar";
+import GuestAppShell from "./components/GuestAppShell";
 import useIsDesktop from "./hooks/useIsDesktop";
 import AuthPage from "./pages/AuthPage";
 
@@ -274,10 +275,9 @@ export default function Skeddo() {
         />
       );
     }
-    // Default: send new visitors straight to the directory so they can browse
-    // programs without signing up. The "Save to Planner" action gates signup.
-    navigate("/camps", { replace: true });
-    return null;
+    // Default: show the real app interface in guest mode so visitors can
+    // browse programs and preview all features with sample data.
+    return <GuestAppShell onNavigate={navigateTo} />;
   }
 
   /* ── Authenticated — show the app ── */
