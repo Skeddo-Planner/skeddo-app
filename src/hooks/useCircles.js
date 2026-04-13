@@ -290,9 +290,21 @@ export function useCircles(userId, session) {
 
   /* ── Share activities to a circle ── */
   const shareActivities = useCallback(async (circleId, activities, displayName) => {
+    // Always fetch a fresh token to avoid stale closure issues
+    let authHeaders = getAuthHeaders();
+    if (!authHeaders.Authorization) {
+      // Fallback: fetch fresh session directly from Supabase
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const freshToken = sessionData?.session?.access_token;
+        if (freshToken) {
+          authHeaders = { Authorization: `Bearer ${freshToken}` };
+        }
+      } catch {}
+    }
     const res = await fetch("/api/circles-share", {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+      headers: { "Content-Type": "application/json", ...authHeaders },
       body: JSON.stringify({ circleId, activities, displayName }),
     });
     let data;
