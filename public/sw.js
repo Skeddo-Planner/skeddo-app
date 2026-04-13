@@ -1,13 +1,22 @@
 /* Skeddo Service Worker — PWA install + Push Notifications + Program cache */
 
-const PROGRAMS_CACHE = "skeddo-programs-v1";
+const PROGRAMS_CACHE = "skeddo-programs-v2";
 const PROGRAMS_URL   = "/api/programs";
-const PROGRAMS_TTL   = 24 * 60 * 60 * 1000; // 24 hours in ms
+const PROGRAMS_TTL   = 4 * 60 * 60 * 1000; // 4 hours — was 24h, reduced so new data shows faster
 
 /* Activate immediately — don't wait for old service worker to release */
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  // Delete old program caches so stale data doesn't persist across versions
+  event.waitUntil(
+    caches.keys().then((names) =>
+      Promise.all(
+        names
+          .filter((n) => n.startsWith("skeddo-programs-") && n !== PROGRAMS_CACHE)
+          .map((n) => caches.delete(n))
+      )
+    ).then(() => self.clients.claim())
+  );
 });
 
 /* Fetch handler — uses network-first globally, stale-while-revalidate for programs */
