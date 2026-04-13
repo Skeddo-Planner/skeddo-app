@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { C } from "../constants/brand";
 import { s } from "../styles/shared";
 import Label from "../components/Label";
@@ -21,13 +21,21 @@ function formatLastSynced(ts) {
   return `Last synced: ${d.toLocaleDateString("en-CA", { month: "short", day: "numeric" })} at ${time}`;
 }
 
-export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess, session, kids = [], onEditKid, onDeleteKid, onAddKid }) {
+export default function ProfileModal({ profile, setProfile, email, lastSynced, onSignOut, onClose, pushNotifications, planAccess, session, kids = [], onEditKid, onDeleteKid, onAddKid, initialFeedbackType = null }) {
   // Work on a local draft so changes aren't auto-saved on every keystroke
   const [draft, setDraft] = useState({ ...profile });
   const update = (field, value) => setDraft((prev) => ({ ...prev, [field]: value }));
 
   // Feedback state — feedbackType: null | "bug" | "feedback"
-  const [feedbackType, setFeedbackType] = useState(null);
+  const [feedbackType, setFeedbackType] = useState(initialFeedbackType);
+  const feedbackRef = useRef(null);
+
+  // Auto-scroll to feedback section when opened via bug/feedback shortcut
+  useEffect(() => {
+    if (initialFeedbackType && feedbackRef.current) {
+      setTimeout(() => feedbackRef.current.scrollIntoView({ behavior: "smooth", block: "center" }), 150);
+    }
+  }, [initialFeedbackType]);
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackStatus, setFeedbackStatus] = useState(null); // null | "sending" | "sent" | "error"
 
@@ -305,7 +313,7 @@ export default function ProfileModal({ profile, setProfile, email, lastSynced, o
       />
 
       {/* ─── Feedback ─── */}
-      <SectionLabel>Feedback</SectionLabel>
+      <div ref={feedbackRef}><SectionLabel>Feedback</SectionLabel></div>
       {!feedbackType ? (
         <div style={{ display: "flex", gap: 8 }}>
           <button
