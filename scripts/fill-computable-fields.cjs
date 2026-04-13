@@ -286,6 +286,8 @@ function parseProgramTime(t) {
 }
 
 for (const p of programs) {
+  // Skip canary entries — they exist for IP protection, not real data
+  if (p._canary) continue;
   // scheduleType — always recompute (thresholds changed, old values may be wrong)
   {
     const st = inferScheduleType(p);

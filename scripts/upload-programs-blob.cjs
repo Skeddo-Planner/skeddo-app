@@ -73,7 +73,10 @@ try {
 const SLIM_STRIP_FIELDS = new Set(["description"]);
 
 async function main() {
-  const programs = JSON.parse(fs.readFileSync(programsPath, "utf8"));
+  const allPrograms = JSON.parse(fs.readFileSync(programsPath, "utf8"));
+  // Strip canary entries — they exist in the source file for IP protection
+  // but must never be served to users or appear in any public output.
+  const programs = allPrograms.filter((p) => !p._canary);
   const count = programs.length;
 
   // Build slim array (strip description)

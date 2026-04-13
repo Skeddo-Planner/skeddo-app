@@ -1,6 +1,6 @@
 {
-  "totalPrograms": 15964,
-  "totalProviders": 439,
+  "totalPrograms": 15967,
+  "totalProviders": 442,
   "totalCategories": 51,
   "totalAreas": 27,
   "lastUpdated": "2026-04-13",
@@ -41923,6 +41923,120 @@
           "enrollmentStatus": "Open"
         }
       ]
+    },
+    {
+      "name": "Sunrise Adventures",
+      "slug": "sunrise-adventures",
+      "programCount": 1,
+      "categories": [
+        "Nature & Outdoors"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Kitsilano"
+      ],
+      "ageMin": 6,
+      "ageMax": 10,
+      "costMin": 385,
+      "costMax": 385,
+      "samplePrograms": [
+        {
+          "name": "Sunrise Adventures Outdoor Explorer Camp",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 10,
+          "cost": 385,
+          "costNote": "$385 per week. 15% sibling discount available.",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "9:00 AM",
+          "endTime": "3:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "Cedargrove Arts Studio",
+      "slug": "cedargrove-arts-studio",
+      "programCount": 1,
+      "categories": [
+        "Arts & Crafts"
+      ],
+      "cities": [
+        "Coquitlam"
+      ],
+      "neighbourhoods": [
+        "Austin Heights"
+      ],
+      "ageMin": 7,
+      "ageMax": 12,
+      "costMin": 345,
+      "costMax": 345,
+      "samplePrograms": [
+        {
+          "name": "Cedargrove Arts Studio — Mixed Media Week",
+          "category": "Arts & Crafts",
+          "activityType": "Visual Arts",
+          "ageMin": 7,
+          "ageMax": 12,
+          "cost": 345,
+          "costNote": "$345 per week including materials. Early bird $310 before May 15.",
+          "startDate": "2026-08-04",
+          "endDate": "2026-08-08",
+          "startTime": "9:30 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Austin Heights",
+          "city": "Coquitlam",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "Harbourside Sailing Academy",
+      "slug": "harbourside-sailing-academy",
+      "programCount": 1,
+      "categories": [
+        "Sports & Fitness"
+      ],
+      "cities": [
+        "North Vancouver"
+      ],
+      "neighbourhoods": [
+        "Lower Lonsdale"
+      ],
+      "ageMin": 9,
+      "ageMax": 13,
+      "costMin": 495,
+      "costMax": 495,
+      "samplePrograms": [
+        {
+          "name": "Harbourside Youth Sailing — Beginner Session",
+          "category": "Sports & Fitness",
+          "activityType": "Sailing",
+          "ageMin": 9,
+          "ageMax": 13,
+          "cost": 495,
+          "costNote": "$495 per week. PFDs provided. Intermediate and Advanced sessions also available.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Lower Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
     }
   ],
   "categories": [
@@ -44787,7 +44901,7 @@
     {
       "name": "Arts & Crafts",
       "slug": "arts-crafts",
-      "programCount": 43,
+      "programCount": 44,
       "providers": [
         "Monarch Arts Education",
         "City of Vancouver - Kerrisdale Cmty Centre",
@@ -44796,11 +44910,13 @@
         "City of Vancouver - West End Cmty Centre",
         "City of Vancouver - False Creek Cmty Centre",
         "VISST",
-        "Artists for Kids"
+        "Artists for Kids",
+        "Cedargrove Arts Studio"
       ],
       "cities": [
         "North Vancouver",
-        "Vancouver"
+        "Vancouver",
+        "Coquitlam"
       ],
       "ageMin": 2,
       "ageMax": 19,
@@ -46188,6 +46304,123 @@
       ]
     },
     {
+      "name": "Sports & Fitness",
+      "slug": "sports-fitness",
+      "programCount": 14,
+      "providers": [
+        "2-4-1 Sports",
+        "Dragon Zone Paddling Club",
+        "Gym Sense Gymnastics",
+        "Harbourside Sailing Academy"
+      ],
+      "cities": [
+        "New Westminster",
+        "Vancouver",
+        "Burnaby",
+        "North Vancouver"
+      ],
+      "ageMin": 5,
+      "ageMax": 14,
+      "costMin": 325,
+      "costMax": 495,
+      "activityTypes": [
+        "Multi-Sport",
+        "Paddling",
+        "Gymnastics",
+        "Sailing"
+      ],
+      "samplePrograms": [
+        {
+          "name": "2-4-1 Play Multi-Sport Camp — Session 1",
+          "provider": "2-4-1 Sports",
+          "activityType": "Multi-Sport",
+          "ageMin": 6,
+          "ageMax": 14,
+          "cost": 400,
+          "neighbourhood": "Queens Park",
+          "city": "New Westminster",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "2-4-1 Play Multi-Sport Camp — Session 2",
+          "provider": "2-4-1 Sports",
+          "activityType": "Multi-Sport",
+          "ageMin": 6,
+          "ageMax": 14,
+          "cost": 400,
+          "neighbourhood": "Queens Park",
+          "city": "New Westminster",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 1",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 325,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 2",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 3",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 4",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 5",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 6",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 325,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        }
+      ]
+    },
+    {
       "name": "General/Other",
       "slug": "general-other",
       "programCount": 14,
@@ -46517,116 +46750,112 @@
       ]
     },
     {
-      "name": "Sports & Fitness",
-      "slug": "sports-fitness",
-      "programCount": 13,
+      "name": "Nature & Outdoors",
+      "slug": "nature-outdoors",
+      "programCount": 12,
       "providers": [
-        "2-4-1 Sports",
-        "Dragon Zone Paddling Club",
-        "Gym Sense Gymnastics"
+        "City of Vancouver - Champlain Heights Cmty Centre",
+        "Sunrise Adventures"
       ],
       "cities": [
-        "New Westminster",
-        "Vancouver",
-        "Burnaby"
+        "Vancouver"
       ],
-      "ageMin": 5,
-      "ageMax": 14,
-      "costMin": 325,
-      "costMax": 400,
+      "ageMin": 4,
+      "ageMax": 17,
+      "costMin": 20,
+      "costMax": 385,
       "activityTypes": [
-        "Multi-Sport",
-        "Paddling",
-        "Gymnastics"
+        "Nature Program",
+        "Nature"
       ],
       "samplePrograms": [
         {
-          "name": "2-4-1 Play Multi-Sport Camp — Session 1",
-          "provider": "2-4-1 Sports",
-          "activityType": "Multi-Sport",
-          "ageMin": 6,
-          "ageMax": 14,
-          "cost": 400,
-          "neighbourhood": "Queens Park",
-          "city": "New Westminster",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "2-4-1 Play Multi-Sport Camp — Session 2",
-          "provider": "2-4-1 Sports",
-          "activityType": "Multi-Sport",
-          "ageMin": 6,
-          "ageMax": 14,
-          "cost": 400,
-          "neighbourhood": "Queens Park",
-          "city": "New Westminster",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 1",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 325,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 2",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 3",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 4",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 5",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 6",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 325,
-          "neighbourhood": "False Creek",
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian Survey",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 10,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
         }
       ]
     },
@@ -46757,114 +46986,6 @@
           "neighbourhood": "Squamish",
           "city": "Squamish",
           "dayLength": "Half Day"
-        }
-      ]
-    },
-    {
-      "name": "Nature & Outdoors",
-      "slug": "nature-outdoors",
-      "programCount": 11,
-      "providers": [
-        "City of Vancouver - Champlain Heights Cmty Centre"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "ageMin": 4,
-      "ageMax": 17,
-      "costMin": 20,
-      "costMax": 20,
-      "activityTypes": [
-        "Nature Program"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian Survey",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 10,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
         }
       ]
     },
@@ -47747,7 +47868,7 @@
     {
       "name": "Vancouver",
       "slug": "vancouver",
-      "programCount": 7484,
+      "programCount": 7485,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
@@ -47982,7 +48103,8 @@
         "Real Madrid Foundation",
         "FC Bayern Munich",
         "PSG Academy Vancouver",
-        "Ethos Lab"
+        "Ethos Lab",
+        "Sunrise Adventures"
       ],
       "categories": [
         "Arts",
@@ -48523,7 +48645,7 @@
     {
       "name": "North Vancouver",
       "slug": "north-vancouver",
-      "programCount": 1360,
+      "programCount": 1361,
       "providers": [
         "Deep Cove Music",
         "Ava Music & Art Centre",
@@ -48585,7 +48707,8 @@
         "Ocean Ambassadors Canada",
         "Whitecaps FC",
         "PSG Academy Vancouver",
-        "Camp Jubilee"
+        "Camp Jubilee",
+        "Harbourside Sailing Academy"
       ],
       "categories": [
         "Music",
@@ -48607,7 +48730,8 @@
         "Arts & Culture",
         "Nature",
         "Sports & Recreation",
-        "Leadership"
+        "Leadership",
+        "Sports & Fitness"
       ],
       "neighbourhoods": [
         "Deep Cove",
@@ -48889,7 +49013,7 @@
     {
       "name": "Coquitlam",
       "slug": "coquitlam",
-      "programCount": 446,
+      "programCount": 447,
       "providers": [
         "Rainforest Adventure Camps",
         "Parkland Players",
@@ -48902,7 +49026,8 @@
         "Douglas College",
         "YMCA of Greater Vancouver",
         "Pedalheads",
-        "Pear Tree Education"
+        "Pear Tree Education",
+        "Cedargrove Arts Studio"
       ],
       "categories": [
         "General",
@@ -48911,7 +49036,8 @@
         "Sports",
         "STEM",
         "Academic",
-        "Leadership"
+        "Leadership",
+        "Arts & Crafts"
       ],
       "neighbourhoods": [
         "Central Coquitlam",
@@ -48921,7 +49047,8 @@
         "Burke Mountain",
         "Westwood Plateau",
         "Pinetree",
-        "Como Lake"
+        "Como Lake",
+        "Austin Heights"
       ],
       "costMin": 128,
       "costMax": 565,
