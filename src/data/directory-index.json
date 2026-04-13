@@ -1,8 +1,8 @@
 {
-  "totalPrograms": 15948,
-  "totalProviders": 438,
-  "totalCategories": 48,
-  "totalAreas": 26,
+  "totalPrograms": 15964,
+  "totalProviders": 439,
+  "totalCategories": 51,
+  "totalAreas": 27,
   "lastUpdated": "2026-04-13",
   "providers": [
     {
@@ -15804,6 +15804,120 @@
           "city": "Vancouver",
           "dayLength": "Full Day",
           "enrollmentStatus": "Likely Coming Soon"
+        }
+      ]
+    },
+    {
+      "name": "Camp Latona",
+      "slug": "camp-latona",
+      "programCount": 16,
+      "categories": [
+        "Outdoor & Nature",
+        "Aquatics",
+        "Leadership",
+        "Family Programs",
+        "Music & Dance"
+      ],
+      "cities": [
+        "Gambier Island"
+      ],
+      "neighbourhoods": [
+        "Howe Sound"
+      ],
+      "ageMin": 0,
+      "ageMax": 99,
+      "costMin": 425,
+      "costMax": 2075,
+      "samplePrograms": [
+        {
+          "name": "Adventure Camp - Session 1",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "costNote": "Price includes tax. Returning camper rate: $949. Payment plans and discounts available.",
+          "startDate": "2026-07-05",
+          "endDate": "2026-07-10",
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        },
+        {
+          "name": "Adventure Camp - Session 2",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "costNote": "Price includes tax. Returning camper rate: $949. Payment plans and discounts available.",
+          "startDate": "2026-07-12",
+          "endDate": "2026-07-17",
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        },
+        {
+          "name": "Adventure Camp - Session 3",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "costNote": "Price includes tax. Returning camper rate: $949. Payment plans and discounts available.",
+          "startDate": "2026-08-09",
+          "endDate": "2026-08-14",
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        },
+        {
+          "name": "Adventure Camp - Session 4",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "costNote": "Price includes tax. Returning camper rate: $949. Payment plans and discounts available.",
+          "startDate": "2026-08-16",
+          "endDate": "2026-08-21",
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": "",
+          "enrollmentStatus": "Waitlist"
+        },
+        {
+          "name": "Eco Challenge",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 12,
+          "ageMax": 15,
+          "cost": 975,
+          "costNote": "Price includes tax. Returning camper rate: $875. Payment plans and discounts available.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Lifesaving Camp",
+          "category": "Aquatics",
+          "activityType": "Overnight Camp",
+          "ageMin": 12,
+          "ageMax": 18,
+          "cost": 975,
+          "costNote": "Price includes tax. Returning camper rate: $875. Bronze Medallion and Bronze Cross certification included. Payment plans available.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -45165,6 +45279,120 @@
       ]
     },
     {
+      "name": "Outdoor & Nature",
+      "slug": "outdoor-nature",
+      "programCount": 34,
+      "providers": [
+        "Fireside Adventures",
+        "Sea Smart School Society",
+        "Camp Latona"
+      ],
+      "cities": [
+        "Sechelt",
+        "Vancouver",
+        "Gambier Island"
+      ],
+      "ageMin": 6,
+      "ageMax": 15,
+      "costMin": 320,
+      "costMax": 999,
+      "activityTypes": [
+        "Outdoor Recreation",
+        "Environmental Education",
+        "Overnight Camp"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Camp Fireside Summer Overnight Camp",
+          "provider": "Fireside Adventures",
+          "activityType": "Outdoor Recreation",
+          "ageMin": 7,
+          "ageMax": 11,
+          "cost": 749,
+          "neighbourhood": "Sunshine Coast",
+          "city": "Sechelt",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Camp Fireside Summer Overnight Camp",
+          "provider": "Fireside Adventures",
+          "activityType": "Outdoor Recreation",
+          "ageMin": 7,
+          "ageMax": 11,
+          "cost": 749,
+          "neighbourhood": "Sunshine Coast",
+          "city": "Sechelt",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Camp Fireside Summer Overnight Camp",
+          "provider": "Fireside Adventures",
+          "activityType": "Outdoor Recreation",
+          "ageMin": 7,
+          "ageMax": 11,
+          "cost": 749,
+          "neighbourhood": "Sunshine Coast",
+          "city": "Sechelt",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Ocean Creatures",
+          "provider": "Sea Smart School Society",
+          "activityType": "Environmental Education",
+          "ageMin": 6,
+          "ageMax": 7,
+          "cost": 400,
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Ocean Creatures",
+          "provider": "Sea Smart School Society",
+          "activityType": "Environmental Education",
+          "ageMin": 6,
+          "ageMax": 7,
+          "cost": 400,
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Ocean Creatures",
+          "provider": "Sea Smart School Society",
+          "activityType": "Environmental Education",
+          "ageMin": 6,
+          "ageMax": 7,
+          "cost": 400,
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Sea Scientists (Girls Only)",
+          "provider": "Sea Smart School Society",
+          "activityType": "Environmental Education",
+          "ageMin": 6,
+          "ageMax": 7,
+          "cost": 400,
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Sea Scientists (Girls Only)",
+          "provider": "Sea Smart School Society",
+          "activityType": "Environmental Education",
+          "ageMin": 6,
+          "ageMax": 7,
+          "cost": 400,
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        }
+      ]
+    },
+    {
       "name": "Sports & Recreation",
       "slug": "sports-recreation",
       "programCount": 32,
@@ -45395,117 +45623,6 @@
           "neighbourhood": "Dunbar-Southlands",
           "city": "Vancouver",
           "dayLength": "Single Day"
-        }
-      ]
-    },
-    {
-      "name": "Outdoor & Nature",
-      "slug": "outdoor-nature",
-      "programCount": 29,
-      "providers": [
-        "Fireside Adventures",
-        "Sea Smart School Society"
-      ],
-      "cities": [
-        "Sechelt",
-        "Vancouver"
-      ],
-      "ageMin": 6,
-      "ageMax": 11,
-      "costMin": 320,
-      "costMax": 749,
-      "activityTypes": [
-        "Outdoor Recreation",
-        "Environmental Education"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Camp Fireside Summer Overnight Camp",
-          "provider": "Fireside Adventures",
-          "activityType": "Outdoor Recreation",
-          "ageMin": 7,
-          "ageMax": 11,
-          "cost": 749,
-          "neighbourhood": "Sunshine Coast",
-          "city": "Sechelt",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Camp Fireside Summer Overnight Camp",
-          "provider": "Fireside Adventures",
-          "activityType": "Outdoor Recreation",
-          "ageMin": 7,
-          "ageMax": 11,
-          "cost": 749,
-          "neighbourhood": "Sunshine Coast",
-          "city": "Sechelt",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Camp Fireside Summer Overnight Camp",
-          "provider": "Fireside Adventures",
-          "activityType": "Outdoor Recreation",
-          "ageMin": 7,
-          "ageMax": 11,
-          "cost": 749,
-          "neighbourhood": "Sunshine Coast",
-          "city": "Sechelt",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Ocean Creatures",
-          "provider": "Sea Smart School Society",
-          "activityType": "Environmental Education",
-          "ageMin": 6,
-          "ageMax": 7,
-          "cost": 400,
-          "neighbourhood": "Kitsilano",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Ocean Creatures",
-          "provider": "Sea Smart School Society",
-          "activityType": "Environmental Education",
-          "ageMin": 6,
-          "ageMax": 7,
-          "cost": 400,
-          "neighbourhood": "Kitsilano",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Ocean Creatures",
-          "provider": "Sea Smart School Society",
-          "activityType": "Environmental Education",
-          "ageMin": 6,
-          "ageMax": 7,
-          "cost": 400,
-          "neighbourhood": "Kitsilano",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Sea Scientists (Girls Only)",
-          "provider": "Sea Smart School Society",
-          "activityType": "Environmental Education",
-          "ageMin": 6,
-          "ageMax": 7,
-          "cost": 400,
-          "neighbourhood": "Kitsilano",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Sea Scientists (Girls Only)",
-          "provider": "Sea Smart School Society",
-          "activityType": "Environmental Education",
-          "ageMin": 6,
-          "ageMax": 7,
-          "cost": 400,
-          "neighbourhood": "Kitsilano",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
         }
       ]
     },
@@ -45842,6 +45959,122 @@
       ]
     },
     {
+      "name": "Leadership",
+      "slug": "leadership",
+      "programCount": 20,
+      "providers": [
+        "Douglas College",
+        "The Youth Excellence Society (The YES)",
+        "Camp Jubilee",
+        "Camp Latona"
+      ],
+      "cities": [
+        "Coquitlam",
+        "New Westminster",
+        "Lake Cowichan",
+        "North Vancouver",
+        "Gambier Island"
+      ],
+      "ageMin": 10,
+      "ageMax": 18,
+      "costMin": 160,
+      "costMax": 2075,
+      "activityTypes": [
+        "Leadership",
+        "Overnight Camp"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Douglas College Student Leadership Camp",
+          "provider": "Douglas College",
+          "activityType": "Leadership",
+          "ageMin": 10,
+          "ageMax": 14,
+          "cost": 160,
+          "neighbourhood": "Westwood Plateau",
+          "city": "Coquitlam",
+          "dayLength": "Half Day"
+        },
+        {
+          "name": "Douglas College Student Leadership Camp",
+          "provider": "Douglas College",
+          "activityType": "Leadership",
+          "ageMin": 10,
+          "ageMax": 14,
+          "cost": 160,
+          "neighbourhood": "Downtown New Westminster",
+          "city": "New Westminster",
+          "dayLength": "Half Day"
+        },
+        {
+          "name": "YES Camp Pathways A",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Roots A",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Roots B",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Pathways B",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Pathways C",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        },
+        {
+          "name": "YES Camp Roots C",
+          "provider": "The Youth Excellence Society (The YES)",
+          "activityType": "Leadership",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 1100,
+          "neighbourhood": "Lake Cowichan",
+          "city": "Lake Cowichan",
+          "dayLength": ""
+        }
+      ]
+    },
+    {
       "name": "Martial Arts",
       "slug": "martial-arts",
       "programCount": 17,
@@ -45951,119 +46184,6 @@
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
           "dayLength": "Single Day"
-        }
-      ]
-    },
-    {
-      "name": "Leadership",
-      "slug": "leadership",
-      "programCount": 15,
-      "providers": [
-        "Douglas College",
-        "The Youth Excellence Society (The YES)",
-        "Camp Jubilee"
-      ],
-      "cities": [
-        "Coquitlam",
-        "New Westminster",
-        "Lake Cowichan",
-        "North Vancouver"
-      ],
-      "ageMin": 10,
-      "ageMax": 18,
-      "costMin": 160,
-      "costMax": 1549,
-      "activityTypes": [
-        "Leadership"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Douglas College Student Leadership Camp",
-          "provider": "Douglas College",
-          "activityType": "Leadership",
-          "ageMin": 10,
-          "ageMax": 14,
-          "cost": 160,
-          "neighbourhood": "Westwood Plateau",
-          "city": "Coquitlam",
-          "dayLength": "Half Day"
-        },
-        {
-          "name": "Douglas College Student Leadership Camp",
-          "provider": "Douglas College",
-          "activityType": "Leadership",
-          "ageMin": 10,
-          "ageMax": 14,
-          "cost": 160,
-          "neighbourhood": "Downtown New Westminster",
-          "city": "New Westminster",
-          "dayLength": "Half Day"
-        },
-        {
-          "name": "YES Camp Pathways A",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 16,
-          "ageMax": 18,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Roots A",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 14,
-          "ageMax": 16,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Roots B",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 14,
-          "ageMax": 16,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Pathways B",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 16,
-          "ageMax": 18,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Pathways C",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 16,
-          "ageMax": 18,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
-        },
-        {
-          "name": "YES Camp Roots C",
-          "provider": "The Youth Excellence Society (The YES)",
-          "activityType": "Leadership",
-          "ageMin": 14,
-          "ageMax": 16,
-          "cost": 1100,
-          "neighbourhood": "Lake Cowichan",
-          "city": "Lake Cowichan",
-          "dayLength": ""
         }
       ]
     },
@@ -47051,6 +47171,70 @@
       ]
     },
     {
+      "name": "Family Programs",
+      "slug": "family-programs",
+      "programCount": 4,
+      "providers": [
+        "Camp Latona"
+      ],
+      "cities": [
+        "Gambier Island"
+      ],
+      "ageMin": 0,
+      "ageMax": 99,
+      "costMin": 1300,
+      "costMax": 1325,
+      "activityTypes": [
+        "Overnight Camp"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Family Camp - Canada Day",
+          "provider": "Camp Latona",
+          "activityType": "Overnight Camp",
+          "ageMin": 0,
+          "ageMax": 99,
+          "cost": 1325,
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": ""
+        },
+        {
+          "name": "Star of the Sea - Family Camp",
+          "provider": "Camp Latona",
+          "activityType": "Overnight Camp",
+          "ageMin": 0,
+          "ageMax": 99,
+          "cost": 1325,
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": ""
+        },
+        {
+          "name": "Family Camp - BC Day Weekend",
+          "provider": "Camp Latona",
+          "activityType": "Overnight Camp",
+          "ageMin": 0,
+          "ageMax": 99,
+          "cost": 1300,
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": ""
+        },
+        {
+          "name": "Family Camp - Mid-Week",
+          "provider": "Camp Latona",
+          "activityType": "Overnight Camp",
+          "ageMin": 0,
+          "ageMax": 99,
+          "cost": 1325,
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": ""
+        }
+      ]
+    },
+    {
       "name": "Social",
       "slug": "social",
       "programCount": 3,
@@ -47493,6 +47677,68 @@
           "neighbourhood": "Marpole",
           "city": "Vancouver",
           "dayLength": "Half Day"
+        }
+      ]
+    },
+    {
+      "name": "Aquatics",
+      "slug": "aquatics",
+      "programCount": 1,
+      "providers": [
+        "Camp Latona"
+      ],
+      "cities": [
+        "Gambier Island"
+      ],
+      "ageMin": 12,
+      "ageMax": 18,
+      "costMin": 975,
+      "costMax": 975,
+      "activityTypes": [
+        "Overnight Camp"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Lifesaving Camp",
+          "provider": "Camp Latona",
+          "activityType": "Overnight Camp",
+          "ageMin": 12,
+          "ageMax": 18,
+          "cost": 975,
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": ""
+        }
+      ]
+    },
+    {
+      "name": "Music & Dance",
+      "slug": "music-dance",
+      "programCount": 1,
+      "providers": [
+        "Camp Latona"
+      ],
+      "cities": [
+        "Gambier Island"
+      ],
+      "ageMin": 7,
+      "ageMax": 15,
+      "costMin": 425,
+      "costMax": 425,
+      "activityTypes": [
+        "Overnight Camp"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Cat Nap Music Camp",
+          "provider": "Camp Latona",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 425,
+          "neighbourhood": "Howe Sound",
+          "city": "Gambier Island",
+          "dayLength": ""
         }
       ]
     }
@@ -49965,6 +50211,116 @@
           "cost": 415,
           "dayLength": "Full Day",
           "neighbourhood": "Ioco"
+        }
+      ]
+    },
+    {
+      "name": "Gambier Island",
+      "slug": "gambier-island",
+      "programCount": 16,
+      "providers": [
+        "Camp Latona"
+      ],
+      "categories": [
+        "Outdoor & Nature",
+        "Aquatics",
+        "Leadership",
+        "Family Programs",
+        "Music & Dance"
+      ],
+      "neighbourhoods": [
+        "Howe Sound"
+      ],
+      "costMin": 425,
+      "costMax": 2075,
+      "samplePrograms": [
+        {
+          "name": "Adventure Camp - Session 1",
+          "provider": "Camp Latona",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "Adventure Camp - Session 2",
+          "provider": "Camp Latona",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "Adventure Camp - Session 3",
+          "provider": "Camp Latona",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "Adventure Camp - Session 4",
+          "provider": "Camp Latona",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 7,
+          "ageMax": 15,
+          "cost": 999,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "Eco Challenge",
+          "provider": "Camp Latona",
+          "category": "Outdoor & Nature",
+          "activityType": "Overnight Camp",
+          "ageMin": 12,
+          "ageMax": 15,
+          "cost": 975,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "Lifesaving Camp",
+          "provider": "Camp Latona",
+          "category": "Aquatics",
+          "activityType": "Overnight Camp",
+          "ageMin": 12,
+          "ageMax": 18,
+          "cost": 975,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "CIT Leadership",
+          "provider": "Camp Latona",
+          "category": "Leadership",
+          "activityType": "Overnight Camp",
+          "ageMin": 16,
+          "ageMax": 18,
+          "cost": 999,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
+        },
+        {
+          "name": "Future Leaders in Training - July",
+          "provider": "Camp Latona",
+          "category": "Leadership",
+          "activityType": "Overnight Camp",
+          "ageMin": 14,
+          "ageMax": 16,
+          "cost": 2075,
+          "dayLength": "",
+          "neighbourhood": "Howe Sound"
         }
       ]
     },
