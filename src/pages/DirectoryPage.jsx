@@ -123,7 +123,7 @@ function useDirectoryData() {
     import("../data/directory-index.json").then((m) => {
       _dirData = m.default;
       setData(m.default);
-    });
+    }).catch(() => {});
   }, []);
   return data;
 }

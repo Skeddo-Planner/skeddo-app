@@ -264,12 +264,15 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                             }}
                           >
                             <div style={{ fontWeight: 600, marginBottom: 2 }}>
-                              {details.userName || "Someone"}{" "}
+                              {details.userName || entry.user_name || "Someone"}{" "}
                               <span style={{ fontWeight: 400, color: C.muted }}>
-                                {entry.action === "add_program" && "added a program"}
-                                {entry.action === "remove_program" && "removed a program"}
-                                {entry.action === "status_change" && `changed status to ${details.newStatus || "..."}`}
-                                {!["add_program", "remove_program", "status_change"].includes(entry.action) && (entry.action || "made a change")}
+                                {(entry.action === "added" && details.type === "access_granted") && "joined as a co-parent"}
+                                {(entry.action === "added" && details.type !== "access_granted") && "added a program"}
+                                {entry.action === "removed" && "removed a program"}
+                                {entry.action === "updated" && "updated a program"}
+                                {entry.action === "status_changed" && `changed status to ${details.newStatus || "..."}`}
+                                {entry.action === "restored" && "restored a program"}
+                                {!["added", "removed", "updated", "status_changed", "restored"].includes(entry.action) && (details.message || entry.action || "made a change")}
                               </span>
                             </div>
                             {details.programName && (
@@ -452,12 +455,15 @@ export default function Header({ displayName, onOpenProfile, onOpenPage, onLogoC
                             }}
                           >
                             <div style={{ fontWeight: 600, marginBottom: 2 }}>
-                              {details.userName || "Someone"}{" "}
+                              {details.userName || entry.user_name || "Someone"}{" "}
                               <span style={{ fontWeight: 400, color: C.muted }}>
-                                {entry.action === "add_program" && "added a program"}
-                                {entry.action === "remove_program" && "removed a program"}
-                                {entry.action === "status_change" && `changed status to ${details.newStatus || "..."}`}
-                                {!["add_program", "remove_program", "status_change"].includes(entry.action) && (entry.action || "made a change")}
+                                {(entry.action === "added" && details.type === "access_granted") && "joined as a co-parent"}
+                                {(entry.action === "added" && details.type !== "access_granted") && "added a program"}
+                                {entry.action === "removed" && "removed a program"}
+                                {entry.action === "updated" && "updated a program"}
+                                {entry.action === "status_changed" && `changed status to ${details.newStatus || "..."}`}
+                                {entry.action === "restored" && "restored a program"}
+                                {!["added", "removed", "updated", "status_changed", "restored"].includes(entry.action) && (details.message || entry.action || "made a change")}
                               </span>
                             </div>
                             {details.programName && (

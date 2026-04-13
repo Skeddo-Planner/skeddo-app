@@ -525,16 +525,30 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
       return;
     }
     const isNew = !form.id;
+    const programId = form.id || uid();
     saveProgram({
       ...form,
       name: form.name.trim(),
       cost: Number(form.cost) || 0,
       kidIds: form.kidIds || [],
-      id: form.id || uid(),
+      id: programId,
     });
     setModal(null);
     if (isNew) maybeShowBudgetPrompt();
     showToast(isNew ? "Program added" : "Program updated");
+
+    // Log activity for co-parent notifications
+    if (form.kidIds?.length > 0) {
+      const action = isNew ? "added" : "updated";
+      for (const kidId of form.kidIds) {
+        const kidName = kids.find((k) => k.id === kidId)?.name || "";
+        childAccess.logActivity(programId, kidId, action, {
+          userName: profile?.displayName || "Someone",
+          programName: form.name.trim(),
+          childName: kidName,
+        }, profile?.displayName || "");
+      }
+    }
 
     // Share to selected circles (runs in parent so it survives modal unmount)
     if (circleIds.length > 0 && circlesHook?.shareActivities) {
@@ -594,6 +608,18 @@ function SkedDoApp({ onSignOut, userEmail, userId, session }) {
   };
 
   const handleDeleteProgram = (id) => {
+    // Log activity before deleting (so we still have the program data)
+    const prog = programs.find((p) => p.id === id);
+    if (prog?.kidIds?.length > 0) {
+      for (const kidId of prog.kidIds) {
+        const kidName = kids.find((k) => k.id === kidId)?.name || "";
+        childAccess.logActivity(id, kidId, "removed", {
+          userName: profile?.displayName || "Someone",
+          programName: prog.name || "",
+          childName: kidName,
+        }, profile?.displayName || "");
+      }
+    }
     deleteProgram(id);
     setModal(null);
     showToast("Program deleted");
