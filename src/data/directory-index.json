@@ -1,6 +1,6 @@
 {
-  "totalPrograms": 15964,
-  "totalProviders": 439,
+  "totalPrograms": 15970,
+  "totalProviders": 440,
   "totalCategories": 51,
   "totalAreas": 27,
   "lastUpdated": "2026-04-13",
@@ -30807,7 +30807,7 @@
           "ageMin": 5,
           "ageMax": 6,
           "cost": 500,
-          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.. Monthly rate. Approximately $205/week for Grades 1-7, $125/week for Kindergarten.",
           "startDate": "2026-07-06",
           "endDate": "2026-08-28",
           "startTime": "7:30 AM",
@@ -30825,7 +30825,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 820,
-          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.. Monthly rate. Approximately $205/week for Grades 1-7, $125/week for Kindergarten.",
           "startDate": "2026-07-06",
           "endDate": "2026-08-28",
           "startTime": "7:30 AM",
@@ -30843,7 +30843,7 @@
           "ageMin": 5,
           "ageMax": 6,
           "cost": 500,
-          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.. Monthly rate. Approximately $205/week for Grades 1-7, $125/week for Kindergarten.",
           "startDate": "2026-07-06",
           "endDate": "2026-08-28",
           "startTime": "7:30 AM",
@@ -30861,7 +30861,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 820,
-          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.. Monthly rate. Approximately $205/week for Grades 1-7, $125/week for Kindergarten.",
           "startDate": "2026-07-06",
           "endDate": "2026-08-28",
           "startTime": "7:30 AM",
@@ -30879,7 +30879,7 @@
           "ageMin": 5,
           "ageMax": 6,
           "cost": 500,
-          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "costNote": "$500 per month (Kindergarten rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.. Monthly rate. Approximately $205/week for Grades 1-7, $125/week for Kindergarten.",
           "startDate": "2026-07-06",
           "endDate": "2026-08-28",
           "startTime": "7:30 AM",
@@ -30897,7 +30897,7 @@
           "ageMin": 6,
           "ageMax": 12,
           "cost": 820,
-          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.",
+          "costNote": "$820 per month (Grades 1-7 rate). Billed monthly for July-August. Registration via email to admin@cedarcottage.org. Registration is open (started April 1 via email to admin@cedarcottage.org). Exact summer dates TBD — estimated July 6 to Aug 28.. Monthly rate. Approximately $205/week for Grades 1-7, $125/week for Kindergarten.",
           "startDate": "2026-07-06",
           "endDate": "2026-08-28",
           "startTime": "7:30 AM",
@@ -30906,6 +30906,134 @@
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
           "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "Vancouver Athletic Football Club (VAFC)",
+      "slug": "vancouver-athletic-football-club-vafc",
+      "programCount": 6,
+      "categories": [
+        "Sports"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Riley Park-Little Mountain"
+      ],
+      "ageMin": 4,
+      "ageMax": 11,
+      "costMin": null,
+      "costMax": null,
+      "samplePrograms": [
+        {
+          "name": "VAFC Summer Soccer Camp — Hillcrest AM (Ages 4-7)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 4,
+          "ageMax": 7,
+          "cost": null,
+          "costNote": "Price not visible without registration login. Spring Break camps were $220/week for half-day. User submission reported $230 for summer half-day.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "startTime": "9:30 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park-Little Mountain",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "VAFC Summer Soccer Camp — Hillcrest PM (Ages 8-11)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": null,
+          "costNote": "Price not visible without registration login. Spring Break camps were $220/week for half-day. User submission reported $230 for summer half-day.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "startTime": "12:30 PM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park-Little Mountain",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "VAFC Summer Soccer Camp — Hillcrest AM (Ages 4-7)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 4,
+          "ageMax": 7,
+          "cost": null,
+          "costNote": "Price not visible without registration login. Spring Break camps were $220/week for half-day. User submission reported $230 for summer half-day.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:30 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park-Little Mountain",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "VAFC Summer Soccer Camp — Hillcrest PM (Ages 8-11)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": null,
+          "costNote": "Price not visible without registration login. Spring Break camps were $220/week for half-day. User submission reported $230 for summer half-day.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "12:30 PM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park-Little Mountain",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "VAFC Summer Soccer Camp — Hillcrest AM (Ages 4-7)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 4,
+          "ageMax": 7,
+          "cost": null,
+          "costNote": "Price not visible without registration login. Spring Break camps were $220/week for half-day. User submission reported $230 for summer half-day.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "9:30 AM",
+          "endTime": "12:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park-Little Mountain",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "VAFC Summer Soccer Camp — Hillcrest PM (Ages 8-11)",
+          "category": "Sports",
+          "activityType": "Soccer",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": null,
+          "costNote": "Price not visible without registration login. Spring Break camps were $220/week for half-day. User submission reported $230 for summer half-day.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "12:30 PM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Riley Park-Little Mountain",
+          "city": "Vancouver",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         }
       ]
@@ -41929,7 +42057,7 @@
     {
       "name": "Sports",
       "slug": "sports",
-      "programCount": 8498,
+      "programCount": 8504,
       "providers": [
         "SFU Summer Camps",
         "SportBall",
@@ -42100,7 +42228,8 @@
         "Real Madrid Foundation",
         "FC Bayern Munich",
         "PSG Academy Vancouver",
-        "Barça Academy"
+        "Barça Academy",
+        "Vancouver Athletic Football Club (VAFC)"
       ],
       "cities": [
         "Burnaby",
@@ -47747,7 +47876,7 @@
     {
       "name": "Vancouver",
       "slug": "vancouver",
-      "programCount": 7484,
+      "programCount": 7490,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
@@ -47982,7 +48111,8 @@
         "Real Madrid Foundation",
         "FC Bayern Munich",
         "PSG Academy Vancouver",
-        "Ethos Lab"
+        "Ethos Lab",
+        "Vancouver Athletic Football Club (VAFC)"
       ],
       "categories": [
         "Arts",
@@ -48082,7 +48212,8 @@
         "Richmond",
         "North Vancouver",
         "Gastown",
-        "Cambie Village"
+        "Cambie Village",
+        "Riley Park-Little Mountain"
       ],
       "costMin": 1.5,
       "costMax": 2713.2,
