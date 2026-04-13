@@ -13,7 +13,8 @@
  *   1. Fetches all submissions with status='pending'
  *   2. Rejects: missing name, duplicate name+provider already in programs.json
  *   3. Marks remaining as 'awaiting_verification' in the DB
- *   4. Writes src/data/submission-queue.json for Claude browser verification
+ *   4. Rebuilds src/data/submission-queue.json from ALL 'awaiting_verification'
+ *      entries in the DB (not just newly processed ones)
  */
 
 const { createClient } = require("@supabase/supabase-js");
@@ -52,19 +53,7 @@ async function main() {
     process.exit(1);
   }
 
-  if (!pending || pending.length === 0) {
-    console.log("No pending submissions found.");
-    // Clear the queue file if it exists
-    if (fs.existsSync(QUEUE_PATH)) {
-      const existing = JSON.parse(fs.readFileSync(QUEUE_PATH, "utf8"));
-      if (existing.submissions && existing.submissions.length === 0) {
-        console.log("Queue already empty.");
-      }
-    }
-    return;
-  }
-
-  console.log(`Found ${pending.length} pending submission(s).\n`);
+  console.log(`Found ${pending?.length || 0} pending submission(s).\n`);
 
   // 2. Load existing programs for dedup check
   let existingPrograms = [];
@@ -84,7 +73,7 @@ async function main() {
   const approved = [];
   const rejected = [];
 
-  for (const sub of pending) {
+  for (const sub of (pending || [])) {
     const reasons = [];
 
     // Reject: missing name
@@ -129,43 +118,44 @@ async function main() {
 
   console.log(`\nResults: ${approved.length} queued for verification, ${rejected.length} rejected.\n`);
 
-  // 3. Build the queue file
-  // Load existing queue (in case there are unprocessed items from previous runs)
-  let existingQueue = { lastUpdated: "", submissions: [] };
-  if (fs.existsSync(QUEUE_PATH)) {
-    try {
-      existingQueue = JSON.parse(fs.readFileSync(QUEUE_PATH, "utf8"));
-    } catch (e) { /* start fresh */ }
+  // 3. Rebuild the queue file from ALL awaiting_verification entries in the DB
+  //    The DB is the source of truth — this ensures the queue is always complete,
+  //    even if the file was cleared by a merge or manual edit.
+  const { data: allAwaiting, error: awaitErr } = await supabase
+    .from("program_submissions")
+    .select("*")
+    .eq("status", "awaiting_verification")
+    .order("created_at", { ascending: true });
+
+  if (awaitErr) {
+    console.error("Failed to fetch awaiting_verification entries:", awaitErr.message);
+    process.exit(1);
   }
 
-  // Merge new approved into queue (avoid duplicates by submission ID)
-  const existingIds = new Set(existingQueue.submissions.map((s) => s.submissionId));
-  const newEntries = approved
-    .filter((s) => !existingIds.has(s.id))
-    .map((s) => ({
-      submissionId: s.id,
-      name: s.name,
-      provider: s.provider || null,
-      category: s.category || "General",
-      cost: s.cost,
-      days: s.days || null,
-      times: s.times || null,
-      startDate: s.start_date || null,
-      endDate: s.end_date || null,
-      ageMin: s.age_min,
-      ageMax: s.age_max,
-      location: s.location || null,
-      neighbourhood: s.neighbourhood || null,
-      registrationUrl: s.registration_url || null,
-      submittedBy: s.submitted_by_name || s.submitted_by_email || null,
-      submittedAt: s.created_at,
-      status: "awaiting_verification",
-    }));
+  const queueEntries = (allAwaiting || []).map((s) => ({
+    submissionId: s.id,
+    name: s.name,
+    provider: s.provider || null,
+    category: s.category || "General",
+    cost: s.cost,
+    days: s.days || null,
+    times: s.times || null,
+    startDate: s.start_date || null,
+    endDate: s.end_date || null,
+    ageMin: s.age_min,
+    ageMax: s.age_max,
+    location: s.location || null,
+    neighbourhood: s.neighbourhood || null,
+    registrationUrl: s.registration_url || null,
+    submittedBy: s.submitted_by_name || s.submitted_by_email || null,
+    submittedAt: s.created_at,
+    status: "awaiting_verification",
+  }));
 
   const queue = {
     lastUpdated: new Date().toISOString(),
     note: "Programs submitted by users, validated offline, awaiting browser verification by Claude. Do NOT add to programs.json without browser-verifying every field against the live registration page.",
-    submissions: [...existingQueue.submissions, ...newEntries],
+    submissions: queueEntries,
   };
 
   fs.writeFileSync(QUEUE_PATH, JSON.stringify(queue, null, 2));
