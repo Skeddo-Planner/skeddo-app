@@ -5643,7 +5643,7 @@
           "neighbourhood": "Port Coquitlam",
           "city": "Port Coquitlam",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Baby Art Lab",
@@ -5994,7 +5994,7 @@
           "neighbourhood": "South Cambie",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Full/Waitlist"
+          "enrollmentStatus": "Closed"
         }
       ]
     },
@@ -9966,7 +9966,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -9984,7 +9984,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10002,7 +10002,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10020,7 +10020,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10038,7 +10038,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10056,7 +10056,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         }
       ]
     },
@@ -13723,7 +13723,7 @@
           "neighbourhood": "Burnaby",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Full/Waitlist"
         }
       ]
     },
@@ -14908,7 +14908,7 @@
       ],
       "ageMin": 10,
       "ageMax": 16,
-      "costMin": 40,
+      "costMin": 1,
       "costMax": 310,
       "samplePrograms": [
         {
@@ -14917,7 +14917,7 @@
           "activityType": "Volleyball",
           "ageMin": 10,
           "ageMax": 15,
-          "cost": 310,
+          "cost": 1,
           "costNote": "$310 + 5% GST per week ($325.50 total). Register by grade entering September 2026. All levels welcome (beg, int, adv) unless noted. 50% skills / 50% games format. Early arrival / late pickup 15 min before/after for supervision. Registration: smashvball.sportngin.com/register/form/105061522",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
@@ -14935,7 +14935,7 @@
           "activityType": "Volleyball",
           "ageMin": 10,
           "ageMax": 15,
-          "cost": 310,
+          "cost": 1,
           "costNote": "$310 + 5% GST per week ($325.50 total). Register by grade entering September 2026. All levels welcome (beg, int, adv) unless noted. 50% skills / 50% games format. Early arrival / late pickup 15 min before/after for supervision. Registration: smashvball.sportngin.com/register/form/105061522",
           "startDate": "2026-07-13",
           "endDate": "2026-07-17",
@@ -14953,7 +14953,7 @@
           "activityType": "Volleyball",
           "ageMin": 10,
           "ageMax": 15,
-          "cost": 310,
+          "cost": 1,
           "costNote": "$310 + 5% GST per week ($325.50 total). Register by grade entering September 2026. All levels welcome (beg, int, adv) unless noted. 50% skills / 50% games format. Early arrival / late pickup 15 min before/after for supervision. Registration: smashvball.sportngin.com/register/form/105061522",
           "startDate": "2026-07-20",
           "endDate": "2026-07-24",
@@ -20659,7 +20659,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver",
@@ -20677,7 +20677,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver",
@@ -20695,7 +20695,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver",
@@ -20713,7 +20713,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver (Attack Moves Week)",
@@ -26465,7 +26465,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -26483,7 +26483,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -26501,7 +26501,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -26519,7 +26519,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -27524,12 +27524,12 @@
           "costNote": "50/month for 5-class pass or 80/month for unlimited. One-time registration fee of 99 + tax includes uniform, all belts, and testing fees. No minimum commitment.",
           "startDate": null,
           "endDate": null,
-          "startTime": null,
-          "endTime": null,
+          "startTime": "3:30 PM",
+          "endTime": "4:30 PM",
           "days": "Mon, Tue, Wed, Thu, Sat",
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
-          "dayLength": "",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         },
         {
@@ -27542,12 +27542,12 @@
           "costNote": "50/month for 5-class pass or 80/month for unlimited. One-time registration fee of 99 + tax includes uniform, all belts, and testing fees. Classes grouped by belt level. No minimum commitment.",
           "startDate": null,
           "endDate": null,
-          "startTime": null,
-          "endTime": null,
+          "startTime": "4:00 PM",
+          "endTime": "6:15 PM",
           "days": "Mon, Tue, Wed, Thu, Fri, Sat",
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
-          "dayLength": "",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         },
         {
@@ -27560,12 +27560,12 @@
           "costNote": "50/month for 5-class pass or 80/month for unlimited. 25/month unlimited for both karate and jiu jitsu. One-time registration fee of 99 + tax includes rashguard, shorts, all belts, and testing fees. No minimum commitment.",
           "startDate": null,
           "endDate": null,
-          "startTime": null,
-          "endTime": null,
+          "startTime": "6:15 PM",
+          "endTime": "7:00 PM",
           "days": "Mon, Wed, Sat",
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
-          "dayLength": "",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         },
         {
@@ -31428,7 +31428,7 @@
           "neighbourhood": "Burnaby",
           "city": "Burnaby",
           "dayLength": "Lesson",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Inline Skate Lessons",
@@ -38167,7 +38167,7 @@
           "neighbourhood": "Burnaby",
           "city": "Burnaby",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Full/Waitlist"
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -48084,7 +48084,7 @@
         "Gastown",
         "Cambie Village"
       ],
-      "costMin": 1.5,
+      "costMin": 1,
       "costMax": 2713.2,
       "samplePrograms": [
         {
