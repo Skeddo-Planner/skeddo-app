@@ -42,8 +42,10 @@ async function loadProgramsProgressive(onBatch) {
   if (PROGRAMS_BLOB_URL) {
     // Blob — single file, slim (no description). Fast CDN path.
     // Fall back to the paginated API if the blob is unreachable.
+    // Cache-bust with the build timestamp so deploys always fetch fresh data.
+    const blobUrl = `${PROGRAMS_BLOB_URL}?v=${__APP_BUILD_TS__ || Date.now()}`;
     try {
-      const data = await fetch(PROGRAMS_BLOB_URL).then((r) => r.json());
+      const data = await fetch(blobUrl).then((r) => r.json());
       _cachedPrograms = data;
       onBatch(data);
       return data;

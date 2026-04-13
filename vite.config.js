@@ -37,5 +37,6 @@ export default defineConfig({
   },
   define: {
     __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+    __APP_BUILD_TS__: JSON.stringify(Date.now()),
   },
 })

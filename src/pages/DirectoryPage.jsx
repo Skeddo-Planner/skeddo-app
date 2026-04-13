@@ -137,7 +137,7 @@ function useAllPrograms() {
   useEffect(() => {
     if (_cachedAllPrograms) return;
     if (!PROGRAMS_BLOB_URL) { setLoading(false); return; }
-    fetch(PROGRAMS_BLOB_URL)
+    fetch(`${PROGRAMS_BLOB_URL}?v=${__APP_BUILD_TS__ || Date.now()}`)
       .then((r) => r.json())
       .then((data) => { _cachedAllPrograms = data; setPrograms(data); setLoading(false); })
       .catch(() => setLoading(false));
