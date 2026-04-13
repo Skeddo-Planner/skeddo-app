@@ -1,5 +1,5 @@
 {
-  "totalPrograms": 15917,
+  "totalPrograms": 15922,
   "totalProviders": 435,
   "totalCategories": 48,
   "totalAreas": 25,
@@ -22097,7 +22097,7 @@
           "neighbourhood": "Maillardville",
           "city": "Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         },
         {
           "name": "Summer Fun Day Camp",
@@ -22115,7 +22115,7 @@
           "neighbourhood": "Maillardville",
           "city": "Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         },
         {
           "name": "Summer Fun Day Camp",
@@ -22133,7 +22133,7 @@
           "neighbourhood": "Maillardville",
           "city": "Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         },
         {
           "name": "Summer Fun Day Camp",
@@ -22151,7 +22151,7 @@
           "neighbourhood": "Maillardville",
           "city": "Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         },
         {
           "name": "Summer Fun Day Camp",
@@ -22169,7 +22169,7 @@
           "neighbourhood": "Maillardville",
           "city": "Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         },
         {
           "name": "Summer Fun Day Camp",
@@ -22187,7 +22187,7 @@
           "neighbourhood": "Maillardville",
           "city": "Coquitlam",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Coming Soon"
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -27224,6 +27224,136 @@
           "city": "Vancouver",
           "dayLength": "Single Day",
           "enrollmentStatus": "Full/Waitlist"
+        }
+      ]
+    },
+    {
+      "name": "Flow Martial Arts",
+      "slug": "flow-martial-arts",
+      "programCount": 7,
+      "categories": [
+        "Sports",
+        "Multi-Activity"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Mount Pleasant",
+        "Kensington-Cedar Cottage"
+      ],
+      "ageMin": 4,
+      "ageMax": 12,
+      "costMin": 85,
+      "costMax": 425,
+      "samplePrograms": [
+        {
+          "name": "Pro-D Day Martial Arts Camp",
+          "category": "Sports",
+          "activityType": "Martial Arts",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": 85,
+          "costNote": "",
+          "startDate": "2026-04-20",
+          "endDate": "2026-04-20",
+          "startTime": "9:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Martial Arts Pro-D Day Camp",
+          "category": "Multi-Activity",
+          "activityType": "Day Camp",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": null,
+          "costNote": "Inquire with provider",
+          "startDate": "2026-05-15",
+          "endDate": "2026-05-15",
+          "startTime": "9:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Fri",
+          "neighbourhood": "Mount Pleasant",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Likely Coming Soon"
+        },
+        {
+          "name": "Grasshoppers Karate",
+          "category": "Sports",
+          "activityType": "Martial Arts",
+          "ageMin": 4,
+          "ageMax": 6,
+          "cost": 150,
+          "costNote": "50/month for 5-class pass or 80/month for unlimited. One-time registration fee of 99 + tax includes uniform, all belts, and testing fees. No minimum commitment.",
+          "startDate": null,
+          "endDate": null,
+          "startTime": null,
+          "endTime": null,
+          "days": "Mon, Tue, Wed, Thu, Sat",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Junior Karate",
+          "category": "Sports",
+          "activityType": "Martial Arts",
+          "ageMin": 6,
+          "ageMax": 12,
+          "cost": 150,
+          "costNote": "50/month for 5-class pass or 80/month for unlimited. One-time registration fee of 99 + tax includes uniform, all belts, and testing fees. Classes grouped by belt level. No minimum commitment.",
+          "startDate": null,
+          "endDate": null,
+          "startTime": null,
+          "endTime": null,
+          "days": "Mon, Tue, Wed, Thu, Fri, Sat",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Kids Jiu Jitsu",
+          "category": "Sports",
+          "activityType": "Martial Arts",
+          "ageMin": 6,
+          "ageMax": 12,
+          "cost": 150,
+          "costNote": "50/month for 5-class pass or 80/month for unlimited. 25/month unlimited for both karate and jiu jitsu. One-time registration fee of 99 + tax includes rashguard, shorts, all belts, and testing fees. No minimum commitment.",
+          "startDate": null,
+          "endDate": null,
+          "startTime": null,
+          "endTime": null,
+          "days": "Mon, Wed, Sat",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Spring Break Martial Arts Camp",
+          "category": "Sports",
+          "activityType": "Martial Arts",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": 85,
+          "costNote": "5/day. Drop-off at 9am, pick-up at 3pm.",
+          "startDate": "2026-03-16",
+          "endDate": "2026-03-20",
+          "startTime": "9:00 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon, Tue, Wed, Thu, Fri",
+          "neighbourhood": "Kensington-Cedar Cottage",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Completed"
         }
       ]
     },
@@ -35911,63 +36041,6 @@
       ]
     },
     {
-      "name": "Flow Martial Arts",
-      "slug": "flow-martial-arts",
-      "programCount": 2,
-      "categories": [
-        "Sports",
-        "Multi-Activity"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "neighbourhoods": [
-        "Mount Pleasant"
-      ],
-      "ageMin": 5,
-      "ageMax": 12,
-      "costMin": 85,
-      "costMax": 85,
-      "samplePrograms": [
-        {
-          "name": "Pro-D Day Martial Arts Camp",
-          "category": "Sports",
-          "activityType": "Martial Arts",
-          "ageMin": 5,
-          "ageMax": 12,
-          "cost": 85,
-          "costNote": "",
-          "startDate": "2026-04-20",
-          "endDate": "2026-04-20",
-          "startTime": "9:00 AM",
-          "endTime": "3:00 PM",
-          "days": "Mon",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Open"
-        },
-        {
-          "name": "Martial Arts Pro-D Day Camp",
-          "category": "Multi-Activity",
-          "activityType": "Day Camp",
-          "ageMin": 5,
-          "ageMax": 12,
-          "cost": null,
-          "costNote": "Inquire with provider",
-          "startDate": "2026-05-15",
-          "endDate": "2026-05-15",
-          "startTime": "9:00 AM",
-          "endTime": "3:00 PM",
-          "days": "Fri",
-          "neighbourhood": "Mount Pleasant",
-          "city": "Vancouver",
-          "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
-        }
-      ]
-    },
-    {
       "name": "Resort Municipality of Whistler",
       "slug": "resort-municipality-of-whistler",
       "programCount": 2,
@@ -41417,7 +41490,7 @@
     {
       "name": "Sports",
       "slug": "sports",
-      "programCount": 8493,
+      "programCount": 8498,
       "providers": [
         "SFU Summer Camps",
         "SportBall",
@@ -47030,7 +47103,7 @@
     {
       "name": "Vancouver",
       "slug": "vancouver",
-      "programCount": 7475,
+      "programCount": 7480,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
