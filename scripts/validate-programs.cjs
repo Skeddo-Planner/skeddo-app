@@ -18,7 +18,9 @@ const path = require("path");
 
 const FIX = process.argv.includes("--fix");
 const programsPath = path.join(__dirname, "..", "src", "data", "programs.json");
-const programs = JSON.parse(fs.readFileSync(programsPath, "utf8"));
+const allPrograms = JSON.parse(fs.readFileSync(programsPath, "utf8"));
+// Skip canary entries — they exist for IP protection, not real data
+const programs = allPrograms.filter((p) => !p._canary);
 
 const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
@@ -638,8 +640,11 @@ if (FIX) {
   cleaned.forEach(p => { delete p._remove; });
   console.log(`Auto-fixed: ${fixed}`);
   if (removed > 0) console.log(`True duplicates removed: ${removed}`);
-  fs.writeFileSync(programsPath, JSON.stringify(cleaned, null, 2));
-  console.log(`programs.json saved (${cleaned.length} programs).`);
+  // Reattach canary entries (they were excluded from validation)
+  const canaries = allPrograms.filter((p) => p._canary);
+  const final = [...cleaned, ...canaries];
+  fs.writeFileSync(programsPath, JSON.stringify(final, null, 2));
+  console.log(`programs.json saved (${cleaned.length} programs + ${canaries.length} canaries).`);
 }
 console.log(`Data rules checked: ${allRules} + REQ`);
 console.log(`Process rules (not automatable): ${processRules}`);

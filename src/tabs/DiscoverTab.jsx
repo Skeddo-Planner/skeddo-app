@@ -45,7 +45,8 @@ async function loadProgramsProgressive(onBatch) {
     // Cache-bust with the build timestamp so deploys always fetch fresh data.
     const blobUrl = `${PROGRAMS_BLOB_URL}?v=${__APP_BUILD_TS__ || Date.now()}`;
     try {
-      const data = await fetch(blobUrl).then((r) => r.json());
+      const raw = await fetch(blobUrl).then((r) => r.json());
+      const data = raw.filter((p) => !p._canary);
       _cachedPrograms = data;
       onBatch(data);
       return data;

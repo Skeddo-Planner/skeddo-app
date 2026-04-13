@@ -78,7 +78,7 @@ const PAGES = {
         </Section>
         <Divider />
         <h2 style={h2Style}>Terms of Service</h2>
-        <p style={{ ...bodyStyle, marginBottom: 16, fontStyle: "italic", color: C.muted }}>Last updated: March 2026</p>
+        <p style={{ ...bodyStyle, marginBottom: 16, fontStyle: "italic", color: C.muted }}>Last updated: April 2026</p>
         <Section title="Agreement">
           <p>By using Skeddo, you agree to these terms. Skeddo is operated by Mended with Gold Inc., registered in British Columbia, Canada.</p>
         </Section>
@@ -93,6 +93,12 @@ const PAGES = {
         </Section>
         <Section title="Acceptable Use">
           <p>Don't use Skeddo for anything illegal, harmful, or to misrepresent yourself. Don't attempt to access other users' data or disrupt the service.</p>
+        </Section>
+        <Section title="Data &amp; Intellectual Property">
+          <p>The Skeddo program database — including all program listings, descriptions, curated metadata, and the selection, arrangement, and coordination of that data — is the intellectual property of Mended with Gold Inc. and is protected under Canadian copyright law and the <em>Copyright Act</em> (R.S.C., 1985, c. C-42).</p>
+          <p>You may not, without our prior written consent: (a) scrape, crawl, or systematically extract program data from Skeddo, whether via automated tools, scripts, bots, or manual bulk collection; (b) reproduce, republish, or redistribute our program database or any substantial portion of it; (c) use our data to build or supplement a competing product or service; or (d) circumvent any technical measures we use to protect our data (including rate limits, access controls, or bot detection).</p>
+          <p>Limited, non-commercial use of individual program details for personal planning purposes is permitted — that's what Skeddo is for. But bulk extraction or commercial reuse is strictly prohibited.</p>
+          <p>We actively monitor for unauthorized use of our data and will pursue all available legal remedies, including injunctive relief and damages, against violators.</p>
         </Section>
         <Section title="Limitation of Liability">
           <p>Skeddo is provided "as is." We're not liable for any losses arising from your use of the app, including reliance on program information displayed. Our total liability is limited to the amount you've paid us (which is currently $0).</p>

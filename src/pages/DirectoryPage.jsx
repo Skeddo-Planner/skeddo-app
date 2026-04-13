@@ -139,7 +139,7 @@ function useAllPrograms() {
     if (!PROGRAMS_BLOB_URL) { setLoading(false); return; }
     fetch(`${PROGRAMS_BLOB_URL}?v=${__APP_BUILD_TS__ || Date.now()}`)
       .then((r) => r.json())
-      .then((data) => { _cachedAllPrograms = data; setPrograms(data); setLoading(false); })
+      .then((raw) => { const data = raw.filter((p) => !p._canary); _cachedAllPrograms = data; setPrograms(data); setLoading(false); })
       .catch(() => setLoading(false));
   }, []);
   return { programs, loading };

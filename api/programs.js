@@ -181,7 +181,7 @@ export default async function handler(req, res) {
 
   // Optional server-side filtering to reduce response payload.
   const { category, ageMin, ageMax, neighbourhood, enrollmentStatus, full } = query;
-  let results = programs;
+  let results = programs.filter((p) => !p._canary);
 
   if (category) {
     const cat = category.toLowerCase();

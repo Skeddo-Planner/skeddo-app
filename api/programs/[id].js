@@ -33,7 +33,7 @@ export default async function handler(req, res) {
   const { id } = req.query;
   const program = getIndex().get(String(id));
 
-  if (!program) {
+  if (!program || program._canary) {
     return res.status(404).json({ error: "Program not found" });
   }
 
