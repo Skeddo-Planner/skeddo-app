@@ -15,7 +15,8 @@ export default function lazyWithReload(importFn) {
       const isChunkError =
         error.name === "ChunkLoadError" ||
         error.message?.includes("dynamically imported module") ||
-        error.message?.includes("Failed to fetch");
+        error.message?.includes("Failed to fetch") ||
+        error.message?.includes("Importing a module script failed");
 
       const key = "skeddo-chunk-reload";
       const hasReloaded = sessionStorage.getItem(key);
