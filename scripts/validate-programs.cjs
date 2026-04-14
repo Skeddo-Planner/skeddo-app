@@ -114,7 +114,8 @@ programs.forEach((p, idx) => {
 
   // ── Rule 1b: Display URL (url field) must not be a generic homepage ──
   // The url field is what parents see in Skeddo — it must point to the program page, not the provider homepage
-  if (p.url) {
+  // Skip for "Likely Coming Soon" — these are unverified placeholders where only the homepage may be available
+  if (p.url && p.enrollmentStatus !== "Likely Coming Soon") {
     try {
       const parsed = new URL(p.url);
       const pathOnly = parsed.pathname.replace(/\/+$/, "");

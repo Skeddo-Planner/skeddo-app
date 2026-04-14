@@ -1,9 +1,9 @@
 {
-  "totalPrograms": 15970,
-  "totalProviders": 440,
-  "totalCategories": 51,
+  "totalPrograms": 16008,
+  "totalProviders": 446,
+  "totalCategories": 52,
   "totalAreas": 27,
-  "lastUpdated": "2026-04-13",
+  "lastUpdated": "2026-04-14",
   "providers": [
     {
       "name": "Pedalheads",
@@ -14762,6 +14762,136 @@
       ]
     },
     {
+      "name": "Bowen Island Community Recreation",
+      "slug": "bowen-island-community-recreation",
+      "programCount": 17,
+      "categories": [
+        "Multi-Activity",
+        "Arts & Creativity",
+        "Nature & Outdoors"
+      ],
+      "cities": [
+        "Bowen Island"
+      ],
+      "neighbourhoods": [
+        "Bowen Island"
+      ],
+      "ageMin": 5,
+      "ageMax": 15,
+      "costMin": 90,
+      "costMax": 350,
+      "samplePrograms": [
+        {
+          "name": "Fun!damentals of Summer (Ages 5-8)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "costNote": "",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "09:00",
+          "endTime": "16:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Fun!damentals of Summer (Ages 8-11)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 325,
+          "costNote": "",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "09:00",
+          "endTime": "16:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Waves & Wilderness (Ages 5-8)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "costNote": "",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "09:00",
+          "endTime": "16:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Waves & Wilderness (Ages 8-11)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 325,
+          "costNote": "",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "09:00",
+          "endTime": "16:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Space & Time (Ages 5-8)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "costNote": "",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "09:00",
+          "endTime": "16:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Space & Time (Ages 8-11)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 350,
+          "costNote": "2 spaces left as of Apr 13",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "09:00",
+          "endTime": "16:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "SportBall",
       "slug": "sportball",
       "programCount": 16,
@@ -26174,6 +26304,134 @@
       ]
     },
     {
+      "name": "HappiMess Art Studio",
+      "slug": "happimess-art-studio",
+      "programCount": 8,
+      "categories": [
+        "Arts & Creativity"
+      ],
+      "cities": [
+        "Squamish"
+      ],
+      "neighbourhoods": [
+        "Squamish"
+      ],
+      "ageMin": 5,
+      "ageMax": 13,
+      "costMin": 190,
+      "costMax": 190,
+      "samplePrograms": [
+        {
+          "name": "Squamish Sampler Camp",
+          "category": "Arts & Creativity",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": 190,
+          "costNote": "2-day multi-activity camp rotating between 7 local businesses",
+          "startDate": "2026-06-29",
+          "endDate": "2026-06-30",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon,Tue",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Art Camp Week 2",
+          "category": "Arts & Creativity",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 13,
+          "cost": null,
+          "costNote": "$80/day, per-day registration available",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Art Camp Week 3",
+          "category": "Arts & Creativity",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 13,
+          "cost": null,
+          "costNote": "$80/day, per-day registration available",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Art Camp Week 4 (Ages 5-8)",
+          "category": "Arts & Creativity",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": null,
+          "costNote": "$80/day, per-day registration available",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "HappiGAMES Camp (Ages 8+)",
+          "category": "Arts & Creativity",
+          "activityType": "Art",
+          "ageMin": 8,
+          "ageMax": 13,
+          "cost": null,
+          "costNote": "$80/day, collaboration with Arrowwood Games",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "Happi Ninja Camp",
+          "category": "Arts & Creativity",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 13,
+          "cost": null,
+          "costNote": "$80/day, collaboration with The Ninja Gym",
+          "startDate": "2026-07-27",
+          "endDate": "2026-07-31",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "Vancouver Circus School",
       "slug": "vancouver-circus-school",
       "programCount": 7,
@@ -31039,6 +31297,128 @@
       ]
     },
     {
+      "name": "Airhouse",
+      "slug": "airhouse",
+      "programCount": 6,
+      "categories": [
+        "Sports & Fitness"
+      ],
+      "cities": [
+        "Squamish"
+      ],
+      "neighbourhoods": [
+        "Squamish"
+      ],
+      "ageMin": 3,
+      "ageMax": 14,
+      "costMin": 215,
+      "costMax": 550,
+      "samplePrograms": [
+        {
+          "name": "AirVenture Camp - Multi Sport",
+          "category": "Sports & Fitness",
+          "activityType": "Multi-Sport",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": 330,
+          "costNote": "Per week, full day. Summer collab with Ninja Gym on Wednesdays 1-2:45pm",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "AirVenture Camp - Kinder/Pre-K",
+          "category": "Sports & Fitness",
+          "activityType": "Multi-Sport",
+          "ageMin": 3,
+          "ageMax": 4,
+          "cost": 215,
+          "costNote": "Per week, half day mornings. Instructed by certified gymnastics coach",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "startTime": "09:00",
+          "endTime": "12:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "GirlVenture Camp - Multi Sport",
+          "category": "Sports & Fitness",
+          "activityType": "Multi-Sport",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": 395,
+          "costNote": "Per week, full day. Girls-only. Portion of proceeds to Sarah Burke Foundation",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "RadVenture - Skateboarding + Trampoline",
+          "category": "Sports & Fitness",
+          "activityType": "Skateboarding",
+          "ageMin": 8,
+          "ageMax": 14,
+          "cost": 550,
+          "costNote": "Per week, full day. Emphasis on training and progression",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "RadVenture - Skateboarding Half Day",
+          "category": "Sports & Fitness",
+          "activityType": "Skateboarding",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 295,
+          "costNote": "Per week, half day",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "startTime": "09:00",
+          "endTime": "12:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "RadVenture - Trampoline for Skiing & Snowboarding",
+          "category": "Sports & Fitness",
+          "activityType": "Trampoline",
+          "ageMin": 8,
+          "ageMax": 14,
+          "cost": 295,
+          "costNote": "Per week, half day",
+          "startDate": "2026-07-06",
+          "endDate": "2026-08-14",
+          "startTime": "09:00",
+          "endTime": "12:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Half Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "Clubhouse Kids",
       "slug": "clubhouse-kids",
       "programCount": 5,
@@ -32145,6 +32525,97 @@
           "city": "Vancouver",
           "dayLength": "Lesson",
           "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "District of Squamish Recreation",
+      "slug": "district-of-squamish-recreation",
+      "programCount": 5,
+      "categories": [
+        "Multi-Activity",
+        "Sports & Fitness"
+      ],
+      "cities": [
+        "Squamish"
+      ],
+      "neighbourhoods": [
+        "Squamish"
+      ],
+      "ageMin": 5,
+      "ageMax": 13,
+      "costMin": null,
+      "costMax": null,
+      "samplePrograms": [
+        {
+          "name": "Summer Day Camp (Ages 5.5-7)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 7,
+          "cost": null,
+          "costNote": "Registration opens April 14, 2026 at 8am. Visit squamish.ca/rec for details",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Coming Soon"
+        },
+        {
+          "name": "Summer Day Camp (Ages 6-10)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 6,
+          "ageMax": 10,
+          "cost": null,
+          "costNote": "Registration opens April 14, 2026 at 8am. Visit squamish.ca/rec for details",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Coming Soon"
+        },
+        {
+          "name": "Summer Day Camp (Ages 7-12)",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 7,
+          "ageMax": 12,
+          "cost": null,
+          "costNote": "Registration opens April 14, 2026 at 8am. Visit squamish.ca/rec for details",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Coming Soon"
+        },
+        {
+          "name": "Sportball Summer Camp",
+          "category": "Sports & Fitness",
+          "activityType": "Multi-Sport",
+          "ageMin": 5,
+          "ageMax": 7,
+          "cost": null,
+          "costNote": "Registration opens April 14, 2026 at 8am. Visit squamish.ca/rec for details",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Coming Soon"
+        },
+        {
+          "name": "Squamish Bike Camp",
+          "category": "Sports & Fitness",
+          "activityType": "Cycling",
+          "ageMin": 7,
+          "ageMax": 13,
+          "cost": null,
+          "costNote": "Registration opens April 14, 2026 at 8am. Visit squamish.ca/rec for details",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Coming Soon"
         }
       ]
     },
@@ -42051,6 +42522,76 @@
           "enrollmentStatus": "Open"
         }
       ]
+    },
+    {
+      "name": "Act Alive Academy",
+      "slug": "act-alive-academy",
+      "programCount": 1,
+      "categories": [
+        "Performing Arts"
+      ],
+      "cities": [
+        "Squamish"
+      ],
+      "neighbourhoods": [
+        "Squamish"
+      ],
+      "ageMin": 5,
+      "ageMax": 12,
+      "costMin": null,
+      "costMax": null,
+      "samplePrograms": [
+        {
+          "name": "Summer Musical Theatre Camp",
+          "category": "Performing Arts",
+          "activityType": "Musical Theatre",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": null,
+          "costNote": "Summer camp details not yet public. Spring break camps were $430-$450/week. All camps include singing, dancing, acting, and finish with live performance.",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Likely Coming Soon"
+        }
+      ]
+    },
+    {
+      "name": "The Ninja Gym",
+      "slug": "the-ninja-gym",
+      "programCount": 1,
+      "categories": [
+        "Sports & Fitness"
+      ],
+      "cities": [
+        "Squamish"
+      ],
+      "neighbourhoods": [
+        "Squamish"
+      ],
+      "ageMin": 5,
+      "ageMax": 12,
+      "costMin": null,
+      "costMax": null,
+      "samplePrograms": [
+        {
+          "name": "Summer Ninja Camp",
+          "category": "Sports & Fitness",
+          "activityType": "Ninja/Obstacle Course",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": null,
+          "costNote": "Estimated ~25/week or ~0/day. Summer collab with Airhouse. Contact 604-567-9370 for registration. Website camps page temporarily unavailable.",
+          "days": "Mon-Fri",
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "",
+          "enrollmentStatus": "Likely Coming Soon"
+        }
+      ]
     }
   ],
   "categories": [
@@ -43118,7 +43659,7 @@
     {
       "name": "Multi-Activity",
       "slug": "multi-activity",
-      "programCount": 690,
+      "programCount": 707,
       "providers": [
         "City of Vancouver - Champlain Heights Cmty Centre",
         "City of Vancouver - Coal Harbour Cmty Centre",
@@ -43159,14 +43700,17 @@
         "Resort Municipality of Whistler",
         "Squamish Dance Centre",
         "City of Surrey Parks & Recreation",
-        "Pear Tree Education"
+        "Pear Tree Education",
+        "Bowen Island Community Recreation",
+        "District of Squamish Recreation"
       ],
       "cities": [
         "Vancouver",
         "Burnaby",
         "Whistler",
         "North Vancouver",
-        "Squamish"
+        "Squamish",
+        "Bowen Island"
       ],
       "ageMin": 0,
       "ageMax": 18,
@@ -43425,7 +43969,7 @@
     {
       "name": "Performing Arts",
       "slug": "performing-arts",
-      "programCount": 549,
+      "programCount": 550,
       "providers": [
         "City of Vancouver - Dunbar Cmty Centre",
         "City of Vancouver - False Creek Cmty Centre",
@@ -43462,7 +44006,8 @@
         "Squamish Dance Centre",
         "Vancouver Film School",
         "Lights Up Musical Theatre",
-        "City of Vancouver - Templeton Park Pool"
+        "City of Vancouver - Templeton Park Pool",
+        "Act Alive Academy"
       ],
       "cities": [
         "Vancouver",
@@ -45978,6 +46523,128 @@
       ]
     },
     {
+      "name": "Sports & Fitness",
+      "slug": "sports-fitness",
+      "programCount": 22,
+      "providers": [
+        "2-4-1 Sports",
+        "Dragon Zone Paddling Club",
+        "Gym Sense Gymnastics",
+        "Airhouse",
+        "District of Squamish Recreation",
+        "The Ninja Gym"
+      ],
+      "cities": [
+        "New Westminster",
+        "Vancouver",
+        "Burnaby",
+        "Squamish"
+      ],
+      "ageMin": 3,
+      "ageMax": 14,
+      "costMin": 215,
+      "costMax": 550,
+      "activityTypes": [
+        "Multi-Sport",
+        "Paddling",
+        "Gymnastics",
+        "Skateboarding",
+        "Trampoline",
+        "Cycling",
+        "Ninja/Obstacle Course"
+      ],
+      "samplePrograms": [
+        {
+          "name": "2-4-1 Play Multi-Sport Camp — Session 1",
+          "provider": "2-4-1 Sports",
+          "activityType": "Multi-Sport",
+          "ageMin": 6,
+          "ageMax": 14,
+          "cost": 400,
+          "neighbourhood": "Queens Park",
+          "city": "New Westminster",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "2-4-1 Play Multi-Sport Camp — Session 2",
+          "provider": "2-4-1 Sports",
+          "activityType": "Multi-Sport",
+          "ageMin": 6,
+          "ageMax": 14,
+          "cost": 400,
+          "neighbourhood": "Queens Park",
+          "city": "New Westminster",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 1",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 325,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 2",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 3",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 4",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 5",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 6",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 325,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        }
+      ]
+    },
+    {
       "name": "Sport",
       "slug": "sport",
       "programCount": 21,
@@ -46646,116 +47313,113 @@
       ]
     },
     {
-      "name": "Sports & Fitness",
-      "slug": "sports-fitness",
-      "programCount": 13,
+      "name": "Nature & Outdoors",
+      "slug": "nature-outdoors",
+      "programCount": 12,
       "providers": [
-        "2-4-1 Sports",
-        "Dragon Zone Paddling Club",
-        "Gym Sense Gymnastics"
+        "City of Vancouver - Champlain Heights Cmty Centre",
+        "Bowen Island Community Recreation"
       ],
       "cities": [
-        "New Westminster",
         "Vancouver",
-        "Burnaby"
+        "Bowen Island"
       ],
-      "ageMin": 5,
-      "ageMax": 14,
-      "costMin": 325,
-      "costMax": 400,
+      "ageMin": 4,
+      "ageMax": 17,
+      "costMin": 20,
+      "costMax": 90,
       "activityTypes": [
-        "Multi-Sport",
-        "Paddling",
-        "Gymnastics"
+        "Nature Program",
+        "Field Trip"
       ],
       "samplePrograms": [
         {
-          "name": "2-4-1 Play Multi-Sport Camp — Session 1",
-          "provider": "2-4-1 Sports",
-          "activityType": "Multi-Sport",
-          "ageMin": 6,
-          "ageMax": 14,
-          "cost": 400,
-          "neighbourhood": "Queens Park",
-          "city": "New Westminster",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "2-4-1 Play Multi-Sport Camp — Session 2",
-          "provider": "2-4-1 Sports",
-          "activityType": "Multi-Sport",
-          "ageMin": 6,
-          "ageMax": 14,
-          "cost": 400,
-          "neighbourhood": "Queens Park",
-          "city": "New Westminster",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 1",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 325,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 2",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 3",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 4",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 5",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
         },
         {
-          "name": "Dragon Zone Summer Paddling Camp — Week 6",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 325,
-          "neighbourhood": "False Creek",
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
           "city": "Vancouver",
-          "dayLength": "Full Day"
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian Survey",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 10,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
         }
       ]
     },
@@ -46890,110 +47554,112 @@
       ]
     },
     {
-      "name": "Nature & Outdoors",
-      "slug": "nature-outdoors",
-      "programCount": 11,
+      "name": "Arts & Creativity",
+      "slug": "arts-creativity",
+      "programCount": 10,
       "providers": [
-        "City of Vancouver - Champlain Heights Cmty Centre"
+        "Bowen Island Community Recreation",
+        "HappiMess Art Studio"
       ],
       "cities": [
-        "Vancouver"
+        "Bowen Island",
+        "Squamish"
       ],
-      "ageMin": 4,
-      "ageMax": 17,
-      "costMin": 20,
-      "costMax": 20,
+      "ageMin": 5,
+      "ageMax": 13,
+      "costMin": 190,
+      "costMax": 325,
       "activityTypes": [
-        "Nature Program"
+        "Art"
       ],
       "samplePrograms": [
         {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Bowen Art Lab (Ages 5-8)",
+          "provider": "Bowen Island Community Recreation",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Bowen Art Lab (Ages 8-11)",
+          "provider": "Bowen Island Community Recreation",
+          "activityType": "Art",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 325,
+          "neighbourhood": "Bowen Island",
+          "city": "Bowen Island",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Squamish Sampler Camp",
+          "provider": "HappiMess Art Studio",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 12,
+          "cost": 190,
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Art Camp Week 2",
+          "provider": "HappiMess Art Studio",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 13,
+          "cost": null,
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Art Camp Week 3",
+          "provider": "HappiMess Art Studio",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 13,
+          "cost": null,
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Art Camp Week 4 (Ages 5-8)",
+          "provider": "HappiMess Art Studio",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": null,
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "HappiGAMES Camp (Ages 8+)",
+          "provider": "HappiMess Art Studio",
+          "activityType": "Art",
+          "ageMin": 8,
+          "ageMax": 13,
+          "cost": null,
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day"
         },
         {
-          "name": "Amphibian Survey",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 10,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
+          "name": "Happi Ninja Camp",
+          "provider": "HappiMess Art Studio",
+          "activityType": "Art",
+          "ageMin": 5,
+          "ageMax": 13,
+          "cost": null,
+          "neighbourhood": "Squamish",
+          "city": "Squamish",
+          "dayLength": "Full Day"
         }
       ]
     },
@@ -49994,7 +50660,7 @@
     {
       "name": "Squamish",
       "slug": "squamish",
-      "programCount": 58,
+      "programCount": 79,
       "providers": [
         "KiddoSTEAM Academy",
         "Camp Summit",
@@ -50004,7 +50670,12 @@
         "Artists for Kids",
         "Squamish Climbing Academy",
         "Mountain Skills Academy & Adventures",
-        "PSG Academy Vancouver"
+        "PSG Academy Vancouver",
+        "HappiMess Art Studio",
+        "Airhouse",
+        "District of Squamish Recreation",
+        "Act Alive Academy",
+        "The Ninja Gym"
       ],
       "categories": [
         "STEM",
@@ -50015,7 +50686,9 @@
         "Cultural",
         "Arts",
         "Nature",
-        "Sports"
+        "Sports",
+        "Arts & Creativity",
+        "Sports & Fitness"
       ],
       "neighbourhoods": [
         "Squamish",
@@ -50228,6 +50901,116 @@
           "cost": 260,
           "dayLength": "Half Day",
           "neighbourhood": "Maple Ridge"
+        }
+      ]
+    },
+    {
+      "name": "Bowen Island",
+      "slug": "bowen-island",
+      "programCount": 19,
+      "providers": [
+        "Bowen Island Sea Kayaking",
+        "Bowen Island Community Recreation"
+      ],
+      "categories": [
+        "Sports",
+        "Multi-Activity",
+        "Arts & Creativity",
+        "Nature & Outdoors"
+      ],
+      "neighbourhoods": [
+        "Bowen Island"
+      ],
+      "costMin": 90,
+      "costMax": 546,
+      "samplePrograms": [
+        {
+          "name": "Sea Kayaking Camp",
+          "provider": "Bowen Island Sea Kayaking",
+          "category": "Sports",
+          "activityType": "Paddling & Sailing",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 546,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Sea Kayaking Camp",
+          "provider": "Bowen Island Sea Kayaking",
+          "category": "Sports",
+          "activityType": "Paddling & Sailing",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 546,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Fun!damentals of Summer (Ages 5-8)",
+          "provider": "Bowen Island Community Recreation",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Fun!damentals of Summer (Ages 8-11)",
+          "provider": "Bowen Island Community Recreation",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 325,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Waves & Wilderness (Ages 5-8)",
+          "provider": "Bowen Island Community Recreation",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Waves & Wilderness (Ages 8-11)",
+          "provider": "Bowen Island Community Recreation",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 325,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Space & Time (Ages 5-8)",
+          "provider": "Bowen Island Community Recreation",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 5,
+          "ageMax": 8,
+          "cost": 275,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
+        },
+        {
+          "name": "Space & Time (Ages 8-11)",
+          "provider": "Bowen Island Community Recreation",
+          "category": "Multi-Activity",
+          "activityType": "Multi-Activity",
+          "ageMin": 8,
+          "ageMax": 11,
+          "cost": 350,
+          "dayLength": "Full Day",
+          "neighbourhood": "Bowen Island"
         }
       ]
     },
@@ -50974,46 +51757,6 @@
           "cost": 749,
           "dayLength": "Full Day",
           "neighbourhood": "Sunshine Coast"
-        }
-      ]
-    },
-    {
-      "name": "Bowen Island",
-      "slug": "bowen-island",
-      "programCount": 2,
-      "providers": [
-        "Bowen Island Sea Kayaking"
-      ],
-      "categories": [
-        "Sports"
-      ],
-      "neighbourhoods": [
-        "Bowen Island"
-      ],
-      "costMin": 546,
-      "costMax": 546,
-      "samplePrograms": [
-        {
-          "name": "Sea Kayaking Camp",
-          "provider": "Bowen Island Sea Kayaking",
-          "category": "Sports",
-          "activityType": "Paddling & Sailing",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 546,
-          "dayLength": "Full Day",
-          "neighbourhood": "Bowen Island"
-        },
-        {
-          "name": "Sea Kayaking Camp",
-          "provider": "Bowen Island Sea Kayaking",
-          "category": "Sports",
-          "activityType": "Paddling & Sailing",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 546,
-          "dayLength": "Full Day",
-          "neighbourhood": "Bowen Island"
         }
       ]
     },
