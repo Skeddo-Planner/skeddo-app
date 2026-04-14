@@ -19,10 +19,10 @@
 name: Refresh Programs
 
 on:
-  schedule:
-    # 6 AM Pacific = 2 PM UTC (during PDT; 7 AM PST = 3 PM UTC during PST)
-    - cron: '0 14 * * *'
-  workflow_dispatch: # Manual trigger from GitHub Actions UI
+  # schedule:  # PAUSED — recurring runs disabled to reduce costs (2026-04-14)
+  #   # 6 AM Pacific = 2 PM UTC (during PDT; 7 AM PST = 3 PM UTC during PST)
+  #   - cron: '0 14 * * *'
+  workflow_dispatch: # Manual trigger from GitHub Actions UI still available
 
 permissions:
   contents: write
