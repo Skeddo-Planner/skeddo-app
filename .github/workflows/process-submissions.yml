@@ -19,12 +19,12 @@
 name: Process Submissions
 
 on:
-  schedule:
-    # 8 AM Pacific = 3 PM UTC (PDT) / 4 PM UTC (PST)
-    - cron: '0 15 * * *'
-    # 6 PM Pacific = 1 AM UTC next day (PDT) / 2 AM UTC (PST)
-    - cron: '0 1 * * *'
-  workflow_dispatch: # Manual trigger
+  # schedule:  # PAUSED — recurring runs disabled to reduce costs (2026-04-14)
+  #   # 8 AM Pacific = 3 PM UTC (PDT) / 4 PM UTC (PST)
+  #   - cron: '0 15 * * *'
+  #   # 6 PM Pacific = 1 AM UTC next day (PDT) / 2 AM UTC (PST)
+  #   - cron: '0 1 * * *'
+  workflow_dispatch: # Manual trigger still available
 
 permissions:
   contents: write
