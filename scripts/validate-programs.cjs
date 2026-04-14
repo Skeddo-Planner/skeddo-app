@@ -18,9 +18,7 @@ const path = require("path");
 
 const FIX = process.argv.includes("--fix");
 const programsPath = path.join(__dirname, "..", "src", "data", "programs.json");
-const allPrograms = JSON.parse(fs.readFileSync(programsPath, "utf8"));
-// Skip canary entries — they exist for IP protection, not real data
-const programs = allPrograms.filter((p) => !p._canary);
+const programs = JSON.parse(fs.readFileSync(programsPath, "utf8"));
 
 const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
@@ -116,7 +114,8 @@ programs.forEach((p, idx) => {
 
   // ── Rule 1b: Display URL (url field) must not be a generic homepage ──
   // The url field is what parents see in Skeddo — it must point to the program page, not the provider homepage
-  if (p.url) {
+  // Skip for "Likely Coming Soon" — these are unverified placeholders where only the homepage may be available
+  if (p.url && p.enrollmentStatus !== "Likely Coming Soon") {
     try {
       const parsed = new URL(p.url);
       const pathOnly = parsed.pathname.replace(/\/+$/, "");
@@ -640,11 +639,8 @@ if (FIX) {
   cleaned.forEach(p => { delete p._remove; });
   console.log(`Auto-fixed: ${fixed}`);
   if (removed > 0) console.log(`True duplicates removed: ${removed}`);
-  // Reattach canary entries (they were excluded from validation)
-  const canaries = allPrograms.filter((p) => p._canary);
-  const final = [...cleaned, ...canaries];
-  fs.writeFileSync(programsPath, JSON.stringify(final, null, 2));
-  console.log(`programs.json saved (${cleaned.length} programs + ${canaries.length} canaries).`);
+  fs.writeFileSync(programsPath, JSON.stringify(cleaned, null, 2));
+  console.log(`programs.json saved (${cleaned.length} programs).`);
 }
 console.log(`Data rules checked: ${allRules} + REQ`);
 console.log(`Process rules (not automatable): ${processRules}`);
