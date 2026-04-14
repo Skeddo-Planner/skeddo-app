@@ -1,9 +1,9 @@
 {
-  "totalPrograms": 15970,
-  "totalProviders": 440,
+  "totalPrograms": 15991,
+  "totalProviders": 444,
   "totalCategories": 51,
   "totalAreas": 27,
-  "lastUpdated": "2026-04-13",
+  "lastUpdated": "2026-04-14",
   "providers": [
     {
       "name": "Pedalheads",
@@ -5643,7 +5643,7 @@
           "neighbourhood": "Port Coquitlam",
           "city": "Port Coquitlam",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Baby Art Lab",
@@ -5994,7 +5994,7 @@
           "neighbourhood": "South Cambie",
           "city": "Vancouver",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Full/Waitlist"
+          "enrollmentStatus": "Closed"
         }
       ]
     },
@@ -9966,7 +9966,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -9984,7 +9984,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10002,7 +10002,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10020,7 +10020,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10038,7 +10038,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         },
         {
           "name": "Game Development Camp",
@@ -10056,7 +10056,7 @@
           "neighbourhood": "Fairview",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Cancelled"
+          "enrollmentStatus": "Full"
         }
       ]
     },
@@ -13723,7 +13723,7 @@
           "neighbourhood": "Burnaby",
           "city": "Burnaby",
           "dayLength": "Single Day",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Full/Waitlist"
         }
       ]
     },
@@ -14633,6 +14633,134 @@
       ]
     },
     {
+      "name": "UBC Farm",
+      "slug": "ubc-farm",
+      "programCount": 18,
+      "categories": [
+        "Nature & Outdoors"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "University Endowment Lands"
+      ],
+      "ageMin": 6,
+      "ageMax": 12,
+      "costMin": 425,
+      "costMax": 525,
+      "samplePrograms": [
+        {
+          "name": "UBC Farm Wonders Summer Camp — Week 1",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 9,
+          "cost": 425,
+          "costNote": "$425/week (4 days — no camp on Canada Day, July 1). Registration via UBC TouchNet portal.",
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-03",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "University Endowment Lands",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "UBC Farm Wonders Summer Camp — Week 2",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 9,
+          "cost": 525,
+          "costNote": "$525/week. Registration via UBC TouchNet portal.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "University Endowment Lands",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "UBC Farm Wonders Summer Camp — Week 3",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 9,
+          "cost": 525,
+          "costNote": "$525/week. Registration via UBC TouchNet portal.",
+          "startDate": "2026-07-13",
+          "endDate": "2026-07-17",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "University Endowment Lands",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "UBC Farm Wonders Summer Camp — Week 4",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 9,
+          "cost": 525,
+          "costNote": "$525/week. Registration via UBC TouchNet portal.",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "University Endowment Lands",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "UBC Farm Wonders Summer Camp — Week 5",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 9,
+          "cost": 525,
+          "costNote": "$525/week. Registration via UBC TouchNet portal.",
+          "startDate": "2026-07-27",
+          "endDate": "2026-07-31",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "University Endowment Lands",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        },
+        {
+          "name": "UBC Farm Wonders Summer Camp — Week 6",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 9,
+          "cost": 425,
+          "costNote": "$425/week (4 days — no camp on BC Day, August 3). Registration via UBC TouchNet portal.",
+          "startDate": "2026-08-04",
+          "endDate": "2026-08-07",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "University Endowment Lands",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
       "name": "Canlan Sports North Shore",
       "slug": "canlan-sports-north-shore",
       "programCount": 17,
@@ -14908,7 +15036,7 @@
       ],
       "ageMin": 10,
       "ageMax": 16,
-      "costMin": 40,
+      "costMin": 1,
       "costMax": 310,
       "samplePrograms": [
         {
@@ -14917,7 +15045,7 @@
           "activityType": "Volleyball",
           "ageMin": 10,
           "ageMax": 15,
-          "cost": 310,
+          "cost": 1,
           "costNote": "$310 + 5% GST per week ($325.50 total). Register by grade entering September 2026. All levels welcome (beg, int, adv) unless noted. 50% skills / 50% games format. Early arrival / late pickup 15 min before/after for supervision. Registration: smashvball.sportngin.com/register/form/105061522",
           "startDate": "2026-07-06",
           "endDate": "2026-07-10",
@@ -14935,7 +15063,7 @@
           "activityType": "Volleyball",
           "ageMin": 10,
           "ageMax": 15,
-          "cost": 310,
+          "cost": 1,
           "costNote": "$310 + 5% GST per week ($325.50 total). Register by grade entering September 2026. All levels welcome (beg, int, adv) unless noted. 50% skills / 50% games format. Early arrival / late pickup 15 min before/after for supervision. Registration: smashvball.sportngin.com/register/form/105061522",
           "startDate": "2026-07-13",
           "endDate": "2026-07-17",
@@ -14953,7 +15081,7 @@
           "activityType": "Volleyball",
           "ageMin": 10,
           "ageMax": 15,
-          "cost": 310,
+          "cost": 1,
           "costNote": "$310 + 5% GST per week ($325.50 total). Register by grade entering September 2026. All levels welcome (beg, int, adv) unless noted. 50% skills / 50% games format. Early arrival / late pickup 15 min before/after for supervision. Registration: smashvball.sportngin.com/register/form/105061522",
           "startDate": "2026-07-20",
           "endDate": "2026-07-24",
@@ -20659,7 +20787,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver",
@@ -20677,7 +20805,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver",
@@ -20695,7 +20823,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver",
@@ -20713,7 +20841,7 @@
           "neighbourhood": "North Vancouver",
           "city": "North Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Nike Basketball Camp — North Vancouver (Attack Moves Week)",
@@ -26465,7 +26593,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -26483,7 +26611,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -26501,7 +26629,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -26519,7 +26647,7 @@
           "neighbourhood": "Riley Park",
           "city": "Vancouver",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Likely Coming Soon"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Gymnastics Camp",
@@ -27524,12 +27652,12 @@
           "costNote": "50/month for 5-class pass or 80/month for unlimited. One-time registration fee of 99 + tax includes uniform, all belts, and testing fees. No minimum commitment.",
           "startDate": null,
           "endDate": null,
-          "startTime": null,
-          "endTime": null,
+          "startTime": "3:30 PM",
+          "endTime": "4:30 PM",
           "days": "Mon, Tue, Wed, Thu, Sat",
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
-          "dayLength": "",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         },
         {
@@ -27542,12 +27670,12 @@
           "costNote": "50/month for 5-class pass or 80/month for unlimited. One-time registration fee of 99 + tax includes uniform, all belts, and testing fees. Classes grouped by belt level. No minimum commitment.",
           "startDate": null,
           "endDate": null,
-          "startTime": null,
-          "endTime": null,
+          "startTime": "4:00 PM",
+          "endTime": "6:15 PM",
           "days": "Mon, Tue, Wed, Thu, Fri, Sat",
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
-          "dayLength": "",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         },
         {
@@ -27560,12 +27688,12 @@
           "costNote": "50/month for 5-class pass or 80/month for unlimited. 25/month unlimited for both karate and jiu jitsu. One-time registration fee of 99 + tax includes rashguard, shorts, all belts, and testing fees. No minimum commitment.",
           "startDate": null,
           "endDate": null,
-          "startTime": null,
-          "endTime": null,
+          "startTime": "6:15 PM",
+          "endTime": "7:00 PM",
           "days": "Mon, Wed, Sat",
           "neighbourhood": "Kensington-Cedar Cottage",
           "city": "Vancouver",
-          "dayLength": "",
+          "dayLength": "Single Day",
           "enrollmentStatus": "Open"
         },
         {
@@ -31556,7 +31684,7 @@
           "neighbourhood": "Burnaby",
           "city": "Burnaby",
           "dayLength": "Lesson",
-          "enrollmentStatus": "Open"
+          "enrollmentStatus": "Full/Waitlist"
         },
         {
           "name": "Inline Skate Lessons",
@@ -38295,7 +38423,7 @@
           "neighbourhood": "Burnaby",
           "city": "Burnaby",
           "dayLength": "Full Day",
-          "enrollmentStatus": "Full/Waitlist"
+          "enrollmentStatus": "Open"
         }
       ]
     },
@@ -42051,6 +42179,120 @@
           "enrollmentStatus": "Open"
         }
       ]
+    },
+    {
+      "name": "Sunrise Adventures",
+      "slug": "sunrise-adventures",
+      "programCount": 1,
+      "categories": [
+        "Nature & Outdoors"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "neighbourhoods": [
+        "Kitsilano"
+      ],
+      "ageMin": 6,
+      "ageMax": 10,
+      "costMin": 385,
+      "costMax": 385,
+      "samplePrograms": [
+        {
+          "name": "Sunrise Adventures Outdoor Explorer Camp",
+          "category": "Nature & Outdoors",
+          "activityType": "Nature",
+          "ageMin": 6,
+          "ageMax": 10,
+          "cost": 385,
+          "costNote": "$385 per week. 15% sibling discount available.",
+          "startDate": "2026-07-20",
+          "endDate": "2026-07-24",
+          "startTime": "9:00 AM",
+          "endTime": "3:30 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Kitsilano",
+          "city": "Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "Cedargrove Arts Studio",
+      "slug": "cedargrove-arts-studio",
+      "programCount": 1,
+      "categories": [
+        "Arts & Crafts"
+      ],
+      "cities": [
+        "Coquitlam"
+      ],
+      "neighbourhoods": [
+        "Austin Heights"
+      ],
+      "ageMin": 7,
+      "ageMax": 12,
+      "costMin": 345,
+      "costMax": 345,
+      "samplePrograms": [
+        {
+          "name": "Cedargrove Arts Studio — Mixed Media Week",
+          "category": "Arts & Crafts",
+          "activityType": "Visual Arts",
+          "ageMin": 7,
+          "ageMax": 12,
+          "cost": 345,
+          "costNote": "$345 per week including materials. Early bird $310 before May 15.",
+          "startDate": "2026-08-04",
+          "endDate": "2026-08-08",
+          "startTime": "9:30 AM",
+          "endTime": "3:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Austin Heights",
+          "city": "Coquitlam",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
+    },
+    {
+      "name": "Harbourside Sailing Academy",
+      "slug": "harbourside-sailing-academy",
+      "programCount": 1,
+      "categories": [
+        "Sports & Fitness"
+      ],
+      "cities": [
+        "North Vancouver"
+      ],
+      "neighbourhoods": [
+        "Lower Lonsdale"
+      ],
+      "ageMin": 9,
+      "ageMax": 13,
+      "costMin": 495,
+      "costMax": 495,
+      "samplePrograms": [
+        {
+          "name": "Harbourside Youth Sailing — Beginner Session",
+          "category": "Sports & Fitness",
+          "activityType": "Sailing",
+          "ageMin": 9,
+          "ageMax": 13,
+          "cost": 495,
+          "costNote": "$495 per week. PFDs provided. Intermediate and Advanced sessions also available.",
+          "startDate": "2026-07-06",
+          "endDate": "2026-07-10",
+          "startTime": "9:00 AM",
+          "endTime": "4:00 PM",
+          "days": "Mon-Fri",
+          "neighbourhood": "Lower Lonsdale",
+          "city": "North Vancouver",
+          "dayLength": "Full Day",
+          "enrollmentStatus": "Open"
+        }
+      ]
     }
   ],
   "categories": [
@@ -44916,7 +45158,7 @@
     {
       "name": "Arts & Crafts",
       "slug": "arts-crafts",
-      "programCount": 43,
+      "programCount": 44,
       "providers": [
         "Monarch Arts Education",
         "City of Vancouver - Kerrisdale Cmty Centre",
@@ -44925,11 +45167,13 @@
         "City of Vancouver - West End Cmty Centre",
         "City of Vancouver - False Creek Cmty Centre",
         "VISST",
-        "Artists for Kids"
+        "Artists for Kids",
+        "Cedargrove Arts Studio"
       ],
       "cities": [
         "North Vancouver",
-        "Vancouver"
+        "Vancouver",
+        "Coquitlam"
       ],
       "ageMin": 2,
       "ageMax": 19,
@@ -45756,6 +46000,117 @@
       ]
     },
     {
+      "name": "Nature & Outdoors",
+      "slug": "nature-outdoors",
+      "programCount": 30,
+      "providers": [
+        "City of Vancouver - Champlain Heights Cmty Centre",
+        "UBC Farm",
+        "Sunrise Adventures"
+      ],
+      "cities": [
+        "Vancouver"
+      ],
+      "ageMin": 4,
+      "ageMax": 17,
+      "costMin": 20,
+      "costMax": 525,
+      "activityTypes": [
+        "Nature Program",
+        "Nature"
+      ],
+      "samplePrograms": [
+        {
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Adventures at Avalon Pond",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 7,
+          "ageMax": 10,
+          "cost": 20,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian and Nature Walk",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 4,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        },
+        {
+          "name": "Amphibian Survey",
+          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
+          "activityType": "Nature Program",
+          "ageMin": 10,
+          "ageMax": 17,
+          "cost": 0,
+          "neighbourhood": "Champlain Heights",
+          "city": "Vancouver",
+          "dayLength": "Single Day"
+        }
+      ]
+    },
+    {
       "name": "Animals & Nature",
       "slug": "animals-nature",
       "programCount": 27,
@@ -46317,6 +46672,123 @@
       ]
     },
     {
+      "name": "Sports & Fitness",
+      "slug": "sports-fitness",
+      "programCount": 14,
+      "providers": [
+        "2-4-1 Sports",
+        "Dragon Zone Paddling Club",
+        "Gym Sense Gymnastics",
+        "Harbourside Sailing Academy"
+      ],
+      "cities": [
+        "New Westminster",
+        "Vancouver",
+        "Burnaby",
+        "North Vancouver"
+      ],
+      "ageMin": 5,
+      "ageMax": 14,
+      "costMin": 325,
+      "costMax": 495,
+      "activityTypes": [
+        "Multi-Sport",
+        "Paddling",
+        "Gymnastics",
+        "Sailing"
+      ],
+      "samplePrograms": [
+        {
+          "name": "2-4-1 Play Multi-Sport Camp — Session 1",
+          "provider": "2-4-1 Sports",
+          "activityType": "Multi-Sport",
+          "ageMin": 6,
+          "ageMax": 14,
+          "cost": 400,
+          "neighbourhood": "Queens Park",
+          "city": "New Westminster",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "2-4-1 Play Multi-Sport Camp — Session 2",
+          "provider": "2-4-1 Sports",
+          "activityType": "Multi-Sport",
+          "ageMin": 6,
+          "ageMax": 14,
+          "cost": 400,
+          "neighbourhood": "Queens Park",
+          "city": "New Westminster",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 1",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 325,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 2",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 3",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 4",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 5",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 400,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        },
+        {
+          "name": "Dragon Zone Summer Paddling Camp — Week 6",
+          "provider": "Dragon Zone Paddling Club",
+          "activityType": "Paddling",
+          "ageMin": 8,
+          "ageMax": 12,
+          "cost": 325,
+          "neighbourhood": "False Creek",
+          "city": "Vancouver",
+          "dayLength": "Full Day"
+        }
+      ]
+    },
+    {
       "name": "General/Other",
       "slug": "general-other",
       "programCount": 14,
@@ -46646,120 +47118,6 @@
       ]
     },
     {
-      "name": "Sports & Fitness",
-      "slug": "sports-fitness",
-      "programCount": 13,
-      "providers": [
-        "2-4-1 Sports",
-        "Dragon Zone Paddling Club",
-        "Gym Sense Gymnastics"
-      ],
-      "cities": [
-        "New Westminster",
-        "Vancouver",
-        "Burnaby"
-      ],
-      "ageMin": 5,
-      "ageMax": 14,
-      "costMin": 325,
-      "costMax": 400,
-      "activityTypes": [
-        "Multi-Sport",
-        "Paddling",
-        "Gymnastics"
-      ],
-      "samplePrograms": [
-        {
-          "name": "2-4-1 Play Multi-Sport Camp — Session 1",
-          "provider": "2-4-1 Sports",
-          "activityType": "Multi-Sport",
-          "ageMin": 6,
-          "ageMax": 14,
-          "cost": 400,
-          "neighbourhood": "Queens Park",
-          "city": "New Westminster",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "2-4-1 Play Multi-Sport Camp — Session 2",
-          "provider": "2-4-1 Sports",
-          "activityType": "Multi-Sport",
-          "ageMin": 6,
-          "ageMax": 14,
-          "cost": 400,
-          "neighbourhood": "Queens Park",
-          "city": "New Westminster",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 1",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 325,
-          "neighbourhood": "False Creek",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 2",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 3",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 4",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 5",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 400,
-          "neighbourhood": "False Creek",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        },
-        {
-          "name": "Dragon Zone Summer Paddling Camp — Week 6",
-          "provider": "Dragon Zone Paddling Club",
-          "activityType": "Paddling",
-          "ageMin": 8,
-          "ageMax": 12,
-          "cost": 325,
-          "neighbourhood": "False Creek",
-          "city": "Vancouver",
-          "dayLength": "Full Day"
-        }
-      ]
-    },
-    {
       "name": "Cultural",
       "slug": "cultural",
       "programCount": 11,
@@ -46886,114 +47244,6 @@
           "neighbourhood": "Squamish",
           "city": "Squamish",
           "dayLength": "Half Day"
-        }
-      ]
-    },
-    {
-      "name": "Nature & Outdoors",
-      "slug": "nature-outdoors",
-      "programCount": 11,
-      "providers": [
-        "City of Vancouver - Champlain Heights Cmty Centre"
-      ],
-      "cities": [
-        "Vancouver"
-      ],
-      "ageMin": 4,
-      "ageMax": 17,
-      "costMin": 20,
-      "costMax": 20,
-      "activityTypes": [
-        "Nature Program"
-      ],
-      "samplePrograms": [
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Adventures at Avalon Pond",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 7,
-          "ageMax": 10,
-          "cost": 20,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian and Nature Walk",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 4,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
-        },
-        {
-          "name": "Amphibian Survey",
-          "provider": "City of Vancouver - Champlain Heights Cmty Centre",
-          "activityType": "Nature Program",
-          "ageMin": 10,
-          "ageMax": 17,
-          "cost": 0,
-          "neighbourhood": "Champlain Heights",
-          "city": "Vancouver",
-          "dayLength": "Single Day"
         }
       ]
     },
@@ -47876,7 +48126,7 @@
     {
       "name": "Vancouver",
       "slug": "vancouver",
-      "programCount": 7490,
+      "programCount": 7509,
       "providers": [
         "Vancouver Art Gallery",
         "Boogaloo Academy",
@@ -48112,7 +48362,9 @@
         "FC Bayern Munich",
         "PSG Academy Vancouver",
         "Ethos Lab",
-        "Vancouver Athletic Football Club (VAFC)"
+        "Vancouver Athletic Football Club (VAFC)",
+        "UBC Farm",
+        "Sunrise Adventures"
       ],
       "categories": [
         "Arts",
@@ -48215,7 +48467,7 @@
         "Cambie Village",
         "Riley Park-Little Mountain"
       ],
-      "costMin": 1.5,
+      "costMin": 1,
       "costMax": 2713.2,
       "samplePrograms": [
         {
@@ -48654,7 +48906,7 @@
     {
       "name": "North Vancouver",
       "slug": "north-vancouver",
-      "programCount": 1360,
+      "programCount": 1361,
       "providers": [
         "Deep Cove Music",
         "Ava Music & Art Centre",
@@ -48716,7 +48968,8 @@
         "Ocean Ambassadors Canada",
         "Whitecaps FC",
         "PSG Academy Vancouver",
-        "Camp Jubilee"
+        "Camp Jubilee",
+        "Harbourside Sailing Academy"
       ],
       "categories": [
         "Music",
@@ -48738,7 +48991,8 @@
         "Arts & Culture",
         "Nature",
         "Sports & Recreation",
-        "Leadership"
+        "Leadership",
+        "Sports & Fitness"
       ],
       "neighbourhoods": [
         "Deep Cove",
@@ -49020,7 +49274,7 @@
     {
       "name": "Coquitlam",
       "slug": "coquitlam",
-      "programCount": 446,
+      "programCount": 447,
       "providers": [
         "Rainforest Adventure Camps",
         "Parkland Players",
@@ -49033,7 +49287,8 @@
         "Douglas College",
         "YMCA of Greater Vancouver",
         "Pedalheads",
-        "Pear Tree Education"
+        "Pear Tree Education",
+        "Cedargrove Arts Studio"
       ],
       "categories": [
         "General",
@@ -49042,7 +49297,8 @@
         "Sports",
         "STEM",
         "Academic",
-        "Leadership"
+        "Leadership",
+        "Arts & Crafts"
       ],
       "neighbourhoods": [
         "Central Coquitlam",
@@ -49052,7 +49308,8 @@
         "Burke Mountain",
         "Westwood Plateau",
         "Pinetree",
-        "Como Lake"
+        "Como Lake",
+        "Austin Heights"
       ],
       "costMin": 128,
       "costMax": 565,
